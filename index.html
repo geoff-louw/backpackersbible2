@@ -714,22 +714,26 @@
 <section>
 
 
+<!-- Leaflet CSS -->
 <link
   rel="stylesheet"
   href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
 />
 
+<!-- Map container -->
 <div id="map" style="width:100%; height:570px;"></div>
 
+<!-- Leaflet JS (REQUIRED) -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
+<!-- KML converter -->
 <script src="https://unpkg.com/togeojson@0.16.0/dist/togeojson.min.js"></script>
 
-
 <script>
-  // Create map centered on South Africa
+  // Create map
   const map = L.map('map').setView([-30, 24], 5);
 
-  // SATELLITE TILE LAYER (this is the key part)
+  // Satellite tiles
   L.tileLayer(
     'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
     {
@@ -737,44 +741,19 @@
     }
   ).addTo(map);
 
-  // === SAMPLE HOSTEL MARKERS ===
-  const hostels = [
-    {
-      name: "Cape Town Backpackers",
-      lat: -33.9249,
-      lng: 18.4241,
-      description: "Central Cape Town hostel"
-    },
-    {
-      name: "Garden Route Hostel",
-      lat: -34.0527,
-      lng: 23.3716,
-      description: "Coastal backpacker stay"
-    }
-  ];
-
-  hostels.forEach(h => {
-    L.marker([h.lat, h.lng])
-      .addTo(map)
-      .bindPopup(`
-        <b>${h.name}</b><br>
-        ${h.description}
-      `);
-  });
-</script>
-
-
-<script>
-window.addEventListener("load", function () {
-
+  // Load KML
   fetch("https://geoff-louw.github.io/backpackersbible2/backpacking-south-africa.xml")
     .then(res => res.text())
     .then(kmlText => {
+
+      console.log("KML loaded");
 
       const parser = new DOMParser();
       const kml = parser.parseFromString(kmlText, "text/xml");
 
       const geojson = toGeoJSON.kml(kml);
+
+      console.log("GeoJSON features:", geojson.features.length);
 
       L.geoJSON(geojson, {
         onEachFeature: function (feature, layer) {
@@ -790,10 +769,7 @@ window.addEventListener("load", function () {
     .catch(err => {
       console.log("KML load error:", err);
     });
-
-});
 </script>
-
 
 
 
