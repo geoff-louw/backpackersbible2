@@ -2616,24 +2616,24 @@ window.onscroll = function() {
         return hasStarted && isStillVisible && rect.top !== 0;
     }
 
-    // ORDER MATTERS: We check them as you encounter them scrolling down.
-    // 1. First, check Tip 2 (The first one on the page)
+    // ORDER
+    // 1. Tip 2
     if (isOn('tip2')) {
-        updateMa(isMobile ? "left" : "right", "../assets/_mama_afrika_7.png", 
+        updateMa(isMobile ? "left" : "right", "../assets/_god_1.png", 
                  "Don't just wing it! I've mapped out the best routes from the Cape to the Kruger. Check out the Itineraries section to find a plan that fits your timeframe.", 
                  "../backpacking-south-africa-tours/index.htm");
     }
 
-    // 2. Then check Tip 1 (The middle one)
+    // 2. Tip 1
     else if (isOn('tip1')) {
-        updateMa("left", "../assets/_mama_afrika_7.png", 
+        updateMa("left", "../assets/_god_2.png", 
                  "Knowledge is power, my friend! Before you hit the road, have a look at my Safety tips in the Advice section. I want to make sure your trip is memorable for all the right reasons.", 
                  "../backpacking-south-africa-advice/index.htm"); 
     } 
-    // 3. Finally, check Tip 3 (The one further down)
+    // 3. Tip 3
     else if (isOn('tip3')) {
-        // Flipped to "right" to fix the character-side issue you noticed
-        updateMa(isMobile ? "right" : "left", "../assets/_mama_afrika_7.png", 
+        // Flipped to "right"
+        updateMa(isMobile ? "right" : "left", "../assets/_god_1.png", 
                  "Every time you book through the Bible, you're helping me keep these guides updated and accurate for the next traveller. It costs you nothing extra, but it means the world to us!", 
                  "../misc/affiliate-links-disclosure.htm");
     }

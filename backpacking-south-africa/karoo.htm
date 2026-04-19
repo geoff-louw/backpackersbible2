@@ -2192,25 +2192,25 @@ window.onscroll = function() {
         return hasStarted && isStillVisible && rect.top !== 0;
     }
 
-    // ORDER MATTERS: We check them as you encounter them scrolling down.
-    // 1. First, check Tip 2 (The first one on the page)
+    // ORDER
+    // 1. Tip 2
     if (isOn('tip2')) {
-        updateMa(isMobile ? "left" : "right", "../assets/_mama_afrika_24.png", 
+        updateMa(isMobile ? "left" : "right", "../assets/_god_1.png", 
                  "Listen to Mama - you cannot visit the Karoo without exploring the Cango Caves! It is a true underground wonder. Check my map at the top to find the best basecamp in Oudtshoorn so you can see the stalactites before the sun sets over the plains!", 
                  "#activities");
     }
 
-    // 2. Then check Tip 1 (The middle one)
+    // 2. Tip 1
     else if (isOn('tip1')) {
-        updateMa("left", "../assets/_mama_afrika_23.png", 
-                 "Welcome to the land of endless horizons. It’s a big desert, but we've found every bed! We are the ONLY guide with every single hostel in SA. Use the map or the hostel write-ups below to find your Karoo sanctuary and book your stay", 
+        updateMa("left", "../assets/_god_2.png", 
+                 "Welcome to the land of endless horizons. It’s a big desert, but I've found every bed! This is the ONLY guide with every single hostel in SA. Use the map or the hostel write-ups below to find your Karoo sanctuary and book your stay", 
                  "#hostels"); 
     } 
-    // 3. Finally, check Tip 3 (The one further down)
+    // 3. Tip 3
     else if (isOn('tip3')) {
-        // Flipped to "right" to fix the character-side issue you noticed
-        updateMa(isMobile ? "right" : "left", "../assets/_mama_afrika_24.png", 
-                 "The Karoo is beautiful but tough, explorer! Check our Advice section to beat the heat. If you find a spot you love, please book through our links—it helps Mama keep this guide independent and free for everyone!", 
+        // Flipped to "right"
+        updateMa(isMobile ? "right" : "left", "../assets/_god_1.png", 
+                 "The Karoo is beautiful but tough, explorer! Check my Advice section to beat the heat. If you find a spot you love, please book through my links—it helps keep this guide independent and free for everyone!", 
                  "../backpacking-south-africa-advice/index.htm");
     }
 

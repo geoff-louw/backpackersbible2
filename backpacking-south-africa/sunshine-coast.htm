@@ -4149,24 +4149,24 @@ window.onscroll = function() {
         return hasStarted && isStillVisible && rect.top !== 0;
     }
 
-    // ORDER MATTERS: We check them as you encounter them scrolling down.
-    // 1. First, check Tip 2 (The first one on the page)
+    // ORDER
+    // 1. Tip 2
     if (isOn('tip2')) {
-        updateMa(isMobile ? "left" : "right", "../assets/_mama_afrika_10.png", 
+        updateMa(isMobile ? "left" : "right", "../assets/_god_1.png", 
                  "From the world-class waves in Jeffreys Bay to the hidden coves of Kenton-on-Sea—this coastline is made for exploring! Click here to jump straight to Activities and let’s find the best spot for you to soak up the sun.", 
                  "#activities");
     }
 
-    // 2. Then check Tip 1 (The middle one)
+    // 2. Tip 1
     else if (isOn('tip1')) {
-        updateMa("left", "../assets/_mama_afrika_11.png", 
+        updateMa("left", "../assets/_god_2.png", 
                  "Planning to catch the legendary right-hand break at J-Bay? It’s a surfer’s dream, my friend, but the currents can be strong! Have a quick look at my Advice section for surf safety and coastal travel tips before you head out on your mission.", 
                  "../backpacking-south-africa-advice/index.htm"); 
     } 
-    // 3. Finally, check Tip 3 (The one further down)
+    // 3. Tip 3
     else if (isOn('tip3')) {
-        // Flipped to "right" to fix the character-side issue you noticed
-        updateMa(isMobile ? "right" : "left", "../assets/_mama_afrika_6.png", 
+        // Flipped to "right"
+        updateMa(isMobile ? "right" : "left", "../assets/_god_1.png", 
                  "Found a legendary surf camp or a beachside hostel for your stay? If you book your bed through the links on this page, it helps me keep the Backpacker's Bible updated and free for every traveller. Siyabonga for supporting the mission—it keeps us paddling!", 
                  "../misc/affiliate-links-disclosure.htm");
     }

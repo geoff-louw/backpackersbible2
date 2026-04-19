@@ -1726,24 +1726,24 @@ window.onscroll = function() {
         return hasStarted && isStillVisible && rect.top !== 0;
     }
 
-    // ORDER MATTERS: We check them as you encounter them scrolling down.
-    // 1. First, check Tip 2 (The first one on the page)
+    // ORDER
+    // 1. Tip 2
     if (isOn('tip2')) {
-        updateMa(isMobile ? "left" : "right", "../assets/_mama_afrika_10.png", 
+        updateMa(isMobile ? "left" : "right", "../assets/_god_1.png", 
                  "The Winelands are world-class, but don't let the luxury fool you—you still need to keep your wits about you! Before you set off on a wine-tasting mission, check my Advice section for tips on transport and staying safe while enjoying the vines.", 
                  "../backpacking-south-africa-advice/index.htm");
     }
 
-    // 2. Then check Tip 1 (The middle one)
+    // 2. Tip 1
     else if (isOn('tip1')) {
-        updateMa("left", "../assets/_mama_afrika_11.png", 
+        updateMa("left", "../assets/_god_2.png", 
                  "Found a beautiful vineyard hostel or a cozy town-center spot for your stay? If you book your bed through the links on this page, it helps me keep the Backpacker's Bible updated and free for everyone. Siyabonga—your support is the perfect pairing for our mission!", 
                  "#hostels"); 
     } 
-    // 3. Finally, check Tip 3 (The one further down)
+    // 3. Tip 3
     else if (isOn('tip3')) {
-        // Flipped to "right" to fix the character-side issue you noticed
-        updateMa(isMobile ? "right" : "left", "../assets/_mama_afrika_5.png", 
+        // Flipped to "right"
+        updateMa(isMobile ? "right" : "left", "../assets/_god_1.png", 
                  "It’s not all about the grapes, my friend! We have some of the most epic mountain trails in the country right here. Click here to jump to Activities and let’s plan your hike through the peaks and valleys", 
                  "#activities");
     }

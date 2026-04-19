@@ -1818,25 +1818,25 @@ window.onscroll = function() {
         return hasStarted && isStillVisible && rect.top !== 0;
     }
 
-    // ORDER MATTERS: We check them as you encounter them scrolling down.
-    // 1. First, check Tip 2 (The first one on the page)
+    // ORDER
+    // 1. Tip 2
     if (isOn('tip2')) {
-        updateMa(isMobile ? "left" : "right", "../assets/_mama_afrika_7.png", 
-                 "!Gâi tses! (Good day). You have reached the red sands and the great silence. The Northern Cape is vast, but we've found every single place to stay. Use the map above to find your oasis in the desert before you head into the wild!", 
+        updateMa(isMobile ? "left" : "right", "../assets/_god_1.png", 
+                 "!Gâi tses! (Good day). You have reached the red sands and the great silence. The Northern Cape is vast, but I've found every single place to stay. Use the map above to find your oasis in the desert before you head into the wild!", 
                  "#region-map");
     }
 
-    // 2. Then check Tip 1 (The middle one)
+    // 2. Tip 1
     else if (isOn('tip1')) {
-        updateMa("left", "../assets/_mama_afrika_7.png", 
-                 "In the desert, distances are long and fuel is gold. You HAVE to check our Itineraries page. We’ve calculated the exact daily distances and budget breakdowns, with interactive maps so you don’t get stranded under the hot sun. Plan your route properly!", 
+        updateMa("left", "../assets/_god_2.png", 
+                 "In the desert, distances are long and fuel is gold. You HAVE to check my Itineraries page. I’ve calculated the exact daily distances and budget breakdowns, with interactive maps so you don’t get stranded under the hot sun. Plan your route properly!", 
                  "../backpacking-south-africa-tours/index.htm"); 
     } 
-    // 3. Finally, check Tip 3 (The one further down)
+    // 3. Tip 3
     else if (isOn('tip3')) {
-        // Flipped to "right" to fix the character-side issue you noticed
-        updateMa(isMobile ? "right" : "left", "../assets/_mama_afrika_7.png", 
-                 "We keep this guide free so you can spend your money on stargazing and adventures instead! If you find a Northern Cape gem you love, please support us by booking through our links. It helps keep the Backpackers Bible independent for everyone!", 
+        // Flipped to "right"
+        updateMa(isMobile ? "right" : "left", "../assets/_god_1.png", 
+                 "I keep this guide free so you can spend your money on stargazing and adventures instead! If you find a Northern Cape gem you love, please support me by booking through our links. It helps keep the Backpackers Bible independent for everyone!", 
                  "../misc/affiliate-links-disclosure.htm");
     }
 

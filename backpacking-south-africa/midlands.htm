@@ -1789,25 +1789,25 @@ window.onscroll = function() {
         return hasStarted && isStillVisible && rect.top !== 0;
     }
 
-    // ORDER MATTERS: We check them as you encounter them scrolling down.
-    // 1. First, check Tip 2 (The first one on the page)
+    // ORDER
+    // 1. Tip 2
     if (isOn('tip2')) {
-        updateMa(isMobile ? "left" : "right", "../assets/_mama_afrika_14.png", 
-                 "Sawubona! These rolling hills are beautiful, but don’t wander aimlessly! Visit our Itineraries page - we've laid out the exact budget breakdowns and daily distances for you, plus interactive maps showing the best routes through South Africa. Plan your mission properly!", 
+        updateMa(isMobile ? "left" : "right", "../assets/_god_1.png", 
+                 "Sawubona! These rolling hills are beautiful, but don’t wander aimlessly! Visit my Itineraries page - I've laid out the exact budget breakdowns and daily distances for you, plus interactive maps showing the best routes through South Africa. Plan your mission properly!", 
                  "#../backpacking-south-africa-tours/index.htm");
     }
 
-    // 2. Then check Tip 1 (The middle one)
+    // 2. Tip 1
     else if (isOn('tip1')) {
-        updateMa("left", "../assets/_mama_afrika_6.png", 
-                 "Howzit! From the thunder of Howick Falls to the history of the Mandela Capture Site, the Midlands is a soul-cleansing stop. We are the ONLY guide with every single hostel in this region. Find your basecamp in the mist and book your bed directly!", 
+        updateMa("left", "../assets/_god_1.png", 
+                 "Howzit! From the thunder of Howick Falls to the history of the Mandela Capture Site, the Midlands is a soul-cleansing stop. This is the ONLY guide with every single hostel in this region. Find your basecamp in the mist and book your bed directly!", 
                  "#hostels"); 
     } 
-    // 3. Finally, check Tip 3 (The one further down)
+    // 3. Tip 3
     else if (isOn('tip3')) {
-        // Flipped to "right" to fix the character-side issue you noticed
-        updateMa(isMobile ? "right" : "left", "../assets/_mama_afrika_5.png", 
-                 "Aweh! We work hard to map out these quiet corners of SA so you don't miss a thing. If you find a Midlands gem you love, please support the mission by booking through our links. It helps me keep the Backpackers Bible free and independent for every traveler!", 
+        // Flipped to "right"
+        updateMa(isMobile ? "right" : "left", "../assets/_god_2.png", 
+                 "Aweh! I work hard to map out these quiet corners of SA so you don't miss a thing. If you find a Midlands gem you love, please support the mission by booking through my links. It helps me keep the Backpackers Bible free and independent for every traveler!", 
                  "../misc/affiliate-links-disclosure.htm");
     }
 

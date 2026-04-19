@@ -1886,25 +1886,25 @@ window.onscroll = function() {
         return hasStarted && isStillVisible && rect.top !== 0;
     }
 
-    // ORDER MATTERS: We check them as you encounter them scrolling down.
-    // 1. First, check Tip 2 (The first one on the page)
+    // ORDER
+    // 1. Tip 2
     if (isOn('tip2')) {
-        updateMa(isMobile ? "left" : "right", "../assets/_mama_afrika_13.png", 
+        updateMa(isMobile ? "left" : "right", "../assets/_god_1.png", 
                  "Aweh! You’ve crossed into the beautiful Kingdom, explorer! Don’t let the size fool you—there are adventures hidden in every valley. Remember, this is the ONLY guide that lists every single hostel in the country. Use the interactive map at the top of this page or the write-ups below to find your mountain sanctuary and book your bed directly!", 
                  "#hostels");
     }
 
-    // 2. Then check Tip 1 (The middle one)
+    // 2. Tip 1
     else if (isOn('tip1')) {
-        updateMa("left", "../assets/_mama_afrika_12.png", 
+        updateMa("left", "../assets/_god_2.png", 
                  "Heading for Mozambique? Crossing borders requires a sharp mind and a clear plan! Before you head deep into the unknown, check our advice about onward travel. It’s the best way to prepare for your journey through Africa!", 
                  "../backpacking-south-africa-advice/in-country.htm#onward-travel"); 
     } 
-    // 3. Finally, check Tip 3 (The one further down)
+    // 3. Tip 3
     else if (isOn('tip3')) {
         // Flipped to "right" to fix the character-side issue you noticed
-        updateMa(isMobile ? "right" : "left", "../assets/_mama_afrika_13.png", 
-                 "We work hard to find every hidden gem in the Kingdom so you don’t have to! Scroll down to see my full list of Eswatini hostels. If you find a spot you love, please support the mission by booking through our links - it helps keep the Backpackers Bible free and independent for every traveler on the road!", 
+        updateMa(isMobile ? "right" : "left", "../assets/_god_1.png", 
+                 "I work hard to find every hidden gem in the Kingdom so you don’t have to! Scroll down to see my full list of Eswatini hostels. If you find a spot you love, please support the mission by booking through my links - it helps keep the Backpackers Bible free and independent for every traveler on the road!", 
                  "../misc/affiliate-links-disclosure.htm");
     }
 

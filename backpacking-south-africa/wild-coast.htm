@@ -3469,24 +3469,24 @@ window.onscroll = function() {
         return hasStarted && isStillVisible && rect.top !== 0;
     }
 
-    // ORDER MATTERS: We check them as you encounter them scrolling down.
-    // 1. First, check Tip 2 (The first one on the page)
+    // ORDER
+    // 1. Tip 2
     if (isOn('tip2')) {
-        updateMa(isMobile ? "left" : "right", "../assets/_mama_africa.png", 
+        updateMa(isMobile ? "left" : "right", "../assets/_god_1.png", 
                  "Found a dreamy spot to stay in a traditional rondavel? If you book your Wild Coast hostel through the links on this page, it helps me keep this guide updated and free for the next traveller. Enkosi for the support—it means a lot!", 
                  "#hostels");
     }
 
-    // 2. Then check Tip 1 (The middle one)
+    // 2. Tip 1
     else if (isOn('tip1')) {
-        updateMa("left", "../assets/_mama_afrika_2.png", 
+        updateMa("left", "../assets/_god_2.png", 
                  "The Wild Coast is as raw as it gets, my friend! It’s a true adventure, but you’ll want to be prepared for the gravel roads and the hiking trails. Hop over to my Advice section for some Transkei survival basics before you start your mission.", 
                  "../backpacking-south-africa-advice/index.htm"); 
     } 
-    // 3. Finally, check Tip 3 (The one further down)
+    // 3. Tip 3
     else if (isOn('tip3')) {
-        // Flipped to "right" to fix the character-side issue you noticed
-        updateMa(isMobile ? "right" : "left", "../assets/_mama_afrika_4.png", 
+        // Flipped to "right"
+        updateMa(isMobile ? "right" : "left", "../assets/_god_1.png", 
                  "From the magic of the Hole in the Wall to the rugged cliffs of Port St Johns—this coastline is legendary! If you're looking for the best hikes or surf spots, click here to jump to Activities and let’s get exploring.", 
                  "#activities");
     }

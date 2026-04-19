@@ -3341,25 +3341,25 @@ window.onscroll = function() {
         return hasStarted && isStillVisible && rect.top !== 0;
     }
 
-    // ORDER MATTERS: We check them as you encounter them scrolling down.
-    // 1. First, check Tip 2 (The first one on the page)
+    // ORDER
+    // 1. Tip 2
     if (isOn('tip2')) {
-        updateMa(isMobile ? "left" : "right", "../assets/_mama_afrika_17.png", 
-                 "Heita! Welcome to the City of Gold. Don't let the hustle confuse you - we've found every bed in town. We are the ONLY guide with every single hostel in SA. Use my map above or the hostel write-ups below to find your basecamp and book directly!", 
+        updateMa(isMobile ? "left" : "right", "../assets/_god_1.png", 
+                 "Heita! Welcome to the City of Gold. Don't let the hustle confuse you - I've found every bed in town. This is the ONLY guide with every single hostel in SA. Use my map above or the hostel write-ups below to find your basecamp and book directly!", 
                  "#hostels");
     }
 
-    // 2. Then check Tip 1 (The middle one)
+    // 2. Tip 1
     else if (isOn('tip1')) {
-        updateMa("left", "../assets/_mama_afrika_14.png", 
-                 "Joburg is legendary, but you must be street-smart! Before you explore these streets made of gold, you HAVE to read our safety Advice!", 
+        updateMa("left", "../assets/_god_1.png", 
+                 "Joburg is legendary, but you must be street-smart! Before you explore these streets made of gold, you HAVE to read my safety Advice!", 
                  "../backpacking-south-africa-advice/index.htm"); 
     } 
-    // 3. Finally, check Tip 3 (The one further down)
+    // 3. Tip 3
     else if (isOn('tip3')) {
-        // Flipped to "right" to fix the character-side issue you noticed
-        updateMa(isMobile ? "right" : "left", "../assets/_mama_afrika_5.png", 
-                 "We work hard to keep this guide independent and free for every traveler. If you find a spot you love in the city, please support the mission by booking through our links. It helps keep the Backpackers Bible running for everyone!", 
+        // Flipped to "right"
+        updateMa(isMobile ? "right" : "left", "../assets/_god_1.png", 
+                 "I work hard to keep this guide independent and free for every traveler. If you find a spot you love in the city, please support the mission by booking through our links. It helps keep the Backpackers Bible running for everyone!", 
                  "../misc/affiliate-links-disclosure.htm");
     }
 

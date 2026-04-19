@@ -1550,24 +1550,24 @@ window.onscroll = function() {
         return hasStarted && isStillVisible && rect.top !== 0;
     }
 
-    // ORDER MATTERS: We check them as you encounter them scrolling down.
-    // 1. First, check Tip 2 (The first one on the page)
+    // ORDER
+    // 1. Tip 2
     if (isOn('tip2')) {
-        updateMa(isMobile ? "left" : "right", "../assets/_mama_afrika_2a.png", 
+        updateMa(isMobile ? "left" : "right", "../assets/_god_1.png", 
                  "Found the perfect hostel for your stay? If you book your bed using the links on this page, it helps me keep this guide updated and free for the next backpacker. It doesn’t cost you anything extra, but it really helps the project. Siyabonga!", 
                  "#hostels");
     }
 
-    // 2. Then check Tip 1 (The middle one)
+    // 2. Tip 1
     else if (isOn('tip1')) {
-        updateMa("left", "../assets/_mama_africa.png", 
+        updateMa("left", "../assets/_god_2.png", 
                  "Planning a safari mission in Pilanesberg or Madikwe? It’s spectacular, but you need to be prepared! Check out my Advice section for safari safety tips and my Itineraries to see how to fit the North West into your wider South African journey.", 
                  "../backpacking-south-africa-tours/index.htm"); 
     } 
-    // 3. Finally, check Tip 3 (The one further down)
+    // 3. Tip 3
     else if (isOn('tip3')) {
-        // Flipped to "right" to fix the character-side issue you noticed
-        updateMa(isMobile ? "right" : "left", "../assets/_mama_afrika_4.png", 
+        // Flipped to "right"
+        updateMa(isMobile ? "right" : "left", "../assets/_god_1.png", 
                  "From the ancient Magaliesberg mountains to the 'mampoer' culture of Groot Marico—this province is full of surprises! Click here to jump to Activities and let’s find your next North West adventure.", 
                  "#activities");
     }

@@ -1599,24 +1599,24 @@ window.onscroll = function() {
         return hasStarted && isStillVisible && rect.top !== 0;
     }
 
-    // ORDER MATTERS: We check them as you encounter them scrolling down.
-    // 1. First, check Tip 2 (The first one on the page)
+    // ORDER
+    // 1. Tip 2 (The first one on the page)
     if (isOn('tip2')) {
-        updateMa(isMobile ? "left" : "right", "../assets/_mama_afrika_24.png", 
+        updateMa(isMobile ? "left" : "right", "../assets/_god_1.png", 
                  "Welcome to the wild, explorer! You are looking at the only guide that lists EVERY single hostel in South Africa. Use my interactive map at the top of this page to zoom in on the Cederberg, find your perfect basecamp, and book your bed directly!", 
                  "#map-visual");
     }
 
-    // 2. Then check Tip 1 (The middle one)
+    // 2. Tip 1 (The middle one)
     else if (isOn('tip1')) {
-        updateMa("left", "../assets/_mama_afrika_23.png", 
+        updateMa("left", "../assets/_god_2.png", 
                  "The mountains are beautiful, but they don’t take prisoners! Before you head into the deep wilderness, check our Advice section for safety tips. You’ll find the links in the menu to help you plan the rest of your South African mission!", 
                  "../backpacking-south-africa-advice/in-country.htm"); 
     } 
-    // 3. Finally, check Tip 3 (The one further down)
+    // 3. Tip 3
     else if (isOn('tip3')) {
         // Flipped to "right" to fix the character-side issue you noticed
-        updateMa(isMobile ? "right" : "left", "../assets/_mama_afrika_24.png", 
+        updateMa(isMobile ? "right" : "left", "../assets/_god_1.png", 
                  "We work hard to keep this guide independent and free for every backpacker! If you find a spot you love on the map or in the list below, please support the mission by booking through our links. It helps me keep tracking down every last hostel for your next adventure!", 
                  "../misc/affiliate-links-disclosure.htm");
     }

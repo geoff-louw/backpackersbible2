@@ -4012,25 +4012,25 @@ window.onscroll = function() {
         return hasStarted && isStillVisible && rect.top !== 0;
     }
 
-    // ORDER MATTERS: We check them as you encounter them scrolling down.
-    // 1. First, check Tip 2 (The first one on the page)
+    // ORDER
+    // 1. Tip 2
     if (isOn('tip2')) {
-        updateMa(isMobile ? "left" : "right", "../assets/_mama_afrika_10.png", 
-                 "Howziiiiiit!!! Welcome to the adventure capital! Whether you are jumping off the Bloukrans Bridge or paragliding over Wilderness, you need a place to crash. Use our hostel write-ups below - we are the ONLY guide with every single hostel in SA. Book your bed before you take the leap!", 
+        updateMa(isMobile ? "left" : "right", "../assets/_god_1.png", 
+                 "Howziiiiiit!!! Welcome to the adventure capital! Whether you are jumping off the Bloukrans Bridge or paragliding over Wilderness, you need a place to crash. Use my hostel write-ups below - this is the ONLY guide with every single hostel in SA. Book your bed before you take the leap!", 
                  "#hostels");
     }
 
     // 2. Then check Tip 1 (The middle one)
     else if (isOn('tip1')) {
-        updateMa("left", "../assets/_mama_afrika_14.png", 
-                 "Even adrenaline junkies need a plan, explorer! Before you start your road trip, check our suggested Itineraries. They give daily distances and cost breakdowns to fit your backpacker's budget. It’s the best way to find the secret spots between the big thrills!", 
+        updateMa("left", "../assets/_god_2.png", 
+                 "Even adrenaline junkies need a plan, explorer! Before you start your road trip, check my suggested Itineraries. They give daily distances and cost breakdowns to fit your backpacker's budget. It’s the best way to find the secret spots between the big thrills!", 
                  "../backpacking-south-africa-tours/index.htm"); 
     } 
     // 3. Finally, check Tip 3 (The one further down)
     else if (isOn('tip3')) {
-        // Flipped to "right" to fix the character-side issue you noticed
-        updateMa(isMobile ? "right" : "left", "../assets/_mama_afrika_11.png", 
-                 "We keep this guide free so you can spend your money on bungy jumping instead! Scroll down to see our full Garden Route hostel list. If you book through our links, it helps keep the Backpackers Bible independent for the next adventurer!", 
+        // Flipped to "right"
+        updateMa(isMobile ? "right" : "left", "../assets/_god_1.png", 
+                 "We keep this guide free so you can spend your money on bungy jumping instead! Scroll down to see my full Garden Route hostel list. If you book through our links, it helps keep the Backpackers Bible independent for the next adventurer!", 
                  "../misc/affiliate-links-disclosure.htm");
     }
 

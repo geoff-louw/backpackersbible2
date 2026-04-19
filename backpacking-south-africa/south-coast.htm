@@ -2329,24 +2329,24 @@ window.onscroll = function() {
         return hasStarted && isStillVisible && rect.top !== 0;
     }
 
-    // ORDER MATTERS: We check them as you encounter them scrolling down.
-    // 1. First, check Tip 2 (The first one on the page)
+    // ORDER
+    // 1. Tip 2
     if (isOn('tip2')) {
-        updateMa(isMobile ? "left" : "right", "../assets/_mama_afrika_10.png", 
+        updateMa(isMobile ? "left" : "right", "../assets/_god_1.png", 
                  "The South Coast is the place for endless summer, my friend! But if you’re coming for the Sardine Run or a diving mission, timing is everything. Check my Itineraries to see how to link this coast with the Wild Coast.", 
                  "../backpacking-south-africa-tours/index.htm");
     }
 
-    // 2. Then check Tip 1 (The middle one)
+    // 2. Tip 1
     else if (isOn('tip1')) {
-        updateMa("left", "../assets/_mama_afrika_11.png", 
+        updateMa("left", "../assets/_god_2.png", 
                  "Found a legendary surf house or a dive lodge for your stay? When you book your bed through the links on this page, it helps me keep the Backpacker's Bible updated and free for every traveler. Siyabonga for supporting the mission—it keeps the adventure alive!", 
                  "#hostels"); 
     } 
-    // 3. Finally, check Tip 3 (The one further down)
+    // 3. Tip 3
     else if (isOn('tip3')) {
-        // Flipped to "right" to fix the character-side issue you noticed
-        updateMa(isMobile ? "right" : "left", "../assets/_mama_afrika_10.png", 
+        // Flipped to "right"
+        updateMa(isMobile ? "right" : "left", "../assets/_god_1.png", 
                  "From the deep blue at Aliwal Shoal to the giant swing at Oribi Gorge—this coast is an adrenaline junkie’s playground! Click here to jump straight to Activities and let’s find something to get your heart racing.", 
                  "#activities");
     }
