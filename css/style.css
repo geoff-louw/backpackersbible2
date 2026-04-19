@@ -4380,3 +4380,20 @@ padding-top: 0px !important;
 padding-botto: 0px !important;
     }
 }
+
+
+
+
+
+<style>
+.leaflet-marker-icon {
+  width: auto !important;
+  height: auto !important;
+  max-width: none !important;
+}
+
+.leaflet-marker-icon img {
+  width: auto !important;
+  height: auto !important;
+}
+</style>
