@@ -720,36 +720,83 @@
   href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
 />
 
+<!-- Map container -->
 <div id="map" style="width:100%; height:570px;"></div>
 
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-<!-- KML plugin (THIS replaces toGeoJSON completely) -->
+<!-- KML loader plugin -->
 <script src="https://unpkg.com/leaflet-omnivore@0.3.4/leaflet-omnivore.min.js"></script>
 
 <script>
 window.addEventListener("load", function () {
 
+  // === CREATE MAP ===
   const map = L.map('map').setView([-30, 24], 5);
 
-  // Satellite layer
-  L.tileLayer(
+  // Disable scroll zoom (better mobile UX)
+  map.scrollWheelZoom.disable();
+
+  // === SATELLITE LAYER ===
+  const satellite = L.tileLayer(
     'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
-    {
-      attribution: 'Tiles © Esri'
-    }
+    { attribution: 'Tiles © Esri' }
   ).addTo(map);
 
-  // Load your KML directly
+  // Optional: standard map layer
+  const streets = L.tileLayer(
+    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    { attribution: '&copy; OpenStreetMap contributors' }
+  );
+
+  // Layer switcher
+  L.control.layers({
+    "Satellite": satellite,
+    "Map": streets
+  }).addTo(map);
+
+  // === CUSTOM ICON ===
+  const hostelIcon = L.icon({
+    iconUrl: '/assets/icons/hostel-pin.png', // make sure this file exists
+    iconSize: [32, 40],
+    iconAnchor: [16, 40],
+    popupAnchor: [0, -35]
+  });
+
+  // === LOAD YOUR KML ===
   omnivore.kml(
     "https://www.backpackersbible.com/assets/maps/backpacking-south-africa.xml"
   )
   .on('ready', function() {
+
     console.log("KML loaded successfully");
 
-    // Optional: zoom to markers
+    this.eachLayer(function(layer) {
+
+      // Set custom icon
+      if (layer.setIcon) {
+        layer.setIcon(hostelIcon);
+      }
+
+      // Add styled popup
+      if (layer.feature && layer.feature.properties) {
+
+        const name = layer.feature.properties.name || "Hostel";
+
+        layer.bindPopup(`
+          <div style="font-family:Arial, sans-serif; font-size:14px;">
+            <strong>${name}</strong><br>
+            <span style="color:#666;">Click for details</span>
+          </div>
+        `);
+      }
+
+    });
+
+    // Zoom map to fit all pins
     map.fitBounds(this.getBounds());
+
   })
   .on('error', function(e) {
     console.log("KML load error:", e);
@@ -758,6 +805,8 @@ window.addEventListener("load", function () {
 
 });
 </script>
+
+
 
 </section>
 
