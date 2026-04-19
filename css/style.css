@@ -4391,16 +4391,16 @@ padding-botto: 0px !important;
 .leaflet-pane img,
 .leaflet-marker-icon,
 .leaflet-shadow {
-  width: 40px !important;
-  height: 40px !important;
+  width: auto !important;
+  height: auto !important;
   max-width: none !important;
   max-height: none !important;
 }
 
 /* Prevent site-wide image rules affecting map */
 #map img {
-  width: 40px !important;
-  height: 40px !important;
+  width: auto !important;
+  height: auto !important;
   max-width: none !important;
 }
 </style>
