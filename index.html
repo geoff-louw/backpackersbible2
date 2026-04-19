@@ -714,98 +714,58 @@
 <section>
 
 
-<!-- Leaflet CSS -->
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-/>
+omnivore.kml(
+  "https://www.backpackersbible.com/assets/maps/backpacking-south-africa.xml"
+)
+.on('ready', function() {
 
-<!-- Map container -->
-<div id="map" style="width:100%; height:570px;"></div>
+  console.log("KML loaded");
 
-<!-- Leaflet JS -->
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  let colourIndex = 0;
 
-<!-- KML loader plugin -->
-<script src="https://unpkg.com/leaflet-omnivore@0.3.4/leaflet-omnivore.min.js"></script>
+  const colours = [
+    "#ff4d4d",
+    "#ff9933",
+    "#33cc99",
+    "#3399ff",
+    "#cc66ff",
+    "#ffcc00",
+    "#66cccc",
+    "#ff6699"
+  ];
 
-<script>
-window.addEventListener("load", function () {
+  this.eachLayer(function(layer) {
 
-  // === CREATE MAP ===
-  const map = L.map('map').setView([-30, 24], 5);
+    // =========================
+    // POLYGONS (REGIONS)
+    // =========================
+    if (layer instanceof L.Polygon) {
 
-  // Disable scroll zoom (better mobile UX)
-  map.scrollWheelZoom.disable();
+      const colour = colours[colourIndex % colours.length];
+      colourIndex++;
 
-  // === SATELLITE LAYER ===
-  const satellite = L.tileLayer(
-    'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
-    { attribution: 'Tiles © Esri' }
-  ).addTo(map);
+      layer.setStyle({
+        color: colour,        // border
+        weight: 2,
+        fillColor: colour,
+        fillOpacity: 0.25
+      });
 
-  // Optional: standard map layer
-  const streets = L.tileLayer(
-    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-    { attribution: '&copy; OpenStreetMap contributors' }
-  );
+    }
 
-  // Layer switcher
-  L.control.layers({
-    "Satellite": satellite,
-    "Map": streets
-  }).addTo(map);
+    // =========================
+    // MARKERS (HOSTELS)
+    // =========================
+    if (layer instanceof L.Marker) {
+      layer.setIcon(hostelIcon);
+    }
 
-  // === CUSTOM ICON ===
-  const hostelIcon = L.icon({
-    iconUrl: '/assets/icons/hostel-pin.png', // make sure this file exists
-    iconSize: [25, 25],
-    iconAnchor: [16, 40],
-    popupAnchor: [0, -35]
   });
 
-  // === LOAD YOUR KML ===
-  omnivore.kml(
-    "https://www.backpackersbible.com/assets/maps/backpacking-south-africa.xml"
-  )
-  .on('ready', function() {
+  map.fitBounds(this.getBounds());
 
-    console.log("KML loaded successfully");
-
-    this.eachLayer(function(layer) {
-
-      // Set custom icon
-      if (layer.setIcon) {
-        layer.setIcon(hostelIcon);
-      }
-
-      // Add styled popup
-      if (layer.feature && layer.feature.properties) {
-
-        const name = layer.feature.properties.name || "Hostel";
-
-        layer.bindPopup(`
-          <div style="font-family:Arial, sans-serif; font-size:14px;">
-            <strong>${name}</strong><br>
-            <span style="color:#666;">Click for details</span>
-          </div>
-        `);
-      }
-
-    });
-
-    // Zoom map to fit all pins
-    map.fitBounds(this.getBounds());
-
-  })
-  .on('error', function(e) {
-    console.log("KML load error:", e);
-  })
-  .addTo(map);
-
-});
-</script>
-
+})
+.addTo(map);
 
 
 </section>
