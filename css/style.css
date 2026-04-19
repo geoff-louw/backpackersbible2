@@ -4386,18 +4386,21 @@ padding-botto: 0px !important;
 
 
 
-/* Fix Leaflet marker distortion */
+<style>
+/* HARD RESET for Leaflet icons */
 .leaflet-pane img,
 .leaflet-marker-icon,
 .leaflet-shadow {
   width: auto !important;
   height: auto !important;
   max-width: none !important;
+  max-height: none !important;
 }
 
-/* Prevent global img rules affecting map */
+/* Prevent site-wide image rules affecting map */
 #map img {
   width: auto !important;
   height: auto !important;
   max-width: none !important;
 }
+</style>
