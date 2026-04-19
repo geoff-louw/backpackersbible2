@@ -50,7 +50,601 @@
 <meta name="twitter:image" content="https://www.backpackersbible.com/assets/social-preview.jpg">
 
      <!-- Schema markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
 
+    /* ══════════════════════════════════════════════════════
+       1. ORGANIZATION — Publisher node
+    ══════════════════════════════════════════════════════ */
+    {
+      "@type": "Organization",
+      "@id": "https://backpackersbible.com/#organization",
+      "name": "BackpackersBible.com",
+      "url": "https://backpackersbible.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://backpackersbible.com/assets/backpackers_bible_logo_250x250.png",
+        "width": 250,
+        "height": 250
+      },
+      "description": "Independent, non-affiliate-biased backpacker guides to destinations worldwide. Direct hostel contacts, safety information, and honest write-ups.",
+      "sameAs": [
+        "https://www.facebook.com/BackpackersBible",
+        "https://www.instagram.com/backpackersbible"
+      ]
+    },
+
+    /* ══════════════════════════════════════════════════════
+       2. WEBPAGE (TravelGuide subtype)
+    ══════════════════════════════════════════════════════ */
+    {
+      "@type": ["WebPage", "TravelGuide"],
+      "@id": "https://backpackersbible.com/backpacking-south-africa/lesotho.htm#webpage",
+      "url": "https://backpackersbible.com/backpacking-south-africa/lesotho.htm",
+      "name": "Backpacking Lesotho: Adventure in the Kingdom in the Sky",
+      "headline": "Backpacking Lesotho: Adventure in the Kingdom in the Sky",
+      "description": "Ready for high-altitude missions and pony trekking? Get direct contact info for every Lesotho hostel, plus interactive maps and honest safety advice.",
+      "inLanguage": "en",
+      "isPartOf": { "@id": "https://backpackersbible.com/#website" },
+      "publisher": { "@id": "https://backpackersbible.com/#organization" },
+      "author": { "@id": "https://backpackersbible.com/#organization" },
+      "dateModified": "2026-01-01",
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://backpackersbible.com/assets/social-preview.jpg"
+      },
+      "about": [
+        { "@type": "Country", "name": "Lesotho", "sameAs": "https://en.wikipedia.org/wiki/Lesotho" },
+        { "@type": "Thing", "name": "Backpacking", "sameAs": "https://en.wikipedia.org/wiki/Backpacking_(travel)" }
+      ],
+      "mentions": [
+        { "@id": "https://backpackersbible.com/backpacking-south-africa/lesotho.htm#map" },
+        { "@id": "https://backpackersbible.com/backpacking-south-africa/lesotho.htm#hostel-list" },
+        { "@id": "https://backpackersbible.com/backpacking-south-africa/lesotho.htm#activities" },
+        { "@id": "https://backpackersbible.com/backpacking-south-africa/lesotho.htm#safety-guide" },
+        { "@id": "https://backpackersbible.com/backpacking-south-africa/lesotho.htm#faq" }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".intro-p", ".detail-p", "#safety", "#faq"]
+      }
+    },
+
+    /* ══════════════════════════════════════════════════════
+       3. BREADCRUMB LIST
+    ══════════════════════════════════════════════════════ */
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://backpackersbible.com/backpacking-south-africa/lesotho.htm#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://backpackersbible.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Backpacking South Africa",
+          "item": "https://backpackersbible.com/backpacking-south-africa/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Backpacking Lesotho",
+          "item": "https://backpackersbible.com/backpacking-south-africa/lesotho.htm"
+        }
+      ]
+    },
+
+    /* ══════════════════════════════════════════════════════
+       4. FAQ PAGE — Rich result eligible
+    ══════════════════════════════════════════════════════ */
+    {
+      "@type": "FAQPage",
+      "@id": "https://backpackersbible.com/backpacking-south-africa/lesotho.htm#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do I need a visa to visit Lesotho?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No visa is required for most Western nationalities, Commonwealth citizens, and EU passport holders for stays up to 30 days. South African citizens enter visa-free. Your passport must be valid for at least 6 months beyond your intended stay. Verify your specific nationality's requirements with the Lesotho High Commission before travel."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When is the best time to visit Lesotho as a backpacker?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The shoulder seasons — April/May and September/October — are the best for backpacker travel: mild temperatures, stable roads, and the mountain landscape in its clearest, most photogenic condition. September in particular, with the first spring flowers and snowmelt streams, is extraordinary. Winter (June–August) is cold at altitude, with snow common on the highland plateau and temperatures well below zero at night, but the skies are clear and the landscape stunning. Summer (November–March) is warmer but brings afternoon thunderstorms and the possibility of flash flooding. Whatever month you visit, bring warm layers — temperatures at 2,000+ metres can change dramatically over the course of a single day."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Lesotho safe for backpackers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "By the standards of the region, Lesotho is a safe destination. The rural areas and highland villages are very safe; all three lodges in this guide have good security records and well-established community relationships. Maseru requires standard urban awareness — don't walk alone after dark in unfamiliar areas, keep valuables secured. The main safety considerations in Lesotho are environmental rather than criminal: mountain weather changes quickly, gravel roads deteriorate in rain, and river crossings that were passable in the morning can be impassable after afternoon storms. Travel conservatively, carry warm layers, and inform someone of your intended route and timing when travelling into remote highland areas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Lesotho malaria-free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Lesotho is entirely malaria-free. The whole country lies at an altitude too high for the anopheles mosquito. No prophylaxis is required, no mosquito nets are needed, and there is no restriction on visiting with young children or immunocompromised travellers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need a 4x4 to travel in Lesotho?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A high-clearance vehicle is strongly recommended for most of the highland circuit, but a 4x4 is only strictly necessary for the Sani Pass and specific highland tracks. Standard sedan hire cars can reach Malealea and Ramabanta in dry conditions but should not be taken into the highlands after rain or snow. A 4x4 in good condition is required for the Sani Pass. In winter, mountain passes can be snowbound and impassable for days — always check conditions before travel. Carry a spare tyre: a puncture on a remote Lesotho mountain road is a serious problem, as phone signal is intermittent throughout the highlands."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What currency does Lesotho use and how should I manage money?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Lesotho loti (plural maloti) is pegged 1:1 to the South African rand, and rand is accepted at most tourist establishments. ATMs exist in Maseru and major towns but there are none in the remote highland areas. Bring sufficient cash — in both rand and maloti — before leaving the capital or border area. Card payment is possible at the main lodges but should not be relied upon as the only payment option in rural areas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I get into Lesotho from South Africa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Lesotho has more than a dozen border crossings with South Africa. The main ones for backpackers are: Maseru Bridge (the principal crossing on the N8 from Bloemfontein, open 24 hours — the most straightforward entry point), the Sani Pass from KwaZulu-Natal (a 4x4-only gravel road climbing through the Drakensberg to 2,874 metres — the most dramatic entry point), and Caledonspoort/Ficksburg Bridge (the main crossing from the Free State northeast of Maseru, open 24 hours, convenient from the Drakensberg or Clarens area)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where should I stay as a backpacker in Lesotho?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There are three lodges. Malealea Lodge (Western Highlands, 60km south of Maseru) is ranked #1 accommodation in Lesotho on TripAdvisor and is the finest value proposition on the circuit — rondavels, en-suite rooms and camping in a mountain valley with access to pony trekking, San rock art, and waterfalls via a 40-year-old community-connected lodge. Ramabanta Trading Post Adventures & Lodge (Central Highlands, 70km from Maseru) is the best overnight stop on the Maseru–Semonkong route — cliff-edge views over the Makhaleng River Valley, exceptional home-cooked food, and proximity to Thaba Bosiu. Semonkong Lodge (Central Highlands, 115km from Maseru at 2,200m elevation) is home to the world's longest commercially operated single-drop abseil, the finest pony trekking routes in the highlands, and the Duck and Donkey Tavern."
+          }
+        }
+      ]
+    },
+
+    /* ══════════════════════════════════════════════════════
+       5. MAP ENTITY
+    ══════════════════════════════════════════════════════ */
+    {
+      "@type": "Map",
+      "@id": "https://backpackersbible.com/backpacking-south-africa/lesotho.htm#map",
+      "name": "Lesotho Backpackers Hostel Map — All Hostels",
+      "description": "Interactive map of all backpacker lodges and hostels in Lesotho, with contact details, addresses, and links to individual write-ups. Covers Malealea (Western Highlands), Ramabanta (Central Highlands A5 route), and Semonkong.",
+      "mapType": "https://schema.org/VenueMap",
+      "additionalType": "https://schema.org/Map",
+      "url": "https://backpackersbible.com/backpacking-south-africa/lesotho.htm",
+      "hasMap": "https://www.google.com/maps/d/embed?mid=1YlCywz3bXNDCOhw6bLz-F3iPhC9XD4A&ehbc=2E312F&noprof=1&ll=-29.58,28.20&z=8",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Lesotho",
+        "sameAs": "https://en.wikipedia.org/wiki/Lesotho"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Backpacker Lodges and Hostels in Lesotho"
+      }
+    },
+
+    /* ══════════════════════════════════════════════════════
+       6. SAFETY GUIDE — HowTo subtype for safety tips
+    ══════════════════════════════════════════════════════ */
+    {
+      "@type": "HowTo",
+      "@id": "https://backpackersbible.com/backpacking-south-africa/lesotho.htm#safety-guide",
+      "name": "How to Stay Safe in Lesotho as a Backpacker",
+      "description": "Practical safety advice for backpackers in Lesotho, covering mountain weather, river crossings, altitude, road conditions, and general travel precautions in the highland kingdom.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Prepare for mountain weather changes",
+          "text": "At altitude, conditions can change within an hour. A clear morning can become a snowstorm by afternoon in winter, or a violent thunderstorm in summer. Always carry warm layers regardless of the morning temperature. If you are on a multi-day pony trek or hike and weather deteriorates, follow your guide's advice on shelter and timing without argument — they know these mountains in all conditions and you do not."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Never attempt flooded river crossings",
+          "text": "The highland streams and rivers that cross mountain roads and pony tracks become dangerous very quickly after rain. A shallow ford in the morning can be an impassable torrent by afternoon after a thunderstorm upstream. Do not attempt river crossings in flood or near-flood conditions in a vehicle or on horseback. Wait — the water will drop within hours in most cases."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Acclimatise carefully on arrival at altitude",
+          "text": "Semonkong Lodge sits at 2,200 metres and the Sani Pass top is 2,874 metres. Some people experience mild altitude effects — headache, breathlessness, fatigue — particularly if arriving directly from sea level. Drink plenty of water, move slowly on the first day, and do not attempt vigorous physical activity immediately after arriving at high altitude. Descend and seek medical advice if symptoms are severe."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Use the right vehicle and carry a spare tyre",
+          "text": "A high-clearance vehicle is strongly recommended for the highland circuit; a 4x4 is required for the Sani Pass. Gravel mountain roads can be excellent in dry conditions and treacherous after rain. Do not drive unfamiliar highland roads after dark. Always carry a spare tyre — a puncture on a remote Lesotho mountain road with no spare is a serious problem, as phone signal is intermittent throughout the highlands."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Bring sufficient cash before leaving Maseru",
+          "text": "ATMs exist in Maseru and major towns but there are none in the remote highland areas. Bring sufficient cash in both rand and maloti before leaving the capital or border area. Card payment is possible at the main lodges but should not be relied upon as the only payment method in rural areas. The loti is pegged 1:1 to the South African rand and rand is accepted at most tourist establishments."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Apply standard urban precautions in Maseru",
+          "text": "Maseru, the capital, requires standard urban awareness. Do not walk alone after dark in unfamiliar areas, keep valuables secured, and use a reputable taxi or rideshare service rather than walking between venues at night. The highland lodges and rural areas are very safe — the urban precautions apply specifically to the capital and large towns."
+        }
+      ]
+    },
+
+    /* ══════════════════════════════════════════════════════
+       7. ACTIVITIES — TouristAttraction entities
+    ══════════════════════════════════════════════════════ */
+    {
+      "@type": "ItemList",
+      "@id": "https://backpackersbible.com/backpacking-south-africa/lesotho.htm#activities",
+      "name": "Lesotho Backpacker Activities and Attractions",
+      "description": "Comprehensive guide to activities in Lesotho for backpackers — from pony trekking across mountain passes and the world's longest commercial abseil to San rock art, Thaba Bosiu, the Sani Pass, and the donkey pub crawl.",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "TouristAttraction",
+            "name": "Basotho Pony Trekking",
+            "description": "The definitive Lesotho backpacker experience. The Basotho pony is a compact, sure-footed mountain breed capable of navigating narrow rocky paths and steep passes that no vehicle can follow. Treks range from one-hour introductory rides to multi-day journeys of five or six days, sleeping in village rondavels and eating with local families. No riding experience required for most routes. Available from all three lodges — multi-day treks between Malealea and Semonkong (3 days of mountain terrain) are the most spectacular overland route in the country.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -29.828, "longitude": 27.600 },
+            "isAccessibleForFree": false,
+            "touristType": "Backpackers"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "TouristAttraction",
+            "name": "Maletsunyane Falls Abseil — World Record 204m",
+            "description": "The Guinness World Record-holding longest commercially operated single-drop abseil on earth. The Maletsunyane Falls drop 204 metres into a basalt gorge near Semonkong — the highest single-drop waterfall in southern Africa. Operated by Semonkong Lodge since 1996. A training abseil on a 25m cliff precedes the main descent. No prior experience required — only a willingness to step backwards off the edge of a 204-metre cliff. Takes 45 minutes to two hours depending on experience. The safety record across three decades of operation is the clearest endorsement of the operation's standards.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -29.8579, "longitude": 28.0581 },
+            "isAccessibleForFree": false,
+            "touristType": "Backpackers",
+            "sameAs": "https://en.wikipedia.org/wiki/Maletsunyane_Falls"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "TouristAttraction",
+            "name": "The Sani Pass",
+            "description": "A gravel mountain road climbing from the KwaZulu-Natal foothills through the Drakensberg escarpment into the Lesotho highlands — rising from approximately 1,550m at the South Africa border post to 2,874m at the Lesotho border post in roughly 9km. Gradient in the steepest section is 1 in 4. Requires a high-clearance 4x4 in good condition; standard hire cars cannot manage it. The drive is extraordinary — valley walls rising on both sides, the road switchbacking through terrain that has no other viable route. The Sani Mountain Lodge at the top serves food and drinks at what is justifiably described as the highest pub in Africa.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -29.5908, "longitude": 29.2753 },
+            "isAccessibleForFree": false,
+            "touristType": "Backpackers",
+            "sameAs": "https://en.wikipedia.org/wiki/Sani_Pass"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "TouristAttraction",
+            "name": "San Rock Art Sites",
+            "description": "Cave paintings left by San communities across the Drakensberg and into the Lesotho highlands — among the finest examples of rock art anywhere in the world, recognised by UNESCO in the inscription of the uKhahlamba-Drakensberg Park as a World Heritage Site. Sites accessible from Malealea include paintings dating back over 40,000 years, depicting hunting scenes, trance visions, and therianthropes. Multiple sites also accessible from Ramabanta Trading Post (30 minutes). Free to visit with lodge guide.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -29.828, "longitude": 27.600 },
+            "isAccessibleForFree": true,
+            "touristType": "Backpackers"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "TouristAttraction",
+            "name": "Thaba Bosiu — Moshoeshoe's Mountain Fortress",
+            "description": "The flat-topped rocky mesa 25km east of Maseru where Moshoeshoe I built his stronghold and defended his kingdom through decades of assault — the most significant historical site in Lesotho and one of the most important in southern Africa. The single viable approach to the summit passes between cliff faces that could be held by few defenders against a much larger force. From the summit you can see the graves of Moshoeshoe and his successors and a view across the lowlands that explains immediately why he chose this place. A guide is required for the summit approach; guides available at the base. Approximately 20 minutes from Ramabanta Trading Post.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -29.5370, "longitude": 27.5250 },
+            "isAccessibleForFree": false,
+            "touristType": "Backpackers",
+            "sameAs": "https://en.wikipedia.org/wiki/Thaba_Bosiu"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "TouristAttraction",
+            "name": "Guided Hiking in the Maluti Mountains",
+            "description": "Lesotho is one of the finest hiking destinations in southern Africa for those prepared for the logistics. The Maluti Mountains offer routes from half-day walks to multi-day cross-country routes covering terrain seen by very few visitors — high basalt plateau, deep river valleys, waterfalls, and San rock art sites. Guided hiking available from all three lodges. Malealea in particular has an extensive network of trails to waterfalls and rock art, ranging from one to six days. No maintained formal trails in the European or North American sense — you walk with a local guide who knows the land.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -29.700, "longitude": 27.900 },
+            "isAccessibleForFree": false,
+            "touristType": "Backpackers"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@type": "TouristAttraction",
+            "name": "Donkey Pub Crawl — Semonkong",
+            "description": "A guided tour of Semonkong village's traditional beer-brewing homes and local shebeens, conducted on the back of a donkey, with stops for Basotho sorghum beer (joala) and encounters with village music and dance. Operated by Semonkong Lodge. Universally described in reviews as one of the highlights of Lesotho. Not a performance staged for tourists — a walk through a village's actual social life, on a donkey, which is exactly what the name suggests.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -29.843, "longitude": 28.044 },
+            "isAccessibleForFree": false,
+            "touristType": "Backpackers"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "item": {
+            "@type": "TouristAttraction",
+            "name": "Dinosaur Footprints — Ramabanta",
+            "description": "Lesotho has some of the most abundant early dinosaur trackways in the world, left in Triassic mudflats that are now highland basalt. Multiple trackway sites are accessible on foot from Ramabanta Trading Post — approximately 20 minutes' walk. Free with lodge orientation.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -29.666, "longitude": 27.797 },
+            "isAccessibleForFree": true,
+            "touristType": "Backpackers"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "item": {
+            "@type": "TouristAttraction",
+            "name": "Highland Night Sky Stargazing",
+            "description": "At 2,000+ metres with no light pollution for kilometres in any direction, the night sky over the Lesotho highlands is among the finest visible to a traveller anywhere on this continent. On a clear winter night at Malealea or Semonkong, the Milky Way is a solid structure overhead and the Southern Cross is directly visible at the correct latitude. Free — the correct use of any night in the Lesotho highlands.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -29.828, "longitude": 27.600 },
+            "isAccessibleForFree": true,
+            "touristType": "Backpackers"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "item": {
+            "@type": "TouristAttraction",
+            "name": "Gates of Paradise Pass — Malealea Valley Viewpoint",
+            "description": "The mountain pass through which you enter the Malealea valley, marked by a plaque from the early 20th century reading 'Wayfarer, pause and look upon a gateway of Paradise.' The valley below — rondavels of the lodge scattered across the hillside, mountains rising on three sides — is immediately visible and freely accessible from the lodge. One of the finest introductory views in Lesotho. Free.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -29.828, "longitude": 27.600 },
+            "isAccessibleForFree": true,
+            "touristType": "Backpackers"
+          }
+        }
+      ]
+    },
+
+    /* ══════════════════════════════════════════════════════
+       8. HOSTEL ITEM LIST — Full directory (3 lodges)
+    ══════════════════════════════════════════════════════ */
+    {
+      "@type": "ItemList",
+      "@id": "https://backpackersbible.com/backpacking-south-africa/lesotho.htm#hostel-list",
+      "name": "Complete Directory of Lesotho Backpacker Lodges — All 3",
+      "description": "Every backpacker lodge in Lesotho reviewed independently and without affiliate bias. Includes direct contact details, phone, WhatsApp, email, website, pricing, vibe, safety rating, solo-female friendliness, and digital nomad rating.",
+      "numberOfItems": 3,
+
+      "itemListElement": [
+
+        /* ── 1. MALEALEA LODGE ── */
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Hostel",
+            "@id": "https://backpackersbible.com/backpacking-south-africa/lesotho.htm#malealea-lodge",
+            "name": "Malealea Lodge",
+            "url": "https://backpackersbible.com/backpacking-south-africa/lesotho.htm#malealea-lodge",
+            "description": "The finest backpacker lodge in Lesotho and one of the finest in southern Africa — ranked #1 accommodation in Lesotho on TripAdvisor. Solar-powered 90-bed community lodge in a Maluti Mountain valley in the Western Highlands, 60km south of Maseru. Rondavels, en-suite rooms, family rondavels, and camping. Full pony trekking centre, guided hiking to San rock art and waterfalls, mountain biking, village cultural experiences, and the Malealea Development Trust on-site. Family-operated for nearly 40 years. GREEN safety rating.",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "1 Main Road, Nr Matelile, Malealea",
+              "addressLocality": "Mafeteng District",
+              "addressRegion": "Lesotho",
+              "addressCountry": "LS"
+            },
+            "geo": { "@type": "GeoCoordinates", "latitude": -29.82799, "longitude": 27.59992 },
+            "telephone": "+26658839646",
+            "contactPoint": [
+              {
+                "@type": "ContactPoint",
+                "contactType": "reservations",
+                "telephone": "+26658839646",
+                "description": "Lesotho number"
+              },
+              {
+                "@type": "ContactPoint",
+                "contactType": "reservations",
+                "telephone": "+27825524215",
+                "description": "South African number"
+              },
+              {
+                "@type": "ContactPoint",
+                "contactType": "customer support",
+                "telephone": "+26653230295",
+                "description": "WhatsApp — Lesotho"
+              },
+              {
+                "@type": "ContactPoint",
+                "contactType": "customer support",
+                "telephone": "+27825524215",
+                "description": "WhatsApp — South Africa"
+              }
+            ],
+            "email": "info@malealealodge.com",
+            "hasMap": "https://maps.google.com/?q=-29.82799,27.59992",
+            "sameAs": [
+              "https://www.malealealodge.com",
+              "https://www.booking.com/hotel/ls/malealea-lodge.html",
+              "https://www.facebook.com/malealealodge/",
+              "https://www.instagram.com/malealealodge/"
+            ],
+            "priceRange": "LSL165–LSL900+",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "8.6",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Booking.com: ~8.6/10 ('Fabulous'). TripAdvisor: consistently ranked #1 accommodation in Lesotho. Google: ~4.5/5."
+            },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Full pony trekking centre (1 hour to 6-day multi-day treks)", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Guided hiking to San rock art and waterfalls", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Mountain bike hire", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Village cultural walks", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Malealea Development Trust community organisation on-site", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Restaurant (set meal times — book in advance)", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Bar and campfire area", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Communal kitchen", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solar power", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Wi-Fi (basic — for communication, not streaming)", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Safe vehicle storage", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Camping (tents and trailers)", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Resident traditional music group (evening performances)", "value": true }
+            ]
+          }
+        },
+
+        /* ── 2. RAMABANTA TRADING POST ADVENTURES & LODGE ── */
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Hostel",
+            "@id": "https://backpackersbible.com/backpacking-south-africa/lesotho.htm#ramabanta-trading-post",
+            "name": "Ramabanta Trading Post Adventures & Lodge",
+            "url": "https://backpackersbible.com/backpacking-south-africa/lesotho.htm#ramabanta-trading-post",
+            "description": "Fifth-generation family lodge perched on a cliff edge overlooking the Makhaleng River Valley, 70km from Maseru on the A5 highland route. The finest overnight stop on the Maseru–Semonkong route. 19 rooms across superior, standard, and budget en-suite rooms, a 6-bed backpacker dorm, and camping. Exceptional home-cooked food served at communal tables with cliff-edge valley views. 20 minutes from Thaba Bosiu and 20 minutes from dinosaur footprint trackways. A5 road location is the natural base for the Central Highlands circuit. GREEN safety rating.",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "A3 Road, Ramabanta",
+              "addressLocality": "Maseru District",
+              "addressRegion": "Lesotho",
+              "addressCountry": "LS"
+            },
+            "geo": { "@type": "GeoCoordinates", "latitude": -29.66628, "longitude": 27.79663 },
+            "telephone": "+26658442309",
+            "contactPoint": [
+              {
+                "@type": "ContactPoint",
+                "contactType": "reservations",
+                "telephone": "+26658442309"
+              },
+              {
+                "@type": "ContactPoint",
+                "contactType": "reservations",
+                "telephone": "+26622340202"
+              },
+              {
+                "@type": "ContactPoint",
+                "contactType": "customer support",
+                "telephone": "+26658442309",
+                "description": "WhatsApp contact"
+              }
+            ],
+            "email": "tradingpostram@leo.co.ls",
+            "hasMap": "https://maps.google.com/?q=-29.66628,27.79663",
+            "sameAs": [
+              "https://www.ramabanta.com",
+              "https://www.facebook.com/TradingPostRamabanta/"
+            ],
+            "priceRange": "LSL200–LSL950+",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "8.5",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Booking.com: ~8.5/10 ('Very Good'). TripAdvisor: ~4.5/5 — consistently praised for food, setting, and staff warmth. Google: ~4.5/5."
+            },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Cliff-edge dining veranda with Makhaleng River Valley views", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Home-cooked meals (breakfast and dinner typically included in room rates)", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Packed lunches available", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Bar", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Pony trekking", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Hiking trails", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "4x4 and enduro motorcycle trails", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Cultural village visits", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "San rock art sites (30 minutes)", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Dinosaur footprints (20 minutes' walk)", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Secure parking", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Laundry", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Camping", "value": true }
+            ]
+          }
+        },
+
+        /* ── 3. SEMONKONG LODGE ── */
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "Hostel",
+            "@id": "https://backpackersbible.com/backpacking-south-africa/lesotho.htm#semonkong-lodge",
+            "name": "Semonkong Lodge",
+            "url": "https://backpackersbible.com/backpacking-south-africa/lesotho.htm#semonkong-lodge",
+            "description": "The most dramatic lodge in Lesotho, built entirely from local stone and thatch on the banks of the Maletsunyane River at 2,200 metres elevation, 115km from Maseru. Home of the Guinness World Record-holding longest commercially operated single-drop abseil on earth (204m, operated since 1996), multi-day pony trekking routes, fly fishing, and the Duck and Donkey Tavern — one of the great backpacker bar experiences in southern Africa. En-suite rooms, seven river-view rondavels, a backpacker dorm, and camping. GREEN safety rating.",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "1 Riverside Road, Semonkong",
+              "addressLocality": "Maseru District",
+              "addressRegion": "Lesotho",
+              "addressCountry": "LS"
+            },
+            "geo": { "@type": "GeoCoordinates", "latitude": -29.84301, "longitude": 28.04366 },
+            "telephone": "+26658881021",
+            "contactPoint": [
+              {
+                "@type": "ContactPoint",
+                "contactType": "reservations",
+                "telephone": "+26658881021"
+              },
+              {
+                "@type": "ContactPoint",
+                "contactType": "customer support",
+                "telephone": "+26658881021",
+                "description": "WhatsApp contact"
+              }
+            ],
+            "email": "info@semonkonglodge.com",
+            "hasMap": "https://maps.google.com/?q=-29.84301,28.04366",
+            "sameAs": [
+              "https://www.semonkonglodge.com",
+              "https://www.facebook.com/SemonkongLodgeLesotho/",
+              "https://www.instagram.com/semonkong_lodge/"
+            ],
+            "priceRange": "LSL250–LSL1400+",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "8.4",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Booking.com: ~8.4/10 ('Very Good'). TripAdvisor: ~4.5/5 — most reviewed lodge in Lesotho. Google: ~4.5/5."
+            },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "World record 204m abseil — Guinness certified longest commercially operated single-drop abseil on earth", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Basotho pony trekking (1 hour to multi-day; Malealea route 3 days)", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Donkey pub crawl through Semonkong village", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Fly fishing (brown trout, rainbow trout, Maluti minnow — grand slam trips available)", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Mountain biking", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Duck and Donkey Tavern and Restaurant", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Communal fireplace", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "River-view rondavels (7, on upper terrace)", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Generator power (limited hours)", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Card payment accepted", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Camping", "value": true }
+            ]
+          }
+        }
+
+      ]
+    }
+
+  ]
+}
+</script>
 
 </head>
 <body>
@@ -89,9 +683,9 @@
             
             <nav class="desktop-nav">
 
-    <strong><a href="../index.htm#download-pwa"style="font-size:1rem; letter-spacing:2px; margin-right: 1.5rem;" title="Choose between a PDF and an App to use on your phone while travelling">▾ FREE Hostel Guide!</a></strong>
+    <strong><a href="../index.html#download-pwa"style="font-size:1rem; letter-spacing:2px; margin-right: 1.5rem;" title="Choose between a PDF and an App to use on your phone while travelling">▾ FREE Hostel Guide!</a></strong>
 
-    <a href="../index.htm">Home</a>
+    <a href="../index.html">Home</a>
 
     <div class="nav-item">
 
@@ -985,11 +1579,10 @@
         <p class="footer-payoff">The World In Your Pocket</p>
 
         <nav class="footer-nav">
-            <a href="../index.htm">Home</a>
+            <a href="../index.html">Home</a>
             <a href="../backpacking-south-africa/index.htm">Backpacking South Africa</a>
             <a href="../backpacking-south-africa-advice/index.htm">Advice</a>
             <a href="../backpacking-south-africa-tours/index.htm">Tours</a>
-            <a href="../misc/backpackers-bible.htm">Downloads</a>
             <a href="../misc/privacy.htm">Privacy</a>
             <a href="../misc/about-backpackers-bible.htm">About Us</a>
         </nav>
@@ -1184,7 +1777,7 @@ window.onscroll = function() {
 
     <span class="close-btn" onclick="toggleMobileMenu()">&times;</span>
 
-    <a href="../index.htm">HOME</a>
+    <a href="../index.html">HOME</a>
 
     <button class="accordion" onclick="toggleAccordion(this)">BACKPACKING SOUTH AFRICA</button>
 
@@ -1296,7 +1889,7 @@ window.onscroll = function() {
 
     </div>
 
-    <a href="../index.htm#download-pwa" class="accordion"><strong>FREE HOSTEL GUIDE!</strong> <br> <span style="font-size:0.9rem;">(PDF or App)</span></a>
+    <a href="../index.html#download-pwa" class="accordion"><strong>FREE HOSTEL GUIDE!</strong> <br> <span style="font-size:0.9rem;">(PDF or App)</span></a>
 
             
             <a href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://backpackersbible.com" target="_blank" style="margin-top:5rem;">

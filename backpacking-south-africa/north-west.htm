@@ -51,7 +51,508 @@
 
      <!-- Schema markup -->
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
 
+    /* ══════════════════════════════════════════════════════
+       1. ORGANIZATION — Publisher node
+    ══════════════════════════════════════════════════════ */
+    {
+      "@type": "Organization",
+      "@id": "https://backpackersbible.com/#organization",
+      "name": "BackpackersBible.com",
+      "url": "https://backpackersbible.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://backpackersbible.com/assets/backpackers_bible_logo_250x250.png",
+        "width": 250,
+        "height": 250
+      },
+      "description": "Independent, non-affiliate-biased backpacker guides to destinations worldwide. Direct hostel contacts, safety information, and honest write-ups.",
+      "sameAs": [
+        "https://www.facebook.com/BackpackersBible",
+        "https://www.instagram.com/backpackersbible"
+      ]
+    },
+
+    /* ══════════════════════════════════════════════════════
+       2. WEBPAGE (TravelGuide subtype)
+    ══════════════════════════════════════════════════════ */
+    {
+      "@type": ["WebPage", "TravelGuide"],
+      "@id": "https://backpackersbible.com/backpacking-south-africa/north-west.htm#webpage",
+      "url": "https://backpackersbible.com/backpacking-south-africa/north-west.htm",
+      "name": "North West Backpacking Guide: Safaris & Ancient Landscapes",
+      "headline": "North West Backpacking Guide: Safaris & Ancient Landscapes",
+      "description": "Ready for a mission into the wild? Get the full hostel directory, interactive maps, and real safety advice for exploring the North West's hidden gems.",
+      "inLanguage": "en",
+      "isPartOf": { "@id": "https://backpackersbible.com/#website" },
+      "publisher": { "@id": "https://backpackersbible.com/#organization" },
+      "author": { "@id": "https://backpackersbible.com/#organization" },
+      "dateModified": "2026-01-01",
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://backpackersbible.com/assets/social-preview.jpg"
+      },
+      "about": [
+        { "@type": "AdministrativeArea", "name": "North West Province", "sameAs": "https://en.wikipedia.org/wiki/North_West_(South_African_province)" },
+        { "@type": "Thing", "name": "Backpacking", "sameAs": "https://en.wikipedia.org/wiki/Backpacking_(travel)" }
+      ],
+      "mentions": [
+        { "@id": "https://backpackersbible.com/backpacking-south-africa/north-west.htm#map" },
+        { "@id": "https://backpackersbible.com/backpacking-south-africa/north-west.htm#hostel-list" },
+        { "@id": "https://backpackersbible.com/backpacking-south-africa/north-west.htm#activities" },
+        { "@id": "https://backpackersbible.com/backpacking-south-africa/north-west.htm#safety-guide" },
+        { "@id": "https://backpackersbible.com/backpacking-south-africa/north-west.htm#faq" }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".intro-p", ".detail-p", "#safety", "#faq"]
+      }
+    },
+
+    /* ══════════════════════════════════════════════════════
+       3. BREADCRUMB LIST
+    ══════════════════════════════════════════════════════ */
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://backpackersbible.com/backpacking-south-africa/north-west.htm#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://backpackersbible.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Backpacking South Africa",
+          "item": "https://backpackersbible.com/backpacking-south-africa/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Backpacking North West Province",
+          "item": "https://backpackersbible.com/backpacking-south-africa/north-west.htm"
+        }
+      ]
+    },
+
+    /* ══════════════════════════════════════════════════════
+       4. FAQ PAGE — Rich result eligible
+    ══════════════════════════════════════════════════════ */
+    {
+      "@type": "FAQPage",
+      "@id": "https://backpackersbible.com/backpacking-south-africa/north-west.htm#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "When is the best time to visit North West Province as a backpacker?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Pilanesberg and Magaliesberg area follows the Highveld seasonal pattern. Winter (May–August) is dry, clear, and cold at night, with thinning vegetation that makes game sightings at Pilanesberg significantly better — dawn game drives in winter are extraordinary. Summer (October–March) is hot and stormy, with green, dense bush that is beautiful but harder for spotting game. The tourist peak at Sun City is December–January (school holidays). For backpackers, the shoulder months of April/May and September/October offer the best combination of good weather, manageable crowds, and reasonable prices."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need a car to visit North West Province?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For the Pilanesberg/Sun City/Magaliesberg circuit: yes, essentially. Pilanesberg is a self-drive park with no public transport access to the gates, and Magaliesberg activities are spread across a 120km range with no connecting public transport. Hire a car from Johannesburg or Lanseria International Airport (which is significantly closer to Pilanesberg than O.R. Tambo). For Potchefstroom only: the town is accessible by Greyhound, Intercape, and FlixBus on the N12, and Bolt and Uber operate within the town."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is North West Province malaria-free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The entire North West Province, including Pilanesberg National Park, is malaria-free. This is one of its most significant practical advantages for backpackers who want Big Five game viewing without the medical complexity of Kruger or Madikwe in summer. No prophylaxis is required, no mosquito nets are needed, and there is no restriction on visiting with young children or immunocompromised travellers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does it cost to visit Pilanesberg and North West Province?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pilanesberg day visitor conservation fees are approximately R252 per person for international visitors (about €12.50). Guided game drives from Manyane or Bakubung camps cost R650–R850 per person (about €32–€42). Sun City's Valley of the Waves costs approximately R480 per person (about €24). The Magaliesberg Canopy Tour costs approximately R750 per person (about €37). A dorm bed at Hodge Podge Backpackers costs approximately R200–R280 per person (about €10–€14). The major spends in North West Province are on activities rather than accommodation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is North West Province safe for backpackers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "North West Province has a mixed safety profile. The tourist corridor — Pilanesberg, Sun City, the Magaliesberg resort strip — is well-managed and has the safety characteristics of a major tourist area. Rustenburg is a platinum mining town with a higher urban crime rate: keep your phone in your pocket, avoid the CBD at night, and use Bolt rather than walking between venues after dark. Pilanesberg is safe from a crime perspective but carries wildlife risk — stay in your vehicle on self-drive, do not exit except at designated picnic sites and hides, and treat all Big Five animals with serious caution. Potchefstroom has a standard South African university-town crime profile — apply standard urban precautions after dark."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the main backpacker attractions in North West Province?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The three defining attractions are: Pilanesberg National Park (a malaria-free Big Five game reserve 2.5 hours from Johannesburg, organised around the ancient alkaline Lake Mankwe), Sun City (a vast resort complex with the Valley of the Waves wave pool, the Palace of the Lost City hotel, and multiple entertainment venues — worth one full day), and the Magaliesberg (one of the oldest mountain ranges on earth at 2.3 billion years old, offering the Magaliesberg Canopy Tour, Kgaswane Mountain Reserve, and Hartebeespoort Dam). All three sit within an hour of each other in the northeastern corner of the province."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where should I stay as a backpacker in North West Province?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There are two hostels. Hodge Podge Backpackers Lodge in Rustenburg (Oliphants Nek, Magaliesberg foothills) is the base for the Pilanesberg/Magaliesberg circuit — it borders Kgaswane Mountain Reserve directly, offers log cabin cottages, dorms and camping, and is approximately 45–55km from Pilanesberg's main gate. Note the amber safety rating due to documented security incidents — read the full review before booking. Paljas Backpackers in Potchefstroom (near North-West University campus) serves travellers attending events at the university or sports venues. Its Booking.com cleanliness score of 3.0/10 across 225 reviews requires honest acknowledgement — inspect before committing and have a back-up option."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I get to Pilanesberg National Park from Johannesburg?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pilanesberg is approximately 2.5 hours from Johannesburg by car. The fastest route is via the N14 west and then north on the R565 towards Rustenburg, turning off for Pilanesberg/Sun City. Manyane Gate on the eastern side of the park is the most popular entrance and best-signposted from the N4. Lanseria International Airport is significantly closer than O.R. Tambo and is the preferred airport for those hiring a car specifically for this circuit. There is no public transport access to the park gates."
+          }
+        }
+      ]
+    },
+
+    /* ══════════════════════════════════════════════════════
+       5. MAP ENTITY
+    ══════════════════════════════════════════════════════ */
+    {
+      "@type": "Map",
+      "@id": "https://backpackersbible.com/backpacking-south-africa/north-west.htm#map",
+      "name": "North West Province Backpackers Hostel Map — All Hostels",
+      "description": "Interactive map of all backpacker hostels in North West Province, with contact details, addresses, and links to individual write-ups. Covers Rustenburg (Magaliesberg/Pilanesberg corridor) and Potchefstroom.",
+      "mapType": "https://schema.org/VenueMap",
+      "additionalType": "https://schema.org/Map",
+      "url": "https://backpackersbible.com/backpacking-south-africa/north-west.htm",
+      "hasMap": "https://www.google.com/maps/d/embed?mid=1YlCywz3bXNDCOhw6bLz-F3iPhC9XD4A&ehbc=2E312F&noprof=1&ll=-25.75,26.95&z=9",
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "North West Province",
+        "sameAs": "https://en.wikipedia.org/wiki/North_West_(South_African_province)"
+      },
+      "about": {
+        "@type": "Thing",
+        "name": "Backpacker Hostels in North West Province"
+      }
+    },
+
+    /* ══════════════════════════════════════════════════════
+       6. SAFETY GUIDE — HowTo subtype for safety tips
+    ══════════════════════════════════════════════════════ */
+    {
+      "@type": "HowTo",
+      "@id": "https://backpackersbible.com/backpacking-south-africa/north-west.htm#safety-guide",
+      "name": "How to Stay Safe in North West Province as a Backpacker",
+      "description": "Practical, honest safety advice for backpackers in North West Province, covering urban precautions in Rustenburg and Potchefstroom, wildlife safety in Pilanesberg, and hostel-specific security considerations.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Follow Big Five wildlife rules in Pilanesberg",
+          "text": "Pilanesberg is safe from a crime perspective but carries genuine wildlife risk. Stay in your vehicle on self-drive at all times and do not exit except at designated picnic sites and walk-in hides. Do not feed or approach animals. Elephant bulls in musth are unpredictable and have charged vehicles. Buffalo are statistically dangerous to humans. At the Mankwe Lake hides, be aware that the crocodile population extends further up the shoreline than the visible waterline suggests — move quietly and stay alert."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Apply urban precautions in Rustenburg",
+          "text": "Rustenburg is a platinum mining town with a higher-than-average urban crime rate. Keep your phone in your front pocket at all times, do not display cash, avoid the CBD at night, and use Bolt or Uber rather than walking between venues after dark. Hodge Podge Backpackers is located outside the town proper in the rural Oliphants Nek area, which reduces exposure to urban crime — but read the hostel's documented security incident history carefully before booking."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Secure your valuables at Hodge Podge",
+          "text": "Two serious theft incidents have been documented at Hodge Podge over its operating history, both involving easy perimeter access. Keep all valuables — electronics, cash, passports — on your person at all times and do not leave them in cabin rooms. Lock your car. Sleep with your phone and wallet on your person. The log cabin units offer their own private space and braai; book these in preference to dorm beds if the budget allows, and always ask at booking whether a function or event is scheduled during your stay, as this significantly changes the property's atmosphere and security dynamics."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Use standard urban precautions in Potchefstroom",
+          "text": "Potchefstroom has a standard South African university-town crime profile. The campus and main commercial streets are reasonably safe during daylight. After dark, use Bolt, stay in lit areas, and avoid walking alone in unfamiliar streets. The Esselen Street area where Paljas Backpackers is located is a residential, relatively low-risk neighbourhood — the main concerns at Paljas itself are maintenance-related rather than external criminal threat."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Hire your car before arriving in the province",
+          "text": "The Pilanesberg/Magaliesberg circuit has no meaningful public transport. Arrange car hire from Johannesburg or — preferably — Lanseria International Airport, which is significantly closer to Pilanesberg than O.R. Tambo. Do not arrive in North West Province expecting to arrange transport on the day. Having your own vehicle is also a safety asset: it allows you to avoid taxis, to leave venues at your own time, and to travel directly between your hostel and the park gates."
+        }
+      ]
+    },
+
+    /* ══════════════════════════════════════════════════════
+       7. ACTIVITIES — TouristAttraction entities
+    ══════════════════════════════════════════════════════ */
+    {
+      "@type": "ItemList",
+      "@id": "https://backpackersbible.com/backpacking-south-africa/north-west.htm#activities",
+      "name": "North West Province Backpacker Activities and Attractions",
+      "description": "Comprehensive guide to activities in North West Province for backpackers, from self-drive safari and hot air balloon flights to zipline canopy tours, mountain hiking, and Sun City's wave pool.",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "TouristAttraction",
+            "name": "Pilanesberg National Park — Self-Drive Safari",
+            "description": "South Africa's fourth-largest game reserve and the closest Big Five destination to Johannesburg, entirely malaria-free. The park occupies the eroded root zone of a 1.3-billion-year-old alkaline volcano, with concentric ridges radiating from the central Lake Mankwe. Self-drive day visitor fee approximately R252 per person for international visitors (about €12.50). Allow a minimum of five hours; a full day is better. Collect the free park map at the gate.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -25.2557, "longitude": 27.0014 },
+            "isAccessibleForFree": false,
+            "touristType": "Backpackers",
+            "sameAs": "https://en.wikipedia.org/wiki/Pilanesberg_National_Park"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "TouristAttraction",
+            "name": "Lake Mankwe Walk-In Hides",
+            "description": "The most consistently productive game-viewing spots in Pilanesberg and the ones most visitors skip. The Mankwe hide is a low concrete structure at the lake edge, accessible by a short boardwalk, that puts you at ground level with the hippo pod, the crocodiles that haul out on the far bank, and the elephant herds that drink in late afternoon. Free with day visitor entry. Bring binoculars. Stay at least 40 minutes.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -25.2600, "longitude": 27.0150 },
+            "isAccessibleForFree": false,
+            "touristType": "Backpackers"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "TouristAttraction",
+            "name": "Hot Air Balloon Safari over Pilanesberg",
+            "description": "Dawn hot air balloon flights over Pilanesberg, drifting silently over the bushveld at 300–600 metres as the sun rises. Wildlife visible from above: buffalo herds moving through valley floors, elephant family groups feeding in early light, white egrets following the game. Approximately one hour of flying followed by a bush breakfast. Cost approximately R3,500 per person (about €175). By universal account one of the finest experiences available in the province.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -25.2557, "longitude": 27.0014 },
+            "isAccessibleForFree": false,
+            "touristType": "Backpackers"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "TouristAttraction",
+            "name": "Sun City — Valley of the Waves",
+            "description": "A wave pool generating 1.8-metre surfable waves, a white sand beach lined with palm trees, a 70-metre waterslide called the Temple of Courage, tube rides, and a lazy river — set in the African bushveld. Day entry approximately R480 per person (about €24). Go on a weekday. Accept that you are having the best time in the most ridiculous setting in South Africa.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -25.3400, "longitude": 27.0960 },
+            "isAccessibleForFree": false,
+            "touristType": "Backpackers",
+            "sameAs": "https://en.wikipedia.org/wiki/Sun_City,_North_West"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "TouristAttraction",
+            "name": "Palace of the Lost City — Public Areas",
+            "description": "One of the most extraordinary architectural statements in South Africa: a faux-ancient African palace built with genuine craftsmanship, enormous carved elephant tusks, painted ceilings, and mosaic floors. No room booking required to walk through the public areas. The Bridge of Time at the entrance produces an 'eruption' on the hour — a theatrical vibration of the bridge. Free to visit the public areas.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -25.3390, "longitude": 27.0930 },
+            "isAccessibleForFree": true,
+            "touristType": "Backpackers"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "TouristAttraction",
+            "name": "Magaliesberg Canopy Tour",
+            "description": "Eleven platforms connected by ten zipline cables through the kloofs and cliffs of the northern Magaliesberg escarpment, including one cable running at 100 metres above the gorge below. The ancient rock faces alongside are 2.3 billion years old. Approximately three hours. Cost approximately R750 per person (about €37). Book ahead; sells out at weekends. No experience required, all safety equipment provided. Minimum age 6 years.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -25.9957, "longitude": 27.5180 },
+            "isAccessibleForFree": false,
+            "touristType": "Backpackers"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@type": "TouristAttraction",
+            "name": "Kgaswane Mountain Reserve",
+            "description": "A 40-square-kilometre chunk of undeveloped western Magaliesberg managed by the North West Parks Board, accessible from the R565 east of Rustenburg. Walking trails and a limited vehicle route give access to quartzite ridges, fynbos vegetation, Cape mountain zebra, brown hyena, and a Cape vulture colony at Manyeleti viewable from a designated lookout. Day visitor fee approximately R100 per person (about €5). One of the most accessible Cape vulture viewing points in the province. Borders Hodge Podge Backpackers directly.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -25.7800, "longitude": 27.2600 },
+            "isAccessibleForFree": false,
+            "touristType": "Backpackers"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "item": {
+            "@type": "TouristAttraction",
+            "name": "Hartebeespoort Dam and Cableway",
+            "description": "The Hartebeespoort Dam sits in the eastern Magaliesberg where the mountains form a natural wall above the Crocodile River valley. The cableway climbs from the valley floor to a plateau at the summit of the Magaliesberg ridge — 450 vertical metres — with a view extending south across the entire Highveld and north into the Bushveld on a clear day. Cost approximately R220 return per person (about €11). Short hiking trails follow the ridge from the top. Go on a weekday to avoid crowds.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -25.7467, "longitude": 27.8694 },
+            "isAccessibleForFree": false,
+            "touristType": "Backpackers"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "item": {
+            "@type": "TouristAttraction",
+            "name": "Kgaswane Boundary Trail from Hodge Podge Backpackers",
+            "description": "A hiking trail up the mountain behind Hodge Podge Backpackers that gives access to Kgaswane Nature Reserve's ridge terrain and views over the Rustenburg valley to the south and the Bushveld plains to the north. Steep in places, requires reasonable fitness, but no technical equipment or guide needed. Free with hostel stay. Ask Antoinette on arrival for current trail status and access information.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -25.7762, "longitude": 27.2436 },
+            "isAccessibleForFree": true,
+            "touristType": "Backpackers"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "item": {
+            "@type": "TouristAttraction",
+            "name": "Pilanesberg Guided Game Drives",
+            "description": "Dawn and late-afternoon guided game drives in open vehicles from the Manyane, Bakubung, and Kwa Maritane camps inside Pilanesberg. Dawn drives leave at approximately 5:30am in summer and access tracks closed to self-drive visitors. Guides have radio communication with other rangers for real-time sightings. Cost approximately R650–R850 per person (about €32–€42). Recommended for first-time safari visitors.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -25.2557, "longitude": 27.0014 },
+            "isAccessibleForFree": false,
+            "touristType": "Backpackers"
+          }
+        }
+      ]
+    },
+
+    /* ══════════════════════════════════════════════════════
+       8. HOSTEL ITEM LIST — Full directory (2 hostels)
+    ══════════════════════════════════════════════════════ */
+    {
+      "@type": "ItemList",
+      "@id": "https://backpackersbible.com/backpacking-south-africa/north-west.htm#hostel-list",
+      "name": "Complete Directory of North West Province Hostels — All 2",
+      "description": "Every hostel in North West Province reviewed independently and without affiliate bias. Includes direct contact details, phone, WhatsApp, email, website, pricing, vibe, safety rating, solo-female friendliness, and digital nomad rating.",
+      "numberOfItems": 2,
+
+      "itemListElement": [
+
+        /* ── 1. HODGE PODGE BACKPACKERS LODGE ── */
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Hostel",
+            "@id": "https://backpackersbible.com/backpacking-south-africa/north-west.htm#hodge-podge-backpackers",
+            "name": "Hodge Podge Backpackers Lodge",
+            "url": "https://backpackersbible.com/backpacking-south-africa/north-west.htm#hodge-podge-backpackers",
+            "description": "Rural mountain farmstay hostel in the Magaliesberg foothills, bordering Kgaswane Nature Reserve directly and approximately 45–55km from Pilanesberg's main gate. Mixed dorms, private rooms, log cabin cottages (with bar fridge, microwave, and braai), and camping. The Middle of the Road Taste lapa bar, swimming pool, on-request potjiekos cooking by owner Antoinette, and a hiking trail into the Kgaswane Reserve. AMBER safety rating due to documented theft incidents — read review fully before booking.",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Plot 66 Kommiesdrift, Oliphants Nek",
+              "addressLocality": "Rustenburg",
+              "addressRegion": "North West",
+              "postalCode": "0350",
+              "addressCountry": "ZA"
+            },
+            "geo": { "@type": "GeoCoordinates", "latitude": -25.77618, "longitude": 27.24361 },
+            "telephone": "+27740492917",
+            "contactPoint": [
+              {
+                "@type": "ContactPoint",
+                "contactType": "reservations",
+                "telephone": "+27740492917"
+              },
+              {
+                "@type": "ContactPoint",
+                "contactType": "customer support",
+                "telephone": "+27840794877",
+                "description": "WhatsApp contact"
+              }
+            ],
+            "email": "antoinette@magaliesburgbackpackers.co.za",
+            "hasMap": "https://maps.google.com/?q=-25.77618,27.24361",
+            "sameAs": [
+              "https://www.hodgepodgebackpackers.co.za"
+            ],
+            "priceRange": "ZAR100–ZAR1200",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "3.2",
+              "bestRating": "5",
+              "worstRating": "1",
+              "reviewCount": 26,
+              "ratingCount": 26,
+              "description": "TripAdvisor rating: 3.2/5 (#9 of 18 lodges in Rustenburg, 26 reviews)"
+            },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Direct access to Kgaswane Nature Reserve hiking trail", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "The Middle of the Road Taste lapa bar", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Swimming pool with mountain views", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "On-request potjiekos and open-fire cooking", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Braai facilities at all accommodation units", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Log cabin cottages with bar fridge, microwave, and braai", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Communal kitchen", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Camping (trailers and tents)", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Free Wi-Fi in lapa area", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Airport shuttle service available", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Function and wedding venue", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Free parking", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Pool table and table games", "value": true }
+            ]
+          }
+        },
+
+        /* ── 2. PALJAS BACKPACKERS ── */
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Hostel",
+            "@id": "https://backpackersbible.com/backpacking-south-africa/north-west.htm#paljas-backpackers",
+            "name": "Paljas Backpackers",
+            "url": "https://backpackersbible.com/backpacking-south-africa/north-west.htm#paljas-backpackers",
+            "description": "Budget hostel near the North-West University campus and Senwes Park sports complex in Potchefstroom. 35 private rooms and dormitory options in a quiet residential street. Convenient for NWU events and N12 travellers. Booking.com cleanliness score of 3.0/10 across 225 reviews requires honest disclosure — inspect room before committing and have a back-up option. AMBER safety rating (maintenance-related concerns rather than external crime).",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "22 Esselen Street, Cachet Bult Park",
+              "addressLocality": "Potchefstroom",
+              "addressRegion": "North West",
+              "postalCode": "2531",
+              "addressCountry": "ZA"
+            },
+            "geo": { "@type": "GeoCoordinates", "latitude": -26.69607, "longitude": 27.09326 },
+            "telephone": "+27724292914",
+            "contactPoint": [
+              {
+                "@type": "ContactPoint",
+                "contactType": "reservations",
+                "telephone": "+27724292914"
+              },
+              {
+                "@type": "ContactPoint",
+                "contactType": "customer support",
+                "telephone": "+27724292914",
+                "description": "WhatsApp contact"
+              }
+            ],
+            "hasMap": "https://maps.google.com/?q=-26.69607,27.09326",
+            "sameAs": [
+              "https://www.facebook.com/paljasbackpackers/",
+              "https://www.booking.com/hotel/za/paljas-backpackers.html"
+            ],
+            "priceRange": "ZAR250+",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "6.7",
+              "bestRating": "10",
+              "worstRating": "1",
+              "reviewCount": 225,
+              "ratingCount": 225,
+              "description": "Booking.com rating: 6.7/10 (#48 of 50 B&Bs and inns in Potchefstroom, 225 reviews)"
+            },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Free Wi-Fi throughout", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Garden and barbecue facilities", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "24-hour front desk", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Pet-friendly", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Private parking (R30/day)", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Near NWU Potchefstroom campus", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Near Senwes Park cricket and sports complex", "value": true }
+            ]
+          }
+        }
+
+      ]
+    }
+
+  ]
+}
+</script>
 
 </head>
 <body>
@@ -90,9 +591,9 @@
             
             <nav class="desktop-nav">
 
-    <strong><a href="../index.htm#download-pwa"style="font-size:1rem; letter-spacing:2px; margin-right: 1.5rem;" title="Choose between a PDF and an App to use on your phone while travelling">▾ FREE Hostel Guide!</a></strong>
+    <strong><a href="../index.html#download-pwa"style="font-size:1rem; letter-spacing:2px; margin-right: 1.5rem;" title="Choose between a PDF and an App to use on your phone while travelling">▾ FREE Hostel Guide!</a></strong>
 
-    <a href="../index.htm">Home</a>
+    <a href="../index.html">Home</a>
 
     <div class="nav-item">
 
@@ -918,11 +1419,10 @@ The Palace of the Lost City hotel is one of the most over-the-top architectural 
         <p class="footer-payoff">The World In Your Pocket</p>
 
         <nav class="footer-nav">
-            <a href="../index.htm">Home</a>
+            <a href="../index.html">Home</a>
             <a href="../backpacking-south-africa/index.htm">Backpacking South Africa</a>
             <a href="../backpacking-south-africa-advice/index.htm">Advice</a>
             <a href="../backpacking-south-africa-tours/index.htm">Tours</a>
-            <a href="../misc/backpackers-bible.htm">Downloads</a>
             <a href="../misc/privacy.htm">Privacy</a>
             <a href="../misc/about-backpackers-bible.htm">About Us</a>
         </nav>
@@ -1117,7 +1617,7 @@ window.onscroll = function() {
 
     <span class="close-btn" onclick="toggleMobileMenu()">&times;</span>
 
-    <a href="../index.htm">HOME</a>
+    <a href="../index.html">HOME</a>
 
     <button class="accordion" onclick="toggleAccordion(this)">BACKPACKING SOUTH AFRICA</button>
 
@@ -1229,7 +1729,7 @@ window.onscroll = function() {
 
     </div>
 
-    <a href="../index.htm#download-pwa" class="accordion"><strong>FREE HOSTEL GUIDE!</strong> <br> <span style="font-size:0.9rem;">(PDF or App)</span></a>
+    <a href="../index.html#download-pwa" class="accordion"><strong>FREE HOSTEL GUIDE!</strong> <br> <span style="font-size:0.9rem;">(PDF or App)</span></a>
 
             
             <a href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://backpackersbible.com" target="_blank" style="margin-top:5rem;">
