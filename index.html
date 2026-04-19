@@ -714,15 +714,51 @@
 <section>
 
 
-omnivore.kml(
-  "https://www.backpackersbible.com/assets/maps/backpacking-south-africa.xml"
-)
-.on('ready', function() {
+<!-- Leaflet CSS -->
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
 
-  console.log("KML loaded");
+<!-- Map container -->
+<div id="map" style="width:100%; height:570px;"></div>
 
-  let colourIndex = 0;
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
+<!-- KML plugin -->
+<script src="https://unpkg.com/leaflet-omnivore@0.3.4/leaflet-omnivore.min.js"></script>
+
+<script>
+window.addEventListener("load", function () {
+
+  // =====================
+  // MAP SETUP
+  // =====================
+  const map = L.map('map').setView([-30, 24], 5);
+
+  L.tileLayer(
+    'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+    {
+      attribution: 'Tiles © Esri'
+    }
+  ).addTo(map);
+
+  map.scrollWheelZoom.disable();
+
+  // =====================
+  // CUSTOM ICON
+  // =====================
+  const hostelIcon = L.icon({
+    iconUrl: '/assets/icons/hostel-pin.png',
+    iconSize: [24, 24],
+    iconAnchor: [12, 12],
+    popupAnchor: [0, -10]
+  });
+
+  // =====================
+  // REGION COLOURS
+  // =====================
   const colours = [
     "#ff4d4d",
     "#ff9933",
@@ -734,38 +770,56 @@ omnivore.kml(
     "#ff6699"
   ];
 
-  this.eachLayer(function(layer) {
+  let colourIndex = 0;
 
-    // =========================
-    // POLYGONS (REGIONS)
-    // =========================
-    if (layer instanceof L.Polygon) {
+  // =====================
+  // LOAD KML
+  // =====================
+  omnivore.kml(
+    "https://www.backpackersbible.com/assets/maps/backpacking-south-africa.xml"
+  )
+  .on('ready', function() {
 
-      const colour = colours[colourIndex % colours.length];
-      colourIndex++;
+    console.log("KML loaded successfully");
 
-      layer.setStyle({
-        color: colour,        // border
-        weight: 2,
-        fillColor: colour,
-        fillOpacity: 0.25
-      });
+    this.eachLayer(function(layer) {
 
-    }
+      // =====================
+      // POLYGONS (REGIONS)
+      // =====================
+      if (layer instanceof L.Polygon) {
 
-    // =========================
-    // MARKERS (HOSTELS)
-    // =========================
-    if (layer instanceof L.Marker) {
-      layer.setIcon(hostelIcon);
-    }
+        const colour = colours[colourIndex % colours.length];
+        colourIndex++;
 
-  });
+        layer.setStyle({
+          color: colour,
+          weight: 2,
+          fillColor: colour,
+          fillOpacity: 0.25
+        });
 
-  map.fitBounds(this.getBounds());
+      }
 
-})
-.addTo(map);
+      // =====================
+      // MARKERS (HOSTELS)
+      // =====================
+      if (layer instanceof L.Marker) {
+        layer.setIcon(hostelIcon);
+      }
+
+    });
+
+    map.fitBounds(this.getBounds());
+
+  })
+  .on('error', function(e) {
+    console.log("KML load error:", e);
+  })
+  .addTo(map);
+
+});
+</script>
 
 
 </section>
