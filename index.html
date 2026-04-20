@@ -4,14 +4,6 @@
 
 <head>
 
-
-
-
-
-
-
-
-
 <link rel="manifest" href="/manifest.json">
 <meta name="theme-color" content="#bc1d23">
 
@@ -710,117 +702,26 @@
 
 <div style="height: 143px; width: 100%; display: block;"></div>
 
+<section id="map-visual" style="width: 100vw; margin-left: calc(-50vw + 50%); position: relative; line-height: 0;">
 
-<section>
+    <div class="map-overlay-circle">
+        We list ALL the hostels in South Africa! Click the icons for info.
+    </div>
+    
+    <div id="region-map">
+        <iframe 
+            src="https://www.google.com/maps/d/embed?mid=1YlCywz3bXNDCOhw6bLz-F3iPhC9XD4A&ehbc=2E312F&noprof=1&ll=-32.10,21.47&z=6" 
+            width="100%" height="564" style="border:0; display: block;" allowfullscreen="">
+        </iframe>
+    </div>
 
-
-<!-- Leaflet CSS -->
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-/>
-
-<!-- Map container -->
-<div id="map" style="width:100%; height:570px;"></div>
-
-<!-- Leaflet JS -->
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-<!-- KML plugin -->
-<script src="https://unpkg.com/leaflet-omnivore@0.3.4/leaflet-omnivore.min.js"></script>
-
-<script>
-window.addEventListener("load", function () {
-
-  // =====================
-  // MAP SETUP
-  // =====================
-  const map = L.map('map').setView([-30, 24], 5);
-
-  L.tileLayer(
-    'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
-    {
-      attribution: 'Tiles © Esri'
-    }
-  ).addTo(map);
-
-  map.scrollWheelZoom.disable();
-
-  // =====================
-  // CUSTOM ICON
-  // =====================
-  const hostelIcon = L.icon({
-    iconUrl: '/assets/icons/hostel-pin.png',
-    iconSize: [24, 24],
-    iconAnchor: [12, 12],
-    popupAnchor: [0, -10]
-  });
-
-  // =====================
-  // REGION COLOURS
-  // =====================
-  const colours = [
-    "#ff4d4d",
-    "#ff9933",
-    "#33cc99",
-    "#3399ff",
-    "#cc66ff",
-    "#ffcc00",
-    "#66cccc",
-    "#ff6699"
-  ];
-
-  let colourIndex = 0;
-
-  // =====================
-  // LOAD KML
-  // =====================
-  omnivore.kml(
-    "https://www.backpackersbible.com/assets/maps/backpacking-south-africa.xml"
-  )
-  .on('ready', function() {
-
-    console.log("KML loaded successfully");
-
-    this.eachLayer(function(layer) {
-
-      // =====================
-      // POLYGONS (REGIONS)
-      // =====================
-      if (layer instanceof L.Polygon) {
-
-        const colour = colours[colourIndex % colours.length];
-        colourIndex++;
-
-        layer.setStyle({
-          color: colour,
-          weight: 2,
-          fillColor: colour,
-          fillOpacity: 0.25
-        });
-
-      }
-
-      // =====================
-      // MARKERS (HOSTELS)
-      // =====================
-      if (layer instanceof L.Marker) {
-        layer.setIcon(hostelIcon);
-      }
-
-    });
-
-    map.fitBounds(this.getBounds());
-
-  })
-  .on('error', function(e) {
-    console.log("KML load error:", e);
-  })
-  .addTo(map);
-
-});
-</script>
-
+    <div id="map-fallback" style="display:none;">
+        <picture>
+            <source media="(max-width: 767px)" srcset="assets/fallback_map_front_mobile.jpg">
+            
+            <img src="assets/fallback_map_front.jpg" alt="Map unavailable offline" style="width: 100%; height: auto; display: block; margin: 0;">
+        </picture>
+    </div>
 
 </section>
 
