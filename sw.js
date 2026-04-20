@@ -1,12 +1,11 @@
-const CACHE_NAME = 'backpackers-bible-v1';
+const CACHE_NAME = 'backpackers-bible-v2';
 
-// Add only the absolute essentials here (the homepage and CSS)
-// All the heavy photos/other pages will wait for the button click.
+// The essential files that get cached immediately when the page loads.
 const INITIAL_CACHE = [
   '/',
-  '/index.htm',
-  '/style.css',
-  '/android-chrome-512x512.png'
+  '/index.html',
+  '/css/style.css',
+  '/assets/android-chrome-512x512.png'
 ];
 
 self.addEventListener('install', event => {
@@ -15,17 +14,21 @@ self.addEventListener('install', event => {
   );
 });
 
-// The listener that waits for the button click
+// Listens for the button click, then caches all the heavy content.
+// When done, it sends a message back so the page can show a real success message.
 self.addEventListener('message', event => {
   if (event.data.type === 'START_CACHING') {
     const urlsToCache = event.data.urls;
-    
-    event.waitUntil(
-      caches.open(CACHE_NAME).then(cache => {
-        console.log('User requested offline download. Starting...');
-        return cache.addAll(urlsToCache);
-      })
-    );
+    const client = event.source;
+
+    caches.open(CACHE_NAME).then(cache => {
+      console.log('User requested offline download. Starting...');
+      cache.addAll(urlsToCache).then(() => {
+        client.postMessage({ type: 'CACHING_DONE' });
+      }).catch(() => {
+        client.postMessage({ type: 'CACHING_FAILED' });
+      });
+    });
   }
 });
 
