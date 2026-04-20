@@ -923,9 +923,17 @@
 
 </header>
 
-       <!-- Parallax image -->
+       <!-- srcset image -->
 
-<div class="parallax-window-4" style="background-image: url('../assets/backpacking_south_africa_advice-distances.webp'); margin-top:115px;"></div>
+<section class="hero-section">
+    <picture>
+        <source media="(max-width: 767px)" srcset="../assets/backpacking_south_africa_advice-distances_mobile.jpg">
+        
+        <source media="(min-width: 768px)" srcset="../assets/backpacking_south_africa_advice-distances.webp">
+        
+        <img src="../assets/backpacking_south_africa_advice-distances.webp" alt="Distances to cities sign" class="hero-img-fluid">
+    </picture>
+</section>
 
      <!-- Horizontal jump menu -->
 
@@ -997,9 +1005,9 @@
 <div class="yellow-menu-backdrop"></div>
 
 <nav id="quick-jump-menu">
-    <a href="index.htm">Preparation</a>
-    <a href="in-country.htm">In-Country</a>
-    <a href="specifics.htm">Specifics</a>
+    <a href="../index.html">Home</a>
+    <a href="../backpacking-south-africa-tours/index.htm">Tours</a>
+    <a href="../backpacking-south-africa/index.htm#hostels">Hostels</a>
 </nav>
 
      <!-- Section: Backpacking Advice -->
