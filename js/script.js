@@ -234,10 +234,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
-
-
-
 // MASTER SCROLL LOGIC: Controls Header, Back-to-Top, and Bottom Menus
 window.addEventListener("scroll", function() {
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -355,69 +351,26 @@ document.addEventListener("DOMContentLoaded", function() {
         if (activeLink) centerActiveCard(activeLink);
     }
 
-    checkUrlAndCenter();
-    // We remove the hashchange listener to prevent "fighting" with manual scrolling
-    // window.addEventListener('hashchange', checkUrlAndCenter); 
+function checkUrlAndCenter() {
+    const path = window.location.pathname;
+    const filename = path.split('/').pop();
 
-    const targets = links.map(link => {
-        const hashIndex = link.href.indexOf('#');
-        if (hashIndex !== -1) {
-            const hashId = link.href.substring(hashIndex + 1);
-            return document.getElementById(hashId);
-        }
-        return null;
-    }).filter(el => el !== null);
-
-    if (targets.length > 0) {
-        const observerOptions = {
-            root: null,
-            rootMargin: '-25% 0px -70% 0px', // Adjusted to trigger closer to the top
-            threshold: 0
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const activeId = entry.target.id;
-                    const activeLink = links.find(l => l.href.includes('#' + activeId));
-                    
-                    if (activeLink && !activeLink.classList.contains('jump-card--active')) {
-                        centerActiveCard(activeLink);
-                        // NOTE: We removed history.replaceState here. 
-                        // Updating the URL while scrolling is what causes the "Snap Back" in many browsers.
-                    }
-                }
-            });
-        }, observerOptions);
-
-        targets.forEach(target => observer.observe(target));
+    // 🚨 STOP if homepage
+    if (!filename || filename === "" || filename === "index.html") {
+        return;
     }
-});
 
+    // Find exact match only (not "includes")
+    const activeLink = links.find(link => {
+        const linkPath = link.getAttribute("href");
+        return linkPath === filename || linkPath.endsWith("/" + filename);
+    });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    if (activeLink) {
+        centerActiveCard(activeLink);
+        activeLink.classList.add("active"); // your red border
+    }
+}
 
 
 
@@ -454,26 +407,6 @@ function toggleMobileMenu() {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
