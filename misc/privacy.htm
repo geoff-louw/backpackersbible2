@@ -16,6 +16,16 @@
 
 <link rel="canonical" href="https://www.backpackersbible.com/misc/privacy.htm" />
 
+<link 
+  rel="preload" 
+  as="image"
+  imagesrcset="
+    ../assets/backpacker_with_camera.jpg 767w,
+    ../assets/backpacker_with_camera.webp 768w
+  "
+  imagesizes="100vw"
+>
+
 <link rel="stylesheet" href="../css/style.css">
 
 <script src="../js/script.js" defer></script>
@@ -32,13 +42,13 @@
 <meta property="og:url" content="https://www.backpackersbible.com/misc/privacy.htm">
 <meta property="og:title" content="Privacy Policy | The Backpacker’s Bible">
 <meta property="og:description" content="Your privacy is important to us. Read The Backpacker's Bible privacy policy to understand how we protect your data while providing independent travel advice.">
-<meta property="og:image" content="https://www.backpackersbible.com/assets/social-preview.jpg">
+<meta property="og:image" content="https://www.backpackersbible.com/assets/social_preview.jpg">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://www.backpackersbible.com/misc/privacy.htm">
 <meta name="twitter:title" content="Privacy Policy | The Backpacker’s Bible">
 <meta name="twitter:description" content="Your privacy is important to us. Read The Backpacker's Bible privacy policy to understand how we protect your data while providing independent travel advice.">
-<meta name="twitter:image" content="https://www.backpackersbible.com/assets/social-preview.jpg">
+<meta name="twitter:image" content="https://www.backpackersbible.com/assets/social_preview.jpg">
 
      <!-- Schema markup -->
 
@@ -278,9 +288,25 @@
 
      <!-- Header end -->
 
-     <!-- Parallax image -->
+       <!-- srcset image -->
 
-<div class="parallax-window" style="background-image: url('../assets/backpacker_with_camera.webp'); margin-top:143px;"></div>
+<section class="hero-section">
+  <picture>
+    <source 
+      media="(max-width: 767px)" 
+      srcset="../assets/backpacker_with_camera.jpg">
+
+    <source 
+      media="(min-width: 768px)" 
+      srcset="../assets/backpacker_with_camera.webp">
+
+    <img 
+      src="../assets/backpacker_with_camera.webp" 
+      alt="Backpacker with camera" 
+      class="hero-img-fluid"
+      fetchpriority="high">
+  </picture>
+</section>
 
     <!-- Header & text -->
 
@@ -439,7 +465,7 @@
         <a href="../backpacking-south-africa/cederberg.htm">Cederberg</a>
         <a href="../backpacking-south-africa/route-62.htm">Route 62</a>
         <a href="../backpacking-south-africa/overberg.htm">The Overberg</a>
-        <a href="../backpacking-south-africa/overberg.htm">Garden Route</a>
+        <a href="../backpacking-south-africa/garden-route.htm">Garden Route</a>
         <a href="../backpacking-south-africa/karoo.htm">Karoo</a>
         <a href="../backpacking-south-africa/sunshine-coast.htm">Sunshine Coast</a>
         <a href="../backpacking-south-africa/eastern-cape-interior.htm">Eastern Cape Interior</a>
