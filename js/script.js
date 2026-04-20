@@ -336,41 +336,74 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    function checkUrlAndCenter() {
-        const currentHash = window.location.hash;
-        const filename = window.location.pathname.split('/').pop() || 'index.htm';
-        
-        let activeLink;
-        if (currentHash) {
-            activeLink = links.find(l => l.href.includes(currentHash));
-        } else {
-            activeLink = links.find(l => l.href.includes(filename) && !l.href.includes('#')) 
-                      || links.find(l => l.href.includes(filename));
-        }
-        
-        if (activeLink) centerActiveCard(activeLink);
-    }
+
+
+
 
 function checkUrlAndCenter() {
-    const path = window.location.pathname;
-    const filename = path.split('/').pop();
+    let filename = window.location.pathname.split('/').pop();
 
-    // 🚨 STOP if homepage
-    if (!filename || filename === "" || filename === "index.html") {
-        return;
+    // Handle homepage properly
+    if (!filename || filename === "") {
+        filename = "index.html";
     }
 
-    // Find exact match only (not "includes")
+    // Find exact match only (no guessing)
     const activeLink = links.find(link => {
         const linkPath = link.getAttribute("href");
-        return linkPath === filename || linkPath.endsWith("/" + filename);
+        return linkPath.endsWith(filename);
     });
 
     if (activeLink) {
         centerActiveCard(activeLink);
-        activeLink.classList.add("active"); // your red border
+    } else {
+        // If nothing matches (fallback), stay at the left
+        container.scrollLeft = 0;
     }
 }
+
+
+
+
+    checkUrlAndCenter();
+    // We remove the hashchange listener to prevent "fighting" with manual scrolling
+    // window.addEventListener('hashchange', checkUrlAndCenter); 
+
+    const targets = links.map(link => {
+        const hashIndex = link.href.indexOf('#');
+        if (hashIndex !== -1) {
+            const hashId = link.href.substring(hashIndex + 1);
+            return document.getElementById(hashId);
+        }
+        return null;
+    }).filter(el => el !== null);
+
+    if (targets.length > 0) {
+        const observerOptions = {
+            root: null,
+            rootMargin: '-25% 0px -70% 0px', // Adjusted to trigger closer to the top
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const activeId = entry.target.id;
+                    const activeLink = links.find(l => l.href.includes('#' + activeId));
+                    
+                    if (activeLink && !activeLink.classList.contains('jump-card--active')) {
+                        centerActiveCard(activeLink);
+                        // NOTE: We removed history.replaceState here. 
+                        // Updating the URL while scrolling is what causes the "Snap Back" in many browsers.
+                    }
+                }
+            });
+        }, observerOptions);
+
+        targets.forEach(target => observer.observe(target));
+    }
+});
+
 
 
 
