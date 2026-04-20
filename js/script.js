@@ -559,9 +559,3 @@ links.forEach(link => {
 
 
 
-window.addEventListener("load", () => {
-  const menu = document.querySelector(".jump-menu-section");
-  if (menu) {
-    menu.scrollLeft = 0;
-  }
-});
