@@ -3174,7 +3174,7 @@ const fullSiteFiles = [
 
 btn.addEventListener('click', () => {
   if (navigator.serviceWorker.controller) {
-    status.innerText = "Downloading... please stay on this page.";
+    status.innerText = "Downloading... please stay on this page. This may take a minute or two on a slow connection.";
     btn.disabled = true;
     btn.style.opacity = "0.5";
 
@@ -3184,27 +3184,30 @@ btn.addEventListener('click', () => {
       urls: fullSiteFiles
     });
 
-    // Since we can't easily track progress for 65MB, we'll give a success message
-    // You can also use the 'controllerchange' or a message channel for more accuracy
-    setTimeout(() => {
-        status.innerText = "Success! This guide is now available offline.";
-    }, 5000); // Adjust time based on average 65MB download speed
   } else {
-    status.innerText = "Error: App not fully ready. Try refreshing.";
+    status.innerText = "Error: App not fully ready. Try refreshing the page and trying again.";
+  }
+});
+
+// Listen for the Service Worker to confirm it has actually finished downloading everything.
+// This replaces the old unreliable timer — the success message now only appears when the download is truly complete.
+navigator.serviceWorker.addEventListener('message', event => {
+  if (event.data.type === 'CACHING_DONE') {
+    status.innerText = "✅ Success! This guide is now available offline.";
+  } else if (event.data.type === 'CACHING_FAILED') {
+    status.innerText = "❌ Download failed. Please check your connection and try again.";
+    btn.disabled = false;
+    btn.style.opacity = "1";
   }
 });
 
 
-
-
-     <!-- WPA - so it does not ask if the user wants to download as soon as the home page is opened -->
+     <!-- Stop Chrome from showing its own 'Add to Home Screen' popup automatically.
+          We save the event so we can trigger it later, only if the user clicks the button. -->
 
 
 window.addEventListener('beforeinstallprompt', (e) => {
-  // This stops Chrome from showing its own 'Add to Home Screen' popup
   e.preventDefault();
-  
-  // We save the event so we can trigger it later ONLY if they click your button
   window.deferredPrompt = e;
 });
 
