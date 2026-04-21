@@ -45,10 +45,6 @@
 {
   "@context": "https://schema.org",
   "@graph": [
-
-    /* ══════════════════════════════════════════════════════
-       1. ORGANIZATION — Publisher node (same as all pages)
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "Organization",
       "@id": "https://backpackersbible.com/#organization",
@@ -66,10 +62,6 @@
         "https://www.instagram.com/backpackersbible"
       ]
     },
-
-    /* ══════════════════════════════════════════════════════
-       2. WEBSITE node
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "WebSite",
       "@id": "https://backpackersbible.com/#website",
@@ -77,11 +69,6 @@
       "name": "BackpackersBible.com",
       "publisher": { "@id": "https://backpackersbible.com/#organization" }
     },
-
-    /* ══════════════════════════════════════════════════════
-       3. WEBPAGE (TravelGuide subtype)
-       Primary target keyword: "tour of south africa"
-    ══════════════════════════════════════════════════════ */
     {
       "@type": ["WebPage", "TravelGuide"],
       "@id": "https://backpackersbible.com/backpacking-south-africa-tours/index.htm#webpage",
@@ -123,10 +110,6 @@
         "cssSelector": [".intro-p", "#itineraries", "#faq"]
       }
     },
-
-    /* ══════════════════════════════════════════════════════
-       4. BREADCRUMB LIST
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "BreadcrumbList",
       "@id": "https://backpackersbible.com/backpacking-south-africa-tours/index.htm#breadcrumb",
@@ -151,11 +134,6 @@
         }
       ]
     },
-
-    /* ══════════════════════════════════════════════════════
-       5. ITEM LIST — all itineraries as a collection
-       This is what Google uses for a rich "list" result
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "ItemList",
       "@id": "https://backpackersbible.com/backpacking-south-africa-tours/index.htm#itinerary-list",
@@ -231,17 +209,6 @@
         }
       ]
     },
-
-    /* ══════════════════════════════════════════════════════
-       6. INDIVIDUAL ITINERARY NODES
-       Schema.org does not have a native "Itinerary" type.
-       Best available type: TouristTrip (schema.org/TouristTrip).
-       Each itinerary is a separate node with its own @id
-       so it can be referenced from the ItemList above and
-       cross-linked from other pages.
-    ══════════════════════════════════════════════════════ */
-
-    /* ── 6a. The Cape Loop (7 days) ── */
     {
       "@type": "TouristTrip",
       "@id": "https://backpackersbible.com/backpacking-south-africa-tours/index.htm#cape-loop",
@@ -270,8 +237,6 @@
       },
       "provider": { "@id": "https://backpackersbible.com/#organization" }
     },
-
-    /* ── 6b. The Whistle-Stop Tour (14 days) ── */
     {
       "@type": "TouristTrip",
       "@id": "https://backpackersbible.com/backpacking-south-africa-tours/index.htm#whistle-stop",
@@ -305,8 +270,6 @@
       },
       "provider": { "@id": "https://backpackersbible.com/#organization" }
     },
-
-    /* ── 6c. The Northeast Triangle (14 days) ── */
     {
       "@type": "TouristTrip",
       "@id": "https://backpackersbible.com/backpacking-south-africa-tours/index.htm#northeast-triangle",
@@ -341,8 +304,6 @@
       },
       "provider": { "@id": "https://backpackersbible.com/#organization" }
     },
-
-    /* ── 6d. The Grand Cape Loop (14 days) ── */
     {
       "@type": "TouristTrip",
       "@id": "https://backpackersbible.com/backpacking-south-africa-tours/index.htm#grand-cape-loop",
@@ -376,8 +337,6 @@
       },
       "provider": { "@id": "https://backpackersbible.com/#organization" }
     },
-
-    /* ── 6e. The Wild North (14 days) ── */
     {
       "@type": "TouristTrip",
       "@id": "https://backpackersbible.com/backpacking-south-africa-tours/index.htm#wild-north",
@@ -402,8 +361,6 @@
       },
       "provider": { "@id": "https://backpackersbible.com/#organization" }
     },
-
-    /* ── 6f. The Road Less Travelled (14 days) ── */
     {
       "@type": "TouristTrip",
       "@id": "https://backpackersbible.com/backpacking-south-africa-tours/index.htm#road-less-travelled",
@@ -433,8 +390,6 @@
       },
       "provider": { "@id": "https://backpackersbible.com/#organization" }
     },
-
-    /* ── 6g. The Backpacker's Bible (21 days) ── */
     {
       "@type": "TouristTrip",
       "@id": "https://backpackersbible.com/backpacking-south-africa-tours/index.htm#backpackers-bible",
@@ -444,8 +399,6 @@
       "touristType": "Backpackers",
       "provider": { "@id": "https://backpackersbible.com/#organization" }
     },
-
-    /* ── 6h. Coast & Karoo (21 days) ── */
     {
       "@type": "TouristTrip",
       "@id": "https://backpackersbible.com/backpacking-south-africa-tours/index.htm#coast-and-karoo",
@@ -455,8 +408,6 @@
       "touristType": "Backpackers",
       "provider": { "@id": "https://backpackersbible.com/#organization" }
     },
-
-    /* ── 6i. Off The Beaten Track (21 days) ── */
     {
       "@type": "TouristTrip",
       "@id": "https://backpackersbible.com/backpacking-south-africa-tours/index.htm#off-the-beaten-track",
@@ -466,8 +417,6 @@
       "touristType": "Backpackers",
       "provider": { "@id": "https://backpackersbible.com/#organization" }
     },
-
-    /* ── 6j. The Rainbow Nation (1 month) ── */
     {
       "@type": "TouristTrip",
       "@id": "https://backpackersbible.com/backpacking-south-africa-tours/index.htm#rainbow-nation",
@@ -477,8 +426,6 @@
       "touristType": "Backpackers",
       "provider": { "@id": "https://backpackersbible.com/#organization" }
     },
-
-    /* ── 6k. The Full Monty (3 months) ── */
     {
       "@type": "TouristTrip",
       "@id": "https://backpackersbible.com/backpacking-south-africa-tours/index.htm#full-monty",
@@ -503,11 +450,6 @@
       },
       "provider": { "@id": "https://backpackersbible.com/#organization" }
     },
-
-    /* ══════════════════════════════════════════════════════
-       7. FAQ PAGE — Rich result eligible
-       Questions targeted at searchers of "tour of south africa"
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "FAQPage",
       "@id": "https://backpackersbible.com/backpacking-south-africa-tours/index.htm#faq",
