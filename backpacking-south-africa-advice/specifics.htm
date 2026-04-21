@@ -48,10 +48,6 @@
 {
   "@context": "https://schema.org",
   "@graph": [
-
-    /* ══════════════════════════════════════════════════════
-       1. ORGANIZATION — Publisher node
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "Organization",
       "@id": "https://backpackersbible.com/#organization",
@@ -69,10 +65,6 @@
         "https://www.instagram.com/backpackersbible"
       ]
     },
-
-    /* ══════════════════════════════════════════════════════
-       2. WEBSITE node
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "WebSite",
       "@id": "https://backpackersbible.com/#website",
@@ -80,26 +72,6 @@
       "name": "BackpackersBible.com",
       "publisher": { "@id": "https://backpackersbible.com/#organization" }
     },
-
-    /* ══════════════════════════════════════════════════════
-       3. WEBPAGE
-       This page covers specific-interest topics for
-       backpackers in South Africa: clubs and festivals
-       (music, nightlife, Amapiano, major annual events),
-       surfing (breaks by region, sharks, gear, lessons),
-       digital nomads (remote work visa, load shedding,
-       city hubs, budgets), overlanding (operators, routes,
-       practicalities), cycle touring and bikepacking, ethical
-       volunteering (conservation, education, hostel-work
-       warning), and language schools (ESA-accredited,
-       CELTA, African languages).
-       Target queries: "surfing south africa backpacker",
-       "jeffreys bay surf guide", "volunteering south africa
-       ethical", "digital nomad south africa visa",
-       "overlanding southern africa", "cycle touring south
-       africa", "language schools cape town", "south africa
-       music festivals 2026", "amapiano clubs cape town"
-    ══════════════════════════════════════════════════════ */
     {
       "@type": ["WebPage", "TravelGuide"],
       "@id": "https://backpackersbible.com/backpacking-south-africa-advice/specifics.htm#webpage",
@@ -141,10 +113,6 @@
         "cssSelector": [".intro-p", "#surfing", "#festivals", "#volunteering", "#faq"]
       }
     },
-
-    /* ══════════════════════════════════════════════════════
-       4. BREADCRUMB LIST
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "BreadcrumbList",
       "@id": "https://backpackersbible.com/backpacking-south-africa-advice/specifics.htm#breadcrumb",
@@ -175,11 +143,6 @@
         }
       ]
     },
-
-    /* ══════════════════════════════════════════════════════
-       5. ITEM LIST — the page sections as a navigable
-       collection
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "ItemList",
       "@id": "https://backpackersbible.com/backpacking-south-africa-advice/specifics.htm#section-list",
@@ -230,15 +193,6 @@
         }
       ]
     },
-
-    /* ══════════════════════════════════════════════════════
-       6. CLUBS & FESTIVALS — structured as an Article with
-       Event nodes for the major annual festivals. Allows
-       Google to surface specific events in response to
-       queries like "south africa music festival 2026" or
-       "afrikaburn dates" and to understand the broader
-       nightlife context (Amapiano, Gqom, clubs by city).
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "Article",
       "@id": "https://backpackersbible.com/backpacking-south-africa-advice/specifics.htm#festivals",
@@ -333,16 +287,6 @@
         }
       ]
     },
-
-    /* ══════════════════════════════════════════════════════
-       7. SURFING — structured as an Article with Place nodes
-       for the major surf breaks. This surfaces the guide for
-       queries like "best surf spots south africa", "jeffreys
-       bay backpackers surf guide", "muizenberg surf lessons",
-       "coffee bay surfing", and "south africa shark risk
-       surfing". Price data is included to capture "how much
-       do surf lessons cost in south africa" queries.
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "Article",
       "@id": "https://backpackersbible.com/backpacking-south-africa-advice/specifics.htm#surfing",
@@ -387,17 +331,6 @@
         }
       ]
     },
-
-    /* ══════════════════════════════════════════════════════
-       8. DIGITAL NOMADS — structured as an Article covering
-       the South African Remote Work Visitor Visa (income
-       threshold, required documents, tax obligations), load-
-       shedding backup systems, city hubs by neighbourhood,
-       and a monthly budget breakdown. Targets queries like
-       "south africa remote work visa requirements", "digital
-       nomad south africa cost of living", "load shedding
-       nomad backup", "cape town digital nomad".
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "Article",
       "@id": "https://backpackersbible.com/backpacking-south-africa-advice/specifics.htm#digital-nomads",
@@ -421,14 +354,6 @@
         }
       ]
     },
-
-    /* ══════════════════════════════════════════════════════
-       9. OVERLANDING — structured as an Article with the
-       major operators named as Organizations. Targets queries
-       like "overlanding southern africa from cape town",
-       "nomad africa overlanding", "africa overland truck
-       tour", and "cape town to victoria falls overland".
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "Article",
       "@id": "https://backpackersbible.com/backpacking-south-africa-advice/specifics.htm#overlanding",
@@ -439,16 +364,6 @@
       "publisher": { "@id": "https://backpackersbible.com/#organization" },
       "isPartOf": { "@id": "https://backpackersbible.com/backpacking-south-africa-advice/specifics.htm#webpage" }
     },
-
-    /* ══════════════════════════════════════════════════════
-       10. CYCLING — structured as an Article covering both
-       cycle touring (long-distance and transcontinental) and
-       bikepacking (off-road multi-day). Targets queries like
-       "cycle touring south africa", "transcontinental cycling
-       africa cape town", "bikepacking south africa karoo",
-       "cycling garden route south africa", and "swartberg
-       pass cycling".
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "Article",
       "@id": "https://backpackersbible.com/backpacking-south-africa-advice/specifics.htm#cycling",
@@ -468,17 +383,6 @@
         }
       ]
     },
-
-    /* ══════════════════════════════════════════════════════
-       11. VOLUNTEERING — structured as an Article with
-       Organization nodes for the legitimate operators. The
-       hostel-work-for-accommodation warning is included in
-       the description because it is high-value, unique
-       content that directly targets searches like "volunteer
-       south africa hostel work", "is working for
-       accommodation in south africa legal", and "ethical
-       volunteering south africa".
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "Article",
       "@id": "https://backpackersbible.com/backpacking-south-africa-advice/specifics.htm#volunteering",
@@ -528,15 +432,6 @@
         }
       ]
     },
-
-    /* ══════════════════════════════════════════════════════
-       12. LANGUAGE SCHOOLS — structured as an Article with
-       Organization nodes for each named school. Targets
-       queries like "english language school cape town",
-       "learn english south africa", "CELTA cape town",
-       "ESA accredited language school south africa", and
-       "isiXhosa classes cape town".
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "Article",
       "@id": "https://backpackersbible.com/backpacking-south-africa-advice/specifics.htm#language-schools",
@@ -600,13 +495,6 @@
         }
       ]
     },
-
-    /* ══════════════════════════════════════════════════════
-       13. FAQ PAGE — Rich result eligible
-       Questions targeted at specific-interest searches —
-       surfers, nomads, volunteers, and festival-goers
-       researching before or during their trip.
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "FAQPage",
       "@id": "https://backpackersbible.com/backpacking-south-africa-advice/specifics.htm#faq",

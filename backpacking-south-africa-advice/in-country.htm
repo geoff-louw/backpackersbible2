@@ -48,10 +48,6 @@
 {
   "@context": "https://schema.org",
   "@graph": [
-
-    /* ══════════════════════════════════════════════════════
-       1. ORGANIZATION — Publisher node
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "Organization",
       "@id": "https://backpackersbible.com/#organization",
@@ -69,10 +65,6 @@
         "https://www.instagram.com/backpackersbible"
       ]
     },
-
-    /* ══════════════════════════════════════════════════════
-       2. WEBSITE node
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "WebSite",
       "@id": "https://backpackersbible.com/#website",
@@ -131,10 +123,6 @@
         "cssSelector": [".intro-p", "#emergencies", "#transport", "#food-and-drink", "#faq"]
       }
     },
-
-    /* ══════════════════════════════════════════════════════
-       4. BREADCRUMB LIST
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "BreadcrumbList",
       "@id": "https://backpackersbible.com/backpacking-south-africa-advice/in-country.htm#breadcrumb",
@@ -165,11 +153,6 @@
         }
       ]
     },
-
-    /* ══════════════════════════════════════════════════════
-       5. ITEM LIST — the page sections as a navigable
-       collection
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "ItemList",
       "@id": "https://backpackersbible.com/backpacking-south-africa-advice/in-country.htm#section-list",
@@ -220,14 +203,6 @@
         }
       ]
     },
-
-    /* ══════════════════════════════════════════════════════
-       6. EMERGENCY CONTACTS — structured as ContactPoint
-       nodes. This is what allows Google Assistant and other
-       agents to surface specific numbers in direct response
-       to queries like "south africa emergency number" or
-       "mountain rescue south africa".
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "Article",
       "@id": "https://backpackersbible.com/backpacking-south-africa-advice/in-country.htm#emergencies",
@@ -288,14 +263,6 @@
         }
       ]
     },
-
-    /* ══════════════════════════════════════════════════════
-       7. TRANSPORT GUIDE — Article node
-       Covers hire car, Baz Bus, intercity coaches, minibus
-       taxis, domestic flights, trains, and Uber/Bolt.
-       Targets "south africa transport backpacking",
-       "baz bus south africa", "how to get around south africa"
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "Article",
       "@id": "https://backpackersbible.com/backpacking-south-africa-advice/in-country.htm#transport",
@@ -306,15 +273,6 @@
       "publisher": { "@id": "https://backpackersbible.com/#organization" },
       "isPartOf": { "@id": "https://backpackersbible.com/backpacking-south-africa-advice/in-country.htm#webpage" }
     },
-
-    /* ══════════════════════════════════════════════════════
-       8. FOOD & DRINK GUIDE — Article node with
-       MenuItem nodes for key dishes and pricing.
-       The MenuItem type with price data makes this content
-       eligible for rich results on food-related queries —
-       "south africa food", "what is a braai", "south
-       african dishes", "food prices south africa".
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "Article",
       "@id": "https://backpackersbible.com/backpacking-south-africa-advice/in-country.htm#food-and-drink",
@@ -332,15 +290,6 @@
         { "@type": "Thing", "name": "Boerewors", "description": "A coarsely ground beef, pork, and spice sausage — the entry-level non-negotiable of any braai. R55–R70 (€2.75–€3.50) per 500g at supermarkets.", "sameAs": "https://en.wikipedia.org/wiki/Boerewors" }
       ]
     },
-
-    /* ══════════════════════════════════════════════════════
-       9. LANGUAGE GUIDE — Article node with structured
-       language data. Targets "south african slang",
-       "south african words", "south african language guide",
-       "how to say hello in zulu/xhosa/afrikaans".
-       The Language nodes tell Google which actual languages
-       this article teaches.
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "Article",
       "@id": "https://backpackersbible.com/backpacking-south-africa-advice/in-country.htm#language",
@@ -357,15 +306,6 @@
         { "@type": "Language", "name": "Sesotho", "sameAs": "https://en.wikipedia.org/wiki/Sotho_language" }
       ]
     },
-
-    /* ══════════════════════════════════════════════════════
-       10. ETIQUETTE GUIDE — Article node
-       Covers greeting culture, Ubuntu, respect for elders,
-       the right hand rule, gestures, African time, and
-       township visit etiquette. Targets "south africa
-       etiquette", "south africa culture tips", "ubuntu
-       meaning".
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "Article",
       "@id": "https://backpackersbible.com/backpacking-south-africa-advice/in-country.htm#etiquette",
@@ -379,15 +319,6 @@
         { "@type": "Thing", "name": "Ubuntu", "description": "A Nguni Bantu concept often translated as 'I am because we are' — the idea that a person's humanity is expressed through their relationships with others. A lived value in South Africa that shapes daily interactions.", "sameAs": "https://en.wikipedia.org/wiki/Ubuntu_philosophy" }
       ]
     },
-
-    /* ══════════════════════════════════════════════════════
-       11. ONWARD TRAVEL — individual TouristDestination
-       nodes for each neighbouring country. This is what
-       allows Google to associate this page with searches
-       for "travelling to namibia from south africa" etc.,
-       and to cross-reference these as distinct destinations
-       rather than undifferentiated body text.
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "Article",
       "@id": "https://backpackersbible.com/backpacking-south-africa-advice/in-country.htm#onward-travel",
@@ -430,12 +361,6 @@
         }
       ]
     },
-
-    /* ══════════════════════════════════════════════════════
-       12. FAQ PAGE — Rich result eligible
-       Questions targeted at in-country searches —
-       people already travelling or about to depart.
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "FAQPage",
       "@id": "https://backpackersbible.com/backpacking-south-africa-advice/in-country.htm#faq",

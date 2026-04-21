@@ -48,10 +48,6 @@
 {
   "@context": "https://schema.org",
   "@graph": [
-
-    /* ══════════════════════════════════════════════════════
-       1. ORGANIZATION — Publisher node
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "Organization",
       "@id": "https://backpackersbible.com/#organization",
@@ -69,10 +65,6 @@
         "https://www.instagram.com/backpackersbible"
       ]
     },
-
-    /* ══════════════════════════════════════════════════════
-       2. WEBSITE node
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "WebSite",
       "@id": "https://backpackersbible.com/#website",
@@ -80,15 +72,6 @@
       "name": "BackpackersBible.com",
       "publisher": { "@id": "https://backpackersbible.com/#organization" }
     },
-
-    /* ══════════════════════════════════════════════════════
-       3. WEBPAGE
-       This page is pre-trip preparation: checklists, safety,
-       money, medical, embassies, cannabis law, useful apps.
-       Target queries: "backpacking south africa advice",
-       "south africa travel safety", "backpacking south africa
-       checklist", "south africa travel tips"
-    ══════════════════════════════════════════════════════ */
     {
       "@type": ["WebPage", "TravelGuide"],
       "@id": "https://backpackersbible.com/backpacking-south-africa-advice/index.htm#webpage",
@@ -127,10 +110,6 @@
         "cssSelector": [".intro-p", "#safety", "#money", "#faq"]
       }
     },
-
-    /* ══════════════════════════════════════════════════════
-       4. BREADCRUMB LIST
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "BreadcrumbList",
       "@id": "https://backpackersbible.com/backpacking-south-africa-advice/index.htm#breadcrumb",
@@ -155,13 +134,6 @@
         }
       ]
     },
-
-    /* ══════════════════════════════════════════════════════
-       5. ITEM LIST — the sections of this page as a
-       navigable collection. Signals to Google that this
-       is a structured guide with distinct, linkable topics,
-       not a single undifferentiated article.
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "ItemList",
       "@id": "https://backpackersbible.com/backpacking-south-africa-advice/index.htm#section-list",
@@ -212,14 +184,6 @@
         }
       ]
     },
-
-    /* ══════════════════════════════════════════════════════
-       6. HOW-TO — Preflight Checklist section
-       HowTo is Google's richest result type for step-by-step
-       preparation content. Eligible for an expanded SERP
-       display with numbered steps, images, and direct anchor
-       links into the page.
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "HowTo",
       "@id": "https://backpackersbible.com/backpacking-south-africa-advice/index.htm#checklists",
@@ -264,17 +228,6 @@
         }
       ]
     },
-
-    /* ══════════════════════════════════════════════════════
-       7. SAFETY GUIDE — represented as a SpecialAnnouncement
-       substitute using Article + about Place nodes.
-       The safety section covers Cape Town, Johannesburg,
-       Durban, road safety, hiking, scams, and sexual health.
-       We model it as a standalone Article node with
-       structured coverage of the places it addresses —
-       this is what allows Google to associate the safety
-       content with specific city-level searches.
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "Article",
       "@id": "https://backpackersbible.com/backpacking-south-africa-advice/index.htm#safety",
@@ -305,14 +258,6 @@
         }
       ]
     },
-
-    /* ══════════════════════════════════════════════════════
-       8. MONEY GUIDE — Article node
-       Covers currency, ATMs, cards, digital payments,
-       daily budget, and tipping. Targets "south africa
-       travel money" and "south africa budget backpacking"
-       queries.
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "Article",
       "@id": "https://backpackersbible.com/backpacking-south-africa-advice/index.htm#money",
@@ -327,14 +272,6 @@
         { "@type": "Thing", "name": "Budget travel" }
       ]
     },
-
-    /* ══════════════════════════════════════════════════════
-       9. MEDICAL GUIDE — Article node
-       Malaria prophylaxis, vaccinations, HIV/PrEP/PEP,
-       and private hospitals. Targets "south africa malaria",
-       "south africa vaccinations", "south africa health
-       advice" queries.
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "Article",
       "@id": "https://backpackersbible.com/backpacking-south-africa-advice/index.htm#medical",
@@ -349,14 +286,6 @@
         { "@type": "Thing", "name": "Travel medicine" }
       ]
     },
-
-    /* ══════════════════════════════════════════════════════
-       10. APPS — SoftwareApplication nodes
-       Each recommended app is a separate entity. This
-       is what allows Google to surface specific app names
-       in structured results and in Assistant queries like
-       "what apps do I need for South Africa".
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "SoftwareApplication",
       "@id": "https://backpackersbible.com/backpacking-south-africa-advice/index.htm#app-namola",
@@ -400,12 +329,6 @@
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "ZAR" },
       "isPartOf": { "@id": "https://backpackersbible.com/backpacking-south-africa-advice/index.htm#apps" }
     },
-
-    /* ══════════════════════════════════════════════════════
-       11. FAQ PAGE — Rich result eligible
-       Questions target the most common pre-trip searches
-       for backpacking South Africa.
-    ══════════════════════════════════════════════════════ */
     {
       "@type": "FAQPage",
       "@id": "https://backpackersbible.com/backpacking-south-africa-advice/index.htm#faq",
