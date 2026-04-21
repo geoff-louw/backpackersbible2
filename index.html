@@ -3189,7 +3189,17 @@ const fullSiteFiles = [
 
 ];
 
-btn.addEventListener('click', () => {
+btn.addEventListener('click', async () => {
+  // 1. Trigger the actual browser "Install App" popup!
+  if (window.deferredPrompt) {
+    window.deferredPrompt.prompt();
+    // Wait for the user to respond to the prompt
+    const { outcome } = await window.deferredPrompt.userChoice;
+    // We've used the prompt, and can't use it again, discard it
+    window.deferredPrompt = null;
+  }
+
+  // 2. Start the background caching of the files
   if (navigator.serviceWorker.controller) {
     status.innerText = "Downloading... please stay on this page. This may take a minute or two on a slow connection.";
     btn.disabled = true;
@@ -3202,7 +3212,8 @@ btn.addEventListener('click', () => {
     });
 
   } else {
-    status.innerText = "Error: App not fully ready. Try refreshing the page and trying again.";
+    // If they click this on the very first visit before the Service Worker is fully awake
+    status.innerText = "App is initializing. Please refresh the page and try again.";
   }
 });
 
