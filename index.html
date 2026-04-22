@@ -2697,22 +2697,42 @@ window.onscroll = function() {
      <!-- WPA -->
 
 <script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js')
-        .then(registration => {
-          console.log('ServiceWorker registration successful!');
-        }, err => {
-          console.log('ServiceWorker registration failed: ', err);
-        });
-    });
-  }
-
-
-
-
 const btn = document.getElementById('offline-btn');
 const status = document.getElementById('download-status');
+
+// Stop Chrome from showing its own 'Add to Home Screen' popup automatically.
+// We save the event so we can trigger it later, only if the user clicks the button.
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  window.deferredPrompt = e;
+});
+
+let swRegistration = null;
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js')
+      .then(reg => {
+        swRegistration = reg;
+        console.log('ServiceWorker registration successful!');
+      }, err => {
+        console.log('ServiceWorker registration failed: ', err);
+      });
+  });
+}
+
+// Listen for the Service Worker to confirm it has finished caching everything.
+navigator.serviceWorker.addEventListener('message', event => {
+  if (event.data.type === 'CACHING_DONE') {
+    status.innerText = "✅ Success! This guide is now available offline.";
+    btn.disabled = false;
+    btn.style.opacity = "1";
+  } else if (event.data.type === 'CACHING_FAILED') {
+    status.innerText = "❌ Download failed. Please check your connection and try again.";
+    btn.disabled = false;
+    btn.style.opacity = "1";
+  }
+});
 
 // List every single page and image you want to download here
 const fullSiteFiles = [
@@ -3210,53 +3230,37 @@ const fullSiteFiles = [
 ];
 
 btn.addEventListener('click', async () => {
-  // 1. Trigger the actual browser "Install App" popup!
+  // 1. Trigger the browser "Add to Home Screen" prompt if available
   if (window.deferredPrompt) {
     window.deferredPrompt.prompt();
-    // Wait for the user to respond to the prompt
     const { outcome } = await window.deferredPrompt.userChoice;
-    // We've used the prompt, and can't use it again, discard it
     window.deferredPrompt = null;
   }
 
-  // 2. Start the background caching of the files
-  if (navigator.serviceWorker.controller) {
-    status.innerText = "Downloading... please stay on this page. This may take a minute or two on a slow connection.";
-    btn.disabled = true;
-    btn.style.opacity = "0.5";
+  // 2. Start background caching via the Service Worker.
+  // Use navigator.serviceWorker.ready instead of checking .controller directly —
+  // .controller is null on the very first visit (before the SW has claimed the page),
+  // but .ready resolves as soon as a SW is active, which is what we need.
+  status.innerText = "Downloading... please stay on this page. This may take a minute or two on a slow connection.";
+  btn.disabled = true;
+  btn.style.opacity = "0.5";
 
-    // Send the list of files to the Service Worker
-    navigator.serviceWorker.controller.postMessage({
-      type: 'START_CACHING',
-      urls: fullSiteFiles
-    });
-
-  } else {
-    // If they click this on the very first visit before the Service Worker is fully awake
-    status.innerText = "App is initializing. Please refresh the page and try again.";
-  }
-});
-
-// Listen for the Service Worker to confirm it has actually finished downloading everything.
-// This replaces the old unreliable timer — the success message now only appears when the download is truly complete.
-navigator.serviceWorker.addEventListener('message', event => {
-  if (event.data.type === 'CACHING_DONE') {
-    status.innerText = "✅ Success! This guide is now available offline.";
-  } else if (event.data.type === 'CACHING_FAILED') {
-    status.innerText = "❌ Download failed. Please check your connection and try again.";
+  navigator.serviceWorker.ready.then(registration => {
+    if (registration.active) {
+      registration.active.postMessage({
+        type: 'START_CACHING',
+        urls: fullSiteFiles
+      });
+    } else {
+      status.innerText = "❌ Service Worker not ready. Please refresh and try again.";
+      btn.disabled = false;
+      btn.style.opacity = "1";
+    }
+  }).catch(() => {
+    status.innerText = "❌ Service Worker unavailable. Try refreshing the page.";
     btn.disabled = false;
     btn.style.opacity = "1";
-  }
-});
-
-
-     <!-- Stop Chrome from showing its own 'Add to Home Screen' popup automatically.
-          We save the event so we can trigger it later, only if the user clicks the button. -->
-
-
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault();
-  window.deferredPrompt = e;
+  });
 });
 
 </script>
