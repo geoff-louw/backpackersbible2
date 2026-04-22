@@ -15,7 +15,8 @@ self.addEventListener('install', event => {
 });
 
 // Listens for the button click, then caches all the heavy content.
-// When done, it sends a message back so the page can show a real success message.
+// Uses Promise.allSettled so a single missing file won't fail the whole download.
+// When done, sends a message back so the page can show a real success message.
 self.addEventListener('message', event => {
   if (event.data.type === 'START_CACHING') {
     const urlsToCache = event.data.urls;
@@ -23,11 +24,18 @@ self.addEventListener('message', event => {
 
     caches.open(CACHE_NAME).then(cache => {
       console.log('User requested offline download. Starting...');
-      cache.addAll(urlsToCache).then(() => {
+
+      const cachePromises = urlsToCache.map(url =>
+        cache.add(url).catch(err => {
+          console.warn('Failed to cache (skipping):', url, err);
+        })
+      );
+
+      Promise.allSettled(cachePromises).then(() => {
         client.postMessage({ type: 'CACHING_DONE' });
-      }).catch(() => {
-        client.postMessage({ type: 'CACHING_FAILED' });
       });
+    }).catch(() => {
+      client.postMessage({ type: 'CACHING_FAILED' });
     });
   }
 });
