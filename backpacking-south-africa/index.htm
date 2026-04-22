@@ -293,12 +293,15 @@
 
      <!-- Header end -->
 
-     <!-- Hero image -->
+       <!-- srcset image -->
 
-<section class="tm-hero-map-section" id="map">
+<section class="hero-section">
     <picture>
         <source media="(max-width: 767px)" srcset="../assets/south_africa_backpacking_map.png">
-        <img src="../assets/south_africa_backpacking_map_extended.webp" alt="Map showing the backpacking regions of South Africa" class="tm-hero-map-img">
+        
+        <source media="(min-width: 768px)" srcset="../assets/south_africa_backpacking_map_extended.webp">
+        
+        <img src="../assets/south_africa_backpacking_map_extended.webp" alt="Map showing the backpacking regions of South Africa" class="hero-img-fluid">
     </picture>
 </section>
 
