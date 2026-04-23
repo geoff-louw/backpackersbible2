@@ -25,11 +25,19 @@ self.addEventListener('message', event => {
     caches.open(CACHE_NAME).then(cache => {
       console.log('User requested offline download. Starting...');
 
-      const cachePromises = urlsToCache.map(url =>
-        cache.add(url).catch(err => {
-          console.warn('Failed to cache (skipping):', url, err);
-        })
-      );
+      const cachePromises = urlsToCache.map(url => {
+        // Skip bare directory names (no dot and no slash after the first char)
+        // e.g. 'css', 'js', 'assets', 'misc' — these aren't fetchable URLs
+        const isBareDirectory = !url.includes('.') && !url.startsWith('/') && !url.includes('/');
+        if (isBareDirectory) return Promise.resolve();
+
+        // Ensure every URL starts with a leading slash so it resolves correctly
+        const absoluteUrl = url.startsWith('/') ? url : '/' + url;
+
+        return cache.add(absoluteUrl).catch(err => {
+          console.warn('Failed to cache (skipping):', absoluteUrl, err);
+        });
+      });
 
       Promise.allSettled(cachePromises).then(() => {
         client.postMessage({ type: 'CACHING_DONE' });
