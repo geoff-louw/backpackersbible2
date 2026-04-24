@@ -31,6 +31,7 @@
 
 <link rel="stylesheet" href="css/style.css">
 
+
 <script src="js/script.js" defer></script>
 
      <!-- Favicon -->
@@ -496,7 +497,22 @@
                 <button id="hamburger-icon" onclick="toggleMobileMenu()">☰</button>
             </div>
 
-            
+            <!-- Search bar (desktop) -->
+            <div class="desktop-search site-search-wrap">
+              <div class="site-search-bar" onclick="document.getElementById('search-input-desktop').focus()">
+                <input id="search-input-desktop" type="text" placeholder="Search this site..." autocomplete="off"
+                       oninput="runSearch(this.value,'search-results-desktop')"
+                       onfocus="if(this.value) document.getElementById('search-results-desktop').classList.add('open')"
+                       onblur="setTimeout(()=>document.getElementById('search-results-desktop').classList.remove('open'),200)">
+                <span class="search-icon">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
+                  </svg>
+                </span>
+              </div>
+              <div id="search-results-desktop" class="search-results"></div>
+            </div>
+
             <nav class="desktop-nav">
 
     <strong><a href="#download-pwa" style="font-size:1rem; letter-spacing:2px; margin-right: 1.5rem;" title="Choose between a PDF and an App to use on your phone while travelling">▾ FREE Hostel Guide!</a></strong>
@@ -3278,6 +3294,22 @@ btn.addEventListener('click', async () => {
 <div id="mobile-menu" style="position: fixed !important; z-index: 99999 !important;">
     <span class="close-btn" onclick="toggleMobileMenu()">&times;</span>
 
+    <!-- Search bar (mobile) -->
+    <div class="mobile-search site-search-wrap">
+      <div class="site-search-bar" onclick="document.getElementById('search-input-mobile').focus()">
+        <input id="search-input-mobile" type="text" placeholder="Search this site..." autocomplete="off"
+               oninput="runSearch(this.value,'search-results-mobile')"
+               onfocus="if(this.value) document.getElementById('search-results-mobile').classList.add('open')"
+               onblur="setTimeout(()=>document.getElementById('search-results-mobile').classList.remove('open'),200)">
+        <span class="search-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
+          </svg>
+        </span>
+      </div>
+      <div id="search-results-mobile" class="search-results"></div>
+    </div>
+
     <a href="/">HOME</a>
 
     <button class="accordion" onclick="toggleAccordion(this)">BACKPACKING SOUTH AFRICA</button>
@@ -3401,6 +3433,95 @@ btn.addEventListener('click', async () => {
 
             </div>
 
+<!-- Search functionality -->
+<script>
+(function() {
+  // ── Search data ──────────────────────────────────────────
+  // Populate this array with your site pages.
+  // Each entry: { title, desc, url }
+  // You can replace this with a fetch() from a search.json file.
+  var SEARCH_DATA = [
+    { title:"Home", desc:"Backpacking South Africa: The Complete Guide", url:"/" },
+    { title:"Cape Town", desc:"Backpacking guide, hostels & activities", url:"backpacking-south-africa/cape-town.htm" },
+    { title:"Winelands", desc:"Backpacking guide, hostels & activities", url:"backpacking-south-africa/winelands.htm" },
+    { title:"West Coast", desc:"Backpacking guide, hostels & activities", url:"backpacking-south-africa/west-coast.htm" },
+    { title:"Cederberg", desc:"Backpacking guide, hostels & activities", url:"backpacking-south-africa/cederberg.htm" },
+    { title:"Route 62", desc:"Backpacking guide, hostels & activities", url:"backpacking-south-africa/route-62.htm" },
+    { title:"The Overberg", desc:"Backpacking guide, hostels & activities", url:"backpacking-south-africa/overberg.htm" },
+    { title:"Garden Route", desc:"Backpacking guide, hostels & activities", url:"backpacking-south-africa/garden-route.htm" },
+    { title:"Karoo", desc:"Backpacking guide, hostels & activities", url:"backpacking-south-africa/karoo.htm" },
+    { title:"Sunshine Coast", desc:"Backpacking guide, hostels & activities", url:"backpacking-south-africa/sunshine-coast.htm" },
+    { title:"Eastern Cape Interior", desc:"Backpacking guide, hostels & activities", url:"backpacking-south-africa/eastern-cape-interior.htm" },
+    { title:"Wild Coast", desc:"Backpacking guide, hostels & activities", url:"backpacking-south-africa/wild-coast.htm" },
+    { title:"Free State", desc:"Backpacking guide, hostels & activities", url:"backpacking-south-africa/free-state.htm" },
+    { title:"South Coast", desc:"Backpacking guide, hostels & activities", url:"backpacking-south-africa/south-coast.htm" },
+    { title:"Durban", desc:"Backpacking guide, hostels & activities", url:"backpacking-south-africa/durban.htm" },
+    { title:"North Coast", desc:"Backpacking guide, hostels & activities", url:"backpacking-south-africa/north-coast.htm" },
+    { title:"Midlands", desc:"Backpacking guide, hostels & activities", url:"backpacking-south-africa/midlands.htm" },
+    { title:"Drakensberg", desc:"Backpacking guide, hostels & activities", url:"backpacking-south-africa/drakensberg.htm" },
+    { title:"Zululand", desc:"Backpacking guide, hostels & activities", url:"backpacking-south-africa/zululand.htm" },
+    { title:"Kruger National Park", desc:"Backpacking guide, hostels & activities", url:"backpacking-south-africa/kruger.htm" },
+    { title:"Mpumalanga", desc:"Backpacking guide, hostels & activities", url:"backpacking-south-africa/mpumalanga.htm" },
+    { title:"Limpopo", desc:"Backpacking guide, hostels & activities", url:"backpacking-south-africa/limpopo.htm" },
+    { title:"Johannesburg", desc:"Backpacking guide, hostels & activities", url:"backpacking-south-africa/johannesburg.htm" },
+    { title:"Pretoria", desc:"Backpacking guide, hostels & activities", url:"backpacking-south-africa/pretoria.htm" },
+    { title:"North West", desc:"Backpacking guide, hostels & activities", url:"backpacking-south-africa/north-west.htm" },
+    { title:"Northern Cape", desc:"Backpacking guide, hostels & activities", url:"backpacking-south-africa/northern-cape.htm" },
+    { title:"Eswatini", desc:"Backpacking guide, hostels & activities", url:"backpacking-south-africa/eswatini.htm" },
+    { title:"Lesotho", desc:"Backpacking guide, hostels & activities", url:"backpacking-south-africa/lesotho.htm" },
+    { title:"Regions Map / Full Hostel Directory", desc:"Interactive map of all South African backpacker hostels", url:"backpacking-south-africa/index.htm" },
+    { title:"Safety Advice", desc:"Pre-trip safety checklist and in-country safety tips", url:"backpacking-south-africa-advice/index.htm#safety" },
+    { title:"Money & Budgeting", desc:"Currency, costs, cards and budgeting advice", url:"backpacking-south-africa-advice/index.htm#money" },
+    { title:"Medical Advice", desc:"Vaccinations, malaria, and medical preparation", url:"backpacking-south-africa-advice/index.htm#medical" },
+    { title:"Transport", desc:"Getting around South Africa by bus, car and more", url:"backpacking-south-africa-advice/in-country.htm#transport" },
+    { title:"Food & Drink", desc:"What to eat and drink in South Africa", url:"backpacking-south-africa-advice/in-country.htm#food-and-drink" },
+    { title:"Digital Nomads", desc:"Working remotely while backpacking South Africa", url:"backpacking-south-africa-advice/specifics.htm#digital-nomads" },
+    { title:"Surfing", desc:"Best surf spots for backpackers", url:"backpacking-south-africa-advice/specifics.htm#surfing" },
+    { title:"Overlanding", desc:"Overland travel guide for backpackers", url:"backpacking-south-africa-advice/specifics.htm#overlanding" },
+    { title:"Cycle Touring", desc:"Cycling routes and tips across South Africa", url:"backpacking-south-africa-advice/specifics.htm#cycling" },
+    { title:"Festivals & Clubs", desc:"Music festivals and nightlife for backpackers", url:"backpacking-south-africa-advice/specifics.htm#festivals" },
+    { title:"Volunteering", desc:"Volunteer opportunities in South Africa", url:"backpacking-south-africa-advice/specifics.htm#volunteering" },
+    { title:"Tours & Itineraries", desc:"Self-drive and guided tour suggestions", url:"backpacking-south-africa-tours/index.htm" },
+    { title:"The Cape Loop (1 Week)", desc:"One-week self-drive itinerary", url:"backpacking-south-africa-tours/index.htm#cape-loop" },
+    { title:"The Whistlestop Tour (2 Weeks)", desc:"Two-week self-drive itinerary", url:"backpacking-south-africa-tours/index.htm#whistlestop" },
+    { title:"The Backpacker's Bible (3 Weeks)", desc:"Three-week self-drive itinerary", url:"backpacking-south-africa-tours/index.htm#backpackers-bible" },
+    { title:"The Rainbow Nation (1 Month)", desc:"One-month self-drive itinerary", url:"backpacking-south-africa-tours/index.htm#rainbow-nation" },
+    { title:"The Full Monty (3 Months)", desc:"Epic three-month self-drive itinerary", url:"backpacking-south-africa-tours/index.htm#full-monty" },
+    { title:"Free Hostel Guide (PDF or App)", desc:"Download the free offline hostel guide", url:"#download-pwa" }
+  ];
+
+  window.runSearch = function(query, resultsId) {
+    var box = document.getElementById(resultsId);
+    if (!box) return;
+    var q = query.trim().toLowerCase();
+    if (!q) { box.classList.remove('open'); box.innerHTML = ''; return; }
+
+    var matches = SEARCH_DATA.filter(function(item) {
+      return item.title.toLowerCase().includes(q) || item.desc.toLowerCase().includes(q);
+    }).slice(0, 8);
+
+    if (!matches.length) {
+      box.innerHTML = '<div class="search-no-results">No results for "' + escHtml(query) + '"</div>';
+    } else {
+      box.innerHTML = matches.map(function(m) {
+        return '<a class="search-result-item" href="' + m.url + '">'
+          + '<strong>' + highlight(m.title, q) + '</strong>'
+          + '<span>' + highlight(m.desc, q) + '</span>'
+          + '</a>';
+      }).join('');
+    }
+    box.classList.add('open');
+  };
+
+  function escHtml(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+  function highlight(text, q) {
+    var re = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')', 'gi');
+    return escHtml(text).replace(re, '<mark style="background:#fce8ed;color:#bc1d23;border-radius:2px;">$1</mark>');
+  }
+})();
+</script>
 
 </body>
 </html>
