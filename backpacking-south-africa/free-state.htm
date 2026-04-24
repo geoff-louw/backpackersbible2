@@ -619,7 +619,7 @@
             
             <nav class="desktop-nav">
 
-    <strong><a href="/#download-pwa" style="font-size:1rem; letter-spacing:2px; margin-right: 1.5rem;" title="Choose between a PDF and an App to use on your phone while travelling">▾ FREE Hostel Guide!</a></strong>
+    <strong><a href="/#download-pwa" style="font-size:1rem; letter-spacing:2px; margin-right: 1.5rem;" title="Choose between a PDF and an App to use on your phone while travelling">★ FREE Hostel Guide!</a></strong>
 
     <a href="/">Home</a>
 
@@ -1947,7 +1947,7 @@ window.onscroll = function() {
 
     </div>
 
-    <a href="/#download-pwa" class="accordion"><strong>FREE HOSTEL GUIDE!</strong> <br> <span style="font-size:0.9rem;">(PDF or App)</span></a>
+    <a href="/#download-pwa"><strong>★ FREE HOSTEL GUIDE!</strong> <br> <span style="font-size:0.9rem;">(PDF or App)</span></a>
 
             
             <a href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://backpackersbible.com" target="_blank">
@@ -1959,6 +1959,49 @@ window.onscroll = function() {
             SHARE</a>
 
             </div>
+<!-- Search functionality -->
+
+<script>
+(function() {
+  var SEARCH_DATA = [];
+
+  fetch('/search.json')
+    .then(function(r) { return r.json(); })
+    .then(function(data) { SEARCH_DATA = data; })
+    .catch(function() { SEARCH_DATA = []; });
+
+  window.runSearch = function(query, resultsId) {
+    var box = document.getElementById(resultsId);
+    if (!box) return;
+    var q = query.trim().toLowerCase();
+    if (!q) { box.classList.remove('open'); box.innerHTML = ''; return; }
+
+    var matches = SEARCH_DATA.filter(function(item) {
+      return item.title.toLowerCase().includes(q) || item.desc.toLowerCase().includes(q);
+    }).slice(0, 8);
+
+    if (!matches.length) {
+      box.innerHTML = '<div class="search-no-results">No results for "' + escHtml(query) + '"</div>';
+    } else {
+      box.innerHTML = matches.map(function(m) {
+        return '<a class="search-result-item" href="' + m.url + '">'
+          + '<strong>' + highlight(m.title, q) + '</strong>'
+          + '<span>' + highlight(m.desc, q) + '</span>'
+          + '</a>';
+      }).join('');
+    }
+    box.classList.add('open');
+  };
+
+  function escHtml(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+  function highlight(text, q) {
+    var re = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')', 'gi');
+    return escHtml(text).replace(re, '<mark style="background:#fce8ed;color:#bc1d23;border-radius:2px;">$1</mark>');
+  }
+})();
+</script>
 
 </body>
 </html>
