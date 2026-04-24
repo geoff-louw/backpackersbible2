@@ -1140,6 +1140,29 @@
 </head>
 <body>
 
+<!-- Skip links -->
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<a class="skip-link" href="#site-search-desktop">Skip to search</a>
+<a class="skip-link" href="#primary-nav">Skip to navigation</a>
+
+<style>
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background: #bc1d23;
+  color: #fff;
+  padding: 10px 18px;
+  font-size: 1rem;
+  font-weight: bold;
+  z-index: 999999;
+  text-decoration: none;
+  border-radius: 0 0 6px 0;
+  transition: top 0.1s;
+}
+.skip-link:focus { top: 0; }
+</style>
+
      <!-- Header start -->
 
 <header id="mainHeader">
@@ -1169,27 +1192,28 @@
 
         <div class="right-stack">
             <div class="utils-row">
-                <button id="hamburger-icon" onclick="toggleMobileMenu()">☰</button>
+                <button id="hamburger-icon" onclick="toggleMobileMenu()" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">☰</button>
             </div>
 
 <!-- Search bar (desktop) -->
 
             <div class="desktop-search site-search-wrap">
               <div class="site-search-bar" onclick="document.getElementById('search-input-desktop').focus()">
-                <input id="search-input-desktop" type="text" placeholder="Search this site..." autocomplete="off"
+                <input id="search-input-desktop" type="search" placeholder="Search this site..." autocomplete="off"
+                       aria-label="Search this site" aria-autocomplete="list" aria-controls="search-results-desktop"
                        oninput="runSearch(this.value,'search-results-desktop')"
                        onfocus="if(this.value) document.getElementById('search-results-desktop').classList.add('open')"
                        onblur="setTimeout(()=>document.getElementById('search-results-desktop').classList.remove('open'),200)">
-                <span class="search-icon">
-                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <span class="search-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false">
                     <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
                   </svg>
                 </span>
               </div>
-              <div id="search-results-desktop" class="search-results"></div>
+              <div id="search-results-desktop" class="search-results" role="listbox" aria-live="polite" aria-label="Search results"></div>
             </div>
             
-            <nav class="desktop-nav">
+            <nav class="desktop-nav" id="primary-nav" aria-label="Primary navigation">
 
     <strong><a href="../index.html#download-pwa" style="font-size:1rem; letter-spacing:2px; margin-right: 1.5rem;" title="Choose between a PDF and an App to use on your phone while travelling">★ FREE Hostel Guide!</a></strong>
 
@@ -1197,9 +1221,9 @@
 
     <div class="nav-item">
 
-        <a href="../backpacking-south-africa/index.htm" class="mega-trigger">▾ Backpacking South Africa</a>
+        <a href="../backpacking-south-africa/index.htm" class="mega-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="mega-regions">▾ Backpacking South Africa</a>
 
-        <div class="mega-menu">
+        <div class="mega-menu" id="mega-regions" role="region" aria-label="Backpacking South Africa regions">
 
             <div class="mega-col">
 
@@ -1262,9 +1286,9 @@
 
    <div class="nav-item">
 
-        <a href="../backpacking-south-africa-advice/index.htm" class="mega-trigger">▾ Advice</a>
+        <a href="../backpacking-south-africa-advice/index.htm" class="mega-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="mega-advice">▾ Advice</a>
 
-        <div class="mega-menu">
+        <div class="mega-menu" id="mega-advice" role="region" aria-label="Advice sections">
 
             <div class="mega-col">
 
@@ -1313,9 +1337,9 @@
 
     <div class="nav-item">
 
-        <a href="../backpacking-south-africa-tours/index.htm" class="mega-trigger">▾ TOURS</a>
+        <a href="../backpacking-south-africa-tours/index.htm" class="mega-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="mega-tours">▾ TOURS</a>
 
-        <div class="mega-menu">
+        <div class="mega-menu" id="mega-tours" role="region" aria-label="Tours and itineraries">
 
             <div class="mega-col">
 
@@ -1392,6 +1416,8 @@
 
 <div style="height: 143px; width: 100%; display: block;"></div>
 
+<main id="main-content">
+
 <section id="map-visual" style="width: 100vw; margin-left: calc(-50vw + 50%); position: relative; line-height: 0;">
 
     <div class="map-overlay-circle">
@@ -1419,7 +1445,7 @@
 
 <section class="jump-menu-section" style="background: #000; padding: 0; margin: 0; height: auto; min-height: 160px; overflow: hidden; position: relative; z-index: 1001;">  
 
-    <nav class="jump-menu-container" id="top-jump" 
+    <nav class="jump-menu-container" id="top-jump" aria-label="Regions jump menu" 
   style="display: flex !important; 
                 flex-wrap: nowrap !important; 
                 overflow-x: auto !important; 
@@ -1476,7 +1502,7 @@
 
 <div class="yellow-menu-backdrop"></div>
 
-<nav id="quick-jump-menu">
+<nav id="quick-jump-menu" aria-label="Quick section jump menu">
     <a href="#faq">About</a>
     <a href="#activities">Activities</a>
     <a href="#hostels">Hostels</a>
@@ -2179,7 +2205,7 @@
 <!-- ---- 1. CURIOCITY KLOOF ST ---- -->
 
 
-<section class="region-header-section" id="curiocity-kloof-street" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="CURIOCITY KLOOF STREET" id="curiocity-kloof-street" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">CURIOCITY KLOOF STREET</h2>
@@ -2277,8 +2303,7 @@
 <!-- ---- 2. LONG STREET BACKPACKERS ---- -->
 
 
-<section class="region-header-section" id="long-street-backpackers" style="scroll-margin-top: 120px;">
-
+<section class="region-header-section" aria-label="LONG STREET BACKPACKERS" id="long-street-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">LONG STREET BACKPACKERS</h2>
@@ -2365,7 +2390,7 @@
 
 <!-- ---- 3. ASHANTI LODGE GARDENS ---- -->
 
-<section class="region-header-section" id="ashanti-lodge-gardens" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="ASHANTI LODGE GARDENS" id="ashanti-lodge-gardens" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">ASHANTI LODGE GARDENS</h2>
@@ -2461,7 +2486,7 @@
 
 <!-- ---- 4. URBAN HIVE BACKPACKERS ---- -->
 
-<section class="region-header-section" id="urban-hive-backpackers" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="URBAN HIVE BACKPACKERS" id="urban-hive-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">URBAN HIVE BACKPACKERS</h2>
@@ -2549,7 +2574,7 @@
 
 <!-- ---- 5. VILLA VIVA CAPE TOWN ---- -->
 
-<section class="region-header-section" id="villa-viva-cape-town" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="VILLA VIVA CAPE TOWN" id="villa-viva-cape-town" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">VILLA VIVA CAPE TOWN</h2>
@@ -2637,7 +2662,7 @@
 
  <!-- ---- 6. ANZAC BACKPACKERS (STAGS HEAD INN) ---- -->
 
-<section class="region-header-section" id="anzac-backpackers" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="ANZAC BACKPACKERS (STAGS HEAD INN)" id="anzac-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">ANZAC BACKPACKERS (STAGS HEAD INN)</h2>
@@ -2708,7 +2733,7 @@
 
  <!-- ---- 7. 91 LOOP BOUTIQUE HOSTEL ---- -->
 
-<section class="region-header-section" id="ninety-one-loop-boutique-hostel" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="91 LOOP BOUTIQUE HOSTEL" id="ninety-one-loop-boutique-hostel" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">91 LOOP BOUTIQUE HOSTEL</h2>
@@ -2798,7 +2823,7 @@
 
 <!-- ---- 8. FORTY 8 BACKPACKERS ---- -->
 
-<section class="region-header-section" id="forty-eight-backpackers" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="FORTY 8 BACKPACKERS" id="forty-eight-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">FORTY 8 BACKPACKERS</h2>
@@ -2872,7 +2897,7 @@
 
 <!-- ---- 9. TWO OCEANS BACKPACKERS ---- -->
 
-<section class="region-header-section" id="two-oceans-backpackers" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="TWO OCEANS BACKPACKERS" id="two-oceans-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">TWO OCEANS BACKPACKERS</h2>
@@ -2945,7 +2970,7 @@
 
 <!-- ---- 10. ZEBRA CROSSING BACKPACKER LODGE ---- -->
 
-<section class="region-header-section" id="zebra-crossing-backpacker-lodge" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="ZEBRA CROSSING BACKPACKER LODGE" id="zebra-crossing-backpacker-lodge" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">ZEBRA CROSSING BACKPACKER LODGE</h2>
@@ -3035,7 +3060,7 @@
 
  <!-- ---- 11. BOKAAP BACKPACKERS ---- -->
 
-<section class="region-header-section" id="bokaap-backpackers" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="BOKAAP BACKPACKERS" id="bokaap-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">BOKAAP BACKPACKERS</h2>
@@ -3112,7 +3137,7 @@
 
 <!-- ---- 12. CURIOCITY GREEN POINT ---- -->
 
-<section class="region-header-section" id="curiocity-green-point" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="CURIOCITY GREEN POINT" id="curiocity-green-point" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">CURIOCITY GREEN POINT</h2>
@@ -3201,7 +3226,7 @@
 
 <!-- ---- 13. B.I.G.: BACKPACKERS IN GREEN POINT ---- -->
 
-<section class="region-header-section" id="big-backpackers" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="B.I.G.: BACKPACKERS IN GREEN POINT" id="big-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">B.I.G.: BACKPACKERS IN GREEN POINT</h2>
@@ -3290,7 +3315,7 @@
 
 <!-- ---- 14. BIG BLUE BACKPACKERS ---- -->
 
-<section class="region-header-section" id="big-blue-backpackers" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="BIG BLUE BACKPACKERS" id="big-blue-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">BIG BLUE BACKPACKERS</h2>
@@ -3380,7 +3405,7 @@
 
 <!-- ---- 15. ATLANTIC POINT BACKPACKERS ---- -->
 
-<section class="region-header-section" id="atlantic-point-backpackers" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="ATLANTIC POINT BACKPACKERS" id="atlantic-point-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">ATLANTIC POINT BACKPACKERS</h2>
@@ -3454,7 +3479,7 @@
 
 <!-- ---- 16. HOUSE ON THE HILL ---- -->
 
-<section class="region-header-section" id="house-on-the-hill" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="HOUSE ON THE HILL" id="house-on-the-hill" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">HOUSE ON THE HILL</h2>
@@ -3544,7 +3569,7 @@
 
 <!-- ---- 17. NEVER@HOME CAPE TOWN (GREEN POINT) ---- -->
 
-<section class="region-header-section" id="never-at-home-cape-town" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="NEVER@HOME  CAPE TOWN" id="never-at-home-cape-town" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">NEVER@HOME  CAPE TOWN</h2>
@@ -3634,7 +3659,7 @@
 
 <!-- ---- 18. A SUNFLOWER STOP BACKPACKERS ---- -->
 
-<section class="region-header-section" id="a-sunflower-stop-backpackers" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="A SUNFLOWER STOP BACKPACKERS" id="a-sunflower-stop-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">A SUNFLOWER STOP BACKPACKERS</h2>
@@ -3724,7 +3749,7 @@
 
 <!-- ---- 19. MOJO HOTEL ---- -->
 
-<section class="region-header-section" id="a-sunflower-stop-backpackers" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="MOJO HOTEL" id="a-sunflower-stop-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">MOJO HOTEL</h2>
@@ -3819,7 +3844,7 @@
 
 <!-- ---- 20. GREEN ELEPHANT BACKPACKERS ---- -->
 
-<section class="region-header-section" id="green-elephant-backpackers" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="GREEN ELEPHANT BACKPACKERS" id="green-elephant-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">GREEN ELEPHANT BACKPACKERS</h2>
@@ -3909,7 +3934,7 @@
 
 <!-- ---- 21. AFRICAN HEART BACKPACKERS ---- -->
 
-<section class="region-header-section" id="african-heart-backpackers" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="AFRICAN HEART BACKPACKERS" id="african-heart-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">AFRICAN HEART BACKPACKERS</h2>
@@ -3981,7 +4006,7 @@
 
 <!-- ---- 22. BOHEMIAN LOFTS BACKPACKERS ---- -->
 
-<section class="region-header-section" id="bohemian-lofts-backpackers" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="BOHEMIAN LOFTS BACKPACKERS" id="bohemian-lofts-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">BOHEMIAN LOFTS BACKPACKERS</h2>
@@ -4054,7 +4079,7 @@
 
 <!-- ---- 23. RIVERLODGE BACKPACKERS ---- -->
 
-<section class="region-header-section" id="riverlodge-backpackers" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="RIVERLODGE BACKPACKERS" id="riverlodge-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">RIVERLODGE BACKPACKERS</h2>
@@ -4142,7 +4167,7 @@
 
 <!-- ---- 24. LIGHTHOUSE FARM BACKPACKERS ---- -->
 
-<section class="region-header-section" id="lighthouse-farm-backpackers" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="LIGHTHOUSE FARM BACKPACKERS LODGE" id="lighthouse-farm-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">LIGHTHOUSE FARM BACKPACKERS LODGE</h2>
@@ -4235,7 +4260,7 @@
 
 <!-- ---- 25. HOUT BAY DUNE LODGE ---- -->
 
-<section class="region-header-section" id="hout-bay-dune-lodge" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="HOUT BAY DUNE LODGE" id="hout-bay-dune-lodge" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">HOUT BAY DUNE LODGE</h2>
@@ -4330,7 +4355,7 @@
 
 <!-- ---- 26. SALTYCRAX BACKPACKERS AND ADVENTURES ---- -->
 
-<section class="region-header-section" id="saltycrax-backpackers" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="SALTYCRAX BACKPACKERS AND ADVENTURES" id="saltycrax-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">SALTYCRAX BACKPACKERS AND ADVENTURES</h2>
@@ -4425,7 +4450,7 @@
 
 <!-- ---- 27. AFRICAN SOUL SURFER BACKPACKERS ---- -->
 
-<section class="region-header-section" id="african-soul-surfer-backpackers" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="AFRICAN SOUL SURFER BACKPACKERS" id="african-soul-surfer-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">AFRICAN SOUL SURFER BACKPACKERS</h2>
@@ -4526,7 +4551,9 @@
 
     <!-- Footer start -->
 
-<footer>
+</main>
+
+<footer role="contentinfo">
 
     <section class="affiliate-disclosure">
 
@@ -4562,7 +4589,7 @@
         <h2 class="footer-brand">BackpackersBible.com</h2>
         <p class="footer-payoff">The World In Your Pocket</p>
 
-        <nav class="footer-nav">
+        <nav class="footer-nav" aria-label="Footer navigation">
             <a href="/">Home</a>
             <a href="../backpacking-south-africa/index.htm">Backpacking South Africa</a>
             <a href="../backpacking-south-africa-advice/index.htm">Advice</a>
@@ -4578,7 +4605,7 @@
 <div class="footer-share">
             <span>SHARE</span>
             <a href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://backpackersbible.com" target="_blank">
-                <img src="../assets/whatsapp_icon_round.png" alt="WA" style="width:45px; height:45px;">
+                <img src="../assets/whatsapp_icon_round.png" alt="Share on WhatsApp" style="width:45px; height:45px;">
             </a>
         </div>
 
@@ -4757,32 +4784,33 @@ window.onscroll = function() {
 
      <!-- Mobile menu -->
 
-<div id="mobile-menu" style="position: fixed !important; z-index: 99999 !important;">
+<div id="mobile-menu" style="position: fixed !important; z-index: 99999 !important;" role="dialog" aria-modal="true" aria-label="Navigation menu" hidden>
 
-    <span class="close-btn" onclick="toggleMobileMenu()">&times;</span>
+    <span class="close-btn" onclick="toggleMobileMenu()" role="button" aria-label="Close navigation menu" tabindex="0">&times;</span>
 
     <!-- Search bar (mobile) -->
 
     <div class="mobile-search site-search-wrap">
       <div class="site-search-bar" onclick="document.getElementById('search-input-mobile').focus()">
-        <input id="search-input-mobile" type="text" placeholder="Search this site..." autocomplete="off"
+        <input id="search-input-mobile" type="search" placeholder="Search this site..." autocomplete="off"
+               aria-label="Search this site" aria-autocomplete="list" aria-controls="search-results-mobile"
                oninput="runSearch(this.value,'search-results-mobile')"
                onfocus="if(this.value) document.getElementById('search-results-mobile').classList.add('open')"
                onblur="setTimeout(()=>document.getElementById('search-results-mobile').classList.remove('open'),200)">
-        <span class="search-icon">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <span class="search-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false">
             <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
           </svg>
         </span>
       </div>
-      <div id="search-results-mobile" class="search-results"></div>
+      <div id="search-results-mobile" class="search-results" role="listbox" aria-live="polite" aria-label="Search results"></div>
     </div>
 
     <a href="/">HOME</a>
 
-    <button class="accordion" onclick="toggleAccordion(this)">BACKPACKING SOUTH AFRICA</button>
+    <button class="accordion" onclick="toggleAccordion(this)" aria-expanded="false" aria-controls="panel-regions">BACKPACKING SOUTH AFRICA</button>
 
-    <div class="panel">
+    <div class="panel" id="panel-regions" role="region" aria-label="Backpacking South Africa regions">
 
         <a href="../backpacking-south-africa/index.htm">Regions Map / Full Hostel Directory</a>
         <a href="../backpacking-south-africa/cape-town.htm">Cape Town</a>
@@ -4815,9 +4843,9 @@ window.onscroll = function() {
 
     </div>
 
-    <button class="accordion" onclick="toggleAccordion(this)">ADVICE</button>
+    <button class="accordion" onclick="toggleAccordion(this)" aria-expanded="false" aria-controls="panel-advice">ADVICE</button>
 
-    <div class="panel">
+    <div class="panel" id="panel-advice" role="region" aria-label="Advice sections">
 
                 <h3 style="color: #fff; font-size: 1.4rem; font-weight: normal; margin-top: 3rem; ">PREPARATION</h3>
 
@@ -4852,9 +4880,9 @@ window.onscroll = function() {
 
     </div>
 
-    <button class="accordion" onclick="toggleAccordion(this)">TOURS</button>
+    <button class="accordion" onclick="toggleAccordion(this)" aria-expanded="false" aria-controls="panel-tours">TOURS</button>
 
-    <div class="panel">
+    <div class="panel" id="panel-advice" role="region" aria-label="Advice sections">
 
                 <h3 style="color: #fff; font-size: 1.4rem; font-weight: normal; margin-top: 3rem; ">SELF-DRIVE ITINERARIES</h3>
 
@@ -4895,7 +4923,7 @@ window.onscroll = function() {
             
             <a href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://backpackersbible.com" target="_blank">
 
-                <img src="../assets/whatsapp_icon_round.png" alt="WA" style="width:45px; height:45px;">
+                <img src="../assets/whatsapp_icon_round.png" alt="Share on WhatsApp" style="width:45px; height:45px;">
 
             <br>
 
@@ -4944,6 +4972,46 @@ window.onscroll = function() {
     return escHtml(text).replace(re, '<mark style="background:#fce8ed;color:#bc1d23;border-radius:2px;">$1</mark>');
   }
 })();
+</script>
+
+<!-- Accessible toggle overrides -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var origToggleMobileMenu = window.toggleMobileMenu;
+  window.toggleMobileMenu = function() {
+    if (origToggleMobileMenu) origToggleMobileMenu();
+    var menu = document.getElementById('mobile-menu');
+    var btn  = document.getElementById('hamburger-icon');
+    if (!menu || !btn) return;
+    var visible = getComputedStyle(menu).display !== 'none';
+    btn.setAttribute('aria-expanded', visible ? 'true' : 'false');
+    btn.setAttribute('aria-label', visible ? 'Close navigation menu' : 'Open navigation menu');
+    if (visible) {
+      menu.removeAttribute('hidden');
+      var closeBtn = menu.querySelector('.close-btn');
+      if (closeBtn) setTimeout(function(){ closeBtn.focus(); }, 50);
+    } else {
+      menu.setAttribute('hidden', '');
+      btn.focus();
+    }
+  };
+  var closeBtn = document.querySelector('#mobile-menu .close-btn');
+  if (closeBtn) {
+    closeBtn.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); window.toggleMobileMenu(); }
+    });
+  }
+  var origToggleAccordion = window.toggleAccordion;
+  window.toggleAccordion = function(el) {
+    if (origToggleAccordion) origToggleAccordion(el);
+    var panelId = el.getAttribute('aria-controls');
+    if (!panelId) return;
+    var panel = document.getElementById(panelId);
+    if (!panel) return;
+    var isOpen = panel.style.display === 'block' || panel.classList.contains('open');
+    el.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  };
+});
 </script>
 
 </body>

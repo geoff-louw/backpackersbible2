@@ -1504,6 +1504,29 @@
 </head>
 <body>
 
+<!-- Skip links -->
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<a class="skip-link" href="#site-search-desktop">Skip to search</a>
+<a class="skip-link" href="#primary-nav">Skip to navigation</a>
+
+<style>
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background: #bc1d23;
+  color: #fff;
+  padding: 10px 18px;
+  font-size: 1rem;
+  font-weight: bold;
+  z-index: 999999;
+  text-decoration: none;
+  border-radius: 0 0 6px 0;
+  transition: top 0.1s;
+}
+.skip-link:focus { top: 0; }
+</style>
+
      <!-- Header start -->
 
 <header id="mainHeader">
@@ -1533,27 +1556,28 @@
 
         <div class="right-stack">
             <div class="utils-row">
-                <button id="hamburger-icon" onclick="toggleMobileMenu()">☰</button>
+                <button id="hamburger-icon" onclick="toggleMobileMenu()" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">☰</button>
             </div>
 
 <!-- Search bar (desktop) -->
 
             <div class="desktop-search site-search-wrap">
               <div class="site-search-bar" onclick="document.getElementById('search-input-desktop').focus()">
-                <input id="search-input-desktop" type="text" placeholder="Search this site..." autocomplete="off"
+                <input id="search-input-desktop" type="search" placeholder="Search this site..." autocomplete="off"
+                       aria-label="Search this site" aria-autocomplete="list" aria-controls="search-results-desktop"
                        oninput="runSearch(this.value,'search-results-desktop')"
                        onfocus="if(this.value) document.getElementById('search-results-desktop').classList.add('open')"
                        onblur="setTimeout(()=>document.getElementById('search-results-desktop').classList.remove('open'),200)">
-                <span class="search-icon">
-                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <span class="search-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false">
                     <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
                   </svg>
                 </span>
               </div>
-              <div id="search-results-desktop" class="search-results"></div>
+              <div id="search-results-desktop" class="search-results" role="listbox" aria-live="polite" aria-label="Search results"></div>
             </div>
             
-            <nav class="desktop-nav">
+            <nav class="desktop-nav" id="primary-nav" aria-label="Primary navigation">
 
     <strong><a href="/#download-pwa" style="font-size:1rem; letter-spacing:2px; margin-right: 1.5rem;" title="Choose between a PDF and an App to use on your phone while travelling">★ FREE Hostel Guide!</a></strong>
 
@@ -1561,9 +1585,9 @@
 
     <div class="nav-item">
 
-        <a href="../backpacking-south-africa/index.htm" class="mega-trigger">▾ Backpacking South Africa</a>
+        <a href="../backpacking-south-africa/index.htm" class="mega-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="mega-regions">▾ Backpacking South Africa</a>
 
-        <div class="mega-menu">
+        <div class="mega-menu" id="mega-regions" role="region" aria-label="Backpacking South Africa regions">
 
             <div class="mega-col">
 
@@ -1626,9 +1650,9 @@
 
    <div class="nav-item">
 
-        <a href="../backpacking-south-africa-advice/index.htm" class="mega-trigger">▾ Advice</a>
+        <a href="../backpacking-south-africa-advice/index.htm" class="mega-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="mega-advice">▾ Advice</a>
 
-        <div class="mega-menu">
+        <div class="mega-menu" id="mega-advice" role="region" aria-label="Advice sections">
 
             <div class="mega-col">
 
@@ -1677,9 +1701,9 @@
 
     <div class="nav-item">
 
-        <a href="../backpacking-south-africa-tours/index.htm" class="mega-trigger">▾ TOURS</a>
+        <a href="../backpacking-south-africa-tours/index.htm" class="mega-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="mega-tours">▾ TOURS</a>
 
-        <div class="mega-menu">
+        <div class="mega-menu" id="mega-tours" role="region" aria-label="Tours and itineraries">
 
             <div class="mega-col">
 
@@ -1758,6 +1782,8 @@
 
 <div style="height: 143px; width: 100%; display: block; background-color: #2f3130; "></div>
 
+<main id="main-content">
+
 <section id="map-visual" style="width: 100vw; margin-left: calc(-50vw + 50%); position: relative; line-height: 0;">
 
     <div class="map-overlay-circle">
@@ -1785,7 +1811,7 @@
 
 <section class="jump-menu-section" style="background: #000; padding: 0; margin: 0; height: auto; min-height: 160px; overflow: hidden; position: relative; z-index: 1001;">  
 
-    <nav class="jump-menu-container" id="top-jump" 
+    <nav class="jump-menu-container" id="top-jump" aria-label="Regions jump menu" 
   style="display: flex !important; 
                 flex-wrap: nowrap !important; 
                 overflow-x: auto !important; 
@@ -1839,7 +1865,7 @@
 
 <div class="yellow-menu-backdrop"></div>
 
-<nav id="quick-jump-menu">
+<nav id="quick-jump-menu" aria-label="Quick section jump menu">
     <a href="#faq">About</a>
     <a href="#activities">Activities</a>
     <a href="#hostels">Hostels</a>
@@ -2294,7 +2320,7 @@
 
 <!-- ---- 1. SEALS BACKPACKERS ---- -->
 
-<section class="region-header-section" id="seals-backpackers" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="SEALS BACKPACKERS" id="seals-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">SEALS BACKPACKERS</h2>
@@ -2386,7 +2412,7 @@
 
 <!-- ---- 2. ST FRANCIS BAY BACKPACKERS ---- -->
 
-<section class="region-header-section" id="st-francis-bay-backpackers" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="ST FRANCIS BAY BACKPACKERS" id="st-francis-bay-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">ST FRANCIS BAY BACKPACKERS</h2>
@@ -2461,7 +2487,7 @@
 <!-- JEFFREYS BAY -->
 <!-- ========================================================== -->
 
- <section class="region-header-section" id="island-vibe-backpackers" style="scroll-margin-top: 120px;">
+ <section class="region-header-section" aria-label="ISLAND VIBE BACKPACKERS" id="island-vibe-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">ISLAND VIBE BACKPACKERS</h2>
@@ -2551,7 +2577,7 @@
 
 <!-- ---- 4. JEFFREYS BAY BACKPACKERS ---- -->
 
-<section class="region-header-section" id="jeffreys-bay-backpackers" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="JEFFREYS BAY BACKPACKERS" id="jeffreys-bay-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">JEFFREYS BAY BACKPACKERS</h2>
@@ -2639,7 +2665,7 @@
 
 <!-- ---- 5. AFRICAN UBUNTU BACKPACKERS ---- -->
 
-<section class="region-header-section" id="african-ubuntu-backpackers" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="AFRICAN UBUNTU BACKPACKERS" id="african-ubuntu-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">AFRICAN UBUNTU BACKPACKERS</h2>
@@ -2730,7 +2756,7 @@
 
 <!-- ---- 6. THE LITTLE HOUSE ON SUPERS AT SUPERTUBES ---- -->
 
-<section class="region-header-section" id="little-house-on-supers" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="THE LITTLE HOUSE ON SUPERS AT SUPERTUBES" id="little-house-on-supers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">THE LITTLE HOUSE ON SUPERS AT SUPERTUBES</h2>
@@ -2820,7 +2846,7 @@
 
 <!-- ---- 7. IKHAYALAM LODGE ---- -->
 
-<section class="region-header-section" id="ikhayalam-lodge" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="IKHAYALAM LODGE AND TOURS" id="ikhayalam-lodge" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">IKHAYALAM LODGE AND TOURS</h2>
@@ -2909,7 +2935,7 @@
 
 <!-- ---- 8. LUNGILE BACKPACKERS ---- -->
 
-<section class="region-header-section" id="lungile-backpackers" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="LUNGILE BACKPACKERS" id="lungile-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">LUNGILE BACKPACKERS</h2>
@@ -2996,7 +3022,7 @@
 
 <!-- ---- 9. JIKELEZA LODGE BACKPACKERS HOSTEL ---- -->
 
-<section class="region-header-section" id="jikeleza-lodge" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="JIKELEZA LODGE BACKPACKERS HOSTEL" id="jikeleza-lodge" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">JIKELEZA LODGE BACKPACKERS HOSTEL</h2>
@@ -3084,7 +3110,7 @@
 
 <!-- ---- 10. THE HIPPO BACKPACKERS ---- -->
 
-<section class="region-header-section" id="the-hippo-backpackers" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="THE HIPPO BACKPACKERS" id="the-hippo-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">THE HIPPO BACKPACKERS</h2>
@@ -3156,7 +3182,7 @@
 
 <!-- ---- 11. RIVERFRONT BACKPACKERS ---- -->
 
-<section class="region-header-section" id="riverfront-backpackers" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="RIVERFRONT BACKPACKERS" id="riverfront-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">RIVERFRONT BACKPACKERS</h2>
@@ -3243,7 +3269,7 @@
 
 <!-- ---- 12. WOODLANDS COTTAGES & BACKPACKERS ---- -->
 
-<section class="region-header-section" id="woodlands-cottages-backpackers" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="WOODLANDS COTTAGES &amp; BACKPACKERS" id="woodlands-cottages-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">WOODLANDS COTTAGES &amp; BACKPACKERS</h2>
@@ -3315,7 +3341,7 @@
 
 <!-- ---- 1. ORANGE ELEPHANT BACKPACKERS ---- -->
 
-<section class="region-header-section" id="orange-elephant-backpackers" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="ORANGE ELEPHANT BACKPACKERS" id="orange-elephant-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">ORANGE ELEPHANT BACKPACKERS</h2>
@@ -3405,7 +3431,7 @@
 
 <!-- ---- 13. WOODY CAPE BACKPACKERS ---- -->
 
-<section class="region-header-section" id="wild-woody-cape" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="WILD WOODY CAPE BACKPACKERS" id="wild-woody-cape" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">WILD WOODY CAPE BACKPACKERS</h2>
@@ -3480,7 +3506,7 @@
 
 <!-- ---- 14. KOWIE BACKPACKERS ---- -->
 
-<section class="region-header-section" id="kowie-backpackers" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="KOWIE BACKPACKERS" id="kowie-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">KOWIE BACKPACKERS</h2>
@@ -3551,7 +3577,7 @@
 
 <!-- ---- 15. HAMBURG BACKPACKERS ---- -->
 
-<section class="region-header-section" id="hamburg-backpackers" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="HAMBURG BACKPACKERS" id="hamburg-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">HAMBURG BACKPACKERS</h2>
@@ -3627,7 +3653,7 @@
 
 <!-- ---- 16. BUFFALO BACKPACKERS ---- -->
 
-<section class="region-header-section" id="buffalo-backpackers" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="BUFFALO BACKPACKERS" id="buffalo-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">BUFFALO BACKPACKERS</h2>
@@ -3697,7 +3723,7 @@
 
 <!-- ---- 17. SUGAR SHACK BACKPACKERS ---- -->
 
-<section class="region-header-section" id="sugar-shack-backpackers" style="scroll-margin-top: 120px;">
+<section class="region-header-section" aria-label="SUGAR SHACK BACKPACKERS" id="sugar-shack-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">SUGAR SHACK BACKPACKERS</h2>
@@ -3779,7 +3805,7 @@
 
  <!-- ---- 1. BUCCANEERS LODGE & BACKPACKERS ---- -->
 
- <section class="region-header-section" id="buccaneers-chintsa" style="scroll-margin-top: 120px;">
+ <section class="region-header-section" aria-label="BUCCANEERS LODGE &amp; BACKPACKERS" id="buccaneers-chintsa" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
         <h2 class="detail-h2">BUCCANEERS LODGE &amp; BACKPACKERS</h2>
@@ -3876,7 +3902,9 @@
 
     <!-- Footer start -->
 
-<footer>
+</main>
+
+<footer role="contentinfo">
 
     <div class="f-strip black"></div>
 
@@ -3914,7 +3942,7 @@
         <h2 class="footer-brand">BackpackersBible.com</h2>
         <p class="footer-payoff">The World In Your Pocket</p>
 
-        <nav class="footer-nav">
+        <nav class="footer-nav" aria-label="Footer navigation">
             <a href="/">Home</a>
             <a href="../backpacking-south-africa/index.htm">Backpacking South Africa</a>
             <a href="../backpacking-south-africa-advice/index.htm">Advice</a>
@@ -3930,7 +3958,7 @@
 <div class="footer-share">
             <span>SHARE</span>
             <a href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://backpackersbible.com" target="_blank">
-                <img src="../assets/whatsapp_icon_round.png" alt="WA" style="width:45px; height:45px;">
+                <img src="../assets/whatsapp_icon_round.png" alt="Share on WhatsApp" style="width:45px; height:45px;">
             </a>
         </div>
 
@@ -4109,32 +4137,33 @@ window.onscroll = function() {
 
      <!-- Mobile menu -->
 
-<div id="mobile-menu" style="position: fixed !important; z-index: 99999 !important;">
+<div id="mobile-menu" style="position: fixed !important; z-index: 99999 !important;" role="dialog" aria-modal="true" aria-label="Navigation menu" hidden>
 
-    <span class="close-btn" onclick="toggleMobileMenu()">&times;</span>
+    <span class="close-btn" onclick="toggleMobileMenu()" role="button" aria-label="Close navigation menu" tabindex="0">&times;</span>
 
     <!-- Search bar (mobile) -->
 
     <div class="mobile-search site-search-wrap">
       <div class="site-search-bar" onclick="document.getElementById('search-input-mobile').focus()">
-        <input id="search-input-mobile" type="text" placeholder="Search this site..." autocomplete="off"
+        <input id="search-input-mobile" type="search" placeholder="Search this site..." autocomplete="off"
+               aria-label="Search this site" aria-autocomplete="list" aria-controls="search-results-mobile"
                oninput="runSearch(this.value,'search-results-mobile')"
                onfocus="if(this.value) document.getElementById('search-results-mobile').classList.add('open')"
                onblur="setTimeout(()=>document.getElementById('search-results-mobile').classList.remove('open'),200)">
-        <span class="search-icon">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <span class="search-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false">
             <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
           </svg>
         </span>
       </div>
-      <div id="search-results-mobile" class="search-results"></div>
+      <div id="search-results-mobile" class="search-results" role="listbox" aria-live="polite" aria-label="Search results"></div>
     </div>
 
     <a href="/">HOME</a>
 
-    <button class="accordion" onclick="toggleAccordion(this)">BACKPACKING SOUTH AFRICA</button>
+    <button class="accordion" onclick="toggleAccordion(this)" aria-expanded="false" aria-controls="panel-regions">BACKPACKING SOUTH AFRICA</button>
 
-    <div class="panel">
+    <div class="panel" id="panel-regions" role="region" aria-label="Backpacking South Africa regions">
 
         <a href="../backpacking-south-africa/index.htm">Regions Map / Full Hostel Directory</a>
         <a href="../backpacking-south-africa/cape-town.htm">Cape Town</a>
@@ -4167,9 +4196,9 @@ window.onscroll = function() {
 
     </div>
 
-    <button class="accordion" onclick="toggleAccordion(this)">ADVICE</button>
+    <button class="accordion" onclick="toggleAccordion(this)" aria-expanded="false" aria-controls="panel-advice">ADVICE</button>
 
-    <div class="panel">
+    <div class="panel" id="panel-advice" role="region" aria-label="Advice sections">
 
                 <h3 style="color: #fff; font-size: 1.4rem; font-weight: normal; margin-top: 3rem; ">PREPARATION</h3>
 
@@ -4204,9 +4233,9 @@ window.onscroll = function() {
 
     </div>
 
-    <button class="accordion" onclick="toggleAccordion(this)">TOURS</button>
+    <button class="accordion" onclick="toggleAccordion(this)" aria-expanded="false" aria-controls="panel-tours">TOURS</button>
 
-    <div class="panel">
+    <div class="panel" id="panel-tours" role="region" aria-label="Tours and itineraries">
 
                 <h3 style="color: #fff; font-size: 1.4rem; font-weight: normal; margin-top: 3rem; ">SELF-DRIVE ITINERARIES</h3>
 
@@ -4247,7 +4276,7 @@ window.onscroll = function() {
             
             <a href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://backpackersbible.com" target="_blank">
 
-                <img src="../assets/whatsapp_icon_round.png" alt="WA" style="width:45px; height:45px;">
+                <img src="../assets/whatsapp_icon_round.png" alt="Share on WhatsApp" style="width:45px; height:45px;">
 
             <br>
 
@@ -4296,6 +4325,46 @@ window.onscroll = function() {
     return escHtml(text).replace(re, '<mark style="background:#fce8ed;color:#bc1d23;border-radius:2px;">$1</mark>');
   }
 })();
+</script>
+
+<!-- Accessible toggle overrides -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var origToggleMobileMenu = window.toggleMobileMenu;
+  window.toggleMobileMenu = function() {
+    if (origToggleMobileMenu) origToggleMobileMenu();
+    var menu = document.getElementById('mobile-menu');
+    var btn  = document.getElementById('hamburger-icon');
+    if (!menu || !btn) return;
+    var visible = getComputedStyle(menu).display !== 'none';
+    btn.setAttribute('aria-expanded', visible ? 'true' : 'false');
+    btn.setAttribute('aria-label', visible ? 'Close navigation menu' : 'Open navigation menu');
+    if (visible) {
+      menu.removeAttribute('hidden');
+      var closeBtn = menu.querySelector('.close-btn');
+      if (closeBtn) setTimeout(function(){ closeBtn.focus(); }, 50);
+    } else {
+      menu.setAttribute('hidden', '');
+      btn.focus();
+    }
+  };
+  var closeBtn = document.querySelector('#mobile-menu .close-btn');
+  if (closeBtn) {
+    closeBtn.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); window.toggleMobileMenu(); }
+    });
+  }
+  var origToggleAccordion = window.toggleAccordion;
+  window.toggleAccordion = function(el) {
+    if (origToggleAccordion) origToggleAccordion(el);
+    var panelId = el.getAttribute('aria-controls');
+    if (!panelId) return;
+    var panel = document.getElementById(panelId);
+    if (!panel) return;
+    var isOpen = panel.style.display === 'block' || panel.classList.contains('open');
+    el.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  };
+});
 </script>
 
 </body>
