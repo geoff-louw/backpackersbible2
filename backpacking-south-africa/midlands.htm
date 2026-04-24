@@ -628,6 +628,23 @@
             <div class="utils-row">
                 <button id="hamburger-icon" onclick="toggleMobileMenu()">☰</button>
             </div>
+
+<!-- Search bar (desktop) -->
+
+            <div class="desktop-search site-search-wrap">
+              <div class="site-search-bar" onclick="document.getElementById('search-input-desktop').focus()">
+                <input id="search-input-desktop" type="text" placeholder="Search this site..." autocomplete="off"
+                       oninput="runSearch(this.value,'search-results-desktop')"
+                       onfocus="if(this.value) document.getElementById('search-results-desktop').classList.add('open')"
+                       onblur="setTimeout(()=>document.getElementById('search-results-desktop').classList.remove('open'),200)">
+                <span class="search-icon">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
+                  </svg>
+                </span>
+              </div>
+              <div id="search-results-desktop" class="search-results"></div>
+            </div>
             
             <nav class="desktop-nav">
 
@@ -1288,6 +1305,9 @@
 <summary>Read More</summary>
   <div class="expanded-text">
 
+            <p><strong>GOOGLE RATING:</strong> ~3.7 / 5</p>
+            <p><strong>BOOKING.COM RATING:</strong> N/A</p>
+
             <p><strong>VALUE FOR MONEY RATING: 4 / 5.</strong> PMB is a substantially cheaper city than Durban or Cape Town, and hostel prices here reflect that. You get solid budget accommodation in a city that functions as an excellent base for Midlands exploration, at prices that leave money for day trips, food, and activities.</p>
 
             <p><strong>VIBE-METER:</strong> 60% Practical Backpacker Base / 30% Social / 10% City Explorer. PMB Backpackers draws the transit crowd — people stopping on the way between Durban and the Drakensberg — alongside genuine Midlands explorers. It is a functional, friendly hostel rather than a party venue.</p>
@@ -1377,6 +1397,9 @@
 <summary>Read More</summary>
   <div class="expanded-text">
 
+            <p><strong>GOOGLE RATING:</strong> ~4.3 / 5</p>
+            <p><strong>BOOKING.COM RATING:</strong> 4.4 / 10 ("Disappointing")</p>
+
             <p><strong>VALUE FOR MONEY RATING: 4 / 5.</strong> The river setting elevates this hostel above the purely functional. Waking to the sound of the Msunduzi river rather than city traffic is worth a few extra rand, and the prices remain firmly in the budget category.</p>
 
             <p><strong>VIBE-METER:</strong> 50% Nature-Adjacent Chill / 30% Backpacker Social / 20% City Base. The riverside location gives this hostel a distinctly different atmosphere from a city-centre operation. It feels like the countryside has crept slightly closer.</p>
@@ -1460,6 +1483,9 @@
 <summary>Read More</summary>
   <div class="expanded-text">
 
+            <p><strong>GOOGLE RATING:</strong> ~4.3 / 5</p>
+            <p><strong>BOOKING.COM RATING:</strong> 7.9 / 10 ("Good")</p>
+
             <p><strong>VALUE FOR MONEY RATING: 4 / 5.</strong> A manor house setting in the Midlands countryside at backpacker prices is genuinely good value. The grounds, the river access, and the rural atmosphere would cost considerably more in comparable European destinations.</p>
 
             <p><strong>VIBE-METER:</strong> 60% Rural Retreat / 25% Nature Base / 15% Social. This is not a hostel that centres on a bar and a pool table. It centres on the countryside around it. Guests tend to be here for the Meander, the waterfalls, or the mountain biking rather than for each other.</p>
@@ -1528,6 +1554,9 @@
 <details>
 <summary>Read More</summary>
   <div class="expanded-text">
+
+            <p><strong>GOOGLE RATING:</strong> ~3.8 / 5</p>
+            <p><strong>BOOKING.COM RATING:</strong> N/A</p>
 
             <p><strong>VALUE FOR MONEY RATING: 4 / 5.</strong> Farmstay character at hostel prices. The Northern Meander area around Nottingham Road is the most unspoilt part of the route, and having a base here rather than in PMB or Howick opens up a different slice of the Midlands entirely.</p>
 
@@ -1815,6 +1844,23 @@ window.onscroll = function() {
 <div id="mobile-menu" style="position: fixed !important; z-index: 99999 !important;">
 
     <span class="close-btn" onclick="toggleMobileMenu()">&times;</span>
+
+    <!-- Search bar (mobile) -->
+
+    <div class="mobile-search site-search-wrap">
+      <div class="site-search-bar" onclick="document.getElementById('search-input-mobile').focus()">
+        <input id="search-input-mobile" type="text" placeholder="Search this site..." autocomplete="off"
+               oninput="runSearch(this.value,'search-results-mobile')"
+               onfocus="if(this.value) document.getElementById('search-results-mobile').classList.add('open')"
+               onblur="setTimeout(()=>document.getElementById('search-results-mobile').classList.remove('open'),200)">
+        <span class="search-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
+          </svg>
+        </span>
+      </div>
+      <div id="search-results-mobile" class="search-results"></div>
+    </div>
 
     <a href="/">HOME</a>
 

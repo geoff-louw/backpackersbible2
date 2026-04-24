@@ -824,6 +824,23 @@
             <div class="utils-row">
                 <button id="hamburger-icon" onclick="toggleMobileMenu()">☰</button>
             </div>
+
+<!-- Search bar (desktop) -->
+
+            <div class="desktop-search site-search-wrap">
+              <div class="site-search-bar" onclick="document.getElementById('search-input-desktop').focus()">
+                <input id="search-input-desktop" type="text" placeholder="Search this site..." autocomplete="off"
+                       oninput="runSearch(this.value,'search-results-desktop')"
+                       onfocus="if(this.value) document.getElementById('search-results-desktop').classList.add('open')"
+                       onblur="setTimeout(()=>document.getElementById('search-results-desktop').classList.remove('open'),200)">
+                <span class="search-icon">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
+                  </svg>
+                </span>
+              </div>
+              <div id="search-results-desktop" class="search-results"></div>
+            </div>
             
             <nav class="desktop-nav">
 
@@ -1550,7 +1567,8 @@
 <summary>Read More</summary>
   <div class="expanded-text">
 
-            <p><strong>RATING:</strong> No major booking platform presence — book directly with Graham. Consistently recommended by long-distance backpackers and overlanders across multiple forums and road guides as the essential Eshowe stop.</p>
+            <p><strong>GOOGLE RATING:</strong> ~5.0 / 5 (1 Review)</p>
+            <p><strong>BOOKING.COM RATING:</strong> N/A</p>
 
             <p><strong>VALUE FOR MONEY RATING: 4.5 / 5.</strong> Sugar Hill Manor provides eight en-suite rooms in a beautiful Victorian house with views of the Zululand hills, a large indigenous garden, forest access, and — most significantly — Graham Chennells and his team's presence. Graham is a born-and-bred Zululander who speaks fluent Zulu, has been running cultural tours for thirty years, and is the single best source of local knowledge available to any visitor to Eshowe. The rate includes accommodation in a handsome old house. The experience includes everything else Graham provides. At R750 for a double, it is exceptional value for what you actually get.</p>
 
@@ -1649,7 +1667,8 @@
 <summary>Read More</summary>
   <div class="expanded-text">
 
-            <p><strong>SA-VENUES RATING:</strong> Strong across recent reviews. Consistently described as neat, clean, and well-run.</p>
+            <p><strong>GOOGLE RATING:</strong> ~4.4 / 5</p>
+            <p><strong>BOOKING.COM RATING:</strong> 9.2 / 10 ("Superb")</p>
 
             <p><strong>VALUE FOR MONEY RATING: 4 / 5.</strong> The dome tent concept is genuinely clever: not quite a dorm, not quite a private room, but a covered, aired space with a proper bed, privacy from the other tents, a fan, and a lockable cabinet, all on a rooftop deck surrounded by trees in the centre of St Lucia. The ablution facility is described as brand new and clean. The 10% discount on safari bookings for accommodation guests directly links the lodging to the activity programme — a smart incentive that most backpackers take advantage of. The main street location means every St Lucia restaurant, bar, and tour operator is within walking distance.</p>
 
@@ -1741,8 +1760,8 @@
 <summary>Read More</summary>
   <div class="expanded-text">
 
-            <p><strong>TRIPADVISOR RATING:</strong> Mixed — see honest note below.</p>
-            <p><strong>HOSTELWORLD RATING:</strong> Moderate.</p>
+            <p><strong>GOOGLE RATING:</strong> ~4.7 / 5</p>
+            <p><strong>HOSTELWORLD RATING:</strong> 7.4 / 10 ("Superb")</p>
 
             <p><strong>VALUE FOR MONEY RATING: 3 / 5.</strong> BiB's is consistently the cheapest backpacker option in St Lucia. What this buys you is a McKenzie Street address, a pool, a bar, the full service model (no dishes until 10pm), an on-site safari booking service, Zulu dancing on Saturdays, and a social atmosphere with the specific energy of a hostel that has been in the same location for many years and attracts a genuinely international mix of guests. What it does not always buy you is consistent maintenance standards or a predictable physical condition of the rooms. The value equation at BiB's depends significantly on which room you are in and when you are visiting.</p>
 
@@ -1836,7 +1855,8 @@
 <summary>Read More</summary>
   <div class="expanded-text">
 
-            <p><strong>EXPEDIA / SA-VENUES RATING:</strong> Very strong — 5/5 on several platforms, 89% positive across aggregated reviews. Consistently described as a highlight of the KwaZulu-Natal trip.</p>
+            <p><strong>GOOGLE RATING:</strong> ~3.9 / 5</p>
+            <p><strong>BOOKING.COM RATING:</strong> 6.1 / 10 ("Pleasant")</p>
 
             <p><strong>VALUE FOR MONEY RATING: 4.5 / 5.</strong> Twenty-two hectares of indigenous sand forest, 25 minutes from Hluhluwe-iMfolozi Memorial Gate, with guided full-day safari trips that include transport, park entry, breakfast, lunch, and a knowledgeable guide (specifically Pinky, mentioned by name in dozens of reviews), for prices that sit well below what commercial safari operators charge. The Bushbaby Tree Cabin — a wooden cabin on stilts in the forest with two bedrooms and its own kitchen — is a particularly good value for small groups or families. The evening bushbaby feeding (wild lesser bushbabies that visit the camp after dark) is a free, unexpected, and consistently memorable experience.</p>
 
@@ -1934,8 +1954,8 @@
 <summary>Read More</summary>
   <div class="expanded-text">
 
-            <p><strong>BOOKING.COM RATING:</strong> ~8.4 / 10</p>
-            <p><strong>HOSTELWORLD RATING:</strong> Strong across recent reviews</p>
+            <p><strong>GOOGLE RATING:</strong> ~4.6 / 5</p>
+            <p><strong>BOOKING.COM RATING:</strong> ~8.3 / 10 ("Very Good")</p>
 
             <p><strong>VALUE FOR MONEY RATING: 4.5 / 5.</strong> Coral Divers is the only dive resort and dive centre located inside the iSimangaliso Wetland Park at Sodwana Bay. This position — inside the park, 2km from the beach with a free shuttle to the dive launch — is the core value proposition. Divers do not need to pay for transport to the beach, do not need to wait outside the park gate, and are 2km from the water at a resort that has been doing this for over 30 years. The PADI 5 Star CDC status means the dive instruction is to the highest available standard. The pricing — particularly the self-catering safari tent option — is genuinely accessible. The park fees are an addition on top of the accommodation rate, but you are paying for the privilege of sleeping inside a UNESCO World Heritage Site marine reserve.</p>
 
@@ -2008,7 +2028,8 @@
 <summary>Read More</summary>
   <div class="expanded-text">
 
-            <p><strong>TRIPADVISOR RATING:</strong> Varied — see honest note below.</p>
+            <p><strong>GOOGLE RATING:</strong> ~3.8 / 5</p>
+            <p><strong>BOOKING.COM RATING:</strong> N/A</p>
 
             <p><strong>VALUE FOR MONEY RATING: 3 / 5.</strong> Natural Moments is the most affordable accommodation option in Sodwana Bay village, and at its best it provides exactly what divers and outdoor-oriented travellers need: a clean bed, a functional communal kitchen, a fire, and a team that knows Sodwana's dive sites and activities comprehensively. Archie Rielly founded the camp in 2000 after living in Sodwana since 1993, and this depth of local knowledge is a genuine asset. Tracey and the team's helpfulness in arranging dives, tours, and activity bookings is consistently praised. The value proposition is strongest when you book the en-suite cabin options over the camping sites (which are reportedly close to the road and subject to external noise).</p>
 
@@ -2100,9 +2121,7 @@
 <summary>Read More</summary>
   <div class="expanded-text">
 
-            <p><strong>TRIPADVISOR RATING:</strong> Consistently positive across recent reviews — 4/5 average, with the most recent reviews (2020–2024) specifically praising the management and the activities programme.</p>
-            <p><strong>HOSTELWORLD RATING:</strong> Listed and bookable.</p>
-            <p><strong>KWATHABENG / SAFARINOW:</strong> 90% positive across aggregated reviews.</p>
+            <p><strong>GOOGLE RATING:</strong> ~4.2 / 5</p>
 
             <p><strong>VALUE FOR MONEY RATING: 4 / 5.</strong> Kosi Bay is one of the most remote tourist destinations in South Africa — 400km north of Durban, 14km from the Mozambique border, accessible by tarred road from Manguzi followed by 1.5km of sand track. The accommodation at Thobeka, at R150–R200 per night, is among the most affordable on this entire guide for what it provides: an eco-lodge in the bush with running hot water, a pool, a bar, linen, mosquito nets, a communal kitchen, and a guide named Trevor whose knowledge of Kosi Bay — the lakes, the fish traps, the turtles, the raffia palm forests — is exceptional and whose reviews span multiple years and nationalities. The activities programme (snorkelling in the lake channels, guided fish trap tours, kayaking, Tembe Elephant Park day trips, Mozambique border crossings) represents a depth of local access that budget travel rarely provides.</p>
 
@@ -2399,6 +2418,23 @@ window.onscroll = function() {
 <div id="mobile-menu" style="position: fixed !important; z-index: 99999 !important;">
 
     <span class="close-btn" onclick="toggleMobileMenu()">&times;</span>
+
+    <!-- Search bar (mobile) -->
+
+    <div class="mobile-search site-search-wrap">
+      <div class="site-search-bar" onclick="document.getElementById('search-input-mobile').focus()">
+        <input id="search-input-mobile" type="text" placeholder="Search this site..." autocomplete="off"
+               oninput="runSearch(this.value,'search-results-mobile')"
+               onfocus="if(this.value) document.getElementById('search-results-mobile').classList.add('open')"
+               onblur="setTimeout(()=>document.getElementById('search-results-mobile').classList.remove('open'),200)">
+        <span class="search-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
+          </svg>
+        </span>
+      </div>
+      <div id="search-results-mobile" class="search-results"></div>
+    </div>
 
     <a href="/">HOME</a>
 

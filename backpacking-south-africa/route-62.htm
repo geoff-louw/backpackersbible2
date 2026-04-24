@@ -881,6 +881,23 @@
             <div class="utils-row">
                 <button id="hamburger-icon" onclick="toggleMobileMenu()">☰</button>
             </div>
+
+<!-- Search bar (desktop) -->
+
+            <div class="desktop-search site-search-wrap">
+              <div class="site-search-bar" onclick="document.getElementById('search-input-desktop').focus()">
+                <input id="search-input-desktop" type="text" placeholder="Search this site..." autocomplete="off"
+                       oninput="runSearch(this.value,'search-results-desktop')"
+                       onfocus="if(this.value) document.getElementById('search-results-desktop').classList.add('open')"
+                       onblur="setTimeout(()=>document.getElementById('search-results-desktop').classList.remove('open'),200)">
+                <span class="search-icon">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
+                  </svg>
+                </span>
+              </div>
+              <div id="search-results-desktop" class="search-results"></div>
+            </div>
             
             <nav class="desktop-nav">
 
@@ -2588,6 +2605,23 @@ window.onscroll = function() {
 <div id="mobile-menu" style="position: fixed !important; z-index: 99999 !important;">
 
     <span class="close-btn" onclick="toggleMobileMenu()">&times;</span>
+
+    <!-- Search bar (mobile) -->
+
+    <div class="mobile-search site-search-wrap">
+      <div class="site-search-bar" onclick="document.getElementById('search-input-mobile').focus()">
+        <input id="search-input-mobile" type="text" placeholder="Search this site..." autocomplete="off"
+               oninput="runSearch(this.value,'search-results-mobile')"
+               onfocus="if(this.value) document.getElementById('search-results-mobile').classList.add('open')"
+               onblur="setTimeout(()=>document.getElementById('search-results-mobile').classList.remove('open'),200)">
+        <span class="search-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
+          </svg>
+        </span>
+      </div>
+      <div id="search-results-mobile" class="search-results"></div>
+    </div>
 
     <a href="/">HOME</a>
 

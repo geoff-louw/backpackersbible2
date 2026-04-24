@@ -902,6 +902,23 @@
             <div class="utils-row">
                 <button id="hamburger-icon" onclick="toggleMobileMenu()">☰</button>
             </div>
+
+<!-- Search bar (desktop) -->
+
+            <div class="desktop-search site-search-wrap">
+              <div class="site-search-bar" onclick="document.getElementById('search-input-desktop').focus()">
+                <input id="search-input-desktop" type="text" placeholder="Search this site..." autocomplete="off"
+                       oninput="runSearch(this.value,'search-results-desktop')"
+                       onfocus="if(this.value) document.getElementById('search-results-desktop').classList.add('open')"
+                       onblur="setTimeout(()=>document.getElementById('search-results-desktop').classList.remove('open'),200)">
+                <span class="search-icon">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
+                  </svg>
+                </span>
+              </div>
+              <div id="search-results-desktop" class="search-results"></div>
+            </div>
             
             <nav class="desktop-nav">
 
@@ -1899,8 +1916,8 @@ Planning your budget for the Tugela Falls hike involves more components than mos
 <summary>Read More</summary>
   <div class="expanded-text">
 
-            <p><strong>GOOGLE RATING:</strong> ~4.5 / 5</p>
-            <p><strong>BOOKING.COM RATING:</strong> ~8.4 / 10 ("Very Good")</p>
+            <p><strong>GOOGLE RATING:</strong> ~4.6 / 5</p>
+            <p><strong>BOOKING.COM RATING:</strong> N/A</p>
 
             <p><strong>VALUE FOR MONEY RATING: 5 / 5.</strong> Khotso is exceptional value by any measure — not just for the price, but for the sheer depth of what is included. The horse trails through the Drakensberg foothills are Khotso's signature offering and represent one of the finest equestrian experiences in South Africa: multi-day trails into the mountains with Basotho guide ponies, overnight stays at remote campsites, and a perspective on the Southern Berg landscape that no hiking trail can replicate. Day rides run from approximately R600 per person; multi-day trail packages from R1,800 per person per day all-inclusive. On top of this, the farm setting itself — trout dams, indigenous forest walks, birdlife, and views of the Drakensberg escarpment — means you can spend a full day without spending a cent beyond your accommodation. One of the genuinely outstanding-value destinations in the entire Drakensberg.</p>
 
@@ -1981,7 +1998,7 @@ Planning your budget for the Tugela Falls hike involves more components than mos
   <div class="expanded-text">
 
             <p><strong>GOOGLE RATING:</strong> ~4.4 / 5</p>
-            <p><strong>BOOKING.COM RATING:</strong> ~7.9 / 10 ("Good")</p>
+            <p><strong>BOOKING.COM RATING:</strong> N/A</p>
 
             <p><strong>VALUE FOR MONEY RATING: 5 / 5.</strong> Sani Lodge's Fair Trade Tourism certification is not marketing — it reflects a genuine, audited commitment to ethical business practices that directly benefits the surrounding community. The location itself is extraordinary value: 10.5km up the Sani Pass road, with the mountains pressing in on both sides and the Mkhomazana River running past the property. The rondavels and cottages offer a quality of mountain setting that comparable properties charge significantly more for. The guided Sani Pass hike (walking the pass rather than driving it — a completely different and largely unknown experience) is bookable through the lodge. Excellent value at every price point.</p>
 
@@ -2063,8 +2080,8 @@ Planning your budget for the Tugela Falls hike involves more components than mos
 <summary>Read More</summary>
   <div class="expanded-text">
 
-            <p><strong>GOOGLE RATING:</strong> ~4.1 / 5</p>
-            <p><strong>BOOKING.COM RATING:</strong> ~7.6 / 10 ("Good")</p>
+            <p><strong>GOOGLE RATING:</strong> ~3.1 / 5</p>
+            <p><strong>BOOKING.COM RATING:</strong>N/A</p>
 
             <p><strong>VALUE FOR MONEY RATING: 4 / 5.</strong> The lowest dorm prices of any Drakensberg hostel on this list, in the Central Berg's most activity-rich valley. The Champagne Valley / Cathkin Park area has the highest concentration of outdoor activities per square kilometre in the Drakensberg — zip-lining, quad biking, golf, horse riding, white-water tubing, and direct access to Monk's Cowl and Cathedral Peak trails are all within a short drive. At these prices, Mountain Base is an outstanding budget base for the Central Berg.</p>
 
@@ -2152,9 +2169,6 @@ Planning your budget for the Tugela Falls hike involves more components than mos
 <details>
 <summary>Read More</summary>
   <div class="expanded-text">
-
-            <p><strong>GOOGLE RATING:</strong> ~4.3 / 5</p>
-            <p><strong>BOOKING.COM RATING:</strong> ~7.4 / 10 ("Good")</p>
 
             <p><strong>VALUE FOR MONEY RATING: 4 / 5.</strong> Private rooms only at dorm-adjacent prices — at R500 for a double room, Berg Backpackers offers exceptional per-person value for couples or friends travelling together. The farm setting provides a level of quiet and space that no dorm hostel can match. No significant extras included, but the price point means they are not necessary.</p>
 
@@ -2253,7 +2267,8 @@ Planning your budget for the Tugela Falls hike involves more components than mos
   <div class="expanded-text">
 
             <p><strong>GOOGLE RATING:</strong> ~4.1 / 5</p>
-            <p><strong>BOOKING.COM RATING:</strong> ~6.3 / 10 ("Okay")</p>
+            <p><strong>BOOKING.COM RATING:</strong> ~6.3 / 10 ("Pleasant")</p>
+            <p><strong>HOSTELWORLD RATING:</strong> ~9.3 / 10 ("Superb")</p>
 
             <p><strong>VALUE FOR MONEY RATING: 2 / 5.</strong> The Booking.com score of 6.3/10 — significantly below the average for this guide — reflects a consistent pattern in recent reviews: guests report that the tour and activity packages sold through the hostel are aggressively and repeatedly promoted from the moment of arrival, that the pricing of in-house tours is substantially above what comparable activities cost when booked independently, and that the overall atmosphere prioritises commercial transactions over guest experience. Several reviewers note that attempts to decline tours or ask questions about pricing were met with persistence rather than goodwill. At the price point, and given these consistent reports, the value for money is below what equivalent alternatives in the region offer.</p>
 
@@ -2343,7 +2358,9 @@ Planning your budget for the Tugela Falls hike involves more components than mos
 <summary>Read More</summary>
   <div class="expanded-text">
 
-            <p><strong>GOOGLE RATING:</strong> ~4.3 / 5</p>
+            <p><strong>GOOGLE RATING:</strong> ~4.4 / 5</p>
+            <p><strong>BOOKING.COM RATING:</strong> ~8.5 / 10 ("Very Good")</p>
+            <p><strong>HOSTELWORLD RATING:</strong> ~10/ 10 ("Superb")</p>
 
             <p><strong>VALUE FOR MONEY RATING: 4 / 5.</strong> Standard Northern Berg pricing. Free coffee, jam and vegetables from the hostel's garden (when available / in season).</p>
 
@@ -2439,7 +2456,7 @@ Planning your budget for the Tugela Falls hike involves more components than mos
   <div class="expanded-text">
 
             <p><strong>GOOGLE RATING:</strong> ~3.9 / 5</p>
-            <p><strong>BOOKING.COM RATING:</strong> ~5.3 / 10 ("Fair")</p>
+            <p><strong>BOOKING.COM RATING:</strong> ~5.6 / 10 ("Fair")</p>
 
             <p><strong>VALUE FOR MONEY RATING: 4 / 5.</strong> The lower platform ratings require honest context. Maluti is not a polished tourist hostel — it is a clean, functional, affordable base in Phuthaditjhaba, a QwaQwa township that most tourists pass through at speed without stopping. Some negative reviews reflect cultural discomfort with the town environment rather than any failing of the property itself; others reflect straightforward infrastructure issues (load shedding, basic facilities) that are characteristic of the area. What Maluti offers in return is the single most important thing for anyone doing the Tugela Falls hike: proximity. At 25km from the Sentinel Car Park — compared to 60km from Karma, 90km from Berg Backpackers, 120km from Mountain Base, and 160km from Amphitheatre — Maluti allows you to start the hike at dawn without a punishing predawn drive. On a hike where early starts are essential for weather and lightning safety, this is not a minor advantage. It is potentially a lifesaving one.</p>
 
@@ -2746,6 +2763,23 @@ window.onscroll = function() {
 <div id="mobile-menu" style="position: fixed !important; z-index: 99999 !important;">
 
     <span class="close-btn" onclick="toggleMobileMenu()">&times;</span>
+
+    <!-- Search bar (mobile) -->
+
+    <div class="mobile-search site-search-wrap">
+      <div class="site-search-bar" onclick="document.getElementById('search-input-mobile').focus()">
+        <input id="search-input-mobile" type="text" placeholder="Search this site..." autocomplete="off"
+               oninput="runSearch(this.value,'search-results-mobile')"
+               onfocus="if(this.value) document.getElementById('search-results-mobile').classList.add('open')"
+               onblur="setTimeout(()=>document.getElementById('search-results-mobile').classList.remove('open'),200)">
+        <span class="search-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
+          </svg>
+        </span>
+      </div>
+      <div id="search-results-mobile" class="search-results"></div>
+    </div>
 
     <a href="/">HOME</a>
 
