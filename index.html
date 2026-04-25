@@ -464,29 +464,6 @@
 </head>
 <body>
 
-<!-- Skip links — visible on focus for keyboard/screen reader users -->
-<a class="skip-link" href="#main-content">Skip to main content</a>
-<a class="skip-link" href="#site-search-desktop">Skip to search</a>
-<a class="skip-link" href="#primary-nav">Skip to navigation</a>
-
-<style>
-.skip-link {
-  position: absolute;
-  top: -100%;
-  left: 0;
-  background: #bc1d23;
-  color: #fff;
-  padding: 10px 18px;
-  font-size: 1rem;
-  font-weight: bold;
-  z-index: 999999;
-  text-decoration: none;
-  border-radius: 0 0 6px 0;
-  transition: top 0.1s;
-}
-.skip-link:focus { top: 0; }
-</style>
-
      <!-- Header start -->
 
 <header id="mainHeader">
@@ -517,39 +494,36 @@
         <div class="right-stack">
 
             <div class="utils-row">
-                <button id="hamburger-icon" onclick="toggleMobileMenu()" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">☰</button>
+                <button id="hamburger-icon" onclick="toggleMobileMenu()">☰</button>
             </div>
 
             <!-- Search bar (desktop) -->
-            <div class="desktop-search site-search-wrap" role="search">
+            <div class="desktop-search site-search-wrap">
               <div class="site-search-bar" onclick="document.getElementById('search-input-desktop').focus()">
-                <input id="search-input-desktop" type="search" placeholder="Search this site..." autocomplete="off"
-                       aria-label="Search this site"
-                       aria-autocomplete="list"
-                       aria-controls="search-results-desktop"
+                <input id="search-input-desktop" type="text" placeholder="Search this site..." autocomplete="off"
                        oninput="runSearch(this.value,'search-results-desktop')"
                        onfocus="if(this.value) document.getElementById('search-results-desktop').classList.add('open')"
                        onblur="setTimeout(()=>document.getElementById('search-results-desktop').classList.remove('open'),200)">
-                <span class="search-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                <span class="search-icon">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
                   </svg>
                 </span>
               </div>
-              <div id="search-results-desktop" class="search-results" role="listbox" aria-live="polite" aria-label="Search results"></div>
+              <div id="search-results-desktop" class="search-results"></div>
             </div>
 
-            <nav class="desktop-nav" id="primary-nav" aria-label="Primary navigation">
+            <nav class="desktop-nav">
 
-    <strong><a href="#download-pwa" style="font-size:1rem; letter-spacing:2px; margin-right: 1.5rem;" title="Choose between a PDF and an App to use on your phone while travelling">★ FREE Hostel Guide!</a></strong>
+    <strong><a href="#download-pwa" style="font-size:1rem; letter-spacing:2px; margin-right: 1.5rem;" title="Choose between a PDF and an App to use on your phone while travelling">▾ FREE Hostel Guide!</a></strong>
 
     <a href="/">Home</a>
 
     <div class="nav-item">
 
-        <a href="backpacking-south-africa/index.htm" class="mega-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="mega-regions">▾ Backpacking South Africa</a>
+        <a href="backpacking-south-africa/index.htm" class="mega-trigger">▾ Backpacking South Africa</a>
 
-        <div class="mega-menu" id="mega-regions" role="region" aria-label="Backpacking South Africa regions">
+        <div class="mega-menu">
 
             <div class="mega-col">
 
@@ -612,9 +586,9 @@
 
    <div class="nav-item">
 
-        <a href="backpacking-south-africa-advice/index.htm" class="mega-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="mega-advice">▾ Advice</a>
+        <a href="backpacking-south-africa-advice/index.htm" class="mega-trigger">▾ Advice</a>
 
-        <div class="mega-menu" id="mega-advice" role="region" aria-label="Advice sections">
+        <div class="mega-menu">
 
             <div class="mega-col">
 
@@ -663,9 +637,9 @@
 
     <div class="nav-item">
 
-        <a href="backpacking-south-africa-tours/index.htm" class="mega-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="mega-tours">▾ TOURS</a>
+        <a href="backpacking-south-africa-tours/index.htm" class="mega-trigger">▾ TOURS</a>
 
-        <div class="mega-menu" id="mega-tours" role="region" aria-label="Tours and itineraries">
+        <div class="mega-menu">
 
             <div class="mega-col">
 
@@ -744,8 +718,6 @@
 
 <div style="height: 143px; width: 100%; display: block;"></div>
 
-<main id="main-content">
-
 <section id="map-visual" style="width: 100vw; margin-left: calc(-50vw + 50%); position: relative; line-height: 0;">
 
     <div class="map-overlay-circle">
@@ -773,7 +745,7 @@
 
 <section class="jump-menu-section" style="background: #000; padding: 0; margin: 0; height: auto; min-height: 160px; overflow: hidden; position: relative; z-index: 2000;">  
 
-    <nav class="jump-menu-container" id="top-jump" aria-label="Regions jump menu"
+    <nav class="jump-menu-container" id="top-jump" 
   style="display: flex !important; 
                 flex-wrap: nowrap !important; 
                 overflow-x: auto !important; 
@@ -827,7 +799,7 @@
 
 <div class="yellow-menu-backdrop"></div>
 
-<nav id="quick-jump-menu" aria-label="Quick region jump menu">
+<nav id="quick-jump-menu">
     <a href="#faq">About</a>
     <a href="#activities">Activities</a>
     <a href="#hostels">Hostels</a>
@@ -848,11 +820,24 @@
 
     <h1 class="area-hero-title" id="faq">Backpacking South Africa</h1>
 
-        <p class="intro-p">Right. Let’s be honest before we start. South Africa is not Ibiza. It is not a two-week package holiday. It is not a place where you follow a yellow line through a museum to tick things off a list. Here, a baboon can steal your lunch. You can watch a lioness hunt at dawn. You can stand at the top of the world’s highest bungee jump and wonder if it is a good idea, but then jump anyway. It is one of the most amazing places on earth for a backpacker. This site is here to help you make the most of every single day.</p>
+        <p class="intro-p">Right. Let's be honest with you before we start: South Africa is not Ibiza. It is not a two-week package holiday. It is not the sort of place where you follow a yellow line through a museum and tick things off a list. South Africa is a country where a baboon can steal your lunch, where you can watch a lioness chase down a wildebeest at dawn, where you can stand at the top of the world's highest commercial bungee jump and seriously consider whether this is a good idea, and then jump anyway. It is, by almost any measure, the most extraordinary backpacking destination on the planet — and this site exists to help you make the most of every single day of it.</p>
 
-<p class="intro-p">For travellers coming from Europe, this lands like another planet. The scale is huge. It is about twice the size of France. The colours are different. The wildlife is not in a zoo. The food is new. You will try boerewors, biltong, and a braai that beats any barbecue back home. The people are warm, funny, and strong. They have a "make a plan" spirit that you won't find anywhere else. And then there is the price. Your money goes so far here that you will feel a bit shy about it. Almost.</p>
+        <p class="intro-p">For travellers coming from Europe, Australasia, or the Americas, South Africa lands like another planet. The scale is different - it's roughly twice the size of France. The colours are different. The wildlife is not in a zoo. The food is different (boerewors, biltong, and a braai that puts every barbecue you've ever attended to shame). The people are different - warm, direct, funny, resilient, and possessed of an infectious "we'll make a plan" spirit that is completely unlike anything you'll find at home. And then there's the price. Your euros go so far here that you'll feel almost embarrassed. Almost.</p>
 
-<p class="intro-p">This is the trip you will talk about for the rest of your life. You will tell your children about it one day. It is the big trip that happens before the mortgage and the daily office job. Let’s make it count.</p>
+<details>
+  <summary>Read More</summary>
+  <div class="expanded-text">
+
+        <p class="intro-p">This is the trip you'll talk about for the rest of your life. The one you'll describe to your children one day. The one that happened before the mortgage and the Monday morning commute. Let's make it count.</p>
+
+        <p class="intro-p" style="margin-top: 70px;"><strong>FOR IN-DEPTH INFO SEE:</strong></p>
+
+        <center>
+            <a href="backpacking-south-africa/index.htm" class="download-btn" style="margin-top:60px;margin-bottom:70px;">BACKPACKING REGIONS</a>
+        </center>
+  </div>
+
+</details>
 
 </section>
 
@@ -899,171 +884,126 @@
 <div style="height: 0px; width: 100%; display: block;"></div>
 </div>
 
-<p class="intro-p">South Africa sits at the tip of Africa. It has more to offer than almost any other country. In just a few weeks, you can watch the sun rise over the Drakensberg mountains. You can eat Cape Malay curry in the Bo-Kaap. You can learn to surf at the coast. You can see a white rhino up close in the wild. You can do all this on a small budget. It would cost much more to spend even one week in London.</p>
-
-<p class="intro-p">The country has eleven official languages and three capital cities. Pretoria is the home of the government. Cape Town is where the laws are made. Bloemfontein is the home of the courts. South Africa does not do things the simple way. About 62 million people live here. As a traveller, you will hear English everywhere. You will also hear local tongues like Zulu and Xhosa. You do not need any other language to travel well. But learning a few words will make people smile. It is a lovely way to connect. Try "sawubona" (hello) and "ngiyabonga" (thank you).</p>
-
-<p class="intro-p">The weather is usually very good. In the Western Cape, summers are warm and dry from November to March. Winters are cooler and wet from June to August. Other parts of the country have summer rain. This means warm days with some storms from November to March. Winters are cool and dry from May to August. The dry winter months are best for the Kruger Park. The plants are thin and animals gather near water. There is no bad time to visit. Some areas are better in certain months, but the country is always worth a trip.</p>
-
-<p class="intro-p">The money used is the South African Rand. For many years, it has been weak against the pound and the euro. In 2026, you get about R20 for each euro. Check the rate before you fly. This makes the country great value for visitors from Europe and America. It is not as cheap as some parts of Asia. The quality is high and you pay for that. But compared to travel at home, it feels like a real bargain.</p>
-
-<p class="intro-p" style="margin-top: 70px;"><strong>FOR IN-DEPTH INFO, SEE:</strong></p>
-<center>
-    <a href="backpacking-south-africa/index.htm" class="download-btn" style="margin-top:60px;margin-bottom:70px;">BACKPACKING REGIONS</a>
-</center>
+        <p class="intro-p">South Africa sits at the bottom of the African continent, and it packs in more landscape, wildlife, culture, coastline, food, and human history than anywhere else on earth has any right to. In the space of a few weeks, you can watch the sun rise over the Drakensberg mountains, eat Cape Malay curry in a pastel-painted courtyard in the Bo-Kaap, learn to surf a perfect point break in Jeffreys Bay, go eyeball-to-eyeball with a white rhino in Zululand, and drink sundowners on the edge of the Blyde River Canyon with a gin and tonic in your hand and a vervet monkey making very deliberate eye contact with your crisps. You can do all of this on a budget that would barely cover a week in London.</p>
 
 <details>
   <summary>Read More</summary>
   <div class="expanded-text">
 
-<h3 class="section-heading-desktop">Frequently Asked Questions</h3>
+        <p class="intro-p">The country has eleven official languages, three capital cities (Pretoria is the administrative, Cape Town is the legislative, and Bloemfontein is the judicial — South Africa has never done anything the simple way), and a population of around 62 million people. The dominant languages you'll encounter as a traveller are English (spoken everywhere, by everyone, in all contexts), Afrikaans (especially in the Western Cape and Karoo), Zulu (in KwaZulu-Natal), and Xhosa (in the Eastern Cape and townships around Cape Town). You do not need to speak any language other than English to travel here comfortably, but learning a few words in isiZulu or isiXhosa - "sawubona" (hello), "ngiyabonga" (thank you) - will make people light up in a way that is genuinely lovely.</p>
 
-<h4 class="sub-heading-desktop">How much does a dorm bed cost?</h4>
-<p class="intro-p">At a good South African backpackers hostel, a dorm bed in 2026 costs between €8 and €18 per night. Cape Town is at the higher end. Expect to pay €12–€18 there. Smaller towns often cost less, although there is an unspoken agreement that keeps prices throughout the country fairly standardised. Places like Wilderness, Chintsa, or Sodwana Bay run €8–€12. The Baz Bus corridor — the main backpacking route from Cape Town to Gqeberha along the coast — has lots of hostels. This keeps prices fair.</p>
+        <p class="intro-p">The climate is broadly excellent. The Western Cape (Cape Town, the Winelands, the Garden Route) has a Mediterranean climate: warm dry summers from November to March, cooler and wetter winters from June to August. The rest of the country - KwaZulu-Natal, Mpumalanga, Limpopo, the Drakensberg — has summer rainfall, which means warm and sometimes thundery November to March, and cool dry winters from May to August. The Kruger National Park is best visited in the dry winter months (May to September) when the bush thins out and animals congregate around water sources. The Wild Coast is warm year-round but can be very wet in summer. The bottom line: there is no bad time to visit South Africa. There are better times for specific regions, but the country is worth visiting in any month of the year.</p>
 
-<h4 class="sub-heading-desktop">What does a private room cost?</h4>
-<p class="intro-p">A private double room at a backpackers hostel usually has a shared bathroom. Prices run from around €25 to €60 per night. In Cape Town, expect €35–€60 for a good private room. If you travel as a couple and split the cost, this is outstanding value. Some hostels also offer en-suite rooms, which sit at the top of that range.</p>
+        <p class="intro-p">The currency is the South African Rand (ZAR), and it has been weak against the euro, pound, and dollar for many years. In 2026, you should budget on roughly R20–R21 to the euro, though exchange rates move — check the current rate before you travel. The practical effect of this is that South Africa is, for European and American travellers, extremely affordable. Not "cheap backpacker hostel in Southeast Asia" cheap — the infrastructure here is good, the standards are high, and you pay a reasonable amount for them. But compared to travelling at home, it is a revelation.</p>
 
-<h4 class="sub-heading-desktop">How do I get around?</h4>
-<p class="intro-p">This is the most important decision you will make. Think it through before you arrive.</p>
+        <p class="intro-p" style="margin-top: 70px;"><strong>FOR IN-DEPTH INFO, SEE:</strong></p>
 
-<p class="intro-p"><strong>The Baz Bus</strong> is the famous hop-on, hop-off backpacker bus. It has run the coastal trail since 1995. It once covered the whole country. Since Covid it has focused on the coastal stretch between Cape Town and Gqeberha — the Garden Route and part of the Sunshine Coast. It picks up and drops off directly at hostel doors. You pay once for a pass. You can get on and off as many times as you like. It is not the cheapest option. But it is the safest and most social way to travel the route. Neither is it the most convenient, since the buses no longer run every day. You have to plan your trip around their scchedule. Nevertheless, for solo travellers on a first visit, the safety and predictability make it worthwhile.</p>
+        <center>
+            <a href="backpacking-south-africa/index.htm" class="download-btn" style="margin-top:60px;margin-bottom:70px;">BACKPACKING REGIONS</a>
+        </center>
 
-<p class="intro-p"><strong>Mainline buses</strong> (Intercape, Greyhound, Intercity Express) are much cheaper. A Cape Town to Johannesburg ticket can cost as little as €20–€35, although this varies wildly based on demand. But they stop at bus terminals and petrol stations, not hostel doors. They are a good choice if you are making long, direct runs between cities.</p>
+        <h3 class="section-heading-desktop">Frequently Asked Questions</h3>
 
-<p class="intro-p"><strong>Car hire</strong> unlocks South Africa properly. A small car costs roughly €20–€35 per day all-in. Split between two or three people, this can work out cheaper per person than the Baz Bus — with far more freedom. South Africa drives on the left. The roads are good on main routes. A car lets you reach places the Baz Bus cannot go: the Cederberg, Route 62, the Karoo, the Drakensberg, Sani Pass, Hluhluwe-iMfolozi, Addo. One firm rule: do not drive at night outside of cities. Unlit people walking on the road, cattle, and sudden potholes make rural night driving genuinely dangerous. Plan your days to arrive before dark.</p>
+        <h4 class="sub-heading-desktop">How much does a dorm bed cost?</h4>
+        <p class="intro-p">At a good South African backpacker hostel, a dorm bed in 2026 will cost you somewhere between €8 and €18 per night, depending on location, season, and the standard of the hostel. Cape Town is at the higher end of that range — a bed in one of the city's better hostels typically runs €12–€18. Smaller towns and rural hostels are at the lower end: €8–€12 is typical in places like Wilderness, Chintsa, or Sodwana Bay. The Baz Bus corridor (the main backpacker trail from Cape Town to Johannesburg via the coast) has the most competition, which tends to keep prices honest.</p>
 
-<p class="intro-p" style="margin-top: 70px;"><strong>FOR IN-DEPTH INFO ON TRANSPORT, SEE:</strong></p>
-<center>
-    <a href="backpacking-south-africa-advice/in-country.htm#transport" class="download-btn" style="margin-top:60px;margin-bottom:70px;">ADVICE</a>
-</center>
+        <h4 class="sub-heading-desktop">What does a private room cost?</h4>
+        <p class="intro-p">A private double room at a backpacker hostel - which is usually a simple, clean room with a double or twin bed, often with shared bathroom - runs from around €25 to €60 per night depending on location and facilities. In Cape Town, expect to pay €35–€60 for a decent private room in a well-located hostel. If you're travelling as a couple and splitting the cost, this is extraordinarily good value. Some hostels also offer en-suite private rooms, which sit at the top of that price range.</p>
 
-<h4 class="sub-heading-desktop">What does food and drink cost?</h4>
-<p class="intro-p">This is where South Africa really delivers. A big meal at a good restaurant — a proper main with a drink — costs €8–€15. Street food is even cheaper. A gatsby from a Cape Flats takeaway, a bunny chow in Durban, or a boerewors roll from a roadside stall costs €2–€5. Most hostels have shared kitchens. Self-catering is easy and cheap. A braai from the supermarket — boerewors, rolls, and a six-pack of local beer — feeds two people for around €10. A local beer in a bar costs €1.50–€2.50. A glass of South African wine costs €2.50–€4. South Africa makes outstanding wine and craft beer. It costs almost nothing to enjoy it.</p>
+        <h4 class="sub-heading-desktop">How do I get around? What are the transport options?</h4>
+        <p class="intro-p">This is the single most important logistical decision you'll make, and it's worth thinking through before you arrive.</p>
 
-<h4 class="sub-heading-desktop">What do activities cost?</h4>
-<p class="intro-p">Activities are where you will spend the most money. Budget for them. They are the heart of the South African trip. A rough guide for 2026:</p>
+        <p class="intro-p"><strong>The Baz Bus</strong> is the famous hop-on, hop-off backpacker bus that has been running the coastal trail for over 25 years. It once covered the whole country, but since Covid its operations have been limited to the coastal stretch between Cape Town and Gqeberha (Port Elizabeth on older maps) - the Garden Route and half the Sunshine Coast - stopping directly at hostels along the way. It is the safest and most social way to travel the route. You pay once for a pass covering the stretch, and you can get on and off as many times as you like in both directions. It is expensive (it costs almost as much as hiring a car), and it does not run every day (and so requires some planning), but what you're paying for is safety and sociability: door-to-door hostel transfers, the near-certainty that nothing will go wrong en route, and a bus full of fellow backpackers who are all at exactly the same stage of their trip as you are. For solo travellers on their first visit, it is excellent.</p>
 
-<p class="intro-p">
-Bungee jumping at Bloukrans (world's highest commercial bridge bungee) — ~€90.<br>
-Shark cage diving at Gansbaai (great white sharks, day trip from Cape Town) — ~€120–€140.<br>
-Tandem paragliding from Signal Hill, Cape Town — ~€85.<br>
-Cape Peninsula cycle and shuttle tour — ~€45–€60.<br>
-Abseiling Table Mountain — ~€65.<br>
-Surfing lesson with board hire, Muizenberg — ~€25.<br>
-White-water rafting, Storms River (Garden Route) — ~€40–€55.<br>
-Zip-lining, Tsitsikamma (Garden Route) — ~€45–€60.<br>
-Skydiving at Langebaan (West Coast) — ~€160–€180.<br>
-Soweto tour, Johannesburg (full day) — ~€30–€45.<br>
-Self-drive day in Kruger National Park (gate fees) — ~€25 per person.<br>
-Guided Kruger sunset game drive — ~€35–€50.<br>
-Hluhluwe-iMfolozi full-day guided safari — ~€60–€80.<br>
-Sani Pass 4x4 tour into Lesotho — ~€55–€70.<br>
-Whale watching at Hermanus (Aug–Nov) — ~€35–€50.<br>
-Table Mountain cable car (return) — ~€13–€16
-</p>
+        <p class="intro-p"><strong>Mainline / intercity buses</strong> (Intercape, Greyhound, Intercity Express) are significantly cheaper than the Baz Bus - a Cape Town to Johannesburg ticket can be as little as €20–€35 — but they run between city bus terminals, not hostel doors, and they are considerably less social. They are a good option if you are making long direct runs between cities and know exactly where you are going. See the advice section of this website for a full directory of bus companies</p>
 
-<h4 class="sub-heading-desktop">What is a realistic daily budget?</h4>
-<p class="intro-p">Here are three honest benchmarks:</p>
+        <p class="intro-p"><strong>Car hire</strong> is the option that unlocks South Africa properly. If you are travelling as a pair or a small group, the maths is compelling: the cost of a small hire car (a Toyota Yaris-class vehicle) works out at roughly €20–€35 per day all-in with basic insurance, and split between two or three people, this is often cheaper per person than the Baz Bus while giving you total freedom to stop where you want, when you want. South Africa drives on the left, the roads are good (with some notable exceptions on rural routes and after heavy rain), and getting a car means you can reach places the Baz Bus does not go: the Cederberg, Route 62, the Karoo, the Drakensberg, Sani Pass, the Panorama Route, Hluhluwe-iMfolozi, Addo. There is one firm rule with car hire in South Africa: do not drive at night outside of cities and well-lit suburban roads. The combination of unlit pedestrians and cyclists, cattle on roads in rural areas, and potholes that can appear without warning makes night driving genuinely dangerous. Not to mention that drunk driving is a national sport, and if you're on the roads at night, half of the other drivers are likely to be under the influence. Plan your days to arrive before dark.</p>
 
-<p class="intro-p"><strong>Budget traveller:</strong> €35–€50 per day. This covers a dorm bed (€10–€15), cheap meals (€8–€12 for food), a couple of local beers, and some local transport. You will eat well, sleep fine, and have a brilliant time.</p>
+        <p class="intro-p" style="margin-top: 70px;"><strong>FOR IN-DEPTH INFO ON TRANSPORT, SEE:</strong></p>
 
-<p class="intro-p"><strong>Mid-range backpacker:</strong> €55–€80 per day. Dorm or private room. A mix of eating out and cooking. One paid activity every few days. Drinks. This is the sweet spot for most travellers.</p>
+        <center>
+            <a href="backpacking-south-africa-advice/in-country.htm#transport" class="download-btn" style="margin-top:60px;margin-bottom:70px;">ADVICE</a>
+        </center>
 
-<p class="intro-p"><strong>Comfortable flashpacker:</strong> €80–€120+ per day. Private rooms, restaurant meals, regular activities, and car hire. You will not feel like you are roughing it at all.</p>
+        <h4 class="sub-heading-desktop">What does food and drink cost?</h4>
+        <p class="intro-p">This is where South Africa really makes you feel like royalty. A big, satisfying meal at a good sit-down restaurant — a proper main course with a drink - will cost you €8–€15. Street food, market food, and takeaway options (a gatsby from a Cape Flats takeaway, a bunny chow in Durban, a boerewors roll from a roadside vendor) cost €2–€5 and are frequently extraordinary. Supermarket food is cheap and good: you can eat very well self-catering, and most hostels have communal kitchens. A braai (a South African barbecue) from the supermarket - a pack of boerewors sausage, some rolls, and a six-pack of local beer - will feed two people adequately for around €10 total and is, frankly, one of the most enjoyable dining experiences the country offers. A local beer (Windhoek, Castle, Black Label) in a bar costs €1.50–€2.50. A decent glass of locally-produced wine costs €2.50–€4. A coffee is €1.50–€3. South Africa has an outstanding wine and craft beer culture, and it costs almost nothing to participate in it.</p>
 
-<p class="intro-p">One tip: even on a tight budget, do a few of the big activities. The bungee, the cage dive, the Kruger game drive, the township tour — these are things you cannot do at home. The memories will outlast any money you saved by skipping them.</p>
+        <h4 class="sub-heading-desktop">What do day tours and activities cost?</h4>
 
-<p class="intro-p" style="margin-top: 70px;"><strong>FOR IN-DEPTH INFO, SEE:</strong></p>
-<center>
-    <a href="backpacking-south-africa-advice/index.htm#money" class="download-btn" style="margin-top:60px;margin-bottom:70px;">ADVICE</a>
-</center>
+        <p class="intro-p">Activities are where you'll spend the biggest chunks of money, and it's worth budgeting for them because they are the heart of the South African experience. Rough price guide for popular activities in 2026:</p>
 
-<h3 class="section-heading-desktop">Safety in South Africa</h3>
+        <p class="intro-p">
+        Bungee jumping at Bloukrans (world's highest commercial bridge jump, Garden Route) - approximately €90<br>
+        Shark cage diving at Gansbaai (great white sharks, day trip from Cape Town) - approximately €120–€140<br>
+        Tandem paragliding from Signal Hill, Cape Town - approximately €85<br>
+        Cape Peninsula cycle-and-shuttle tour - approximately €45–€60<br>
+        Abseiling Table Mountain - approximately €65<br>
+        Surfing lesson with board hire, Muizenberg - approximately €25<br>
+        White-water rafting, Storms River (Garden Route) - approximately €40–€55<br>
+        Zip-lining, Tsitsikamma (Garden Route) - approximately €45–€60<br>
+        Skydiving at Langebaan (West Coast) - approximately €160–€180<br>
+        Soweto township tour, Johannesburg (full day) - approximately €30–€45<br>
+        Self-drive day in Kruger National Park (gate fees) - approximately €25 per person<br>
+        Guided Kruger sunset game drive - approximately €35–€50<br>
+        Hluhluwe-iMfolozi full-day guided safari - approximately €60–€80<br>
+        Sani Pass 4x4 tour into Lesotho - approximately €55–€70<br>
+        Whale watching at Hermanus (seasonal, Aug–Nov) - approximately €35–€50<br>
+        Table Mountain cable car (return) - approximately €13–€16
+        </p>
 
-<p class="intro-p">Let's be direct about this. It is what everyone asks before they leave home. And once people get here, most find they had it slightly wrong.</p>
+        <h4 class="sub-heading-desktop">What is a realistic total daily budget?</h4>
+        <p class="intro-p">Planning your daily spend depends heavily on your travel style, but here are three honest benchmarks:</p>
 
-<p class="intro-p">South Africa has a real crime problem. Violent crime — robbery, carjacking, assault — does happen. The murder rate is among the highest in the world. This is fact and it deserves respect. But hundreds of thousands of backpackers travel South Africa every year without any trouble. Most go home wanting to come back. The difference between them and the few who have a bad time comes down to awareness and behaviour.</p>
+        <p class="intro-p"><strong>Budget traveller (shoestring):</strong> €35–€50 per day. This covers a dorm bed (€10–€15), self-catered or market meals (€8–€12 for food), a couple of local beers (€4–€6), a Baz Bus or shared transport allocation, and perhaps one free or low-cost activity. You will eat well, sleep fine, and have a brilliant time. This is very achievable.</p>
 
-<p class="intro-p">The rules are simple. Once they become habit, they cause no stress at all.</p>
+        <p class="intro-p"><strong>Mid-range backpacker:</strong> €55–€80 per day. Dorm or private room (€15–€35), mix of restaurant and self-catered meals, a paid activity every second or third day, local transport, drinks. This is the sweet spot for most travellers who want to do most of the major activities without feeling anxious about money.</p>
 
-<p class="intro-p"><strong>Use Uber after dark in cities.</strong> In Cape Town, Johannesburg, Durban, and all large cities, Uber is cheap, safe, and easy to use. A trip across Cape Town costs €2–€5. Street taxis can involve negotiation and no route tracking. Use Uber. Every time.</p>
+        <p class="intro-p"><strong>Comfortable flashpacker:</strong> €80–€120+ per day. Private rooms at better-quality hostels or small guesthouses, restaurant meals, one or two activities per week, car hire contribution. You will not feel like you're roughing it at all.</p>
 
-<p class="intro-p"><strong>Don't walk in unknown areas after dark.</strong> This applies to the Cape Town city centre outside of known safe zones. It applies to the Johannesburg city centre at any time. It applies to any area your hostel has not said is safe to walk. Ask your hostel manager. They know. Listen to them.</p>
+        <p class="intro-p">One note on activities: even on a shoestring budget, prioritise a few of the big ones. The bungee, the cage dive, the Kruger game drive, the township tour — these are the experiences you will not replicate at home, and the memories will outlast any amount of money saved by skipping them.</p>
 
-<p class="intro-p"><strong>Keep your phone out of sight on city streets.</strong> Phones get snatched from hands very quickly. Keep yours in your pocket unless you are inside a building. This takes about two days to become second nature.</p>
+        <p class="intro-p" style="margin-top: 70px;"><strong>FOR IN-DEPTH INFO, SEE:</strong></p>
 
-<p class="intro-p"><strong>Don't drive on rural roads at night.</strong> People walking on unlit roads, cattle, and sudden potholes make rural night driving very dangerous. Plan each day to arrive before dark.</p>
-
-<p class="intro-p"><strong>Use your hostel safe.</strong> All good hostels have safes in rooms or at the front desk. Use them. Carry a copy of your passport for daily use. Keep the real one locked away.</p>
-
-<p class="intro-p"><strong>Trust your gut.</strong> If a street feels wrong, turn back. If a person makes you uneasy, move away. That instinct is almost always right. Acting on it is not rude — it is just good sense.</p>
-
-<p class="intro-p"><strong>Get the right travel insurance.</strong> Make sure it covers medical transfer, theft, and adventure activities. Many standard policies do not cover bungee jumps or shark cage dives. Check before you go.</p>
-
-<p class="intro-p">The bottom line: South Africa rewards the aware traveller. Read the safety notes your hostel gives you on arrival. They are locally specific and kept up to date. They are written by people who want you to have a great time and get home safely.</p>
-
-<p class="intro-p" style="margin-top: 70px;"><strong>FOR IN-DEPTH SAFETY ADVICE, SEE:</strong></p>
-<center>
-    <a href="backpacking-south-africa-advice/index.htm#safety" class="download-btn" style="margin-top:60px;margin-bottom:70px;">ADVICE</a>
-</center>
+        <center>
+            <a href="backpacking-south-africa-advice/index.htm#money" class="download-btn" style="margin-top:60px;margin-bottom:70px;">ADVICE</a>
+        </center>
 
 
-<div class="content-section-2">
+        <h3 class="section-heading-desktop">Safety in South Africa</h3>
 
-<div class="hide-on-mobile" style="height: 60px; width: 100%; display: block; background-color: #ffd400;"></div>
-<div class="hide-on-desktop" style="height: 30px; width: 100%; display: block; background-color: #ffd400;"></div>
+        <p class="intro-p">Let's talk about this directly, because it's the thing everyone asks about before they leave home, and it's the thing that most people, once they've been here, realise they had in slightly the wrong perspective.</p>
 
-<h2 class="area-hero-title">The History of Backpacking in South Africa</h2>
+        <p class="intro-p">South Africa has a serious crime problem, and it would be patronising to pretend otherwise. Violent crime — robbery, carjacking, assault - happens. The murder rate is among the highest in the world. This is a real thing and it demands real respect. Equally, hundreds of thousands of backpackers travel South Africa every year without incident, and the overwhelming majority return home with a full wallet, all their teeth, and a desire to come back as soon as possible. The difference between them and the small minority who have a bad experience comes down almost entirely to behaviour and awareness.</p>
 
-<p class="intro-p">Backpacking was born in the 1960s. It came out of the flower-power counter-culture. A whole generation picked up a rucksack and headed off to see the world. Cheap international flights were new. The hippy trail to Asia was opening up. Young people from Europe and the US poured into Turkey, Iran, Afghanistan, India, and Nepal. It was idealistic, bold, and completely new.</p>
+        <p class="intro-p">The practical rules are simple and, once you get into the habit of them, entirely unstressful:</p>
 
-<p class="intro-p">South Africa played no part in any of this. The country was a police state under apartheid. The early backpackers believed in peace and love. That left no room for a government that jailed people on the basis of their race or poltical opinions. South Africa was not just unattractive as a place to visit. It was a place to avoid. An entire generation of Western travellers passed it by without a second thought.</p>
+        <p class="intro-p"><strong>Use Uber (not taxis) for all urban travel after dark.</strong> In Cape Town, Johannesburg, Durban, and all major cities, Uber is cheap, widely available, and safe. A standard Uber across Cape Town costs €2–€5. A regular street taxi involves negotiation, no route tracking, and occasional bad outcomes. Use Uber. Always.</p>
 
-<p class="intro-p">That all changed on 11 February 1990. Nelson Mandela walked out of prison after 27 years. The world watched. Within four years, South Africa had held its first free election. The apartheid era was over.</p>
+        <p class="intro-p"><strong>Do not walk in unfamiliar urban areas after dark.</strong> This applies to the Cape Town CBD outside of known safe zones, to Johannesburg city centre at any time, and to any city neighbourhood that your hostel staff has not specifically told you is safe for walking. Your hostel manager knows which streets are walkable on a given evening. Ask them, listen to them, and follow their advice.</p>
 
-<p class="intro-p">By this time, backpacking had become a fully grown cultural force. In the UK, the Netherlands, Germany, Scandinavia, Australia, and the US, the "gap year" idea had taken hold. School and university leavers were taking time to travel the world before starting their careers. Hundreds of thousands of young people were doing it every year. South-East Asia, India, Central America, and Australia were the go-to spots. South Africa had never been on the list. Then, almost overnight, it was.</p>
+        <p class="intro-p"><strong>Keep your phone in your pocket on city streets.</strong> Devices are snatched from hands with remarkable speed and efficiency. Keep your phone out of sight unless you are seated inside an establishment. This takes about two days to become second nature.</p>
 
-<p class="intro-p">The timing was extraordinary. A whole new country opened its doors at the exact moment a generation of young travellers was ready to walk through them. The result — to the bemusement of South Africa's own people — was a flood of backpackers. They arrived wide-eyed. The country they found had jaw-dropping wildlife. It had a stunning coastline and a warm culture. And the prices were so low their budgets felt almost embarrassing. Word spread fast. More people came.</p>
+        <p class="intro-p"><strong>Do not drive at night on rural roads.</strong> This has been covered under transport above, but it bears repeating. Unlit pedestrians, livestock on the road, and sudden potholes make rural night driving in South Africa hazardous in a way that has no equivalent in Western Europe. Plan your driving days to arrive before dark.</p>
 
-<h3 class="section-heading-desktop">The Pioneers</h3>
+        <p class="intro-p"><strong>Store your passport and valuables in your hostel's safe.</strong> All reputable hostels have in-room safes or a secure front-desk facility. Use them. Travel with a photocopy of your passport for daily use.</p>
 
-<p class="intro-p">A whole new industry appeared from almost nothing. Hundreds of backpackers hostels — known simply as "backpackers" in South Africa — sprang up all over the country. Some were in cities. Some were in beach towns. Some were in places so remote that getting there was half the fun.</p>
+        <p class="intro-p"><strong>Trust your instincts.</strong> If a street feels wrong, turn around. If a person makes you uncomfortable, move away. The instinct that says "this is not right" is almost always correct, and acting on it is not rudeness - it is survival sense that applies everywhere in the world, not just here.</p>
 
-<p class="intro-p">One of the very first was Ashanti Lodge in Cape Town. In 1992, Lisa Krohn and her partner Craig Johnstone converted some rooms above his parents' garage into three simple dorms. They had just come back from their own travels and knew what a good hostel could be. The timing was spot on. Within three years they had moved into a grand Victorian house on Hof Street in Gardens. Ashanti went on to become one of the most loved hostels in the country. It is still going strong today.</p>
+        <p class="intro-p"><strong>Get the right travel insurance.</strong> This is non-negotiable for South Africa. Make sure your policy covers medical evacuation (hospitals in rural areas vary enormously in quality), theft (document the serial numbers of your electronics before you leave), and adventure activities if you're planning on bungee jumps or shark cage dives - many standard policies exclude these.</p>
 
-<p class="intro-p">Many of those early hostels were started by people who saw an opportunity. Lebo Malepa grew up in Orlando West, Soweto, next door to Nelson Mandela's old house. He started by selling crafts to the tour groups who came to see the Hector Pieterson Memorial. He got talking to travellers. He liked them. In 2003, he turned his family home into a backpackers hostel. Lebo's Soweto Backpackers became famous for its bicycle tours of the township. It was known for its storytelling nights too. And for its deep roots in the local community. Lebo won many awards and was rightly seen as one of South Africa's great tourism pioneers. He passed away on Christmas Day 2021. The hostel still runs today, led by his family and the team he built.</p>
+        <p class="intro-p">The bottom line on safety: South Africa rewards the informed, attentive traveller handsomely. It punishes the distracted and careless more severely than destinations where the base-level risk is lower. Read the briefings your hostel gives you on arrival. They are not bureaucratic box-ticking — they are genuine, updated, locally-specific advice from people who want you to have a good time and come back in one piece.</p>
 
-<p class="intro-p">A group of famous hostels grew up along the Wild Coast in the 1990s. The Price family was instrumental in this, taking over a fading resort that had been built for SA's domestic tourism market in the 1980's and turning it into Buccanneers Backpackers. Many of the ideas that shaped the Wild Coast's backpacking scene - free drinks on arrival, every 5th night free, dress-up parties - originated there. Sugar Shack in East London was started by Dave Malherbe, a former pro surfer who had competed on the world circuit. He and his brother Andre converted the old lifeguard's building on the beach into a hostel. It became a classic stop on the backpacking trail. Dave later took over the running of Coffee Shack in Coffee Bay, another Wild Coast legend, after its founder passed away.</p>
+        <p class="intro-p" style="margin-top: 70px;"><strong>FOR IN-DEPTH SAFETY ADVICE, SEE:</strong></p>
 
-<p class="intro-p">Tim and Annie Oakley — two travellers who had been teaching English in Taiwan — saved enough to come home to South Africa and invest. They started Amapondo Backpackers in Port St Johns. It went on to become one of the most celebrated hostels on the Wild Coast. Another is Dillon Harvey, who travelled the world as a cook before starting The Kraal at Mpande on the Wild Coast. He's still there, one of the few of the Old Guard still standing.</p>
-
-<p class="intro-p">Not all the great stories are set in South Africa itself. Helen Large — now Jarman — is a British woman who started Pink Papaya Backpackers in Chimoio, a remote town in Mozambique. She did this in the early days of that country's own tourism boom. She later got married, moved south, and now owns Witsand Poshpackers in the Western Cape. The same free spirit that drove the early pioneers is still alive and well in her story.</p>
-
-<p class="intro-p">As the industry grew, new voices emerged. Bheki Dube is one of the most inspiring. He grew up in Johannesburg and started leading walking tours of the city centre at the age of 16. At 21, he opened his first hostel — Curiocity, in the vibrant Maboneng Precinct. He has since built the Curiocity brand into a group of design-led hostels in Cape Town and Johannesburg. His approach — bold design, local roots, guided city tours — has helped reshape what backpackers hostels in South Africa can be.</p>
-
-<p class="intro-p">Professional groups have also entered the scene. Villa Viva in Cape Town was once known as The Backpack — one of the great originals. It is now part of a broader social enterprise network. Zzzone in Hermanus is a newer kind of hostel: design-focused and sleep-first. It targets the active traveller who wants a solid night's rest as much as a great time.</p>
-
-<h3 class="section-heading-desktop">The Two Pillars of the Industry</h3>
-
-<p class="intro-p">For decades, two things held the whole backpacking South Africa scene together. One was the Baz Bus. The other was a small but mighty booklet called <em>Coast to Coast</em>.</p>
-
-<p class="intro-p">The Baz Bus was the creation of Barry "Baz" Zeidel — a chartered accountant and keen traveller. He had seen similar backpacker bus services while travelling in Europe and Australia. He launched the Baz Bus in November 1995 with two small buses and one route between Cape Town and Johannesburg. It was a hop-on, hop-off service. It picked up and dropped off directly at hostel doors. No bus terminals. No taxi rides. No getting lost. The idea was simple. The result was brilliant. The Baz Bus grew into a fleet of 26 buses. They ran the length and breadth of the country. At its peak it carried over 15,000 backpackers a year. It was not cheap — but the price reflected quality. Baz retained his staff for years and paid them well. Every driver knew every hostel, every stop, and every pothole on the route. You were in safe hands.</p>
-
-<p class="intro-p"><em>Coast to Coast</em> was a different kind of clever. It was a pocket-sized booklet — almost certainly the only travel guide in the world printed in black and white on cheap newsprint. It made up for this with a bright cover, cartoons, jokes in the page margins, and a tone that matched the spirit of the industry perfectly. The content was almost all paid-for listings — this being before the era of online reviews. Nevertheless, piles of <em>Coast to Coast</em> sat in every hostel in the country. Over 45,000 copies were printed each year for the Cape Town market alone. Others tried to copy it. None could. The low production costs — cheap paper, single-colour printing — and it's excellent distribution made it unassailable. It ran for decades.</p>
-
-<h3 class="section-heading-desktop">Where Things Stand Today</h3>
-
-<p class="intro-p">The early wave of excitement faded slowly over the years. There was a brief boost around the 2010 FIFA World Cup in South Africa. Then Covid arrived and hit the industry hard. Hostels closed. Staff were let go. The Baz Bus shut down. <em>Coast to Coast</em> ceased publication. For many people who had built their lives around this world, it was a body blow.</p>
-
-<p class="intro-p">But the recovery is real. The Baz Bus is back. It was bought by the team behind Peru Hop — a similar backpacker bus service in South America — and is now running again. It currently serves the coastal route between Cape Town and Gqeberha. The hostel network, though smaller than before, has held on. 238 Hostels are still operational, all of which can be found on the interactive map above. The old guard is still there. New operators have come in with fresh ideas.</p>
-
-<p class="intro-p">South Africa remains one of the most exciting travel destinations in the world. Backpacking South Africa has always been shaped by two things. The first is what is happening inside the country. The second is what is happening back home for the travellers. The mood in Europe, the UK, Australasia and the USA matters. So does the strength of the dollar, pound or euro against the rand. So does the cost of flights. These things push and pull the numbers. Right now, they are not pointing in the best of directions. But South Africa has too much to offer to stay off the radar for long.</p>
+        <center>
+            <a href="backpacking-south-africa-advice/index.htm#safety" class="download-btn" style="margin-top:60px;margin-bottom:70px;">ADVICE</a>
+        </center>
 
 </div>
-
   </div>
+
 </details>
+
 </section>
 
      <!-- Parallax image -->
@@ -1083,6 +1023,14 @@ Table Mountain cable car (return) — ~€13–€16
 <div id="tip1"></div>
 
 <div class="content-section-2">
+
+     <!-- Spacer -->
+
+<div class="hide-on-mobile" style="height: 50px; width: 100%; display: block; margin-top: 0px; background-color: #ffd400;">
+</div>
+
+<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; background-color: #ffd400;margin-bottom: -10px;">
+</div>
 
      <!-- Spacer -->
 
@@ -1455,7 +1403,7 @@ Table Mountain cable car (return) — ~€13–€16
 
         <div class="hostel-grid">
             <div class="hostel-col">
-                <h3>Cape Town Backpackers Hostels</h3>
+                <h2>Cape Town Backpackers Hostels</h2>
 
                 <p>Few cities on earth pack this much into one place - mountains, beaches, world-class food, nightlife and scenery - all wrapped in jaw-dropping scenery.</p>
 
@@ -1526,7 +1474,7 @@ Table Mountain cable car (return) — ~€13–€16
   </div>
 </details>
 
-                <h3>Cape Winelands Backpackers Hostels</h3>
+                <h2>Cape Winelands Backpackers Hostels</h2>
 
                 <p>Rows of vines beneath rugged mountain ranges, Cape Dutch architecture, and world-class wine for backpacker-friendly prices. Stellenbosch, Franschhoek & Paarl are easy day trips.</p>
 
@@ -1546,7 +1494,7 @@ Table Mountain cable car (return) — ~€13–€16
   </div>
 </details>
 
-                <h3>West Coast Backpackers Hostels</h3>
+                <h2>West Coast Backpackers Hostels</h2>
 
                 <p>Wild flowers in spring, fresh crayfish on the braai, and a raw Atlantic coastline far from the tourist trail - the West Coast rewards those who wander.</p>
 
@@ -1573,7 +1521,7 @@ Table Mountain cable car (return) — ~€13–€16
   </div>
 </details>
 
-                <h3>The Cederberg Backpackers Hostels</h3>
+                <h2>The Cederberg Backpackers Hostels</h2>
 
                 <p>Wild flowers in spring, fresh crayfish on the braai, and a raw Atlantic coastline far from the tourist trail - the West Coast rewards those who wander.</p>
 
@@ -1594,7 +1542,7 @@ Table Mountain cable car (return) — ~€13–€16
   </div>
 </details>
 
-                <h3>Route 62 Backpackers Hostels</h3>
+                <h2>Route 62 Backpackers Hostels</h2>
 
                 <p>The world's longest wine route snakes through the Little Karoo past ostrich farms, rustic towns, and dramatic mountain passes. Slow down and savour every kilometre.</p>
 
@@ -1627,7 +1575,7 @@ Table Mountain cable car (return) — ~€13–€16
   </div>
 </details>
 
-                <h3>The Overberg Backpackers Hostels</h3>
+                <h2>The Overberg Backpackers Hostels</h2>
 
                 <p>Beyond the Hottentots Holland mountains lies whale country - rolling wheat fields, the wild Cape Agulhas coastline, and some of the best whale watching on the planet.</p>
 
@@ -1662,7 +1610,7 @@ Table Mountain cable car (return) — ~€13–€16
   </div>
 </details>
 
-                <h3>Garden Route Backpackers Hostels</h3>
+                <h2>Garden Route Backpackers Hostels</h2>
 
                 <p>South Africa's holiday classic for good reason. Lush forests, lagoons, bungee jumps, and a string of coastal towns keep backpackers happily busy for weeks.</p>
 
@@ -1718,7 +1666,7 @@ Table Mountain cable car (return) — ~€13–€16
   </div>
 </details>
 
-                <h3>Karoo Backpackers Hostels</h3>
+                <h2>Karoo Backpackers Hostels</h2>
 
                 <p>Visit semi-desert silence broken only by wind and birdsong, stargazing, fossil hunting, the Cango Caves, ostriches, history, and an otherworldly landscape that gets deep under your skin.</p>
 
@@ -1747,7 +1695,7 @@ Table Mountain cable car (return) — ~€13–€16
   </div>
 </details>
 
-                <h3>Sunshine Coast Backpackers Hostels</h3>
+                <h2>Sunshine Coast Backpackers Hostels</h2>
 
                 <p>Warm Indian Ocean water, uncrowded beaches, and the elephant-packed wilderness of Addo Elephant National Park - this underrated stretch punches well above its weight.</p>
 
@@ -1800,7 +1748,7 @@ Table Mountain cable car (return) — ~€13–€16
   </div>
 </details>
 
-                <h3>Eastern Cape Interior Backpackers Hostels</h3>
+                <h2>Eastern Cape Interior Backpackers Hostels</h2>
 
                 <p>Eccentric, arty villages hidden in the mountains. Hogsback is misty and mystical; Nieu-Bethesda is sunbaked and surreal. Both are unlike anywhere else in South Africa.</p>
 
@@ -1829,7 +1777,7 @@ Table Mountain cable car (return) — ~€13–€16
   </div>
 </details>
 
-                <h3>Wild Coast Backpackers Hostels</h3>
+                <h2>Wild Coast Backpackers Hostels</h2>
 
                 <p>Untamed, gorgeous, and gloriously underdeveloped. This stretch of former Transkei coastline rewards slow Travellers with empty beaches, Xhosa culture, and legendary hiking trails.</p>
 
@@ -1869,7 +1817,7 @@ Table Mountain cable car (return) — ~€13–€16
   </div>
 </details>
 
-                <h3>Free State Backpackers Hostels</h3>
+                <h2>Free State Backpackers Hostels</h2>
 
                 <p>Golden plains, sandstone mountains, and a warm African heartbeat. The Free State is often overlooked but offers real, unhurried South Africa at its most authentic.</p>
 
@@ -1890,7 +1838,7 @@ Table Mountain cable car (return) — ~€13–€16
   </div>
 </details>
 
-                <h3>KwaZulu-Natal South Coast Backpackers Hostels</h3>
+                <h2>KwaZulu-Natal South Coast Backpackers Hostels</h2>
 
                 <p>Warm water, affordable resorts, and a laid-back vibe define this stretch of KwaZulu-Natal coastline - a quieter, cheaper alternative to Durban just up the road.</p>
 
@@ -1919,7 +1867,7 @@ Table Mountain cable car (return) — ~€13–€16
   </div>
 </details>
 
-                <h3>Durban Backpackers Hostels</h3>
+                <h2>Durban Backpackers Hostels</h2>
 
                 <p>South Africa's surf city - a buzzing, multicultural port Town with legendary curry, golden beaches, a vibrant street scene, and an energy entirely its own.</p>
 
@@ -1952,7 +1900,7 @@ Table Mountain cable car (return) — ~€13–€16
 
             <div class="hostel-col">
 
-                <h3>KwaZulu-Natal North Coast Backpackers Hostels</h3>
+                <h2>KwaZulu-Natal North Coast Backpackers Hostels</h2>
 
                 <p>North Coast dolphins, sugar and dunes - the North Coast blends beach-town relaxation with some of the finest coastal wilderness in Southern Africa.</p>
 
@@ -1969,7 +1917,7 @@ Table Mountain cable car (return) — ~€13–€16
   </div>
 </details>
 
-                <h3>KwaZulu-Natal Midlands Backpackers Hostels</h3>
+                <h2>KwaZulu-Natal Midlands Backpackers Hostels</h2>
 
                 <p>A misty patchwork of dairy farms, fly-fishing streams, craft studios, and country pubs. The Midlands Meander is perfect for slowing down between bigger adventures.</p>
 
@@ -1992,7 +1940,7 @@ Table Mountain cable car (return) — ~€13–€16
   </div>
 </details>
 
-                <h3>The Drakenberg Backpackers Hostels</h3>
+                <h2>The Drakenberg Backpackers Hostels</h2>
 
                 <p>The Roof of Africa. Soaring basalt peaks, San Rock art, world-class hiking, and crisp mountain air make this one of South Africa's great backpacker destinations.</p>
 
@@ -2021,7 +1969,7 @@ Table Mountain cable car (return) — ~€13–€16
   </div>
 </details>
 
-                <h3>Zululand Backpackers Hostels</h3>
+                <h2>Zululand Backpackers Hostels</h2>
 
                 <p>The heart of Zulu heritage and home to Hluhluwe-iMfolozi, the oldest game reserve in Africa. Culture, wildlife, and history converge in one extraordinary region.</p>
 
@@ -2050,7 +1998,7 @@ Table Mountain cable car (return) — ~€13–€16
   </div>
 </details>
 
-                <h3>Kruger National Park Area Backpackers Hostels</h3>
+                <h2>Kruger National Park Area Backpackers Hostels</h2>
 
                 <p>Africa's most accessible Big Five safari destination. Self-drive through endless bush, sleep in rest camps and wake to lions roaring in the dark.</p>
 
@@ -2075,7 +2023,7 @@ Table Mountain cable car (return) — ~€13–€16
   </div>
 </details>
 
-                <h3>Mpumalanga Province Backpackers Hostels</h3>
+                <h2>Mpumalanga Province Backpackers Hostels</h2>
 
                 <p>Panorama Route, Blyde River Canyon, and the gateway to Kruger - dramatic scenery and incredible biodiversity in an endlessly rewarding backpacker playground.</p>
 
@@ -2108,7 +2056,7 @@ Table Mountain cable car (return) — ~€13–€16
   </div>
 </details>
 
-                <h3>Limpopo Province Backpackers Hostels</h3>
+                <h2>Limpopo Province Backpackers Hostels</h2>
 
                 <p>South Africa's wild Northern frontier. Ancient baobabs, sacred mountains, rock art, and remote game reserves make Limpopo feel like the country's best-kept secret.</p>
 
@@ -2127,7 +2075,7 @@ Table Mountain cable car (return) — ~€13–€16
   </div>
 </details>
 
-                <h3>Johannesburg Backpackers Hostels</h3>
+                <h2>Johannesburg Backpackers Hostels</h2>
 
                 <p>Jozi moves fast. Street art, craft beer, Soweto township tours, apartheid history, and an infectious creative energy make South Africa's biggest city impossible to ignore.</p>
 
@@ -2166,7 +2114,7 @@ Table Mountain cable car (return) — ~€13–€16
   </div>
 </details>
 
-                <h3>Pretoria Backpackers Hostels</h3>
+                <h2>Pretoria Backpackers Hostels</h2>
 
                 <p>South Africa's administrative capital offers excellent museums, a more relaxed pace than Joburg, and easy access to the Cradle of Humankind.</p>
 
@@ -2191,7 +2139,7 @@ Table Mountain cable car (return) — ~€13–€16
   </div>
 </details>
 
-                <h3>North West Province Backpackers Hostels</h3>
+                <h2>North West Province Backpackers Hostels</h2>
 
                 <p>Home to Sun City and the ancient Cradle of Humankind. Closer to Johannesburg than you'd think, wilder than you'd expect.</p>
 
@@ -2210,7 +2158,7 @@ Table Mountain cable car (return) — ~€13–€16
   </div>
 </details>
 
-                <h3>Northern Cape Backpackers Hostels</h3>
+                <h2>Northern Cape Backpackers Hostels</h2>
 
                 <p>The big empty. Namaqualand wildflowers, Kgalagadi lion, Augrabies falls, and the darkest skies in South Africa await those venturing into the vast interior.</p>
 
@@ -2231,7 +2179,7 @@ Table Mountain cable car (return) — ~€13–€16
   </div>
 </details>
 
-                <h3>Eswatini Backpackers Hostels</h3>
+                <h2>Eswatini Backpackers Hostels</h2>
 
                 <p>Small but spirited. This independent kingdom offers royal cultural ceremonies, excellent wildlife reserves, white-water rafting, and some of the warmest hospitality in southern Africa.</p>
 
@@ -2254,7 +2202,7 @@ Table Mountain cable car (return) — ~€13–€16
   </div>
 </details>
 
-                <h3>Lesotho Backpackers Hostels</h3>
+                <h2>Lesotho Backpackers Hostels</h2>
 
                 <p>The Kingdom in the Sky. Entirely surrounded by South Africa, this mountain nation offers pony trekking, Basotho culture, and high-altitude adventure unlike anywhere else on the continent.</p>
 
@@ -2299,7 +2247,7 @@ Table Mountain cable car (return) — ~€13–€16
 
      <!-- Backpackers Hostel -->
 
-        <article class="hostel-card" aria-label="Curiocity Kloof Street">
+        <article class="hostel-card">
             <div class="card-location-tag">
 <h3>CAPE TOWN</h3>
 </div>
@@ -2311,7 +2259,7 @@ Table Mountain cable car (return) — ~€13–€16
 </div>
 
         </article>
-        <article class="hostel-card" aria-label="Big Blue Backpackers">
+        <article class="hostel-card">
             <div class="card-location-tag">
 <h3>CAPE TOWN</h3>
 </div>
@@ -2325,9 +2273,9 @@ Table Mountain cable car (return) — ~€13–€16
 
      <!-- Backpackers Hostel -->
 
-        <article class="hostel-card" aria-label="B.I.G.: Backpackers in Green Point">
+        <article class="hostel-card">
             <div class="card-location-tag"><h3>CAPE TOWN</h3></div>            
-<img src="assets/top_pick_big_backpackers_in_green_point.webp" class="card-img" alt="B.I.G.: Backpackers in Green Point, Cape Town">
+<img src="assets/top_pick_big_backpackers_in_green_point.webp" class="card-img" alt="Ashanti Lodge exterior">
             <h4 class="hostel-card-header">B.I.G.: BACKPACKERS IN GREEN POINT</h4>
             <p>Modern, clean, and five minutes from the V&A Waterfront and Sea Point Promenade. Free breakfast, two fully-equipped kitchens, braai facilities, and a pool. One of the best-value smart hostels in Cape Town.</p>
             <a href="backpacking-south-africa/cape-town.htm#big-backpackers" class="card-btn">MORE</a>
@@ -2339,7 +2287,7 @@ Table Mountain cable car (return) — ~€13–€16
 
 <div class="hide-on-mobile">
 
-        <article class="hostel-card" aria-label="African Soul Surfer Backpackers">
+        <article class="hostel-card">
             <div class="card-location-tag"><h3>CAPE TOWN</h3></div>
             <img src="assets/top_pick_african_soul_surfer.webp" class="card-img" alt="African Soul Surfer Backpackers">
             <h4 class="hostel-card-header">AFRICAN SOUL SURFER</h4>
@@ -2353,9 +2301,9 @@ Table Mountain cable car (return) — ~€13–€16
 
      <!-- Backpackers Hostel -->
 
-        <article class="hostel-card" aria-label="Terra Khaya Backpackers">
+        <article class="hostel-card">
             <div class="card-location-tag"><h3>EASTERN CAPE INTERIOR</h3></div>            
-<img src="assets/top_pick_terra_kaya_backpackers.webp" class="card-img" alt="Terra Khaya eco backpackers lodge, Hogsback, Eastern Cape">
+<img src="assets/top_pick_terra_kaya_backpackers.webp" class="card-img" alt="Ashanti Lodge exterior">
             <h4 class="hostel-card-header">TERRA KHAYA BACKPACKERS</h4>
             <p>A 100% off-grid eco-lodge high in the Amathole Mountains above Hogsback. Built from recycled materials, run on solar, and home to horses, dogs, cats, and communal dinners by firelight. Unlike anywhere else in South Africa.</p>
             <a href="backpacking-south-africa/eastern-cape-interior.htm#terra-khaya-backpackers" class="card-btn">MORE</a>
@@ -2365,7 +2313,7 @@ Table Mountain cable car (return) — ~€13–€16
 
      <!-- Backpackers Hostel -->
 
-        <article class="hostel-card" aria-label="Tube 'n Axe Backpackers">
+        <article class="hostel-card">
             <div class="card-location-tag"><h3>GARDEN ROUTE</h3></div>
             <img src="assets/top_pick_tube_n_axe_backpackers.webp" class="card-img" alt="Tube 'n Axe Backpackers">
             <h4 class="hostel-card-header">TUBE 'N AXE BACKPACKERS</h4>
@@ -2522,9 +2470,7 @@ Table Mountain cable car (return) — ~€13–€16
 
     <!-- Footer start -->
 
-</main>
-
-<footer role="contentinfo">
+<footer>
 
      <!-- Spacer -->
 
@@ -2570,7 +2516,7 @@ Table Mountain cable car (return) — ~€13–€16
         <h2 class="footer-brand">BackpackersBible.com</h2>
         <p class="footer-payoff">The World In Your Pocket</p>
 
-        <nav class="footer-nav" aria-label="Footer navigation">
+        <nav class="footer-nav">
             <a href="/">Home</a>
             <a href="backpacking-south-africa/index.htm">Backpacking South Africa</a>
             <a href="backpacking-south-africa-advice/index.htm">Advice</a>
@@ -2587,7 +2533,7 @@ Table Mountain cable car (return) — ~€13–€16
 <div class="footer-share">
             <span>SHARE</span>
             <a href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://backpackersbible.com" target="_blank">
-                <img src="assets/whatsapp_icon_round.png" alt="Share on WhatsApp" style="width:45px; height:45px;">
+                <img src="assets/whatsapp_icon_round.png" alt="WA" style="width:45px; height:45px;">
             </a>
         </div>
 
@@ -3345,33 +3291,41 @@ btn.addEventListener('click', async () => {
 
      <!-- Mobile menu -->
 
-<div id="mobile-menu" style="position: fixed !important; z-index: 99999 !important;" role="dialog" aria-modal="true" aria-label="Navigation menu" hidden>
-    <span class="close-btn" onclick="toggleMobileMenu()" role="button" aria-label="Close navigation menu" tabindex="0">&times;</span>
+<div id="mobile-menu" style="position: fixed !important; z-index: 99999 !important;">
+    <span class="close-btn" onclick="toggleMobileMenu()">&times;</span>
 
     <!-- Search bar (mobile) -->
-    <div class="mobile-search site-search-wrap" role="search">
-      <div class="site-search-bar" onclick="document.getElementById('search-input-mobile').focus()">
-        <input id="search-input-mobile" type="search" placeholder="Search this site..." autocomplete="off"
-               aria-label="Search this site"
-               aria-autocomplete="list"
-               aria-controls="search-results-mobile"
-               oninput="runSearch(this.value,'search-results-mobile')"
-               onfocus="if(this.value) document.getElementById('search-results-mobile').classList.add('open')"
-               onblur="setTimeout(()=>document.getElementById('search-results-mobile').classList.remove('open'),200)">
-        <span class="search-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false">
-            <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
-          </svg>
-        </span>
-      </div>
-      <div id="search-results-mobile" class="search-results" role="listbox" aria-live="polite" aria-label="Search results"></div>
-    </div>
+<div class="site-search-bar" onclick="document.getElementById('search-input-mobile').focus()">
+    <input id="search-input-mobile" type="text" placeholder="Search this site..." autocomplete="off"
+           oninput="runSearch(this.value,'search-results-mobile')"
+           onfocus="if(this.value) document.getElementById('search-results-mobile').style.display='block'">
+    
+    <span class="search-icon">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
+      </svg>
+    </span>
+  </div>
+
+  <div id="search-results-mobile" class="search-results" 
+       style="display: none; 
+              position: absolute !important; 
+              top: 100% !important; 
+              left: 0 !important; 
+              width: 100% !important; 
+              background: white !important; 
+              z-index: 99999 !important; 
+              box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+              max-height: 300px;
+              overflow-y: auto;">
+  </div>
+</div>
 
     <a href="/">HOME</a>
 
-    <button class="accordion" onclick="toggleAccordion(this)" aria-expanded="false" aria-controls="panel-regions">BACKPACKING SOUTH AFRICA</button>
+    <button class="accordion" onclick="toggleAccordion(this)">BACKPACKING SOUTH AFRICA</button>
 
-    <div class="panel" id="panel-regions" role="region" aria-label="Backpacking South Africa regions">
+    <div class="panel">
 
         <a href="backpacking-south-africa/index.htm">Regions Map / Full Hostel Directory</a>
         <a href="backpacking-south-africa/cape-town.htm">Cape Town</a>
@@ -3404,9 +3358,9 @@ btn.addEventListener('click', async () => {
 
     </div>
 
-    <button class="accordion" onclick="toggleAccordion(this)" aria-expanded="false" aria-controls="panel-advice">ADVICE</button>
+    <button class="accordion" onclick="toggleAccordion(this)">ADVICE</button>
 
-    <div class="panel" id="panel-advice" role="region" aria-label="Advice sections">
+    <div class="panel">
 
                 <h3 style="color: #fff; font-size: 1.4rem; font-weight: normal; margin-top: 3rem; ">PREPARATION</h3>
 
@@ -3440,9 +3394,9 @@ btn.addEventListener('click', async () => {
 
     </div>
 
-    <button class="accordion" onclick="toggleAccordion(this)" aria-expanded="false" aria-controls="panel-tours">TOURS</button>
+    <button class="accordion" onclick="toggleAccordion(this)">TOURS</button>
 
-    <div class="panel" id="panel-tours" role="region" aria-label="Tours and itineraries">
+    <div class="panel">
 
                 <h3 style="color: #fff; font-size: 1.4rem; font-weight: normal; margin-top: 3rem; ">SELF-DRIVE ITINERARIES</h3>
 
@@ -3478,11 +3432,11 @@ btn.addEventListener('click', async () => {
 
     </div>
 
-    <a href="#download-pwa"><strong>★ FREE HOSTEL GUIDE!</strong> <br> (PDF or App)</a>
+    <a href="#download-pwa" class="accordion"><strong>FREE HOSTEL GUIDE!</strong> <br> (PDF or App)</a>
 
                         <a href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://backpackersbible.com" target="_blank" style="margin-top:5rem;">
 
-                <img src="assets/whatsapp_icon_round.png" alt="Share on WhatsApp" style="width:45px; height:45px;">
+                <img src="assets/whatsapp_icon_round.png" alt="WA" style="width:45px; height:45px;">
 
             <br>
 
@@ -3492,66 +3446,10 @@ btn.addEventListener('click', async () => {
 
 <!-- Search functionality -->
 <script>
-// Accessible overrides for toggleMobileMenu and toggleAccordion
-// These run after script.js and enhance the existing functions with ARIA
-
-document.addEventListener('DOMContentLoaded', function() {
-  // Override toggleMobileMenu to also manage aria-expanded and hidden
-  var origToggleMobileMenu = window.toggleMobileMenu;
-  window.toggleMobileMenu = function() {
-    if (origToggleMobileMenu) origToggleMobileMenu();
-    var menu = document.getElementById('mobile-menu');
-    var btn  = document.getElementById('hamburger-icon');
-    if (!menu || !btn) return;
-    var isOpen = !menu.hasAttribute('hidden');
-    // script.js has already toggled visibility; sync ARIA to match
-    // We check computed display to know state
-    var visible = getComputedStyle(menu).display !== 'none' && !menu.hasAttribute('hidden');
-    // Fallback: toggle ourselves
-    btn.setAttribute('aria-expanded', visible ? 'true' : 'false');
-    btn.setAttribute('aria-label', visible ? 'Close navigation menu' : 'Open navigation menu');
-    if (visible) {
-      menu.removeAttribute('hidden');
-      // Trap focus: move to close button
-      var closeBtn = menu.querySelector('.close-btn');
-      if (closeBtn) setTimeout(function(){ closeBtn.focus(); }, 50);
-    } else {
-      btn.focus();
-    }
-  };
-
-  // Also handle close button keyboard activation
-  var closeBtn = document.querySelector('#mobile-menu .close-btn');
-  if (closeBtn) {
-    closeBtn.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        window.toggleMobileMenu();
-      }
-    });
-  }
-
-  // Override toggleAccordion to also manage aria-expanded
-  var origToggleAccordion = window.toggleAccordion;
-  window.toggleAccordion = function(el) {
-    if (origToggleAccordion) origToggleAccordion(el);
-    // Sync aria-expanded to whether the panel is now open
-    var panelId = el.getAttribute('aria-controls');
-    if (!panelId) return;
-    var panel = document.getElementById(panelId);
-    if (!panel) return;
-    var isOpen = panel.style.display === 'block' || panel.classList.contains('open');
-    el.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-  };
-});
-</script>
-
-
-
-<script>
 (function() {
   var SEARCH_DATA = [];
 
+  // Fetch search index once and cache it
   fetch('/search.json')
     .then(function(r) { return r.json(); })
     .then(function(data) { SEARCH_DATA = data; })
@@ -3588,6 +3486,16 @@ document.addEventListener('DOMContentLoaded', function() {
     return escHtml(text).replace(re, '<mark style="background:#fce8ed;color:#bc1d23;border-radius:2px;">$1</mark>');
   }
 })();
+</script>
+
+<script>
+document.addEventListener('click', function(e) {
+  // If the user clicks anywhere outside the search wrap, hide the results
+  if (!e.target.closest('.site-search-wrap')) {
+    var mobileResults = document.getElementById('search-results-mobile');
+    if (mobileResults) mobileResults.style.display = 'none';
+  }
+});
 </script>
 
 </body>
