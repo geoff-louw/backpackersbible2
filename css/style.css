@@ -4532,3 +4532,20 @@ padding-botto: 0px !important;
 @media (max-width: 768px) {
   .desktop-search { display: none; }
 }
+
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background: #bc1d23;
+  color: #fff;
+  padding: 10px 18px;
+  font-size: 1rem;
+  font-weight: bold;
+  z-index: 999999;
+  text-decoration: none;
+  border-radius: 0 0 6px 0;
+  transition: top 0.1s;
+}
+.skip-link:focus { top: 0; }
