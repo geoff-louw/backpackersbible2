@@ -4591,3 +4591,18 @@ summary:focus-visible::after {
     /* Prevents the invisible box from blocking mouse clicks */
     pointer-events: none; 
 }
+
+
+
+
+/* This hides text from the eye but leaves it for the 'ears' of a screen reader */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
