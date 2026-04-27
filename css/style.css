@@ -4555,27 +4555,27 @@ padding-botto: 0px !important;
 
 /* Accessibility */
 
-/* Apply this to all interactive elements */
 a:focus-visible,
 button:focus-visible,
-input:focus-visible,
-textarea:focus-visible,
 summary:focus-visible {
-    /* 1. Force the element to recognize its own boundaries */
-    display: inline-block;
+    /* 1. Reset everything first */
+    outline: none !important;
+    box-shadow: none !important;
+    display: inline-block !important;
 
-    /* 2. Push the border 4px away from the text/button (The Gap) */
-    outline-offset: 4px;
+    /* 2. Create a clean gap (showing your background color) */
+    /* This pushes the border 5px away from the text */
+    outline-offset: 5px !important;
 
-    /* 3. The Inner Ring (White) */
-    /* We make it 3px thick */
-    outline: 3px solid #ffffff;
+    /* 3. The WHITE Inner Ring */
+    /* This creates a crisp 3px white line */
+    outline: 3px solid #ffffff !important;
 
-    /* 4. The Outer Ring (Black) */
-    /* We use box-shadow to wrap AROUND the outline.
-       The math: 4px (gap) + 3px (white outline) + 3px (desired black thickness) = 10px */
-    box-shadow: 0 0 0 10px #000000;
+    /* 4. The BLACK Outer Ring */
+    /* We use box-shadow with 'spread' to wrap around the white line.
+       The magic number here is 8px (5px gap + 3px white) */
+    /* We add 3px to that total to create the black edge */
+    box-shadow: 0 0 0 8px #000000 !important;
 
-    /* 5. Keep it tidy */
-    border-radius: 2px;
+    border-radius: 1px !important;
 }
