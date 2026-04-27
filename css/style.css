@@ -4560,15 +4560,17 @@ button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 summary:focus-visible {
-    outline: none; 
-
-    /* Each number must be LARGER than the one before it to be visible */
-    box-shadow: 
-        0 0 0 3px transparent, /* Layer 1: The Gap (0 to 3px) */
-        0 0 0 6px #ffffff,    /* Layer 2: White Ring (adds 3px: from 3 to 6) */
-        0 0 0 9px #000000;    /* Layer 3: Black Ring (adds 3px: from 6 to 9) */
-        
-    border-radius: 4px;
+    /* 1. Create the gap from the text */
+    outline-offset: 4px; 
+    
+    /* 2. Create a thick white border */
+    outline: 3px solid #ffffff;
+    
+    /* 3. Add a thin black "glow" around the white border 
+       This ensures the white is visible on yellow/white backgrounds */
+    box-shadow: 0 0 0 5px #000000;
+    
+    border-radius: 2px;
 }
 
 
