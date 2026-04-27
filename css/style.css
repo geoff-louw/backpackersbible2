@@ -4558,10 +4558,18 @@ padding-botto: 0px !important;
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
-textarea:focus-visible {
-  outline: 3px solid #ffffff;
-  outline-offset: 3px;
-  border-radius: 2px;
+textarea:focus-visible,
+summary:focus-visible {
+    outline: none;
+    
+    
+    box-shadow: 
+        0 0 0 2px #ffffff, /* Inner white ring */
+        0 0 0 5px #000000; /* Outer black ring */
+        
+    border-radius: 2px;
+    outline-offset: 0; 
+
 }
 
 
@@ -4575,7 +4583,7 @@ summary {
 
 /* 2. Add the accessibility border */
 summary:focus-visible {
-    outline: 3px solid #ffffff; /* Your blue color */
+    outline: 3px solid #0000e0; /* Your blue color */
     outline-offset: 5px;        /* Moves the border away from the text */
     border-radius: 4px;
 }
