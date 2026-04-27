@@ -4555,21 +4555,25 @@ padding-botto: 0px !important;
 
 /* Accessibility */
 
+/* The "Universal Halo" with breathing room */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 summary:focus-visible {
-    outline: none;
+    outline: none; 
     
-    
+    /* We use 3 layers now: 
+       1. A transparent spacer (the "padding")
+       2. The white inner ring
+       3. The black outer ring */
     box-shadow: 
-        0 0 0 2px #ffffff, /* Inner white ring */
-        0 0 0 5px #000000; /* Outer black ring */
+        0 0 0 3px transparent, /* This creates the gap/padding */
+        0 0 0 5px #ffffff,    /* White ring */
+        0 0 0 8px #000000;    /* Black ring */
         
-    border-radius: 2px;
-    outline-offset: 0; 
-
+    border-radius: 4px;
+    transition: box-shadow 0.1s ease-in-out; /* Makes it feel "snappy" */
 }
 
 
