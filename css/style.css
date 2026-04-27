@@ -4555,27 +4555,39 @@ padding-botto: 0px !important;
 
 /* Accessibility */
 
+/* 1. Prep the parent elements */
 a:focus-visible,
 button:focus-visible,
 summary:focus-visible {
-    /* 1. Reset everything first */
-    outline: none !important;
-    box-shadow: none !important;
-    display: inline-block !important;
+    outline: none !important; /* Kill the buggy browser outline completely */
+    position: relative;       /* Acts as an anchor for our custom ring */
+    display: inline-block;
+}
 
-    /* 2. Create a clean gap (showing your background color) */
-    /* This pushes the border 5px away from the text */
-    outline-offset: 5px !important;
+/* 2. Create the custom focus ring using ::after */
+a:focus-visible::after,
+button:focus-visible::after,
+summary:focus-visible::after {
+    content: '';
+    position: absolute;
 
-    /* 3. The WHITE Inner Ring */
-    /* This creates a crisp 3px white line */
-    outline: 3px solid #ffffff !important;
+    /* THIS CREATES THE GAP: 
+       It pushes the ring exactly 4px OUTSIDE the edges of your text/button */
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
 
-    /* 4. The BLACK Outer Ring */
-    /* We use box-shadow with 'spread' to wrap around the white line.
-       The magic number here is 8px (5px gap + 3px white) */
-    /* We add 3px to that total to create the black edge */
-    box-shadow: 0 0 0 8px #000000 !important;
+    /* THE WHITE INNER RING */
+    border: 3px solid #ffffff; 
+    
+    /* THE BLACK OUTER RING */
+    /* This shadow wraps exactly 3px around the outside of the white border */
+    box-shadow: 0 0 0 3px #000000; 
 
-    border-radius: 1px !important;
+    /* PERFECTLY ROUND CORNERS */
+    border-radius: 4px; 
+
+    /* Prevents the invisible box from blocking mouse clicks */
+    pointer-events: none; 
 }
