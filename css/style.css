@@ -4534,6 +4534,8 @@ padding-botto: 0px !important;
 }
 
 
+/* Accessibility */
+
 .skip-link {
   position: absolute;
   top: -100%;
@@ -4549,3 +4551,15 @@ padding-botto: 0px !important;
   transition: top 0.1s;
 }
 .skip-link:focus { top: 0; }
+
+
+/* Accessibility */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #0000e0;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
