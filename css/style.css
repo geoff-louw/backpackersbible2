@@ -4559,7 +4559,28 @@ a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
-  outline: 3px solid #0000e0;
+  outline: 3px solid #ffffff;
   outline-offset: 3px;
   border-radius: 2px;
+}
+
+
+/* 1. Target the summary element specifically */
+summary {
+    cursor: pointer;
+    list-style: none; /* Removes the default arrow if you prefer */
+    padding: 10px;
+    display: inline-block; /* Makes the border wrap the text tightly */
+}
+
+/* 2. Add the accessibility border */
+summary:focus-visible {
+    outline: 3px solid #ffffff; /* Your blue color */
+    outline-offset: 5px;        /* Moves the border away from the text */
+    border-radius: 4px;
+}
+
+/* 3. Handling the Black/Red background exception */
+.dark-bg summary:focus-visible {
+    outline-color: #ffffff;    /* Switch to white on dark backgrounds */
 }
