@@ -375,12 +375,12 @@ window.addEventListener("load", function () {
            (layer.feature.properties.name || layer.feature.properties.Name))
           || "Unnamed region";
 
-        layer.bindTooltip(name, {
-          permanent: true,
-          direction: "center",
-          className: "region-label",
-          pane: 'mapPane' // Move it to the same layer as markers so we can sort them
-        });
+layer.bindTooltip(name, {
+    permanent: true,
+    direction: "center",
+    className: "region-label",
+    pane: 'mapPane' // This moves it behind the icons and lines
+});
 
       // =====================
       // MARKERS (HOSTELS)
