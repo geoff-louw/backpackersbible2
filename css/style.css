@@ -4608,9 +4608,11 @@ summary:focus-visible::after {
 }
 
 
-/* Force leaflet icons to respect the size set in JS */
+/* Force markers to obey the iconSize set in your JavaScript */
 .leaflet-marker-icon {
     width: auto !important;
     height: auto !important;
     max-width: none !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
 }
