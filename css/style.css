@@ -4634,3 +4634,22 @@ summary:focus-visible::after {
     height: 256px !important;
     display: block !important;
 }
+
+
+
+/* This ensures the hostel dots always sit on top of the text */
+.leaflet-marker-icon {
+    z-index: 999 !important;
+}
+
+/* This keeps the region text behind the dots */
+.region-label {
+    z-index: 10 !important;
+    pointer-events: none !important; /* This is vital so the text doesn't block icon clicks */
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}
