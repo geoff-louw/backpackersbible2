@@ -4637,30 +4637,34 @@ summary:focus-visible::after {
 
 
 
-/* This ensures the hostel dots always sit on top of the text */
+/* 1. Ensure icons are high up */
 .leaflet-marker-icon {
-    z-index: 99999 !important;
+    z-index: 1000 !important;
 }
 
-
-
-
-
+/* 2. Style the plain white text in the "basement" layer */
 .region-label {
-    z-index: 1 !important;           /* Low number to stay behind markers */
-    pointer-events: none !important; /* Clicks pass through to the icons */
-    background: none !important;
-    border: none !important;
-    box-shadow: none !important;
-    
-    /* Text Styling */
-    color: #ffffff !important;       /* Plain White */
-    font-size: 10px !important;      /* Small text size */
+    z-index: 1 !important;
+    color: #ffffff !important;
+    font-size: 10px !important;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     
-    /* Remove any previous outlines/shadows */
-    text-shadow: none !important;
-    -webkit-text-stroke: 0px transparent !important;
+    /* These reset the Tooltip's default "bubble" look */
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    white-space: nowrap;
+    
+    /* Important for mapPane placement */
+    pointer-events: none !important;
+}
+
+/* Remove the little arrow/tip that Leaflet adds to tooltips */
+.leaflet-tooltip-left:before,
+.leaflet-tooltip-right:before,
+.leaflet-tooltip-top:before,
+.leaflet-tooltip-bottom:before {
+    display: none !important;
 }
