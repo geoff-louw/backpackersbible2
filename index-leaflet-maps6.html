@@ -366,7 +366,7 @@ window.addEventListener("load", function () {
           fillOpacity: 0.25
         });
 
-        // =====================
+// =====================
         // ADD REGION NAME LABEL
         // =====================
         const name =
@@ -378,10 +378,9 @@ window.addEventListener("load", function () {
         layer.bindTooltip(name, {
           permanent: true,
           direction: "center",
-          className: "region-label"
+          className: "region-label",
+          pane: 'mapPane' // Move it to the same layer as markers so we can sort them
         });
-
-      }
 
       // =====================
       // MARKERS (HOSTELS)
