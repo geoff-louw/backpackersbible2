@@ -4608,6 +4608,9 @@ summary:focus-visible::after {
 }
 
 
+
+
+
 /* Force markers to obey the iconSize set in your JavaScript */
 .leaflet-marker-icon {
     width: auto !important;
@@ -4673,4 +4676,39 @@ summary:focus-visible::after {
     width: 256px !important;
     height: 256px !important;
     display: block !important;
+}
+
+
+
+
+/* Ensure the map container has a height and is visible */
+#map {
+    height: 800px !important; /* Or whatever height you need */
+    width: 100% !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    background: #000 !important; /* If you see a black box, the script is the problem */
+}
+
+/* Fix for the satellite tiles */
+.leaflet-tile-container img {
+    width: 256px !important;
+    height: 256px !important;
+    display: block !important;
+}
+
+/* The labels - White and behind icons */
+.region-label {
+    color: white !important;
+    font-size: 10px !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    z-index: 1 !important;
+}
+
+/* The icons - On top */
+.leaflet-marker-icon {
+    z-index: 999 !important;
 }
