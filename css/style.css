@@ -4606,3 +4606,11 @@ summary:focus-visible::after {
     clip: rect(0, 0, 0, 0);
     border: 0;
 }
+
+
+/* Force leaflet icons to respect the size set in JS */
+.leaflet-marker-icon {
+    width: auto !important;
+    height: auto !important;
+    max-width: none !important;
+}
