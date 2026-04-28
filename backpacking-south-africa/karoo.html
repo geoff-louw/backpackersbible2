@@ -1045,9 +1045,9 @@
 
     <div id="map-fallback" style="display:none;">
         <picture>
-            <source media="(max-width: 767px)" srcset="../assets/fallback_map_karoo_mobile.jpg">
+            <source media="(max-width: 767px)" srcset="/assets/fallback_map_karoo_mobile.jpg">
             
-            <img src="../assets/fallback_map_karoo.jpg" alt="Map unavailable offline" style="width: 100%; height: auto; display: block; margin: 0;">
+            <img src="/assets/fallback_map_karoo.jpg" alt="Map unavailable offline" style="width: 100%; height: auto; display: block; margin: 0;">
         </picture>
     </div>
 
@@ -1249,7 +1249,7 @@
      <!-- Parallax image -->
 
     <div class="strip black"></div>
-<div class="parallax-window" style="background-image: url('../assets/backpacking_karoo-cango_caves-2.webp');">
+<div class="parallax-window" style="background-image: url('/assets/backpacking_karoo-cango_caves-2.webp');">
     <div class="parallax-attribution" style="z-index: 1; position: absolute;">
         CANGO CAVES - Photo: Magda Ehlers
     </div>
@@ -1338,7 +1338,7 @@
      <!-- Parallax image -->
 
     <div class="strip black"></div>
-<div class="parallax-window" style="background-image: url('../assets/backpacking_route_62-swartberg_pass.jpg');">
+<div class="parallax-window" style="background-image: url('/assets/backpacking_route_62-swartberg_pass.jpg');">
     <div class="parallax-attribution">
         Photo: Frans van Heerden
     </div>
@@ -1384,8 +1384,8 @@
 
 
         <div class="booking-btn-container">
-            <a href="https://www.booking.com/accommodation/region/za/groot-karoo.html" target="_blank" id="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
-            <a href="https://www.hostelworld.com/hostels/africa/south-africa/" target="_blank" id="btn-hostelworld-com" rel="sponsored">HOSTELWORLD</a>
+            <a href="https://www.booking.com/accommodation/region/za/groot-karoo.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
+            <a href="https://www.hostelworld.com/hostels/africa/south-africa/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD</a>
         </div>
 
 
@@ -1562,7 +1562,7 @@
 
         <div class="booking-btn-container">
 
-            <a href="https://www.booking.com/hotel/za/the-owlhouse-backpackers.html" target="_blank" id="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
+            <a href="https://www.booking.com/hotel/za/the-owlhouse-backpackers.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
 
         </div>
 
@@ -1738,9 +1738,9 @@
 
         <div class="booking-btn-container">
 
-            <a href="https://www.booking.com/hotel/za/karoo-soul-bacpackers-amp-cottages.en-gb.html" target="_blank" id="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
+            <a href="https://www.booking.com/hotel/za/karoo-soul-bacpackers-amp-cottages.en-gb.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
 
-            <a href="https://www.hostelworld.com/hostels/p/14621/karoo-soul-backpackers/" target="_blank" id="btn-hostelworld-com">HOSTELWORLD</a>
+            <a href="https://www.hostelworld.com/hostels/p/14621/karoo-soul-backpackers/" target="_blank" class="btn-hostelworld-com">HOSTELWORLD</a>
 
         </div>
 
@@ -1827,7 +1827,7 @@
 
         <div class="booking-btn-container">
 
-            <a href="https://www.booking.com/hotel/za/oasis-shanti-backpackers.html" target="_blank" id="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
+            <a href="https://www.booking.com/hotel/za/oasis-shanti-backpackers.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
 
         </div>
 
@@ -1903,7 +1903,7 @@
 
         <div class="booking-btn-container">
 
-            <a href="https://www.booking.com/hotel/za/swartberg-backpackers.html" target="_blank" id="btn-booking-com">Booking<span>.com</span></a>
+            <a href="https://www.booking.com/hotel/za/swartberg-backpackers.html" target="_blank" class="btn-booking-com">Booking<span>.com</span></a>
 
         </div>
 
@@ -2125,7 +2125,7 @@
 
 <div id="cookie-banner" class="cookie-container">
     <div class="cookie-content">
-        <p>This guide uses cookies to improve your experience and keep it free. <a href="../misc/privacy.htm">Read our Cookie Policy.</a></p>
+        <p>This guide uses cookies to improve your experience and keep it free. <a href="/misc/privacy">Read our Cookie Policy.</a></p>
         <div class="cookie-buttons">
             <button id="accept-cookies" class="cookie-btn accept">Accept All</button>
             <button id="decline-cookies" class="cookie-btn decline">Necessary Only</button>
@@ -2145,7 +2145,7 @@
         <div id="t-out" style="position:absolute; left:-12px; bottom:15px; border-top:10px solid transparent; border-bottom:10px solid transparent; border-right:12px solid #FFD700;"></div>
         <div id="t-in" style="position:absolute; left:-9px; bottom:15px; border-top:10px solid transparent; border-bottom:10px solid transparent; border-right:12px solid #000;"></div>
 
-        <p id="ma-text" style="margin:0; font-family:sans-serif; font-size:15px; font-weight:bold;">Welcome to our backpacking guide of South Africa!</p>
+        <p id="ma-text" style="margin:0; font-family:sans-serif; font-size:15px; font-weight:regular;">Welcome to our backpacking guide of South Africa!</p>
         <a id="ma-link" href="/" style="color:#fff; font-size:15px;">Discover more</a>
     </div>
 </div>
@@ -2215,7 +2215,7 @@ window.onscroll = function() {
     // 1. Tip 2
     if (isOn('tip2')) {
         updateMa(isMobile ? "left" : "right", "/assets/_god_3.png", 
-                 "Listen to Mama - you cannot visit the Karoo without exploring the Cango Caves! It is a true underground wonder. Check my map at the top to find the best basecamp in Oudtshoorn so you can see the stalactites before the sun sets over the plains!", 
+                 "Listen to me - you cannot visit the Karoo without exploring the Cango Caves! It is a true underground wonder. Check my map at the top to find the best basecamp in Oudtshoorn so you can see the stalactites before the sun sets over the plains!", 
                  "#activities");
     }
 

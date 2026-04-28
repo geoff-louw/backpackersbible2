@@ -798,9 +798,9 @@
 
     <div id="map-fallback" style="display:none;">
         <picture>
-            <source media="(max-width: 767px)" srcset="../assets/fallback_map_cederberg_mobile.jpg">
+            <source media="(max-width: 767px)" srcset="/assets/fallback_map_cederberg_mobile.jpg">
             
-            <img src="../assets/fallback_map_cederberg.jpg" alt="Map unavailable offline" style="width: 100%; height: auto; display: block; margin: 0;">
+            <img src="/assets/fallback_map_cederberg.jpg" alt="Map unavailable offline" style="width: 100%; height: auto; display: block; margin: 0;">
         </picture>
     </div>
 
@@ -1011,7 +1011,7 @@
      <!-- Parallax image -->
 
     <div class="strip black"></div>
-<div class="parallax-window" style="background-image: url('../assets/backpacking_cederberg-wolfberg_arch.webp');">
+<div class="parallax-window" style="background-image: url('/assets/backpacking_cederberg-wolfberg_arch.webp');">
     <div class="parallax-attribution" style="z-index: 1; position: absolute;">
         WOLFBERG ARCH - Photo: Amada44 <a href="https://commons.wikimedia.org/" target="_blank">Wikimedia Commons</a>
     </div>
@@ -1121,7 +1121,7 @@
 
 
     <div class="strip black"></div>
-<div class="parallax-window" style="background-image: url('../assets/backpacking_cederberg-san_rock_art.webp');">
+<div class="parallax-window" style="background-image: url('/assets/backpacking_cederberg-san_rock_art.webp');">
     <div class="parallax-attribution">
         SAN ROCK ART - Photo: Valroe <a href="https://commons.wikimedia.org/w/index.php/cur/id=7388582" target="_blank">Wikimedia Commons</a>
     </div>
@@ -1560,14 +1560,14 @@
 <div id="ma" style="position:fixed; bottom: 80px; left:50px; display:inline-flex; align-items:center; z-index:100; opacity:0; transition:all 0.5s; pointer-events: none; height: min-content;">
 
     
-    <img id="ma-img" src="assets/_god_6.png" style="width:180px; height:auto; pointer-events:auto;">
+    <img id="ma-img" src="/assets/_god_6.png" style="width:180px; height:auto; pointer-events:auto;">
 
     <div id="ma-bubble" style="position:relative; margin-left:10px; margin-bottom:20px; background:#000; color:#fff200; border:2px solid #FFD700; padding:12px; border-radius:4px; width:180px; pointer-events:auto;">
         
         <div id="t-out" style="position:absolute; left:-12px; bottom:15px; border-top:10px solid transparent; border-bottom:10px solid transparent; border-right:12px solid #FFD700;"></div>
         <div id="t-in" style="position:absolute; left:-9px; bottom:15px; border-top:10px solid transparent; border-bottom:10px solid transparent; border-right:12px solid #000;"></div>
 
-        <p id="ma-text" style="margin:0; font-family:sans-serif; font-size:15px; font-weight:bold;">Welcome to our backpacking guide of South Africa!</p>
+        <p id="ma-text" style="margin:0; font-family:sans-serif; font-size:15px; font-weight:regular;">Welcome to our backpacking guide of South Africa!</p>
         <a id="ma-link" href="/backpacking-south-africa-tours/" style="color:#fff; font-size:15px;">Discover more</a>
     </div>
 </div>
@@ -1636,21 +1636,21 @@ window.onscroll = function() {
     // ORDER
     // 1. Tip 2 (The first one on the page)
     if (isOn('tip2')) {
-        updateMa(isMobile ? "left" : "right", "../assets/_god_6.png", 
+        updateMa(isMobile ? "left" : "right", "/assets/_god_6.png", 
                  "Welcome to the wild, explorer! You are looking at the only guide that lists EVERY single hostel in South Africa. Use my interactive map at the top of this page to zoom in on the Cederberg, find your perfect basecamp, and book your bed directly!", 
                  "#map-visual");
     }
 
     // 2. Tip 1 (The middle one)
     else if (isOn('tip1')) {
-        updateMa("left", "../assets/_god_7.png", 
+        updateMa("left", "/assets/_god_7.png", 
                  "The mountains are beautiful, but they don’t take prisoners! Before you head into the deep wilderness, check our Advice section for safety tips. You’ll find the links in the menu to help you plan the rest of your South African mission!", 
                  '/backpacking-south-africa-advice/in-country'); 
     } 
     // 3. Tip 3
     else if (isOn('tip3')) {
         // Flipped to "right" to fix the character-side issue you noticed
-        updateMa(isMobile ? "right" : "left", "../assets/_god_1.png", 
+        updateMa(isMobile ? "right" : "left", "/assets/_god_1.png", 
                  "We work hard to keep this guide independent and free for every backpacker! If you find a spot you love on the map or in the list below, please support the mission by booking through our links. It helps me keep tracking down every last hostel for your next adventure!", 
                  '/misc/affiliate-links-disclosure');
     }
