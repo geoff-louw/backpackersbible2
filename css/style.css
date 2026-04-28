@@ -4642,7 +4642,11 @@ summary:focus-visible::after {
     z-index: 999 !important;
 }
 
-/* This keeps the region text behind the dots */
+
+
+
+
+/* Refined region text: Black, small, with a thin white outline */
 .region-label {
     z-index: 10 !important;
     pointer-events: none !important;
@@ -4651,19 +4655,20 @@ summary:focus-visible::after {
     box-shadow: none !important;
     
     /* Text Styling */
-    color: black; /* Making the main text black or a dark color helps the white outline pop */
+    color: #000000 !important; /* Solid Black */
     font-weight: bold;
-    font-size: 14px; /* Adjust size as needed */
+    font-size: 11px !important; /* Smaller text size */
+    text-transform: uppercase;   /* Optional: makes labels look more professional */
+    letter-spacing: 1px;        /* Optional: adds breathing room between small letters */
     
-    /* The White Outline */
-    /* Method 1: Modern Browsers */
-    -webkit-text-stroke: 1px white; 
-    
-    /* Method 2: Cross-browser fallback (creates a solid outline by 
-       placing 1px white shadows in every direction) */
+    /* Thin White Outline */
+    /* We use 0.5px or 1px offsets to create a hair-line outline */
     text-shadow: 
         -1px -1px 0 #fff,  
          1px -1px 0 #fff,
         -1px  1px 0 #fff,
          1px  1px 0 #fff;
+    
+    /* For supported browsers, this creates an even thinner, cleaner line */
+    -webkit-text-stroke: 0.5px white; 
 }
