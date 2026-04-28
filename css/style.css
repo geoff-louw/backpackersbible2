@@ -4618,16 +4618,19 @@ summary:focus-visible::after {
 }
 
 
-/* Highly specific rule to override the global img styles in style.css */
-#map .leaflet-marker-icon,
-#map .leaflet-marker-shadow,
-#map .leaflet-image-layer,
-#map .leaflet-pane > svg path,
-#map .leaflet-tile-container img {
-    width: 6px !important;    /* Match your JS iconSize */
-    height: 6px !important;   /* Match your JS iconSize */
+/* 1. Target ONLY the hostel markers, not the map tiles */
+#map .leaflet-marker-icon {
+    width: 20px !important;    /* Your desired pin size */
+    height: 20px !important;   /* Your desired pin size */
     max-width: none !important;
     min-width: 0 !important;
     display: block !important;
-    object-fit: contain !important; /* Prevents the image from being cropped */
+    object-fit: contain !important;
+}
+
+/* 2. PROTECT the map tiles - ensure they stay full size */
+#map .leaflet-tile-container img {
+    width: 256px !important; /* Standard Leaflet tile size */
+    height: 256px !important;
+    display: block !important;
 }
