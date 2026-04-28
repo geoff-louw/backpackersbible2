@@ -4620,8 +4620,8 @@ summary:focus-visible::after {
 
 /* 1. Target ONLY the hostel markers, not the map tiles */
 #map .leaflet-marker-icon {
-    width: 20px !important;    /* Your desired pin size */
-    height: 20px !important;   /* Your desired pin size */
+    width: 25px !important;    /* Your desired pin size */
+    height: 25px !important;   /* Your desired pin size */
     max-width: none !important;
     min-width: 0 !important;
     display: block !important;
