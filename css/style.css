@@ -4645,11 +4645,25 @@ summary:focus-visible::after {
 /* This keeps the region text behind the dots */
 .region-label {
     z-index: 10 !important;
-    pointer-events: none !important; /* This is vital so the text doesn't block icon clicks */
+    pointer-events: none !important;
     background: none !important;
     border: none !important;
     box-shadow: none !important;
-    color: white;
+    
+    /* Text Styling */
+    color: black; /* Making the main text black or a dark color helps the white outline pop */
     font-weight: bold;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    font-size: 14px; /* Adjust size as needed */
+    
+    /* The White Outline */
+    /* Method 1: Modern Browsers */
+    -webkit-text-stroke: 1px white; 
+    
+    /* Method 2: Cross-browser fallback (creates a solid outline by 
+       placing 1px white shadows in every direction) */
+    text-shadow: 
+        -1px -1px 0 #fff,  
+         1px -1px 0 #fff,
+        -1px  1px 0 #fff,
+         1px  1px 0 #fff;
 }
