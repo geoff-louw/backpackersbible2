@@ -367,19 +367,19 @@ window.addEventListener("load", function () {
         });
 
 // =====================
-        // ADD REGION NAME LABEL
-        // =====================
-        const name =
-          (layer.feature &&
-           layer.feature.properties &&
-           (layer.feature.properties.name || layer.feature.properties.Name))
-          || "Unnamed region";
+// ADD REGION NAME LABEL
+// =====================
+const name =
+  (layer.feature &&
+   layer.feature.properties &&
+   (layer.feature.properties.name || layer.feature.properties.Name))
+  || "Unnamed region";
 
 layer.bindTooltip(name, {
-    permanent: true,
-    direction: "center",
-    className: "region-label",
-    pane: 'mapPane' // Ensure this is in single quotes
+  permanent: true,
+  direction: "center",
+  className: "region-label",
+  pane: 'mapPane'  // <--- Ensure quotes are here and there is a comma above
 });
 
       // =====================
