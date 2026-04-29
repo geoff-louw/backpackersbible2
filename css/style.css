@@ -2735,7 +2735,7 @@ li {
     .map-section {
         padding-top: 20px;
     }
-
+}
 
 /* MOBILE MENU — Accordion & Panel */
 #mobile-menu a, .accordion {
@@ -3992,13 +3992,6 @@ h2.main-h2-title.things-to-do-fix {
 }
 
 
-
-
-
-
-/* --- ENSURE ANY PREVIOUS MEDIA QUERIES ARE CLOSED --- */
-} 
-
 /* --- NEW UNIQUE DESKTOP SECTION --- */
 .area-hero-container {
     background-color: #ffd400 !important; /* The yellow background */
@@ -4386,7 +4379,7 @@ padding-botto: 0px !important;
 
 
 
-<style>
+
 /* HARD RESET for Leaflet icons */
 .leaflet-pane img,
 .leaflet-marker-icon,
@@ -4403,7 +4396,7 @@ padding-botto: 0px !important;
   height: auto !important;
   max-width: none !important;
 }
-</style>
+
 
 
 /* ════════════════════════════════════════════════════════════
