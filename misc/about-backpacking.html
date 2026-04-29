@@ -16,16 +16,6 @@
 
 <link rel="canonical" href="https://www.backpackersbible.com/misc/about-backpacking" />
 
-<link 
-  rel="preload" 
-  as="image"
-  imagesrcset="
-    /assets/about_backpackers_bible_mobile.jpg 767w,
-    /assets/about_backpackers_bible.jpg 768w
-  "
-  imagesizes="100vw"
->
-
 <link rel="stylesheet" href="/css/style.css">
 
 <script src="/js/script.js" defer></script>
@@ -312,24 +302,30 @@
 
      <!-- Header end -->
 
-       <!-- srcset image -->
+     <!-- My Map start -->
 
-<section class="hero-section">
-  <picture>
-    <source 
-      media="(max-width: 767px)" 
-      srcset="../assets/about_backpackers_bible_mobile.jpg">
+<div style="height: 143px; width: 100%; display: block;"></div>
 
-    <source 
-      media="(min-width: 768px)" 
-      srcset="../assets/about_backpackers_bible.jpg">
+<main id="main-content">
 
-    <img 
-      src="../assets/about_backpackers_bible.jpg" 
-      alt="Backpacker with camera" 
-      class="hero-img-fluid"
-      fetchpriority="high">
-  </picture>
+<span id="map" style="display:none;" aria-hidden="true"></span>
+<section id="map-visual" style="width: 100vw; margin-left: calc(-50vw + 50%); position: relative; line-height: 0;">
+
+    <div id="region-map">
+        <iframe  title="Interactive map of the world's backpacker hostels"
+            src="<iframe src="https://www.google.com/maps/d/embed?mid=176s1LgO02WU0P6V53RhmvX7Ps9Kwetk&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>" 
+            width="100%" height="564" style="border:0; display: block;" allowfullscreen="">
+        </iframe>
+    </div>
+
+    <div id="map-fallback" style="display:none;">
+        <picture>
+            <source media="(max-width: 767px)" srcset="/assets/fallback_map_world_mobile.jpg">
+            
+            <img src="/assets/fallback_map_world.jpg" alt="Map unavailable offline" style="width: 100%; height: auto; display: block; margin: 0;">
+        </picture>
+    </div>
+
 </section>
 
      <!-- Content section -->
