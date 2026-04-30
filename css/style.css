@@ -4672,3 +4672,20 @@ padding-botto: 0px !important;
         overflow-wrap: break-word; /* Forces long words/URLs to break instead of overflowing */
     }
 }
+
+
+/* 1. Desktop Safety: Ensure sitemap images never break the container */
+.sitemap-list li img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 2. Mobile Rule: Shrink the images to half size on phones */
+@media (max-width: 768px) {
+    .sitemap-list li img {
+        max-width: 80%; /* Shrinks the image to half the container width */
+        margin-left: 0; /* Keeps it aligned to the left with the text */
+        margin-right: auto;
+    }
+}
