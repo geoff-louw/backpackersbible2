@@ -83,7 +83,7 @@
       "isPartOf": { "@id": "https://www.backpackersbible.com/#website" },
       "publisher": { "@id": "https://www.backpackersbible.com/#organization" },
       "author": { "@id": "https://www.backpackersbible.com/#organization" },
-      "dateModified": "2025-01-01",
+      "dateModified": "2026-01-01",
       "primaryImageOfPage": {
         "@type": "ImageObject",
         "url": "https://www.backpackersbible.com/assets/social-preview.jpg"
@@ -537,15 +537,13 @@
 
             <a href="https://www.backpackersbible.com">
 
-                <img src="/assets/backpackers_bible_logo_250x250.png" alt="Backpackers Bible Logo" style="width:80px; height:80px; background:#fff;">
-
             </a>
 
             <div>
 <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 10px;">
                 <div class="brand-name">BackpackersBible.com</div>
 
-<span class="location-badge">Cederberg</span>
+<span class="location-badge">Cape Town</span>
 
 </div>
                 <span class="payoff">The World In Your Pocket</span>
@@ -569,7 +567,7 @@
                        aria-label="Search this site" aria-autocomplete="list" aria-controls="search-results-desktop"
                        oninput="runSearch(this.value,'search-results-desktop')"
                        onfocus="if(this.value) document.getElementById('search-results-desktop').classList.add('open')"
-                       onblur="setTimeout(()=>document.getElementById('search-results-desktop').classList.remove('open'),200)">
+                       onblur="setTimeout(()=>document.getElementById('search-results-desktop').classList.remove('open'),500)">
                 <span class="search-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false">
                     <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
@@ -778,19 +776,21 @@
 
      <!-- Header end -->
 
-     <!-- My Map -->
+     <!-- My Map start -->
 
-<div style="height: 143px; width: 100%; display: block; background-color: #2f3130; "></div>
+<div style="height: 143px; width: 100%; display: block;"></div>
+
+<main id="main-content">
 
 <span id="map" style="display:none;" aria-hidden="true"></span>
-<section id="map-visual" style="width: 100vw; margin-left: calc(-50vw + 50%); position: relative; line-height: 0; scroll-margin-top: 175px;">
+<section id="map-visual" style="width: 100vw; margin-left: calc(-50vw + 50%); position: relative; line-height: 0;">
 
     <div class="map-overlay-circle">
         We list ALL the hostels in South Africa! Click the icons for info.
     </div>
-    
+
     <div id="region-map">
-        <iframe 
+        <iframe  title="Interactive map of backpacker hostels in the Cederberg region"
             src="https://www.google.com/maps/d/embed?mid=1YlCywz3bXNDCOhw6bLz-F3iPhC9XD4A&ehbc=2E312F&noprof=1&ll=-32.38,18.93&z=9" 
             width="100%" height="564" style="border:0; display: block;" allowfullscreen="">
         </iframe>
@@ -798,9 +798,9 @@
 
     <div id="map-fallback" style="display:none;">
         <picture>
-            <source media="(max-width: 767px)" srcset="../assets/fallback_map_cederberg_mobile.jpg">
+            <source media="(max-width: 767px)" srcset="/assets/fallback_map_cederberg_mobile.jpg">
             
-            <img src="../assets/fallback_map_cederberg.jpg" alt="Map unavailable offline" style="width: 100%; height: auto; display: block; margin: 0;">
+            <img src="/assets/fallback_map_cederberg.jpg" alt="Map unavailable offline" style="width: 100%; height: auto; display: block; margin: 0;">
         </picture>
     </div>
 
@@ -893,6 +893,8 @@
     </nav>
 
 </section>
+
+     <!-- Jump menu -->
 
 <div class="yellow-menu-backdrop"></div>
 
@@ -1011,7 +1013,7 @@
      <!-- Parallax image -->
 
     <div class="strip black"></div>
-<div class="parallax-window" style="background-image: url('../assets/backpacking_cederberg-wolfberg_arch.webp');">
+<div class="parallax-window" style="background-image: url('/assets/backpacking_cederberg-wolfberg_arch.webp');">
     <div class="parallax-attribution" style="z-index: 1; position: absolute;">
         WOLFBERG ARCH - Photo: Amada44 <a href="https://commons.wikimedia.org/" target="_blank">Wikimedia Commons</a>
     </div>
@@ -1121,22 +1123,17 @@
 
 
     <div class="strip black"></div>
-<div class="parallax-window" style="background-image: url('../assets/backpacking_cederberg-san_rock_art.webp');">
+<div class="parallax-window" style="background-image: url('/assets/backpacking_cederberg-san_rock_art.webp');">
     <div class="parallax-attribution">
         SAN ROCK ART - Photo: Valroe <a href="https://commons.wikimedia.org/w/index.php/cur/id=7388582" target="_blank">Wikimedia Commons</a>
     </div>
 </div>
     <div class="strip black"></div>
 
-
-
-
      <!-- Section 3: Hostels -->
 
 <span id="hostel-list" style="display:none;" aria-hidden="true"></span>
 <section class="hostel-list-section" id="list-container">
-
-
 
      <!-- Spacer -->
 
@@ -1145,8 +1142,6 @@
 
 <div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; background-color: #ffd400; margin-top: 30px;">
 </div>
-
-
 
     <div class="container-wide">
        
@@ -1168,7 +1163,7 @@
 
 
         <div class="booking-btn-container">
-            <a href="https://www.booking.com/region/za/cederberg.html" target="_blank" id="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
+            <a href="https://www.booking.com/region/za/cederberg.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
         </div>
 
 
@@ -1182,9 +1177,9 @@
 <p class="intro-p">Did we miss a hostel? Email us at <span class="contact-link-multi"></span> and we'll add it.</p>
 
             <ul>
-                <li><a href="#cederberg-oasis">CEDERBERG OASIS BACKPACKERS</a></li>
-                <li><a href="#gecko-creek">GECKO CREEK WILDERNESS LODGE</a></li>
-                <li><a href="#heuningvlei">HEUNINGVLEI BACKPACKERS LODGE</a></li>
+                <li><a href="#cederberg-oasis" class="blue-link">CEDERBERG OASIS BACKPACKERS</a></li>
+                <li><a href="#gecko-creek" class="blue-link">GECKO CREEK WILDERNESS LODGE</a></li>
+                <li><a href="#heuningvlei" class="blue-link">HEUNINGVLEI BACKPACKERS LODGE</a></li>
             </ul>
 
 
@@ -1222,13 +1217,9 @@
 
 <details>
 
-
-
      <!-- Backpacking tour guide -->
 
 <div id="tip3"></div>
-
-
 
 <summary>Read More</summary>
   <div class="expanded-text">
@@ -1451,13 +1442,19 @@
 </div>
 
 
-    <!-- Footer start -->
+   <!-- Footer start -->
 
 </main>
 
 <footer role="contentinfo">
 
-    <div class="strip black"></div>
+     <!-- Spacer -->
+
+<div class="hide-on-mobile" style="height: 0px; width: 100%; display: block; margin-bottom: 0px; background-color: #ffd400;">
+</div>
+
+<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; background-color: #ffd400; margin-bottom: -10px;">
+</div>
 
     <section class="affiliate-disclosure">
 
@@ -1466,17 +1463,17 @@
         
 <p class="disclosure-text">Not everyone wants to use booking platforms though, so we've provided the hostels' full contact details too. Please tell the hostels that you found them on BackpackersBible.com. Share the love of travelling by clicking the WhatsApp icon below to send the link to fellow travellers. </p>
 
-<p class="disclosure-text">Thank you. Safe travels, and may you have a fantastic holiday! <img src="/assets/heart.png" alt="heart"></p>
+<p class="disclosure-text">Thank you. Safe travels, and may you have a fantastic holiday! <img src="/assets/heart.png" alt="" aria-hidden="true"></p>
 
 <CENTER>
 
             <img src="/assets/hand-phone__backpacking_map_small2.png" alt="Backpacking guide on mobile phone" style="margin: 20px 0px -5px 0px">
 
-                <a href="/pdf/Backpackers_Bible_Lite-South_Africa.pdf" target="_blank" class="download-btn-yellow" style="margin: 0px 0px 20px 0px">DOWNLOAD THE FREE OFFLINE GUIDE </a>
+                <a href="/pdf/Backpackers_Bible_Lite-South_Africa.pdf" target="_blank" class="download-btn-yellow" style="margin: 0px 0px 20px 0px" aria-describedby="guide-info">DOWNLOAD THE FREE OFFLINE GUIDE </a>
 
 </CENTER>
 
-                <p class="file-specs" style="margin-bottom:50px;">(PDF - 3,5mb)</p>
+                <p class="file-specs" style="margin-bottom:50px;" id="guide-info">(PDF - 3mb)</p>
 
     </section>
 
@@ -1488,7 +1485,7 @@
     <section class="footer-main-red">
         
         <a href="https://www.backpackersbible.com">
-            <img src="/assets/backpackers_bible_logo_250x250.png" alt="Logo" class="footer-logo">
+            <img src="/assets/backpackers_bible_logo_250x250.png" alt="Backpackers Bible logo" class="footer-logo">
         </a>
         <h2 class="footer-brand">BackpackersBible.com</h2>
         <p class="footer-payoff">The World In Your Pocket</p>
@@ -1498,7 +1495,10 @@
             <a href="/backpacking-south-africa/">Backpacking South Africa</a>
             <a href="/backpacking-south-africa-advice/">Advice</a>
             <a href="/backpacking-south-africa-tours/">Tours</a>
+            <a href="/misc/about-backpacking">About Backpacking</a>
             <a href="/misc/privacy">Privacy</a>
+            <a href="/misc/contents">Contents of this Site</a>
+            <a href="/404.html">404</a>
             <a href="/misc/about-backpackers-bible">About Us</a>
         </nav>
 
@@ -1507,15 +1507,16 @@
 </div>
 
 <div class="footer-share">
-            <span>SHARE</span>
+            <span id="whatsapp-share">SHARE</span>
             <a href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://www.backpackersbible.com" target="_blank">
-                <img src="/assets/whatsapp_icon_round.png" alt="Share on WhatsApp" style="width:45px; height:45px;">
+                <img src="/assets/whatsapp_icon_round.png" alt="WhatsApp icon" style="width:45px; height:45px;" aria-describedby="whatsapp-share">
             </a>
         </div>
 
     </section>
 
     <div class="footer-contribute">
+
        Help keep this guide up-to-date and accurate:
 <br>
 <span class="contact-link-multi"></span>
@@ -1552,15 +1553,15 @@
 <div id="ma" style="position:fixed; bottom: 80px; left:50px; display:inline-flex; align-items:center; z-index:100; opacity:0; transition:all 0.5s; pointer-events: none; height: min-content;">
 
     
-    <img id="ma-img" src="assets/_god_6.png" style="width:180px; height:auto; pointer-events:auto;">
+    <img id="ma-img" src="/assets/_god_6.png" style="width:180px; height:auto; pointer-events:auto;">
 
-    <div id="ma-bubble" style="position:relative; margin-left:10px; margin-bottom:20px; background:#000; color:#FFD700; border:2px solid #FFD700; padding:12px; border-radius:4px; width:180px; pointer-events:auto;">
+    <div id="ma-bubble" style="position:relative; margin-left:10px; margin-bottom:20px; background:#000; color:#fff200; border:2px solid #FFD700; padding:12px; border-radius:4px; width:180px; pointer-events:auto;">
         
         <div id="t-out" style="position:absolute; left:-12px; bottom:15px; border-top:10px solid transparent; border-bottom:10px solid transparent; border-right:12px solid #FFD700;"></div>
         <div id="t-in" style="position:absolute; left:-9px; bottom:15px; border-top:10px solid transparent; border-bottom:10px solid transparent; border-right:12px solid #000;"></div>
 
-        <p id="ma-text" style="margin:0; font-family:sans-serif; font-size:13px; font-weight:bold;">Welcome to our backpacking guide of South Africa!</p>
-        <a id="ma-link" href="/backpacking-south-africa-tours/" style="color:#fff; font-size:12px;">Discover more</a>
+        <p id="ma-text" style="margin:0; font-family:sans-serif; font-size:15px; font-weight:regular;">Welcome to our backpacking guide of South Africa!</p>
+        <a id="ma-link" href="/backpacking-south-africa-tours/" style="color:#fff; font-size:15px;">Discover more</a>
     </div>
 </div>
 
@@ -1586,11 +1587,11 @@
         transition: opacity 0.5s !important;
     }
     #ma img {
-        width: 120px !important; 
+        width: 150px !important; 
     }
     #ma-bubble {
         max-width: calc(100% - 130px) !important; 
-        font-size: 13px !important;
+        font-size: 15px !important;
         padding: 10px !important;
         margin-bottom: 5px !important; 
         margin-left: 0 !important;
@@ -1600,7 +1601,7 @@
 
 /* Desktop sizing */
 #ma img {
-    width: 80px; 
+    width: 180px; 
     transition: width 0.3s;
 }
 </style>
@@ -1628,21 +1629,21 @@ window.onscroll = function() {
     // ORDER
     // 1. Tip 2 (The first one on the page)
     if (isOn('tip2')) {
-        updateMa(isMobile ? "left" : "right", "../assets/_god_6.png", 
+        updateMa(isMobile ? "left" : "right", "/assets/_god_6.png", 
                  "Welcome to the wild, explorer! You are looking at the only guide that lists EVERY single hostel in South Africa. Use my interactive map at the top of this page to zoom in on the Cederberg, find your perfect basecamp, and book your bed directly!", 
                  "#map-visual");
     }
 
     // 2. Tip 1 (The middle one)
     else if (isOn('tip1')) {
-        updateMa("left", "../assets/_god_7.png", 
+        updateMa("left", "/assets/_god_7.png", 
                  "The mountains are beautiful, but they don’t take prisoners! Before you head into the deep wilderness, check our Advice section for safety tips. You’ll find the links in the menu to help you plan the rest of your South African mission!", 
                  '/backpacking-south-africa-advice/in-country'); 
     } 
     // 3. Tip 3
     else if (isOn('tip3')) {
         // Flipped to "right" to fix the character-side issue you noticed
-        updateMa(isMobile ? "right" : "left", "../assets/_god_1.png", 
+        updateMa(isMobile ? "right" : "left", "/assets/_god_1.png", 
                  "We work hard to keep this guide independent and free for every backpacker! If you find a spot you love on the map or in the list below, please support the mission by booking through our links. It helps me keep tracking down every last hostel for your next adventure!", 
                  '/misc/affiliate-links-disclosure');
     }
@@ -1700,7 +1701,7 @@ window.onscroll = function() {
                aria-label="Search this site" aria-autocomplete="list" aria-controls="search-results-mobile"
                oninput="runSearch(this.value,'search-results-mobile')"
                onfocus="if(this.value) document.getElementById('search-results-mobile').classList.add('open')"
-               onblur="setTimeout(()=>document.getElementById('search-results-mobile').classList.remove('open'),200)">
+               onblur="setTimeout(()=>document.getElementById('search-results-mobile').classList.remove('open'),500)">
         <span class="search-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false">
             <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
@@ -1786,7 +1787,7 @@ window.onscroll = function() {
 
     <button class="accordion" onclick="toggleAccordion(this)" aria-expanded="false" aria-controls="panel-tours">TOURS</button>
 
-    <div class="panel" id="panel-advice" role="region" aria-label="Advice sections">
+    <div class="panel" id="panel-tours" role="region" aria-label="Tours and itineraries">
 
                 <h3 style="color: #fff; font-size: 1.4rem; font-weight: normal; margin-top: 3rem; ">SELF-DRIVE ITINERARIES</h3>
 
