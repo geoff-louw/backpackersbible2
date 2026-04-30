@@ -4553,3 +4553,28 @@ padding-botto: 0px !important;
   transition: top 0.1s;
 }
 .skip-link:focus { top: 0; }
+
+
+
+
+
+/* Sitemap Specific Styling */
+    .sitemap-list {
+        padding-left: 2.5rem; /* Pushes the bullets in from the far left */
+        list-style-type: none;
+
+        margin-bottom: 3rem;
+    }
+    
+    .sitemap-list li {
+        margin-bottom: 2.5rem; /* Creates breathing room between each sitemap entry */
+    }
+
+    .sitemap-list h2 {
+        margin-bottom: 0.5rem; /* Tightens the gap between the link and the paragraph */
+        font-size: 1.5rem; /* Optional: scales down the H2 slightly for a list context */
+    }
+
+    .sitemap-list .intro-p {
+        margin-top: 0; /* Ensures the paragraph sits flush with the heading */
+    }
