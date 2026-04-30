@@ -993,7 +993,7 @@ background-color: #fff200;
 }
 
 /* Force the Rectangle Shape */
-.btn-booking-com, .btn-hostelworld-com, .btn-getyourguide-com {
+#btn-booking-com, #btn-hostelworld-com, #btn-getyourguide-com {
     display: flex !important; /* Keep flex for vertical centering */
     justify-content: center !important;
     align-items: center !important;
@@ -1015,30 +1015,30 @@ background-color: #fff200;
 }
 
 /* Booking.com Colors */
-.btn-booking-com {
+#btn-booking-com {
     background-color: #253c7e !important;
     color: #ffffff !important;
 }
-.btn-booking-com span.dot-com {
+#btn-booking-com span.dot-com {
     color: #4d9ed7 !important;
 }
 
 /* Hostelworld Colors */
-.btn-hostelworld-com {
-    background-color: #cc4b00 !important;
+#btn-hostelworld-com {
+    background-color: #f3724a !important;
     color: #ffffff !important;
 }
 
 /* GetYourGuide Colors */
-.btn-getyourguide-com {
-    background-color: #d63b1b !important;
+#btn-getyourguide-com {
+    background-color: #ff5534 !important;
     color: #ffffff !important;
 }
 
 /* Hover States */
-.btn-booking-com:hover { color: #4d9ed7 !important; }
-.btn-hostelworld-com:hover { color: #f39c8c !important; }
-.btn-getyourguide-com { color: #ffffff !important; }
+#btn-booking-com:hover { color: #4d9ed7 !important; }
+#btn-hostelworld-com:hover { color: #f39c8c !important; }
+#btn-getyourguide-com { color: #ffffff !important; }
 
 /* Responsive: Smaller titles on phones */
 @media (max-width: 600px) {
@@ -2070,7 +2070,35 @@ details[open] summary {
     border-right: none;
 }
 
-/* (duplicate desktop/mobile blocks removed — see consolidated rules below) */
+/* DESKTOP: Square Sticky Bar */
+@media (min-width: 768px) {
+    #quick-jump-menu {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 83px !important;
+        width: max-content !important;
+        margin: 40px auto !important;
+        border-radius: 0 !important;      /* Removed rounded corners */
+        height: 60px;
+    }
+}
+
+
+@media (max-width: 767px) {
+    #quick-jump-menu {
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 65px;
+        border-radius: 0 !important;      /* Removed rounded corners */
+    }
+        #quick-jump-menu a {
+        font-size: 16pt !important;
+        padding: 10px 15px;
+    }
+    body { padding-bottom: 70px; } 
+}
 
 
 #quick-jump-menu {
@@ -2099,6 +2127,15 @@ details[open] summary {
 @media (min-width: 1101px) {
     #hamburger-icon { display: none; }
     .desktop-nav { display: block; }
+    
+    #quick-jump-menu {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 130px !important;
+        width: max-content !important;
+        margin: 40px auto !important;
+        height: 60px;
+    }
 }
 
 /* MOBILE & TABLET (1100px and below) */
@@ -2213,21 +2250,6 @@ details[open] summary {
         border-radius: 0 !important;
     }
     body { padding-bottom: 70px; } 
-}
-
-/* DESKTOP: Sticky centered bar — must come AFTER the mobile block to win the cascade */
-@media (min-width: 1101px) {
-    #quick-jump-menu {
-        position: -webkit-sticky !important;
-        position: sticky !important;
-        top: 50px !important;
-        bottom: auto !important;
-        left: auto !important;
-        width: max-content !important;
-        margin: 40px auto !important;
-        height: 60px;
-    }
-    body { padding-bottom: 0; }
 }
 
 
@@ -2538,7 +2560,7 @@ li {
 
 .tour-price {
     font-weight: bold;
-    color: #145a32; /* Professional green for pricing */
+    color: #27ae60; /* Professional green for pricing */
     margin: 0;
 }
 
@@ -2713,7 +2735,7 @@ li {
     .map-section {
         padding-top: 20px;
     }
-}
+
 
 /* MOBILE MENU — Accordion & Panel */
 #mobile-menu a, .accordion {
@@ -3342,6 +3364,7 @@ body:not(:has(#quick-jump-menu)) {
 
 /* Ensure the quick-jump-menu is also elevated */
 #quick-jump-menu {
+    position: fixed;
     z-index: 1200 !important; 
 }
 
@@ -3368,8 +3391,9 @@ body:not(:has(#quick-jump-menu)) {
     background: #000; /* Ensure it's solid so she can't be seen through it */
 }
 
-/* 2. Target ONLY the horizontal scrolling bar */
+/* 2. Target ONLY the yellow Jump to Section button */
 #quick-jump-menu {
+    position: fixed !important;
     z-index: 1020 !important; 
 }
 
@@ -3540,7 +3564,23 @@ img[src*="hand_phone_mobile"] {
     }
 
 /* 4. FIX BLEEDING DIVIDERS */
-/* (overflow and link rules handled in consolidated block below) */
+#quick-jump-menu {
+    overflow: hidden !important; /* Clips anything extending outside the 45px */
+}
+
+#quick-jump-menu a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 45px !important;    /* Matches container height */
+    line-height: 45px !important; 
+border-right: 1px solid rgba(255, 255, 255, 0.3) !important;}
+
+#quick-jump-menu a:last-child {
+    border-right: none !important; /* Removes the extra line after 'Hostels' */
+}
+
+}
 
 
 @media (max-width: 1100px) {
@@ -3602,9 +3642,9 @@ img[src*="hand_phone_mobile"] {
 /* IRON-CLAD MOBILE BUTTON RESIZING */
 @media screen and (max-width: 600px) {
     /* 1. Target the IDs specifically to break the 268px x 92px lock */
-    .btn-booking-com, 
-    .btn-hostelworld-com, 
-    .btn-getyourguide-com {
+    #btn-booking-com, 
+    #btn-hostelworld-com, 
+    #btn-getyourguide-com {
         width: 200px !important;    /* Reduced from 268px */
         min-width: 200px !important;
         height: 60px !important;     /* Reduced from 92px */
@@ -3951,6 +3991,13 @@ h2.main-h2-title.things-to-do-fix {
     position: relative; 
 }
 
+
+
+
+
+
+/* --- ENSURE ANY PREVIOUS MEDIA QUERIES ARE CLOSED --- */
+} 
 
 /* --- NEW UNIQUE DESKTOP SECTION --- */
 .area-hero-container {
@@ -4339,7 +4386,7 @@ padding-botto: 0px !important;
 
 
 
-
+<style>
 /* HARD RESET for Leaflet icons */
 .leaflet-pane img,
 .leaflet-marker-icon,
@@ -4356,7 +4403,7 @@ padding-botto: 0px !important;
   height: auto !important;
   max-width: none !important;
 }
-
+</style>
 
 
 /* ════════════════════════════════════════════════════════════
@@ -4487,8 +4534,6 @@ padding-botto: 0px !important;
 }
 
 
-/* Accessibility */
-
 .skip-link {
   position: absolute;
   top: -100%;
@@ -4504,201 +4549,3 @@ padding-botto: 0px !important;
   transition: top 0.1s;
 }
 .skip-link:focus { top: 0; }
-
-
-/* Accessibility */
-
-/* 1. Prep the parent elements */
-a:focus-visible,
-button:focus-visible,
-summary:focus-visible {
-    outline: none !important; /* Kill the buggy browser outline completely */
-    position: relative;       /* Acts as an anchor for our custom ring */
-    display: inline-block;
-}
-
-/* 2. Create the custom focus ring using ::after */
-a:focus-visible::after,
-button:focus-visible::after,
-summary:focus-visible::after {
-    content: '';
-    position: absolute;
-
-    /* THIS CREATES THE GAP: 
-       It pushes the ring exactly 4px OUTSIDE the edges of your text/button */
-    top: -4px;
-    left: -4px;
-    right: -4px;
-    bottom: -4px;
-
-    /* THE WHITE INNER RING */
-    border: 3px solid #ffffff; 
-    
-    /* THE BLACK OUTER RING */
-    /* This shadow wraps exactly 3px around the outside of the white border */
-    box-shadow: 0 0 0 3px #000000; 
-
-    /* PERFECTLY ROUND CORNERS */
-    border-radius: 4px; 
-
-    /* Prevents the invisible box from blocking mouse clicks */
-    pointer-events: none; 
-}
-
-
-
-
-/* This hides text from the eye but leaves it for the 'ears' of a screen reader */
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-}
-
-
-
-
-
-/* Force markers to obey the iconSize set in your JavaScript */
-.leaflet-marker-icon {
-    width: auto !important;
-    height: auto !important;
-    max-width: none !important;
-    min-width: 0 !important;
-    min-height: 0 !important;
-}
-
-
-/* 1. Target ONLY the hostel markers, not the map tiles */
-#map .leaflet-marker-icon {
-    width: 25px !important;    /* Your desired pin size */
-    height: 25px !important;   /* Your desired pin size */
-    max-width: none !important;
-    min-width: 0 !important;
-    display: block !important;
-    object-fit: contain !important;
-}
-
-/* 2. PROTECT the map tiles - ensure they stay full size */
-#map .leaflet-tile-container img {
-    width: 256px !important; /* Standard Leaflet tile size */
-    height: 256px !important;
-    display: block !important;
-}
-
-
-
-/* 1. Ensure the map container itself is visible and on top of the yellow background */
-#map {
-    z-index: 1 !important;
-    position: relative;
-}
-
-/* 2. Fix the "Basement" layer visibility */
-#map .leaflet-map-pane {
-    z-index: 2 !important;
-}
-
-/* 3. Style the labels to be plain white and behind the markers */
-.region-label {
-    z-index: 10 !important; /* Low Z-index within the pane */
-    color: #ffffff !important;
-    font-size: 10px !important;
-    font-weight: bold;
-    text-transform: uppercase;
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    pointer-events: none !important;
-}
-
-/* 4. Force markers to stay in front of the text labels */
-.leaflet-marker-icon {
-    z-index: 1000 !important; /* Higher Z-index to beat the labels */
-    width: 6px !important;
-    height: 6px !important;
-}
-
-/* 5. Protect the map tiles from shrinking */
-#map .leaflet-tile-container img {
-    width: 256px !important;
-    height: 256px !important;
-    display: block !important;
-}
-
-
-
-
-/* Ensure the map container has a height and is visible */
-#map {
-    height: 800px !important; /* Or whatever height you need */
-    width: 100% !important;
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    background: #000 !important; /* If you see a black box, the script is the problem */
-}
-
-/* Fix for the satellite tiles */
-.leaflet-tile-container img {
-    width: 256px !important;
-    height: 256px !important;
-    display: block !important;
-}
-
-/* The labels - White and behind icons */
-.region-label {
-    color: white !important;
-    font-size: 10px !important;
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    z-index: 1 !important;
-}
-
-/* The icons - On top */
-.leaflet-marker-icon {
-    z-index: 999 !important;
-}
-
-/* ============================================================
-   QUICK-JUMP-MENU: SINGLE AUTHORITATIVE POSITIONING BLOCK
-   This must remain at the END of the file to win the cascade.
-   ============================================================ */
-
-/* MOBILE (≤1100px): fixed bar at bottom of screen */
-@media (max-width: 1100px) {
-    #quick-jump-menu {
-        position: fixed !important;
-        bottom: 0 !important;
-        top: auto !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: 65px !important;
-        margin: 0 !important;
-        border-radius: 0 !important;
-        z-index: 3000 !important;
-    }
-    body { padding-bottom: 70px; }
-}
-
-/* DESKTOP (>1100px): sticky bar centred in the page flow */
-@media (min-width: 1101px) {
-    #quick-jump-menu {
-        position: sticky !important;
-        top: 143px !important;  /* matches fixed header height */
-        bottom: auto !important;
-        left: auto !important;
-        width: max-content !important;
-        margin: 20px auto !important;
-        height: 60px !important;
-        border-radius: 0 !important;
-        z-index: 2000 !important;
-    }
-    body { padding-bottom: 0; }
-}
