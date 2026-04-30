@@ -2070,35 +2070,7 @@ details[open] summary {
     border-right: none;
 }
 
-/* DESKTOP: Square Sticky Bar */
-@media (min-width: 768px) {
-    #quick-jump-menu {
-        position: -webkit-sticky;
-        position: sticky;
-        top: 83px !important;
-        width: max-content !important;
-        margin: 40px auto !important;
-        border-radius: 0 !important;      /* Removed rounded corners */
-        height: 60px;
-    }
-}
-
-
-@media (max-width: 767px) {
-    #quick-jump-menu {
-        position: fixed !important;
-        bottom: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: 65px;
-        border-radius: 0 !important;      /* Removed rounded corners */
-    }
-        #quick-jump-menu a {
-        font-size: 16pt !important;
-        padding: 10px 15px;
-    }
-    body { padding-bottom: 70px; } 
-}
+/* (duplicate desktop/mobile blocks removed — see consolidated rules below) */
 
 
 #quick-jump-menu {
@@ -2127,15 +2099,6 @@ details[open] summary {
 @media (min-width: 1101px) {
     #hamburger-icon { display: none; }
     .desktop-nav { display: block; }
-    
-    #quick-jump-menu {
-        position: -webkit-sticky;
-        position: sticky;
-        top: 130px !important;
-        width: max-content !important;
-        margin: 40px auto !important;
-        height: 60px;
-    }
 }
 
 /* MOBILE & TABLET (1100px and below) */
@@ -2250,6 +2213,21 @@ details[open] summary {
         border-radius: 0 !important;
     }
     body { padding-bottom: 70px; } 
+}
+
+/* DESKTOP: Sticky centered bar — must come AFTER the mobile block to win the cascade */
+@media (min-width: 1101px) {
+    #quick-jump-menu {
+        position: -webkit-sticky !important;
+        position: sticky !important;
+        top: 50px !important;
+        bottom: auto !important;
+        left: auto !important;
+        width: max-content !important;
+        margin: 40px auto !important;
+        height: 60px;
+    }
+    body { padding-bottom: 0; }
 }
 
 
@@ -3181,14 +3159,23 @@ body:not(:has(#quick-jump-menu)) {
 }
 
 
-/* Add to the end of your @media (max-width: 1100px) block */
-#quick-jump-menu, #top-jump {
-    transition: transform 0.3s ease-in-out !important;
+
+
+
+/* Mobile-only scroll hiding */
+@media (max-width: 1100px) {
+    #quick-jump-menu, #top-jump {
+        transition: transform 0.3s ease-in-out !important;
+    }
+
+    .hide-bottom-menu {
+        transform: translateY(150%) !important;
+    }
 }
 
-.hide-bottom-menu {
-    transform: translateY(150%) !important;
-}
+
+
+
 
 
 /* 1. Push the attribution text back */
@@ -3364,7 +3351,6 @@ body:not(:has(#quick-jump-menu)) {
 
 /* Ensure the quick-jump-menu is also elevated */
 #quick-jump-menu {
-    position: fixed;
     z-index: 1200 !important; 
 }
 
@@ -3391,9 +3377,8 @@ body:not(:has(#quick-jump-menu)) {
     background: #000; /* Ensure it's solid so she can't be seen through it */
 }
 
-/* 2. Target ONLY the yellow Jump to Section button */
+/* 2. Target ONLY the horizontal scrolling bar */
 #quick-jump-menu {
-    position: fixed !important;
     z-index: 1020 !important; 
 }
 
@@ -3564,23 +3549,7 @@ img[src*="hand_phone_mobile"] {
     }
 
 /* 4. FIX BLEEDING DIVIDERS */
-#quick-jump-menu {
-    overflow: hidden !important; /* Clips anything extending outside the 45px */
-}
-
-#quick-jump-menu a {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    height: 45px !important;    /* Matches container height */
-    line-height: 45px !important; 
-border-right: 1px solid rgba(255, 255, 255, 0.3) !important;}
-
-#quick-jump-menu a:last-child {
-    border-right: none !important; /* Removes the extra line after 'Hostels' */
-}
-
-}
+/* (overflow and link rules handled in consolidated block below) */
 
 
 @media (max-width: 1100px) {
@@ -4704,4 +4673,41 @@ summary:focus-visible::after {
 /* The icons - On top */
 .leaflet-marker-icon {
     z-index: 999 !important;
+}
+
+/* ============================================================
+   QUICK-JUMP-MENU: SINGLE AUTHORITATIVE POSITIONING BLOCK
+   This must remain at the END of the file to win the cascade.
+   ============================================================ */
+
+/* MOBILE (≤1100px): fixed bar at bottom of screen */
+@media (max-width: 1100px) {
+    #quick-jump-menu {
+        position: fixed !important;
+        bottom: 0 !important;
+        top: auto !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 65px !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+        z-index: 3000 !important;
+    }
+    body { padding-bottom: 70px; }
+}
+
+/* DESKTOP (>1100px): sticky bar centred in the page flow */
+@media (min-width: 1101px) {
+    #quick-jump-menu {
+        position: sticky !important;
+        top: 143px !important;  /* matches fixed header height */
+        bottom: auto !important;
+        left: auto !important;
+        width: max-content !important;
+        margin: 20px auto !important;
+        height: 60px !important;
+        border-radius: 0 !important;
+        z-index: 2000 !important;
+    }
+    body { padding-bottom: 0; }
 }
