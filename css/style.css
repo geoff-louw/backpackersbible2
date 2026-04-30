@@ -4559,38 +4559,40 @@ padding-botto: 0px !important;
 
 
 /* Sitemap Specific Styling */
-.sitemap-wrap {
-    max-width: 800px; /* Adjust this to match your site's standard paragraph width */
-    margin: 0 auto;   /* Centers the container on the page */
-    padding: 0 20px;  /* Prevents text from touching screen edges on mobile */
-}
-
-
-
-
 .sitemap-container {
-    max-width: 900px; /* Adjust to match your other pages */
+    max-width: 900px; 
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* New class for the sitemap list */
+/* Remove bullets and align the list */
 .sitemap-list {
-list-style-type: none;
-    padding-left: 1.2rem; /* Aligns the bullets with the text edge */
+    list-style-type: none;
+    padding-left: 0; /* Changed to 0 to keep text flush with the container edge */
+    margin-left: 0;
 }
 
-/* The paragraph class with extra bottom spacing */
+/* Add space above each new section (between paragraph and next header) */
+.sitemap-list li {
+    margin-top: 50px; /* This creates the gap after the preceding paragraph */
+}
+
+/* Remove the top margin for the very first item so it stays at the top */
+.sitemap-list li:first-child {
+    margin-top: 0;
+}
+
+/* The paragraph class with consistent left alignment */
 .sitemap-description {
     text-align: left;
     display: block;
     margin-top: 5px;
-    margin-bottom: 45px; /* This creates the space before the next header */
+    margin-bottom: 0; /* Bottom margin handled by the li's margin-top */
     line-height: 1.6;
-    color: #333; /* Or your preferred text color */
 }
 
-/* Optional: tighten the gap between the header and its paragraph */
+/* Tighten the gap between the header and its own paragraph */
 .sitemap-list h2 {
     margin-bottom: 5px;
+    margin-top: 0;
 }
