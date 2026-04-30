@@ -4582,3 +4582,14 @@ padding-botto: 0px !important;
     display: block;
     line-height: 1.6;
 }
+
+
+/* The Thick Arrow Replacement */
+.sitemap-list li::before {
+    content: "\2B95"; /* The Unicode for the Rightwards Thick Arrow */
+    position: absolute;
+    left: 0;
+    top: 5px; /* Adjust this to vertically align with your H2 text */
+    font-size: 20px;
+    color: #fff; /* You can change the color of just the arrow here */
+}
