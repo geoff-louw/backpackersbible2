@@ -4689,3 +4689,80 @@ padding-botto: 0px !important;
         margin-right: auto;
     }
 }
+
+
+
+
+
+
+
+/* --- DICTIONARY DEFINITION BOX --- */
+.dictionary-def {
+    background-color: #ffffff;
+    border-left: 6px solid #bc1d23; /* Backpackers Bible Red */
+    padding: 25px 30px;
+    margin: 40px auto;
+    max-width: 800px; /* Keeps the text line-length readable */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+/* The word being defined */
+.dictionary-def dfn {
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #000000;
+    font-style: normal; /* Browsers italicize <dfn> by default; this resets it */
+    letter-spacing: 1px;
+}
+
+/* The grammar type (noun, verb, etc.) */
+.dictionary-def .word-type {
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 1.1rem;
+    color: #666666;
+    font-style: italic;
+    margin-left: 10px;
+}
+
+/* The definition text */
+.dictionary-def p {
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: #333333;
+    margin: 15px 0 25px 0;
+    text-align: left;
+}
+
+/* The attribution line */
+.dictionary-def footer {
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 1rem;
+    color: #666666;
+    text-align: right;
+}
+
+/* The specific source name */
+.dictionary-def cite {
+    font-style: italic;
+    font-weight: bold;
+    color: #000000;
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 600px) {
+    .dictionary-def {
+        padding: 20px 20px;
+        margin: 30px 15px; /* Adds a safety gutter on small screens */
+    }
+    
+    .dictionary-def dfn {
+        font-size: 1.6rem;
+    }
+    
+    .dictionary-def p {
+        font-size: 1.1rem;
+    }
+}
