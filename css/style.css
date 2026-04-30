@@ -4559,22 +4559,24 @@ padding-botto: 0px !important;
 
 
 /* Sitemap Specific Styling */
-    .sitemap-list {
-        padding-left: 2.5rem; /* Pushes the bullets in from the far left */
-        list-style-type: none;
+.sitemap-wrap {
+    max-width: 800px; /* Adjust this to match your site's standard paragraph width */
+    margin: 0 auto;   /* Centers the container on the page */
+    padding: 0 20px;  /* Prevents text from touching screen edges on mobile */
+}
 
-        margin-bottom: 3rem;
-    }
-    
-    .sitemap-list li {
-        margin-bottom: 2.5rem; /* Creates breathing room between each sitemap entry */
-    }
+/* Fixes the bullet point indentation */
+.sitemap-list {
+    padding-left: 1.5rem; 
+    list-style-position: outside;
+    margin-top: 2rem;
+}
 
-    .sitemap-list h2 {
-        margin-bottom: 0.5rem; /* Tightens the gap between the link and the paragraph */
-        font-size: 1.5rem; /* Optional: scales down the H2 slightly for a list context */
-    }
-
-    .sitemap-list .intro-p {
-        margin-top: 0; /* Ensures the paragraph sits flush with the heading */
-    }
+/* New class for left-aligned descriptive text */
+.sitemap-text-left {
+    text-align: left;
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+    display: block;
+    line-height: 1.6;
+}
