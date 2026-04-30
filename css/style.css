@@ -4524,7 +4524,15 @@ padding-botto: 0px !important;
   padding: 18px 0 20px;
 }
 .mobile-search .site-search-bar { width: 220px; }
-.mobile-search .search-results   { left: 50%; transform: translateX(-50%); right: auto; }
+.mobile-search .search-results {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: auto;
+  width: 280px;
+  max-width: 90vw;
+  right: auto;
+}
 
 @media (min-width: 769px) {
   .mobile-search  { display: none; }
