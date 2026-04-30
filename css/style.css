@@ -4605,11 +4605,11 @@ padding-botto: 0px !important;
 
 /* 2. Fix the font sizes: Force h3 and h4 to look larger within the sitemap */
 .sitemap-list h3 a {
-    font-size: 2.2rem !important; /* Forces the Home/Itinerary links to be large */
+    font-size: 1.5rem !important; /* Forces the Home/Itinerary links to be large */
 }
 
 .sitemap-list h4 a {
-    font-size: 1.8rem !important; /* Forces the Regional links (Cape Town, etc) to be larger */
+    font-size: 1.5rem !important; /* Forces the Regional links (Cape Town, etc) to be larger */
 }
 
 
@@ -4630,4 +4630,45 @@ padding-botto: 0px !important;
     margin-top: 10px;
     display: block;
     line-height: 1.6;
+}
+
+
+
+/* Fix the box model so padding doesn't push text off the screen */
+.sitemap-wrap, .sitemap-list, .sitemap-list li, .sitemap-text-left {
+    box-sizing: border-box;
+}
+
+/* ---------------------------------------------------
+   MOBILE STYLES (Triggers on screens 768px or smaller) 
+   --------------------------------------------------- */
+@media (max-width: 768px) {
+    /* 1. Reduce the indentation and space for the arrow */
+    .sitemap-list li {
+        padding-left: 25px; /* Pulls the text back to the left */
+        margin-top: 40px;   /* Slightly tighter vertical spacing for mobile */
+    }
+
+    /* 2. Scale down the arrow to match */
+    .sitemap-list li::before {
+        font-size: 18px; 
+        top: 2px;
+    }
+
+    /* 3. Scale down the heading fonts so they don't break the screen width */
+    .sitemap-list h3 a {
+        font-size: 1.6rem !important; 
+    }
+
+    .sitemap-list h4 a {
+        font-size: 1.3rem !important;
+    }
+
+    /* 4. Ensure paragraphs stay contained */
+    .sitemap-text-left {
+        padding-right: 0;
+        margin-right: 0;
+        width: 100%;
+        overflow-wrap: break-word; /* Forces long words/URLs to break instead of overflowing */
+    }
 }
