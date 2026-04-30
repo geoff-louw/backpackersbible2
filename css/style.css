@@ -3159,23 +3159,14 @@ body:not(:has(#quick-jump-menu)) {
 }
 
 
-
-
-
-/* Mobile-only scroll hiding */
-@media (max-width: 1100px) {
-    #quick-jump-menu, #top-jump {
-        transition: transform 0.3s ease-in-out !important;
-    }
-
-    .hide-bottom-menu {
-        transform: translateY(150%) !important;
-    }
+/* Add to the end of your @media (max-width: 1100px) block */
+#quick-jump-menu, #top-jump {
+    transition: transform 0.3s ease-in-out !important;
 }
 
-
-
-
+.hide-bottom-menu {
+    transform: translateY(150%) !important;
+}
 
 
 /* 1. Push the attribution text back */
