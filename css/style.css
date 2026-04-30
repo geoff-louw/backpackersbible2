@@ -4559,40 +4559,26 @@ padding-botto: 0px !important;
 
 
 /* Sitemap Specific Styling */
-.sitemap-container {
-    max-width: 900px; 
-    margin: 0 auto;
-    padding: 0 20px;
+
+/* Container for the sitemap to match page width */
+.sitemap-wrap {
+    max-width: 800px; /* Adjust this to match your site's standard paragraph width */
+    margin: 0 auto;   /* Centers the container on the page */
+    padding: 0 20px;  /* Prevents text from touching screen edges on mobile */
 }
 
-/* Remove bullets and align the list */
+/* Fixes the bullet point indentation */
 .sitemap-list {
-    list-style-type: none;
-    padding-left: 0; /* Changed to 0 to keep text flush with the container edge */
-    margin-left: 0;
+    padding-left: 1.5rem; 
+    list-style-position: outside;
+    margin-top: 2rem;
 }
 
-/* Add space above each new section (between paragraph and next header) */
-.sitemap-list li {
-    margin-top: 50px; /* This creates the gap after the preceding paragraph */
-}
-
-/* Remove the top margin for the very first item so it stays at the top */
-.sitemap-list li:first-child {
-    margin-top: 0;
-}
-
-/* The paragraph class with consistent left alignment */
-.sitemap-description {
+/* New class for left-aligned descriptive text */
+.sitemap-text-left {
     text-align: left;
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
     display: block;
-    margin-top: 5px;
-    margin-bottom: 0; /* Bottom margin handled by the li's margin-top */
     line-height: 1.6;
-}
-
-/* Tighten the gap between the header and its own paragraph */
-.sitemap-list h2 {
-    margin-bottom: 5px;
-    margin-top: 0;
 }
