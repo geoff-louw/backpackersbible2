@@ -4556,8 +4556,6 @@ padding-botto: 0px !important;
 
 
 
-
-
 /* Sitemap Specific Styling */
 
 /* Container for the sitemap to match page width */
@@ -4584,12 +4582,21 @@ padding-botto: 0px !important;
 }
 
 
-/* The Thick Arrow Replacement */
+/* Ensure the list item has room for the arrow */
+.sitemap-list li {
+    margin-top: 50px;
+    position: relative;
+    padding-left: 40px; /* Increased this slightly to ensure the arrow isn't cramped */
+}
+
+/* The Arrow Code */
 .sitemap-list li::before {
-    content: "\2B95"; /* The Unicode for the Rightwards Thick Arrow */
+    content: "\2B95"; /* Check that this is a BACKSLASH */
     position: absolute;
     left: 0;
-    top: 5px; /* Adjust this to vertically align with your H2 text */
-    font-size: 20px;
-    color: #fff; /* You can change the color of just the arrow here */
+    top: 0;
+    font-size: 24px;   /* Made it larger so it's easier to spot */
+    line-height: 1.2; /* Aligns it vertically with the H2 link */
+    color: #333;      /* Change to 'blue' or 'red' temporarily to see if it appears */
+    display: block;
 }
