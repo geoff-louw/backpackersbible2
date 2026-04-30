@@ -79,7 +79,7 @@
       "isPartOf": { "@id": "https://www.backpackersbible.com/#website" },
       "publisher": { "@id": "https://www.backpackersbible.com/#organization" },
       "author": { "@id": "https://www.backpackersbible.com/#organization" },
-      "dateModified": "2026-01-01",
+      "dateModified": "2025-01-01",
       "primaryImageOfPage": {
         "@type": "ImageObject",
         "url": "https://www.backpackersbible.com/assets/social-preview.jpg"
@@ -1113,6 +1113,7 @@
 </script>
 
 </head>
+<body>
 
 <!-- Skip links -->
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -1127,9 +1128,7 @@
 
         <div class="branding">
 
-            <a href="https://backpackersbible.com">
-
-                <img src="/assets/backpackers_bible_logo_250x250.png" alt="Backpackers Bible Logo" style="width:80px; height:80px; background:#fff;">
+            <a href="https://www.backpackersbible.com">
 
             </a>
 
@@ -1161,7 +1160,7 @@
                        aria-label="Search this site" aria-autocomplete="list" aria-controls="search-results-desktop"
                        oninput="runSearch(this.value,'search-results-desktop')"
                        onfocus="if(this.value) document.getElementById('search-results-desktop').classList.add('open')"
-                       onblur="setTimeout(()=>document.getElementById('search-results-desktop').classList.remove('open'),500)">
+                       onblur="setTimeout(()=>document.getElementById('search-results-desktop').classList.remove('open'),200)">
                 <span class="search-icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false">
                     <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
@@ -1376,6 +1375,7 @@
 
 <main id="main-content">
 
+<span id="map" style="display:none;" aria-hidden="true"></span>
 <section id="map-visual" style="width: 100vw; margin-left: calc(-50vw + 50%); position: relative; line-height: 0;">
 
     <div class="map-overlay-circle">
@@ -1668,7 +1668,7 @@
 
 <div class="hide-on-mobile" style="height: 60px; width: 100%; display: block;"></div>
 
-<h2 class="area-hero-title">Safety In Cape Town</h2>
+<h2 class="area-hero-title" id="safety-guide">Safety In Cape Town</h2>
 
 <p class="intro-p">Cape Town requires a level of street awareness that most visitors from Western Europe, Scandinavia, or Australia are simply not used to. It is not a city where you switch off. That said, the majority of the tourists who pass through Cape Town every year — hundreds of thousands of them, many of them solo and in their twenties — have a completely trouble-free visit. The risks are real and manageable, not random and unavoidable. Here is what you actually need to know.</p>
 
@@ -2065,6 +2065,7 @@
      <!-- Section 3: Hostel Directory -->
 
 
+<span id="hostel-list" style="display:none;" aria-hidden="true"></span>
 <section class="hostel-list-section" id="list-container">
 
      <!-- Spacer -->
@@ -4572,7 +4573,7 @@
 
     <section class="footer-main-red">
         
-        <a href="https://backpackersbible.com">
+        <a href="https://www.backpackersbible.com">
             <img src="/assets/backpackers_bible_logo_250x250.png" alt="Logo" class="footer-logo">
         </a>
         <h2 class="footer-brand">BackpackersBible.com</h2>
@@ -4593,7 +4594,7 @@
 
 <div class="footer-share">
             <span>SHARE</span>
-            <a href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://backpackersbible.com" target="_blank">
+            <a href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://www.backpackersbible.com" target="_blank">
                 <img src="/assets/whatsapp_icon_round.png" alt="Share on WhatsApp" style="width:45px; height:45px;">
             </a>
         </div>
@@ -4685,7 +4686,7 @@
 
 /* Desktop sizing */
 #ma img {
-    width: 100px; 
+    width: 80px; 
     transition: width 0.3s;
 }
 </style>
@@ -4785,7 +4786,7 @@ window.onscroll = function() {
                aria-label="Search this site" aria-autocomplete="list" aria-controls="search-results-mobile"
                oninput="runSearch(this.value,'search-results-mobile')"
                onfocus="if(this.value) document.getElementById('search-results-mobile').classList.add('open')"
-               onblur="setTimeout(()=>document.getElementById('search-results-mobile').classList.remove('open'),500)">
+               onblur="setTimeout(()=>document.getElementById('search-results-mobile').classList.remove('open'),200)">
         <span class="search-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false">
             <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
@@ -4910,7 +4911,7 @@ window.onscroll = function() {
     <a href="/#download-pwa"><strong>★ FREE HOSTEL GUIDE!</strong> <br> <span style="font-size:0.9rem;">(PDF or App)</span></a>
 
             
-            <a href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://backpackersbible.com" target="_blank">
+            <a href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://www.backpackersbible.com" target="_blank">
 
                 <img src="/assets/whatsapp_icon_round.png" alt="Share on WhatsApp" style="width:45px; height:45px;">
 
