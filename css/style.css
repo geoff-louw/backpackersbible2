@@ -993,7 +993,8 @@ background-color: #fff200;
 }
 
 /* Force the Rectangle Shape */
-#btn-booking-com, #btn-hostelworld-com, #btn-getyourguide-com {
+#btn-booking-com, #btn-hostelworld-com, #btn-getyourguide-com,
+.btn-booking-com, .btn-hostelworld-com, .btn-getyourguide-com {
     display: flex !important; /* Keep flex for vertical centering */
     justify-content: center !important;
     align-items: center !important;
@@ -1015,30 +1016,30 @@ background-color: #fff200;
 }
 
 /* Booking.com Colors */
-#btn-booking-com {
+#btn-booking-com, .btn-booking-com {
     background-color: #253c7e !important;
     color: #ffffff !important;
 }
-#btn-booking-com span.dot-com {
+#btn-booking-com span.dot-com, .btn-booking-com span.dot-com {
     color: #4d9ed7 !important;
 }
 
 /* Hostelworld Colors */
-#btn-hostelworld-com {
+#btn-hostelworld-com, .btn-hostelworld-com {
     background-color: #f3724a !important;
     color: #ffffff !important;
 }
 
 /* GetYourGuide Colors */
-#btn-getyourguide-com {
+#btn-getyourguide-com, .btn-getyourguide-com {
     background-color: #ff5534 !important;
     color: #ffffff !important;
 }
 
 /* Hover States */
-#btn-booking-com:hover { color: #4d9ed7 !important; }
-#btn-hostelworld-com:hover { color: #f39c8c !important; }
-#btn-getyourguide-com { color: #ffffff !important; }
+#btn-booking-com:hover, .btn-booking-com:hover { color: #4d9ed7 !important; }
+#btn-hostelworld-com:hover, .btn-hostelworld-com:hover { color: #f39c8c !important; }
+#btn-getyourguide-com, .btn-getyourguide-com { color: #ffffff !important; }
 
 /* Responsive: Smaller titles on phones */
 @media (max-width: 600px) {
@@ -3644,7 +3645,10 @@ border-right: 1px solid rgba(255, 255, 255, 0.3) !important;}
     /* 1. Target the IDs specifically to break the 268px x 92px lock */
     #btn-booking-com, 
     #btn-hostelworld-com, 
-    #btn-getyourguide-com {
+    #btn-getyourguide-com,
+    .btn-booking-com,
+    .btn-hostelworld-com,
+    .btn-getyourguide-com {
         width: 200px !important;    /* Reduced from 268px */
         min-width: 200px !important;
         height: 60px !important;     /* Reduced from 92px */
@@ -4524,15 +4528,7 @@ padding-botto: 0px !important;
   padding: 18px 0 20px;
 }
 .mobile-search .site-search-bar { width: 220px; }
-.mobile-search .search-results {
-  position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
-  top: auto;
-  width: 280px;
-  max-width: 90vw;
-  right: auto;
-}
+.mobile-search .search-results   { left: 50%; transform: translateX(-50%); right: auto; }
 
 @media (min-width: 769px) {
   .mobile-search  { display: none; }
