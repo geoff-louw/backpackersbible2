@@ -4560,7 +4560,7 @@ padding-botto: 0px !important;
 
 /* Container for the sitemap to match page width */
 .sitemap-wrap {
-    max-width: 800px; /* Adjust this to match your site's standard paragraph width */
+    max-width: 100%; /* Adjust this to match your site's standard paragraph width */
     margin: 0 auto;   /* Centers the container on the page */
     padding: 0 20px;  /* Prevents text from touching screen edges on mobile */
 }
@@ -4570,6 +4570,7 @@ padding-botto: 0px !important;
     padding-left: 1.5rem; 
     list-style-type: none;
     margin-top: 5rem;
+
 }
 
 /* New class for left-aligned descriptive text */
@@ -4599,4 +4600,34 @@ padding-botto: 0px !important;
     line-height: 1.2; /* Aligns it vertically with the H2 link */
     color: #333;      /* Change to 'blue' or 'red' temporarily to see if it appears */
     display: block;
+}
+
+
+/* 2. Fix the font sizes: Force h3 and h4 to look larger within the sitemap */
+.sitemap-list h3 a {
+    font-size: 2.2rem !important; /* Forces the Home/Itinerary links to be large */
+}
+
+.sitemap-list h4 a {
+    font-size: 1.8rem !important; /* Forces the Regional links (Cape Town, etc) to be larger */
+}
+
+
+/* 3. Keep your existing alignment and spacing */
+.sitemap-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.sitemap-list li {
+    margin-top: 60px; /* Space before the next header */
+    position: relative;
+}
+
+.sitemap-text-left {
+    text-align: left;
+    margin-top: 10px;
+    display: block;
+    line-height: 1.6;
 }
