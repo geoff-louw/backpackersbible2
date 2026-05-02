@@ -4785,30 +4785,14 @@ padding-botto: 0px !important;
 
 
 
-
-
-
-
-
-#mobile-menu[hidden] {
-  display: flex; /* override the browser's hidden attribute */
-}
-
-
-
-
 .mobile-search .search-results {
   left: 50%;
   transform: translateX(-50%);
   right: auto;
-  width: min(320px, 90vw); /* prevent overflow on narrow screens */
-  max-width: 90vw;
+  width: 90vw;
+  max-width: 300px;
 }
 
 
 
 
-
-#mobile-menu {
-  overflow-x: hidden; /* add this */
-}
