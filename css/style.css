@@ -4766,3 +4766,19 @@ padding-botto: 0px !important;
         font-size: 1.1rem;
     }
 }
+
+
+
+
+
+/* This hides text from the eye but leaves it for the 'ears' of a screen reader */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
