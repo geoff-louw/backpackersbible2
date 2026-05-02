@@ -2,11 +2,7 @@ let lastScrollTop = 0;
 const header = document.getElementById("mainHeader");
 const bttButton = document.getElementById("backToTop"); // Add the button variable here
 
-// 1. Mobile Menu Logic
-function toggleMobileMenu() {
-    var x = document.getElementById("mobile-menu");
-    x.classList.toggle("open");
-}
+// 1. Mobile Menu Logic (defined once below)
 
 // 2. Accordion Logic
 function toggleAccordion(element) {
@@ -410,33 +406,24 @@ function checkUrlAndCenter() {
 
 function toggleMobileMenu() {
     const menu = document.getElementById("mobile-menu");
-    const desktopSearch = document.querySelector(".search-wrapper"); // Selects your desktop search
-    
     if (menu) {
-        menu.classList.toggle("open");
-        
-        if (menu.classList.contains("open")) {
-            document.body.style.overflow = "hidden";
-            if(desktopSearch) desktopSearch.style.visibility = "hidden";
-        } else {
-            document.body.style.overflow = "auto";
-            if(desktopSearch) desktopSearch.style.visibility = "visible";
-        }
-    }
-}
+        const isOpening = !menu.classList.contains("open");
 
-
-
-function toggleMobileMenu() {
-    const menu = document.getElementById("mobile-menu");
-    if (menu) {
-        menu.classList.toggle("open");
-        
-        // Optional: Prevents the background page from scrolling when menu is open
-        if (menu.classList.contains("open")) {
+        if (isOpening) {
+            menu.removeAttribute("hidden"); // Must remove before animating in so inputs are interactive
+            requestAnimationFrame(function() {
+                menu.classList.add("open");
+            });
             document.body.style.overflow = "hidden";
         } else {
+            menu.classList.remove("open");
             document.body.style.overflow = "auto";
+            // Re-add hidden after the CSS transition finishes (350ms)
+            setTimeout(function() {
+                if (!menu.classList.contains("open")) {
+                    menu.setAttribute("hidden", "");
+                }
+            }, 360);
         }
     }
 }
@@ -523,5 +510,8 @@ links.forEach(link => {
 
 
 
-
+function toggleMenu(el) {
+  const expanded = el.getAttribute('aria-expanded') === 'true';
+  el.setAttribute('aria-expanded', !expanded);
+}
 
