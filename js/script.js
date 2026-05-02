@@ -515,3 +515,68 @@ function toggleMenu(el) {
   el.setAttribute('aria-expanded', !expanded);
 }
 
+
+// MOBILE SEARCH PORTAL
+// The mobile search results dropdown can't render correctly inside #mobile-menu
+// because overflow-x:clip on html/body clips even position:fixed children.
+// Solution: create one results div directly on <body> and position it via JS.
+document.addEventListener('DOMContentLoaded', function() {
+  var mobileInput = document.getElementById('search-input-mobile');
+  var mobileResultsInMenu = document.getElementById('search-results-mobile');
+  if (!mobileInput) return;
+
+  // Create a portal div on body
+  var portal = document.createElement('div');
+  portal.id = 'search-results-mobile-portal';
+  portal.className = 'search-results';
+  portal.setAttribute('role', 'listbox');
+  portal.setAttribute('aria-live', 'polite');
+  portal.setAttribute('aria-label', 'Search results');
+  // Override positioning so it's viewport-relative
+  portal.style.cssText = 'position:fixed; z-index:999999; width:90vw; max-width:320px; display:none;';
+  document.body.appendChild(portal);
+
+  // Hide the original in-menu results box so it doesn't double-render
+  if (mobileResultsInMenu) mobileResultsInMenu.style.display = 'none';
+
+  function positionPortal() {
+    var rect = mobileInput.getBoundingClientRect();
+    var portalWidth = Math.min(320, window.innerWidth * 0.9);
+    var left = rect.left + (rect.width / 2) - (portalWidth / 2);
+    // Clamp so it doesn't go off either edge
+    left = Math.max(8, Math.min(left, window.innerWidth - portalWidth - 8));
+    portal.style.left = left + 'px';
+    portal.style.top = (rect.bottom + 6) + 'px';
+    portal.style.width = portalWidth + 'px';
+  }
+
+  // Re-route runSearch output to the portal for mobile
+  mobileInput.addEventListener('input', function() {
+    if (typeof window.runSearch === 'function') {
+      // Temporarily point runSearch at the portal
+      var origId = 'search-results-mobile';
+      portal.id = origId;
+      window.runSearch(mobileInput.value, origId);
+      portal.id = 'search-results-mobile-portal';
+
+      if (mobileInput.value.trim()) {
+        portal.style.display = 'block';
+        positionPortal();
+      } else {
+        portal.style.display = 'none';
+      }
+    }
+  });
+
+  mobileInput.addEventListener('focus', function() {
+    if (mobileInput.value.trim() && portal.innerHTML) {
+      portal.style.display = 'block';
+      positionPortal();
+    }
+  });
+
+  mobileInput.addEventListener('blur', function() {
+    setTimeout(function() { portal.style.display = 'none'; }, 300);
+  });
+});
+
