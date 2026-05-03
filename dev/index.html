@@ -3434,7 +3434,10 @@ btn.addEventListener('click', async () => {
      <!-- Mobile menu -->
 
 <div id="mobile-menu" style="position: fixed !important; z-index: 99999 !important;" role="dialog" aria-modal="true" aria-label="Navigation menu" hidden>
-    <span class="close-btn" onclick="toggleMobileMenu()" role="button" aria-label="Close navigation menu" tabindex="0">&times;</span>
+    
+
+<button class="mobile-menu__close" id="mobile-menu-close" aria-label="Close navigation menu">&times;</button>
+
 
     <!-- Search bar (mobile) -->
     <div class="mobile-search site-search-wrap" role="search">
