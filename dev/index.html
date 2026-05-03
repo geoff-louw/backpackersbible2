@@ -41,6 +41,8 @@
 <link rel="preload" as="style" href="/css/style-2.css">
 <link rel="stylesheet" href="/css/style-2.css">
 
+<script src="/js/script-2.js" defer></script>
+
   <link rel="icon" type="image/x-icon"        href="/assets/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
@@ -3436,13 +3438,12 @@ btn.addEventListener('click', async () => {
 <div id="mobile-menu" style="position: fixed !important; z-index: 99999 !important;" role="dialog" aria-modal="true" aria-label="Navigation menu" hidden>
     
 
-<button class="mobile-menu__close" id="mobile-menu-close" aria-label="Close navigation menu">&times;</button>
-
+<span class="close-btn" onclick="toggleMobileMenu()" role="button" aria-label="Close navigation menu" tabindex="0">&times;</span>
 
     <!-- Search bar (mobile) -->
     <div class="mobile-search site-search-wrap" role="search">
       <div class="site-search-bar" onclick="document.getElementById('search-input-mobile').focus()">
-        <input id="search-input-mobile" type="search" placeholder="Search this site..." autocomplete="off"
+        <input id="mobile-menu-search-input" type="search" placeholder="Search this site..." autocomplete="off"
                aria-label="Search this site"
                aria-autocomplete="list"
                aria-controls="search-results-mobile"
@@ -3455,7 +3456,7 @@ btn.addEventListener('click', async () => {
           </svg>
         </span>
       </div>
-      <div id="search-results-mobile" class="search-results" role="listbox" aria-live="polite" aria-label="Search results"></div>
+      <div id="mobile-menu-search-results" class="search-results" role="listbox" aria-live="polite" aria-label="Search results"></div>
     </div>
 
     <a href="/">HOME</a>
