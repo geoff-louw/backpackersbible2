@@ -291,9 +291,6 @@ body {
 
 /* ------------------------------------------------------------
    HEADER — outer wrapper
-   Fixed to top, full width, sits above everything.
-   overflow: visible is essential — without it the mega menus
-   (which extend below the header) get clipped.
    ------------------------------------------------------------ */
 
 #site-header {
@@ -303,12 +300,10 @@ body {
     width: 100%;
     z-index: var(--z-header);
     background-color: var(--color-red);
-    /* Slide up/down on scroll — driven by JS adding .is-hidden */
     transition: transform var(--transition-slide);
     overflow: visible;
 }
 
-/* JS adds this class on scroll down, removes it on scroll up */
 #site-header.is-hidden {
     transform: translateY(-100%);
 }
@@ -316,9 +311,6 @@ body {
 
 /* ------------------------------------------------------------
    MAIN BAR
-   Three-column flex: branding | space | controls
-   The space between branding and controls is automatic
-   because controls is pushed to the right with margin-left:auto.
    ------------------------------------------------------------ */
 
 .site-header__bar {
@@ -328,7 +320,6 @@ body {
     height: var(--header-height);
     padding: 0 40px;
     background-color: var(--color-red);
-    /* Required for the desktop search dropdown to escape the bar */
     overflow: visible;
     position: relative;
     box-sizing: border-box;
@@ -343,17 +334,14 @@ body {
     display: flex;
     align-items: center;
     gap: 15px;
-    /* Prevents branding from shrinking if the nav gets crowded */
     flex-shrink: 0;
 }
 
 .site-header__logo-link {
     display: block;
-    /* Prevents a small gap below the image caused by line-height */
     line-height: 0;
 }
 
-/* Focus ring on logo link — yellow shows well on red */
 .site-header__logo-link:focus-visible {
     outline: 3px solid var(--color-yellow-bright);
     outline-offset: 3px;
@@ -362,7 +350,6 @@ body {
 .site-header__logo {
     width: 80px;
     height: 80px;
-    /* White background so the logo reads on the red header */
     background-color: var(--color-white);
     display: block;
 }
@@ -373,7 +360,6 @@ body {
     gap: 2px;
 }
 
-/* Row containing brand name + location badge */
 .site-header__brand-row {
     display: flex;
     align-items: center;
@@ -382,7 +368,7 @@ body {
 }
 
 .site-header__brand-name {
-    font-size: var(--text-xl);     /* ~29px */
+    font-size: var(--text-xl);
     font-weight: normal;
     color: var(--color-white);
     white-space: nowrap;
@@ -402,7 +388,7 @@ body {
 }
 
 .site-header__payoff {
-    font-size: var(--text-md);     /* ~19px */
+    font-size: var(--text-md);
     color: var(--color-white);
     white-space: nowrap;
 }
@@ -417,24 +403,22 @@ body {
     flex-direction: column;
     align-items: flex-end;
     gap: 8px;
-    /* Allows the mega menu dropdowns to escape this container */
     overflow: visible;
 }
 
 
 /* ------------------------------------------------------------
    HAMBURGER TOGGLE BUTTON
-   Hidden on desktop, visible on mobile.
-   Three <span> bars animate to an X when menu is open.
+   Hidden on desktop, shown on mobile.
    ------------------------------------------------------------ */
 
 .site-header__nav-toggle {
-    display: none;  /* Hidden by default — shown in mobile media query */
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 5px;
-    width: 44px;    /* Minimum 44×44px touch target — WCAG 2.5.5 */
+    width: 44px;
     height: 44px;
     background: none;
     border: none;
@@ -458,8 +442,6 @@ body {
                 opacity var(--transition-base);
 }
 
-/* Animate bars to X when menu is open.
-   JS adds aria-expanded="true" to the button. */
 .site-header__nav-toggle[aria-expanded="true"] .site-header__nav-toggle-bar:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
 }
@@ -473,8 +455,7 @@ body {
 
 /* ------------------------------------------------------------
    DESKTOP SEARCH
-   Positioned absolutely within the header bar so it sits
-   in the top-right corner above the nav row.
+   Pill-shaped, light pink, white text — matching original.
    ------------------------------------------------------------ */
 
 .site-header__search {
@@ -487,18 +468,19 @@ body {
 .site-header__search-bar {
     display: flex;
     align-items: center;
-    background-color: var(--color-red-dark);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 4px;
-    padding: 0 10px;
+    background-color: #e8a0aa;
+    border: none;
+    border-radius: 999px;
+    padding: 0 14px;
     height: 32px;
     gap: 6px;
     cursor: text;
-    transition: border-color var(--transition-base);
+    transition: background-color var(--transition-base);
 }
 
+.site-header__search-bar:hover,
 .site-header__search-bar:focus-within {
-    border-color: var(--color-white);
+    background-color: #f0b8c0;
 }
 
 .site-header__search-input {
@@ -509,15 +491,13 @@ body {
     font-family: var(--font-primary);
     font-size: var(--text-sm);
     width: 200px;
-    /* Removes the browser's default clear (×) button on search inputs */
     -webkit-appearance: none;
 }
 
 .site-header__search-input::placeholder {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.85);
 }
 
-/* Remove browser default search cancel button */
 .site-header__search-input::-webkit-search-cancel-button {
     -webkit-appearance: none;
 }
@@ -526,19 +506,17 @@ body {
     display: flex;
     align-items: center;
     flex-shrink: 0;
-    color: var(--color-white);
 }
 
 .site-header__search-icon svg {
-    width: 16px;
-    height: 16px;
+    width: 15px;
+    height: 15px;
     stroke: var(--color-white);
     fill: none;
     stroke-width: 2.2;
     stroke-linecap: round;
 }
 
-/* Search results dropdown */
 .site-header__search-results {
     display: none;
     position: absolute;
@@ -546,7 +524,7 @@ body {
     right: 0;
     width: 320px;
     background: var(--color-white);
-    border-radius: 8px;
+    border-radius: 12px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     z-index: var(--z-header);
     overflow: hidden;
@@ -558,7 +536,6 @@ body {
     display: block;
 }
 
-/* Individual result items — styled by JS-generated content */
 .site-header__search-results .search-result-item {
     display: block;
     padding: 11px 18px;
@@ -577,6 +554,7 @@ body {
 .site-header__search-results .search-result-item:focus {
     background: #fce8ed;
     color: var(--color-red);
+    text-decoration: none;
 }
 
 .site-header__search-results .search-result-item strong {
@@ -605,11 +583,9 @@ body {
     align-items: center;
     gap: 30px;
     height: 100%;
-    /* Pushes the nav below the search bar within the controls stack */
     padding-top: 44px;
 }
 
-/* The CTA link — star + FREE Hostel Guide */
 .site-nav__cta {
     color: var(--color-white);
     font-size: var(--text-base);
@@ -617,10 +593,12 @@ body {
     text-decoration: none;
     white-space: nowrap;
     margin-right: 0.5rem;
+    transition: color var(--transition-fast);
 }
 
 .site-nav__cta:hover {
-    text-decoration: underline;
+    color: #f0b8c0;
+    text-decoration: none;
 }
 
 .site-nav__cta:focus-visible {
@@ -628,17 +606,18 @@ body {
     outline-offset: 3px;
 }
 
-/* Standard nav links (Home) */
 .site-nav__link {
     color: var(--color-white);
     font-size: var(--text-base);
     text-transform: uppercase;
     text-decoration: none;
     white-space: nowrap;
+    transition: color var(--transition-fast);
 }
 
 .site-nav__link:hover {
-    text-decoration: underline;
+    color: #f0b8c0;
+    text-decoration: none;
 }
 
 .site-nav__link:focus-visible {
@@ -646,9 +625,6 @@ body {
     outline-offset: 3px;
 }
 
-/* Nav item wrapper — needs height to create the hover bridge
-   between the trigger and the mega menu so mouse movement
-   between them doesn't cause the menu to flicker closed */
 .site-nav__item {
     position: static;
     height: var(--header-height);
@@ -656,7 +632,6 @@ body {
     align-items: center;
 }
 
-/* Mega menu trigger button — looks like a nav link */
 .site-nav__mega-trigger {
     background: none;
     border: none;
@@ -667,7 +642,7 @@ body {
     text-transform: uppercase;
     white-space: nowrap;
     padding: 0;
-    /* The ▾ arrow — added via CSS so screen readers ignore it */
+    transition: color var(--transition-fast);
 }
 
 .site-nav__mega-trigger::after {
@@ -677,7 +652,8 @@ body {
 }
 
 .site-nav__mega-trigger:hover {
-    text-decoration: underline;
+    color: #f0b8c0;
+    text-decoration: none;
 }
 
 .site-nav__mega-trigger:focus-visible {
@@ -688,8 +664,6 @@ body {
 
 /* ------------------------------------------------------------
    MEGA MENUS
-   Hidden by default.
-   Opens on: hover (mouse) or data-open attribute (keyboard/JS).
    ------------------------------------------------------------ */
 
 .site-nav__mega-menu {
@@ -709,10 +683,352 @@ body {
     z-index: calc(var(--z-header) + 1);
 }
 
-/* Opens on mouse hover OR when JS sets data-open */
 .site-nav__item:hover .site-nav__mega-menu,
 .site-nav__mega-menu[data-open] {
     display: grid;
+}
+
+.site-nav__mega-col {
+    min-width: 180px;
+}
+
+.site-nav__mega-heading {
+    color: var(--color-red);
+    font-size: var(--text-md);
+    font-weight: bold;
+    margin-bottom: 12px;
+    margin-top: 20px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--color-black);
+}
+
+.site-nav__mega-col .site-nav__mega-heading:first-child {
+    margin-top: 0;
+}
+
+.site-nav__mega-menu a[role="menuitem"] {
+    display: block;
+    color: var(--color-black);
+    padding: 6px 0;
+    font-size: var(--text-base);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.site-nav__mega-menu a[role="menuitem"]:hover {
+    color: var(--color-red);
+    text-decoration: none;
+}
+
+.site-nav__mega-menu a[role="menuitem"]:focus-visible {
+    outline: 3px solid var(--color-red);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+
+/* ------------------------------------------------------------
+   COLOUR STRIPS
+   ------------------------------------------------------------ */
+
+.site-header__strip {
+    height: 6px;
+    width: 100%;
+    display: block;
+}
+
+.site-header__strip--black  { background-color: var(--color-black); }
+.site-header__strip--yellow { background-color: var(--color-yellow-bright); }
+.site-header__strip--blue   { background-color: var(--color-blue); }
+.site-header__strip--green  { background-color: #36fd00; }
+
+
+/* ------------------------------------------------------------
+   HEADER SPACER
+   Replace the current inline-styled div in the HTML with:
+   <div class="header-spacer"></div>
+   The 24px accounts for the four colour strips (4 × 6px).
+   ------------------------------------------------------------ */
+
+.header-spacer {
+    height: calc(var(--header-height) + 24px);
+    display: block;
+}
+
+
+/* ============================================================
+   MOBILE MENU
+   Full-screen slide-in panel.
+   JS removes [hidden] and adds .is-open to show it,
+   re-adds [hidden] and removes .is-open to hide it.
+   ============================================================ */
+
+#mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-red);
+    z-index: var(--z-mobile-menu);
+    overflow-y: auto;
+    padding: 80px 30px 100px;
+    box-sizing: border-box;
+    transform: translateX(100%);
+    transition: transform var(--transition-slide),
+                visibility var(--transition-slide);
+    visibility: hidden;
+}
+
+#mobile-menu.is-open {
+    transform: translateX(0);
+    visibility: visible;
+}
+
+/* Close button */
+.mobile-menu__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: var(--color-white);
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+.mobile-menu__close:focus-visible {
+    outline: 3px solid var(--color-yellow-bright);
+    outline-offset: 3px;
+}
+
+/* Mobile search */
+.mobile-menu__search {
+    margin-bottom: 2rem;
+}
+
+.mobile-menu__search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #e8a0aa;
+    border-radius: 999px;
+    padding: 0 14px;
+    height: 40px;
+    gap: 8px;
+}
+
+.mobile-menu__search-input {
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--color-white);
+    font-family: var(--font-primary);
+    font-size: var(--text-base);
+    width: 100%;
+    -webkit-appearance: none;
+}
+
+.mobile-menu__search-input::placeholder {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.mobile-menu__search-icon svg {
+    width: 18px;
+    height: 18px;
+    stroke: var(--color-white);
+    fill: none;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    flex-shrink: 0;
+}
+
+.mobile-menu__search-results {
+    display: none;
+    background: var(--color-white);
+    border-radius: 8px;
+    margin-top: 6px;
+    overflow: hidden;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.mobile-menu__search-results.is-open {
+    display: block;
+}
+
+/* Mobile nav links */
+#mobile-menu a {
+    display: block;
+    width: 100%;
+    padding: 16px 0;
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: var(--text-base);
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    transition: color var(--transition-fast);
+}
+
+#mobile-menu a:hover {
+    color: var(--color-yellow);
+    text-decoration: none;
+}
+
+#mobile-menu a:focus-visible {
+    outline: 3px solid var(--color-yellow-bright);
+    outline-offset: 3px;
+}
+
+/* Accordion buttons */
+.accordion {
+    display: block;
+    width: 100%;
+    padding: 16px 0;
+    background: none;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--color-white);
+    font-family: var(--font-primary);
+    font-size: var(--text-base);
+    text-transform: uppercase;
+    text-align: left;
+    cursor: pointer;
+    position: relative;
+}
+
+.accordion::after {
+    content: '▾';
+    position: absolute;
+    right: 0;
+    transition: transform var(--transition-base);
+}
+
+.accordion[aria-expanded="true"]::after {
+    transform: rotate(180deg);
+}
+
+.accordion:focus-visible {
+    outline: 3px solid var(--color-yellow-bright);
+    outline-offset: 3px;
+}
+
+/* Accordion panels */
+.panel {
+    display: none;
+    padding: 10px 0 10px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.panel.is-open {
+    display: block;
+}
+
+.panel a {
+    border-bottom: none;
+    padding: 10px 0;
+    font-size: var(--text-sm);
+    text-transform: none;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.panel a:hover {
+    color: var(--color-yellow);
+}
+
+/* Section headings inside panels */
+.panel h3 {
+    color: var(--color-white);
+    font-size: var(--text-lg);
+    font-weight: normal;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* WhatsApp share */
+.mobile-menu__share {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 3rem;
+    color: var(--color-white);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: var(--text-sm);
+    border-bottom: none !important;
+}
+
+.mobile-menu__share img {
+    width: 45px;
+    height: 45px;
+}
+
+
+/* ============================================================
+   7. SITE HEADER — RESPONSIVE
+   Breakpoint: 1100px
+   ============================================================ */
+
+@media (max-width: 1100px) {
+
+    #site-header {
+        --header-height: 75px;
+    }
+
+    .site-header__bar {
+        height: 75px;
+        padding: 0 15px;
+    }
+
+    .site-header__logo {
+        width: 45px;
+        height: 45px;
+    }
+
+    .site-header__brand-name {
+        font-size: var(--text-md);
+        white-space: normal;
+    }
+
+    .site-header__payoff {
+        font-size: var(--text-xs);
+    }
+
+    /* Hidden on mobile — jump menu provides location context */
+    .site-header__location-badge {
+        display: none;
+    }
+
+    /* Show hamburger */
+    .site-header__nav-toggle {
+        display: flex;
+    }
+
+    /* Hide desktop search and nav */
+    .site-header__search,
+    .site-nav {
+        display: none;
+    }
+
+    /* Controls becomes a simple row */
+    .site-header__controls {
+        flex-direction: row;
+        align-items: center;
+        gap: 0;
+    }
+
+    /* Slim the spacer */
+    .header-spacer {
+        height: calc(75px + 24px);
+    }
+
 }
 
 .site-nav__mega-col {
