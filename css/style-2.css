@@ -1,0 +1,860 @@
+/* ============================================================
+   BACKPACKERS BIBLE — style-2.css
+   Master stylesheet — clean rebuild
+
+   CONTENTS:
+   0.  Font Loading
+   1.  CSS Custom Properties (Design Tokens)
+   2.  CSS Reset & Box Model
+   3.  Base Typography
+   4.  Body & Page Background
+   5.  Accessibility Utilities
+   ============================================================ */
+
+
+/* ============================================================
+   0. FONT LOADING
+   All four Century Gothic variants. @font-face rules must
+   live at the top level — never inside :root or any selector.
+   ============================================================ */
+
+@font-face {
+    font-family: 'Century Gothic';
+    src: url('/fonts/CenturyGothic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Century Gothic';
+    src: url('/fonts/CenturyGothic-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Century Gothic';
+    src: url('/fonts/CenturyGothic-Italic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Century Gothic';
+    src: url('/fonts/CenturyGothic-BoldItalic.woff2') format('woff2');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+/* ============================================================
+   1. CSS CUSTOM PROPERTIES (Design Tokens)
+   All brand colours, fonts, spacing and z-index values live
+   here. Change a value once and it updates everywhere.
+   ============================================================ */
+
+:root {
+
+    /* Brand Colours */
+    --color-red:           #bc1d23;
+    --color-red-dark:      #7a1d23;
+    --color-red-light:     #e74747;
+    --color-yellow:        #ffd400;
+    --color-yellow-bright: #fff200;
+    --color-yellow-card:   #e7bd1d;
+    --color-blue:          #3c73a5;
+    --color-black:         #000000;
+    --color-white:         #ffffff;
+    --color-grey-light:    #f0f0f0;
+    --color-grey-mid:      #888888;
+    --color-grey-dark:     #333333;
+    --color-text:          #000000;
+
+    /* Typography */
+    --font-primary: 'Century Gothic', sans-serif;
+
+    /* Font Sizes — fluid scale using rem (1rem = 16px browser default) */
+    --text-xs:    0.82rem;  /*  ~13px — small labels, search meta  */
+    --text-sm:    0.9rem;   /*  ~14px — captions, footnotes        */
+    --text-base:  1rem;     /*  ~16px — body copy baseline         */
+    --text-md:    1.2rem;   /*  ~19px — lead text, payoffs         */
+    --text-lg:    1.4rem;   /*  ~22px — intro paragraphs           */
+    --text-xl:    1.8rem;   /*  ~29px — brand name, subheadings    */
+    --text-2xl:   2rem;     /*  ~32px — h3 level                   */
+    --text-3xl:   3rem;     /*  ~48px — h2 level                   */
+    --text-4xl:   4rem;     /*  ~64px — h1 level                   */
+
+    /* Spacing — consistent rhythm throughout the page */
+    --space-xs:   0.5rem;
+    --space-sm:   1rem;
+    --space-md:   1.5rem;
+    --space-lg:   2.5rem;
+    --space-xl:   4rem;
+    --space-2xl:  6rem;
+
+    /* Layout */
+    --container-max:  1200px;
+    --container-text: 874px;    /* Max width for headings & readable text */
+    --header-height:  119px;
+
+    /* Z-index scale — no more magic numbers scattered through the file */
+    --z-base:        1;
+    --z-above:       10;
+    --z-header:      9999;
+    --z-mobile-menu: 15000;
+    --z-skip-link:   999999;
+
+    /* Transitions */
+    --transition-fast:  0.1s ease;
+    --transition-base:  0.3s ease;
+    --transition-slide: 0.35s ease;
+}
+
+
+/* ============================================================
+   2. CSS RESET & BOX MODEL
+   Removes browser inconsistencies. Sets box-sizing globally
+   so padding never unexpectedly breaks layouts.
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    /* Prevents horizontal scrolling site-wide */
+    overflow-x: clip;
+    /* Smooth scrolling for anchor links and skip links */
+    scroll-behavior: smooth;
+}
+
+/* Respect users who have motion sensitivity — disables all
+   animations and transitions if they've requested it in their OS */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+img,
+video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Remove default list styles — re-apply where needed */
+ul, ol {
+    list-style: none;
+}
+
+
+/* ============================================================
+   3. BASE TYPOGRAPHY
+   Sets the font once on <body> — everything inherits from here.
+   No need to redeclare font-family on every component.
+   ============================================================ */
+
+body {
+    font-family: var(--font-primary);
+    font-size: var(--text-base);
+    line-height: 1.6;
+    color: var(--color-text);
+}
+
+/* Headings — weights and sizes are set here globally.
+   Individual sections can override size via modifier classes
+   (.main-title, .section-title etc.) but font and weight
+   are inherited, not repeated. */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-primary);
+    font-weight: normal;
+    line-height: 1.15;
+}
+
+/* Links — base state only. Specific colours set per-component */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Visible focus ring for keyboard users.
+   Deliberately high-contrast against both the red header
+   and the yellow body. */
+:focus-visible {
+    outline: 3px solid var(--color-yellow-bright);
+    outline-offset: 3px;
+}
+
+
+/* ============================================================
+   4. BODY & PAGE BACKGROUND
+   ============================================================ */
+
+body {
+    background-color: var(--color-yellow);
+    width: 100%;
+    overflow-x: clip;
+}
+
+
+/* ============================================================
+   5. ACCESSIBILITY UTILITIES
+   ============================================================ */
+
+/* Visually hidden but readable by screen readers */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Skip navigation links — hidden until focused by keyboard */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    background: var(--color-red);
+    color: var(--color-white);
+    padding: 10px 18px;
+    font-size: var(--text-base);
+    font-weight: bold;
+    z-index: var(--z-skip-link);
+    text-decoration: none;
+    border-radius: 0 0 6px 0;
+    transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+
+
+/* ============================================================
+   6. SITE HEADER
+   
+   Structure:
+   #site-header
+   └── .site-header__bar
+       ├── .site-header__branding
+       │   ├── .site-header__logo-link
+       │   │   └── .site-header__logo
+       │   └── .site-header__brand-text
+       │       ├── .site-header__brand-row
+       │       │   ├── .site-header__brand-name
+       │       │   └── .site-header__location-badge
+       │       └── .site-header__payoff
+       └── .site-header__controls
+           ├── .site-header__nav-toggle
+           │   └── .site-header__nav-toggle-bar (×3)
+           ├── .site-header__search
+           │   ├── .site-header__search-bar
+           │   │   ├── .site-header__search-input
+           │   │   └── .site-header__search-icon
+           │   └── .site-header__search-results
+           └── .site-nav
+               ├── .site-nav__cta
+               ├── .site-nav__link
+               └── .site-nav__item (×3)
+                   ├── .site-nav__mega-trigger
+                   └── .site-nav__mega-menu
+                       └── .site-nav__mega-col
+                           ├── .site-nav__mega-heading
+                           └── a[role="menuitem"]
+   └── .site-header__strip (×4)
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   HEADER — outer wrapper
+   Fixed to top, full width, sits above everything.
+   overflow: visible is essential — without it the mega menus
+   (which extend below the header) get clipped.
+   ------------------------------------------------------------ */
+
+#site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: var(--z-header);
+    background-color: var(--color-red);
+    /* Slide up/down on scroll — driven by JS adding .is-hidden */
+    transition: transform var(--transition-slide);
+    overflow: visible;
+}
+
+/* JS adds this class on scroll down, removes it on scroll up */
+#site-header.is-hidden {
+    transform: translateY(-100%);
+}
+
+
+/* ------------------------------------------------------------
+   MAIN BAR
+   Three-column flex: branding | space | controls
+   The space between branding and controls is automatic
+   because controls is pushed to the right with margin-left:auto.
+   ------------------------------------------------------------ */
+
+.site-header__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+    padding: 0 40px;
+    background-color: var(--color-red);
+    /* Required for the desktop search dropdown to escape the bar */
+    overflow: visible;
+    position: relative;
+    box-sizing: border-box;
+}
+
+
+/* ------------------------------------------------------------
+   BRANDING
+   ------------------------------------------------------------ */
+
+.site-header__branding {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    /* Prevents branding from shrinking if the nav gets crowded */
+    flex-shrink: 0;
+}
+
+.site-header__logo-link {
+    display: block;
+    /* Prevents a small gap below the image caused by line-height */
+    line-height: 0;
+}
+
+/* Focus ring on logo link — yellow shows well on red */
+.site-header__logo-link:focus-visible {
+    outline: 3px solid var(--color-yellow-bright);
+    outline-offset: 3px;
+}
+
+.site-header__logo {
+    width: 80px;
+    height: 80px;
+    /* White background so the logo reads on the red header */
+    background-color: var(--color-white);
+    display: block;
+}
+
+.site-header__brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+/* Row containing brand name + location badge */
+.site-header__brand-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.site-header__brand-name {
+    font-size: var(--text-xl);     /* ~29px */
+    font-weight: normal;
+    color: var(--color-white);
+    white-space: nowrap;
+    line-height: 1.1;
+}
+
+.site-header__location-badge {
+    background-color: var(--color-yellow);
+    color: var(--color-black);
+    font-size: var(--text-base);
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 16px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.site-header__payoff {
+    font-size: var(--text-md);     /* ~19px */
+    color: var(--color-white);
+    white-space: nowrap;
+}
+
+
+/* ------------------------------------------------------------
+   CONTROLS (right side: hamburger + search + nav)
+   ------------------------------------------------------------ */
+
+.site-header__controls {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+    /* Allows the mega menu dropdowns to escape this container */
+    overflow: visible;
+}
+
+
+/* ------------------------------------------------------------
+   HAMBURGER TOGGLE BUTTON
+   Hidden on desktop, visible on mobile.
+   Three <span> bars animate to an X when menu is open.
+   ------------------------------------------------------------ */
+
+.site-header__nav-toggle {
+    display: none;  /* Hidden by default — shown in mobile media query */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 44px;    /* Minimum 44×44px touch target — WCAG 2.5.5 */
+    height: 44px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.site-header__nav-toggle:focus-visible {
+    outline: 3px solid var(--color-yellow-bright);
+    outline-offset: 3px;
+}
+
+.site-header__nav-toggle-bar {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-white);
+    border-radius: 2px;
+    transition: transform var(--transition-base),
+                opacity var(--transition-base);
+}
+
+/* Animate bars to X when menu is open.
+   JS adds aria-expanded="true" to the button. */
+.site-header__nav-toggle[aria-expanded="true"] .site-header__nav-toggle-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.site-header__nav-toggle[aria-expanded="true"] .site-header__nav-toggle-bar:nth-child(2) {
+    opacity: 0;
+}
+.site-header__nav-toggle[aria-expanded="true"] .site-header__nav-toggle-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* ------------------------------------------------------------
+   DESKTOP SEARCH
+   Positioned absolutely within the header bar so it sits
+   in the top-right corner above the nav row.
+   ------------------------------------------------------------ */
+
+.site-header__search {
+    position: absolute;
+    top: 18px;
+    right: 40px;
+    z-index: var(--z-above);
+}
+
+.site-header__search-bar {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-red-dark);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    padding: 0 10px;
+    height: 32px;
+    gap: 6px;
+    cursor: text;
+    transition: border-color var(--transition-base);
+}
+
+.site-header__search-bar:focus-within {
+    border-color: var(--color-white);
+}
+
+.site-header__search-input {
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--color-white);
+    font-family: var(--font-primary);
+    font-size: var(--text-sm);
+    width: 200px;
+    /* Removes the browser's default clear (×) button on search inputs */
+    -webkit-appearance: none;
+}
+
+.site-header__search-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Remove browser default search cancel button */
+.site-header__search-input::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+}
+
+.site-header__search-icon {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    color: var(--color-white);
+}
+
+.site-header__search-icon svg {
+    width: 16px;
+    height: 16px;
+    stroke: var(--color-white);
+    fill: none;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+}
+
+/* Search results dropdown */
+.site-header__search-results {
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    width: 320px;
+    background: var(--color-white);
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    z-index: var(--z-header);
+    overflow: hidden;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.site-header__search-results.is-open {
+    display: block;
+}
+
+/* Individual result items — styled by JS-generated content */
+.site-header__search-results .search-result-item {
+    display: block;
+    padding: 11px 18px;
+    color: var(--color-grey-dark);
+    text-decoration: none;
+    font-size: var(--text-sm);
+    border-bottom: 1px solid var(--color-grey-light);
+    transition: background var(--transition-fast);
+}
+
+.site-header__search-results .search-result-item:last-child {
+    border-bottom: none;
+}
+
+.site-header__search-results .search-result-item:hover,
+.site-header__search-results .search-result-item:focus {
+    background: #fce8ed;
+    color: var(--color-red);
+}
+
+.site-header__search-results .search-result-item strong {
+    display: block;
+    font-size: var(--text-base);
+}
+
+.site-header__search-results .search-result-item span {
+    color: var(--color-grey-mid);
+    font-size: var(--text-xs);
+}
+
+.site-header__search-no-results {
+    padding: 14px 18px;
+    color: var(--color-grey-mid);
+    font-size: var(--text-sm);
+}
+
+
+/* ------------------------------------------------------------
+   DESKTOP NAV
+   ------------------------------------------------------------ */
+
+.site-nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    height: 100%;
+    /* Pushes the nav below the search bar within the controls stack */
+    padding-top: 44px;
+}
+
+/* The CTA link — star + FREE Hostel Guide */
+.site-nav__cta {
+    color: var(--color-white);
+    font-size: var(--text-base);
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    white-space: nowrap;
+    margin-right: 0.5rem;
+}
+
+.site-nav__cta:hover {
+    text-decoration: underline;
+}
+
+.site-nav__cta:focus-visible {
+    outline: 3px solid var(--color-yellow-bright);
+    outline-offset: 3px;
+}
+
+/* Standard nav links (Home) */
+.site-nav__link {
+    color: var(--color-white);
+    font-size: var(--text-base);
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.site-nav__link:hover {
+    text-decoration: underline;
+}
+
+.site-nav__link:focus-visible {
+    outline: 3px solid var(--color-yellow-bright);
+    outline-offset: 3px;
+}
+
+/* Nav item wrapper — needs height to create the hover bridge
+   between the trigger and the mega menu so mouse movement
+   between them doesn't cause the menu to flicker closed */
+.site-nav__item {
+    position: static;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+}
+
+/* Mega menu trigger button — looks like a nav link */
+.site-nav__mega-trigger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-primary);
+    font-size: var(--text-base);
+    color: var(--color-white);
+    text-transform: uppercase;
+    white-space: nowrap;
+    padding: 0;
+    /* The ▾ arrow — added via CSS so screen readers ignore it */
+}
+
+.site-nav__mega-trigger::after {
+    content: ' ▾';
+    font-size: 0.75em;
+    vertical-align: middle;
+}
+
+.site-nav__mega-trigger:hover {
+    text-decoration: underline;
+}
+
+.site-nav__mega-trigger:focus-visible {
+    outline: 3px solid var(--color-yellow-bright);
+    outline-offset: 3px;
+}
+
+
+/* ------------------------------------------------------------
+   MEGA MENUS
+   Hidden by default.
+   Opens on: hover (mouse) or data-open attribute (keyboard/JS).
+   ------------------------------------------------------------ */
+
+.site-nav__mega-menu {
+    display: none;
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    background: var(--color-yellow-bright);
+    padding: 30px 10%;
+    box-sizing: border-box;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+    border-top: 5px solid var(--color-black);
+    border-bottom: 5px solid var(--color-black);
+    z-index: calc(var(--z-header) + 1);
+}
+
+/* Opens on mouse hover OR when JS sets data-open */
+.site-nav__item:hover .site-nav__mega-menu,
+.site-nav__mega-menu[data-open] {
+    display: grid;
+}
+
+.site-nav__mega-col {
+    min-width: 180px;
+}
+
+.site-nav__mega-heading {
+    color: var(--color-red);
+    font-size: var(--text-md);
+    font-weight: bold;
+    margin-bottom: 12px;
+    margin-top: 20px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--color-black);
+}
+
+/* First heading in a column needs no top margin */
+.site-nav__mega-col .site-nav__mega-heading:first-child {
+    margin-top: 0;
+}
+
+.site-nav__mega-menu a[role="menuitem"] {
+    display: block;
+    color: var(--color-black);
+    padding: 6px 0;
+    font-size: var(--text-base);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.site-nav__mega-menu a[role="menuitem"]:hover {
+    color: var(--color-red);
+    text-decoration: none;
+}
+
+.site-nav__mega-menu a[role="menuitem"]:focus-visible {
+    outline: 3px solid var(--color-red);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+
+/* ------------------------------------------------------------
+   COLOUR STRIPS
+   Four decorative strips below the main bar.
+   aria-hidden="true" in HTML so screen readers skip them.
+   ------------------------------------------------------------ */
+
+.site-header__strip {
+    height: 6px;
+    width: 100%;
+    display: block;
+}
+
+.site-header__strip--black  { background-color: var(--color-black); }
+.site-header__strip--yellow { background-color: var(--color-yellow-bright); }
+.site-header__strip--blue   { background-color: var(--color-blue); }
+.site-header__strip--green  { background-color: #36fd00; }
+
+
+/* ------------------------------------------------------------
+   HEADER SPACER
+   The fixed header sits on top of the page, so we need a
+   spacer element below it to push the page content down.
+   Give this div a class of "header-spacer" in the HTML
+   (removing the inline style currently there).
+   ------------------------------------------------------------ */
+
+.header-spacer {
+    height: var(--header-height);
+    /* The 24px accounts for the four colour strips (4 × 6px) */
+    padding-top: 24px;
+    display: block;
+}
+
+
+/* ============================================================
+   7. SITE HEADER — RESPONSIVE
+   Breakpoint: 1100px
+   Below this: hamburger visible, desktop nav hidden,
+   header slims to 75px, search moves into mobile menu.
+   ============================================================ */
+
+@media (max-width: 1100px) {
+
+    /* Slim the header bar */
+    .site-header__bar {
+        height: 75px;
+        padding: 0 15px;
+    }
+
+    /* Update the CSS variable locally so everything that
+       uses --header-height stays in sync on mobile */
+    #site-header {
+        --header-height: 75px;
+    }
+
+    /* Logo scales down */
+    .site-header__logo {
+        width: 45px;
+        height: 45px;
+    }
+
+    /* Brand name scales down */
+    .site-header__brand-name {
+        font-size: var(--text-md);
+        white-space: normal;
+    }
+
+    /* Payoff scales down */
+    .site-header__payoff {
+        font-size: var(--text-xs);
+    }
+
+    /* Location badge scales down */
+    .site-header__location-badge {
+        font-size: 0.75rem;
+        padding: 2px 6px;
+    }
+
+    /* Show hamburger */
+    .site-header__nav-toggle {
+        display: flex;
+    }
+
+    /* Hide desktop search and nav */
+    .site-header__search,
+    .site-nav {
+        display: none;
+    }
+
+    /* Controls becomes a simple row — just the hamburger */
+    .site-header__controls {
+        flex-direction: row;
+        align-items: center;
+        gap: 0;
+    }
+
+    /* Slim the spacer to match the new header height */
+    .header-spacer {
+        height: 75px;
+        padding-top: 24px;
+    }
+
+}
