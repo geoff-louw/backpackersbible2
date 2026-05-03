@@ -1,5 +1,4 @@
 User-agent *
 Allow: /
-Disallow: /private/
-Disallow: /tmp/
+Disallow: /dev/
 Sitemap: https://backpackersbible.com/sitemap.xml
