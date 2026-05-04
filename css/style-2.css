@@ -1172,7 +1172,7 @@ body {
 
     /* Slim the spacer to match the new header height */
     .header-spacer {
-    height: 99px; /* 75px header + 24px strips */
+    height: calc(75px + 24px);
     }
 
 }
