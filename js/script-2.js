@@ -4,7 +4,7 @@
 
    CONTENTS:
    1.  Utilities
-   2.  Header — scroll hide/show
+   2.  Header — scroll hide/show (also hides jump menus)
    3.  Header — mega menu (mouse + full keyboard)
    4.  Header — hamburger & mobile menu
    5.  Header — accordion (mobile menu panels)
@@ -30,7 +30,6 @@
        1. UTILITIES
        ============================================================ */
 
-    /* Run a function after the DOM is ready */
     function onReady(fn) {
         if (document.readyState !== 'loading') {
             fn();
@@ -39,7 +38,6 @@
         }
     }
 
-    /* Safely get an element — returns null without throwing */
     function el(id) {
         return document.getElementById(id);
     }
@@ -49,33 +47,41 @@
        2. HEADER — SCROLL HIDE / SHOW
        Adds .is-hidden to #site-header when scrolling down,
        removes it when scrolling up.
-       Also closes the mobile menu if the user scrolls.
+       Also hides/shows the jump menu and quick jump menu
+       on mobile in sync with the header.
        ============================================================ */
 
     (function initScrollHeader() {
-        var header     = el('site-header');
+        var header    = el('site-header');
+        var jumpMenu  = document.querySelector('.jump-menu-section');
+        var quickMenu = el('quick-jump-menu');
         var mobileMenu = el('mobile-menu');
         if (!header) return;
 
-        var lastScrollY  = 0;
-        var ticking      = false;
-        var THRESHOLD    = 80; /* px — don't hide until user scrolls this far */
+        var lastScrollY = 0;
+        var ticking     = false;
+        var THRESHOLD   = 80;
 
         window.addEventListener('scroll', function () {
             if (!ticking) {
                 window.requestAnimationFrame(function () {
-                    var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+                    var scrollY = window.pageYOffset ||
+                                  document.documentElement.scrollTop;
 
                     if (scrollY > lastScrollY && scrollY > THRESHOLD) {
-                        /* Scrolling DOWN — hide header */
+                        /* Scrolling DOWN — hide header and both menus */
                         header.classList.add('is-hidden');
+                        if (jumpMenu)  jumpMenu.classList.add('is-hidden');
+                        if (quickMenu) quickMenu.classList.add('is-hidden');
                         /* Close mobile menu if open */
                         if (mobileMenu && mobileMenu.classList.contains('is-open')) {
                             closeMobileMenu();
                         }
                     } else {
-                        /* Scrolling UP — show header */
+                        /* Scrolling UP — show everything */
                         header.classList.remove('is-hidden');
+                        if (jumpMenu)  jumpMenu.classList.remove('is-hidden');
+                        if (quickMenu) quickMenu.classList.remove('is-hidden');
                     }
 
                     lastScrollY = scrollY;
@@ -102,7 +108,6 @@
             var menu    = item.querySelector('.site-nav__mega-menu');
             if (!trigger || !menu) return;
 
-            /* -- MOUSE: sync aria-expanded with CSS :hover -- */
             item.addEventListener('mouseenter', function () {
                 trigger.setAttribute('aria-expanded', 'true');
             });
@@ -110,7 +115,6 @@
                 trigger.setAttribute('aria-expanded', 'false');
             });
 
-            /* -- KEYBOARD: Enter, Space or ArrowDown opens menu -- */
             trigger.addEventListener('keydown', function (e) {
                 if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') {
                     e.preventDefault();
@@ -118,14 +122,12 @@
                     closeAllMenus();
                     if (!isOpen) {
                         openMenu(trigger, menu);
-                        /* Move focus to first link */
                         var firstItem = menu.querySelector('[role="menuitem"]');
                         if (firstItem) firstItem.focus();
                     }
                 }
             });
 
-            /* -- ESCAPE from inside menu returns focus to trigger -- */
             menu.addEventListener('keydown', function (e) {
                 if (e.key === 'Escape') {
                     closeAllMenus();
@@ -133,7 +135,6 @@
                 }
             });
 
-            /* -- TAB out of last menu item closes it -- */
             menu.addEventListener('focusout', function (e) {
                 if (!menu.contains(e.relatedTarget) &&
                     !trigger.contains(e.relatedTarget)) {
@@ -142,14 +143,12 @@
             });
         });
 
-        /* -- CLICK OUTSIDE closes all menus -- */
         document.addEventListener('click', function (e) {
             if (!e.target.closest('.site-nav__item')) {
                 closeAllMenus();
             }
         });
 
-        /* -- ESCAPE anywhere on page closes all menus -- */
         document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') closeAllMenus();
         });
@@ -174,16 +173,12 @@
        4. HEADER — HAMBURGER & MOBILE MENU
        ============================================================ */
 
-    /* Expose openMobileMenu / closeMobileMenu globally so other
-       parts of the page can call them if needed */
     function openMobileMenu() {
         var menu   = el('mobile-menu');
         var toggle = el('nav-toggle');
         if (!menu) return;
 
         menu.removeAttribute('hidden');
-        /* rAF ensures the display change has painted before we
-           add the class that triggers the CSS transition */
         requestAnimationFrame(function () {
             menu.classList.add('is-open');
         });
@@ -194,7 +189,6 @@
             toggle.setAttribute('aria-label', 'Close navigation menu');
         }
 
-        /* Move focus into menu for keyboard/screen reader users */
         var closeBtn = menu.querySelector('.mobile-menu__close');
         if (closeBtn) closeBtn.focus();
     }
@@ -212,7 +206,6 @@
             toggle.setAttribute('aria-label', 'Open navigation menu');
         }
 
-        /* Re-add hidden after CSS transition finishes (350ms) */
         setTimeout(function () {
             if (!menu.classList.contains('is-open')) {
                 menu.setAttribute('hidden', '');
@@ -220,7 +213,6 @@
         }, 360);
     }
 
-    /* Make available globally */
     window.openMobileMenu  = openMobileMenu;
     window.closeMobileMenu = closeMobileMenu;
 
@@ -244,7 +236,6 @@
             closeBtn.addEventListener('click', closeMobileMenu);
         }
 
-        /* Close on Escape */
         document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape' && menu && menu.classList.contains('is-open')) {
                 closeMobileMenu();
@@ -252,7 +243,6 @@
             }
         });
 
-        /* Trap focus inside menu while open */
         if (menu) {
             menu.addEventListener('keydown', function (e) {
                 if (e.key !== 'Tab') return;
@@ -280,7 +270,6 @@
 
     onReady(function () {
         document.querySelectorAll('.accordion').forEach(function (btn) {
-            /* Remove old inline onclick — we handle it here */
             btn.removeAttribute('onclick');
 
             btn.addEventListener('click', function () {
@@ -288,7 +277,6 @@
                 var panel   = panelId ? el(panelId) : null;
                 var isOpen  = btn.getAttribute('aria-expanded') === 'true';
 
-                /* Close all other panels first */
                 document.querySelectorAll('.accordion').forEach(function (other) {
                     if (other === btn) return;
                     other.setAttribute('aria-expanded', 'false');
@@ -297,7 +285,6 @@
                     if (otherPanel) otherPanel.classList.remove('is-open');
                 });
 
-                /* Toggle this one */
                 btn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
                 if (panel) panel.classList.toggle('is-open', !isOpen);
             });
@@ -305,11 +292,9 @@
     });
 
 
-/* ============================================================
+    /* ============================================================
        6. HEADER — SEARCH
-       Fetches /search.json on init. runSearch filters the results
-       and renders them into the correct results container.
-       Field names match search.json: title, desc, url.
+       Fetches /search.json on init. Field names: title, desc, url.
        ============================================================ */
 
     var SEARCH_DATA = [];
@@ -358,7 +343,6 @@
         resultsEl.classList.add('is-open');
     }
 
-    /* Highlight matching text in results */
     function highlight(text, query) {
         var re = new RegExp(
             '(' + query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')',
@@ -369,6 +353,91 @@
             '<mark style="background:#fce8ed;color:#bc1d23;border-radius:2px;">$1</mark>'
         );
     }
+
+    function escapeHtml(str) {
+        return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;');
+    }
+
+    window.runSearch = runSearch;
+
+    onReady(function () {
+        var desktopInput   = el('site-search-input');
+        var desktopResults = el('site-search-results');
+
+        if (desktopInput && desktopResults) {
+            desktopInput.addEventListener('input', function () {
+                runSearch(this.value, 'site-search-results');
+                desktopInput.setAttribute('aria-expanded',
+                    this.value ? 'true' : 'false');
+            });
+
+            desktopInput.addEventListener('blur', function () {
+                setTimeout(function () {
+                    desktopResults.classList.remove('is-open');
+                    desktopInput.setAttribute('aria-expanded', 'false');
+                }, 200);
+            });
+
+            desktopInput.addEventListener('focus', function () {
+                if (this.value) {
+                    desktopResults.classList.add('is-open');
+                    desktopInput.setAttribute('aria-expanded', 'true');
+                }
+            });
+        }
+
+        var mobileInput = el('mobile-menu-search-input');
+        if (!mobileInput) return;
+
+        var inMenuResults = el('mobile-menu-search-results');
+        if (inMenuResults) inMenuResults.parentNode.removeChild(inMenuResults);
+
+        var portal = document.createElement('div');
+        portal.id        = 'mobile-menu-search-results';
+        portal.className = 'site-header__search-results';
+        portal.setAttribute('role', 'listbox');
+        portal.setAttribute('aria-live', 'polite');
+        portal.setAttribute('aria-label', 'Search results');
+        portal.style.cssText = [
+            'position:fixed',
+            'z-index:999999',
+            'width:90vw',
+            'max-width:320px'
+        ].join(';');
+        document.body.appendChild(portal);
+
+        function positionPortal() {
+            var rect        = mobileInput.getBoundingClientRect();
+            var portalWidth = Math.min(320, window.innerWidth * 0.9);
+            var left        = rect.left + (rect.width / 2) - (portalWidth / 2);
+            left = Math.max(8, Math.min(left, window.innerWidth - portalWidth - 8));
+            portal.style.left  = left + 'px';
+            portal.style.top   = (rect.bottom + 6) + 'px';
+            portal.style.width = portalWidth + 'px';
+        }
+
+        mobileInput.addEventListener('input', function () {
+            positionPortal();
+            runSearch(this.value, 'mobile-menu-search-results');
+        });
+
+        mobileInput.addEventListener('blur', function () {
+            setTimeout(function () {
+                portal.classList.remove('is-open');
+            }, 300);
+        });
+
+        mobileInput.addEventListener('focus', function () {
+            if (this.value) {
+                positionPortal();
+                portal.classList.add('is-open');
+            }
+        });
+    });
 
 
     /* ============================================================
@@ -383,7 +452,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        /* Show/hide based on scroll position */
         window.addEventListener('scroll', function () {
             var scrollY = window.pageYOffset || document.documentElement.scrollTop;
             bttButton.classList.toggle('is-visible', scrollY > 400);
@@ -393,8 +461,6 @@
 
     /* ============================================================
        8. SMOOTH SCROLL FOR ANCHOR LINKS
-       Accounts for the fixed header height when scrolling to
-       on-page anchors so the target isn't hidden behind the header.
        ============================================================ */
 
     onReady(function () {
@@ -408,7 +474,7 @@
 
                 e.preventDefault();
 
-                var header      = el('site-header');
+                var header       = el('site-header');
                 var headerHeight = header ? header.offsetHeight : 0;
                 var targetTop    = target.getBoundingClientRect().top +
                                    window.pageYOffset - headerHeight - 16;
@@ -467,7 +533,6 @@
         fullImg.src = imageSrc;
         lightbox.style.display = 'flex';
         document.body.style.overflow = 'hidden';
-        /* Move focus into lightbox for accessibility */
         lightbox.setAttribute('tabindex', '-1');
         lightbox.focus();
     }
@@ -479,28 +544,24 @@
         document.body.style.overflow = '';
     }
 
-    /* Close on backdrop click */
     onReady(function () {
         var lightbox = el('gallery-lightbox');
         if (lightbox) {
             lightbox.addEventListener('click', function (e) {
                 if (e.target === lightbox) closeLightbox();
             });
-            /* Close on Escape */
             lightbox.addEventListener('keydown', function (e) {
                 if (e.key === 'Escape') closeLightbox();
             });
         }
     });
 
-    window.openLightbox = openLightbox;
+    window.openLightbox  = openLightbox;
     window.closeLightbox = closeLightbox;
 
 
     /* ============================================================
        11. JUMP MENU — ACTIVE CARD CENTRING
-       Highlights and centres the card matching the current page
-       or the section currently in the viewport.
        ============================================================ */
 
     onReady(function () {
@@ -522,7 +583,6 @@
             container.scrollTo({ left: scrollPos, behavior: 'smooth' });
         }
 
-        /* Match on page load */
         function checkUrlAndCenter() {
             var filename = window.location.pathname.split('/').pop() || 'index.html';
             var activeLink = cards.find(function (link) {
@@ -537,7 +597,6 @@
 
         checkUrlAndCenter();
 
-        /* Update as user scrolls through sections */
         var targets = cards.map(function (link) {
             var hash = link.href.indexOf('#');
             if (hash !== -1) {
@@ -594,7 +653,6 @@
         if (!banner || !acceptBtn || !declineBtn) return;
 
         function loadTrackingScripts() {
-            /* Paste Google Analytics / affiliate scripts here when ready */
             console.log('Tracking consent given — loading scripts.');
         }
 
@@ -636,6 +694,7 @@
 
     /* ============================================================
        15. MAMA AFRICA POPUP
+       z-index set to --z-popup (500) in CSS — below header (9999)
        ============================================================ */
 
     onReady(function () {
@@ -694,8 +753,6 @@
 
     /* ============================================================
        17. CONTACT EMAIL OBFUSCATION
-       Assembles email addresses client-side so they don't appear
-       as plain text in the HTML for scrapers to harvest.
        ============================================================ */
 
     onReady(function () {
