@@ -1177,3 +1177,14 @@ body {
     }
 
 }
+
+/* ============================================================
+   8. MAP SECTION
+   Temporary styles — will be replaced with Leaflet map.
+   ============================================================ */
+
+#map-visual {
+    /* Prevents the full-bleed map from creeping under the header */
+    position: relative;
+    z-index: 1;
+}
