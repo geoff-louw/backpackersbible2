@@ -41,8 +41,6 @@
 <link rel="preload" as="style" href="/css/style-2.css">
 <link rel="stylesheet" href="/css/style-2.css">
 
-<script src="/js/script-2.js" defer></script>
-
   <link rel="icon" type="image/x-icon"        href="/assets/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
@@ -3435,36 +3433,39 @@ btn.addEventListener('click', async () => {
 
      <!-- Mobile menu -->
 
-<div id="mobile-menu" style="position: fixed !important; z-index: 99999 !important;" role="dialog" aria-modal="true" aria-label="Navigation menu" hidden>
-    
+<div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu" hidden>
 
-<span class="close-btn" onclick="toggleMobileMenu()" role="button" aria-label="Close navigation menu" tabindex="0">&times;</span>
+    <!-- Close button -->
+    <button class="mobile-menu__close" id="mobile-menu-close" aria-label="Close navigation menu">&times;</button>
 
-    <!-- Search bar (mobile) -->
-    <div class="mobile-search site-search-wrap" role="search">
-      <div class="site-search-bar" onclick="document.getElementById('search-input-mobile').focus()">
-        <input id="mobile-menu-search-input" type="search" placeholder="Search this site..." autocomplete="off"
-               aria-label="Search this site"
-               aria-autocomplete="list"
-               aria-controls="search-results-mobile"
-               oninput="runSearch(this.value,'search-results-mobile')"
-               onfocus="if(this.value) document.getElementById('search-results-mobile').classList.add('open')"
-               onblur="setTimeout(()=>document.getElementById('search-results-mobile').classList.remove('open'),500)">
-        <span class="search-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false">
-            <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
-          </svg>
-        </span>
-      </div>
-      <div id="mobile-menu-search-results" class="search-results" role="listbox" aria-live="polite" aria-label="Search results"></div>
+    <!-- Search bar -->
+    <div class="mobile-menu__search" role="search">
+        <div class="mobile-menu__search-bar">
+            <span class="mobile-menu__search-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
+                </svg>
+            </span>
+            <input  id="mobile-menu-search-input"
+                    class="mobile-menu__search-input"
+                    type="search"
+                    placeholder="Search this site..."
+                    autocomplete="off"
+                    aria-label="Search this site"
+                    aria-autocomplete="list"
+                    aria-controls="mobile-menu-search-results"
+                    aria-expanded="false">
+        </div>
+        <!-- Results portal created by JS — this div is removed and replaced -->
+        <div id="mobile-menu-search-results" class="mobile-menu__search-results" role="listbox" aria-live="polite" aria-label="Search results"></div>
     </div>
 
-    <a href="/">HOME</a>
+    <!-- Nav links -->
+    <a href="/">Home</a>
 
-    <button class="accordion" onclick="toggleAccordion(this)" aria-expanded="false" aria-controls="panel-regions">BACKPACKING SOUTH AFRICA</button>
+    <button class="accordion" aria-expanded="false" aria-controls="panel-regions">BACKPACKING SOUTH AFRICA</button>
 
     <div class="panel" id="panel-regions" role="region" aria-label="Backpacking South Africa regions">
-
         <a href="/backpacking-south-africa/">Regions Map / Full Hostel Directory</a>
         <a href="/backpacking-south-africa/cape-town">Cape Town</a>
         <a href="/backpacking-south-africa/winelands">Winelands</a>
@@ -3493,51 +3494,41 @@ btn.addEventListener('click', async () => {
         <a href="/backpacking-south-africa/northern-cape">Northern Cape</a>
         <a href="/backpacking-south-africa/eswatini">Eswatini</a>
         <a href="/backpacking-south-africa/lesotho">Lesotho</a>
-
     </div>
 
-    <button class="accordion" onclick="toggleAccordion(this)" aria-expanded="false" aria-controls="panel-advice">ADVICE</button>
+    <button class="accordion" aria-expanded="false" aria-controls="panel-advice">ADVICE</button>
 
     <div class="panel" id="panel-advice" role="region" aria-label="Advice sections">
-
-                <h3 style="color: #fff; font-size: 1.4rem; font-weight: normal; margin-top: 3rem; ">PREPARATION</h3>
-
+        <h3>Preparation</h3>
         <a href="/backpacking-south-africa-advice/#checklists">Preflight Checklists</a>
         <a href="/backpacking-south-africa-advice/#safety">Safety</a>
         <a href="/backpacking-south-africa-advice/#money">Money</a>
         <a href="/backpacking-south-africa-advice/#medical">Medical</a>
         <a href="/backpacking-south-africa-advice/#embassies">Embassies</a>
-        <a href="/backpacking-south-africa-advice/#cannabis">Cannabis & The Law</a>
+        <a href="/backpacking-south-africa-advice/#cannabis">Cannabis &amp; The Law</a>
         <a href="/backpacking-south-africa-advice/#apps">Useful Apps</a>
-
-                <h3 style="color: #fff; font-size: 1.4rem; font-weight: normal; margin-top: 3rem; ">IN-COUNTRY</h3>
-
+        <h3>In-Country</h3>
         <a href="/backpacking-south-africa-advice/in-country#emergencies">Emergencies</a>
         <a href="/backpacking-south-africa-advice/in-country#transport">Transport</a>
-        <a href="/backpacking-south-africa-advice/in-country#food-and-drink">Food & Drink</a>
+        <a href="/backpacking-south-africa-advice/in-country#food-and-drink">Food &amp; Drink</a>
         <a href="/backpacking-south-africa-advice/in-country#language">Language</a>
         <a href="/backpacking-south-africa-advice/in-country#etiquette">African Etiquette</a>
-        <a href="/backpacking-south-africa-advice/in-country#games">Fun & Games</a>
+        <a href="/backpacking-south-africa-advice/in-country#games">Fun &amp; Games</a>
         <a href="/backpacking-south-africa-advice/specifics#onward-travel">Onward Travel</a>
-
-                <h3 style="color: #fff; font-size: 1.4rem; font-weight: normal; margin-top: 3rem; ">SPECIFIC INTERESTS</h3>
-
-        <a href="/backpacking-south-africa-advice/specifics#festivals">Festivals & Clubs</a>
+        <h3>Specific Interests</h3>
+        <a href="/backpacking-south-africa-advice/specifics#festivals">Festivals &amp; Clubs</a>
         <a href="/backpacking-south-africa-advice/specifics#surfing">Surfing</a>
         <a href="/backpacking-south-africa-advice/specifics#digital-nomads">Digital Nomads</a>
         <a href="/backpacking-south-africa-advice/specifics#overlanding">Overlanding</a>
         <a href="/backpacking-south-africa-advice/specifics#cycling">Cycle Touring</a>
         <a href="/backpacking-south-africa-advice/specifics#volunteering">Volunteering</a>
         <a href="/backpacking-south-africa-advice/specifics#language-schools">Language Schools</a>
-
     </div>
 
-    <button class="accordion" onclick="toggleAccordion(this)" aria-expanded="false" aria-controls="panel-tours">TOURS</button>
+    <button class="accordion" aria-expanded="false" aria-controls="panel-tours">TOURS</button>
 
     <div class="panel" id="panel-tours" role="region" aria-label="Tours and itineraries">
-
-                <h3 style="color: #fff; font-size: 1.4rem; font-weight: normal; margin-top: 3rem; ">SELF-DRIVE ITINERARIES</h3>
-
+        <h3>Self-Drive Itineraries</h3>
         <a href="/backpacking-south-africa-tours/#cape-loop">1 Week: The Cape Loop</a>
         <a href="/backpacking-south-africa-tours/#whistlestop">2 Weeks: The Whistlestop Tour</a>
         <a href="/backpacking-south-africa-tours/#northeast-triangle">2 Weeks: The Northeast Triangle</a>
@@ -3545,42 +3536,41 @@ btn.addEventListener('click', async () => {
         <a href="/backpacking-south-africa-tours/#wild-north">2 Weeks: The Wild North</a>
         <a href="/backpacking-south-africa-tours/#road-less-travelled">2 Weeks: The Road Less Travelled</a>
         <a href="/backpacking-south-africa-tours/#backpackers-bible">3 Weeks: The Backpacker's Bible</a>
-        <a href="/backpacking-south-africa-tours/#coast-and-karoo">3 Weeks: Coast & Karoo</a>
+        <a href="/backpacking-south-africa-tours/#coast-and-karoo">3 Weeks: Coast &amp; Karoo</a>
         <a href="/backpacking-south-africa-tours/#off-the-beaten-track">3 Weeks: Off The Beaten Track</a>
         <a href="/backpacking-south-africa-tours/#rainbow-nation">1 Month: The Rainbow Nation</a>
         <a href="/backpacking-south-africa-tours/#full-monty">3 Months: The Full Monty</a>
-
-                <h3 style="color: #fff; font-size: 1.4rem; font-weight: normal; margin-top: 3rem; ">TOURS / DAY TRIPS</h3>
-
-                <a href="/backpacking-south-africa/cape-town#tours">Cape Town</a>
-                <a href="/backpacking-south-africa/winelands#tours">Winelands</a>
-                <a href="/backpacking-south-africa/west-coast#tours">West Coast</a>
-                <a href="/backpacking-south-africa/garden-route#tours">Garden Route</a>
-                <a href="/backpacking-south-africa/karoo#tours">Karoo</a>
-                <a href="/backpacking-south-africa/route-62#tours">Route 62</a>
-                <a href="/backpacking-south-africa/overberg#tours">The Overberg</a>
-                <a href="/backpacking-south-africa/sunshine-coast#tours">Sunshine Coast</a>
-                <a href="/backpacking-south-africa/durban#tours">Durban</a>
-                <a href="/backpacking-south-africa/drakensberg#tours">Drakensberg</a>
-                <a href="/backpacking-south-africa/zululand#tours">Zululand</a>
-                <a href="/backpacking-south-africa/kruger#tours">Kruger</a>
-                <a href="/backpacking-south-africa/johannesburg#tours">Johannesburg</a>
-                <a href="/backpacking-south-africa/eswatini#tours">Eswatini</a>
-                <a href="/backpacking-south-africa/lesotho#tours">Lesotho</a>
-
+        <h3>Tours &amp; Day Trips</h3>
+        <a href="/backpacking-south-africa/cape-town#tours">Cape Town</a>
+        <a href="/backpacking-south-africa/winelands#tours">Winelands</a>
+        <a href="/backpacking-south-africa/west-coast#tours">West Coast</a>
+        <a href="/backpacking-south-africa/garden-route#tours">Garden Route</a>
+        <a href="/backpacking-south-africa/karoo#tours">Karoo</a>
+        <a href="/backpacking-south-africa/route-62#tours">Route 62</a>
+        <a href="/backpacking-south-africa/overberg#tours">The Overberg</a>
+        <a href="/backpacking-south-africa/sunshine-coast#tours">Sunshine Coast</a>
+        <a href="/backpacking-south-africa/durban#tours">Durban</a>
+        <a href="/backpacking-south-africa/drakensberg#tours">Drakensberg</a>
+        <a href="/backpacking-south-africa/zululand#tours">Zululand</a>
+        <a href="/backpacking-south-africa/kruger#tours">Kruger</a>
+        <a href="/backpacking-south-africa/johannesburg#tours">Johannesburg</a>
+        <a href="/backpacking-south-africa/eswatini#tours">Eswatini</a>
+        <a href="/backpacking-south-africa/lesotho#tours">Lesotho</a>
     </div>
 
-    <a href="/#download-pwa"><strong>★ FREE HOSTEL GUIDE!</strong> <br> (PDF or App)</a>
+    <!-- CTA -->
+    <a href="/#download-pwa"><strong>★ FREE HOSTEL GUIDE!</strong><br>(PDF or App)</a>
 
-                        <a href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://backpackersbible.com" target="_blank" style="margin-top:5rem;">
+    <!-- WhatsApp share -->
+    <a class="mobile-menu__share"
+       href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://backpackersbible.com"
+       target="_blank"
+       rel="noopener noreferrer">
+        <img src="/assets/whatsapp_icon_round.png" alt="Share on WhatsApp" width="45" height="45">
+        SHARE <span class="sr-only">(opens in a new tab)</span>
+    </a>
 
-                <img src="/assets/whatsapp_icon_round.png" alt="Share on WhatsApp" style="width:45px; height:45px;">
-
-            <br>
-
-            SHARE <span class="sr-only">(opens in a new tab)</span></a>
-
-            </div>
+</div>
 
 <!-- Search functionality -->
 <script>
@@ -3681,6 +3671,11 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 })();
 </script>
+
+
+
+
+<script src="/js/script-2.js" defer></script>
 
 
 <!-- Default Statcounter code for Backpackers Bible
