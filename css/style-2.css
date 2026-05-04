@@ -970,6 +970,7 @@ body {
 .mobile-menu__share img {
     width: 45px;
     height: 45px;
+    align-self: center;
 }
 
 
