@@ -9,13 +9,17 @@
    3.  Base Typography
    4.  Body & Page Background
    5.  Accessibility Utilities
+   6.  Site Header (desktop)
+   7.  Mobile Menu
+   8.  Site Header — Responsive (mobile)
+   9.  Map Section
+   10. Jump Menu
+   11. Quick Jump Menu
    ============================================================ */
 
 
 /* ============================================================
    0. FONT LOADING
-   All four Century Gothic variants. @font-face rules must
-   live at the top level — never inside :root or any selector.
    ============================================================ */
 
 @font-face {
@@ -53,8 +57,6 @@
 
 /* ============================================================
    1. CSS CUSTOM PROPERTIES (Design Tokens)
-   All brand colours, fonts, spacing and z-index values live
-   here. Change a value once and it updates everywhere.
    ============================================================ */
 
 :root {
@@ -77,18 +79,18 @@
     /* Typography */
     --font-primary: 'Century Gothic', sans-serif;
 
-    /* Font Sizes — fluid scale using rem (1rem = 16px browser default) */
-    --text-xs:    0.82rem;  /*  ~13px — small labels, search meta  */
-    --text-sm:    0.9rem;   /*  ~14px — captions, footnotes        */
-    --text-base:  1rem;     /*  ~16px — body copy baseline         */
-    --text-md:    1.2rem;   /*  ~19px — lead text, payoffs         */
-    --text-lg:    1.4rem;   /*  ~22px — intro paragraphs           */
-    --text-xl:    1.8rem;   /*  ~29px — brand name, subheadings    */
-    --text-2xl:   2rem;     /*  ~32px — h3 level                   */
-    --text-3xl:   3rem;     /*  ~48px — h2 level                   */
-    --text-4xl:   4rem;     /*  ~64px — h1 level                   */
+    /* Font Sizes */
+    --text-xs:    0.82rem;
+    --text-sm:    0.9rem;
+    --text-base:  1rem;
+    --text-md:    1.2rem;
+    --text-lg:    1.4rem;
+    --text-xl:    1.8rem;
+    --text-2xl:   2rem;
+    --text-3xl:   3rem;
+    --text-4xl:   4rem;
 
-    /* Spacing — consistent rhythm throughout the page */
+    /* Spacing */
     --space-xs:   0.5rem;
     --space-sm:   1rem;
     --space-md:   1.5rem;
@@ -98,12 +100,18 @@
 
     /* Layout */
     --container-max:  1200px;
-    --container-text: 874px;    /* Max width for headings & readable text */
+    --container-text: 874px;
     --header-height:  119px;
 
-    /* Z-index scale — no more magic numbers scattered through the file */
+    /* Z-index scale
+       --z-above (10) is for page content that must clear
+       decorative elements.
+       --z-header (9999) is the fixed site header.
+       Mama Africa popup must be below --z-header, so use
+       a value between --z-above and --z-header, e.g. 500. */
     --z-base:        1;
     --z-above:       10;
+    --z-popup:       500;
     --z-header:      9999;
     --z-mobile-menu: 15000;
     --z-skip-link:   999999;
@@ -117,8 +125,6 @@
 
 /* ============================================================
    2. CSS RESET & BOX MODEL
-   Removes browser inconsistencies. Sets box-sizing globally
-   so padding never unexpectedly breaks layouts.
    ============================================================ */
 
 *,
@@ -130,14 +136,10 @@
 }
 
 html {
-    /* Prevents horizontal scrolling site-wide */
     overflow-x: clip;
-    /* Smooth scrolling for anchor links and skip links */
     scroll-behavior: smooth;
 }
 
-/* Respect users who have motion sensitivity — disables all
-   animations and transitions if they've requested it in their OS */
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -156,7 +158,6 @@ video {
     display: block;
 }
 
-/* Remove default list styles — re-apply where needed */
 ul, ol {
     list-style: none;
 }
@@ -164,8 +165,6 @@ ul, ol {
 
 /* ============================================================
    3. BASE TYPOGRAPHY
-   Sets the font once on <body> — everything inherits from here.
-   No need to redeclare font-family on every component.
    ============================================================ */
 
 body {
@@ -175,17 +174,12 @@ body {
     color: var(--color-text);
 }
 
-/* Headings — weights and sizes are set here globally.
-   Individual sections can override size via modifier classes
-   (.main-title, .section-title etc.) but font and weight
-   are inherited, not repeated. */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-primary);
     font-weight: normal;
     line-height: 1.15;
 }
 
-/* Links — base state only. Specific colours set per-component */
 a {
     color: inherit;
     text-decoration: none;
@@ -195,9 +189,6 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Visible focus ring for keyboard users.
-   Deliberately high-contrast against both the red header
-   and the yellow body. */
 :focus-visible {
     outline: 3px solid var(--color-yellow-bright);
     outline-offset: 3px;
@@ -219,7 +210,6 @@ body {
    5. ACCESSIBILITY UTILITIES
    ============================================================ */
 
-/* Visually hidden but readable by screen readers */
 .sr-only {
     position: absolute;
     width: 1px;
@@ -232,7 +222,6 @@ body {
     border: 0;
 }
 
-/* Skip navigation links — hidden until focused by keyboard */
 .skip-link {
     position: absolute;
     top: -100%;
@@ -253,45 +242,9 @@ body {
 }
 
 
-
 /* ============================================================
    6. SITE HEADER
-   
-   Structure:
-   #site-header
-   └── .site-header__bar
-       ├── .site-header__branding
-       │   ├── .site-header__logo-link
-       │   │   └── .site-header__logo
-       │   └── .site-header__brand-text
-       │       ├── .site-header__brand-row
-       │       │   ├── .site-header__brand-name
-       │       │   └── .site-header__location-badge
-       │       └── .site-header__payoff
-       └── .site-header__controls
-           ├── .site-header__nav-toggle
-           │   └── .site-header__nav-toggle-bar (×3)
-           ├── .site-header__search
-           │   ├── .site-header__search-bar
-           │   │   ├── .site-header__search-input
-           │   │   └── .site-header__search-icon
-           │   └── .site-header__search-results
-           └── .site-nav
-               ├── .site-nav__cta
-               ├── .site-nav__link
-               └── .site-nav__item (×3)
-                   ├── .site-nav__mega-trigger
-                   └── .site-nav__mega-menu
-                       └── .site-nav__mega-col
-                           ├── .site-nav__mega-heading
-                           └── a[role="menuitem"]
-   └── .site-header__strip (×4)
    ============================================================ */
-
-
-/* ------------------------------------------------------------
-   HEADER — outer wrapper
-   ------------------------------------------------------------ */
 
 #site-header {
     position: fixed;
@@ -308,11 +261,6 @@ body {
     transform: translateY(-100%);
 }
 
-
-/* ------------------------------------------------------------
-   MAIN BAR
-   ------------------------------------------------------------ */
-
 .site-header__bar {
     display: flex;
     align-items: center;
@@ -325,10 +273,7 @@ body {
     box-sizing: border-box;
 }
 
-
-/* ------------------------------------------------------------
-   BRANDING
-   ------------------------------------------------------------ */
+/* -- Branding -- */
 
 .site-header__branding {
     display: flex;
@@ -393,10 +338,7 @@ body {
     white-space: nowrap;
 }
 
-
-/* ------------------------------------------------------------
-   CONTROLS (right side: hamburger + search + nav)
-   ------------------------------------------------------------ */
+/* -- Controls -- */
 
 .site-header__controls {
     display: flex;
@@ -406,11 +348,7 @@ body {
     overflow: visible;
 }
 
-
-/* ------------------------------------------------------------
-   HAMBURGER TOGGLE BUTTON
-   Hidden on desktop, shown on mobile.
-   ------------------------------------------------------------ */
+/* -- Hamburger -- */
 
 .site-header__nav-toggle {
     display: none;
@@ -452,11 +390,7 @@ body {
     transform: translateY(-7px) rotate(-45deg);
 }
 
-
-/* ------------------------------------------------------------
-   DESKTOP SEARCH
-   Pill-shaped, light pink, white text — matching original.
-   ------------------------------------------------------------ */
+/* -- Desktop Search -- */
 
 .site-header__search {
     position: absolute;
@@ -573,10 +507,7 @@ body {
     font-size: var(--text-sm);
 }
 
-
-/* ------------------------------------------------------------
-   DESKTOP NAV
-   ------------------------------------------------------------ */
+/* -- Desktop Nav -- */
 
 .site-nav {
     display: flex;
@@ -661,10 +592,7 @@ body {
     outline-offset: 3px;
 }
 
-
-/* ------------------------------------------------------------
-   MEGA MENUS
-   ------------------------------------------------------------ */
+/* -- Mega Menus -- */
 
 .site-nav__mega-menu {
     display: none;
@@ -726,10 +654,7 @@ body {
     border-radius: 2px;
 }
 
-
-/* ------------------------------------------------------------
-   COLOUR STRIPS
-   ------------------------------------------------------------ */
+/* -- Colour Strips -- */
 
 .site-header__strip {
     height: 6px;
@@ -742,13 +667,7 @@ body {
 .site-header__strip--blue   { background-color: var(--color-blue); }
 .site-header__strip--green  { background-color: #36fd00; }
 
-
-/* ------------------------------------------------------------
-   HEADER SPACER
-   Replace the current inline-styled div in the HTML with:
-   <div class="header-spacer"></div>
-   The 24px accounts for the four colour strips (4 × 6px).
-   ------------------------------------------------------------ */
+/* -- Header Spacer -- */
 
 .header-spacer {
     height: 143px;
@@ -757,10 +676,8 @@ body {
 
 
 /* ============================================================
-   MOBILE MENU
-   Full-screen slide-in panel.
-   JS removes [hidden] and adds .is-open to show it,
-   re-adds [hidden] and removes .is-open to hide it.
+   7. MOBILE MENU
+   Slides down from top. JS adds/removes .is-open.
    ============================================================ */
 
 #mobile-menu {
@@ -774,18 +691,17 @@ body {
     overflow-y: auto;
     padding: 80px 30px 100px;
     box-sizing: border-box;
-    transform: translateX(100%);
+    transform: translateY(-100%);
     transition: transform var(--transition-slide),
                 visibility var(--transition-slide);
     visibility: hidden;
 }
 
 #mobile-menu.is-open {
-    transform: translateX(0);
+    transform: translateY(0);
     visibility: visible;
 }
 
-/* Close button */
 .mobile-menu__close {
     position: absolute;
     top: 20px;
@@ -809,7 +725,6 @@ body {
     outline-offset: 3px;
 }
 
-/* Mobile search */
 .mobile-menu__search {
     margin-bottom: 2rem;
 }
@@ -863,7 +778,6 @@ body {
     display: block;
 }
 
-/* Mobile nav links */
 #mobile-menu a {
     display: block;
     width: 100%;
@@ -886,7 +800,6 @@ body {
     outline-offset: 3px;
 }
 
-/* Accordion buttons */
 .accordion {
     display: block;
     width: 100%;
@@ -919,7 +832,6 @@ body {
     outline-offset: 3px;
 }
 
-/* Accordion panels */
 .panel {
     display: none;
     padding: 10px 0 10px 16px;
@@ -942,7 +854,6 @@ body {
     color: var(--color-yellow);
 }
 
-/* Section headings inside panels */
 .panel h3 {
     color: var(--color-white);
     font-size: var(--text-lg);
@@ -951,7 +862,6 @@ body {
     margin-bottom: 0.5rem;
 }
 
-/* WhatsApp share */
 .mobile-menu__share {
     display: flex;
     flex-direction: column;
@@ -975,8 +885,7 @@ body {
 
 
 /* ============================================================
-   7. SITE HEADER — RESPONSIVE
-   Breakpoint: 1100px
+   8. SITE HEADER — RESPONSIVE (mobile, max-width: 1100px)
    ============================================================ */
 
 @media (max-width: 1100px) {
@@ -1034,164 +943,30 @@ body {
 
 }
 
-.site-nav__mega-col {
-    min-width: 180px;
-}
-
-.site-nav__mega-heading {
-    color: var(--color-red);
-    font-size: var(--text-md);
-    font-weight: bold;
-    margin-bottom: 12px;
-    margin-top: 20px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid var(--color-black);
-}
-
-/* First heading in a column needs no top margin */
-.site-nav__mega-col .site-nav__mega-heading:first-child {
-    margin-top: 0;
-}
-
-.site-nav__mega-menu a[role="menuitem"] {
-    display: block;
-    color: var(--color-black);
-    padding: 6px 0;
-    font-size: var(--text-base);
-    text-decoration: none;
-    transition: color var(--transition-fast);
-}
-
-.site-nav__mega-menu a[role="menuitem"]:hover {
-    color: var(--color-red);
-    text-decoration: none;
-}
-
-.site-nav__mega-menu a[role="menuitem"]:focus-visible {
-    outline: 3px solid var(--color-red);
-    outline-offset: 2px;
-    border-radius: 2px;
-}
-
-
-/* ------------------------------------------------------------
-   COLOUR STRIPS
-   Four decorative strips below the main bar.
-   aria-hidden="true" in HTML so screen readers skip them.
-   ------------------------------------------------------------ */
-
-.site-header__strip {
-    height: 0.375rem;   /* 6px in rem — scales consistently */
-    width: 100%;
-    display: block;
-    flex-shrink: 0;
-}
-
-.site-header__strip--black  { background-color: var(--color-black); }
-.site-header__strip--yellow { background-color: var(--color-yellow-bright); }
-.site-header__strip--blue   { background-color: var(--color-blue); }
-.site-header__strip--green  { background-color: #36fd00; }
-
-
-/* ------------------------------------------------------------
-   HEADER SPACER
-   The fixed header sits on top of the page, so we need a
-   spacer element below it to push the page content down.
-   Give this div a class of "header-spacer" in the HTML
-   (removing the inline style currently there).
-   ------------------------------------------------------------ */
-
-.header-spacer {
-    height: calc(var(--header-height) + 24px);
-    display: block;
-}
 
 /* ============================================================
-   7. SITE HEADER — RESPONSIVE
-   Breakpoint: 1100px
-   Below this: hamburger visible, desktop nav hidden,
-   header slims to 75px, search moves into mobile menu.
-   ============================================================ */
-
-@media (max-width: 1100px) {
-
-    /* Slim the header bar */
-    .site-header__bar {
-        height: 75px;
-        padding: 0 15px;
-    }
-
-    /* Update the CSS variable locally so everything that
-       uses --header-height stays in sync on mobile */
-    #site-header {
-        --header-height: 75px;
-    }
-
-    /* Logo scales down */
-    .site-header__logo {
-        width: 45px;
-        height: 45px;
-    }
-
-    /* Brand name scales down */
-    .site-header__brand-name {
-        font-size: var(--text-md);
-        white-space: normal;
-    }
-
-    /* Payoff scales down */
-    .site-header__payoff {
-        font-size: var(--text-xs);
-    }
-
-    /* Location badge scales down */
-    .site-header__location-badge {
-        font-size: 0.75rem;
-        padding: 2px 6px;
-    }
-
-    /* Show hamburger */
-    .site-header__nav-toggle {
-        display: flex;
-    }
-
-    /* Hide desktop search and nav */
-    .site-header__search,
-    .site-nav {
-        display: none;
-    }
-
-    /* Controls becomes a simple row — just the hamburger */
-    .site-header__controls {
-        flex-direction: row;
-        align-items: center;
-        gap: 0;
-    }
-
-    /* Slim the spacer to match the new header height */
-    .header-spacer {
-    height: calc(75px + 24px);
-    }
-
-}
-
-/* ============================================================
-   8. MAP SECTION
-   Temporary styles — will be replaced with Leaflet map.
+   9. MAP SECTION
+   Temporary — will be replaced with Leaflet map.
    ============================================================ */
 
 #map-visual {
-    /* Prevents the full-bleed map from creeping under the header */
     position: relative;
     z-index: 1;
 }
 
+main {
+    position: relative;
+    z-index: 1;
+}
+
+
 /* ============================================================
-   9. JUMP MENU
+   10. JUMP MENU
    The horizontally scrolling region card strip.
+   Desktop: sits in normal page flow.
+   Mobile:  fixed below header, hides with header on scroll.
    ============================================================ */
 
-/* Outer section — black background, clips vertical overflow */
 .jump-menu-section {
     background-color: var(--color-black);
     width: 100%;
@@ -1205,7 +980,6 @@ body {
     overflow: hidden;
 }
 
-/* Scrolling nav container */
 .jump-menu-container {
     display: flex;
     flex-wrap: nowrap;
@@ -1219,40 +993,17 @@ body {
     scroll-behavior: smooth;
     position: relative;
     z-index: var(--z-above);
-
-    /* Decorative dotted yellow border with red arrow — SVG background */
     background-color: var(--color-black);
     background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22240%22%20height%3D%228%22%3E%3Crect%20x%3D%220%22%20y%3D%221%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22%23ffd400%22%2F%3E%3Crect%20x%3D%2220%22%20y%3D%221%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22%23ffd400%22%2F%3E%3Crect%20x%3D%2240%22%20y%3D%221%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22%23ffd400%22%2F%3E%3Crect%20x%3D%2260%22%20y%3D%221%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22%23ffd400%22%2F%3E%3Crect%20x%3D%2280%22%20y%3D%221%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22%23ffd400%22%2F%3E%3Crect%20x%3D%22100%22%20y%3D%221%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22%23ffd400%22%2F%3E%3Crect%20x%3D%22120%22%20y%3D%221%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22%23ffd400%22%2F%3E%3Crect%20x%3D%22140%22%20y%3D%221%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22%23ffd400%22%2F%3E%3Crect%20x%3D%22160%22%20y%3D%221%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22%23ffd400%22%2F%3E%3Crect%20x%3D%22180%22%20y%3D%221%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22%23ffd400%22%2F%3E%3Crect%20x%3D%22200%22%20y%3D%221%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22%23ffd400%22%2F%3E%3Cpolygon%20points%3D%22220%2C0%20228%2C4%20220%2C8%22%20fill%3D%22%23ff0000%22%2F%3E%3C%2Fsvg%3E');
     background-repeat: repeat-x;
     background-size: 240px 8px;
     background-position: top 5px left 0;
-
-    /* Scrollbar styling */
     scrollbar-width: auto;
     scrollbar-color: #999 #333;
     padding-bottom: 10px;
     -ms-overflow-style: auto;
 }
 
-/* Hide scrollbar on mobile — swiping is intuitive enough */
-@media (max-width: 1100px) {
-    .jump-menu-container {
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-    }
-    .jump-menu-container::-webkit-scrollbar {
-        display: none;
-    }
-    .jump-menu-section {
-        position: sticky;
-        top: 99px; /* matches mobile header height 75px + 24px strips */
-        z-index: calc(var(--z-header) - 1);
-        min-height: 0;
-        padding: 0;
-    }
-}
-
-/* Individual region cards */
 .jump-card {
     flex: 0 0 auto;
     position: relative;
@@ -1275,13 +1026,11 @@ body {
     display: block;
 }
 
-/* Red border highlight on the active card */
 .jump-card--active .jump-card-img {
     outline: 5px solid var(--color-red);
     outline-offset: -5px;
 }
 
-/* Text overlay at bottom of each card */
 .jump-card-overlay {
     position: absolute;
     bottom: 0;
@@ -1295,25 +1044,53 @@ body {
     font-weight: bold;
 }
 
-/* Mobile — smaller cards */
+/* Mobile jump menu — fixed below header, hides with it on scroll */
 @media (max-width: 1100px) {
+
+    .jump-menu-section {
+        position: fixed;
+        top: 99px; /* 75px header + 24px strips */
+        left: 0;
+        width: 100%;
+        min-height: 0;
+        padding: 0;
+        overflow: visible;
+        z-index: calc(var(--z-header) - 1);
+        transition: transform var(--transition-slide);
+    }
+
+    /* JS adds .is-hidden on scroll down (same as header) */
+    .jump-menu-section.is-hidden {
+        transform: translateY(-200px);
+    }
+
+    .jump-menu-container {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .jump-menu-container::-webkit-scrollbar {
+        display: none;
+    }
+
     .jump-card {
         width: 100px;
     }
+
     .jump-card-overlay {
         font-size: 0.7rem;
     }
+
 }
 
 
 /* ============================================================
-   10. QUICK JUMP MENU
-   The small About / Activities / Hostels bar.
-   Desktop: sticky, centred, square.
-   Mobile: fixed to bottom of screen.
+   11. QUICK JUMP MENU
+   About / Activities / Hostels bar.
+   Desktop: sticky, centred.
+   Mobile:  fixed to bottom, hides on scroll down.
    ============================================================ */
 
-/* Yellow backdrop — desktop only, sits behind the sticky bar */
 .yellow-menu-backdrop {
     display: none;
 }
@@ -1362,7 +1139,7 @@ body {
     outline-offset: -3px;
 }
 
-/* Desktop — sticky, centred, fixed width */
+/* Desktop */
 @media (min-width: 1101px) {
     #quick-jump-menu {
         position: sticky;
@@ -1374,27 +1151,34 @@ body {
     }
 }
 
-/* Mobile — fixed to bottom of screen */
+/* Mobile */
 @media (max-width: 1100px) {
+
     #quick-jump-menu {
         position: fixed;
         bottom: 0;
         left: 0;
         width: 100%;
-        height: 65px;
+        height: 55px;
         border-radius: 0;
-        z-index: var(--z-mobile-menu);
+        z-index: calc(var(--z-header) - 1);
+        transition: transform var(--transition-slide);
+    }
+
+    /* JS adds .is-hidden on scroll down */
+    #quick-jump-menu.is-hidden {
+        transform: translateY(100%);
     }
 
     #quick-jump-menu a {
-        font-size: var(--text-base);
         flex: 1;
         text-align: center;
+        font-size: var(--text-base);
         padding: 10px 5px;
     }
 
-    /* Push page content up so it's not hidden behind the fixed bar */
     body {
-        padding-bottom: 70px;
+        padding-bottom: 55px;
     }
+
 }
