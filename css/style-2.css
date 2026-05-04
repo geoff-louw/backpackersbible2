@@ -1185,3 +1185,207 @@ body {
     position: relative;
     z-index: 1;
 }
+
+/* ============================================================
+   9. JUMP MENU
+   The horizontally scrolling region card strip.
+   ============================================================ */
+
+/* Outer section — black background, clips vertical overflow */
+.jump-menu-section {
+    background-color: var(--color-black);
+    width: 100%;
+    position: relative;
+    z-index: var(--z-above);
+    min-height: 160px;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Scrolling nav container */
+.jump-menu-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 15px;
+    width: 100%;
+    padding: 17px 12px 7px 12px;
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    position: relative;
+    z-index: var(--z-above);
+
+    /* Decorative dotted yellow border with red arrow — SVG background */
+    background-color: var(--color-black);
+    background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22240%22%20height%3D%228%22%3E%3Crect%20x%3D%220%22%20y%3D%221%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22%23ffd400%22%2F%3E%3Crect%20x%3D%2220%22%20y%3D%221%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22%23ffd400%22%2F%3E%3Crect%20x%3D%2240%22%20y%3D%221%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22%23ffd400%22%2F%3E%3Crect%20x%3D%2260%22%20y%3D%221%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22%23ffd400%22%2F%3E%3Crect%20x%3D%2280%22%20y%3D%221%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22%23ffd400%22%2F%3E%3Crect%20x%3D%22100%22%20y%3D%221%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22%23ffd400%22%2F%3E%3Crect%20x%3D%22120%22%20y%3D%221%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22%23ffd400%22%2F%3E%3Crect%20x%3D%22140%22%20y%3D%221%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22%23ffd400%22%2F%3E%3Crect%20x%3D%22160%22%20y%3D%221%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22%23ffd400%22%2F%3E%3Crect%20x%3D%22180%22%20y%3D%221%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22%23ffd400%22%2F%3E%3Crect%20x%3D%22200%22%20y%3D%221%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22%23ffd400%22%2F%3E%3Cpolygon%20points%3D%22220%2C0%20228%2C4%20220%2C8%22%20fill%3D%22%23ff0000%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: repeat-x;
+    background-size: 240px 8px;
+    background-position: top 5px left 0;
+
+    /* Scrollbar styling */
+    scrollbar-width: auto;
+    scrollbar-color: #999 #333;
+    padding-bottom: 10px;
+    -ms-overflow-style: auto;
+}
+
+/* Hide scrollbar on mobile — swiping is intuitive enough */
+@media (max-width: 1100px) {
+    .jump-menu-container {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    .jump-menu-container::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/* Individual region cards */
+.jump-card {
+    flex: 0 0 auto;
+    position: relative;
+    display: block;
+    width: 150px;
+    overflow: hidden;
+    text-decoration: none;
+    border-radius: 0;
+}
+
+.jump-card:focus-visible {
+    outline: 3px solid var(--color-yellow-bright);
+    outline-offset: 2px;
+}
+
+.jump-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Red border highlight on the active card */
+.jump-card--active .jump-card-img {
+    outline: 5px solid var(--color-red);
+    outline-offset: -5px;
+}
+
+/* Text overlay at bottom of each card */
+.jump-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--color-white);
+    font-size: var(--text-xs);
+    text-align: center;
+    padding: 5px 0;
+    font-weight: bold;
+}
+
+/* Mobile — smaller cards */
+@media (max-width: 1100px) {
+    .jump-card {
+        width: 100px;
+    }
+    .jump-card-overlay {
+        font-size: 0.7rem;
+    }
+}
+
+
+/* ============================================================
+   10. QUICK JUMP MENU
+   The small About / Activities / Hostels bar.
+   Desktop: sticky, centred, square.
+   Mobile: fixed to bottom of screen.
+   ============================================================ */
+
+/* Yellow backdrop — desktop only, sits behind the sticky bar */
+.yellow-menu-backdrop {
+    display: none;
+}
+
+@media (min-width: 1101px) {
+    .yellow-menu-backdrop {
+        display: block;
+        background-color: var(--color-yellow);
+        width: 100%;
+        height: 140px;
+        margin-bottom: -140px;
+    }
+}
+
+#quick-jump-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-red);
+    z-index: var(--z-above);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+}
+
+#quick-jump-menu a {
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: var(--text-base);
+    text-transform: uppercase;
+    padding: 10px 30px;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    transition: color var(--transition-fast);
+}
+
+#quick-jump-menu a:hover {
+    color: var(--color-yellow);
+    text-decoration: none;
+}
+
+#quick-jump-menu a:last-child {
+    border-right: none;
+}
+
+#quick-jump-menu a:focus-visible {
+    outline: 3px solid var(--color-yellow-bright);
+    outline-offset: -3px;
+}
+
+/* Desktop — sticky, centred, fixed width */
+@media (min-width: 1101px) {
+    #quick-jump-menu {
+        position: sticky;
+        top: calc(var(--header-height) + 24px + 10px);
+        width: max-content;
+        margin: 40px auto;
+        height: 60px;
+        border-radius: 0;
+    }
+}
+
+/* Mobile — fixed to bottom of screen */
+@media (max-width: 1100px) {
+    #quick-jump-menu {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 65px;
+        border-radius: 0;
+        z-index: var(--z-mobile-menu);
+    }
+
+    #quick-jump-menu a {
+        font-size: var(--text-base);
+        padding: 10px 15px;
+    }
+
+    /* Push page content up so it's not hidden behind the fixed bar */
+    body {
+        padding-bottom: 70px;
+    }
+}
