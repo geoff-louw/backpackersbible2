@@ -1243,6 +1243,13 @@ body {
     .jump-menu-container::-webkit-scrollbar {
         display: none;
     }
+    .jump-menu-section {
+        position: sticky;
+        top: 99px; /* matches mobile header height 75px + 24px strips */
+        z-index: calc(var(--z-header) - 1);
+        min-height: 0;
+        padding: 0;
+    }
 }
 
 /* Individual region cards */
@@ -1381,7 +1388,9 @@ body {
 
     #quick-jump-menu a {
         font-size: var(--text-base);
-        padding: 10px 15px;
+        flex: 1;
+        text-align: center;
+        padding: 10px 5px;
     }
 
     /* Push page content up so it's not hidden behind the fixed bar */
