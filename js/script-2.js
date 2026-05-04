@@ -305,18 +305,24 @@
     });
 
 
-    /* ============================================================
+/* ============================================================
        6. HEADER — SEARCH
-       Shared runSearch function used by both desktop and mobile.
-       The search index is the flat array defined in the HTML
-       as window.searchIndex (or falls back to empty array).
+       Fetches /search.json on init. runSearch filters the results
+       and renders them into the correct results container.
+       Field names match search.json: title, desc, url.
        ============================================================ */
+
+    var SEARCH_DATA = [];
+
+    fetch('/search.json')
+        .then(function (r) { return r.json(); })
+        .then(function (data) { SEARCH_DATA = data; })
+        .catch(function () { SEARCH_DATA = []; });
 
     function runSearch(query, resultsId) {
         var resultsEl = el(resultsId);
         if (!resultsEl) return;
 
-        var index = window.searchIndex || [];
         query = query.trim().toLowerCase();
 
         if (!query) {
@@ -325,10 +331,10 @@
             return;
         }
 
-        var matches = index.filter(function (item) {
+        var matches = SEARCH_DATA.filter(function (item) {
             return (
                 item.title.toLowerCase().includes(query) ||
-                (item.description && item.description.toLowerCase().includes(query))
+                (item.desc && item.desc.toLowerCase().includes(query))
             );
         }).slice(0, 8);
 
@@ -340,9 +346,9 @@
             resultsEl.innerHTML = matches.map(function (item) {
                 return (
                     '<a class="search-result-item" href="' + item.url + '" role="option">' +
-                    '<strong>' + escapeHtml(item.title) + '</strong>' +
-                    (item.description
-                        ? '<span>' + escapeHtml(item.description) + '</span>'
+                    '<strong>' + highlight(item.title, query) + '</strong>' +
+                    (item.desc
+                        ? '<span>' + highlight(item.desc, query) + '</span>'
                         : '') +
                     '</a>'
                 );
@@ -352,97 +358,17 @@
         resultsEl.classList.add('is-open');
     }
 
-    /* Prevent XSS in search output */
-    function escapeHtml(str) {
-        return String(str)
-            .replace(/&/g, '&amp;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')
-            .replace(/"/g, '&quot;');
+    /* Highlight matching text in results */
+    function highlight(text, query) {
+        var re = new RegExp(
+            '(' + query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')',
+            'gi'
+        );
+        return escapeHtml(text).replace(
+            re,
+            '<mark style="background:#fce8ed;color:#bc1d23;border-radius:2px;">$1</mark>'
+        );
     }
-
-    /* Make runSearch available globally (HTML oninput calls it) */
-    window.runSearch = runSearch;
-
-    onReady(function () {
-        /* -- DESKTOP SEARCH -- */
-        var desktopInput   = el('site-search-input');
-        var desktopResults = el('site-search-results');
-
-        if (desktopInput && desktopResults) {
-            desktopInput.addEventListener('input', function () {
-                runSearch(this.value, 'site-search-results');
-                desktopInput.setAttribute('aria-expanded',
-                    this.value ? 'true' : 'false');
-            });
-
-            desktopInput.addEventListener('blur', function () {
-                setTimeout(function () {
-                    desktopResults.classList.remove('is-open');
-                    desktopInput.setAttribute('aria-expanded', 'false');
-                }, 200);
-            });
-
-            desktopInput.addEventListener('focus', function () {
-                if (this.value) {
-                    desktopResults.classList.add('is-open');
-                    desktopInput.setAttribute('aria-expanded', 'true');
-                }
-            });
-        }
-
-        /* -- MOBILE SEARCH -- */
-        /* The mobile results portal is created here and appended
-           directly to <body> to escape any overflow:clip contexts */
-        var mobileInput = el('mobile-menu-search-input');
-        if (!mobileInput) return;
-
-        /* Remove the in-menu results div and replace with a body portal */
-        var inMenuResults = el('mobile-menu-search-results');
-        if (inMenuResults) inMenuResults.parentNode.removeChild(inMenuResults);
-
-        var portal = document.createElement('div');
-        portal.id        = 'mobile-menu-search-results';
-        portal.className = 'site-header__search-results';
-        portal.setAttribute('role', 'listbox');
-        portal.setAttribute('aria-live', 'polite');
-        portal.setAttribute('aria-label', 'Search results');
-        portal.style.cssText = [
-            'position:fixed',
-            'z-index:999999',
-            'width:90vw',
-            'max-width:320px'
-        ].join(';');
-        document.body.appendChild(portal);
-
-        function positionPortal() {
-            var rect       = mobileInput.getBoundingClientRect();
-            var portalWidth = Math.min(320, window.innerWidth * 0.9);
-            var left       = rect.left + (rect.width / 2) - (portalWidth / 2);
-            left = Math.max(8, Math.min(left, window.innerWidth - portalWidth - 8));
-            portal.style.left  = left + 'px';
-            portal.style.top   = (rect.bottom + 6) + 'px';
-            portal.style.width = portalWidth + 'px';
-        }
-
-        mobileInput.addEventListener('input', function () {
-            positionPortal();
-            runSearch(this.value, 'mobile-menu-search-results');
-        });
-
-        mobileInput.addEventListener('blur', function () {
-            setTimeout(function () {
-                portal.classList.remove('is-open');
-            }, 300);
-        });
-
-        mobileInput.addEventListener('focus', function () {
-            if (this.value) {
-                positionPortal();
-                portal.classList.add('is-open');
-            }
-        });
-    });
 
 
     /* ============================================================
