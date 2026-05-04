@@ -302,8 +302,6 @@ body {
     background-color: var(--color-red);
     transition: transform var(--transition-slide);
     overflow: visible;
-    display: flex;
-    flex-direction: column;
 }
 
 #site-header.is-hidden {
@@ -753,7 +751,7 @@ body {
    ------------------------------------------------------------ */
 
 .header-spacer {
-    height: calc(var(--header-height) + 24px);
+    height: 143px;
     display: block;
 }
 
@@ -1031,7 +1029,7 @@ body {
 
     /* Slim the spacer */
     .header-spacer {
-        height: calc(75px + 24px);
+        height: 99px;
     }
 
 }
