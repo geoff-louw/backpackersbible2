@@ -3630,47 +3630,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-<script>
-(function() {
-  var SEARCH_DATA = [];
 
-  fetch('/search.json')
-    .then(function(r) { return r.json(); })
-    .then(function(data) { SEARCH_DATA = data; })
-    .catch(function() { SEARCH_DATA = []; });
-
-  window.runSearch = function(query, resultsId) {
-    var box = document.getElementById(resultsId);
-    if (!box) return;
-    var q = query.trim().toLowerCase();
-    if (!q) { box.classList.remove('open'); box.innerHTML = ''; return; }
-
-    var matches = SEARCH_DATA.filter(function(item) {
-      return item.title.toLowerCase().includes(q) || item.desc.toLowerCase().includes(q);
-    }).slice(0, 8);
-
-    if (!matches.length) {
-      box.innerHTML = '<div class="search-no-results">No results for "' + escHtml(query) + '"</div>';
-    } else {
-      box.innerHTML = matches.map(function(m) {
-        return '<a class="search-result-item" href="' + m.url + '">'
-          + '<strong>' + highlight(m.title, q) + '</strong>'
-          + '<span>' + highlight(m.desc, q) + '</span>'
-          + '</a>';
-      }).join('');
-    }
-    box.classList.add('open');
-  };
-
-  function escHtml(s) {
-    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-  }
-  function highlight(text, q) {
-    var re = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')', 'gi');
-    return escHtml(text).replace(re, '<mark style="background:#fce8ed;color:#bc1d23;border-radius:2px;">$1</mark>');
-  }
-})();
-</script>
 
 
 
