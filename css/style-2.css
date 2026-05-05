@@ -1182,3 +1182,144 @@ main {
     }
 
 }
+
+
+/* ============================================================
+   12. TEXT SECTIONS
+   These classes are used site-wide across all pages.
+   Do not rename without updating every page template.
+
+   h1 → .area-hero-title
+   h2 → .section-heading-desktop
+   h3/h4 → .sub-heading-desktop
+   p  → .intro-p
+   ============================================================ */
+
+/* Section wrapper — yellow background, centred content */
+.text-section {
+    background-color: var(--color-yellow);
+    width: 100%;
+    padding: var(--space-xl) var(--space-sm);
+    box-sizing: border-box;
+}
+
+/* Inner container — constrains content width */
+.text-section__inner {
+    max-width: var(--container-text);  /* 874px */
+    margin: 0 auto;
+}
+
+/* h1 — used for region/page title */
+.area-hero-title {
+    font-size: var(--text-4xl);        /* 4rem / ~64px */
+    font-weight: normal;
+    line-height: 1.1;
+    color: var(--color-black);
+    text-align: center;
+    margin: 10px auto 20px auto;
+    max-width: var(--container-text);
+    display: block;
+    scroll-margin-top: 175px;
+}
+
+/* h2 — used for major section headings */
+.section-heading-desktop {
+    font-size: var(--text-3xl);        /* 3rem / ~48px */
+    font-weight: normal;
+    line-height: 1.2;
+    color: var(--color-black);
+    text-align: center;
+    display: block;
+    max-width: var(--container-text);
+    margin: 70px auto 40px auto;
+    clear: both;
+    scroll-margin-top: 175px;
+}
+
+/* h3/h4 — used for sub-sections */
+.sub-heading-desktop {
+    font-size: var(--text-2xl);        /* 2rem / ~32px */
+    font-weight: normal;
+    line-height: 1.2;
+    color: var(--color-black);
+    text-align: center;
+    display: block;
+    max-width: var(--container-text);
+    margin: 70px auto 30px auto;
+    clear: both;
+}
+
+/* Body paragraphs */
+.intro-p {
+    font-size: var(--text-lg);         /* 1.4rem / ~22px */
+    line-height: 1.8;
+    color: var(--color-black);
+    text-align: center;
+    max-width: var(--container-text);
+    margin: 0 auto 30px auto;
+    display: block;
+}
+
+/* Inline strong inside paragraphs */
+.intro-p strong {
+    font-weight: bold;
+}
+
+
+/* ============================================================
+   12a. TEXT SECTIONS — RESPONSIVE
+   ============================================================ */
+
+/* Tablet */
+@media (max-width: 1100px) {
+
+    .area-hero-title {
+        font-size: 2.8rem;
+        line-height: 1.15;
+        padding: 0 15px;
+    }
+
+    .section-heading-desktop {
+        font-size: 2.2rem;
+        line-height: 1.2;
+        margin-top: 50px;
+        margin-bottom: 25px;
+        padding: 0 15px;
+    }
+
+    .sub-heading-desktop {
+        font-size: 1.8rem;
+        margin-top: 50px;
+        margin-bottom: 20px;
+        padding: 0 15px;
+    }
+
+    .intro-p {
+        font-size: var(--text-base);   /* drops to 1rem on mobile */
+        line-height: 1.7;
+        padding: 0 15px;
+    }
+
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+    .area-hero-title {
+        font-size: 2.4rem;
+        line-height: 1.15;
+    }
+
+    .section-heading-desktop {
+        font-size: 2rem;
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+
+    .sub-heading-desktop {
+        font-size: 1.75rem;
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+
+}
