@@ -1375,18 +1375,18 @@ main {
 .parallax-attribution {
     position: absolute;
     bottom: 10px;
-    right: 15px;
+    right: 20px;
+    left: auto;
     background: rgba(0, 0, 0, 0.55);
     color: rgba(255, 255, 255, 0.9);
     font-size: var(--text-xs);
-    font-family: Arial, sans-serif; /* deliberately not Century Gothic —
-                                       small UI text reads better in a
-                                       neutral sans */
+    font-family: Arial, sans-serif;
     padding: 3px 8px;
     border-radius: 4px;
     z-index: var(--z-base);
     pointer-events: auto;
     line-height: 1.4;
+    max-width: calc(100% - 40px); /* prevents it touching either edge */
 }
 
 .parallax-attribution a {
@@ -1437,3 +1437,36 @@ main {
     }
 
 }
+
+
+/* ============================================================
+   14. COLOUR STRIPS
+   Used throughout the page as decorative dividers.
+   .strip    — body strips (6px)
+   .f-strip  — footer strips (6px, same height)
+   Colour is set by a second class: .black .yellow .blue .green .red
+   ============================================================ */
+
+.strip,
+.f-strip {
+    height: 6px;
+    width: 100%;
+    display: block;
+    position: relative;
+    z-index: var(--z-above);
+}
+
+.strip.black,
+.f-strip.black  { background-color: var(--color-black); }
+
+.strip.yellow,
+.f-strip.yellow { background-color: var(--color-yellow-bright); }
+
+.strip.blue,
+.f-strip.blue   { background-color: var(--color-blue); }
+
+.strip.green,
+.f-strip.green  { background-color: #36fd00; }
+
+.strip.red,
+.f-strip.red    { background-color: var(--color-red); }
