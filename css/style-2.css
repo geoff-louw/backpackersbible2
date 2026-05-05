@@ -1255,7 +1255,7 @@ main {
     line-height: 1.8;
     color: var(--color-black);
     text-align: center;
-    max-width: var(--container-text);
+    max-width: 1200px;
     margin: 0 auto 30px auto;
     display: block;
 }
@@ -1470,3 +1470,17 @@ main {
 
 .strip.red,
 .f-strip.red    { background-color: var(--color-red); }
+
+
+
+
+/* ============================================================
+   15. TOUR GUIDE POPUP
+   Must sit below both jump menus on mobile.
+   Jump menus use calc(var(--z-header) - 1) = 9998.
+   Tour guide must be below that.
+   ============================================================ */
+
+.mama-guide-container {
+    z-index: var(--z-popup); /* 500 — below menus (9998) but above page content */
+}
