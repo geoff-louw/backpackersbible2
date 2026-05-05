@@ -880,7 +880,8 @@ body {
 .mobile-menu__share img {
     width: 45px;
     height: 45px;
-    align-self: center;
+    display: block;
+    margin: 0 auto;
 }
 
 
@@ -972,7 +973,7 @@ main {
     width: 100%;
     position: relative;
     z-index: var(--z-above);
-    min-height: 160px;
+    min-height: 0;
     display: flex;
     align-items: center;
     padding: 0;
@@ -987,7 +988,7 @@ main {
     overflow-y: hidden;
     gap: 15px;
     width: 100%;
-    padding: 17px 12px 7px 12px;
+    padding: 17px 12px 3px 12px;
     box-sizing: border-box;
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
@@ -1000,7 +1001,6 @@ main {
     background-position: top 5px left 0;
     scrollbar-width: auto;
     scrollbar-color: #999 #333;
-    padding-bottom: 10px;
     -ms-overflow-style: auto;
 }
 
@@ -1049,7 +1049,7 @@ main {
 
     .jump-menu-section {
         position: fixed;
-        top: 99px; /* 75px header + 24px strips */
+        bottom: 55px;
         left: 0;
         width: 100%;
         min-height: 0;
@@ -1061,7 +1061,7 @@ main {
 
     /* JS adds .is-hidden on scroll down (same as header) */
     .jump-menu-section.is-hidden {
-        transform: translateY(-200px);
+        transform: translateY(200px);
     }
 
     .jump-menu-container {
@@ -1178,7 +1178,7 @@ main {
     }
 
     body {
-        padding-bottom: 55px;
+        padding-bottom: 175px;
     }
 
 }
