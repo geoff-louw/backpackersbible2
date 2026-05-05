@@ -1323,3 +1323,117 @@ main {
     }
 
 }
+
+
+
+/* ============================================================
+   13. PARALLAX SECTIONS
+   
+   Usage:
+   <div class="parallax-window" style="background-image: url(...)">
+       <div class="parallax-attribution">
+           <a href="...">PLACE NAME</a> — caption | Photo: Name
+       </div>
+   </div>
+
+   Height variants — add a modifier class for different heights:
+   .parallax-window                → 900px (default, full hero)
+   .parallax-window--medium        → 660px
+   .parallax-window--tall          → 1400px
+   .parallax-window--short         → 600px
+
+   Note: background-image is set inline per-instance since each
+   parallax uses a different image.
+   ============================================================ */
+
+.parallax-window {
+    height: 900px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: var(--z-base);
+}
+
+.parallax-window--medium {
+    height: 660px;
+}
+
+.parallax-window--tall {
+    height: 1400px;
+}
+
+.parallax-window--short {
+    height: 600px;
+}
+
+/* Image attribution badge — bottom right corner */
+.parallax-attribution {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.55);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: var(--text-xs);
+    font-family: Arial, sans-serif; /* deliberately not Century Gothic —
+                                       small UI text reads better in a
+                                       neutral sans */
+    padding: 3px 8px;
+    border-radius: 4px;
+    z-index: var(--z-base);
+    pointer-events: auto;
+    line-height: 1.4;
+}
+
+.parallax-attribution a {
+    color: var(--color-yellow);
+    text-decoration: underline;
+}
+
+.parallax-attribution a:hover {
+    color: var(--color-white);
+}
+
+/* Optional text overlay centred in the parallax */
+.parallax-text {
+    color: var(--color-white);
+    font-size: var(--text-2xl);
+    font-weight: bold;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+    padding: 0 20px;
+}
+
+
+/* ------------------------------------------------------------
+   PARALLAX — MOBILE
+   background-attachment: fixed causes severe zoom bugs on iOS.
+   On mobile we switch to scroll and use background-size: cover
+   so the image still fills the space correctly.
+   ------------------------------------------------------------ */
+
+@media (max-width: 1100px) {
+
+    .parallax-window,
+    .parallax-window--medium,
+    .parallax-window--tall,
+    .parallax-window--short {
+        background-attachment: scroll;
+        background-size: cover;
+        background-position: center;
+        height: auto;
+        min-height: 300px;
+    }
+
+    .parallax-attribution {
+        font-size: 10px;
+        padding: 2px 6px;
+    }
+
+}
