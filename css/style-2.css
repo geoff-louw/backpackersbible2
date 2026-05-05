@@ -1484,3 +1484,21 @@ main {
 .mama-guide-container {
     z-index: var(--z-popup); /* 500 — below menus (9998) but above page content */
 }
+
+/* ============================================================
+   16. Z-INDEX OVERRIDES — MOBILE
+   Ensures both jump menus always sit above the tour guide
+   popup character (#ma, z-index: 50) on mobile.
+   ============================================================ */
+
+@media (max-width: 1100px) {
+
+    .jump-menu-section {
+        z-index: 9998 !important;
+    }
+
+    #quick-jump-menu {
+        z-index: 9998 !important;
+    }
+
+}
