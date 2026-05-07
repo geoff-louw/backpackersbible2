@@ -1,0 +1,1508 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [18.40929, -33.91031] },
+      "properties": {
+        "region": "cape-town",
+        "id": "big-backpackers",
+        "name": "B.I.G. BACKPACKERS",
+        "address": "18 Thornhill Rd, Green Point, Cape Town, 8005",
+        "phone": "+27214340688",
+        "whatsapp": "+27724942197",
+        "email": "info@bigbackpackers.com",
+        "website": "bigbackpackers.com",
+        "info": "The best hostel in Cape Town. Top-rated across every platform. The free breakfast alone is worth the price. Book early — it fills fast.",
+        "anchor": "/backpacking-south-africa/cape-town#big-backpackers",
+        "googleRating": "4.7 / 5",
+        "bookingRating": "9.2 / 10",
+        "hwRating": "9.7 / 10",
+        "booking": "https://www.booking.com/hotel/za/the-b-i-g-backpackers.en-gb.html",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/59426/the-big/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [18.41649, -33.92525] },
+      "properties": {
+        "region": "cape-town",
+        "id": "long-street-backpackers",
+        "name": "LONG STREET BACKPACKERS",
+        "address": "209 Long Street, Cape Town CBD, 8000",
+        "phone": "+27214230615",
+        "whatsapp": "+27214230615",
+        "email": "reservations@longstreetbackpackers.co.za",
+        "website": "longstreetbackpackers.co.za",
+        "info": "Cape Town's classic social hostel. The best single choice for solo travellers who want to meet people fast in the most central possible location.",
+        "anchor": "/backpacking-south-africa/cape-town#long-street-backpackers",
+        "googleRating": "4.3 / 5",
+        "bookingRating": "8.1 / 10",
+        "hwRating": "8.8 / 10",
+        "booking": "https://www.booking.com/hotel/za/longstreet-backpackers.en-gb.html",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/1220/long-street-backpackers/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [18.41215, -33.93345] },
+      "properties": {
+        "region": "cape-town",
+        "id": "ashanti-lodge-gardens",
+        "name": "ASHANTI LODGE GARDENS",
+        "address": "11 Hof Street, Gardens, Cape Town, 8001",
+        "phone": "+27214238721",
+        "whatsapp": "+27714592602",
+        "email": "info@ashanti.co.za",
+        "website": "ashanti.co.za",
+        "info": "One of Cape Town's most established backpacker lodges, set in a beautiful Victorian house in the leafy Gardens neighbourhood.",
+        "anchor": "/backpacking-south-africa/cape-town#ashanti-lodge-gardens",
+        "googleRating": "4.4 / 5",
+        "bookingRating": "8.1 / 10",
+        "hwRating": "8.9 / 10",
+        "booking": "https://www.booking.com/hotel/za/ashanti-lodge-gardens.en-gb.html",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/978/ashanti-lodge-gardens/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [18.41541, -33.92565] },
+      "properties": {
+        "region": "cape-town",
+        "id": "urban-hive-backpackers",
+        "name": "URBAN HIVE BACKPACKERS",
+        "address": "12 Orphan Street, Cape Town CBD, 8001",
+        "phone": "+27214220565",
+        "whatsapp": "+27766012289",
+        "email": "info@urbanhivebackpackers.com",
+        "website": "urbanhive.co.za",
+        "info": "A solid, unpretentious CBD base for the practical backpacker who prioritises central location and reasonable price over social atmosphere.",
+        "anchor": "/backpacking-south-africa/cape-town#urban-hive-backpackers",
+        "googleRating": "4.1 / 5",
+        "bookingRating": "7.1 / 10",
+        "hwRating": "7.4 / 10",
+        "booking": "https://www.booking.com/hotel/za/urban-hive-backpackers.en-gb.html",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/282233/urban-hive-backpackers/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [18.41038, -33.92714] },
+      "properties": {
+        "region": "cape-town",
+        "id": "villa-viva-cape-town",
+        "name": "VILLA VIVA CAPE TOWN",
+        "address": "74 New Church St, Tamboerskloof, Cape Town, 8001",
+        "phone": "+27214234530",
+        "email": "stay@villaviva-capetown.com",
+        "website": "villaviva-capetown.com",
+        "info": "An inspired choice for the socially curious traveller who wants to connect with Cape Town's creative community rather than just pass through it.",
+        "anchor": "/backpacking-south-africa/cape-town#villa-viva-cape-town",
+        "googleRating": "4.6 / 5",
+        "bookingRating": "8.5 / 10",
+        "hwRating": "9.3 / 10",
+        "booking": "https://www.booking.com/hotel/za/the-backpack-africa-travel-centre.en-gb.html",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/984/villa-viva-cape-town/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [18.41916, -33.93003] },
+      "properties": {
+        "region": "cape-town",
+        "id": "anzac-backpackers",
+        "name": "STAGS HEAD INN",
+        "address": "71 Hope Street, Gardens, Cape Town, 8001",
+        "phone": "+27214651325",
+        "email": "info@stagshead.co.za",
+        "website": "stagshead.co.za",
+        "info": "A characterful inn in the heart of Gardens, well-located for the City Bowl and Kloof Street.",
+        "anchor": "/backpacking-south-africa/cape-town#anzac-backpackers",
+        "googleRating": "4.2 / 5"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [18.4069, -33.93435] },
+      "properties": {
+        "region": "cape-town",
+        "id": "curiocity-kloof-street",
+        "name": "CURIOCITY KLOOF STREET",
+        "address": "112 Kloof Street, Gardens, Cape Town, 8001",
+        "phone": "+27105900210",
+        "whatsapp": "+27604884746",
+        "email": "stay@curiocity.africa",
+        "website": "curiocity.africa",
+        "info": "The premier choice for flashpackers, digital nomads, and solo women wanting a high-design, professionally managed, genuinely secure base.",
+        "anchor": "/backpacking-south-africa/cape-town#curiocity-kloof-street",
+        "googleRating": "4.7 / 5",
+        "bookingRating": "8.2 / 10",
+        "hwRating": "9.7 / 10",
+        "booking": "https://www.booking.com/hotel/za/112-kloof-street-apartments.html",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/327937/curiocity-kloof-street/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [18.41854, -33.92211] },
+      "properties": {
+        "region": "cape-town",
+        "id": "ninety-one-loop-boutique-hostel",
+        "name": "91 LOOP BOUTIQUE HOSTEL",
+        "address": "91 Loop Street, Cape Town CBD, 8001",
+        "phone": "+27212861469",
+        "email": "hello@91loop.co.za",
+        "website": "91loop.co.za",
+        "info": "The best all-rounder in the Cape Town CBD. Consistently top-rated, well-designed, central, and run with genuine care.",
+        "anchor": "/backpacking-south-africa/cape-town#ninety-one-loop-boutique-hostel",
+        "googleRating": "4.4 / 5",
+        "bookingRating": "8.2 / 10",
+        "hwRating": "8.6 / 10",
+        "booking": "https://www.booking.com/hotel/za/91-loop.html",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/100300/91-loop/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [18.4205, -33.92169] },
+      "properties": {
+        "region": "cape-town",
+        "id": "forty-eight-backpackers",
+        "name": "FORTY 8 BACKPACKERS",
+        "address": "48 Hout Street, Cape Town City Centre, 8000",
+        "phone": "+27214224848",
+        "whatsapp": "+27214224848",
+        "email": "info@forty8backpackers.co.za",
+        "website": "forty8backpackers.co.za",
+        "info": "Solid budget option near District Six. Best for independent travellers who don't need a hostel community to have a good time.",
+        "anchor": "/backpacking-south-africa/cape-town#forty-eight-backpackers",
+        "googleRating": "3.6 / 5"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [18.4205, -33.9213] },
+      "properties": {
+        "region": "cape-town",
+        "id": "two-oceans-backpackers",
+        "name": "TWO OCEANS BACKPACKERS",
+        "address": "47 Long Street, Cape Town City Centre, 8001",
+        "phone": "+27214225401",
+        "info": "Solid budget option in the City Bowl.",
+        "anchor": "/backpacking-south-africa/cape-town#two-oceans-backpackers",
+        "googleRating": "4.0 / 5"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [18.41012, -33.92751] },
+      "properties": {
+        "region": "cape-town",
+        "id": "zebra-crossing-backpacker-lodge",
+        "name": "ZEBRA CROSSING BACKPACKER LODGE",
+        "address": "82 New Church Street, Tamboerskloof, Cape Town, 8001",
+        "phone": "+27214221265",
+        "whatsapp": "+27766017041",
+        "email": "info@zebracrossingbp.com",
+        "website": "zebracrossingbp.com",
+        "info": "One of Cape Town's most underrated hostels. Excellent for solo travellers and couples wanting a warm, quiet, safe base in a beautiful neighbourhood.",
+        "anchor": "/backpacking-south-africa/cape-town#zebra-crossing-backpacker-lodge",
+        "googleRating": "4.4 / 5",
+        "bookingRating": "8.3 / 10",
+        "hwRating": "8.7 / 10",
+        "booking": "https://www.booking.com/hotel/za/zebra-crossing-backpacker.html",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/13430/zebra-crossing/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [18.41347, -33.91835] },
+      "properties": {
+        "region": "cape-town",
+        "id": "bokaap-backpackers",
+        "name": "BOKAAP BACKPACKERS",
+        "address": "5 Carl St, Schotsche Kloof, Cape Town, 8001",
+        "phone": "+27214240071",
+        "email": "info@bokaapbackpackers.co.za",
+        "website": "bokaapbackpackers.co.za",
+        "info": "Uniquely located in one of Cape Town's most beautiful and historically significant neighbourhoods.",
+        "anchor": "/backpacking-south-africa/cape-town#bokaap-backpackers",
+        "googleRating": "4.8 / 5"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [18.40638, -33.9078] },
+      "properties": {
+        "region": "cape-town",
+        "id": "curiocity-green-point",
+        "name": "CURIOCITY GREEN POINT",
+        "address": "153 Main Rd, Green Point, Cape Town, 8005",
+        "phone": "+27214334310",
+        "whatsapp": "+27663524511",
+        "email": "greenpoint@curiocity.africa",
+        "website": "curiocity.africa",
+        "info": "The Waterfront-facing CURIOCITY option. Best for flashpackers and digital nomads who want to be walking distance from the V&A.",
+        "anchor": "/backpacking-south-africa/cape-town#curiocity-green-point",
+        "googleRating": "4.5 / 5",
+        "bookingRating": "8.0 / 10",
+        "hwRating": "8.6 / 10",
+        "booking": "https://www.booking.com/hotel/za/curiocity-cape-town.html",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/302857/curiocity-green-point/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [18.41265, -33.91048] },
+      "properties": {
+        "region": "cape-town",
+        "id": "big-blue-backpackers",
+        "name": "BIG BLUE BACKPACKERS",
+        "address": "7 Vesperdene Road, Green Point, Cape Town, 8005",
+        "phone": "+27214390807",
+        "email": "big.blue@mweb.co.za",
+        "website": "bigblue.za.net",
+        "info": "A physically impressive Victorian hostel in a great location. Check current reviews before booking.",
+        "anchor": "/backpacking-south-africa/cape-town#big-blue-backpackers",
+        "googleRating": "4.0 / 5",
+        "bookingRating": "8.0 / 10",
+        "hwRating": "8.1 / 10",
+        "booking": "https://www.booking.com/hotel/za/big-blue-backpackers-lodge.html",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/1239/big-blue-backpackers/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [18.41165, -33.90959] },
+      "properties": {
+        "region": "cape-town",
+        "id": "atlantic-point-backpackers",
+        "name": "ATLANTIC POINT BACKPACKERS",
+        "address": "2 Cavalcade Rd, Green Point, Cape Town, 8005",
+        "phone": "+27214331663",
+        "whatsapp": "+27768126006",
+        "email": "info@atlanticpoint.co.za",
+        "website": "atlanticpoint.co.za",
+        "info": "A dependable, quiet budget base for the Atlantic Seaboard explorer.",
+        "anchor": "/backpacking-south-africa/cape-town#atlantic-point-backpackers",
+        "googleRating": "4.2 / 5"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [18.41067, -33.90889] },
+      "properties": {
+        "region": "cape-town",
+        "id": "house-on-the-hill",
+        "name": "HOUSE ON THE HILL",
+        "address": "5 Norman Rd, Green Point, Cape Town, 8005",
+        "phone": "+27214393902",
+        "whatsapp": "+27732173428",
+        "email": "info@houseonthehillct.co.za",
+        "website": "houseonthehillct.co.za",
+        "info": "The best quiet option in the Atlantic Seaboard area. Highly recommended for those prioritising peace, views, and Signal Hill hiking.",
+        "anchor": "/backpacking-south-africa/cape-town#house-on-the-hill",
+        "googleRating": "4.4 / 5",
+        "bookingRating": "8.4 / 10",
+        "booking": "https://www.booking.com/hotel/za/house-on-the-hill.html",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/328833/house-on-the-hill/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [18.40917, -33.90777] },
+      "properties": {
+        "region": "cape-town",
+        "id": "never-at-home-cape-town",
+        "name": "NEVER@HOME CAPE TOWN",
+        "address": "107 Main Rd, Green Point, Cape Town, 8005",
+        "phone": "+27214349282",
+        "email": "info@neverathomeworld.com",
+        "website": "neverathomeworld.com",
+        "info": "A modern, well-managed, activity-focused hostel. Excellent staff. Above the mid-range average in almost every measure.",
+        "anchor": "/backpacking-south-africa/cape-town#never-at-home-cape-town",
+        "googleRating": "4.4 / 5",
+        "bookingRating": "8.8 / 10",
+        "hwRating": "9.4 / 10",
+        "booking": "https://www.booking.com/hotel/za/never-home.html",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/90106/never-at-home-green-point/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [18.40397, -33.90791] },
+      "properties": {
+        "region": "cape-town",
+        "id": "a-sunflower-stop-backpackers",
+        "name": "A SUNFLOWER STOP BACKPACKERS",
+        "address": "179 Main Road, Sea Point, Cape Town, 8005",
+        "phone": "+27214346535",
+        "whatsapp": "+27646108479",
+        "email": "info@sunflowerstop.co.za",
+        "website": "sunflowerstop.co.za",
+        "info": "Highly recommended. Book the terrace room well in advance. One of Sea Point's finest budget options.",
+        "anchor": "/backpacking-south-africa/cape-town#a-sunflower-stop-backpackers",
+        "googleRating": "4.4 / 5",
+        "bookingRating": "8.6 / 10",
+        "hwRating": "9.3 / 10",
+        "booking": "https://www.booking.com/hotel/za/a-sunflower-stop.html",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/1733/a-sunflower-stop/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [18.38299, -33.92201] },
+      "properties": {
+        "region": "cape-town",
+        "id": "mojo-hotel",
+        "name": "MOJO HOTEL",
+        "address": "30 Regent Rd, Sea Point, Cape Town, 8060",
+        "phone": "+27879407474",
+        "whatsapp": "+27822394951",
+        "email": "reservations@themojohotel.com",
+        "website": "themojohotel.com",
+        "info": "The ultimate choice for social explorers, foodies, and digital nomads who thrive on urban energy and convenience.",
+        "anchor": "/backpacking-south-africa/cape-town#mojo-hotel",
+        "googleRating": "4.1 / 5",
+        "bookingRating": "7.4 / 10",
+        "hwRating": "8.0 / 10",
+        "booking": "https://www.booking.com/hotel/za/mojo-hotel.en-gb.html",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/263570/mojo-hostel-and-market/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [18.46531, -33.93793] },
+      "properties": {
+        "region": "cape-town",
+        "id": "green-elephant-backpackers",
+        "name": "GREEN ELEPHANT BACKPACKERS",
+        "address": "57 Milton Road, Observatory, Cape Town, 7925",
+        "phone": "+27214486359",
+        "whatsapp": "+27214486359",
+        "email": "stay@greenelephant.co.za",
+        "website": "greenelephant.co.za",
+        "info": "Cape Town's finest hostel for the traveller who wants character, community, and bohemian neighbourhood atmosphere over centrality.",
+        "anchor": "/backpacking-south-africa/cape-town#green-elephant-backpackers",
+        "googleRating": "4.1 / 5",
+        "bookingRating": "7.3 / 10",
+        "hwRating": "6.9 / 10",
+        "booking": "https://www.booking.com/hotel/za/green-elephant-backpackers.html",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/977/green-elephant/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [18.46689, -33.93883] },
+      "properties": {
+        "region": "cape-town",
+        "id": "african-heart-backpackers",
+        "name": "AFRICAN HEART BACKPACKERS",
+        "address": "27 Station Rd, Observatory, Cape Town, 7925",
+        "phone": "+27214479225",
+        "whatsapp": "+27768057984",
+        "email": "info@africanheartbackpackers.com",
+        "website": "africanheartbackpackers.com",
+        "info": "Reliable ultra-budget option in Observatory. Best for independent travellers who know what they want and don't need a hostel to organise it.",
+        "anchor": "/backpacking-south-africa/cape-town#african-heart-backpackers",
+        "googleRating": "4.0 / 5"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [18.46891, -33.93916] },
+      "properties": {
+        "region": "cape-town",
+        "id": "bohemian-lofts-backpackers",
+        "name": "BOHEMIAN LOFTS BACKPACKERS",
+        "address": "41 Trill Road, Observatory, Cape Town, 7925",
+        "phone": "+27214476204",
+        "email": "info@bohemianlofts.com",
+        "website": "bohemianlofts.com",
+        "info": "A characterful budget option with an artistic edge. Best for creatively inclined travellers who want Observatory's neighbourhood character.",
+        "anchor": "/backpacking-south-africa/cape-town#bohemian-lofts-backpackers",
+        "googleRating": "4.4 / 5"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [18.48803, -33.93755] },
+      "properties": {
+        "region": "cape-town",
+        "id": "lighthouse-farm-backpackers",
+        "name": "LIGHTHOUSE FARM BACKPACKERS",
+        "address": "A1 Oude Molen Eco Village, Alexandra Road, Pinelands, Cape Town, 7700",
+        "phone": "+27214479165",
+        "whatsapp": "+27827442504",
+        "email": "bookings@lighthousefarm.co.za",
+        "website": "lighthousefarm.co.za",
+        "info": "Cape Town's most unique hostel setting. Essential for the traveller who wants something genuinely different from the standard backpacker circuit.",
+        "anchor": "/backpacking-south-africa/cape-town#lighthouse-farm-backpackers",
+        "googleRating": "3.6 / 5",
+        "bookingRating": "7.1 / 10",
+        "hwRating": "6.0 / 10",
+        "booking": "https://www.booking.com/hotel/za/lighthouse-farm-backpackers.html",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/994/light-house-lodge/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [18.48957, -33.93947] },
+      "properties": {
+        "region": "cape-town",
+        "id": "riverlodge-backpackers",
+        "name": "RIVERLODGE BACKPACKERS",
+        "address": "80 Alexandra Rd, Oude Molen Village, Pinelands, Cape Town, 7405",
+        "phone": "+27214480526",
+        "whatsapp": "+27825150407",
+        "email": "info@riverlodge.co.za",
+        "website": "riverlodge.co.za",
+        "info": "The cheapest large-capacity option on this list. Suited to group bookings and airport-proximity overnights.",
+        "anchor": "/backpacking-south-africa/cape-town#riverlodge-backpackers",
+        "googleRating": "3.6 / 5",
+        "hwRating": "7.1 / 10",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/5661/riverlodge-backpackers/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [18.34946, -34.04543] },
+      "properties": {
+        "region": "cape-town",
+        "id": "hout-bay-dune-lodge",
+        "name": "HOUT BAY DUNE LODGE",
+        "address": "Dune Lodge, Hout Bay, Cape Town",
+        "phone": "+27792679472",
+        "whatsapp": "+27792679472",
+        "email": "bookings@dunelodge.co.za",
+        "website": "dunelodge.co.za",
+        "info": "One of the finest backpacker lodges in South Africa. En-suite dorms, private terrace rooms, and an extraordinary location.",
+        "anchor": "/backpacking-south-africa/cape-town#hout-bay-dune-lodge",
+        "googleRating": "4.4 / 5",
+        "bookingRating": "8.6 / 10",
+        "hwRating": "9.1 / 10",
+        "booking": "https://www.booking.com/hotel/za/hout-bay-backpackers-hout-bay.html",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/317980/dune-lodge/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [18.48276, -33.82109] },
+      "properties": {
+        "region": "cape-town",
+        "id": "saltycrax-backpackers",
+        "name": "SALTYCRAX BACKPACKERS",
+        "address": "20 Briza Rd, Table View, Cape Town, 7439",
+        "phone": "+27664377801",
+        "whatsapp": "+27664377801",
+        "email": "info@saltycrax.com",
+        "website": "saltycrax.com",
+        "info": "Cape Town's best hostel for water sports and adventure activities. TGCSA 5-star graded, 5 minutes from world-class kiteboarding.",
+        "anchor": "/backpacking-south-africa/cape-town#saltycrax-backpackers",
+        "googleRating": "4.3 / 5",
+        "bookingRating": "8.0 / 10",
+        "hwRating": "5.6 / 10",
+        "booking": "https://www.booking.com/hotel/za/saltycrax-backpackers.html",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/13924/saltycrax-backpackers-and-surflodge/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [18.4691, -34.10792] },
+      "properties": {
+        "region": "cape-town",
+        "id": "african-soul-surfer-backpackers",
+        "name": "AFRICAN SOUL SURFER BACKPACKERS",
+        "address": "Surfers Corner, 13 York Road, Muizenberg, Cape Town, 7945",
+        "phone": "+27217881771",
+        "whatsapp": "+27768057984",
+        "email": "info@africansoulsurfer.co.za",
+        "website": "africansoulsurfer.co.za",
+        "info": "The essential Cape Town surf hostel. Sea-view rooms with balconies at these prices, 50 metres from Surfers' Corner.",
+        "anchor": "/backpacking-south-africa/cape-town#african-soul-surfer-backpackers",
+        "googleRating": "4.5 / 5",
+        "bookingRating": "7.6 / 10",
+        "booking": "https://www.booking.com/hotel/za/african-soul-surfer.html",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/299441/african-soul-surfer/"
+      }
+    },
+
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [19.36113, -32.55121] },
+      "properties": {
+        "region": "cederberg",
+        "id": "cederberg-oasis",
+        "name": "CEDERBERG OASIS BACKPACKERS",
+        "address": "Cederberg Conservancy, via Op-Die-Berg / Algeria Road, Western Cape",
+        "phone": "+27274822819",
+        "email": "info@cederbergoasis.co.za",
+        "website": "cederbergoasis.co.za",
+        "info": "The definitive Cederberg backpacker base. If you are visiting the Cederberg for hiking and you are not sure where to stay, this is where you stay. Book the spare ribs when you arrive.",
+        "anchor": "/backpacking-south-africa/cederberg#cederberg-oasis",
+        "googleRating": "4.7 / 5"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [18.98599, -32.39603] },
+      "properties": {
+        "region": "cederberg",
+        "id": "gecko-creek",
+        "name": "GECKO CREEK WILDERNESS LODGE",
+        "address": "Gecko Creek Road, Cederberg Remhoogte, Western Cape (6km off the N7, 28km from Clanwilliam)",
+        "phone": "+27274821300",
+        "email": "info@geckocreek.com",
+        "website": "geckocreek.com",
+        "info": "The most beautiful setting in the Cederberg backpacker scene, on a private nature reserve, at prices that should not be possible. Bring cash, bring a torch, and bring at least two nights.",
+        "anchor": "/backpacking-south-africa/cederberg#gecko-creek",
+        "googleRating": "4.6 / 5"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [19.09724, -32.20195] },
+      "properties": {
+        "region": "cederberg",
+        "id": "heuningvlei",
+        "name": "HEUNINGVLEI BACKPACKERS LODGE",
+        "address": "Heuningvlei Village (Outpost of Wupperthal), Cederberg, 8138",
+        "phone": "+27274928001",
+        "whatsapp": "+27798206824",
+        "email": "mjdwesthuizen@telkomsa.net",
+        "website": "heuningvlei.yolasite.com",
+        "info": "The most remote, most unusual, and most ethically significant accommodation in the Cederberg. Not for casual visitors. Essential for serious travellers. Call ahead, bring a 4x4, bring all your food, and do not miss the community rock art guide.",
+        "anchor": "/backpacking-south-africa/cederberg#heuningvlei",
+        "googleRating": "4.6 / 5"
+      }
+    },
+
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [29.4264, -29.74596] },
+      "properties": {
+        "region": "drakensberg",
+        "id": "khotso-lodge",
+        "name": "KHOTSO LODGE & HORSE TRAILS",
+        "address": "Drakensberg Gardens Road, Underberg, 3257",
+        "phone": "+27824125540",
+        "whatsapp": "+27824125540",
+        "email": "info@khotso.co.za",
+        "website": "khotso.co.za",
+        "info": "The best adventure farm experience in the Southern Drakensberg. Essential for horse riders; highly recommended for anyone who wants a genuinely immersive Southern Berg base. One of the best-value, most distinctive hostels in this guide.",
+        "anchor": "/backpacking-south-africa/drakensberg#khotso-lodge",
+        "googleRating": "4.6 / 5"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [29.45614, -29.66232] },
+      "properties": {
+        "region": "drakensberg",
+        "id": "sani-lodge-backpackers",
+        "name": "SANI LODGE BACKPACKERS",
+        "address": "10.5km along the Sani Pass Road, Mkhomazana Wilderness Area, Himeville, 3257",
+        "phone": "+27839873071",
+        "whatsapp": "+27839873071",
+        "email": "info@sanilodge.co.za",
+        "website": "sanilodge.co.za",
+        "info": "The finest ethically-run hostel in the Drakensberg, and one of the most beautifully located. The definitive Southern Berg base for the Sani Pass, Fair Trade credentials, and genuine wilderness immersion. Highly recommended without reservation.",
+        "anchor": "/backpacking-south-africa/drakensberg#sani-lodge-backpackers",
+        "googleRating": "4.4 / 5"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [29.43671, -29.01608] },
+      "properties": {
+        "region": "drakensberg",
+        "id": "mountain-base-backpackers",
+        "name": "MOUNTAIN BASE BACKPACKERS",
+        "address": "R600 Cathkin Road, Champagne Valley, Central Drakensberg",
+        "phone": "+27364681031",
+        "whatsapp": "+27814798195",
+        "email": "info@mountainbase.co.za",
+        "website": "mountainbase.co.za",
+        "info": "The best budget option in the Central Berg. Outstanding value for hikers and activity-seekers targeting the Champagne Valley and Cathedral Peak area.",
+        "anchor": "/backpacking-south-africa/drakensberg#mountain-base-backpackers",
+        "googleRating": "3.1 / 5"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [29.47028, -28.82754] },
+      "properties": {
+        "region": "drakensberg",
+        "id": "berg-backpackers",
+        "name": "BERG BACKPACKERS",
+        "address": "Glen Gray Farm, R600, Winterton, 3340",
+        "phone": "+27824003724",
+        "whatsapp": "+27824003724",
+        "email": "info@bergbackpackers.co.za",
+        "website": "drakensberg-hikes.co.za",
+        "info": "The best-value private room option in the Central Berg. Ideal for couples and pairs who want farm quiet, mountain access, and no dorm compromise.",
+        "anchor": "/backpacking-south-africa/drakensberg#berg-backpackers",
+        "booking": "https://www.booking.com/hotel/za/berg-backpackers.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [29.15882, -28.64329] },
+      "properties": {
+        "region": "drakensberg",
+        "id": "amphitheatre-backpackers",
+        "name": "AMPHITHEATRE BACKPACKERS LODGE",
+        "address": "R74, Northern Drakensberg, Bergville, 3350",
+        "phone": "+27828559767",
+        "whatsapp": "+27828559767",
+        "email": "bookings@amphibackpackers.co.za",
+        "website": "amphibackpackers.com",
+        "info": "The Northern Berg's most social hostel. Arrive with your guide booked independently, your activity budget decided, and your expectations calibrated. For the Tugela Falls hike specifically, Maluti Backpackers is the more practical base.",
+        "anchor": "/backpacking-south-africa/drakensberg#amphitheatre-backpackers",
+        "googleRating": "4.1 / 5",
+        "bookingRating": "6.3 / 10",
+        "hwRating": "9.3 / 10",
+        "booking": "https://www.booking.com/hotel/za/amphitheatre-backpackers-lodge.html",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/316894/amphitheatre-backpackers-lodge/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [28.81858, -28.51372] },
+      "properties": {
+        "region": "drakensberg",
+        "id": "maluti-backpackers",
+        "name": "MALUTI BACKPACKERS",
+        "address": "3232 Nteo Street, Phuthaditjhaba-A, Phuthaditjhaba, 9866, Free State",
+        "phone": "+27761934444",
+        "whatsapp": "+27761934444",
+        "email": "bookings@malutibackpackers.co.za",
+        "website": "malutibackpackers.co.za",
+        "info": "★ BackpackersBible.com's recommended base for the Tugela Falls hike. The closest accommodation to the Sentinel Car Park trailhead; also the best base for Golden Gate Highlands National Park. Practical, honest, and community-supporting. The platform ratings do not capture what matters most here: the proximity.",
+        "anchor": "/backpacking-south-africa/drakensberg#maluti-backpackers",
+        "googleRating": "3.9 / 5",
+        "bookingRating": "5.6 / 10",
+        "booking": "https://www.booking.com/hotel/za/maluti-backpackers-phuthaditjhaba1.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [28.69908, -28.31098] },
+      "properties": {
+        "region": "drakensberg",
+        "id": "karma-backpackers-drak",
+        "name": "KARMA BACKPACKERS",
+        "address": "2 Piet Retief Street, Kestell, Free State, 9860",
+        "phone": "+27834423973",
+        "whatsapp": "+27834423973",
+        "email": "kestellkarma@gmail.com",
+        "website": "karmalodge.co.za",
+        "info": "A Free State option at roughly the midpoint between Amphitheatre and the trailhead. Adequate for the area, although there is little or nothing to do in the town of Kestell itself.",
+        "anchor": "/backpacking-south-africa/drakensberg#karma-backpackers",
+        "googleRating": "4.4 / 5",
+        "bookingRating": "8.5 / 10",
+        "hwRating": "10 / 10",
+        "booking": "https://www.booking.com/hotel/za/karma-backpackers.html",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/27273/karma-backpackers/"
+      }
+    },
+
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [31.01606, -29.83354] },
+      "properties": {
+        "region": "durban",
+        "id": "tekweni-backpackers",
+        "name": "TEKWENI BACKPACKERS HOSTEL",
+        "address": "169 Ninth Ave, Morningside, Durban, 4001",
+        "phone": "+27313031433",
+        "email": "info@tekwenibackpackers.co.za",
+        "website": "tekwenibackpackers.co.za",
+        "info": "Durban's benchmark backpacker hostel. The default booking for anyone passing through the city. Florida Road is right there. Book it.",
+        "anchor": "/backpacking-south-africa/durban#tekweni-backpackers",
+        "googleRating": "3.8 / 5",
+        "bookingRating": "5.6 / 10",
+        "hwRating": "7.8 / 10",
+        "booking": "https://www.booking.com/hotel/za/tekweni.html",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/1236/tekweni-backpackers-hostel/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [31.01456, -29.83538] },
+      "properties": {
+        "region": "durban",
+        "id": "gibela-travellers-lodge",
+        "name": "GIBELA TRAVELLERS LODGE",
+        "address": "119 Ninth Ave, Morningside, Durban, 4001",
+        "phone": "+27313036291",
+        "whatsapp": "+27768076545",
+        "email": "gibela@gibela.co.za",
+        "website": "gibelatravellerslodge.co.za",
+        "info": "The Berea's best-value base. Quieter than Tekweni, equally well-located, and the garden views are something special. Best for travellers who want a residential feel over a hostel buzz.",
+        "anchor": "/backpacking-south-africa/durban#gibela-travellers-lodge",
+        "googleRating": "4.7 / 5",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/4413/gibela-backpackers-lodge-durban/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [30.99806, -29.8501] },
+      "properties": {
+        "region": "durban",
+        "id": "nomads-backpackers",
+        "name": "NOMADS BACKPACKERS",
+        "address": "70 Stephen Dlamini Road, Musgrave, Durban, 4001",
+        "phone": "+27312029709",
+        "whatsapp": "+27723861618",
+        "email": "nomads@nomads.co.za",
+        "website": "nomads.co.za",
+        "info": "The budget choice on the Berea. Reliable, honest, functional. Good value for travellers who are counting rands without wanting to compromise on neighbourhood quality.",
+        "anchor": "/backpacking-south-africa/durban#nomads-backpackers",
+        "googleRating": "4.0 / 5"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [31.02316, -29.7984] },
+      "properties": {
+        "region": "durban",
+        "id": "aweh-africa-backpackers",
+        "name": "AWEH AFRICA BACKPACKERS",
+        "address": "121 Briar Lane, Park Hill, Durban North, 4051",
+        "phone": "+27822906063",
+        "whatsapp": "+27822906063",
+        "email": "info@awehafrica.com",
+        "website": "awehafrica.com",
+        "info": "The budget leader in Durban North. Basic, clean, friendly, and genuinely connected to the city's culture. The best choice for travellers on the tightest budgets who want the right neighbourhood.",
+        "anchor": "/backpacking-south-africa/durban#aweh-africa-backpackers",
+        "googleRating": "4.2 / 5",
+        "hwRating": "10 / 10",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/99985/aweh-africa-backpackers/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [31.01824, -29.92319] },
+      "properties": {
+        "region": "durban",
+        "id": "ansteys-beach-backpackers",
+        "name": "ANSTEYS BEACH BACKPACKERS",
+        "address": "477 Marine Drive, Bluff, Durban, 4052",
+        "phone": "+27314671192",
+        "whatsapp": "+27768076545",
+        "email": "info@ansteysbeach.co.za",
+        "website": "ansteysbeach.co.za",
+        "info": "Direct beach access, excellent surf, and review scores that reflect years of consistent quality. The ocean-first choice in the city.",
+        "anchor": "/backpacking-south-africa/durban#ansteys-beach-backpackers",
+        "googleRating": "4.2 / 5",
+        "bookingRating": "7.6 / 10",
+        "hwRating": "10 / 10",
+        "booking": "https://www.booking.com/hotel/za/ansteys-beach-self-catering-apartments-durban.html",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/1221/ansteys-beach-backpackers/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [31.06431, -29.76249] },
+      "properties": {
+        "region": "durban",
+        "id": "durban-backpackers-on-the-beach",
+        "name": "DURBAN BACKPACKERS — ON THE BEACH",
+        "address": "17 The Promenade, Glenashley, Durban North, 4051",
+        "phone": "+27315724054",
+        "whatsapp": "+27834561664",
+        "email": "stay@glenashleybeach.co.za",
+        "website": "glenashleybeach.co.za",
+        "info": "The ocean-view backpacker experience in Durban and the premier choice for flashpackers who want to wake up to the sun rising over the ocean in a safe, upscale neighbourhood.",
+        "anchor": "/backpacking-south-africa/durban#durban-backpackers-on-the-beach",
+        "googleRating": "4.5 / 5",
+        "hwRating": "3.7 / 10",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/10195/durban-backpackers-on-the-beach/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [30.70203, -29.77755] },
+      "properties": {
+        "region": "durban",
+        "id": "peacevale-backpackers",
+        "name": "PEACEVALE BACKPACKERS",
+        "address": "132 Peacevale Road, Peacevale, Drummond, 3626",
+        "phone": "+27796972881",
+        "whatsapp": "+27796972881",
+        "email": "bookings@peacevalegetaway.co.za",
+        "website": "peacevalegetaway.co.za",
+        "info": "The overlander's and camper's Durban base. Cheapest rates, greenest setting, most rural character. Best for travellers with their own transport using Durban as a staging point.",
+        "anchor": "/backpacking-south-africa/durban#peacevale-backpackers",
+        "googleRating": "3.9 / 5"
+      }
+    },
+
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [25.69329, -33.51418] },
+      "properties": {
+        "region": "eastern-cape-interior",
+        "id": "orange-elephant-backpackers",
+        "name": "ORANGE ELEPHANT BACKPACKERS",
+        "address": "R335 Main Road, Addo, Eastern Cape, 6105",
+        "phone": "+27422330023",
+        "whatsapp": "+27741796715",
+        "email": "info@addobackpackers.com",
+        "website": "addobackpackers.com",
+        "info": "The essential Addo base. Go for the safari. Stay for the stories.",
+        "anchor": "/backpacking-south-africa/eastern-cape-interior#orange-elephant-backpackers",
+        "googleRating": "4.1 / 5",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/14042/orange-elephant-backpackers-and-thirsty-herds-pub/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [26.49519, -33.29097] },
+      "properties": {
+        "region": "eastern-cape-interior",
+        "id": "blue-skies-backpackers",
+        "name": "BLUE SKIES BACKPACKERS",
+        "address": "R350 Cradock Road (near Makhanda Airfield), Makhanda (Grahamstown), Eastern Cape, 6140",
+        "phone": "+27842783193",
+        "whatsapp": "+27842783193",
+        "email": "blueskiesbackpackers@gmail.com",
+        "info": "Makhanda's best-value base, owned by the kind of host who makes a hostel a home. The skydiving is optional. The Sean recommendation is not.",
+        "anchor": "/backpacking-south-africa/eastern-cape-interior#blue-skies-backpackers",
+        "googleRating": "4.2 / 5"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [26.50057, -33.30988] },
+      "properties": {
+        "region": "eastern-cape-interior",
+        "id": "the-smokey-moon",
+        "name": "THE SMOKEY MOON",
+        "address": "Three Chimneys Farm, Worcester Street Extension, Makhanda, 6139",
+        "phone": "+27815315448",
+        "whatsapp": "+27815315448",
+        "email": "jaybdd@gmail.com",
+        "website": "cannastay.co.za",
+        "info": "Makhanda's most atmospheric option. Bohemian, historic, affordable, and best suited to travellers who value character over consistency.",
+        "anchor": "/backpacking-south-africa/eastern-cape-interior#the-smokey-moon",
+        "googleRating": "4.0 / 5"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [26.9248, -32.5956] },
+      "properties": {
+        "region": "eastern-cape-interior",
+        "id": "away-with-the-fairies",
+        "name": "AWAY WITH THE FAIRIES BACKPACKERS",
+        "address": "24 Hydrangea Lane, Hogsback, 5721, Eastern Cape",
+        "phone": "+27459621031",
+        "whatsapp": "+27726680602",
+        "email": "hogsback1@gmail.com",
+        "website": "awaywiththefairies.co.za",
+        "info": "Hogsback's most established backpackers, in the most spectacular location in the village. The cliff, the bath, the bar, the pizza, the trails from the gate. This is where Hogsback happens.",
+        "anchor": "/backpacking-south-africa/eastern-cape-interior#away-with-the-fairies",
+        "googleRating": "4.4 / 5",
+        "bookingRating": "7.7 / 10",
+        "booking": "https://www.booking.com/hotel/za/away-with-the-fairies.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [26.9423, -32.6074] },
+      "properties": {
+        "region": "eastern-cape-interior",
+        "id": "terra-khaya",
+        "name": "TERRA KHAYA ECO BACKPACKERS",
+        "address": "Chillington Farm, Hogsback, 5721, Eastern Cape",
+        "phone": "+27828977503",
+        "whatsapp": "+27828977503",
+        "email": "info@terrakhaya.co.za",
+        "website": "terrakhaya.co.za",
+        "info": "For nature-lovers, eco-travellers, conscious explorers, and anyone who needs to remember what silence sounds like. The outdoor bath at sunset is worth the entire trip on its own.",
+        "anchor": "/backpacking-south-africa/eastern-cape-interior#terra-khaya",
+        "googleRating": "4.7 / 5"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [26.8558, -32.6352] },
+      "properties": {
+        "region": "eastern-cape-interior",
+        "id": "elundini-backpackers",
+        "name": "ELUNDINI BACKPACKERS",
+        "address": "Elundini Village, Lushington, Hogsback Area, 5721, Eastern Cape",
+        "phone": "+27783573285",
+        "whatsapp": "+27783573285",
+        "email": "info@elundinibackpackers.com",
+        "website": "elundinibackpackers.com",
+        "info": "The most singular experience on this guide. Genuine Xhosa village hospitality, extraordinary community, perfect silence, and stars that do not look real. Come here.",
+        "anchor": "/backpacking-south-africa/eastern-cape-interior#elundini-backpackers",
+        "googleRating": "4.6 / 5",
+        "hostelworld": "https://www.hostelworld.com/pwa/hosteldetails.php/Elundini-Backpackers/Hogsback/71978"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [24.55422, -31.8676] },
+      "properties": {
+        "region": "eastern-cape-interior",
+        "id": "owlhouse-backpackers",
+        "name": "OWLHOUSE BACKPACKERS",
+        "address": "Martins Street, Nieu-Bethesda, 6286",
+        "phone": "+27499841642",
+        "whatsapp": "+27727427113",
+        "email": "backpackers@owlhouse.info",
+        "website": "owlhouse.info",
+        "info": "The essential Nieu-Bethesda accommodation option — welcoming, eco-conscious, expertly located, and run with the personal warmth that only owner-managed properties can sustain. Two nights minimum. Ask Ian about Aunt Evelyn's.",
+        "anchor": "/backpacking-south-africa/eastern-cape-interior#owlhouse-backpackers",
+        "googleRating": "4.4 / 5",
+        "bookingRating": "8.1 / 10",
+        "booking": "https://www.booking.com/hotel/za/the-owlhouse-backpackers.html"
+      }
+    },
+
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [31.18301, -26.43975] },
+      "properties": {
+        "region": "eswatini",
+        "id": "legends-backpackers",
+        "name": "LEGENDS BACKPACKERS LODGE",
+        "address": "2 Mantenga Falls Road, Ezulwini Valley, Eswatini",
+        "phone": "+26824160423",
+        "whatsapp": "+26824160423",
+        "email": "legends@africaonline.co.sz",
+        "website": "eswatinilodge.com",
+        "info": "Eswatini's most convenient backpacker base. The default first-night stop in the Ezulwini Valley. Central location, pool, good travel desk. Book well ahead for Bushfire Festival weekend.",
+        "anchor": "/backpacking-south-africa/eswatini#legends-backpackers",
+        "googleRating": "4.2 / 5",
+        "bookingRating": "8.1 / 10",
+        "booking": "https://www.booking.com/hotel/sz/legends-shared.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [31.17688, -26.42354] },
+      "properties": {
+        "region": "eswatini",
+        "id": "lidwala-backpacker-lodge",
+        "name": "LIDWALA BACKPACKER LODGE",
+        "address": "Sheba's Breast Road, Ezulwini Valley, Eswatini",
+        "phone": "+26824163987",
+        "whatsapp": "+26824163987",
+        "email": "lidwala@realnet.co.sz",
+        "website": "lidwala.com",
+        "info": "The finest backpacker lodge in Eswatini. Hillside setting, valley views, walking access to Mlilwane, and a sunset terrace that explains why people keep coming back. Book a chalet.",
+        "anchor": "/backpacking-south-africa/eswatini#lidwala-backpacker-lodge",
+        "googleRating": "4.3 / 5",
+        "bookingRating": "8.5 / 10",
+        "booking": "https://www.booking.com/hotel/sz/lidwala-lodge.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [31.19532, -26.49522] },
+      "properties": {
+        "region": "eswatini",
+        "id": "sondzela-backpackers",
+        "name": "SONDZELA BACKPACKERS",
+        "address": "Mlilwane Wildlife Sanctuary, Malkerns, Eswatini (enter via Sangweni Gate)",
+        "phone": "+26824283943",
+        "whatsapp": "+26824283943",
+        "email": "info@biggameparks.org",
+        "website": "biggameparks.org",
+        "info": "The best hostel in Eswatini. Sleep inside a wildlife sanctuary in a traditional beehive hut, wake to zebra outside the door, and pay hostel dorm prices for it. One of the genuinely great backpacker experiences in southern Africa. Book the beehive hut well in advance.",
+        "anchor": "/backpacking-south-africa/eswatini#sondzela-backpackers",
+        "googleRating": "4.5 / 5",
+        "hwRating": "9.4 / 10",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/58528/sondzela-backpackers/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [31.9751, -26.81324] },
+      "properties": {
+        "region": "eswatini",
+        "id": "entsabeni-backpackers",
+        "name": "ENTSABENI BACKPACKERS",
+        "address": "Entsabeni Farm, Big Bend, Lubombo District, Eswatini",
+        "phone": "+26823633064",
+        "whatsapp": "+26823633064",
+        "email": "entsabeni@gmail.com",
+        "website": "entsabeni.co.sz",
+        "info": "The strategic stopover for the Mozambique route. Honest, well-located, and the right place to sleep the night before an early Lomahasha border crossing. Book direct and confirm availability in advance.",
+        "anchor": "/backpacking-south-africa/eswatini#entsabeni-backpackers",
+        "googleRating": "4.3 / 5",
+        "bookingRating": "8.0 / 10",
+        "booking": "https://www.booking.com/hotel/sz/entsabeni-cottage.html"
+      }
+    },
+
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [28.4132, -28.51579] },
+      "properties": {
+        "region": "free-state",
+        "id": "clarens-inn-backpackers",
+        "name": "CLARENS INN AND BACKPACKERS",
+        "address": "403 Van Reenen Street, Clarens, 9707, Free State",
+        "phone": "+27582561173",
+        "whatsapp": "+27763699283",
+        "email": "clarensinn@gmail.com",
+        "info": "The only show in town, in the best possible sense. Clarens at the right price, in the right location, with the mountains visible from the garden.",
+        "anchor": "/backpacking-south-africa/free-state#clarens-inn-backpackers",
+        "googleRating": "4.3 / 5"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [28.81858, -28.51372] },
+      "properties": {
+        "region": "free-state",
+        "id": "maluti-backpackers-fs",
+        "name": "MALUTI BACKPACKERS",
+        "address": "3232 Nteo Street, Phuthaditjhaba-A, Phuthaditjhaba, 9866, Free State",
+        "phone": "+27761934444",
+        "whatsapp": "+27761934444",
+        "email": "bookings@malutibackpackers.co.za",
+        "website": "malutibackpackers.co.za",
+        "info": "★ BackpackersBible.com's recommended base for the Tugela Falls hike. The closest accommodation to the Sentinel Car Park trailhead; also the best base for Golden Gate Highlands National Park. Practical, honest, and community-supporting. The platform ratings do not capture what matters most here: the proximity.",
+        "anchor": "/backpacking-south-africa/free-state#maluti-backpackers",
+        "googleRating": "3.9 / 5",
+        "bookingRating": "5.6 / 10",
+        "booking": "https://www.booking.com/hotel/za/maluti-backpackers-phuthaditjhaba1.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [28.69908, -28.31098] },
+      "properties": {
+        "region": "free-state",
+        "id": "karma-backpackers-fs",
+        "name": "KARMA BACKPACKERS",
+        "address": "2 Piet Retief Street, Kestell, Free State, 9860",
+        "phone": "+27834423973",
+        "whatsapp": "+27834423973",
+        "email": "kestellkarma@gmail.com",
+        "website": "karmalodge.co.za",
+        "info": "A Free State option at roughly the midpoint between Amphitheatre and the trailhead. Adequate for the area, although there is little or nothing to do in the town of Kestell itself.",
+        "anchor": "/backpacking-south-africa/free-state#karma-backpackers",
+        "googleRating": "4.4 / 5",
+        "bookingRating": "8.5 / 10",
+        "hwRating": "10 / 10",
+        "booking": "https://www.booking.com/hotel/za/karma-backpackers.html",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/27273/karma-backpackers/"
+      }
+    },
+
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [22.14056, -34.18403] },
+      "properties": {
+        "region": "garden-route",
+        "id": "park-house-lodge",
+        "name": "PARK HOUSE LODGE",
+        "address": "121 High Street, Mossel Bay Central, 6506",
+        "phone": "+27446911937",
+        "email": "info@parkhouse.co.za",
+        "website": "parkhouse.co.za",
+        "info": "Mossel Bay's best hostel. Consistently excellent Booking.com score. Good base for the St Blaize Trail, shark diving, and the western Garden Route.",
+        "anchor": "/backpacking-south-africa/garden-route#park-house-lodge",
+        "googleRating": "4.0 / 5"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [22.14312, -34.18072] },
+      "properties": {
+        "region": "garden-route",
+        "id": "mile-crunchers-backpackers",
+        "name": "MILE CRUNCHERS BACKPACKERS",
+        "address": "7 Church Street, CBD, Mossel Bay, 6500",
+        "phone": "+27446904462",
+        "email": "milecrushers@gmail.com",
+        "website": "milecrunchers.co.za",
+        "info": "Budget option only. Fine for a transit night if Park House is full. Choose Park House if both are available.",
+        "anchor": "/backpacking-south-africa/garden-route#mile-crunchers-backpackers",
+        "googleRating": "4.0 / 5",
+        "bookingRating": "6.7 / 10",
+        "booking": "https://www.booking.com/hotel/za/mile-crunchers-backpackers-mossel-bay.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [22.1371, -34.17816] },
+      "properties": {
+        "region": "garden-route",
+        "id": "santos-express-train-lodge",
+        "name": "SANTOS EXPRESS TRAIN LODGE",
+        "address": "Munro Road, Santos Beach, Mossel Bay, 6500",
+        "phone": "+27446911995",
+        "whatsapp": "+27839430041",
+        "email": "reservations@santosexpress.co.za",
+        "website": "santosexpress.co.za",
+        "info": "The most unique accommodation experience in Mossel Bay. Recommended for its novelty, beachfront location, and honest value. Book a Royal Suite if you can stretch the budget.",
+        "anchor": "/backpacking-south-africa/garden-route#santos-express-train-lodge",
+        "googleRating": "4.1 / 5",
+        "hwRating": "9.1 / 10",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/2309/santos-express-train-b-and-b/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [22.15216, -34.18281] },
+      "properties": {
+        "region": "garden-route",
+        "id": "shark-shack-backpackers",
+        "name": "SHARK SHACK BACKPACKERS",
+        "address": "15 Marsh Street, Mossel Bay Central, 6500",
+        "phone": "+27446903109",
+        "whatsapp": "+27824933251",
+        "email": "sharkshack@gmail.com",
+        "website": "sharkshack.co.za",
+        "info": "Primarily useful as a shark diving booking base. For general accommodation in Mossel Bay, choose Park House or Santos Express instead.",
+        "anchor": "/backpacking-south-africa/garden-route#shark-shack-backpackers",
+        "googleRating": "4.0 / 5",
+        "bookingRating": "6.7 / 10",
+        "hwRating": "5.1 / 10",
+        "booking": "https://www.booking.com/hotel/za/shark-shacks.html",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/299274/shark-shack-backpackers/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [22.4536, -33.9596] },
+      "properties": {
+        "region": "garden-route",
+        "id": "george-backpackers",
+        "name": "GEORGE BACKPACKERS",
+        "address": "5 St John's Street, Dormehls Drift, George, 6529",
+        "phone": "+27448730061",
+        "email": "info@georgebackpackers.co.za",
+        "website": "georgebackpackers.co.za",
+        "info": "The practical Garden Route airport stopover. Best for hire car collections, Baz Bus connections, and anyone who knows about Victoria Bay surf and wants to stay for it.",
+        "anchor": "/backpacking-south-africa/garden-route#george-backpackers",
+        "googleRating": "3.9 / 5"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [22.56594, -33.99528] },
+      "properties": {
+        "region": "garden-route",
+        "id": "wilderness-beach-house",
+        "name": "WILDERNESS BEACH HOUSE BACKPACKERS",
+        "address": "1 Western Road, Wilderness, 6560",
+        "phone": "+27714951814",
+        "whatsapp": "+27714951814",
+        "email": "info@wildernessbeachhouse.com",
+        "website": "wildernessbeachhouse.com",
+        "info": "Excellent location and strong ratings. One of the finest hostel settings in Wilderness.",
+        "anchor": "/backpacking-south-africa/garden-route#wilderness-beach-house",
+        "googleRating": "4.5 / 5",
+        "bookingRating": "8.5 / 10",
+        "hwRating": "8.6 / 10",
+        "booking": "https://www.booking.com/hotel/za/beach-house-backpackers.html",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/52697/wilderness-beach-house-backpackers/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [22.59997, -33.99263] },
+      "properties": {
+        "region": "garden-route",
+        "id": "fairy-knowe-backpackers",
+        "name": "FAIRY KNOWE BACKPACKERS",
+        "address": "1 Dumbleton Road, Wilderness, 6560",
+        "phone": "+27813550137",
+        "whatsapp": "+27834438384",
+        "email": "info@wildernessbackpackers.com",
+        "website": "wildernessbackpackers.com",
+        "info": "One of the Garden Route's finest natural settings. Genuinely beautiful.",
+        "anchor": "/backpacking-south-africa/garden-route#fairy-knowe-backpackers",
+        "googleRating": "4.4 / 5",
+        "bookingRating": "7.9 / 10",
+        "hwRating": "6.9 / 10",
+        "booking": "https://www.booking.com/hotel/za/fairy-knowe-backpackers.html",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/59083/fairy-knowe-backpackers/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [22.59517, -33.98661] },
+      "properties": {
+        "region": "garden-route",
+        "id": "the-wild-farm-backpackers",
+        "name": "THE WILD FARM BACKPACKERS",
+        "address": "291 Whites Road, Hoekwil, Wilderness, 6560",
+        "phone": "+27674166773",
+        "whatsapp": "+27674166773",
+        "email": "info@wildfarmbackpackers.com",
+        "website": "wildfarmbackpackers.com",
+        "info": "The best alternative to Fairy Knowe and Beach House in Wilderness. Excellent for independent travellers with a car who want farm quiet and mountain views. Clean employment ethics.",
+        "anchor": "/backpacking-south-africa/garden-route#the-wild-farm-backpackers",
+        "googleRating": "4.2 / 5",
+        "bookingRating": "7.5 / 10",
+        "hwRating": "6.4 / 10",
+        "booking": "https://www.booking.com/hotel/za/the-wild-farm.html",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/24201/the-wild-farm-backpackers/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [22.80181, -34.01362] },
+      "properties": {
+        "region": "garden-route",
+        "id": "sedgefield-backpacker",
+        "name": "SEDGEFIELD BACKPACKER",
+        "address": "Main Service Road, Sedgefield, 6573",
+        "phone": "+27720868174",
+        "whatsapp": "+27720868174",
+        "email": "sedgefieldbackpacker@gmail.com",
+        "website": "sedgefieldbackpacker.co.za",
+        "info": "The Garden Route's quiet gem. Best for independent travellers with a car who want the coast without the crowd. The Saturday markets alone are worth planning around.",
+        "anchor": "/backpacking-south-africa/garden-route#sedgefield-backpacker",
+        "googleRating": "4.4 / 5",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/311061/sedgefield-backpacker/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [22.80204, -34.03354] },
+      "properties": {
+        "region": "garden-route",
+        "id": "pilipili-beach-cabanas",
+        "name": "PILIPILI BEACH CABANAS",
+        "address": "2 Claude Urban Drive, Myoli Beach, Sedgefield, 6573",
+        "phone": "+27443433087",
+        "whatsapp": "+27722872475",
+        "email": "reservations@pilipili.co.za",
+        "website": "pilipili.co.za",
+        "info": "The beachfront Sedgefield choice. Good value in cabanas; expensive in dorms. Best for couples and activity-focused travellers.",
+        "anchor": "/backpacking-south-africa/garden-route#pilipili-beach-cabanas",
+        "googleRating": "4.4 / 5",
+        "bookingRating": "8.0 / 10",
+        "booking": "https://www.booking.com/hotel/za/pili-pili-beach-cabanas.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [22.93926, -34.03513] },
+      "properties": {
+        "region": "garden-route",
+        "id": "the-riverdeck-lodge",
+        "name": "THE RIVERDECK LODGE AND BACKPACKERS",
+        "address": "N2 National Road, Knysna, 6570",
+        "phone": "+27781345873",
+        "whatsapp": "+27781345873",
+        "email": "info@riverdeck.co.za",
+        "website": "riverdeckrestaurant.co.za",
+        "info": "Best for the riverside cabin experience and the restaurant. For social backpacker Knysna, choose Island Vibe or Knysna Backpackers in town instead.",
+        "anchor": "/backpacking-south-africa/garden-route#the-riverdeck-lodge",
+        "googleRating": "4.1 / 5",
+        "bookingRating": "7.4 / 10",
+        "booking": "https://www.booking.com/hotel/za/the-riverdeck.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [23.04186, -34.03608] },
+      "properties": {
+        "region": "garden-route",
+        "id": "island-vibe-knysna",
+        "name": "ISLAND VIBE BACKPACKERS KNYSNA",
+        "address": "67 Main Road, Knysna Central, 6571",
+        "phone": "+27443821728",
+        "whatsapp": "+27766125057",
+        "email": "knysna@islandvibe.co.za",
+        "website": "islandvibe.co.za",
+        "info": "The reliable central Knysna social hostel. Good for solo travellers on the Baz Bus circuit. Clean employment ethics.",
+        "anchor": "/backpacking-south-africa/garden-route#island-vibe-knysna",
+        "googleRating": "3.9 / 5",
+        "bookingRating": "7.8 / 10",
+        "hwRating": "8.4 / 10",
+        "booking": "https://www.booking.com/hotel/za/island-vibe-knysna.html",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/17272/island-vibe-knysna/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [23.05116, -34.03327] },
+      "properties": {
+        "region": "garden-route",
+        "id": "knysna-backpackers",
+        "name": "KNYSNA BACKPACKERS",
+        "address": "42 Queen Street, Knysna Central, 6571",
+        "phone": "+27604980485",
+        "whatsapp": "+27604980485",
+        "email": "info@knysnabackpackers.co.za",
+        "website": "knysnabackpackers.co.za",
+        "info": "A good choice for travellers seeking peace and quiet.",
+        "anchor": "/backpacking-south-africa/garden-route#knysna-backpackers",
+        "googleRating": "4.1 / 5",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/292092/knysna-backpackers/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [23.05022, -34.03949] },
+      "properties": {
+        "region": "garden-route",
+        "id": "keedols-backpackers",
+        "name": "KEEDOLS INN & BACKPACKERS",
+        "address": "4 Queen Street, Knysna Central, 6571",
+        "phone": "+27829239223",
+        "whatsapp": "+27829239223",
+        "email": "keedols@live.co.za",
+        "website": "keedols.co.za",
+        "info": "Best for groups. The 18-sleeper unit is exceptional value. Good boutique option for independent solo travellers who prefer personal over brand. Clean employment ethics.",
+        "anchor": "/backpacking-south-africa/garden-route#keedols-backpackers",
+        "googleRating": "4.8 / 5",
+        "bookingRating": "8.1 / 10",
+        "booking": "https://www.booking.com/hotel/za/alpaca-inn-knysna12.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [23.36861, -34.05522] },
+      "properties": {
+        "region": "garden-route",
+        "id": "amakaya-backpackers",
+        "name": "AMAKAYA BACKPACKERS & APARTMENTS",
+        "address": "15 Park Lane, Plettenberg Bay, 6600",
+        "phone": "+27445334010",
+        "whatsapp": "+27796915756",
+        "email": "bookings@amakaya.co.za",
+        "website": "amakaya.co.za",
+        "info": "Best for longer stays and self-catering travellers. Good value apartments. Clean employment ethics. For short stays, Nothando is the better Plett choice.",
+        "anchor": "/backpacking-south-africa/garden-route#amakaya-backpackers",
+        "googleRating": "3.9 / 5",
+        "bookingRating": "7.6 / 10",
+        "hwRating": "8.9 / 10",
+        "booking": "https://www.booking.com/hotel/za/amakaya-backpackers.html",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/44908/amakaya-backpackers-travellers-accommodation/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [23.37668, -34.05975] },
+      "properties": {
+        "region": "garden-route",
+        "id": "plett-beachfront",
+        "name": "PLETT BEACHFRONT ACCOMMODATION",
+        "address": "22 Hopwood Street, Plettenberg Bay, 6600",
+        "phone": "+27445334688",
+        "whatsapp": "+27824585344",
+        "email": "info@plettbeachfront.co.za",
+        "website": "plettbeachfrontaccommodation.co.za",
+        "info": "Strong Plett choice, especially for solo women. Good ratings, beachside location, female dorm available. Nothando remains the overall Plett recommendation.",
+        "anchor": "/backpacking-south-africa/garden-route#plett-beachfront",
+        "googleRating": "4.5 / 5",
+        "bookingRating": "8.1 / 10",
+        "booking": "https://www.booking.com/hotel/za/plett-beachfront-accommodation.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [23.37264, -34.05419] },
+      "properties": {
+        "region": "garden-route",
+        "id": "plett-backpackers",
+        "name": "PLETT BACKPACKERS",
+        "address": "21 Main Street, Plettenberg Bay, 6600",
+        "phone": "+27823399531",
+        "whatsapp": "+27823399531",
+        "email": "info@pletbackpackers.co.za",
+        "website": "pletbackpackers.co.za",
+        "info": "The central Main Street option with a penthouse twist. Good for Baz Bus travellers wanting to be in the middle of Plett's action.",
+        "anchor": "/backpacking-south-africa/garden-route#plett-backpackers",
+        "googleRating": "3.6 / 5"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [23.36977, -34.05504] },
+      "properties": {
+        "region": "garden-route",
+        "id": "nothando-backpackers",
+        "name": "NOTHANDO BACKPACKERS ★",
+        "address": "5 Wilder Street, Plettenberg Bay, 6600",
+        "phone": "+27445330220",
+        "whatsapp": "+27828259811",
+        "email": "info@nothando.co.za",
+        "website": "nothando.co.za",
+        "info": "★ The best hostel in Plettenberg Bay. #1 on Hostelworld (9.7/10). The top solo female recommendation on the Garden Route. TGCSA 5-star graded. Outstanding employment ethics. The Robberg hike starts 10 minutes away. Book it.",
+        "anchor": "/backpacking-south-africa/garden-route#nothando-backpackers",
+        "googleRating": "4.6 / 5",
+        "bookingRating": "9.2 / 10",
+        "hwRating": "9.9 / 10",
+        "booking": "https://www.booking.com/hotel/za/nothando-backpackers-lodge.html",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/319728/nothando/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [23.52112, -33.9486] },
+      "properties": {
+        "region": "garden-route",
+        "id": "wild-spirit-backpackers",
+        "name": "WILD SPIRIT BACKPACKERS LODGE",
+        "address": "Khoinania Farm, R102 Nature's Valley Road, The Crags, 6602",
+        "phone": "+27828288008",
+        "whatsapp": "+27828288008",
+        "email": "book.wildspirit@gmail.com",
+        "website": "wildspiritlodge.co.za",
+        "info": "A beautiful property in an extraordinary location.",
+        "anchor": "/backpacking-south-africa/garden-route#wild-spirit-backpackers",
+        "googleRating": "4.6 / 5",
+        "hwRating": "8.8 / 10",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/31428/wild-spirit-lodge/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [23.88294, -33.9728] },
+      "properties": {
+        "region": "garden-route",
+        "id": "tube-n-axe",
+        "name": "TUBE 'N AXE BUDGET ACCOMMODATION",
+        "address": "85 Darnell Street, Storms River, 6308",
+        "phone": "+27422811757",
+        "whatsapp": "+27761530151",
+        "email": "info@tubenaxe.co.za",
+        "website": "tubenaxe.co.za",
+        "info": "The definitive Storms River adventure hostel. Essential for Bloukrans bungee, Blackwater Tubing, and Tsitsikamma activity access. Hot tubs, fire pit, full restaurant. Clean employment ethics.",
+        "anchor": "/backpacking-south-africa/garden-route#tube-n-axe",
+        "googleRating": "4.3 / 5",
+        "bookingRating": "8.4 / 10",
+        "hwRating": "9.4 / 10",
+        "booking": "https://www.booking.com/hotel/za/tube-n-axe-backpackers.html",
+        "hostelworld": "https://www.hostelworld.com/hostels/p/16476/tube-n-axe-backpackers-lodge/"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [23.88176, -33.96997] },
+      "properties": {
+        "region": "garden-route",
+        "id": "dijembe-backpackers",
+        "name": "DIJEMBE BACKPACKERS",
+        "address": "59 Formosa Street, Storms River, 6308",
+        "phone": "+27793422036",
+        "whatsapp": "+27793422036",
+        "email": "dijembe@gmail.com",
+        "website": "dijembebackpackers.com",
+        "info": "The quiet, characterful alternative to Tube 'n Axe. Log cabins, female dorm, rustic forest setting. Same activities, less noise. Highly recommended for independent travellers and solo women. Clean employment ethics.",
+        "anchor": "/backpacking-south-africa/garden-route#dijembe-backpackers",
+        "googleRating": "4.1 / 5",
+        "bookingRating": "7.8 / 10",
+        "booking": "https://www.booking.com/hotel/za/stormsriver-backpackers-dijembe.html"
+      }
+    }
+
+  ]
+}
