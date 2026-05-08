@@ -1121,35 +1121,30 @@
 
 </header>
 
+
      <!-- Header end -->
 
-     <!-- My Map start -->
+     <!-- Map Libre start -->
 
-<div style="height: 143px; width: 100%; display: block; background-color: #2f3130; "></div>
+<div style="height: 143px; width: 100%; display: block;"></div>
 
 <main id="main-content">
 
 <span id="map" style="display:none;" aria-hidden="true"></span>
-<section id="map-visual" style="width: 100vw; margin-left: calc(-50vw + 50%); position: relative; line-height: 0;">
+<section>
 
-    <div class="map-overlay-circle">
-        We list ALL the hostels in South Africa! Click the icons for info.
-    </div>
-    
-    <div id="region-map">
-        <iframe title="Interactive map of backpacker hostels in the Drakensberg region"
-            src="https://www.google.com/maps/d/embed?mid=1YlCywz3bXNDCOhw6bLz-F3iPhC9XD4A&ehbc=2E312F&noprof=1&ll=-29.50,29.43&z=8" 
-            width="100%" height="564" style="border:0; display: block;" allowfullscreen="">
-        </iframe>
-    </div>
 
-    <div id="map-fallback" style="display:none;">
-        <picture>
-            <source media="(max-width: 767px)" srcset="/assets/fallback_map_drakensberg_mobile.jpg">
-            
-            <img src="/assets/fallback_map_drakensberg.jpg" alt="Map unavailable offline" style="width: 100%; height: auto; display: block; margin: 0;">
-        </picture>
-    </div>
+<div id="bb-map-wrap"></div>
+<script>
+  window.BB_MAP_CONFIG = {
+    region: 'cederberg',
+    center: [29.48, -29.51],
+    zoom: 11,
+    pitch: 25,
+    bearing: 330
+  };
+</script>
+<script src="/assets/js/hostel-map.js" defer></script>
 
 </section>
 
