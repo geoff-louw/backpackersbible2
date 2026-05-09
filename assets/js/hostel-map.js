@@ -33,9 +33,13 @@
   const cfg     = window.BB_MAP_CONFIG || {};
   const REGION  = cfg.region  || 'national';
   const CENTER  = cfg.center  || [25.0, -29.0];
-  const ZOOM    = cfg.zoom    !== undefined ? cfg.zoom    : (REGION === 'national' ? 5 : 11);
-  const PITCH   = cfg.pitch   !== undefined ? cfg.pitch   : 55;
-  const BEARING = cfg.bearing !== undefined ? cfg.bearing : 0;
+  const isMobile = window.innerWidth <= 768;
+  // On mobile, zoom out by 1.5 stops so the full region fits on screen
+  const ZOOM    = cfg.zoom    !== undefined
+    ? (isMobile ? Math.max(cfg.zoom - 1.5, 3) : cfg.zoom)
+    : (REGION === 'national' ? (isMobile ? 4 : 5) : 11);
+  const PITCH   = isMobile ? 0 : (cfg.pitch   !== undefined ? cfg.pitch   : 55);
+  const BEARING = isMobile ? 0 : (cfg.bearing !== undefined ? cfg.bearing : 0);
 
   const wrap = document.getElementById('bb-map-wrap');
   if (!wrap) return;
@@ -58,7 +62,7 @@
       Switch to 2D
     </button>
     <div id="bb-map-offline"
-         style="display:none;position:absolute;inset:0;background:${BRAND_YELLOW};
+         style="display:none;position:absolute;top:0;right:0;bottom:0;left:0;background:${BRAND_YELLOW};
                 align-items:center;justify-content:center;flex-direction:column;
                 font-family:'Century Gothic',sans-serif;text-align:center;padding:20px;">
       <p style="font-weight:bold;color:#333;margin:0 0 12px;">Map unavailable offline</p>
@@ -152,7 +156,12 @@
     const ratings = (gr||br||hwr) ? `<hr>${gr}${br}${hwr}` : '';
     const anchor  = h.anchor || '';
     const pageSlug = anchor.includes('#') ? '#'+anchor.split('#')[1] : anchor;
-    const moreClick = pageSlug ? `onclick="event.preventDefault();var t=document.querySelector('${pageSlug}');if(t)t.scrollIntoView({behavior:'smooth'});"` : '';
+    // On national map the anchor is a full path eg /backpacking-south-africa/cape-town#slug
+    // so we navigate to it. On regional pages the target is on the same page so we smooth-scroll.
+    const isExternalAnchor = anchor.includes('/') && anchor.includes('#');
+    const moreClick = isExternalAnchor
+      ? `onclick="window.location.href='${anchor}';event.preventDefault();"`
+      : (pageSlug ? `onclick="event.preventDefault();var t=document.querySelector('${pageSlug}');if(t)t.scrollIntoView({behavior:'smooth'});"` : '');
     const more = anchor ? ` <a href="${anchor}" class="bb-popup-more" ${moreClick} aria-label="More info about ${h.name}">More info ›</a>` : '';
     const btns = (h.booking||h.hostelworld) ? `
       <div class="bb-popup-btns">
