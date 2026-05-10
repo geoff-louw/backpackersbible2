@@ -1363,10 +1363,10 @@ details summary {
     list-style: none;
     cursor: pointer;
     display: inline-block;
-    background-color: var(--color-red);   /* #bc1d23 */
+    background-color: var(--color-red);
     color: #ffffff;
     padding: 12px 28px;
-    font-family: var(--font-body);
+    font-family: var(--font-primary);
     font-size: var(--text-base);
     font-weight: normal;
     text-align: center;
@@ -1394,11 +1394,11 @@ details[open] summary {
     margin-bottom: 15px;
 }
 
-/* Closed state: gap between the "Read More" button and whatever
-   follows (typically a parallax image). Uses the same token as
-   .text-section--after-parallax so the rhythm is consistent. */
+/* Closed state: 60px gap below the button before the next element
+   (typically a parallax image). padding-bottom on the details element
+   avoids margin-collapse and is not affected by the summary's own margin. */
 details:not([open]) {
-    margin-bottom: var(--space-section-gap);
+    padding-bottom: var(--space-section-gap);
 }
 
 @media (max-width: 600px) {
@@ -1444,10 +1444,13 @@ details:not([open]) {
     outline-offset: 2px;
 }
 
-/* Wrapper — centres the button with consistent vertical space */
+/* Wrapper — centres the button with consistent vertical space.
+   Uses padding-bottom (not margin-bottom) so it doesn't collapse
+   with the margin-top of the following heading. */
 .section-cta {
     text-align: center;
-    margin: 2.5rem auto 3rem auto; /* ~40px above, ~48px below */
+    margin-top: 2rem;
+    padding-bottom: var(--space-section-gap);
 }
 
 /* Lead-in label above the button */
@@ -1667,11 +1670,18 @@ details:not([open]) {
    .btn-getyourguide-com  — orange GYG brand button
    ============================================================ */
 
+/* ============================================================
+   17. GETYOURGUIDE TOUR CARDS
+   Core rules copied verbatim from style.css (confirmed working).
+   Additions: padding on .tour-section, .tour-card--desktop-only
+   for hiding extra cards on mobile, and .booking-btn-container.
+   ============================================================ */
+
 .tour-section {
-    background-color: var(--color-yellow);
+    background-color: #ffd400;
     width: 100%;
-    padding: var(--space-section-gap) 0 var(--space-lg) 0;
     box-sizing: border-box;
+    padding: var(--space-section-gap) 0 var(--space-lg) 0;
     text-align: center;
 }
 
@@ -1682,27 +1692,24 @@ details:not([open]) {
     margin: var(--space-lg) auto 0 auto;
     justify-content: center;
     max-width: 1100px;
-    padding: 0 var(--space-sm);
-    box-sizing: border-box;
 }
 
 .tour-card {
     text-decoration: none;
-    color: var(--color-grey-dark);
+    color: #333;
     border-radius: 12px;
     overflow: hidden;
-    transition: transform var(--transition-base), box-shadow var(--transition-base);
-    background-color: var(--color-white);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #ffffff;
     width: 300px;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
 .tour-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-    text-decoration: none;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
 }
 
 .tour-image {
@@ -1710,58 +1717,56 @@ details:not([open]) {
     height: 180px;
     background-size: cover;
     background-position: center;
-    flex-shrink: 0;
 }
 
-/* Photo credit badge — bottom-right of tour image.
-   Also used on the static hero image (.hero-section). */
 .img-attr {
     position: absolute;
     bottom: 8px;
     right: 8px;
     font-size: 9px;
-    font-family: Arial, sans-serif;
     background: rgba(0, 0, 0, 0.5);
-    color: var(--color-white);
+    color: white;
     padding: 2px 5px;
     border-radius: 3px;
     pointer-events: none;
-    line-height: 1.3;
 }
 
 .tour-info {
     padding: 20px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
 .tour-info h4 {
     margin: 0 0 10px 0;
     font-size: 1.1rem;
-    font-weight: bold;
     line-height: 1.3;
-    color: var(--color-grey-dark);
 }
 
 .tour-price {
     font-weight: bold;
     color: #27ae60;
     margin: 0;
-    font-size: var(--text-base);
+}
+
+/* Booking platform buttons container */
+.booking-btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin: 40px 0;
+    flex-wrap: wrap;
 }
 
 /* GetYourGuide brand button */
 .btn-getyourguide-com {
-    display: inline-flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     width: 268px;
     min-width: 268px;
     height: 92px;
+    min-height: 92px;
     background-color: #ff5534;
-    color: var(--color-white);
+    color: #ffffff;
     text-decoration: none;
     font-family: 'Arial Black', sans-serif;
     font-size: 14pt;
@@ -1769,33 +1774,32 @@ details:not([open]) {
     border: none;
     border-radius: 0;
     cursor: pointer;
-    transition: background-color var(--transition-base);
 }
 
-.btn-getyourguide-com:hover,
-.btn-getyourguide-com:focus-visible {
-    background-color: #e04020;
-    color: var(--color-white);
+.btn-getyourguide-com:hover {
+    color: #ffffff;
     text-decoration: none;
+}
+
+.btn-getyourguide-com:focus-visible {
     outline: 3px solid var(--color-yellow-bright);
     outline-offset: 2px;
 }
 
-/* Centre the GYG button below the grid */
-.booking-btn-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin: var(--space-lg) auto var(--space-sm) auto;
-    width: 100%;
+/* Hide extra tour cards on mobile — show only 3 cards (the ones
+   without this class). Avoids an excessively long page on phones. */
+.tour-card--desktop-only {
+    display: none;
 }
 
+@media (min-width: 700px) {
+    .tour-card--desktop-only {
+        display: flex;
+    }
+}
+
+/* Mobile: single-column grid */
 @media (max-width: 350px) {
-    .tour-grid {
-        grid-template-columns: 1fr;
-    }
-    .tour-card {
-        width: 100%;
-    }
+    .tour-grid { grid-template-columns: 1fr; }
+    .tour-card { width: 100%; }
 }
