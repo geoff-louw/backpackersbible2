@@ -15,6 +15,7 @@
    9.  Map Section
    10. Jump Menu
    11. Quick Jump Menu
+   12. Text Sections (headings, paragraphs, details/summary)
    ============================================================ */
 
 
@@ -97,6 +98,10 @@
     --space-lg:   2.5rem;
     --space-xl:   4rem;
     --space-2xl:  6rem;
+
+    /* Gap between a parallax image and the section that follows it.
+       3.75rem ≈ 60px desktop  |  overridden to 1.875rem ≈ 30px at ≤1100px */
+    --space-section-gap: 3.75rem;
 
     /* Layout */
     --container-max:  1200px;
@@ -1203,6 +1208,14 @@ main {
     box-sizing: border-box;
 }
 
+/* Modifier: adds the standard parallax→section gap as padding-top.
+   Apply whenever a .text-section (or equivalent) immediately follows
+   a parallax image. Replaces the old hide-on-mobile/hide-on-desktop
+   spacer divs throughout the site. */
+.text-section--after-parallax {
+    padding-top: var(--space-section-gap);
+}
+
 /* Inner container — constrains content width */
 .text-section__inner {
     max-width: var(--container-text);  /* 874px */
@@ -1273,6 +1286,11 @@ main {
 /* Tablet */
 @media (max-width: 1100px) {
 
+    :root {
+        /* 30px gap on mobile/tablet between parallax and following section */
+        --space-section-gap: 1.875rem;
+    }
+
     .area-hero-title {
         font-size: 2.8rem;
         line-height: 1.15;
@@ -1324,6 +1342,59 @@ main {
 
 }
 
+/* ============================================================
+   12b. DETAILS / SUMMARY — "Read More / Read Less" toggle
+   Used site-wide inside .text-section and .container-wide.
+   ============================================================ */
+
+/* Wrapper — centres the button */
+details {
+    text-align: center;
+    margin: 10px 0 0 0;
+}
+
+/* The button itself */
+details summary {
+    list-style: none;
+    cursor: pointer;
+    display: inline-block;
+    background-color: var(--color-red);   /* #bc1d23 */
+    color: #ffffff;
+    padding: 12px 28px;
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: normal;
+    text-align: center;
+    border: none;
+    border-radius: 0;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    margin-bottom: 40px;
+}
+
+/* Remove default WebKit triangle */
+details summary::-webkit-details-marker { display: none; }
+
+details summary:hover,
+details summary:focus-visible {
+    background-color: var(--color-red);
+    color: #e76b70;
+    outline: 3px solid var(--color-yellow-bright);
+    outline-offset: 2px;
+}
+
+/* When open — slightly deeper red, reduced bottom margin */
+details[open] summary {
+    background-color: #d40000;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 600px) {
+    details summary {
+        margin-bottom: 20px;
+        padding: 10px 20px;
+    }
+}
 
 
 /* ============================================================
