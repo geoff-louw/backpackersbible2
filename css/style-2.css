@@ -17,6 +17,10 @@
    11. Quick Jump Menu
    12. Text Sections (headings, paragraphs, details/summary)
    13. Parallax Sections
+   14. Colour Strips
+   15. Tour Guide Popup
+   16. Z-Index Overrides (mobile)
+   17. GetYourGuide Tour Cards
    ============================================================ */
 
 
@@ -1390,6 +1394,13 @@ details[open] summary {
     margin-bottom: 15px;
 }
 
+/* Closed state: gap between the "Read More" button and whatever
+   follows (typically a parallax image). Uses the same token as
+   .text-section--after-parallax so the rhythm is consistent. */
+details:not([open]) {
+    margin-bottom: var(--space-section-gap);
+}
+
 @media (max-width: 600px) {
     details summary {
         margin-bottom: 20px;
@@ -1641,4 +1652,150 @@ details[open] summary {
         z-index: 9998 !important;
     }
 
+}
+
+/* ============================================================
+   17. GETYOURGUIDE TOUR CARDS
+
+   .tour-section          — yellow full-width wrapper
+   .tour-grid             — responsive card grid
+   .tour-card             — individual tour card (white on yellow)
+   .tour-image            — card image with attribution badge
+   .img-attr              — photo credit badge (bottom-right)
+   .tour-info             — card text area
+   .tour-price            — green price line
+   .btn-getyourguide-com  — orange GYG brand button
+   ============================================================ */
+
+.tour-section {
+    background-color: var(--color-yellow);
+    width: 100%;
+    padding: var(--space-section-gap) 0 var(--space-lg) 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.tour-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+    gap: 25px;
+    margin: var(--space-lg) auto 0 auto;
+    justify-content: center;
+    max-width: 1100px;
+    padding: 0 var(--space-sm);
+    box-sizing: border-box;
+}
+
+.tour-card {
+    text-decoration: none;
+    color: var(--color-grey-dark);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    background-color: var(--color-white);
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.tour-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+}
+
+.tour-image {
+    position: relative;
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
+}
+
+/* Photo credit badge — bottom-right of tour image.
+   Also used on the static hero image (.hero-section). */
+.img-attr {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    font-size: 9px;
+    font-family: Arial, sans-serif;
+    background: rgba(0, 0, 0, 0.5);
+    color: var(--color-white);
+    padding: 2px 5px;
+    border-radius: 3px;
+    pointer-events: none;
+    line-height: 1.3;
+}
+
+.tour-info {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.tour-info h4 {
+    margin: 0 0 10px 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    line-height: 1.3;
+    color: var(--color-grey-dark);
+}
+
+.tour-price {
+    font-weight: bold;
+    color: #27ae60;
+    margin: 0;
+    font-size: var(--text-base);
+}
+
+/* GetYourGuide brand button */
+.btn-getyourguide-com {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 268px;
+    min-width: 268px;
+    height: 92px;
+    background-color: #ff5534;
+    color: var(--color-white);
+    text-decoration: none;
+    font-family: 'Arial Black', sans-serif;
+    font-size: 14pt;
+    text-align: center;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    transition: background-color var(--transition-base);
+}
+
+.btn-getyourguide-com:hover,
+.btn-getyourguide-com:focus-visible {
+    background-color: #e04020;
+    color: var(--color-white);
+    text-decoration: none;
+    outline: 3px solid var(--color-yellow-bright);
+    outline-offset: 2px;
+}
+
+/* Centre the GYG button below the grid */
+.booking-btn-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: var(--space-lg) auto var(--space-sm) auto;
+    width: 100%;
+}
+
+@media (max-width: 350px) {
+    .tour-grid {
+        grid-template-columns: 1fr;
+    }
+    .tour-card {
+        width: 100%;
+    }
 }
