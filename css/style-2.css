@@ -1761,6 +1761,18 @@ details:not([open]) {
     padding-bottom: var(--space-section-gap); /* gap before next element (map image) */
 }
 
+/* Standard inline blue hyperlink — used in body text and hostel lists */
+.blue-link {
+    color: #0000e0;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.blue-link:hover {
+    color: #000000;
+    text-decoration: underline;
+}
+
 /* GetYourGuide brand button */
 .btn-getyourguide-com {
     display: flex;
@@ -2029,59 +2041,60 @@ details:not([open]) {
    19b. HOSTEL TOGGLE BUTTON  (.hostel-toggle)
 
    Left-aligned variant of the details/summary button used inside
-   .hostel-col. Text ("Hostels" / "Close") is set directly in HTML
-   and swapped by script-2.js on toggle, so it works everywhere.
+   .hostel-col. Same size as the global summary button but left-
+   aligned. Text ("Hostels"/"Close") is in the HTML and swapped
+   by script-2.js on toggle.
    ============================================================ */
 
-/* Left-align the details wrapper for hostel columns.
-   Uses a class on the details element itself for broad compatibility. */
 details.hostel-details {
     text-align: left;
     margin: 0.5rem 0 0 0;
-    padding-bottom: 0; /* no parallax follows — no gap needed here */
 }
 
-/* Override the global details:not([open]) padding-bottom */
+/* Suppress the parallax gap — next element is always a heading */
+details.hostel-details,
 details.hostel-details:not([open]) {
     padding-bottom: 0;
 }
 
-.hostel-toggle {
+/* The button — matches the global summary size exactly so it
+   never changes dimensions on open/close */
+details.hostel-details > summary.hostel-toggle {
     list-style: none;
     cursor: pointer;
     display: inline-block;
     background-color: var(--color-red);
     color: #ffffff;
-    padding: 8px 20px;
+    padding: 12px 28px;
     font-family: var(--font-primary);
-    font-size: var(--text-sm);
+    font-size: var(--text-base);
     font-weight: normal;
     text-align: center;
     border: none;
     border-radius: 0;
     transition: background-color 0.2s ease, color 0.2s ease;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.75rem; /* consistent — never changes */
 }
 
-.hostel-toggle::-webkit-details-marker { display: none; }
-.hostel-toggle::marker { display: none; }
+details.hostel-details > summary.hostel-toggle::-webkit-details-marker { display: none; }
+details.hostel-details > summary.hostel-toggle::marker { display: none; }
 
-.hostel-toggle:hover,
-.hostel-toggle:focus-visible {
+details.hostel-details > summary.hostel-toggle:hover,
+details.hostel-details > summary.hostel-toggle:focus-visible {
     background-color: var(--color-red);
     color: #e76b70;
     outline: 3px solid var(--color-yellow-bright);
     outline-offset: 2px;
 }
 
-details[open] > .hostel-toggle {
+details.hostel-details[open] > summary.hostel-toggle {
     background-color: #d40000;
     color: #ffffff;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem; /* same as closed — no size jump */
 }
 
-/* Space between the end of the hostel list and the next heading */
-details.hostel-details[open] .expanded-text {
+/* Space between the last hostel link and the next h4 */
+details.hostel-details[open] > .expanded-text {
     margin-bottom: 1.5rem;
 }
 
