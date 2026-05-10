@@ -21,6 +21,8 @@
    15. Tour Guide Popup
    16. Z-Index Overrides (mobile)
    17. GetYourGuide Tour Cards
+   18. Map Image (hero-section)
+   19. Hostel Directory
    ============================================================ */
 
 
@@ -1394,9 +1396,9 @@ details[open] summary {
     margin-bottom: 15px;
 }
 
-/* Closed state: 60px gap below the button before the next element
-   (typically a parallax image). padding-bottom on the details element
-   avoids margin-collapse and is not affected by the summary's own margin. */
+/* Closed state: gap between the "Read More" button and whatever
+   follows. padding-bottom avoids margin-collapse. Used when a
+   parallax image follows directly (no section padding-top to rely on). */
 details:not([open]) {
     padding-bottom: var(--space-section-gap);
 }
@@ -1681,7 +1683,7 @@ details:not([open]) {
     background-color: #ffd400;
     width: 100%;
     box-sizing: border-box;
-    padding: var(--space-section-gap) 0 var(--space-lg) 0;
+    padding: 0 0 var(--space-lg) 0;
     text-align: center;
 }
 
@@ -1752,8 +1754,9 @@ details:not([open]) {
     display: flex;
     justify-content: center;
     gap: 32px;
-    margin: 40px 0;
+    margin: 40px 0 0 0;
     flex-wrap: wrap;
+    padding-bottom: var(--space-section-gap); /* gap before next element (map image) */
 }
 
 /* GetYourGuide brand button */
@@ -1802,4 +1805,212 @@ details:not([open]) {
 @media (max-width: 350px) {
     .tour-grid { grid-template-columns: 1fr; }
     .tour-card { width: 100%; }
+}
+
+
+/* ============================================================
+   18. MAP IMAGE (hero-section)
+   Full-width static image — not a parallax. Used for the SA map
+   and any other full-bleed pictures. Verbatim from style.css.
+   ============================================================ */
+
+.hero-section {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: block;
+    line-height: 0; /* removes ghost-padding below inline images */
+    overflow: hidden;
+}
+
+.hero-img-fluid {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Desktop: fixed aspect ratio (1920×662) */
+@media (min-width: 768px) {
+    .hero-img-fluid {
+        aspect-ratio: 1920 / 662;
+        max-height: 662px;
+    }
+}
+
+/* Mobile: square crop */
+@media (max-width: 767px) {
+    .hero-img-fluid {
+        aspect-ratio: 1 / 1;
+        width: 100%;
+    }
+}
+
+
+/* ============================================================
+   19. HOSTEL DIRECTORY
+   .top-pics-section      — outer yellow wrapper
+   .hostel-list-section   — inner section (flex column, centred)
+   .hostel-grid           — 2-col grid of hostel lists
+   .hostel-col            — left-aligned column
+   .btn-booking-com       — Booking.com navy button
+   .btn-hostelworld-com   — Hostelworld orange button
+   Verbatim from style.css. Spacer divs replaced by padding-top
+   on .top-pics-section using --space-section-gap.
+   ============================================================ */
+
+.top-pics-section {
+    background-color: #ffd400;
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: var(--space-section-gap); /* replaces hide-on-mobile spacer divs */
+}
+
+.hostel-list-section {
+    background-color: #ffd400;
+    width: 100%;
+    min-height: auto;
+    padding: 10px 0 50px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hostel-col {
+    text-align: left;
+}
+
+.hostel-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 120px;
+    max-width: 1100px;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.hostel-list-section ul {
+    list-style-type: disc;
+    padding-left: 18px;
+    margin: 0;
+    text-align: left;
+}
+
+.hostel-list-section li a {
+    font-family: var(--font-primary);
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #0000f6;
+    text-decoration: none;
+    display: inline-block;
+    line-height: 1.5;
+}
+
+.hostel-list-section li a:hover {
+    color: #000000;
+}
+
+/* Shared base for all booking-platform buttons */
+.btn-booking-com,
+.btn-hostelworld-com {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 268px;
+    min-width: 268px;
+    height: 92px;
+    min-height: 92px;
+    text-decoration: none;
+    font-family: 'Arial Black', sans-serif;
+    font-size: 14pt;
+    text-align: center;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+}
+
+.btn-booking-com {
+    background-color: #253c7e;
+    color: #ffffff;
+}
+
+.btn-booking-com span.dot-com {
+    color: #4d9ed7;
+}
+
+.btn-booking-com:hover { color: #4d9ed7; text-decoration: none; }
+
+.btn-hostelworld-com {
+    background-color: #f3724a;
+    color: #ffffff;
+}
+
+.btn-hostelworld-com:hover { color: #f39c8c; text-decoration: none; }
+
+.btn-booking-com:focus-visible,
+.btn-hostelworld-com:focus-visible {
+    outline: 3px solid var(--color-yellow-bright);
+    outline-offset: 2px;
+}
+
+/* Gap between intro paragraphs and the hostel grid.
+   Replaces hide-on-mobile spacer divs (60px desktop / 30px mobile). */
+.hostel-list-section .container-wide {
+    padding-top: 0;
+}
+
+.hostel-grid-spacer {
+    height: var(--space-section-gap);
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 1100px) {
+    .top-pics-section {
+        overflow-x: hidden;
+        width: 100%;
+        box-sizing: border-box;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .hostel-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+        width: 100%;
+        max-width: 100%;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+    .hostel-col {
+        width: 100%;
+    }
+    .hostel-list-section ul {
+        padding-left: 20px;
+    }
+    .hostel-list-section li {
+        margin-bottom: 6px;
+    }
+    .hostel-list-section li a {
+        display: inline;
+        line-height: 1.6;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .hostel-col p,
+    .hostel-col .detail-p,
+    .hostel-col li {
+        font-size: 0.95rem;
+        line-height: 1.8rem;
+    }
+    .hostel-col ul {
+        padding-left: 15px;
+        margin-left: 0;
+        list-style-position: outside;
+        text-align: left;
+    }
+    .hostel-col li {
+        margin-left: 0;
+        padding-left: 0;
+    }
 }
