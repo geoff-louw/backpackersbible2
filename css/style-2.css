@@ -16,6 +16,7 @@
    10. Jump Menu
    11. Quick Jump Menu
    12. Text Sections (headings, paragraphs, details/summary)
+   13. Parallax Sections
    ============================================================ */
 
 
@@ -1393,6 +1394,74 @@ details[open] summary {
     details summary {
         margin-bottom: 20px;
         padding: 10px 20px;
+    }
+}
+
+
+/* ============================================================
+   12c. CTA BUTTONS & SECTION LINKS
+   
+   .download-btn      — the standard red call-to-action button used
+                        throughout the site (migrated from style.css).
+   .section-cta       — wrapper block that centres a button and provides
+                        consistent vertical breathing room. Replaces
+                        <center> tags and inline margin hacks.
+   .section-cta__label — the "FOR IN-DEPTH INFO ON X, SEE:" lead-in
+                        that appears above some .section-cta blocks.
+                        Replaces style="margin-top: 70px" on .intro-p.
+   ============================================================ */
+
+.download-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: var(--text-md);        /* 1.2rem */
+    font-family: var(--font-primary);
+    background-color: var(--color-red);
+    color: var(--color-white);
+    text-decoration: none;
+    line-height: 1.2;
+    text-align: center;
+    transition: background-color var(--transition-base);
+}
+
+.download-btn:hover,
+.download-btn:focus-visible {
+    background-color: var(--color-red-dark);
+    color: var(--color-white);
+    text-decoration: none;
+    outline: 3px solid var(--color-yellow-bright);
+    outline-offset: 2px;
+}
+
+/* Wrapper — centres the button with consistent vertical space */
+.section-cta {
+    text-align: center;
+    margin: 2.5rem auto 3rem auto; /* ~40px above, ~48px below */
+}
+
+/* Lead-in label above the button */
+.section-cta__label {
+    font-size: var(--text-lg);        /* 1.4rem — matches .intro-p */
+    font-weight: bold;
+    color: var(--color-black);
+    text-align: center;
+    margin: 2.5rem auto 1rem auto;    /* gap above matches section rhythm */
+    max-width: var(--container-text);
+    display: block;
+}
+
+/* Gap before the first h3/h4 inside an expanded <details> block.
+   Applied to the heading element itself so the gap is part of the
+   heading's own spacing, not a separate spacer div. Uses the same
+   --space-section-gap token (60px desktop / 30px mobile). */
+.expanded-text__first-heading {
+    margin-top: var(--space-section-gap) !important;
+}
+
+@media (max-width: 600px) {
+    .download-btn {
+        padding: 12px 24px;
+        font-size: var(--text-base);
     }
 }
 
