@@ -685,6 +685,17 @@
         document.querySelectorAll('details').forEach(function (details) {
             var summary = details.querySelector('summary');
             if (!summary) return;
+
+            /* .hostel-toggle buttons use "Hostels" / "Close" instead of
+               "Read More" / "Read Less". Text lives directly in the summary
+               so it's always visible even if JS is slow to load. */
+            if (summary.classList.contains('hostel-toggle')) {
+                details.addEventListener('toggle', function () {
+                    summary.textContent = details.open ? 'Close' : 'Hostels';
+                });
+                return;
+            }
+
             details.addEventListener('toggle', function () {
                 summary.textContent = details.open ? 'Read Less' : 'Read More';
             });
