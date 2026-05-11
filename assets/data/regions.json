@@ -11,7 +11,7 @@
     "bearing": 0,
     "color": "#0288D1",
     "lineColor": "#0288D1",
-    "fillOpacity": 0.34,
+    "fillOpacity": 0.3,
     "geom": "Polygon",
     "polygon": [
       [
@@ -84,7 +84,7 @@
     "bearing": 0,
     "color": "#9C27B0",
     "lineColor": "#9C27B0",
-    "fillOpacity": 0.35,
+    "fillOpacity": 0.3,
     "geom": "Polygon",
     "polygon": [
       [
@@ -161,7 +161,7 @@
     "bearing": 0,
     "color": "#FFD600",
     "lineColor": "#FFD600",
-    "fillOpacity": 0.35,
+    "fillOpacity": 0.3,
     "geom": "Polygon",
     "polygon": [
       [
@@ -238,7 +238,7 @@
     "bearing": 0,
     "color": "#FF5252",
     "lineColor": "#FF5252",
-    "fillOpacity": 0.37,
+    "fillOpacity": 0.3,
     "geom": "Polygon",
     "polygon": [
       [
@@ -287,7 +287,7 @@
     "bearing": 0,
     "color": "#0288D1",
     "lineColor": "#0288D1",
-    "fillOpacity": 0.32,
+    "fillOpacity": 0.3,
     "geom": "Polygon",
     "polygon": [
       [
@@ -332,7 +332,7 @@
     "bearing": 0,
     "color": "#C2185B",
     "lineColor": "#C2185B",
-    "fillOpacity": 0.31,
+    "fillOpacity": 0.3,
     "geom": "Polygon",
     "polygon": [
       [
@@ -369,7 +369,7 @@
     "bearing": 0,
     "color": "#FBC02D",
     "lineColor": "#FBC02D",
-    "fillOpacity": 0.38,
+    "fillOpacity": 0.3,
     "geom": "Polygon",
     "polygon": [
       [
@@ -430,7 +430,7 @@
     "bearing": 0,
     "color": "#C2185B",
     "lineColor": "#C2185B",
-    "fillOpacity": 0.34,
+    "fillOpacity": 0.3,
     "geom": "Polygon",
     "polygon": [
       [
@@ -487,7 +487,7 @@
     "bearing": 0,
     "color": "#F57C00",
     "lineColor": "#F57C00",
-    "fillOpacity": 0.39,
+    "fillOpacity": 0.3,
     "geom": "Polygon",
     "polygon": [
       [
@@ -528,7 +528,7 @@
     "bearing": 0,
     "color": "#E65100",
     "lineColor": "#E65100",
-    "fillOpacity": 0.49,
+    "fillOpacity": 0.3,
     "geom": "Polygon",
     "polygon": [
       [
@@ -573,7 +573,7 @@
     "bearing": 0,
     "color": "#3949AB",
     "lineColor": "#3949AB",
-    "fillOpacity": 0.42,
+    "fillOpacity": 0.3,
     "geom": "Polygon",
     "polygon": [
       [
@@ -803,7 +803,7 @@
     "bearing": 0,
     "color": "#0F9D58",
     "lineColor": "#0F9D58",
-    "fillOpacity": 0.28,
+    "fillOpacity": 0.3,
     "geom": "Polygon",
     "polygon": [
       [
@@ -848,7 +848,7 @@
     "bearing": 0,
     "color": "#A52714",
     "lineColor": "#A52714",
-    "fillOpacity": 0.7,
+    "fillOpacity": 0.3,
     "geom": "Polygon",
     "polygon": [
       [
@@ -1025,7 +1025,7 @@
     "bearing": 0,
     "color": "#9C27B0",
     "lineColor": "#9C27B0",
-    "fillOpacity": 0.61,
+    "fillOpacity": 0.3,
     "geom": "Polygon",
     "polygon": [
       [
@@ -1571,7 +1571,7 @@
     "bearing": 0,
     "color": "#0097A7",
     "lineColor": "#0097A7",
-    "fillOpacity": 0.08,
+    "fillOpacity": 0.3,
     "geom": "Polygon",
     "polygon": [
       [
@@ -1692,7 +1692,7 @@
     "bearing": 0,
     "color": "#7CB342",
     "lineColor": "#7CB342",
-    "fillOpacity": 0.34,
+    "fillOpacity": 0.3,
     "geom": "Polygon",
     "polygon": [
       [
