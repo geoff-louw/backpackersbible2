@@ -25,6 +25,7 @@
    19. Hostel Directory
    19b. Hostel Toggle Button
    20. Top Picks (card-grid / hostel-card)
+   21. Free Offline Guide / PWA Section
    ============================================================ */
 
 
@@ -2073,7 +2074,7 @@ details.hostel-details > summary.hostel-toggle {
     border: none;
     border-radius: 0;
     transition: background-color 0.2s ease, color 0.2s ease;
-    margin-bottom: 0.75rem; /* consistent — never changes */
+    margin-bottom: 1.875rem; /* 30px — consistent open and closed, no size jump */
 }
 
 details.hostel-details > summary.hostel-toggle::-webkit-details-marker { display: none; }
@@ -2090,7 +2091,7 @@ details.hostel-details > summary.hostel-toggle:focus-visible {
 details.hostel-details[open] > summary.hostel-toggle {
     background-color: #d40000;
     color: #ffffff;
-    margin-bottom: 0.75rem; /* same as closed — no size jump */
+    margin-bottom: 1.875rem; /* 30px — same as closed, no size jump */
 }
 
 /* Space between the last hostel link and the next h4 */
@@ -2239,4 +2240,165 @@ details.hostel-details[open] > .expanded-text {
     .hostel-card p {
         width: 100%;
     }
+}
+
+
+/* ============================================================
+   21. FREE OFFLINE GUIDE / PWA SECTION
+
+   .phone-images      — wrapper for the phone mockup images
+   .phone-mockup      — the actual img element
+   .desktop-only      — visible ≥601px, hidden on mobile
+   .mobile-only       — visible ≤600px, hidden on desktop
+   .product-grid      — two-column flex layout for Lite vs Full
+   .product-col       — individual product column
+   .promo-circle      — "ABSOLUTELY FREE!" badge
+   .product-title     — h3 inside each product column
+   .file-specs        — small print below download buttons
+   .qr-code           — QR code image
+   .download-btn      — already defined in section 12c; the PWA
+                        section uses width/height overrides here
+   #download-status   — JS-written status text
+   #install-instructions — post-download how-to panel
+   ============================================================ */
+
+/* Phone mockup images */
+.phone-images {
+    text-align: center;
+    margin: 2rem 0 1rem 0;
+}
+
+.phone-mockup {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+/* Desktop shows wide image; hide mobile image */
+.desktop-only { display: block; }
+.mobile-only  { display: none; }
+
+@media (min-width: 601px) {
+    .mobile-only { display: none !important; }
+    .phone-images { display: block; }
+}
+
+@media (max-width: 600px) {
+    .desktop-only { display: none !important; }
+    .phone-images { display: block; }
+
+    .phone-mockup.mobile-only {
+        display: block !important;
+        width: 85%;
+        max-width: 450px;
+        margin: 1rem auto;
+    }
+}
+
+/* Two-column product grid (Lite PDF vs Full App) */
+.product-grid {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.product-col {
+    width: 470px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    text-align: center;
+}
+
+/* "ABSOLUTELY FREE!" badge */
+.promo-circle {
+    width: 110px;
+    height: 110px;
+    background-color: #fff200;
+    border: 5pt solid #ffffff;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    z-index: 2;
+}
+
+.promo-circle__top {
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+.promo-circle__price {
+    font-size: 24pt;
+    font-weight: bold;
+    line-height: 1;
+}
+
+/* Product icon images */
+.product-icon {
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+h3.product-title {
+    font-size: 18pt;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+/* Download buttons in this section are wider than the default */
+.product-col .download-btn {
+    width: 330px;
+    height: 84px;
+    font-size: 12pt;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.file-specs {
+    font-size: 12pt;
+    margin: 15px 0 50px 0;
+    line-height: 1.2;
+}
+
+.qr-code {
+    width: 225px;
+    height: 225px;
+    margin-top: 20px;
+}
+
+/* JS-written download status line */
+#download-status {
+    font-size: 0.8rem;
+    margin-top: 5px;
+    color: #555;
+}
+
+/* Post-download install instructions panel */
+#install-instructions {
+    display: none; /* shown by JS */
+    font-size: 0.85rem;
+    margin-top: 15px;
+    padding: 12px 16px;
+    background: #fff3cd;
+    border-radius: 8px;
+    text-align: left;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .product-grid { gap: 50px; }
+}
+
+@media (max-width: 600px) {
+    .product-col { width: 100%; }
+    .product-col .download-btn { width: 100%; max-width: 330px; }
+    .qr-code { display: none; } /* QR codes are desktop-only — pointless on mobile */
 }
