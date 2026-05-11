@@ -4,7 +4,9 @@ const CACHE_NAME = 'backpackers-bible-v2';
 const INITIAL_CACHE = [
   '/',
   '/index.html',
-  '/css/style.css',
+  '/css/style-2.css',
+  '/js/pwa.js',
+  '/pwa-files.json',
   '/assets/android-chrome-512x512.png'
 ];
 
@@ -14,9 +16,9 @@ self.addEventListener('install', event => {
   );
 });
 
-// Listens for the button click, then caches all the heavy content.
-// Uses Promise.allSettled so a single missing file won't fail the whole download.
-// When done, sends a message back so the page can show a real success message.
+// Receives the file list from pwa.js (which fetches it from /pwa-files.json)
+// and caches everything. Uses Promise.allSettled so a single missing file
+// won't fail the whole download. Sends a message back when done.
 self.addEventListener('message', event => {
   if (event.data.type === 'START_CACHING') {
     const urlsToCache = event.data.urls;
@@ -26,12 +28,9 @@ self.addEventListener('message', event => {
       console.log('User requested offline download. Starting...');
 
       const cachePromises = urlsToCache.map(url => {
-        // Skip bare directory names (no dot and no slash after the first char)
-        // e.g. 'css', 'js', 'assets', 'misc' — these aren't fetchable URLs
         const isBareDirectory = !url.includes('.') && !url.startsWith('/') && !url.includes('/');
         if (isBareDirectory) return Promise.resolve();
 
-        // Ensure every URL starts with a leading slash so it resolves correctly
         const absoluteUrl = url.startsWith('/') ? url : '/' + url;
 
         return cache.add(absoluteUrl).catch(err => {
