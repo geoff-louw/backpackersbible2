@@ -745,32 +745,24 @@
 
      <!-- Header end -->
 
-     <!-- My Map -->
+     <!-- MapLibre -->
 
-<div style="height: 143px; width: 100%; display: block; background-color: #2f3130; "></div>
+<div style="height: 140px; width: 100%; display: block;"></div>
 
 <main id="main-content">
 
-<section id="map-visual" style="width: 100vw; margin-left: calc(-50vw + 50%); position: relative; line-height: 0;">
+<section>
 
-    <div class="map-overlay-circle">
-        We list ALL the hostels in South Africa! Click the icons for info.
-    </div>
-    
-    <div id="region-map">
-        <iframe title="Interactive map of backpacker hostels on the KwaZulu-Natal North Coast"
-        src="https://www.google.com/maps/d/embed?mid=1YlCywz3bXNDCOhw6bLz-F3iPhC9XD4A&ehbc=2E312F&noprof=1&ll=-29.59,31.13&z=10" 
-            width="100%" height="564" style="border:0; display: block;" allowfullscreen="">
-        </iframe>
-    </div>
-
-    <div id="map-fallback" style="display:none;">
-        <picture>
-            <source media="(max-width: 767px)" srcset="/assets/fallback_map_north-coast_mobile.jpg">
-            
-            <img src="/assets/fallback_map_north-coast.jpg" alt="Map unavailable offline" style="width: 100%; height: auto; display: block; margin: 0;">
-        </picture>
-    </div>
+<div id="bb-map-wrap"></div>
+<script>
+  window.BB_MAP_CONFIG = {
+    region: 'north-coast',
+    center: [31.18, -29.58],
+    pitch: 15,
+    bearing: 40
+  };
+</script>
+<script src="/assets/js/hostel-map.js" defer></script>
 
 </section>
 
