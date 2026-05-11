@@ -26,6 +26,7 @@
    19b. Hostel Toggle Button
    20. Top Picks (card-grid / hostel-card)
    21. Free Offline Guide / PWA Section
+   22. Back to Top Button
    ============================================================ */
 
 
@@ -2401,4 +2402,65 @@ h3.product-title {
     .product-col { width: 100%; }
     .product-col .download-btn { width: 100%; max-width: 330px; }
     .qr-code { display: none; } /* QR codes are desktop-only — pointless on mobile */
+}
+
+
+/* ============================================================
+   22. BACK TO TOP BUTTON
+   Fixed circle, bottom-right. Hidden by default; JS adds .show.
+   Verbatim from style.css.
+   ============================================================ */
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #d32f2f;
+    border: 2px solid #ffeb3b;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.arrow-up {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 12px solid #ffffff;
+    margin-bottom: 4px;
+}
+
+.back-to-top:hover {
+    background-color: #5f8950;
+    transform: translateY(-5px);
+}
+
+.back-to-top:focus-visible {
+    outline: 3px solid var(--color-yellow-bright);
+    outline-offset: 2px;
+}
+
+/* JS adds this class when the user scrolls down */
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media (max-width: 768px) {
+    .back-to-top {
+        bottom: 190px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
 }
