@@ -2579,7 +2579,6 @@ footer {
     border: none;
     font-family: var(--font-primary);
     font-size: 1rem;
-    font-weight: bold;
     text-transform: uppercase;
     cursor: pointer;
     text-decoration: none;
@@ -2851,7 +2850,7 @@ footer {
 }
 
 #ma-img {
-    width: 180px;
+    width: 85px;
     height: auto;
     pointer-events: auto;
     transition: width 0.3s;
@@ -2905,7 +2904,7 @@ footer {
     #ma {
         left: 0;
         right: 0;
-        bottom: 0;
+        bottom: 55px; /* clears the 55px quick-jump-menu fixed bar */
         width: 100%;
         max-width: 100vw;
         background-color: rgba(255, 255, 255, 0.65);
@@ -2914,9 +2913,10 @@ footer {
         box-sizing: border-box;
         align-items: flex-end;
         transition: opacity 0.5s;
+        z-index: 40; /* explicitly below jump menus (9998) */
     }
     #ma-img {
-        width: 180px;
+        width: 120px;
     }
     #ma-bubble {
         max-width: calc(100% - 130px);
