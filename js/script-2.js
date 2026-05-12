@@ -781,3 +781,55 @@
 
 
 }()); /* End of IIFE */
+
+
+/* ============================================================
+   ARIA OVERRIDES — mobile menu and accordion
+   Wraps the functions defined in script.js/script-2.js to
+   keep aria-expanded and hidden attributes in sync.
+   Previously inline in national.html — now centralised here
+   so all pages benefit automatically.
+   ============================================================ */
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    var origToggleMobileMenu = window.toggleMobileMenu;
+    window.toggleMobileMenu = function () {
+        if (origToggleMobileMenu) origToggleMobileMenu();
+        var menu = document.getElementById('mobile-menu');
+        var btn  = document.getElementById('hamburger-icon');
+        if (!menu || !btn) return;
+        var visible = getComputedStyle(menu).display !== 'none' && !menu.hasAttribute('hidden');
+        btn.setAttribute('aria-expanded', visible ? 'true' : 'false');
+        btn.setAttribute('aria-label', visible ? 'Close navigation menu' : 'Open navigation menu');
+        if (visible) {
+            menu.removeAttribute('hidden');
+            var closeBtn = menu.querySelector('.close-btn');
+            if (closeBtn) setTimeout(function () { closeBtn.focus(); }, 50);
+        } else {
+            btn.focus();
+        }
+    };
+
+    var closeBtn = document.querySelector('#mobile-menu .close-btn');
+    if (closeBtn) {
+        closeBtn.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                window.toggleMobileMenu();
+            }
+        });
+    }
+
+    var origToggleAccordion = window.toggleAccordion;
+    window.toggleAccordion = function (el) {
+        if (origToggleAccordion) origToggleAccordion(el);
+        var panelId = el.getAttribute('aria-controls');
+        if (!panelId) return;
+        var panel = document.getElementById(panelId);
+        if (!panel) return;
+        var isOpen = panel.style.display === 'block' || panel.classList.contains('open');
+        el.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    };
+
+});
