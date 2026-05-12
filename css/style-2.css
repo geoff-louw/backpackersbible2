@@ -29,6 +29,7 @@
    22. Back to Top Button
    23. Footer
    24. Cookie Banner
+   25. Tour Guide Popup (#ma)
    ============================================================ */
 
 
@@ -2538,14 +2539,14 @@ footer {
     margin: 0 auto 15px auto;
 }
 
-.affiliate-disclosure a {
+.affiliate-disclosure a:not(.download-btn-yellow) {
     color: #f6f723;
     font-weight: bold;
     text-decoration: none;
     transition: color var(--transition-base);
 }
 
-.affiliate-disclosure a:hover {
+.affiliate-disclosure a:not(.download-btn-yellow):hover {
     color: #ffffff;
 }
 
@@ -2825,4 +2826,103 @@ footer {
 .cookie-btn:focus-visible {
     outline: 3px solid var(--color-yellow-bright);
     outline-offset: 2px;
+}
+
+
+/* ============================================================
+   25. TOUR GUIDE POPUP (#ma)
+   Fixed character + speech bubble. Appears/disappears on scroll
+   via tourguide.js. The tips and assets are configured per-page
+   via window.BB_TIPS in a small inline script.
+   ============================================================ */
+
+#ma {
+    position: fixed;
+    bottom: 80px;
+    left: 50px;
+    display: inline-flex;
+    align-items: center;
+    z-index: 50;
+    opacity: 0;
+    transition: all 0.5s;
+    pointer-events: none;
+    height: min-content;
+}
+
+#ma-img {
+    width: 85px;
+    height: auto;
+    pointer-events: auto;
+    transition: width 0.3s;
+}
+
+#ma-bubble {
+    position: relative;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    background: #000000;
+    color: #fff200;
+    border: 2px solid #FFD700;
+    padding: 12px;
+    border-radius: 4px;
+    width: 180px;
+    pointer-events: auto;
+}
+
+#ma-bubble p {
+    margin: 0;
+    font-family: sans-serif;
+    font-size: 15px;
+}
+
+#ma-bubble a {
+    color: #ffffff;
+    font-size: 15px;
+}
+
+/* Speech bubble tail — outer (border colour) */
+#t-out {
+    position: absolute;
+    left: -12px;
+    bottom: 15px;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 12px solid #FFD700;
+}
+
+/* Speech bubble tail — inner (fill colour) */
+#t-in {
+    position: absolute;
+    left: -9px;
+    bottom: 15px;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 12px solid #000000;
+}
+
+@media (max-width: 600px) {
+    #ma {
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        max-width: 100vw;
+        background-color: rgba(255, 255, 255, 0.65);
+        display: flex;
+        padding: 5px 7px;
+        box-sizing: border-box;
+        align-items: flex-end;
+        transition: opacity 0.5s;
+    }
+    #ma-img {
+        width: 120px;
+    }
+    #ma-bubble {
+        max-width: calc(100% - 130px);
+        font-size: 15px;
+        padding: 10px;
+        margin-bottom: 5px;
+        margin-left: 0;
+        margin-right: 0;
+    }
 }
