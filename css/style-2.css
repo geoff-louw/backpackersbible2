@@ -2304,6 +2304,7 @@ details.hostel-details[open] > .expanded-text {
     gap: 100px;
     margin-top: 2rem;
     flex-wrap: wrap;
+    padding-bottom: var(--space-section-gap); /* 60px/30px gap before next element */
 }
 
 .product-col {
@@ -2313,6 +2314,14 @@ details.hostel-details[open] > .expanded-text {
     align-items: center;
     position: relative;
     text-align: center;
+}
+
+/* Push the download button to the same vertical position in both columns
+   by consuming any extra space above it. flex-direction: column on
+   .product-col makes margin-top: auto work here. */
+.product-col .download-btn {
+    margin-top: auto;
+    padding-top: 1.5rem; /* minimum breathing room above button */
 }
 
 /* "ABSOLUTELY FREE!" badge */
@@ -2451,7 +2460,7 @@ h3.product-title {
 }
 
 /* JS adds this class when the user scrolls down */
-.back-to-top.show {
+.back-to-top.is-visible {
     opacity: 1;
     visibility: visible;
 }
