@@ -2579,6 +2579,7 @@ footer {
     border: none;
     font-family: var(--font-primary);
     font-size: 1rem;
+    font-weight: bold;
     text-transform: uppercase;
     cursor: pointer;
     text-decoration: none;
@@ -2850,7 +2851,7 @@ footer {
 }
 
 #ma-img {
-    width: 85px;
+    width: 180px;
     height: auto;
     pointer-events: auto;
     transition: width 0.3s;
@@ -2915,7 +2916,7 @@ footer {
         transition: opacity 0.5s;
     }
     #ma-img {
-        width: 120px;
+        width: 180px;
     }
     #ma-bubble {
         max-width: calc(100% - 130px);
