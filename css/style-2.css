@@ -27,6 +27,7 @@
    20. Top Picks (card-grid / hostel-card)
    21. Free Offline Guide / PWA Section
    22. Back to Top Button
+   23. Footer
    ============================================================ */
 
 
@@ -2480,5 +2481,267 @@ h3.product-title {
         right: 20px;
         width: 45px;
         height: 45px;
+    }
+}
+
+
+/* ============================================================
+   23. FOOTER
+
+   footer                     — base element
+   .affiliate-disclosure      — blue top section
+   .affiliate-disclosure__cta — centred phone image + button wrapper
+   .download-btn-yellow       — yellow variant of the download button
+   .footer-main-red           — red brand section
+   .footer-logo               — logo image
+   .footer-brand              — site name h2
+   .footer-payoff             — tagline
+   .footer-nav                — link row
+   .footer-share              — WhatsApp row
+   .footer-share__icon        — WhatsApp icon image
+   .footer-contribute         — teal contribution strip
+   .footer-copyright          — yellow copyright bar
+   .disclosure-text           — body text inside affiliate-disclosure
+   .contact-link-multi        — JS-populated contact link span
+   ============================================================ */
+
+footer {
+    width: 100%;
+    font-family: var(--font-primary);
+    overflow-x: hidden;
+}
+
+/* --- Affiliate Disclosure --- */
+
+.affiliate-disclosure {
+    background-color: #33689e;
+    color: #ffffff;
+    padding: 40px 20px;
+    text-align: center;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.affiliate-disclosure h4 {
+    color: #f6f723;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0 0 15px 0;
+    text-transform: uppercase;
+}
+
+.disclosure-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 1000px;
+    margin: 0 auto 15px auto;
+}
+
+.affiliate-disclosure a {
+    color: #f6f723;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color var(--transition-base);
+}
+
+.affiliate-disclosure a:hover {
+    color: #ffffff;
+}
+
+/* Centred CTA block: phone image + button + file-specs */
+.affiliate-disclosure__cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    margin-top: 20px;
+}
+
+.affiliate-disclosure__cta img {
+    margin-bottom: -5px; /* tight coupling between image and button */
+}
+
+.affiliate-disclosure__cta .file-specs {
+    margin-bottom: 50px;
+}
+
+/* Yellow download button (footer variant) */
+.download-btn-yellow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 330px;
+    height: 84px;
+    background-color: #ffdd00;
+    color: #000000;
+    border: none;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color var(--transition-base);
+    margin-bottom: 20px;
+}
+
+.download-btn-yellow:hover,
+.download-btn-yellow:focus-visible {
+    color: #e74747;
+    text-decoration: none;
+}
+
+.download-btn-yellow:focus-visible {
+    outline: 3px solid var(--color-yellow-bright);
+    outline-offset: 2px;
+}
+
+/* --- Red Brand Section --- */
+
+.footer-main-red {
+    background-color: var(--color-red);
+    padding: 40px 20px;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.footer-logo {
+    width: 100px;
+    height: 100px;
+    background-color: var(--color-yellow); /* visible if logo is transparent */
+    margin-bottom: 15px;
+}
+
+.footer-brand {
+    font-size: 2rem;
+    font-weight: normal;
+    line-height: 1.1;
+    margin: 0;
+    text-align: center;
+    display: block;
+}
+
+.footer-payoff {
+    font-size: 1.2rem;
+    line-height: 1;
+    margin: 5px 0 30px 0;
+    text-align: center;
+    display: block;
+}
+
+.footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0 30px 0;
+    max-width: 1200px;
+}
+
+.footer-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.footer-nav a:hover {
+    text-decoration: underline;
+}
+
+.footer-nav a:focus-visible {
+    outline: 3px solid var(--color-yellow-bright);
+    outline-offset: 2px;
+}
+
+/* WhatsApp share row */
+.footer-share {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.footer-share__icon {
+    width: 45px;
+    height: 45px;
+}
+
+/* --- Contribute strip --- */
+
+.footer-contribute {
+    background-color: #19ffc1;
+    color: #000000;
+    text-align: center;
+    padding: 20px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+/* --- Copyright bar --- */
+
+.footer-copyright {
+    background-color: var(--color-yellow);
+    color: #000000;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+    display: block;
+}
+
+/* --- Responsive --- */
+
+@media (max-width: 1100px) {
+    .affiliate-disclosure,
+    .footer-main-red {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    footer {
+        padding-bottom: 10px;
+    }
+    .footer-copyright {
+        padding-bottom: 20px;
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-nav {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    .footer-brand { font-size: 1.5rem; }
+    .footer-payoff { font-size: 1rem; opacity: 0.85; }
+    .download-btn-yellow { width: 100%; max-width: 330px; }
+}
+
+@media (max-width: 600px) {
+    .disclosure-text {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+    .footer-contribute {
+        font-size: 0.85rem;
+        line-height: 1.3;
+    }
+    .footer-copyright {
+        font-size: 0.75rem;
+        margin-top: 15px;
+        margin-bottom: 20px;
+    }
+    .footer-nav a {
+        font-size: 0.85rem;
+        letter-spacing: 0.5px;
+    }
+    .footer-nav {
+        gap: 12px;
+        margin: 15px 0;
     }
 }
