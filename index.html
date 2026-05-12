@@ -9,8 +9,8 @@
 
   <meta name="color-scheme" content="light">
 
-  <title>Backpacking South Africa - the real deal without the "ultimate" guide BS</title>
-  <meta name="description" content="One place for everything. Skip outdated blogs. Get every hostel WhatsApp, 3D maps, and blunt safety alerts. Thousands of reviews filtered. Know before you go.">
+  <title>Backpacking South Africa: The Complete Guide | Backpackers Bible</title>
+  <meta name="description" content="The most comprehensive guide to backpacking South Africa ever written. 27 regions, every hostel, itineraries, safety advice, activities and more — free offline app included.">
 
   <meta name="author" content="The Backpacker's Bible">
 
@@ -45,16 +45,16 @@
 
   <meta property="og:type"        content="website">
   <meta property="og:url"         content="https://www.backpackersbible.com/">
-  <meta property="og:title"       content="Backpacking South Africa - the real deal without the "ultimate" guide BS">
-  <meta property="og:description" content="One place for everything. Skip outdated blogs. Get every hostel WhatsApp, 3D maps, and blunt safety alerts. Thousands of reviews filtered. Know before you go.">
+  <meta property="og:title"       content="Backpacking South Africa: The Complete Guide | Backpackers Bible">
+  <meta property="og:description" content="The most comprehensive guide to backpacking South Africa ever written. 27 regions, every hostel, itineraries, safety advice, activities and more — free offline app included.">
   <meta property="og:image"       content="https://www.backpackersbible.com/assets/social_preview.jpg">
   <meta property="og:locale"      content="en_ZA">
 
 
   <meta name="twitter:card"        content="summary_large_image">
   <meta name="twitter:url"         content="https://www.backpackersbible.com/">
-  <meta name="twitter:title"       content="Backpacking South Africa - the real deal without the "ultimate" guide BS">
-  <meta name="twitter:description" content="One place for everything. Skip outdated blogs. Get every hostel WhatsApp, 3D maps, and blunt safety alerts. Thousands of reviews filtered. Know before you go.">
+  <meta name="twitter:title"       content="Backpacking South Africa: The Complete Guide | Backpackers Bible">
+  <meta name="twitter:description" content="The most comprehensive guide to backpacking South Africa ever written. 27 regions, every hostel, itineraries, safety advice, activities and more — free offline app included.">
   <meta name="twitter:image"       content="https://www.backpackersbible.com/assets/social_preview.jpg">
 
 
@@ -2446,141 +2446,36 @@ Table Mountain cable car (return) — ~€13–€16
 
      <!-- Backpacking Guide -->
 
-<div id="ma" style="position:fixed; bottom: 80px; left:50px; display:inline-flex; align-items:center; z-index:50; opacity:0; transition:all 0.5s; pointer-events: none; height: min-content;">
-
-    
-    <img id="ma-img" src="/assets/_god_6.png" style="width:280px; height:auto; pointer-events:auto;">
-
-    <div id="ma-bubble" style="position:relative; margin-left:10px; margin-bottom:20px; background:#000; color:#fff200; border:2px solid #FFD700; padding:12px; border-radius:4px; width:180px; pointer-events:auto;">
-        
-        <div id="t-out" style="position:absolute; left:-12px; bottom:15px; border-top:10px solid transparent; border-bottom:10px solid transparent; border-right:12px solid #FFD700;"></div>
-
-        <div id="t-in" style="position:absolute; left:-9px; bottom:15px; border-top:10px solid transparent; border-bottom:10px solid transparent; border-right:12px solid #000;"></div>
-
-        <p id="ma-text" style="margin:0; font-family:sans-serif; font-size:15px; font-weight:regular;">Welcome to our guide to backpacking South Africa!</p>
-        <a id="ma-link" href="/" style="color:#fff; font-size:15px;">Discover more</a>
+<div id="ma">
+    <img id="ma-img" src="/assets/_god_6.png" alt="">
+    <div id="ma-bubble">
+        <div id="t-out"></div>
+        <div id="t-in"></div>
+        <p id="ma-text">Welcome to our guide to backpacking South Africa!</p>
+        <a id="ma-link" href="/">Discover more</a>
     </div>
 </div>
 
-<style>
-/* Mobile-specific adjustments */
-@media (max-width: 600px) {
-    #ma {
-        /* Forces the container to be a flush, full-width bottom bar */
-        left: 0 !important; 
-        right: 0 !important;
-        bottom: 0 !important; 
-        width: 100% !important;
-        max-width: 100vw !important;
-        
-        /* 65% transparent white background */
-        background-color: rgba(255, 255, 255, 0.65) !important; 
-        
-        display: flex !important;
-        /* This padding creates the 7px gap inside the bar so the bubble/character don't touch the glass */
-        padding: 5px 7px !important; 
-        box-sizing: border-box !important;
-        align-items: flex-end !important;
-        transition: opacity 0.5s !important;
-    }
-    #ma img {
-        width: 120px !important; 
-    }
-    #ma-bubble {
-        max-width: calc(100% - 130px) !important; 
-        font-size: 15px !important;
-        padding: 10px !important;
-        margin-bottom: 5px !important; 
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-    }
-}
-
-/* Desktop sizing */
-#ma img {
-    width: 85px; 
-    transition: width 0.3s;
-}
-</style>
+<!-- Tour guide popup styles are in style-2.css section 25 -->
 
 <script>
-window.onscroll = function() {
-    var m = document.getElementById('ma');
-    var isMobile = window.innerWidth <= 600;
-
-    function isOn(id) {
-        var el = document.getElementById(id);
-        if (!el) return false;
-        var rect = el.getBoundingClientRect();
-        
-        // APPEAR: Trigger when the ID is in the bottom 60% of the screen
-        var hasStarted = rect.top < window.innerHeight * 0.6;
-        
-        // STAY: Keep her visible until the trigger is 1500px ABOVE the screen
-        var isStillVisible = rect.top > -1500;
-
-        // Safety: Don't trigger if the element is hidden or at 0,0 (common "on load" bug)
-        return hasStarted && isStillVisible && rect.top !== 0;
-    }
-
-    // ORDER
-    // 1. First, check Tip 2 (The first one on the page)
-    if (isOn('tip2')) {
-        updateMa(isMobile ? "left" : "right", "/assets/_god_5.png", 
-                 "Where are the best places to go? What will it cost? How do I get there? Answers on my Itineraries page.", 
-                 "/backpacking-south-africa-tours/");
-    } 
-    // 2. Then check Tip 1 (The middle one)
-    else if (isOn('tip1')) {
-        updateMa("left", "/assets/_god_3.png", 
-                 "Worried about lions roaming the streets? See my comprehensive Safety guide.", 
-                 "/backpacking-south-africa-advice/#safety");
-    } 
-    // 3. Finally, check Tip 3 (The one further down)
-    else if (isOn('tip3')) {
-        // Flipped to "right" to fix the character-side issue you noticed
-        updateMa(isMobile ? "right" : "left", "/assets/_god_4.png", 
-                 "Mine is the only guide that lists all the hostels! Download my OFFLINE APP to find the next hostel while on the road.", 
-                 "/#download-pwa");
-    }
-    else {
-        m.style.opacity = "0";
-        m.style.pointerEvents = "none";
-    }
-
-    function updateMa(side, src, text, href) {
-        var img = document.getElementById('ma-img');
-        var txt = document.getElementById('ma-text');
-        var lnk = document.getElementById('ma-link');
-        var tout = document.getElementById('t-out');
-        var tin = document.getElementById('t-in');
-
-        m.style.opacity = "1";
-        m.style.pointerEvents = "auto";
-        img.src = src;
-        txt.innerHTML = text;
-        lnk.href = href;
-
-        if (side === "left") {
-            m.style.flexDirection = "row";
-            m.style.left = isMobile ? "0" : "50px";
-            m.style.right = "auto";
-            m.style.top = isMobile ? "unset" : "50%";
-            m.style.bottom = isMobile ? "0" : "unset";
-            tout.style.left = "-12px"; tout.style.right = "auto"; tout.style.borderRight = "12px solid #FFD700"; tout.style.borderLeft = "none";
-            tin.style.left = "-9px"; tin.style.right = "auto"; tin.style.borderRight = "12px solid #000"; tin.style.borderLeft = "none";
-        } else {
-            m.style.flexDirection = "row-reverse";
-            m.style.left = "auto";
-            m.style.right = isMobile ? "0" : "50px";
-            m.style.top = isMobile ? "unset" : "50%";
-            m.style.bottom = isMobile ? "0" : "unset";
-            tout.style.left = "auto"; tout.style.right = "-12px"; tout.style.borderLeft = "12px solid #FFD700"; tout.style.borderRight = "none";
-            tin.style.left = "auto"; tin.style.right = "-9px"; tin.style.borderLeft = "12px solid #000"; tin.style.borderRight = "none";
-        }
-    }
-};
+/* Page-specific tour guide tips — read by tourguide.js */
+window.BB_TIPS = [
+    { trigger: 'tip2', side: 'right', mobileSide: 'left',
+      img:  '/assets/_god_5.png',
+      text: 'Where are the best places to go? What will it cost? How do I get there? Answers on my Itineraries page.',
+      href: '/backpacking-south-africa-tours/' },
+    { trigger: 'tip1', side: 'left',
+      img:  '/assets/_god_3.png',
+      text: 'Worried about lions roaming the streets? See my comprehensive Safety guide.',
+      href: '/backpacking-south-africa-advice/#safety' },
+    { trigger: 'tip3', side: 'left', mobileSide: 'right',
+      img:  '/assets/_god_4.png',
+      text: 'Mine is the only guide that lists all the hostels! Download my OFFLINE APP to find the next hostel while on the road.',
+      href: '/#download-pwa' }
+];
 </script>
+<script src="/js/tourguide.js" defer></script>
 
 
      <!-- PWA: offline download & install. File list in /pwa-files.json -->
@@ -2728,61 +2623,7 @@ window.onscroll = function() {
 
 </div>
 
-<!-- Search functionality -->
-<script>
-// Accessible overrides for toggleMobileMenu and toggleAccordion
-// These run after script.js and enhance the existing functions with ARIA
-
-document.addEventListener('DOMContentLoaded', function() {
-  // Override toggleMobileMenu to also manage aria-expanded and hidden
-  var origToggleMobileMenu = window.toggleMobileMenu;
-  window.toggleMobileMenu = function() {
-    if (origToggleMobileMenu) origToggleMobileMenu();
-    var menu = document.getElementById('mobile-menu');
-    var btn  = document.getElementById('hamburger-icon');
-    if (!menu || !btn) return;
-    var isOpen = !menu.hasAttribute('hidden');
-    // script.js has already toggled visibility; sync ARIA to match
-    // We check computed display to know state
-    var visible = getComputedStyle(menu).display !== 'none' && !menu.hasAttribute('hidden');
-    // Fallback: toggle ourselves
-    btn.setAttribute('aria-expanded', visible ? 'true' : 'false');
-    btn.setAttribute('aria-label', visible ? 'Close navigation menu' : 'Open navigation menu');
-    if (visible) {
-      menu.removeAttribute('hidden');
-      // Trap focus: move to close button
-      var closeBtn = menu.querySelector('.close-btn');
-      if (closeBtn) setTimeout(function(){ closeBtn.focus(); }, 50);
-    } else {
-      btn.focus();
-    }
-  };
-
-  // Also handle close button keyboard activation
-  var closeBtn = document.querySelector('#mobile-menu .close-btn');
-  if (closeBtn) {
-    closeBtn.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        window.toggleMobileMenu();
-      }
-    });
-  }
-
-  // Override toggleAccordion to also manage aria-expanded
-  var origToggleAccordion = window.toggleAccordion;
-  window.toggleAccordion = function(el) {
-    if (origToggleAccordion) origToggleAccordion(el);
-    // Sync aria-expanded to whether the panel is now open
-    var panelId = el.getAttribute('aria-controls');
-    if (!panelId) return;
-    var panel = document.getElementById(panelId);
-    if (!panel) return;
-    var isOpen = panel.style.display === 'block' || panel.classList.contains('open');
-    el.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-  };
-});
-</script>
+<!-- ARIA overrides for mobile menu and accordion are in script-2.js -->
 
 
 <script src="/js/script-2.js" defer></script>
