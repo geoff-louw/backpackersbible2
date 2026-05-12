@@ -966,6 +966,11 @@ body {
    Temporary — will be replaced with Leaflet map.
    ============================================================ */
 
+/* Invisible anchor for #map links — offset handled by scroll-margin-top */
+#map {
+    display: none;
+}
+
 #map-visual {
     position: relative;
     z-index: 1;
