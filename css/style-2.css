@@ -1620,8 +1620,6 @@ details:not([open]) {
     height: 6px;
     width: 100%;
     display: block;
-    position: relative;
-    z-index: var(--z-above);
 }
 
 .strip.black,
@@ -1643,33 +1641,13 @@ details:not([open]) {
 
 
 /* ============================================================
-   15. TOUR GUIDE POPUP
-   Must sit below both jump menus on mobile.
-   Jump menus use calc(var(--z-header) - 1) = 9998.
-   Tour guide must be below that.
+   16. Z-INDEX SUMMARY (mobile)
+   #ma (tour guide): z-index 40
+   .jump-menu-section: z-index calc(--z-header - 1) = 9998
+   #quick-jump-menu:   z-index calc(--z-header - 1) = 9998
+   Both menus are above #ma. pointer-events:none on #ma
+   container (section 25) ensures taps pass through to menus.
    ============================================================ */
-
-.mama-guide-container {
-    z-index: var(--z-popup); /* 500 — below menus (9998) but above page content */
-}
-
-/* ============================================================
-   16. Z-INDEX OVERRIDES — MOBILE
-   Ensures both jump menus always sit above the tour guide
-   popup character (#ma, z-index: 50) on mobile.
-   ============================================================ */
-
-@media (max-width: 1100px) {
-
-    .jump-menu-section {
-        z-index: 9998 !important;
-    }
-
-    #quick-jump-menu {
-        z-index: 9998 !important;
-    }
-
-}
 
 /* ============================================================
    17. GETYOURGUIDE TOUR CARDS
@@ -2850,7 +2828,7 @@ footer {
 }
 
 #ma-img {
-    width: 85px;
+    width: 200px;
     height: auto;
     pointer-events: auto;
     transition: width 0.3s;
@@ -2904,7 +2882,7 @@ footer {
     #ma {
         left: 0;
         right: 0;
-        bottom: 55px; /* clears the 55px quick-jump-menu fixed bar */
+        bottom: 0;
         width: 100%;
         max-width: 100vw;
         background-color: rgba(255, 255, 255, 0.65);
@@ -2913,7 +2891,13 @@ footer {
         box-sizing: border-box;
         align-items: flex-end;
         transition: opacity 0.5s;
-        z-index: 40; /* explicitly below jump menus (9998) */
+        z-index: 40;            /* below both menus (z-index: 9998) */
+        pointer-events: none;   /* container passes clicks through to menus above */
+    }
+    /* Re-enable pointer events only on the actual interactive elements */
+    #ma-img,
+    #ma-bubble {
+        pointer-events: auto;
     }
     #ma-img {
         width: 120px;
