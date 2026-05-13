@@ -30,6 +30,7 @@
    23. Footer
    24. Cookie Banner
    25. Tour Guide Popup (#ma)
+   26. Hostel Directory Cards (regional pages)
    ============================================================ */
 
 
@@ -1735,7 +1736,7 @@ details:not([open]) {
 
 .tour-price {
     font-weight: bold;
-    color: #27ae60;
+    color: #1a7a3f; /* darkened from #27ae60 — WCAG AA on white (~6.2:1) */
     margin: 0;
 }
 
@@ -1770,7 +1771,7 @@ details:not([open]) {
     min-width: 268px;
     height: 92px;
     min-height: 92px;
-    background-color: #ff5534;
+    background-color: #c4401a; /* darkened from #ff5534 — WCAG AA with white text (~5.2:1) */
     color: #ffffff;
     text-decoration: none;
     font-family: 'Arial Black', sans-serif;
@@ -1951,7 +1952,7 @@ details:not([open]) {
 .btn-booking-com:hover { color: #4d9ed7; text-decoration: none; }
 
 .btn-hostelworld-com {
-    background-color: #f3724a;
+    background-color: #c4451a; /* darkened from #f3724a — WCAG AA with white text (~5.1:1) */
     color: #ffffff;
 }
 
@@ -2909,5 +2910,139 @@ footer {
         margin-bottom: 5px;
         margin-left: 0;
         margin-right: 0;
+    }
+}
+
+
+/* ============================================================
+   26. HOSTEL DIRECTORY CARDS (regional pages)
+
+   .container-wide-hostels  — card wrapper (yellow bg, shadow)
+   .hostel-card-header      — red strip with hostel name in white
+   .detail-h2               — hostel name inside the red strip
+   .detail-p                — contact info / description block
+   .map-3d-image            — 3D PNG map of the region
+   .region-map              — Google My Map iframe wrapper
+   .map-fallback            — offline fallback image
+   .map-section-visual      — #map-visual wrapper (replaces inline style)
+   ============================================================ */
+
+/* Card wrapper */
+.container-wide-hostels {
+    max-width: 900px;
+    width: calc(100% - 20px);
+    margin: 0 auto var(--space-section-gap) auto;
+    padding: 0 0 30px 0;
+    box-sizing: border-box;
+    background-color: var(--color-yellow);
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+    overflow: hidden; /* keeps red header inside the rounded corners */
+}
+
+/* Red header strip — hostel name in white */
+.hostel-card-header {
+    background-color: var(--color-red);
+    padding: 18px 25px;
+    margin: 0 0 20px 0;
+}
+
+.detail-h2 {
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+/* Contact info and description */
+.detail-p {
+    font-family: var(--font-primary);
+    font-size: 1.1rem;
+    line-height: 1.65;
+    margin: 0 25px 15px 25px;
+    word-wrap: break-word;
+    text-align: left;
+}
+
+.detail-p p {
+    margin: 0 0 8px 0;
+}
+
+.detail-p strong {
+    font-weight: bold;
+}
+
+/* Booking buttons inside cards */
+.container-wide-hostels .booking-btn-container {
+    margin: 20px 25px 10px 25px;
+    justify-content: flex-start;
+}
+
+/* 3D region map image */
+.map-3d-image {
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    display: block;
+    margin: 0 auto var(--space-section-gap) auto;
+}
+
+/* Google My Map section — replaces inline style on #map-visual */
+.map-section-visual {
+    width: 80vw;
+    margin-left: calc(-50vw + 50%);
+    position: relative;
+    line-height: 0;
+    margin-bottom: var(--space-section-gap);
+}
+
+/* Google My Map iframe wrapper */
+.region-map {
+    display: block;
+    width: 100%;
+}
+
+.region-map iframe {
+    display: block;
+    border: 0;
+    width: 100%;
+}
+
+/* Offline fallback image */
+.map-fallback {
+    display: none; /* shown by JS when offline */
+    width: 100%;
+}
+
+.map-fallback img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .container-wide-hostels {
+        width: calc(100% - 30px);
+        border-radius: 10px;
+    }
+    .map-section-visual {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .detail-h2 { font-size: 1.2rem; }
+    .detail-p  { font-size: 1rem; margin: 0 15px 12px 15px; }
+    .hostel-card-header { padding: 14px 15px; }
+    .container-wide-hostels .booking-btn-container {
+        margin: 15px 15px 10px 15px;
+        justify-content: center;
     }
 }
