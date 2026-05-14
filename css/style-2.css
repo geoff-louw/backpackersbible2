@@ -1255,6 +1255,14 @@ main {
     scroll-margin-top: 175px;
 }
 
+/* Modifier: 60px/30px gap above an h2 that appears mid-section
+   (not as the first element after a parallax image).
+   Apply to any .area-hero-title h2 on regional and inner pages
+   where it follows other content rather than opening a section. */
+.area-hero-title--section-gap {
+    margin-top: var(--space-section-gap);
+}
+
 /* h2 — used for major section headings */
 .section-heading-desktop {
     font-size: var(--text-3xl);        /* 3rem / ~48px */
