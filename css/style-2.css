@@ -350,6 +350,9 @@ body {
     letter-spacing: 0.08em;
     text-transform: uppercase;
     white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
 }
 
 .site-header__payoff {
@@ -1003,7 +1006,6 @@ main {
     align-items: center;
     padding: 0;
     margin: 0;
-    overflow: hidden;
 }
 
 .jump-menu-container {
@@ -1016,6 +1018,7 @@ main {
     padding: 17px 12px 3px 12px;
     box-sizing: border-box;
     -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
     scroll-behavior: smooth;
     position: relative;
     z-index: var(--z-above);
@@ -2908,12 +2911,14 @@ footer {
         align-items: flex-end;
         transition: opacity 0.5s;
         z-index: 40;            /* below both menus (z-index: 9998) */
-        pointer-events: none;   /* container passes clicks through to menus above */
+        pointer-events: none;   /* entire #ma bar passes all taps to menus above */
     }
-    /* Re-enable pointer events only on the actual interactive elements */
-    #ma-img,
-    #ma-bubble {
-        pointer-events: auto;
+    /* Keep pointer events disabled on all children too — the menus at
+       z-index 9998 sit visually on top, but without this any tap in
+       the overlapping area would be caught by #ma-img / #ma-bubble
+       despite the higher z-index on the menus. */
+    #ma *  {
+        pointer-events: none;
     }
     #ma-img {
         width: 120px;
