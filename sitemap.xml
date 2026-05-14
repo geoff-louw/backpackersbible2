@@ -201,9 +201,22 @@
 <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://www.backpackersbible.com/misc/about-backpacking</loc>
+    <lastmod>2026-05-14</lastmod>
+<priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.backpackersbible.com/404</loc>
     <lastmod>2026-04-30</lastmod>
 <priority>0.3</priority>
   </url>
-
+  <url>
+    <loc>https://www.backpackersbible.com/pdf/City_of_Cape_Town_Backpacking_Study.pdf</loc>
+    <lastmod>2026-05-14</lastmod>
+    <priority>0.5</priority>
+  </url>
+    <loc>https://www.backpackersbible.com/pdf/youth_travel_in_south_africa.pdf</loc>
+    <lastmod>2026-05-14</lastmod>
+    <priority>0.5</priority>
+  </url>
 </urlset>
