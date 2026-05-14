@@ -2122,33 +2122,39 @@ details.hostel-details[open] > .expanded-text {
 .card-location-tag {
     background-color: #bc1d23;
     width: 460px;
-    height: 67px;
+    min-height: 67px;
+    height: auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-bottom: 15px;
+    padding: 10px 15px;
+    box-sizing: border-box;
     color: #ffffff;
+    text-align: center;
 }
 
 .card-location-tag h3 {
     margin: 0;
     padding: 0;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: bold;
     text-transform: uppercase;
     color: #ffffff;
+    letter-spacing: 0.05em;
+    opacity: 0.85;
 }
 
 .hostel-card-header {
-    color: #000000;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 15px;
-    margin-bottom: 0;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 4px 0 0 0;
+    padding: 0;
     width: 100%;
-    font-size: 1.4rem;
+    text-align: center;
+    line-height: 1.2;
 }
 
 .card-img {
@@ -2219,6 +2225,7 @@ details.hostel-details[open] > .expanded-text {
     }
     .card-location-tag {
         width: 100%;
+        padding: 10px 15px;
     }
     .card-img {
         width: 100%;
@@ -2937,19 +2944,19 @@ footer {
     background-color: var(--color-yellow);
     border-radius: 16px;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
-    overflow: hidden; /* keeps red header inside the rounded corners */
+    overflow: hidden;
 }
 
 /* Red header strip — hostel name in white */
 .hostel-card-header {
     background-color: var(--color-red);
-    padding: 18px 25px;
+    padding: 22px 25px;
     margin: 0 0 20px 0;
 }
 
 .detail-h2 {
     font-family: var(--font-primary);
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: bold;
     color: #ffffff;
     margin: 0;
@@ -2976,10 +2983,41 @@ footer {
     font-weight: bold;
 }
 
-/* Booking buttons inside cards */
+/* Read More button — a little space above it */
+.container-wide-hostels details {
+    text-align: center;
+    margin: 1.5rem 25px 0 25px;
+}
+
+/* Expanded text — left-aligned */
+.container-wide-hostels .expanded-text {
+    text-align: left;
+}
+
+.container-wide-hostels .expanded-text p,
+.container-wide-hostels .expanded-text ul,
+.container-wide-hostels .expanded-text li {
+    text-align: left;
+}
+
+/* Booking buttons — centred, with equal space above and below */
 .container-wide-hostels .booking-btn-container {
-    margin: 20px 25px 10px 25px;
-    justify-content: flex-start;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 1.5rem 25px 0 25px;
+    padding-bottom: 0;
+}
+
+/* Map centering — iframe fills wrapper, wrapper is full-width */
+.map-section-visual {
+    width: 100%;
+    position: relative;
+    line-height: 0;
+    margin-bottom: var(--space-section-gap);
+    display: flex;
+    justify-content: center;
 }
 
 /* 3D region map image */
@@ -2991,19 +3029,12 @@ footer {
     margin: 0 auto var(--space-section-gap) auto;
 }
 
-/* Google My Map section — replaces inline style on #map-visual */
-.map-section-visual {
-    width: 80vw;
-    margin-left: calc(-50vw + 50%);
-    position: relative;
-    line-height: 0;
-    margin-bottom: var(--space-section-gap);
-}
-
 /* Google My Map iframe wrapper */
 .region-map {
     display: block;
     width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .region-map iframe {
@@ -3014,8 +3045,10 @@ footer {
 
 /* Offline fallback image */
 .map-fallback {
-    display: none; /* shown by JS when offline */
+    display: none;
     width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .map-fallback img {
@@ -3038,11 +3071,14 @@ footer {
 }
 
 @media (max-width: 600px) {
-    .detail-h2 { font-size: 1.2rem; }
+    .detail-h2 { font-size: 1.4rem; }
     .detail-p  { font-size: 1rem; margin: 0 15px 12px 15px; }
-    .hostel-card-header { padding: 14px 15px; }
+    .hostel-card-header { padding: 16px 15px; }
     .container-wide-hostels .booking-btn-container {
-        margin: 15px 15px 10px 15px;
+        margin: 1.5rem 15px 0 15px;
         justify-content: center;
+    }
+    .container-wide-hostels details {
+        margin: 1.5rem 15px 0 15px;
     }
 }
