@@ -345,38 +345,33 @@
 
      <!-- My Map start -->
 
-<div style="height: 143px; width: 100%; display: block;"></div>
-
 <main id="main-content">
 
             <h2 class="section-heading-desktop" id="guide-philosophy">Free Interactive Backpacking Map For Your Website</h2>
 
-<section id="map-visual" style="width: 100vw; margin-left: calc(-50vw + 50%); position: relative; line-height: 0;">
+<section id="map-visual">
 
-    <div class="map-overlay-circle">
-        We list ALL the hostels in South Africa! Click the icons for info.
-    </div>
-    
-    <div id="region-map">
+    <div id="region-map" style="width: 80%; max-width: 800px; margin: 0 auto;">
         <iframe 
             src="https://www.google.com/maps/d/embed?mid=1YlCywz3bXNDCOhw6bLz-F3iPhC9XD4A&ehbc=2E312F&noprof=1" 
-            width="600" height="600" style="border:0; display: block;" allowfullscreen="">
+            width="100%" height="600" style="border:0; display: block;" allowfullscreen="">
         </iframe>
     </div>
 
-    <div id="map-fallback" style="display:none;">
+    <!-- I added the same max-width and centering to your fallback map so it matches perfectly -->
+    <div id="map-fallback" style="display:none; width: 80%; max-width: 800px; margin: 0 auto;">
         <picture>
             <source media="(max-width: 767px)" srcset="/assets/fallback_map_front_mobile.jpg">
-            
             <img src="assets/fallback_map_front.webp" alt="Map unavailable offline" style="width: 100%; height: auto; display: block; margin: 0;">
         </picture>
     </div>
 
-    <p class="intro-p" style="margin-bottom:70px;">Navigate the country with ease using our comprehensive interactive map. We have mapped out hostels nationwide, including direct contact details and curated reviews to help you find the right vibe for your stay. If you manage a travel site or a local blog, you can use the provided embed code to share this resource with your own community.</p>
+    <p class="intro-p" style="margin-top: 40px; margin-bottom: 40px;">Navigate the country with ease using our comprehensive interactive map. We have mapped out hostels nationwide, including direct contact details and curated reviews to help you find the right vibe for your stay. If you manage a travel site or a local blog, you can use the provided embed code to share this resource with your own community.</p>
 
-    <p class="intro-p" style="margin-bottom:70px;">To embed this map on your website, paste the following code into your page:</p>
+    <p class="intro-p" style="margin-bottom: 20px;">To embed this map on your website, paste the following code into your page:</p>
 
-    <p class="intro-p" style="margin-bottom:70px;"><iframe src="https://www.google.com/maps/d/embed?mid=1YlCywz3bXNDCOhw6bLz-F3iPhC9XD4A&ehbc=2E312F&noprof=1" width="640" height="480"></iframe></p>
+    <!-- Escaped iframe code wrapped in a styled preformatted block -->
+    <pre style="background-color: #000000; color: #00FF00; padding: 20px; border-radius: 8px; width: 80%; max-width: 800px; margin: 0 auto 70px auto; overflow-x: auto; font-family: monospace; text-align: left;"><code>&lt;iframe src="https://www.google.com/maps/d/embed?mid=1YlCywz3bXNDCOhw6bLz-F3iPhC9XD4A&ehbc=2E312F&noprof=1" width="640" height="480"&gt;&lt;/iframe&gt;</code></pre>
 
 </section>
 
