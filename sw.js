@@ -28,8 +28,13 @@ self.addEventListener('message', event => {
       console.log('User requested offline download. Starting...');
 
       const cachePromises = urlsToCache.map(url => {
+        // Skip bare directory names
         const isBareDirectory = !url.includes('.') && !url.startsWith('/') && !url.includes('/');
         if (isBareDirectory) return Promise.resolve();
+
+        // Skip files that are guaranteed to 404 or shouldn't be cached
+        const skipPatterns = ['/_redirects', 'desktop.ini', '.DS_Store', '.htaccess', 'Thumbs.db'];
+        if (skipPatterns.some(p => url.includes(p))) return Promise.resolve();
 
         const absoluteUrl = url.startsWith('/') ? url : '/' + url;
 
