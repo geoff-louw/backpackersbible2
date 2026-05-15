@@ -1083,7 +1083,8 @@ main {
         min-height: 0;
         padding: 0;
         overflow: visible;
-        z-index: calc(var(--z-header) - 1);
+        z-index: calc(var(--z-header) - 1); /* 9998 */
+        isolation: isolate; /* own stacking context — always above #ma */
         transition: transform var(--transition-slide);
     }
 
@@ -1189,7 +1190,8 @@ main {
         width: 100%;
         height: 55px;
         border-radius: 0;
-        z-index: calc(var(--z-header) - 1);
+        z-index: calc(var(--z-header) - 1); /* 9998 */
+        isolation: isolate; /* own stacking context — always above #ma */
         transition: transform var(--transition-slide);
     }
 
@@ -3062,11 +3064,18 @@ footer {
 }
 
 /* Offline fallback image */
+/* Offline fallback — image only, no text, full width.
+   hostel-map.js may inject a <p> alongside the <img>; hide it. */
 .map-fallback {
     display: none;
     width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
+}
+
+.map-fallback p,
+.map-fallback span,
+#bb-map-wrap .map-fallback p,
+#bb-map-wrap .map-fallback span {
+    display: none;
 }
 
 .map-fallback img {
@@ -3074,6 +3083,11 @@ footer {
     height: auto;
     display: block;
     margin: 0;
+}
+
+#bb-map-wrap > p,
+#bb-map-wrap > span {
+    display: none;
 }
 
 /* Responsive */
