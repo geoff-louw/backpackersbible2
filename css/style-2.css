@@ -1181,11 +1181,18 @@ main {
 @media (min-width: 1101px) {
     #quick-jump-menu {
         position: sticky;
-        top: calc(var(--header-height) + 24px + 10px);
+        top: 143px; /* 119px header + 24px colour strips. Flush with header bottom. */
         width: max-content;
         margin: 40px auto;
         height: 60px;
         border-radius: 0;
+        /* Matches the slide speed of your site header perfectly */
+        transition: top var(--transition-slide); 
+    }
+
+    /* When JS adds this class on scroll down, the menu slides up to the top edge */
+    #quick-jump-menu.is-hidden {
+        top: 0;
     }
 }
 
