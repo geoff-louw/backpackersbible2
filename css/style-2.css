@@ -1055,7 +1055,7 @@ main {
 }
 
 .jump-card--active .jump-card-img {
-    outline: 5px solid var(--color-red);
+    outline: 5px solid #ff0000;
     outline-offset: -5px;
 }
 
@@ -1504,6 +1504,23 @@ details:not([open]) {
     .download-btn {
         padding: 12px 24px;
         font-size: var(--text-base);
+    }
+
+    /* Platform buttons — smaller on mobile, stacked vertically */
+    .btn-booking-com,
+    .btn-hostelworld-com,
+    .btn-getyourguide-com {
+        width: 200px;
+        min-width: 200px;
+        height: 60px;
+        min-height: 60px;
+        font-size: 11pt;
+    }
+
+    .booking-btn-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
     }
 }
 
@@ -2135,14 +2152,13 @@ details.hostel-details[open] > .expanded-text {
 .card-location-tag {
     background-color: #bc1d23;
     width: 460px;
-    min-height: 67px;
     height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-bottom: 15px;
-    padding: 10px 15px;
+    padding: 8px 15px 10px 15px;
     box-sizing: border-box;
     color: #ffffff;
     text-align: center;
@@ -2151,19 +2167,20 @@ details.hostel-details[open] > .expanded-text {
 .card-location-tag h3 {
     margin: 0;
     padding: 0;
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-weight: bold;
     text-transform: uppercase;
     color: #ffffff;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     opacity: 0.85;
+    line-height: 1.2;
 }
 
 .hostel-card-header {
     color: #ffffff;
     font-weight: bold;
     font-size: 1.2rem;
-    margin: 4px 0 0 0;
+    margin: 2px 0 0 0;
     padding: 0;
     width: 100%;
     text-align: center;
@@ -2578,6 +2595,7 @@ footer {
     border: none;
     font-family: var(--font-primary);
     font-size: 1rem;
+    font-weight: bold;
     text-transform: uppercase;
     cursor: pointer;
     text-decoration: none;
@@ -2660,7 +2678,8 @@ footer {
 }
 
 .footer-nav a:hover {
-    text-decoration: underline;
+    color: #f0b8c0;
+    text-decoration: none;
 }
 
 .footer-nav a:focus-visible {
@@ -2843,7 +2862,7 @@ footer {
     align-items: center;
     z-index: 50;
     opacity: 0;
-    transition: all 0.5s;
+    transition: opacity 0.5s;
     pointer-events: none;
     height: min-content;
 }
