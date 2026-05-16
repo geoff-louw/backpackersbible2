@@ -2167,7 +2167,7 @@ details.hostel-details[open] > .expanded-text {
     justify-content: center;
     align-items: center;
     margin-bottom: 15px;
-    padding: 8px 15px 10px 15px;
+    padding: 6px 15px 8px 15px;
     box-sizing: border-box;
     color: #ffffff;
     text-align: center;
@@ -2176,7 +2176,7 @@ details.hostel-details[open] > .expanded-text {
 .card-location-tag h3 {
     margin: 0;
     padding: 0;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: bold;
     text-transform: uppercase;
     color: #ffffff;
@@ -2185,11 +2185,13 @@ details.hostel-details[open] > .expanded-text {
     line-height: 1.2;
 }
 
-.hostel-card-header {
+/* Top picks: hostel name inside .card-location-tag — scoped so
+   section 26 (.container-wide-hostels .hostel-card-header) doesn't conflict */
+.card-location-tag .hostel-card-header {
     color: #ffffff;
     font-weight: bold;
     font-size: 1.2rem;
-    margin: 2px 0 0 0;
+    margin: 1px 0 0 0;
     padding: 0;
     width: 100%;
     text-align: center;
@@ -2264,7 +2266,7 @@ details.hostel-details[open] > .expanded-text {
     }
     .card-location-tag {
         width: 100%;
-        padding: 10px 15px;
+        padding: 6px 15px 8px 15px;
     }
     .card-img {
         width: 100%;
@@ -2995,8 +2997,10 @@ footer {
     overflow: hidden;
 }
 
-/* Red header strip — hostel name in white */
-.hostel-card-header {
+/* Red header strip — hostel name in white.
+   Scoped to .container-wide-hostels so it doesn't affect
+   .hostel-card-header in the top picks section (section 20). */
+.container-wide-hostels .hostel-card-header {
     background-color: var(--color-red);
     padding: 22px 25px;
     margin: 0 0 20px 0;
@@ -3132,7 +3136,7 @@ footer {
 @media (max-width: 600px) {
     .detail-h2 { font-size: 1.4rem; }
     .detail-p  { font-size: 1rem; margin: 0 15px 12px 15px; }
-    .hostel-card-header { padding: 16px 15px; }
+    .container-wide-hostels .hostel-card-header { padding: 16px 15px; }
     .container-wide-hostels .booking-btn-container {
         margin: 1.5rem 15px 1.5rem 15px;
         justify-content: center;
