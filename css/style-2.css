@@ -193,8 +193,8 @@ ul, ol {
 
 /* Prepend the ID selector to override the map reset specificity */
 #bb-map-wrap img.bb-marker-icon {
-    width: 16px !important;   /* Change to 24px or 32px if 16px feels too small! */
-    height: 16px !important;
+    width: 22px !important;   /* Change to 24px or 32px if 16px feels too small! */
+    height: 22px !important;
     max-width: none !important;
 }
 
