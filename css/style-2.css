@@ -191,6 +191,13 @@ ul, ol {
     list-style: none;
 }
 
+/* Prepend the ID selector to override the map reset specificity */
+#bb-map-wrap img.bb-marker-icon {
+    width: 16px !important;   /* Change to 24px or 32px if 16px feels too small! */
+    height: 16px !important;
+    max-width: none !important;
+}
+
 
 /* ============================================================
    3. BASE TYPOGRAPHY
@@ -3131,8 +3138,8 @@ footer {
 
 /* 2. Iron-clad protection for your hostel pins */
 img.bb-marker-icon {
-    width: 18px !important;
-    height: 18px !important;
+    width: 16px !important;
+    height: 16px !important;
     max-width: none !important; /* Overrides any rogue responsive image rules */
 }
 
