@@ -3093,20 +3093,19 @@ footer {
 .map-fallback p,
 .map-fallback span,
 #bb-map-wrap .map-fallback p,
-#bb-map-wrap .map-fallback span {
-    display: none;
-}
-
-.map-fallback img {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin: 0;
-}
-
+#bb-map-wrap .map-fallback span,
 #bb-map-wrap > p,
 #bb-map-wrap > span {
-    display: none;
+    display: none !important;
+}
+
+.map-fallback img,
+#bb-map-wrap img {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
 }
 
 /* Responsive */
