@@ -834,14 +834,3 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
-
-/* ============================================================
-   SERVICE WORKER — fallback registration
-   pwa.js handles the full offline download flow; this ensures
-   the SW is registered on every page even if pwa.js 404s.
-   ============================================================ */
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function () {
-        navigator.serviceWorker.register('/sw.js').catch(function () {});
-    });
-}
