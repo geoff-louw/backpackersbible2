@@ -3119,13 +3119,21 @@ footer {
     display: none !important;
 }
 
+/* 1. Restrict the fallback to direct children only, saving the map pins */
 .map-fallback img,
-#bb-map-wrap img {
+#bb-map-wrap > img {
     width: 100% !important;
     height: auto !important;
     display: block !important;
     margin: 0 !important;
     border-radius: 0 !important;
+}
+
+/* 2. Iron-clad protection for your hostel pins */
+img.bb-marker-icon {
+    width: 18px !important;
+    height: 18px !important;
+    max-width: none !important; /* Overrides any rogue responsive image rules */
 }
 
 /* Responsive */
