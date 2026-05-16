@@ -9,7 +9,7 @@
 
   <meta name="color-scheme" content="light">
 
-  <title>Backpacking South Africa - skip the "ultimate" guide and get the facts</title>
+  <title>Backpacking South Africa - skip the "ultimate" guides and get the facts</title>
   <meta name="description" content="Know before you go. Decades of local expertise filtered into one place. Access every hostel WhatsApp, 3D maps, and real safety warnings. Built for safety.">
 
   <meta name="author" content="The Backpacker's Bible">
@@ -45,7 +45,7 @@
 
   <meta property="og:type"        content="website">
   <meta property="og:url"         content="https://www.backpackersbible.com/">
-  <meta property="og:title"       content="Backpacking South Africa - skip the "ultimate" guide and get the facts">
+  <meta property="og:title"       content="Backpacking South Africa - skip the "ultimate" guides and get the facts">
   <meta property="og:description" content="Know before you go. Decades of local expertise filtered into one place. Access every hostel WhatsApp, 3D maps, and real safety warnings. Built for safety.">
   <meta property="og:image"       content="https://www.backpackersbible.com/assets/social_preview.jpg">
   <meta property="og:locale"      content="en_ZA">
@@ -796,47 +796,6 @@
   };
 </script>
 <script src="/assets/js/hostel-map.js" defer></script>
-<!-- Fix fallback map filenames that hostel-map.js hardcodes incorrectly.
-     Only targets imgs with the wrong filename — never touches the live map. -->
-<script>
-(function () {
-    var CORRECT = {
-        desktop: '/assets/fallback_map_front.webp',
-        mobile:  '/assets/fallback_map_front_mobile.jpg'
-    };
-    var WRONG = ['fallback_map_national_mobile', 'fallback_map_national'];
-
-    function isWrongFallback(src) {
-        return WRONG.some(function (w) { return src.indexOf(w) !== -1; });
-    }
-
-    /* Only fix imgs that have the wrong fallback filename.
-       Never touch MapLibre canvas, tile imgs, or pin imgs. */
-    function fixFallback() {
-        var wrap = document.getElementById('bb-map-wrap');
-        if (!wrap) return;
-        wrap.querySelectorAll('img').forEach(function (img) {
-            if (!isWrongFallback(img.src)) return; /* leave live map imgs alone */
-            if (img.src.indexOf('mobile') !== -1) {
-                img.src = CORRECT.mobile;
-            } else {
-                img.src = CORRECT.desktop;
-            }
-            img.style.cssText = 'width:100%;height:auto;display:block;margin:0;border-radius:0';
-            /* Hide sibling text nodes */
-            var parent = img.parentNode;
-            if (parent) {
-                parent.querySelectorAll('p, span').forEach(function (el) {
-                    el.style.display = 'none';
-                });
-            }
-        });
-    }
-
-    /* Run once after load — hostel-map.js sets the fallback src at that point */
-    window.addEventListener('load', fixFallback);
-}());
-</script>
 
 </section>
 
