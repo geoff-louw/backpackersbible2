@@ -796,43 +796,45 @@
   };
 </script>
 <script src="/assets/js/hostel-map.js" defer></script>
-<!-- Fix fallback map: correct filenames and suppress text that hostel-map.js injects -->
+<!-- Fix fallback map filenames that hostel-map.js hardcodes incorrectly.
+     Only targets imgs with the wrong filename — never touches the live map. -->
 <script>
 (function () {
     var CORRECT = {
         desktop: '/assets/fallback_map_front.webp',
         mobile:  '/assets/fallback_map_front_mobile.jpg'
     };
+    var WRONG = ['fallback_map_national_mobile', 'fallback_map_national'];
 
+    function isWrongFallback(src) {
+        return WRONG.some(function (w) { return src.indexOf(w) !== -1; });
+    }
+
+    /* Only fix imgs that have the wrong fallback filename.
+       Never touch MapLibre canvas, tile imgs, or pin imgs. */
     function fixFallback() {
         var wrap = document.getElementById('bb-map-wrap');
         if (!wrap) return;
         wrap.querySelectorAll('img').forEach(function (img) {
-            if (img.src.indexOf('fallback_map_national_mobile') !== -1) {
+            if (!isWrongFallback(img.src)) return; /* leave live map imgs alone */
+            if (img.src.indexOf('mobile') !== -1) {
                 img.src = CORRECT.mobile;
-            } else if (img.src.indexOf('fallback_map_national') !== -1 &&
-                       img.src.indexOf('mobile') === -1) {
+            } else {
                 img.src = CORRECT.desktop;
             }
-            img.style.width  = '100%';
-            img.style.height = 'auto';
-            img.style.display = 'block';
-            img.style.borderRadius = '0';
-        });
-        wrap.querySelectorAll('p, span').forEach(function (el) {
-            el.style.display = 'none';
+            img.style.cssText = 'width:100%;height:auto;display:block;margin:0;border-radius:0';
+            /* Hide sibling text nodes */
+            var parent = img.parentNode;
+            if (parent) {
+                parent.querySelectorAll('p, span').forEach(function (el) {
+                    el.style.display = 'none';
+                });
+            }
         });
     }
 
-    document.addEventListener('DOMContentLoaded', fixFallback);
-
-    if (window.MutationObserver) {
-        var obs = new MutationObserver(fixFallback);
-        document.addEventListener('DOMContentLoaded', function () {
-            var wrap = document.getElementById('bb-map-wrap');
-            if (wrap) obs.observe(wrap, { childList: true, subtree: true });
-        });
-    }
+    /* Run once after load — hostel-map.js sets the fallback src at that point */
+    window.addEventListener('load', fixFallback);
 }());
 </script>
 
