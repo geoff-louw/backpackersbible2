@@ -175,20 +175,16 @@ img,
 video {
     max-width: 100%;
     height: auto;
-    display: block;
 }
 
-/* Exclude MapLibre map container from the img reset above —
-   marker images inside the map must keep their natural dimensions
-   and inline display for correct positioning. */
+/* MapLibre map markers must not be constrained by the reset above */
 #bb-map-wrap img,
-.maplibregl-map img,
 .maplibregl-marker img,
+.maplibregl-marker,
 .maplibregl-canvas-container img {
-    max-width: none;
-    height: auto;
-    display: inline;
-    width: auto;
+    max-width: none !important;
+    width: auto !important;
+    height: auto !important;
 }
 
 ul, ol {
