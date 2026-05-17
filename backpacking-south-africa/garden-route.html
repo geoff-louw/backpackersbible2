@@ -6,53 +6,59 @@
 
 <meta charset="UTF-8">
 
-<link rel="preconnect" href="https://api.maptiler.com">
-<link rel="dns-prefetch" href="https://api.maptiler.com">
-
-<link rel="preconnect" href="https://unpkg.com">
-<link rel="dns-prefetch" href="https://unpkg.com">
-
-<link rel="preload" href="https://unpkg.com/maplibre-gl@4.1.3/dist/maplibre-gl.css" as="style">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>The Only Complete Garden Route Hostel Guide (No Ads, No BS)</title>
 
 <meta name="title" content="The Only Complete Garden Route Hostel Guide (No Ads, No BS)">
 
-<meta name="description" 
-content="Stop paying booking commissions. Get direct contact info for every Garden Route hostel. Includes a 3D interactive map, vibe-meters, and safety ratings.">
-
-<link rel="preload" as="image" href="/assets/backpacking_garden_route-wilderness_beach.webp" fetchpriority="high">
+<meta name="description" content="Stop paying booking commissions. Get direct contact info for every Garden Route hostel. Includes a 3D interactive map, vibe-meters, and safety ratings.">
 
 <link rel="canonical" href="https://www.backpackersbible.com/backpacking-south-africa/garden-route" />
 
-<link rel="stylesheet" href="/css/style.css">
+<!-- Preconnect / DNS -->
+<link rel="preconnect" href="https://api.maptiler.com">
+<link rel="dns-prefetch" href="https://api.maptiler.com">
+<link rel="preconnect" href="https://unpkg.com">
+<link rel="dns-prefetch" href="https://unpkg.com">
 
-<script src="/js/script.js" defer></script>
+<!-- Preloads -->
+<link rel="preload" as="image" href="/assets/backpacking_garden_route-wilderness_beach.webp" fetchpriority="high">
 
-     <!-- Favicon -->
+<link rel="preload" href="https://unpkg.com/maplibre-gl@4.1.3/dist/maplibre-gl.css" as="style">
 
+<link rel="preload" as="style" href="/css/style-2.css">
+
+<link rel="preload" href="/fonts/CenturyGothic.woff2" as="font" type="font/woff2" crossorigin>
+
+<link rel="preload" href="/fonts/CenturyGothic-Bold.woff2" as="font" type="font/woff2" crossorigin>
+
+<!-- Stylesheet -->
+<link rel="stylesheet" href="/css/style-2.css">
+
+<script src="/js/script-2.js" defer></script>
+
+<!-- Favicon -->
 <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
 
-     <!-- Social media stuff -->
-
+<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.backpackersbible.com/backpacking-south-africa/garden-route">
 <meta property="og:title" content="The Only Complete Garden Route Hostel Guide (No Ads, No BS)">
 <meta property="og:description" content="Stop paying booking commissions. Get direct contact info for every Garden Route hostel. Includes a 3D interactive map, vibe-meters, and safety ratings.">
 <meta property="og:image" content="https://www.backpackersbible.com/assets/social_preview.jpg">
 
+<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://www.backpackersbible.com/backpacking-south-africa/garden-route">
 <meta name="twitter:title" content="The Only Complete Garden Route Hostel Guide (No Ads, No BS)">
 <meta name="twitter:description" content="Stop paying booking commissions. Get direct contact info for every Garden Route hostel. Includes a 3D interactive map, vibe-meters, and safety ratings.">
 <meta name="twitter:image" content="https://www.backpackersbible.com/assets/social_preview.jpg">
 
-     <!-- Schema markup -->
-
+<!-- Schema -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -871,268 +877,291 @@ content="Stop paying booking commissions. Get direct contact info for every Gard
 }
 </script>
 
+<!-- hreflang -->
+<link rel="alternate" hreflang="en" href="https://www.backpackersbible.com/backpacking-south-africa/garden-route">
+
 </head>
 <body>
 
-<!-- Skip links -->
 <a class="skip-link" href="#main-content">Skip to main content</a>
-<a class="skip-link" href="#site-search-desktop">Skip to search</a>
-<a class="skip-link" href="#primary-nav">Skip to navigation</a>
+<a class="skip-link" href="#site-nav">Skip to navigation</a>
+<a class="skip-link" href="#site-search">Skip to search</a>
 
-     <!-- Header start -->
+<header id="site-header" aria-label="Site header">
 
-<header id="mainHeader">
 
-    <div class="header-main">
+    <div class="site-header__bar">
 
-        <div class="branding">
 
-            <a href="https://www.backpackersbible.com">
+        <div class="site-header__branding">
 
-                <img src="/assets/backpackers_bible_logo_250x250.png" alt="Backpackers Bible Logo" style="width:80px; height:80px; background:#fff;">
-
+            <a href="https://www.backpackersbible.com" class="site-header__logo-link">
+                <img src="/assets/backpackers_bible_logo_250x250.png"
+                     alt="Backpackers Bible — home"
+                     class="site-header__logo"
+                     width="80"
+                     height="80">
             </a>
 
-            <div>
-<div style="display: flex; align-items: center; flex-wrap: wrap; gap: 10px;">
-                <div class="brand-name">BackpackersBible.com</div>
 
-<span class="location-badge">Garden Route</span>
+            <div class="site-header__brand-text">
 
-</div>
-                <span class="payoff">The World In Your Pocket</span>
+
+                <div class="site-header__brand-row">
+
+                    <span class="site-header__brand-name">BackpackersBible.com</span>
+
+                    <span class="site-header__location-badge">Garden Route</span>
+
+                </div>
+
+                <span class="site-header__payoff">The World In Your Pocket</span>
 
             </div>
 
         </div>
 
-      <!-- Menu start -->
+        <div class="site-header__controls">
 
-        <div class="right-stack">
-            <div class="utils-row">
-                <button id="hamburger-icon" onclick="toggleMobileMenu()" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">☰</button>
-            </div>
+            <button class="site-header__nav-toggle"
+                    id="nav-toggle"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
+                    aria-controls="mobile-menu">
+                <span class="site-header__nav-toggle-bar" aria-hidden="true"></span>
+                <span class="site-header__nav-toggle-bar" aria-hidden="true"></span>
+                <span class="site-header__nav-toggle-bar" aria-hidden="true"></span>
+            </button>
 
-<!-- Search bar (desktop) -->
 
-            <div class="desktop-search site-search-wrap">
-              <div class="site-search-bar" onclick="document.getElementById('search-input-desktop').focus()">
-                <input id="search-input-desktop" type="search" placeholder="Search this site..." autocomplete="off"
-                       aria-label="Search this site" aria-autocomplete="list" aria-controls="search-results-desktop"
-                       oninput="runSearch(this.value,'search-results-desktop')"
-                       onfocus="if(this.value) document.getElementById('search-results-desktop').classList.add('open')"
-                       onblur="setTimeout(()=>document.getElementById('search-results-desktop').classList.remove('open'),500)">
-                <span class="search-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false">
-                    <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
-                  </svg>
-                </span>
-              </div>
-              <div id="search-results-desktop" class="search-results" role="listbox" aria-live="polite" aria-label="Search results"></div>
-            </div>
-            
-            <nav class="desktop-nav" id="primary-nav" aria-label="Primary navigation">
+            <div class="site-header__search" id="site-search" role="search">
 
-    <strong><a href="/#download-pwa" style="font-size:1rem; letter-spacing:2px; margin-right: 1.5rem;" title="Choose between a PDF and an App to use on your phone while travelling">★ FREE Hostel Guide!</a></strong>
+                <div class="site-header__search-bar">
 
-    <a href="/">Home</a>
+                    <input  class="site-header__search-input"
+                            id="site-search-input"
+                            type="search"
+                            placeholder="Search this site..."
+                            autocomplete="off"
+                            aria-label="Search this site"
+                            aria-autocomplete="list"
+                            aria-controls="site-search-results"
+                            aria-expanded="false">
 
-    <div class="nav-item">
+                    <span class="site-header__search-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true">
+                            <circle cx="11" cy="11" r="7"/>
+                            <line x1="16.5" y1="16.5" x2="22" y2="22"/>
+                        </svg>
+                    </span>
 
-        <a href="/backpacking-south-africa/" class="mega-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="mega-regions">▾ Backpacking South Africa</a>
+                </div>
 
-        <div class="mega-menu" id="mega-regions" role="region" aria-label="Backpacking South Africa regions">
-
-            <div class="mega-col">
-
-                <h3>All Regions</h3>
-
-                <a href="/backpacking-south-africa/">Regions Map / Full Hostel Directory</a>
-
-                <h3>Popular</h3>
-
-                <a href="/backpacking-south-africa/cape-town">Cape Town</a>
-                <a href="/backpacking-south-africa/winelands">Winelands</a>
-                <a href="/backpacking-south-africa/route-62">Route 62</a>
-                <a href="/backpacking-south-africa/garden-route">Garden Route</a>
-                <a href="/backpacking-south-africa/sunshine-coast">Sunshine Coast</a>
-                <a href="/backpacking-south-africa/wild-coast">Wild Coast</a>
-                <a href="/backpacking-south-africa/drakensberg">Drakensberg</a>
-                <a href="/backpacking-south-africa/zululand">Zululand</a>
-                <a href="/backpacking-south-africa/kruger">Kruger National Park</a>
+                <div class="site-header__search-results"
+                     id="site-search-results"
+                     role="listbox"
+                     aria-live="polite"
+                     aria-label="Search results"></div>
 
             </div>
 
-            <div class="mega-col">
+            <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
 
-                <h3>The Interior</h3>
+                <a href="/pdf/Backpackers_Bible_Lite-South_Africa.pdf" class="site-nav__cta"
+                   title="PDF-1mb"><span class="sr-only">(opens in a new tab)</span>
+                    ★ <strong>FREE Hostel Guide!</strong>
+                </a>
 
-                <a href="/backpacking-south-africa/cederberg">Cederberg</a>
-                <a href="/backpacking-south-africa/karoo">The Karoo</a>
-                <a href="/backpacking-south-africa/eastern-cape-interior">Eastern Cape Interior</a>
-                <a href="/backpacking-south-africa/midlands">KZN Midlands</a>
-                <a href="/backpacking-south-africa/free-state">Free State</a>
-                <a href="/backpacking-south-africa/johannesburg">Johannesburg</a>
-                <a href="/backpacking-south-africa/pretoria">Pretoria</a>
-                <a href="/backpacking-south-africa/mpumalanga">Mpumalanga</a>
-                <a href="/backpacking-south-africa/limpopo">Limpopo</a>
-                <a href="/backpacking-south-africa/north-west">North West</a>
-                <a href="/backpacking-south-africa/northern-cape">Northern Cape</a>
+                <a href="/" class="site-nav__link">Home</a>
 
-            </div>
+                <div class="site-nav__item">
 
-            <div class="mega-col">
+                    <button class="site-nav__mega-trigger"
+                            aria-haspopup="menu"
+                            aria-expanded="false"
+                            aria-controls="mega-regions">
+                        Backpacking South Africa
+                    </button>
 
-                <h3>The Coast</h3>
+                    <div class="site-nav__mega-menu" id="mega-regions" role="menu" aria-label="Backpacking South Africa regions">
 
-                <a href="/backpacking-south-africa/west-coast">West Coast</a>
-                <a href="/backpacking-south-africa/overberg">Overberg</a>
-                <a href="/backpacking-south-africa/durban">Durban</a>
-                <a href="/backpacking-south-africa/south-coast">South Coast</a>
-                <a href="/backpacking-south-africa/north-coast">North Coast</a>
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">All Regions</h3>
+                            <a href="/backpacking-south-africa/" role="menuitem">Regions Map / Full Hostel Directory</a>
+                            <h3 class="site-nav__mega-heading">Popular</h3>
+                            <a href="/backpacking-south-africa/cape-town" role="menuitem">Cape Town</a>
+                            <a href="/backpacking-south-africa/winelands" role="menuitem">Winelands</a>
+                            <a href="/backpacking-south-africa/route-62" role="menuitem">Route 62</a>
+                            <a href="/backpacking-south-africa/garden-route" role="menuitem">Garden Route</a>
+                            <a href="/backpacking-south-africa/sunshine-coast" role="menuitem">Sunshine Coast</a>
+                            <a href="/backpacking-south-africa/wild-coast" role="menuitem">Wild Coast</a>
+                            <a href="/backpacking-south-africa/drakensberg" role="menuitem">Drakensberg</a>
+                            <a href="/backpacking-south-africa/zululand" role="menuitem">Zululand</a>
+                            <a href="/backpacking-south-africa/kruger" role="menuitem">Kruger National Park</a>
+                        </div>
 
-                <h3>Neighbouring Countries</h3>
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">The Interior</h3>
+                            <a href="/backpacking-south-africa/cederberg" role="menuitem">Cederberg</a>
+                            <a href="/backpacking-south-africa/karoo" role="menuitem">The Karoo</a>
+                            <a href="/backpacking-south-africa/eastern-cape-interior" role="menuitem">Eastern Cape Interior</a>
+                            <a href="/backpacking-south-africa/midlands" role="menuitem">KZN Midlands</a>
+                            <a href="/backpacking-south-africa/free-state" role="menuitem">Free State</a>
+                            <a href="/backpacking-south-africa/johannesburg" role="menuitem">Johannesburg</a>
+                            <a href="/backpacking-south-africa/pretoria" role="menuitem">Pretoria</a>
+                            <a href="/backpacking-south-africa/mpumalanga" role="menuitem">Mpumalanga</a>
+                            <a href="/backpacking-south-africa/limpopo" role="menuitem">Limpopo</a>
+                            <a href="/backpacking-south-africa/north-west" role="menuitem">North West</a>
+                            <a href="/backpacking-south-africa/northern-cape" role="menuitem">Northern Cape</a>
+                        </div>
 
-                <a href="/backpacking-south-africa/eswatini">Eswatini</a>
-                <a href="/backpacking-south-africa/lesotho">Lesotho</a>
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">The Coast</h3>
+                            <a href="/backpacking-south-africa/west-coast" role="menuitem">West Coast</a>
+                            <a href="/backpacking-south-africa/overberg" role="menuitem">Overberg</a>
+                            <a href="/backpacking-south-africa/durban" role="menuitem">Durban</a>
+                            <a href="/backpacking-south-africa/south-coast" role="menuitem">South Coast</a>
+                            <a href="/backpacking-south-africa/north-coast" role="menuitem">North Coast</a>
+                            <h3 class="site-nav__mega-heading">Neighbouring Countries</h3>
+                            <a href="/backpacking-south-africa/eswatini" role="menuitem">Eswatini</a>
+                            <a href="/backpacking-south-africa/lesotho" role="menuitem">Lesotho</a>
+                        </div>
 
-            </div>
+                    </div>
+
+                </div>
+
+
+                <!-- Mega menu item: Advice -->
+
+                <div class="site-nav__item">
+
+                    <button class="site-nav__mega-trigger"
+                            aria-haspopup="menu"
+                            aria-expanded="false"
+                            aria-controls="mega-advice">
+                        Advice
+                    </button>
+
+                    <div class="site-nav__mega-menu" id="mega-advice" role="menu" aria-label="Advice sections">
+
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">Preparation</h3>
+                            <a href="/backpacking-south-africa-advice/#checklists" role="menuitem">Preflight Checklist</a>
+                            <a href="/backpacking-south-africa-advice/#safety" role="menuitem">Safety</a>
+                            <a href="/backpacking-south-africa-advice/#money" role="menuitem">Money &amp; Budgeting</a>
+                            <a href="/backpacking-south-africa-advice/#medical" role="menuitem">Medical</a>
+                            <a href="/backpacking-south-africa-advice/#embassies" role="menuitem">Embassies</a>
+                            <a href="/backpacking-south-africa-advice/#cannabis" role="menuitem">Cannabis &amp; The Law</a>
+                            <a href="/backpacking-south-africa-advice/#apps" role="menuitem">Useful Apps</a>
+                        </div>
+
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">In-Country</h3>
+                            <a href="/backpacking-south-africa-advice/in-country#emergencies" role="menuitem">Emergencies</a>
+                            <a href="/backpacking-south-africa-advice/in-country#transport" role="menuitem">Transport</a>
+                            <a href="/backpacking-south-africa-advice/in-country#food-and-drink" role="menuitem">Food &amp; Drink</a>
+                            <a href="/backpacking-south-africa-advice/in-country#language" role="menuitem">Language</a>
+                            <a href="/backpacking-south-africa-advice/in-country#etiquette" role="menuitem">African Etiquette</a>
+                            <a href="/backpacking-south-africa-advice/in-country#games" role="menuitem">Fun &amp; Games</a>
+                            <a href="/backpacking-south-africa-advice/in-country#onward-travel" role="menuitem">Onward Travel</a>
+                        </div>
+
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">Specific Interests</h3>
+                            <a href="/backpacking-south-africa-advice/specifics#festivals" role="menuitem">Clubs &amp; Festivals</a>
+                            <a href="/backpacking-south-africa-advice/specifics#digital-nomads" role="menuitem">Digital Nomads</a>
+                            <a href="/backpacking-south-africa-advice/specifics#surfing" role="menuitem">Surfing</a>
+                            <a href="/backpacking-south-africa-advice/specifics#overlanding" role="menuitem">Overlanding</a>
+                            <a href="/backpacking-south-africa-advice/specifics#cycling" role="menuitem">Cycle Touring</a>
+                            <a href="/backpacking-south-africa-advice/specifics#volunteering" role="menuitem">Volunteering</a>
+                            <a href="/backpacking-south-africa-advice/specifics#language-schools" role="menuitem">Language Schools</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Mega menu item: Tours -->
+
+                <div class="site-nav__item">
+
+                    <button class="site-nav__mega-trigger"
+                            aria-haspopup="menu"
+                            aria-expanded="false"
+                            aria-controls="mega-tours">
+                        Tours
+                    </button>
+
+                    <div class="site-nav__mega-menu" id="mega-tours" role="menu" aria-label="Tours and itineraries">
+
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">Self-Drive — Short Stay</h3>
+                            <a href="/backpacking-south-africa-tours/#cape-loop" role="menuitem">One Week: The Cape Loop</a>
+                            <a href="/backpacking-south-africa-tours/#whistle-stop" role="menuitem">Two Weeks: The Whistle-Stop Tour</a>
+                            <a href="/backpacking-south-africa-tours/#northeast-triangle" role="menuitem">Two Weeks: The Northeast Triangle</a>
+                            <a href="/backpacking-south-africa-tours/#grand-cape-loop" role="menuitem">Two Weeks: The Grand Cape Loop</a>
+                            <a href="/backpacking-south-africa-tours/#wild-north" role="menuitem">Two Weeks: The Wild North</a>
+                            <a href="/backpacking-south-africa-tours/#road-less-travelled" role="menuitem">Two Weeks: The Road Less Travelled</a>
+                        </div>
+
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">Self-Drive — Medium Stay</h3>
+                            <a href="/backpacking-south-africa-tours/#backpackers-bible" role="menuitem">Three Weeks: The Backpacker's Bible</a>
+                            <a href="/backpacking-south-africa-tours/#coast-and-karoo" role="menuitem">Three Weeks: Coast &amp; Karoo</a>
+                            <a href="/backpacking-south-africa-tours/#off-the-beaten-track" role="menuitem">Three Weeks: Off The Beaten Track</a>
+                            <h3 class="site-nav__mega-heading">Self-Drive — Long Stay</h3>
+                            <a href="/backpacking-south-africa-tours/#rainbow-nation" role="menuitem">One Month: The Rainbow Nation</a>
+                            <a href="/backpacking-south-africa-tours/#full-monty" role="menuitem">Three Months: The Full Monty</a>
+                        </div>
+
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">Tours &amp; Day Trips</h3>
+                            <a href="/backpacking-south-africa/cape-town#tours" role="menuitem">Cape Town</a>
+                            <a href="/backpacking-south-africa/winelands#tours" role="menuitem">Winelands</a>
+                            <a href="/backpacking-south-africa/west-coast#tours" role="menuitem">West Coast</a>
+                            <a href="/backpacking-south-africa/garden-route#tours" role="menuitem">Garden Route</a>
+                            <a href="/backpacking-south-africa/karoo#tours" role="menuitem">Karoo</a>
+                            <a href="/backpacking-south-africa/route-62#tours" role="menuitem">Route 62</a>
+                            <a href="/backpacking-south-africa/overberg#tours" role="menuitem">The Overberg</a>
+                            <a href="/backpacking-south-africa/sunshine-coast#tours" role="menuitem">Sunshine Coast</a>
+                            <a href="/backpacking-south-africa/durban#tours" role="menuitem">Durban</a>
+                            <a href="/backpacking-south-africa/drakensberg#tours" role="menuitem">Drakensberg</a>
+                            <a href="/backpacking-south-africa/zululand#tours" role="menuitem">Zululand</a>
+                            <a href="/backpacking-south-africa/kruger#tours" role="menuitem">Kruger</a>
+                            <a href="/backpacking-south-africa/johannesburg#tours" role="menuitem">Johannesburg</a>
+                            <a href="/backpacking-south-africa/eswatini#tours" role="menuitem">Eswatini</a>
+                            <a href="/backpacking-south-africa/lesotho#tours" role="menuitem">Lesotho</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+    <a href="/misc/about-backpacking" class="site-nav__link">About Backpacking</a>
+
+    <a href="/misc/backpacking-resources" class="site-nav__link">Resources</a>
+
+            </nav>
 
         </div>
 
     </div>
 
-   <div class="nav-item">
+    <div class="site-header__strip site-header__strip--black"  aria-hidden="true"></div>
+    <div class="site-header__strip site-header__strip--yellow" aria-hidden="true"></div>
+    <div class="site-header__strip site-header__strip--blue"   aria-hidden="true"></div>
+    <div class="site-header__strip site-header__strip--green"  aria-hidden="true"></div>
 
-        <a href="/backpacking-south-africa-advice/index" class="mega-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="mega-advice">▾ Advice</a>
-
-        <div class="mega-menu" id="mega-advice" role="region" aria-label="Advice sections">
-
-            <div class="mega-col">
-
-                <h3>Preparation</h3>
-
-                <a href="/backpacking-south-africa-advice/#checklists">Preflight Checklist</a>
-                <a href="/backpacking-south-africa-advice/#safety">Safety</a>
-                <a href="/backpacking-south-africa-advice/#money">Money & Budgeting</a>
-                <a href="/backpacking-south-africa-advice/#medical">Medical</a>
-                <a href="/backpacking-south-africa-advice/#embassies">Embassies</a>
-                <a href="/backpacking-south-africa-advice/#cannabis">Cannabis & The Law</a>
-                <a href="/backpacking-south-africa-advice/#apps">Useful Apps</a>
-
-            </div>
-
-            <div class="mega-col">
-
-                <h3>In-Country</h3>
-
-                <a href="/backpacking-south-africa-advice/in-country#emergencies">Emergencies</a>
-                <a href="/backpacking-south-africa-advice/in-country#transport">Transport</a>
-                <a href="/backpacking-south-africa-advice/in-country#food-and-drink">Food & Drink</a>
-                <a href="/backpacking-south-africa-advice/in-country#language">Language</a>
-                <a href="/backpacking-south-africa-advice/in-country#etiquette">African Etiquette</a>
-                <a href="/backpacking-south-africa-advice/in-country#games">Fun & Games</a>
-                <a href="/backpacking-south-africa-advice/in-country#onward-travel">Onward Travel</a>
-
-            </div>
-
-            <div class="mega-col">
-
-                <h3>Specific Interests</h3>
-
-                <a href="/backpacking-south-africa-advice/specifics#festivals">Clubs & Festivals</a>
-                <a href="/backpacking-south-africa-advice/specifics#digital-nomads">Digital Nomads</a>
-                <a href="/backpacking-south-africa-advice/specifics#surfing">Surfing</a>
-                <a href="/backpacking-south-africa-advice/specifics#overlanding">Overlanding</a>
-                <a href="/backpacking-south-africa-advice/specifics#cycling">Cycle Touring</a>
-                <a href="/backpacking-south-africa-advice/specifics#volunteering">Volunteering</a>
-                <a href="/backpacking-south-africa-advice/specifics#language-schools">Language Schools</a>
-
-            </div>
-            
-        </div>
-    </div>
-
-    <div class="nav-item">
-
-        <a href="/backpacking-south-africa-tours/" class="mega-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="mega-tours">▾ TOURS</a>
-
-        <div class="mega-menu" id="mega-tours" role="region" aria-label="Tours and itineraries">
-
-            <div class="mega-col">
-
-                <h3>Self-Drive Itineraries - Short Stay</h3>
-
-                <a href="/backpacking-south-africa-tours/#cape-loop">ONE WEEK: The Cape Loop</a>
-                <a href="/backpacking-south-africa-tours/#whistle-stop">TWO WEEKS: The Whistle-Stop Tour</a>
-                <a href="/backpacking-south-africa-tours/#northeast-triangle">TWO WEEKS: The Northeast Triangle</a>
-                <a href="/backpacking-south-africa-tours/#grand-cape-loop">TWO WEEKS: The Grand Cape Loop</a>
-                <a href="/backpacking-south-africa-tours/#wild-north">TWO WEEKS: The Wild North</a>
-                <a href="/backpacking-south-africa-tours/#road-less-travelled">TWO WEEKS: The Road Less Travelled</a>
-
-            </div>
-
-            <div class="mega-col">
-
-                <h3>Self-Drive Itineraries - Medium Stay</h3>
-
-                <a href="/backpacking-south-africa-tours/#backpackers-bible">THREE WEEKS: The Backpacker's Bible</a>
-                <a href="/backpacking-south-africa-tours/#coast-and-karoo">THREE WEEKS: Coast & Karoo</a>
-                <a href="/backpacking-south-africa-tours/#off-the-beaten-track">THREE WEEKS: Off The Beaten Track</a>
-                
-                <h3>Self-Drive Itineraries - Long Stay</h3>
-
-                <a href="/backpacking-south-africa-tours/#rainbow-nation">ONE MONTH: The Rainbow Nation</a>
-                <a href="/backpacking-south-africa-tours/#full-monty">THREE MONTHS: The Full Monty</a>
-
-            </div>
-
-            <div class="mega-col">
-
-                <h3>Tours</h3>
-
-                <a href="/backpacking-south-africa/cape-town#tours">Cape Town</a>
-                <a href="/backpacking-south-africa/winelands#tours">Winelands</a>
-                <a href="/backpacking-south-africa/west-coast#tours">West Coast</a>
-                <a href="/backpacking-south-africa/garden-route#tours">Garden Route</a>
-                <a href="/backpacking-south-africa/karoo#tours">Karoo</a>
-                <a href="/backpacking-south-africa/route-62#tours">Route 62</a>
-                <a href="/backpacking-south-africa/overberg#tours">The Overberg</a>
-                <a href="/backpacking-south-africa/sunshine-coast#tours">Sunshine Coast</a>
-                <a href="/backpacking-south-africa/durban#tours">Durban</a>
-                <a href="/backpacking-south-africa/drakensberg#tours">Drakensberg</a>
-                <a href="/backpacking-south-africa/zululand#tours">Zululand</a>
-                <a href="/backpacking-south-africa/kruger#tours">Kruger</a>
-                <a href="/backpacking-south-africa/johannesburg#tours">Johannesburg</a>
-                <a href="/backpacking-south-africa/eswatini#tours">Eswatini</a>
-                <a href="/backpacking-south-africa/lesotho#tours">Lesotho</a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</nav>
-
-        </div>
-
-    </div>
-
-     <!-- Menu end -->
-
-    <div class="strip black"></div>
-    <div class="strip yellow"></div>
-    <div class="strip blue"></div>
-    <div class="strip green"></div>
 
 </header>
 
      <!-- Header end -->
 
-     <!-- Map Libre start -->
+<div class="header-spacer" aria-hidden="true"></div>
 
-<div style="height: 140px; width: 100%; display: block;"></div>
+     <!-- Map Libre start -->
 
 <main id="main-content">
 
@@ -1152,27 +1181,23 @@ content="Stop paying booking commissions. Get direct contact info for every Gard
 
 </section>
 
+     <!-- Tour guide initial -->
+
+<div id="ma">
+    <img id="ma-img" src="/assets/_god_6.png" alt="">
+    <div id="ma-bubble">
+        <div id="t-out"></div>
+        <div id="t-in"></div>
+        <p id="ma-text">Welcome to our backpacking guide of the Garden Route!</p>
+        <a id="ma-link" href="#faq">Discover more</a>
+    </div>
+</div>
+
      <!-- Horizontal regional menu -->
 
-<section class="jump-menu-section" style="background: #000; padding: 0; margin: 0; height: auto; min-height: 160px; overflow: hidden; position: relative; z-index: 1001;">  
+<section class="jump-menu-section">  
 
-    <nav class="jump-menu-container" id="top-jump" aria-label="Regions jump menu" 
-  style="display: flex !important; 
-                flex-wrap: nowrap !important; 
-                overflow-x: auto !important; 
-                overflow-y: hidden !important;
-                gap: 15px; 
-                width: 100%;
-                padding: 17px 12px 7px 12px !important; 
-                background-color: #000; 
-                /* SVG with 11 squares (6px) and 1 larger triangle (8px) */
-                background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22240%22%20height%3D%228%22%3E%3Crect%20x%3D%220%22%20y%3D%221%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22%23ffd400%22%2F%3E%3Crect%20x%3D%2220%22%20y%3D%221%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22%23ffd400%22%2F%3E%3Crect%20x%3D%2240%22%20y%3D%221%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22%23ffd400%22%2F%3E%3Crect%20x%3D%2260%22%20y%3D%221%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22%23ffd400%22%2F%3E%3Crect%20x%3D%2280%22%20y%3D%221%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22%23ffd400%22%2F%3E%3Crect%20x%3D%22100%22%20y%3D%221%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22%23ffd400%22%2F%3E%3Crect%20x%3D%22120%22%20y%3D%221%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22%23ffd400%22%2F%3E%3Crect%20x%3D%22140%22%20y%3D%221%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22%23ffd400%22%2F%3E%3Crect%20x%3D%22160%22%20y%3D%221%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22%23ffd400%22%2F%3E%3Crect%20x%3D%22180%22%20y%3D%221%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22%23ffd400%22%2F%3E%3Crect%20x%3D%22200%22%20y%3D%221%22%20width%3D%226%22%20height%3D%226%22%20fill%3D%22%23ffd400%22%2F%3E%3Cpolygon%20points%3D%22220%2C0%20228%2C4%20220%2C8%22%20fill%3D%22%23ff0000%22%2F%3E%3C%2Fsvg%3E') !important; 
-                background-repeat: repeat-x !important; 
-                background-size: 240px 8px !important; 
-                /* Position shifted to 5px to account for the larger shape height */
-                background-position: top 5px left 0px !important;
-                -webkit-overflow-scrolling: touch;
-                box-sizing: border-box;">
+    <nav class="jump-menu-container" id="top-jump" aria-label="Regions jump menu">
 
         <a href="/" class="jump-card"><img src="/assets/hostels_thumb_home.png" alt="Backpacking South Africa" class="jump-card-img"><div class="jump-card-overlay">HOME</div></a>
 
@@ -1240,6 +1265,8 @@ content="Stop paying booking commissions. Get direct contact info for every Gard
 
 </section>
 
+     <!-- Jump menu -->
+
 <div class="yellow-menu-backdrop"></div>
 
 <nav id="quick-jump-menu" aria-label="Quick section jump menu">
@@ -1248,16 +1275,13 @@ content="Stop paying booking commissions. Get direct contact info for every Gard
     <a href="#hostels">Hostels</a>
 </nav>
 
-
      <!-- Backpacking guide -->
 
 <div id="tip2"></div>
 
+     <!-- Section 1: About Durban -->
 
-     <!-- Section 1: About the Garden Route -->
-
-
-<section class="area-hero-container" id="guide">
+<section class="area-hero-container text-section--after-parallax" id="guide">
 
     <h1 class="area-hero-title" id="faq">Backpacking the Garden Route</h1>
 
@@ -1461,63 +1485,36 @@ content="Stop paying booking commissions. Get direct contact info for every Gard
     <div class="strip black"></div>
 
 
-
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 100px; width: 100%; display: block; margin-top: 0px; background-color: #ffd400;">
-</div>
-
-<div class="hide-on-desktop" style="height: 60px; width: 100%; display: block; background-color: #ffd400; margin-bottom: 0px;">
-</div>
-
-
-
-
      <!-- Section 2: Things To Do on the Garden Route -->
-
 
 <section class="region-header-section">
 
-    <h2 class="area-hero-title" id="activities">Things To Do On The Garden Route</h2>
+    <h2 class="area-hero-title area-hero-title--section-gap" id="activities">Things To Do On The Garden Route</h2>
 
-     <!-- Spacer -->
 
-<div class="hide-on-mobile" style="height: 50px; width: 100%; display: block; margin-top: 0px; background-color: #ffd400;">
-</div>
+     <!-- My Map -->
 
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; background-color: #ffd400; padding-top: 0px;">
-</div>
+<span id="map" aria-hidden="true"></span>
+<section id="map-visual" class="map-section-visual text-section--after-parallax">
 
-     <!-- My Map start -->
-
-<section id="map-visual" style="width: 90vw; margin-left: calc(-50vw + 50%); position: relative; line-height: 0;">
-
-<center>
-   
-    <div class="region-map">
+<div class="region-map">
         <iframe 
             src="https://www.google.com/maps/d/embed?mid=1xlLXgh8JEXFp2gPM06NTgV6a3eq2k4Y&ehbc=2E312F"
-            width="100%" height="570" style="border:0; display: block;" allowfullscreen="" loading="lazy">
+            width="100%" height="570"  allowfullscreen="" loading="lazy">
         </iframe>
     </div>
 
-    <div class="map-fallback" style="display:none;">
+<div class="map-fallback" style="display:none;">
         <picture>
             <source media="(max-width: 767px)" srcset="/assets/fallback_map_garden-route_activities_mobile.jpg">
-            <img src="/assets/fallback_map_garden-route_activities.jpg" alt="Map unavailable offline" style="width: 100%; height: auto; display: block; margin: 0;">
+            <img src=/assets/fallback_map_garden-route_activities.jpg" alt="Map unavailable offline">
         </picture>
     </div>
 
-</center>
-
 </section>
 
-     <!-- Backpacking guide -->
 
-<div id="tip1"></div>
-
-
-    <h3 class="section-heading-desktop" id="adrenaline">1. The Adventures (High Adrenaline)</h3>
+    <h3 class="section-heading-desktop">1. The Adventures (High Adrenaline)</h3>
 
 
 <p class="intro-p">The Garden Route is one of the most adventure-dense stretches of road in the world. Within a 300km corridor, you can bungee jump from the highest commercial bridge jump on the planet, surf a perfect point break, cage-dive with great white sharks, paraglide over a lagoon, kloofing into waterfall pools, and skydive above one of the most beautiful coastlines on earth. The infrastructure for all of this is excellent, the operators are professional, and the prices — by European and Australian standards — are startlingly affordable.</p>
@@ -1771,27 +1768,19 @@ Tandem paragliding is available from several launch sites above George and Wilde
 
 </section>
 
-     <!-- GetYourGuide tours -->
 
-<section class="tour-section">
+     <!-- Backpackers tour guide -->
 
-
-
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 100px; width: 100%; display: block; margin-top: -60px; background-color: #ffd400;">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; background-color: #ffd400; margin-bottom: 0px;">
-</div>
-
-
-<h3 id="tours" class="section-heading-desktop">Top-Rated Garden Route Tours on GetYourGuide.com</h3>
+<div id="tip1"></div>
 
 
 
+    <!-- GetYourGuide tours -->
 
-    
+<section class="tour-section text-section--after-parallax">
+
+    <h3 class="section-heading-desktop">Top-Rated Garden Route Tours on GetYourGuide.com</h3>
+
     <div class="tour-grid">
         <a href="https://www.getyourguide.com/plettenberg-bay-l109147/plettenberg-bay-swim-with-seals-t311468/" class="tour-card" rel="sponsored">
             <div class="tour-image" style="background-image: url('/assets/_getyourguide_garden_route_seals.jpg');">
@@ -1863,17 +1852,6 @@ Tandem paragliding is available from several launch sites above George and Wilde
             <a href="https://www.getyourguide.com/garden-route-l32178/" target="_blank" id="btn-getyourguide-com" rel="sponsored">GetYourGuide</a>
         </div>
 
-
-
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 20px; width: 100%; display: block; margin-bottom: 0px; background-color: #ffd400;">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; background-color: #ffd400; margin-bottom: 0px;">
-</div>
-
-
 </section>
 
 
@@ -1888,37 +1866,36 @@ Tandem paragliding is available from several launch sites above George and Wilde
     <div class="strip black"></div>
 
 
-     <!-- Garden Route hostel list -->
+     <!-- Section 3: Hostel Directory -->
+
 
 <span id="hostel-list" style="display:none;" aria-hidden="true"></span>
-<section class="hostel-list-section" id="list-container">
+<section class="hostel-list-section text-section--after-parallax" id="list-container">
 
      <!-- Spacer -->
 
-<div class="hide-on-mobile" style="height: 100px; width: 100%; display: block; margin-bottom: 0px; background-color: #ffd400;">
-</div>
-
-<div class="hide-on-desktop" style="height: 60px; width: 100%; display: block; background-color: #ffd400; margin-bottom: 0px;">
-</div>
-
     <div class="container-wide">
 
-    <h2 class="area-hero-title" id="hostels">Garden Route Backpackers Hostels</h2>
+
+    <h2 class="area-hero-title area-hero-title--section-gap" id="hostels">Garden Route Backpackers Hostels</h2>
+
 
     <h4 class="sub-heading-desktop">Hostels listed on Booking.com and Hostelworld</h4>
 
         <div class="booking-btn-container">
-            <a href="https://www.booking.com/region/za/garden-route.en.html" target="_blank" id="btn-booking-com">Booking<span>.com</span></a>
-            <a href="https://www.hostelworld.com/hostels/africa/south-africa/" target="_blank" id="btn-hostelworld-com">HOSTELWORLD</a>
+            <a href="https://www.booking.com/region/za/garden-route.en.html" target="_blank" id="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
+            <a href="https://www.hostelworld.com/hostels/africa/south-africa/" target="_blank" id="btn-hostelworld-com" rel="sponsored">HOSTELWORLD</a>
         </div>
 
-    <h3 class="section-heading-desktop" id="hostels">ALL HOSTELS</h3>
+
+    <h3 class="section-heading-desktop" id="hostels">All Hostels</h3>
 
 <p class="intro-p">Full contact details are included in case you want to book direct, plus useful info such as Safety Ratings and Value For Money, Solo Female Friendliness, and Digital Nomad scorecards.</p>
 
     <p class="intro-p">Every listing below is independently researched and unsponsored. We review them all the same way - <br><strong>the hostels do not pay us for advertising.</strong></p>
 
 <p class="intro-p">Did we miss a hostel? Email us at <span class="contact-link-multi"></span> and we'll add it.</p>
+
 
         <div class="hostel-grid">
             <div class="hostel-col">
@@ -1983,27 +1960,14 @@ Tandem paragliding is available from several launch sites above George and Wilde
 </section>
 
 
-
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 60px; width: 100%; display: block; margin-bottom: 0px; background-color: #ffd400;">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; background-color: #ffd400; margin-bottom: 0px;">
-</div>
-
-
-<!-- ================================================================ -->
-<!--  MOSSEL BAY                                                         -->
-<!-- ================================================================ -->
-
-
 <!-- ---- 1. PARK HOUSE LODGE ---- -->
 
 <section class="region-header-section" aria-label="PARK HOUSE LODGE" id="park-house-lodge" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
+        <div class="hostel-card-header">
         <h2 class="detail-h2">PARK HOUSE LODGE</h2>
+    </div>
 
         <div class="detail-p">
             <p><strong>AREA:</strong> MOSSEL BAY — Town Centre</p>
@@ -2063,13 +2027,6 @@ Tandem paragliding is available from several launch sites above George and Wilde
     </div>
 </section>
 
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 60px; width: 100%; display: block; padding-bottom: 10px; background-color: #ffd400;">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; background-color: #ffd400; margin-top: 0px;">
-</div>
 
      <!-- Backpackers tour guide -->
 
@@ -2081,7 +2038,9 @@ Tandem paragliding is available from several launch sites above George and Wilde
 <section class="region-header-section" aria-label="MILE CRUNCHERS BACKPACKERS &amp; HOSTELLING" id="mile-crunchers-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
+        <div class="hostel-card-header">
         <h2 class="detail-h2">MILE CRUNCHERS BACKPACKERS &amp; HOSTELLING</h2>
+    </div>
 
         <div class="detail-p">
 
@@ -2100,14 +2059,6 @@ Tandem paragliding is available from several launch sites above George and Wilde
             <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/MileCrunchersBackpackers" target="_blank" class="blue-link">Facebook</a></p>
 
         </div>
-
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 0px; width: 100%; display: block; margin-top: 0px; background-color: #ffd400">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; margin-top: -30px; background-color: #ffd400">
-</div>
 
         <div class="booking-btn-container">
             <a href="https://www.booking.com/hotel/za/mile-crunchers-backpackers-mossel-bay.html" target="_blank" id="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
@@ -2155,20 +2106,15 @@ Tandem paragliding is available from several launch sites above George and Wilde
     </div>
 </section>
 
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 60px; width: 100%; display: block; padding-bottom: 10px; background-color: #ffd400;">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; background-color: #ffd400; margin-top: 0px;">
-</div>
 
 <!-- ---- 3. SANTOS EXPRESS TRAIN LODGE ---- -->
 
 <section class="region-header-section" aria-label="SANTOS EXPRESS TRAIN LODGE" id="santos-express-train-lodge" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
+        <div class="hostel-card-header">
         <h2 class="detail-h2">SANTOS EXPRESS TRAIN LODGE</h2>
+    </div>
 
         <div class="detail-p">
 
@@ -2189,14 +2135,6 @@ Tandem paragliding is available from several launch sites above George and Wilde
             <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/santosexpress.trainlodge" target="_blank" class="blue-link">Facebook</a></p>
 
         </div>
-
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 0px; width: 100%; display: block; margin-top: 0px; background-color: #ffd400">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; margin-top: -30px; background-color: #ffd400">
-</div>
 
         <div class="booking-btn-container">
 
@@ -2245,20 +2183,15 @@ Tandem paragliding is available from several launch sites above George and Wilde
     </div>
 </section>
 
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 60px; width: 100%; display: block; padding-bottom: 10px; background-color: #ffd400;">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; background-color: #ffd400; margin-top: 0px;">
-</div>
 
 <!-- ---- 4. SHARK SHACK BACKPACKERS ---- -->
 
 <section class="region-header-section" aria-label="SHARK SHACK BACKPACKERS" id="shark-shack-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
+        <div class="hostel-card-header">
         <h2 class="detail-h2">SHARK SHACK BACKPACKERS</h2>
+    </div>
 
         <div class="detail-p">
 
@@ -2279,14 +2212,6 @@ Tandem paragliding is available from several launch sites above George and Wilde
             <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/SharkShackMBay" target="_blank" class="blue-link">Facebook</a></p>
 
         </div>
-
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 0px; width: 100%; display: block; margin-top: 0px; background-color: #ffd400">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; margin-top: -30px; background-color: #ffd400">
-</div>
 
         <div class="booking-btn-container">
 
@@ -2338,26 +2263,17 @@ Tandem paragliding is available from several launch sites above George and Wilde
     </div>
 </section>
 
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 60px; width: 100%; display: block; padding-bottom: 10px; background-color: #ffd400;">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; background-color: #ffd400; margin-top: 0px;">
-</div>
-
-<!-- ================================================================ -->
-<!--  GEORGE                                                             -->
-<!-- ================================================================ -->
 
 <!-- ---- 5. GEORGE BACKPACKERS ---- -->
 
 <section class="region-header-section" aria-label="GEORGE BACKPACKERS" id="george-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
+        <div class="hostel-card-header">
         <h2 class="detail-h2">GEORGE BACKPACKERS</h2>
+        </div>
 
-        <div class="detail-p">
+<div class="detail-p">
 
             <p><strong>AREA:</strong> GEORGE — Dormehls Drift suburb</p>
 
@@ -2415,24 +2331,15 @@ Tandem paragliding is available from several launch sites above George and Wilde
     </div>
 </section>
 
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 60px; width: 100%; display: block; padding-bottom: 10px; background-color: #ffd400;">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; background-color: #ffd400; margin-top: 0px;">
-</div>
-
-<!-- ================================================================ -->
-<!--  WILDERNESS                                                         -->
-<!-- ================================================================ -->
 
 <!-- ---- 6. WILDERNESS BEACH HOUSE BACKPACKERS ---- -->
 
 <section class="region-header-section" aria-label="WILDERNESS BEACH HOUSE BACKPACKERS" id="wilderness-beach-house" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
+        <div class="hostel-card-header">
         <h2 class="detail-h2">WILDERNESS BEACH HOUSE BACKPACKERS</h2>
+        </div>
 
         <div class="detail-p">
 
@@ -2451,14 +2358,6 @@ Tandem paragliding is available from several launch sites above George and Wilde
             <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/BeachHouseBackpackers" target="_blank" class="blue-link">Facebook</a></p>
 
         </div>
-
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 0px; width: 100%; display: block; margin-top: 0px; background-color: #ffd400">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; margin-top: -30px; background-color: #ffd400">
-</div>
 
         <div class="booking-btn-container">
 
@@ -2510,20 +2409,15 @@ Tandem paragliding is available from several launch sites above George and Wilde
     </div>
 </section>
 
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 60px; width: 100%; display: block; padding-bottom: 10px; background-color: #ffd400;">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; background-color: #ffd400; margin-top: 0px;">
-</div>
 
 <!-- ---- 7. FAIRY KNOWE BACKPACKERS ---- -->
 
 <section class="region-header-section" aria-label="FAIRY KNOWE BACKPACKERS" id="fairy-knowe-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
+        <div class="hostel-card-header">
         <h2 class="detail-h2">FAIRY KNOWE BACKPACKERS</h2>
+    </div>
 
         <div class="detail-p">
 
@@ -2603,20 +2497,15 @@ Tandem paragliding is available from several launch sites above George and Wilde
     </div>
 </section>
 
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 60px; width: 100%; display: block; padding-bottom: 10px; background-color: #ffd400;">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; background-color: #ffd400; margin-top: 0px;">
-</div>
 
 <!-- ---- 8. THE WILD FARM BACKPACKERS ---- -->
 
 <section class="region-header-section" aria-label="THE WILD FARM BACKPACKERS" id="the-wild-farm-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
+        <div class="hostel-card-header">
         <h2 class="detail-h2">THE WILD FARM BACKPACKERS</h2>
+    </div>
 
         <div class="detail-p">
 
@@ -2635,14 +2524,6 @@ Tandem paragliding is available from several launch sites above George and Wilde
             <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/wildfarm.wilderness.backpackers" target="_blank" class="blue-link">Facebook</a></p>
 
         </div>
-
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 0px; width: 100%; display: block; margin-top: 0px; background-color: #ffd400">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; margin-top: -30px; background-color: #ffd400">
-</div>
 
         <div class="booking-btn-container">
 
@@ -2696,25 +2577,15 @@ Tandem paragliding is available from several launch sites above George and Wilde
     </div>
 </section>
 
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 60px; width: 100%; display: block; padding-bottom: 10px; background-color: #ffd400;">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; background-color: #ffd400; margin-top: 0px;">
-</div>
-
-<!-- ================================================================ -->
-<!--  SEDGEFIELD                                                         -->
-<!-- ================================================================ -->
-
 
 <!-- ---- 9. SEDGEFIELD BACKPACKER ---- -->
 
 <section class="region-header-section" aria-label="SEDGEFIELD BACKPACKER" id="sedgefield-backpacker" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
+        <div class="hostel-card-header">
         <h2 class="detail-h2">SEDGEFIELD BACKPACKER</h2>
+    </div>
 
         <div class="detail-p">
 
@@ -2731,14 +2602,6 @@ Tandem paragliding is available from several launch sites above George and Wilde
             <p><strong>WEBSITE:</strong> <a href="https://sedgefieldbackpacker.co.za" target="_blank" class="blue-link" rel="nofollow">sedgefieldbackpacker.co.za</a></p>
 
         </div>
-
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 0px; width: 100%; display: block; margin-top: 0px; background-color: #ffd400">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; margin-top: -30px; background-color: #ffd400">
-</div>
 
         <div class="booking-btn-container">
 
@@ -2787,20 +2650,15 @@ Tandem paragliding is available from several launch sites above George and Wilde
     </div>
 </section>
 
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 60px; width: 100%; display: block; padding-bottom: 10px; background-color: #ffd400;">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; background-color: #ffd400; margin-top: 0px;">
-</div>
 
 <!-- ---- 10. PILIPILI BEACH CABANAS ---- -->
 
 <section class="region-header-section" aria-label="PILIPILI BEACH CABANAS" id="pilipili-beach-cabanas" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
+        <div class="hostel-card-header">
         <h2 class="detail-h2">PILIPILI BEACH CABANAS</h2>
+    </div>
 
         <div class="detail-p">
 
@@ -2821,14 +2679,6 @@ Tandem paragliding is available from several launch sites above George and Wilde
             <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/pilipilibeachcabanas" target="_blank" class="blue-link">Facebook</a></p>
 
         </div>
-
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 0px; width: 100%; display: block; margin-top: 0px; background-color: #ffd400">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; margin-top: -30px; background-color: #ffd400">
-</div>
 
         <div class="booking-btn-container">
 
@@ -2877,25 +2727,15 @@ Tandem paragliding is available from several launch sites above George and Wilde
     </div>
 </section>
 
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 60px; width: 100%; display: block; padding-bottom: 10px; background-color: #ffd400;">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; background-color: #ffd400; margin-top: 0px;">
-</div>
-
-<!-- ================================================================ -->
-<!--  KNYSNA                                                             -->
-<!-- ================================================================ -->
-
 
 <!-- ---- 11. THE RIVERDECK LODGE AND BACKPACKERS ---- -->
 
 <section class="region-header-section" aria-label="THE RIVERDECK LODGE AND BACKPACKERS" id="the-riverdeck-lodge" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
+        <div class="hostel-card-header">
         <h2 class="detail-h2">THE RIVERDECK LODGE AND BACKPACKERS</h2>
+    </div>
 
         <div class="detail-p">
 
@@ -2916,14 +2756,6 @@ Tandem paragliding is available from several launch sites above George and Wilde
             <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/riverdeckrestaurantknysna" target="_blank" class="blue-link">Facebook</a></p>
 
         </div>
-
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 0px; width: 100%; display: block; margin-top: 0px; background-color: #ffd400">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; margin-top: -30px; background-color: #ffd400">
-</div>
 
         <div class="booking-btn-container">
 
@@ -2972,20 +2804,15 @@ Tandem paragliding is available from several launch sites above George and Wilde
     </div>
 </section>
 
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 60px; width: 100%; display: block; padding-bottom: 10px; background-color: #ffd400;">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; background-color: #ffd400; margin-top: 0px;">
-</div>
 
 <!-- ---- 12. ISLAND VIBE BACKPACKERS KNYSNA ---- -->
 
 <section class="region-header-section" aria-label="ISLAND VIBE BACKPACKERS KNYSNA" id="island-vibe-knysna" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
+        <div class="hostel-card-header">
         <h2 class="detail-h2">ISLAND VIBE BACKPACKERS KNYSNA</h2>
+    </div>
 
         <div class="detail-p">
 
@@ -3006,14 +2833,6 @@ Tandem paragliding is available from several launch sites above George and Wilde
             <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/islandvibeknysna" target="_blank" class="blue-link">Facebook</a></p>
 
         </div>
-
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 0px; width: 100%; display: block; margin-top: 0px; background-color: #ffd400">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; margin-top: -30px; background-color: #ffd400">
-</div>
 
         <div class="booking-btn-container">
 
@@ -3065,20 +2884,16 @@ Tandem paragliding is available from several launch sites above George and Wilde
     </div>
 </section>
 
-     <!-- Spacer -->
 
-<div class="hide-on-mobile" style="height: 60px; width: 100%; display: block; padding-bottom: 10px; background-color: #ffd400;">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; background-color: #ffd400; margin-top: 0px;">
-</div>
 
 <!-- ---- 13. KNYSNA BACKPACKERS ---- -->
 
 <section class="region-header-section" aria-label="KNYSNA BACKPACKERS" id="knysna-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
+        <div class="hostel-card-header">
         <h2 class="detail-h2">KNYSNA BACKPACKERS</h2>
+    </div>
 
         <div class="detail-p">
 
@@ -3097,14 +2912,6 @@ Tandem paragliding is available from several launch sites above George and Wilde
             <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/KnysnaBackpackers" target="_blank" class="blue-link">Facebook</a></p>
 
         </div>
-
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 0px; width: 100%; display: block; margin-top: 0px; background-color: #ffd400">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; margin-top: -30px; background-color: #ffd400">
-</div>
 
         <div class="booking-btn-container">
 
@@ -3152,20 +2959,16 @@ Tandem paragliding is available from several launch sites above George and Wilde
     </div>
 </section>
 
-     <!-- Spacer -->
 
-<div class="hide-on-mobile" style="height: 60px; width: 100%; display: block; padding-bottom: 10px; background-color: #ffd400;">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; background-color: #ffd400; margin-top: 0px;">
-</div>
 
 <!-- ---- 14. KEEDOLS INN & BACKPACKERS ---- -->
 
 <section class="region-header-section" aria-label="KEEDOLS INN &amp; BACKPACKERS" id="keedols-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
+        <div class="hostel-card-header">
         <h2 class="detail-h2">KEEDOLS INN &amp; BACKPACKERS</h2>
+    </div>
 
         <div class="detail-p">
 
@@ -3184,14 +2987,6 @@ Tandem paragliding is available from several launch sites above George and Wilde
             <p><strong>WEBSITE:</strong> <a href="https://keedols.co.za" target="_blank" class="blue-link" rel="nofollow">keedols.co.za</a></p>
 
         </div>
-
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 0px; width: 100%; display: block; margin-top: 0px; background-color: #ffd400">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; margin-top: -30px; background-color: #ffd400">
-</div>
 
         <div class="booking-btn-container">
 
@@ -3241,24 +3036,16 @@ Tandem paragliding is available from several launch sites above George and Wilde
     </div>
 </section>
 
-     <!-- Spacer -->
 
-<div class="hide-on-mobile" style="height: 60px; width: 100%; display: block; padding-bottom: 10px; background-color: #ffd400;">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; background-color: #ffd400; margin-top: 0px;">
-</div>
-
-<!-- ================================================================ -->
-<!--  PLETTENBERG BAY                                                    -->
-<!-- ================================================================ -->
 
 <!-- ---- 15. AMAKAYA BACKPACKERS & APARTMENTS ---- -->
 
 <section class="region-header-section" aria-label="AMAKAYA BACKPACKERS &amp; APARTMENTS" id="amakaya-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
+        <div class="hostel-card-header">
         <h2 class="detail-h2">AMAKAYA BACKPACKERS &amp; APARTMENTS</h2>
+    </div>
 
         <div class="detail-p">
 
@@ -3279,14 +3066,6 @@ Tandem paragliding is available from several launch sites above George and Wilde
             <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/AmakayaBackpackers" target="_blank" class="blue-link">Facebook</a></p>
 
         </div>
-
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 0px; width: 100%; display: block; margin-top: 0px; background-color: #ffd400">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; margin-top: -30px; background-color: #ffd400">
-</div>
 
         <div class="booking-btn-container">
 
@@ -3338,20 +3117,16 @@ Tandem paragliding is available from several launch sites above George and Wilde
     </div>
 </section>
 
-     <!-- Spacer -->
 
-<div class="hide-on-mobile" style="height: 60px; width: 100%; display: block; padding-bottom: 10px; background-color: #ffd400;">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; background-color: #ffd400; margin-top: 0px;">
-</div>
 
 <!-- ---- 16. PLETT BEACHFRONT ACCOMMODATION ---- -->
 
 <section class="region-header-section" aria-label="PLETT BEACHFRONT ACCOMMODATION" id="plett-beachfront" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
+        <div class="hostel-card-header">
         <h2 class="detail-h2">PLETT BEACHFRONT ACCOMMODATION</h2>
+    </div>
 
         <div class="detail-p">
 
@@ -3420,20 +3195,16 @@ Tandem paragliding is available from several launch sites above George and Wilde
     </div>
 </section>
 
-     <!-- Spacer -->
 
-<div class="hide-on-mobile" style="height: 60px; width: 100%; display: block; padding-bottom: 10px; background-color: #ffd400;">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; background-color: #ffd400; margin-top: 0px;">
-</div>
 
 <!-- ---- 17. PLETT BACKPACKERS ---- -->
 
 <section class="region-header-section" aria-label="PLETT BACKPACKERS" id="plett-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
+        <div class="hostel-card-header">
         <h2 class="detail-h2">PLETT BACKPACKERS</h2>
+    </div>
 
         <div class="detail-p">
 
@@ -3491,20 +3262,16 @@ Tandem paragliding is available from several launch sites above George and Wilde
     </div>
 </section>
 
-     <!-- Spacer -->
 
-<div class="hide-on-mobile" style="height: 60px; width: 100%; display: block; padding-bottom: 10px; background-color: #ffd400;">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; background-color: #ffd400; margin-top: 0px;">
-</div>
 
 <!-- ---- 18. NOTHANDO BACKPACKERS ---- -->
 
 <section class="region-header-section" aria-label="NOTHANDO BACKPACKERS ★" id="nothando-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
+        <div class="hostel-card-header">
         <h2 class="detail-h2">NOTHANDO BACKPACKERS ★</h2>
+    </div>
 
         <div class="detail-p">
 
@@ -3525,14 +3292,6 @@ Tandem paragliding is available from several launch sites above George and Wilde
             <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/NothandoBackpackersPlett" target="_blank" class="blue-link">Facebook</a></p>
 
         </div>
-
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 0px; width: 100%; display: block; margin-top: 0px; background-color: #ffd400">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; margin-top: -30px; background-color: #ffd400">
-</div>
 
         <div class="booking-btn-container">
 
@@ -3585,17 +3344,6 @@ Tandem paragliding is available from several launch sites above George and Wilde
     </div>
 </section>
 
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 60px; width: 100%; display: block; padding-bottom: 10px; background-color: #ffd400;">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; background-color: #ffd400; margin-top: 0px;">
-</div>
-
-<!-- ================================================================ -->
-<!--  THE CRAGS                                                          -->
-<!-- ================================================================ -->
 
 
 <!-- ---- 19. WILD SPIRIT BACKPACKERS LODGE ---- -->
@@ -3603,7 +3351,9 @@ Tandem paragliding is available from several launch sites above George and Wilde
 <section class="region-header-section" aria-label="WILD SPIRIT BACKPACKERS LODGE" id="wild-spirit-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
+        <div class="hostel-card-header">
         <h2 class="detail-h2">WILD SPIRIT BACKPACKERS LODGE</h2>
+    </div>
 
         <div class="detail-p">
 
@@ -3622,14 +3372,6 @@ Tandem paragliding is available from several launch sites above George and Wilde
             <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/WildSpiritBackpackersLodge" target="_blank" class="blue-link">Facebook</a></p>
 
         </div>
-
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 0px; width: 100%; display: block; margin-top: 0px; background-color: #ffd400">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; margin-top: -30px; background-color: #ffd400">
-</div>
 
         <div class="booking-btn-container">
 
@@ -3682,17 +3424,6 @@ Tandem paragliding is available from several launch sites above George and Wilde
     </div>
 </section>
 
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 60px; width: 100%; display: block; padding-bottom: 10px; background-color: #ffd400;">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; background-color: #ffd400; margin-top: 0px;">
-</div>
-
-<!-- ================================================================ -->
-<!--  STORMS RIVER                                                       -->
-<!-- ================================================================ -->
 
 
 <!-- ---- 20. TUBE 'N AXE BACKPACKERS ---- -->
@@ -3700,7 +3431,9 @@ Tandem paragliding is available from several launch sites above George and Wilde
 <section class="region-header-section" aria-label="TUBE 'N AXE BUDGET ACCOMMODATION" id="tube-n-axe" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
+        <div class="hostel-card-header">
         <h2 class="detail-h2">TUBE 'N AXE BUDGET ACCOMMODATION</h2>
+    </div>
 
         <div class="detail-p">
 
@@ -3721,14 +3454,6 @@ Tandem paragliding is available from several launch sites above George and Wilde
             <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/TubenAxe" target="_blank" class="blue-link">Facebook</a></p>
 
         </div>
-
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 0px; width: 100%; display: block; margin-top: 0px; background-color: #ffd400">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; margin-top: -30px; background-color: #ffd400">
-</div>
 
         <div class="booking-btn-container">
 
@@ -3780,20 +3505,16 @@ Tandem paragliding is available from several launch sites above George and Wilde
     </div>
 </section>
 
-     <!-- Spacer -->
 
-<div class="hide-on-mobile" style="height: 60px; width: 100%; display: block; padding-bottom: 10px; background-color: #ffd400;">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; background-color: #ffd400; margin-top: 0px;">
-</div>
 
 <!-- ---- 21. DIJEMBE BACKPACKERS ---- -->
 
 <section class="region-header-section" aria-label="DIJEMBE BACKPACKERS" id="dijembe-backpackers" style="scroll-margin-top: 120px;">
     <div class="container-wide-hostels">
 
+        <div class="hostel-card-header">
         <h2 class="detail-h2">DIJEMBE BACKPACKERS</h2>
+    </div>
 
         <div class="detail-p">
 
@@ -3812,14 +3533,6 @@ Tandem paragliding is available from several launch sites above George and Wilde
             <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/profile.php?id=100038889434466" target="_blank" class="blue-link">Facebook</a></p>
 
         </div>
-
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 0px; width: 100%; display: block; margin-top: 0px; background-color: #ffd400">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; margin-top: -30px; background-color: #ffd400">
-</div>
 
         <div class="booking-btn-container">
 
@@ -3868,14 +3581,6 @@ Tandem paragliding is available from several launch sites above George and Wilde
     </div>
 </section>
 
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 60px; width: 100%; display: block; padding-bottom: 10px; background-color: #ffd400;">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; background-color: #ffd400; margin-top: 0px;">
-</div>
-
      <!-- Parallax image -->
 
     <div class="strip black"></div>
@@ -3885,46 +3590,28 @@ Tandem paragliding is available from several launch sites above George and Wilde
     </div>
 </div>
 
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 0px; width: 100%; display: block; margin-top: 0px; background-color: #ffd400;">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; background-color: #ffd400;margin-bottom: -10px;">
-</div>
-
-   <!-- Footer start -->
+    <!-- Footer start -->
 
 </main>
 
 <footer role="contentinfo">
 
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 0px; width: 100%; display: block; margin-bottom: 0px; background-color: #ffd400;">
-</div>
-
-<div class="hide-on-desktop" style="height: 0px; width: 100%; display: block; background-color: #ffd400; margin-bottom: -10px;">
-</div>
+    <div class="f-strip black"></div>
 
     <section class="affiliate-disclosure">
 
-        <h4>Please Support The Backpacker’s Bible</h4>
+        <h4>Please Support The Backpacker's Bible</h4>
         <p class="disclosure-text">If you find this guide useful, please book through us. We use affiliate links to help keep the guide going, and will receive a small commission - at no extra cost to you - when you hit the Booking.com, Hostelworld or GetYourGuide buttons. <a href="/misc/affiliate-links-disclosure">MORE INFO...</a></p>
-        
-<p class="disclosure-text">Not everyone wants to use booking platforms though, so we've provided the hostels' full contact details too. Please tell the hostels that you found them on BackpackersBible.com. Share the love of travelling by clicking the WhatsApp icon below to send the link to fellow travellers. </p>
 
-<p class="disclosure-text">Thank you. Safe travels, and may you have a fantastic holiday! <img src="/assets/heart.png" alt="" aria-hidden="true"></p>
+        <p class="disclosure-text">Not everyone wants to use booking platforms though, so we've provided the hostels' full contact details too. Please tell the hostels that you found them on BackpackersBible.com. Share the love of travelling by clicking the WhatsApp icon below to send the link to fellow travellers.</p>
 
-<CENTER>
+        <p class="disclosure-text">Thank you. Safe travels, and may you have a fantastic holiday! <img src="/assets/heart.png" alt="" aria-hidden="true"></p>
 
-            <img src="/assets/hand-phone__backpacking_map_small2.png" alt="Backpacking guide on mobile phone" style="margin: 20px 0px -5px 0px">
-
-                <a href="/pdf/Backpackers_Bible_Lite-South_Africa.pdf" target="_blank" class="download-btn-yellow" style="margin: 0px 0px 20px 0px" aria-describedby="guide-info">DOWNLOAD THE FREE OFFLINE GUIDE </a>
-
-</CENTER>
-
-                <p class="file-specs" style="margin-bottom:50px;" id="guide-info">(PDF - 3mb)</p>
+        <div class="affiliate-disclosure__cta">
+            <img src="/assets/hand-phone__backpacking_map_small2.png" alt="Backpacking guide on mobile phone">
+            <a href="/pdf/Backpackers_Bible_Lite-South_Africa.pdf" target="_blank" class="download-btn-yellow" aria-describedby="pdf-info">DOWNLOAD THE FREE OFFLINE GUIDE <span class="sr-only">(opens in a new tab)</span></a>
+            <p class="file-specs" id="pdf-info">(PDF - 3mb)</p>
+        </div>
 
     </section>
 
@@ -3934,7 +3621,7 @@ Tandem paragliding is available from several launch sites above George and Wilde
     <div class="f-strip green"></div>
 
     <section class="footer-main-red">
-        
+
         <a href="https://backpackersbible.com">
             <img src="/assets/backpackers_bible_logo_250x250.png" alt="Backpackers Bible logo" class="footer-logo">
         </a>
@@ -3953,28 +3640,18 @@ Tandem paragliding is available from several launch sites above George and Wilde
             <a href="/misc/about-backpackers-bible">About Us</a>
         </nav>
 
-<div class="hide-on-desktop">
-<div style="height: 30px; width: 100%; display: block;"></div>
-</div>
-
-<div class="footer-share">
-            <span id="whatsapp-share">SHARE</span>
+        <div class="footer-share">
+            <span id="whatsapp-share">SHARE <span class="sr-only">(opens in a new tab)</span></span>
             <a href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://backpackersbible.com" target="_blank">
-                <img src="/assets/whatsapp_icon_round.png" alt="WhatsApp icon" style="width:45px; height:45px;" aria-describedby="whatsapp-share">
+                <img src="/assets/whatsapp_icon_round.png" alt="WhatsApp icon" class="footer-share__icon" aria-describedby="whatsapp-share">
             </a>
         </div>
 
     </section>
 
     <div class="footer-contribute">
-
-       Help keep this guide up-to-date and accurate:
-<br>
-<span class="contact-link-multi"></span>
-
-<div class="hide-on-desktop">
-<div style="height: 20px; width: 100%; display: block;"></div>
-</div>
+        Help keep this guide up-to-date and accurate:<br>
+        <span class="contact-link-multi"></span>
     </div>
 
     <div class="footer-copyright">
@@ -3991,7 +3668,7 @@ Tandem paragliding is available from several launch sites above George and Wilde
 
 <div id="cookie-banner" class="cookie-container">
     <div class="cookie-content">
-        <p>This guide uses cookies to improve your experience and keep it free. <a href="/misc/privacy">Read our Cookie Policy.</a></p>
+        <p>This guide uses cookies to keep it going. <a href="/misc/privacy">Read our Cookie Policy.</a></p>
         <div class="cookie-buttons">
             <button id="accept-cookies" class="cookie-btn accept">Accept All</button>
             <button id="decline-cookies" class="cookie-btn decline">Necessary Only</button>
@@ -4001,173 +3678,64 @@ Tandem paragliding is available from several launch sites above George and Wilde
 
       <!-- Backpacking Guide -->
 
-<div id="ma" style="position:fixed; bottom: 80px; left:50px; display:inline-flex; align-items:center; z-index:100; opacity:0; transition:all 0.5s; pointer-events: none; height: min-content;">
 
-    
-    <img id="ma-img" src="/assets/_god_6.png" style="width:180px; height:auto; pointer-events:auto;">
-
-    <div id="ma-bubble" style="position:relative; margin-left:10px; margin-bottom:20px; background:#000; color:#fff200; border:2px solid #FFD700; padding:12px; border-radius:4px; width:180px; pointer-events:auto;">
-        
-        <div id="t-out" style="position:absolute; left:-12px; bottom:15px; border-top:10px solid transparent; border-bottom:10px solid transparent; border-right:12px solid #FFD700;"></div>
-        <div id="t-in" style="position:absolute; left:-9px; bottom:15px; border-top:10px solid transparent; border-bottom:10px solid transparent; border-right:12px solid #000;"></div>
-
-        <p id="ma-text" style="margin:0; font-family:sans-serif; font-size:15px; font-weight:regular;">Welcome to our backpacking guide of South Africa!</p>
-        <a id="ma-link" href="/" style="color:#fff; font-size:15px;">Discover more</a>
-    </div>
-</div>
-
-<style>
-/* Mobile-specific adjustments */
-@media (max-width: 600px) {
-    #ma {
-        /* Forces the container to be a flush, full-width bottom bar */
-        left: 0 !important; 
-        right: 0 !important;
-        bottom: 0 !important; 
-        width: 100% !important;
-        max-width: 100vw !important;
-        
-        /* 65% transparent white background */
-        background-color: rgba(255, 255, 255, 0.65) !important; 
-        
-        display: flex !important;
-        /* This padding creates the 7px gap inside the bar so the bubble/character don't touch the glass */
-        padding: 5px 7px !important; 
-        box-sizing: border-box !important;
-        align-items: flex-end !important;
-        transition: opacity 0.5s !important;
-    }
-    #ma img {
-        width: 150px !important; 
-    }
-    #ma-bubble {
-        max-width: calc(100% - 130px) !important; 
-        font-size: 15px !important;
-        padding: 10px !important;
-        margin-bottom: 5px !important; 
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-    }
-}
-
-/* Desktop sizing */
-#ma img {
-    width: 180px; 
-    transition: width 0.3s;
-}
-</style>
+<!-- Tour guide popup styles in style-2.css section 25 -->
 
 <script>
-window.onscroll = function() {
-    var m = document.getElementById('ma');
-    var isMobile = window.innerWidth <= 600;
-
-    function isOn(id) {
-        var el = document.getElementById(id);
-        if (!el) return false;
-        var rect = el.getBoundingClientRect();
-        
-        // APPEAR: Trigger when the ID is in the bottom 60% of the screen
-        var hasStarted = rect.top < window.innerHeight * 0.6;
-        
-        // STAY: Keep her visible until the trigger is 1500px ABOVE the screen
-        var isStillVisible = rect.top > -1500;
-
-        // Safety: Don't trigger if the element is hidden or at 0,0 (common "on load" bug)
-        return hasStarted && isStillVisible && rect.top !== 0;
-    }
-
-    // ORDER
-    // 1. Tip 2
-    if (isOn('tip2')) {
-        updateMa(isMobile ? "left" : "right", "/assets/_god_5.png", 
-                 "Howziiiiiit!!! Welcome to the adventure capital! Whether you are jumping off the Bloukrans Bridge or paragliding over Wilderness, you need a place to crash. Use my hostel write-ups below - this is the ONLY guide with every single hostel in SA. Book your bed before you take the leap!", 
-                 "#hostels");
-    }
-
-    // 2. Tip 1
-    else if (isOn('tip1')) {
-        updateMa("left", "/assets/_god_7.png", 
-                 "Even adrenaline junkies need a plan, explorer! Before you start your road trip, check my suggested Itineraries. They give daily distances and cost breakdowns to fit your backpacker's budget. It’s the best way to find the secret spots between the big thrills!", 
-                 "/backpacking-south-africa-tours/"); 
-    } 
-    // 3. Finally, check Tip 3 (The one further down)
-    else if (isOn('tip3')) {
-        // Flipped to "right"
-        updateMa(isMobile ? "right" : "left", "/assets/_god_6.png", 
-                 "We keep this guide free so you can spend your money on bungy jumping instead! Scroll down to see my full Garden Route hostel list. If you book through our links, it helps keep the Backpackers Bible independent for the next adventurer!", 
-                 "/misc/affiliate-links-disclosure");
-    }
-
-    else {
-        m.style.opacity = "0";
-        m.style.pointerEvents = "none";
-    }
-
-    function updateMa(side, src, text, href) {
-        var img = document.getElementById('ma-img');
-        var txt = document.getElementById('ma-text');
-        var lnk = document.getElementById('ma-link');
-        var tout = document.getElementById('t-out');
-        var tin = document.getElementById('t-in');
-
-        m.style.opacity = "1";
-        m.style.pointerEvents = "auto";
-        img.src = src;
-        txt.innerHTML = text;
-        lnk.href = href;
-
-        if (side === "left") {
-            m.style.flexDirection = "row";
-            m.style.left = isMobile ? "0" : "50px";
-            m.style.right = "auto";
-            m.style.top = isMobile ? "unset" : "50%";
-            m.style.bottom = isMobile ? "0" : "unset";
-            tout.style.left = "-12px"; tout.style.right = "auto"; tout.style.borderRight = "12px solid #FFD700"; tout.style.borderLeft = "none";
-            tin.style.left = "-9px"; tin.style.right = "auto"; tin.style.borderRight = "12px solid #000"; tin.style.borderLeft = "none";
-        } else {
-            m.style.flexDirection = "row-reverse";
-            m.style.left = "auto";
-            m.style.right = isMobile ? "0" : "50px";
-            m.style.top = isMobile ? "unset" : "50%";
-            m.style.bottom = isMobile ? "0" : "unset";
-            tout.style.left = "auto"; tout.style.right = "-12px"; tout.style.borderLeft = "12px solid #FFD700"; tout.style.borderRight = "none";
-            tin.style.left = "auto"; tin.style.right = "-9px"; tin.style.borderLeft = "12px solid #000"; tin.style.borderRight = "none";
-        }
-    }
-};
+/* Page-specific tour guide tips — read by tourguide.js */
+window.BB_TIPS = [
+    { trigger: 'tip2', side: 'right', mobileSide: 'left',
+      img:  '/assets/_god_5.png',
+      text: 'Howziiiiiit!!! Welcome to the adventure capital! Whether you are jumping off the Bloukrans Bridge or paragliding over Wilderness, you need a place to crash. Use my hostel write-ups below - this is the ONLY guide with every single hostel in SA. Book your bed before you take the leap!',
+      href: '/backpacking-south-africa-advice/' },
+    { trigger: 'tip1', side: 'left',
+      img:  '/assets/_god_7.png',
+      text: 'Even adrenaline junkies need a plan, explorer! Before you start your road trip, check my suggested Itineraries. They give daily distances and cost breakdowns to fit your backpacker's budget. It’s the best way to find the secret spots between the big thrills!',
+      href: '/backpacking-south-africa-tours/' },
+    { trigger: 'tip3', side: 'left', mobileSide: 'right',
+      img:  '/assets/_god_6.png',
+      text: 'We keep this guide free so you can spend your money on bungy jumping instead! Scroll down to see my full Garden Route hostel list. If you book through our links, it helps keep the Backpackers Bible independent for the next adventurer!
+',
+      href: '/misc/affiliate-links-disclosure' }
+];
 </script>
+<script src="/js/tourguide.js" defer></script>
 
      <!-- Mobile menu -->
 
-<div id="mobile-menu" style="position: fixed !important; z-index: 99999 !important;" role="dialog" aria-modal="true" aria-label="Navigation menu" hidden>
+<div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu" hidden>
 
-    <span class="close-btn" onclick="toggleMobileMenu()" role="button" aria-label="Close navigation menu" tabindex="0">&times;</span>
+    <!-- Close button -->
+    <button class="mobile-menu__close" id="mobile-menu-close" aria-label="Close navigation menu">&times;</button>
 
-    <!-- Search bar (mobile) -->
-
-    <div class="mobile-search site-search-wrap">
-      <div class="site-search-bar" onclick="document.getElementById('search-input-mobile').focus()">
-        <input id="search-input-mobile" type="search" placeholder="Search this site..." autocomplete="off"
-               aria-label="Search this site" aria-autocomplete="list" aria-controls="search-results-mobile"
-               oninput="runSearch(this.value,'search-results-mobile')"
-               onfocus="if(this.value) document.getElementById('search-results-mobile').classList.add('open')"
-               onblur="setTimeout(()=>document.getElementById('search-results-mobile').classList.remove('open'),500)">
-        <span class="search-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false">
-            <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
-          </svg>
-        </span>
-      </div>
-      <div id="search-results-mobile" class="search-results" role="listbox" aria-live="polite" aria-label="Search results"></div>
+    <!-- Search bar -->
+    <div class="mobile-menu__search" role="search">
+        <div class="mobile-menu__search-bar">
+            <span class="mobile-menu__search-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
+                </svg>
+            </span>
+            <input  id="mobile-menu-search-input"
+                    class="mobile-menu__search-input"
+                    type="search"
+                    placeholder="Search this site..."
+                    autocomplete="off"
+                    aria-label="Search this site"
+                    aria-autocomplete="list"
+                    aria-controls="mobile-menu-search-results"
+                    aria-expanded="false">
+        </div>
+        <!-- Results portal created by JS — this div is removed and replaced -->
+        <div id="mobile-menu-search-results" class="mobile-menu__search-results" role="listbox" aria-live="polite" aria-label="Search results"></div>
     </div>
 
-    <a href="/">HOME</a>
+    <!-- Nav links -->
+    <a href="/">Home</a>
 
-    <button class="accordion" onclick="toggleAccordion(this)" aria-expanded="false" aria-controls="panel-regions">BACKPACKING SOUTH AFRICA</button>
+    <button class="accordion" aria-expanded="false" aria-controls="panel-regions">BACKPACKING SOUTH AFRICA</button>
 
     <div class="panel" id="panel-regions" role="region" aria-label="Backpacking South Africa regions">
-
         <a href="/backpacking-south-africa/">Regions Map / Full Hostel Directory</a>
         <a href="/backpacking-south-africa/cape-town">Cape Town</a>
         <a href="/backpacking-south-africa/winelands">Winelands</a>
@@ -4196,52 +3764,41 @@ window.onscroll = function() {
         <a href="/backpacking-south-africa/northern-cape">Northern Cape</a>
         <a href="/backpacking-south-africa/eswatini">Eswatini</a>
         <a href="/backpacking-south-africa/lesotho">Lesotho</a>
-
     </div>
 
-    <button class="accordion" onclick="toggleAccordion(this)" aria-expanded="false" aria-controls="panel-advice">ADVICE</button>
+    <button class="accordion" aria-expanded="false" aria-controls="panel-advice">ADVICE</button>
 
     <div class="panel" id="panel-advice" role="region" aria-label="Advice sections">
-
-                <h3 style="color: #fff; font-size: 1.4rem; font-weight: normal; margin-top: 3rem; ">PREPARATION</h3>
-
+        <h3>Preparation</h3>
         <a href="/backpacking-south-africa-advice/#checklists">Preflight Checklists</a>
         <a href="/backpacking-south-africa-advice/#safety">Safety</a>
         <a href="/backpacking-south-africa-advice/#money">Money</a>
         <a href="/backpacking-south-africa-advice/#medical">Medical</a>
         <a href="/backpacking-south-africa-advice/#embassies">Embassies</a>
-        <a href="/backpacking-south-africa-advice/#cannabis">Cannabis & The Law</a>
+        <a href="/backpacking-south-africa-advice/#cannabis">Cannabis &amp; The Law</a>
         <a href="/backpacking-south-africa-advice/#apps">Useful Apps</a>
-
-                <h3 style="color: #fff; font-size: 1.4rem; font-weight: normal; margin-top: 3rem; ">IN-COUNTRY</h3>
-
+        <h3>In-Country</h3>
         <a href="/backpacking-south-africa-advice/in-country#emergencies">Emergencies</a>
         <a href="/backpacking-south-africa-advice/in-country#transport">Transport</a>
-        <a href="/backpacking-south-africa-advice/in-country#food-and-drink">Food & Drink</a>
+        <a href="/backpacking-south-africa-advice/in-country#food-and-drink">Food &amp; Drink</a>
         <a href="/backpacking-south-africa-advice/in-country#language">Language</a>
         <a href="/backpacking-south-africa-advice/in-country#etiquette">African Etiquette</a>
-        <a href="/backpacking-south-africa-advice/in-country#games">Fun & Games</a>
+        <a href="/backpacking-south-africa-advice/in-country#games">Fun &amp; Games</a>
         <a href="/backpacking-south-africa-advice/specifics#onward-travel">Onward Travel</a>
-
-
-                <h3 style="color: #fff; font-size: 1.4rem; font-weight: normal; margin-top: 3rem; ">SPECIFIC INTERESTS</h3>
-
-        <a href="/backpacking-south-africa-advice/specifics#festivals">Festivals & Clubs</a>
+        <h3>Specific Interests</h3>
+        <a href="/backpacking-south-africa-advice/specifics#festivals">Festivals &amp; Clubs</a>
         <a href="/backpacking-south-africa-advice/specifics#surfing">Surfing</a>
         <a href="/backpacking-south-africa-advice/specifics#digital-nomads">Digital Nomads</a>
         <a href="/backpacking-south-africa-advice/specifics#overlanding">Overlanding</a>
         <a href="/backpacking-south-africa-advice/specifics#cycling">Cycle Touring</a>
         <a href="/backpacking-south-africa-advice/specifics#volunteering">Volunteering</a>
         <a href="/backpacking-south-africa-advice/specifics#language-schools">Language Schools</a>
-
     </div>
 
-    <button class="accordion" onclick="toggleAccordion(this)" aria-expanded="false" aria-controls="panel-tours">TOURS</button>
+    <button class="accordion" aria-expanded="false" aria-controls="panel-tours">TOURS</button>
 
-    <div class="panel" id="panel-advice" role="region" aria-label="Advice sections">
-
-                <h3 style="color: #fff; font-size: 1.4rem; font-weight: normal; margin-top: 3rem; ">SELF-DRIVE ITINERARIES</h3>
-
+    <div class="panel" id="panel-tours" role="region" aria-label="Tours and itineraries">
+        <h3>Self-Drive Itineraries</h3>
         <a href="/backpacking-south-africa-tours/#cape-loop">1 Week: The Cape Loop</a>
         <a href="/backpacking-south-africa-tours/#whistlestop">2 Weeks: The Whistlestop Tour</a>
         <a href="/backpacking-south-africa-tours/#northeast-triangle">2 Weeks: The Northeast Triangle</a>
@@ -4249,127 +3806,49 @@ window.onscroll = function() {
         <a href="/backpacking-south-africa-tours/#wild-north">2 Weeks: The Wild North</a>
         <a href="/backpacking-south-africa-tours/#road-less-travelled">2 Weeks: The Road Less Travelled</a>
         <a href="/backpacking-south-africa-tours/#backpackers-bible">3 Weeks: The Backpacker's Bible</a>
-        <a href="/backpacking-south-africa-tours/#coast-and-karoo">3 Weeks: Coast & Karoo</a>
+        <a href="/backpacking-south-africa-tours/#coast-and-karoo">3 Weeks: Coast &amp; Karoo</a>
         <a href="/backpacking-south-africa-tours/#off-the-beaten-track">3 Weeks: Off The Beaten Track</a>
         <a href="/backpacking-south-africa-tours/#rainbow-nation">1 Month: The Rainbow Nation</a>
         <a href="/backpacking-south-africa-tours/#full-monty">3 Months: The Full Monty</a>
-
-                <h3 style="color: #fff; font-size: 1.4rem; font-weight: normal; margin-top: 3rem; ">TOURS / DAY TRIPS</h3>
-
-                <a href="/backpacking-south-africa/cape-town#tours">Cape Town</a>
-                <a href="/backpacking-south-africa/winelands#tours">Winelands</a>
-                <a href="/backpacking-south-africa/west-coast#tours">West Coast</a>
-                <a href="/backpacking-south-africa/garden-route#tours">Garden Route</a>
-                <a href="/backpacking-south-africa/karoo#tours">Karoo</a>
-                <a href="/backpacking-south-africa/route-62#tours">Route 62</a>
-                <a href="/backpacking-south-africa/overberg#tours">The Overberg</a>
-                <a href="/backpacking-south-africa/sunshine-coast#tours">Sunshine Coast</a>
-                <a href="/backpacking-south-africa/durban#tours">Durban</a>
-                <a href="/backpacking-south-africa/drakensberg#tours">Drakensberg</a>
-                <a href="/backpacking-south-africa/zululand#tours">Zululand</a>
-                <a href="/backpacking-south-africa/kruger#tours">Kruger</a>
-                <a href="/backpacking-south-africa/johannesburg#tours">Johannesburg</a>
-                <a href="/backpacking-south-africa/eswatini#tours">Eswatini</a>
-                <a href="/backpacking-south-africa/lesotho#tours">Lesotho</a>
-
+        <h3>Tours &amp; Day Trips</h3>
+        <a href="/backpacking-south-africa/cape-town#tours">Cape Town</a>
+        <a href="/backpacking-south-africa/winelands#tours">Winelands</a>
+        <a href="/backpacking-south-africa/west-coast#tours">West Coast</a>
+        <a href="/backpacking-south-africa/garden-route#tours">Garden Route</a>
+        <a href="/backpacking-south-africa/karoo#tours">Karoo</a>
+        <a href="/backpacking-south-africa/route-62#tours">Route 62</a>
+        <a href="/backpacking-south-africa/overberg#tours">The Overberg</a>
+        <a href="/backpacking-south-africa/sunshine-coast#tours">Sunshine Coast</a>
+        <a href="/backpacking-south-africa/durban#tours">Durban</a>
+        <a href="/backpacking-south-africa/drakensberg#tours">Drakensberg</a>
+        <a href="/backpacking-south-africa/zululand#tours">Zululand</a>
+        <a href="/backpacking-south-africa/kruger#tours">Kruger</a>
+        <a href="/backpacking-south-africa/johannesburg#tours">Johannesburg</a>
+        <a href="/backpacking-south-africa/eswatini#tours">Eswatini</a>
+        <a href="/backpacking-south-africa/lesotho#tours">Lesotho</a>
     </div>
 
-    <a href="/#download-pwa"><strong>★ FREE HOSTEL GUIDE!</strong> <br> <span style="font-size:0.9rem;">(PDF or App)</span></a>
+    <a href="/misc/about-backpacking">About Backpacking</a>
 
-            
-            <a href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://www.backpackersbible.com" target="_blank">
+    <a href="/misc/resources" class="site-nav__link">Resources</a>
 
-                <img src="/assets/whatsapp_icon_round.png" alt="Share on WhatsApp" style="width:45px; height:45px;">
+    <!-- CTA -->
+    <a href="/pdf/Backpackers_Bible_Lite-South_Africa.pdf"><strong>★ FREE HOSTEL GUIDE!</strong><br>(PDF - 1mb)</a><span class="sr-only">(opens in a new tab)</span>
 
-            <br>
+    <!-- WhatsApp share -->
+    <a class="mobile-menu__share"
+       href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://backpackersbible.com"
+       target="_blank"
+       rel="noopener noreferrer">
+        <img src="/assets/whatsapp_icon_round.png" alt="Share on WhatsApp" width="45" height="45">
+        SHARE <span class="sr-only">(opens in a new tab)</span>
+    </a>
 
-            SHARE</a>
+</div>
 
-            </div>
+<!-- ARIA overrides for mobile menu and accordion are in script-2.js -->
 
-<!-- Search functionality -->
-
-<script>
-(function() {
-  var SEARCH_DATA = [];
-
-  fetch('/search.json')
-    .then(function(r) { return r.json(); })
-    .then(function(data) { SEARCH_DATA = data; })
-    .catch(function() { SEARCH_DATA = []; });
-
-  window.runSearch = function(query, resultsId) {
-    var box = document.getElementById(resultsId);
-    if (!box) return;
-    var q = query.trim().toLowerCase();
-    if (!q) { box.classList.remove('open'); box.innerHTML = ''; return; }
-
-    var matches = SEARCH_DATA.filter(function(item) {
-      return item.title.toLowerCase().includes(q) || item.desc.toLowerCase().includes(q);
-    }).slice(0, 8);
-
-    if (!matches.length) {
-      box.innerHTML = '<div class="search-no-results">No results for "' + escHtml(query) + '"</div>';
-    } else {
-      box.innerHTML = matches.map(function(m) {
-        return '<a class="search-result-item" href="' + m.url + '">'
-          + '<strong>' + highlight(m.title, q) + '</strong>'
-          + '<span>' + highlight(m.desc, q) + '</span>'
-          + '</a>';
-      }).join('');
-    }
-    box.classList.add('open');
-  };
-
-  function escHtml(s) {
-    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-  }
-  function highlight(text, q) {
-    var re = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')', 'gi');
-    return escHtml(text).replace(re, '<mark style="background:#fce8ed;color:#bc1d23;border-radius:2px;">$1</mark>');
-  }
-})();
-</script>
-
-<!-- Accessible toggle overrides -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var origToggleMobileMenu = window.toggleMobileMenu;
-  window.toggleMobileMenu = function() {
-    if (origToggleMobileMenu) origToggleMobileMenu();
-    var menu = document.getElementById('mobile-menu');
-    var btn  = document.getElementById('hamburger-icon');
-    if (!menu || !btn) return;
-    var visible = getComputedStyle(menu).display !== 'none';
-    btn.setAttribute('aria-expanded', visible ? 'true' : 'false');
-    btn.setAttribute('aria-label', visible ? 'Close navigation menu' : 'Open navigation menu');
-    if (visible) {
-      menu.removeAttribute('hidden');
-      var closeBtn = menu.querySelector('.close-btn');
-      if (closeBtn) setTimeout(function(){ closeBtn.focus(); }, 50);
-    } else {
-      menu.setAttribute('hidden', '');
-      btn.focus();
-    }
-  };
-  var closeBtn = document.querySelector('#mobile-menu .close-btn');
-  if (closeBtn) {
-    closeBtn.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); window.toggleMobileMenu(); }
-    });
-  }
-  var origToggleAccordion = window.toggleAccordion;
-  window.toggleAccordion = function(el) {
-    if (origToggleAccordion) origToggleAccordion(el);
-    var panelId = el.getAttribute('aria-controls');
-    if (!panelId) return;
-    var panel = document.getElementById(panelId);
-    if (!panel) return;
-    var isOpen = panel.style.display === 'block' || panel.classList.contains('open');
-    el.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-  };
-});
-</script>
+<script src="/js/script-2.js" defer></script>
 
 
 <!-- Default Statcounter code for Backpackers Bible
