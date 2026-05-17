@@ -3138,8 +3138,8 @@ footer {
 
 /* 2. Iron-clad protection for your hostel pins */
 img.bb-marker-icon {
-    width: 16px !important;
-    height: 16px !important;
+    width: 30px !important;
+    height: 30px !important;
     max-width: none !important; /* Overrides any rogue responsive image rules */
 }
 
