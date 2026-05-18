@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+
+  <title>Hostel Map — The Backpacker's Bible</title>
+
+  <!-- Prevent this utility page from appearing in search results -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="preconnect" href="https://api.maptiler.com">
+  <link rel="dns-prefetch" href="https://api.maptiler.com">
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="dns-prefetch" href="https://unpkg.com">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 100%; height: 100%;
+      overflow: hidden;
+      background: #FFD700; /* brand yellow — matches map loading colour */
+    }
+    #bb-map-wrap {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+
+</head>
+<body>
+
+<div id="bb-map-wrap"></div>
+
+<script>
+  // Read config from URL parameters
+  // e.g. /map.html?region=cape-town&center=18.412,-33.937&zoom=13&pitch=60&bearing=180
+  (function () {
+    var p = new URLSearchParams(window.location.search);
+
+    var centerRaw = p.get('center');
+    var center;
+    if (centerRaw) {
+      var parts = centerRaw.split(',').map(Number);
+      if (parts.length === 2 && !parts.some(isNaN)) center = parts;
+    }
+
+    var zoom    = p.has('zoom')    ? Number(p.get('zoom'))    : undefined;
+    var pitch   = p.has('pitch')   ? Number(p.get('pitch'))   : undefined;
+    var bearing = p.has('bearing') ? Number(p.get('bearing')) : undefined;
+
+    window.BB_MAP_CONFIG = {
+      region:  p.get('region') || 'national',
+      center:  center          || [23.68, -29.92],
+      zoom:    zoom,
+      pitch:   pitch,
+      bearing: bearing
+    };
+
+    // Remove undefined keys so hostel-map.js falls back to its own defaults
+    Object.keys(window.BB_MAP_CONFIG).forEach(function(k) {
+      if (window.BB_MAP_CONFIG[k] === undefined) delete window.BB_MAP_CONFIG[k];
+    });
+  }());
+</script>
+
+<script src="/assets/js/hostel-map.js" defer></script>
+
+</body>
+</html>
