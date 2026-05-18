@@ -30,6 +30,10 @@
   const BRAND_YELLOW = '#FFD700';
   const BRAND_RED    = '#bc1d23';
 
+  // When running inside an iframe, navigate the top-level window.
+  // When running standalone, window.top === window, so this is harmless.
+  const NAV = window.top || window;
+
   const cfg     = window.BB_MAP_CONFIG || {};
   const REGION  = cfg.region  || 'national';
   const CENTER  = cfg.center  || [25.0, -29.0];
@@ -43,7 +47,7 @@
 
   const wrap = document.getElementById('bb-map-wrap');
   if (!wrap) return;
-  wrap.style.cssText = 'position:relative;width:100%;height:590px;';
+  wrap.style.cssText = 'position:relative;width:100%;height:620px;';
 
   wrap.innerHTML = `
     <div id="bb-map"
@@ -156,12 +160,13 @@
     const ratings = (gr||br||hwr) ? `<hr>${gr}${br}${hwr}` : '';
     const anchor  = h.anchor || '';
     const pageSlug = anchor.includes('#') ? '#'+anchor.split('#')[1] : anchor;
-    // On national map the anchor is a full path eg /backpacking-south-africa/cape-town#slug
-    // so we navigate to it. On regional pages the target is on the same page so we smooth-scroll.
+    // On national map the anchor is a full path e.g. /backpacking-south-africa/cape-town#slug
+    // so we navigate the top-level window (escapes iframe).
+    // On regional pages the target is on the same parent page, so we also navigate top.
     const isExternalAnchor = anchor.includes('/') && anchor.includes('#');
     const moreClick = isExternalAnchor
-      ? `onclick="window.location.href='${anchor}';event.preventDefault();"`
-      : (pageSlug ? `onclick="event.preventDefault();var t=document.querySelector('${pageSlug}');if(t)t.scrollIntoView({behavior:'smooth'});"` : '');
+      ? `onclick="window.top.location.href='${anchor}';event.preventDefault();"`
+      : (pageSlug ? `onclick="event.preventDefault();window.top.location.href=window.top.location.pathname+'${pageSlug}';"` : '');
     const more = anchor ? ` <a href="${anchor}" class="bb-popup-more" ${moreClick} aria-label="More info about ${h.name}">More info ›</a>` : '';
     const btns = (h.booking||h.hostelworld) ? `
       <div class="bb-popup-btns">
@@ -313,7 +318,8 @@
 
           if (REGION==='national') {
             const hitLayer = isLine ? `region-hit-${key}` : `region-fill-${key}`;
-            map.on('click',      hitLayer, () => { if (r.url) window.location.href = r.url; });
+            // Navigate the top-level window so the click escapes the iframe
+            map.on('click',      hitLayer, () => { if (r.url) NAV.location.href = r.url; });
             map.on('mouseenter', hitLayer, () => { map.getCanvas().style.cursor='pointer'; });
             map.on('mouseleave', hitLayer, () => { map.getCanvas().style.cursor=''; });
           }
