@@ -6,14 +6,6 @@
 
 <meta charset="UTF-8">
 
-<link rel="preconnect" href="https://api.maptiler.com">
-<link rel="dns-prefetch" href="https://api.maptiler.com">
-
-<link rel="preconnect" href="https://unpkg.com">
-<link rel="dns-prefetch" href="https://unpkg.com">
-
-<link rel="preload" href="https://unpkg.com/maplibre-gl@4.1.3/dist/maplibre-gl.css" as="style">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>West Coast Backpacking: Turquoise Seas & Hidden Hostels</title>
@@ -25,6 +17,11 @@
 <link rel="preload" as="image" href="/assets/backpacking_west_coast-fishermans_cottage.webp" fetchpriority="high">
 
 <link rel="canonical" href="https://www.backpackersbible.com/backpacking-south-africa/west-coast.htm" />
+
+<!-- hreflang -->
+  <link rel="alternate" hreflang="x-default" href="https://www.backpackersbible.com/backpacking-south-africa/west-coast">
+
+  <link rel="alternate" hreflang="en"         href="https://www.backpackersbible.com/backpacking-south-africa/west-coast">
 
 <link rel="stylesheet" href="/css/style.css">
 
@@ -970,7 +967,7 @@
 
      <!-- Header end -->
 
-     <!-- Map Libre start -->
+     <!-- MapLibre -->
 
 <div style="height: 143px; width: 100%; display: block;"></div>
 
@@ -979,18 +976,16 @@
 <span id="map" style="display:none;" aria-hidden="true"></span>
 <section>
 
-
-<div id="bb-map-wrap"></div>
-<script>
-  window.BB_MAP_CONFIG = {
-    region: 'west-coast',
-    center: [18.25, -32.67],
-    zoom: 9,
-    pitch: 75,
-    bearing: 330
-  };
-</script>
-<script src="/assets/js/hostel-map.js" defer></script>
+<iframe
+  src="/map.html?region=west-coast&center=18.25,-32.67&zoom=9&pitch=75&bearing=330"
+  width="100%"
+  height="620"
+  style="border:none;display:block;"
+  title="Interactive map of backpacker hostels on the Cape West Coast"
+  aria-label="Interactive map of backpacker hostels on the Cape West Coast"
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"
+></iframe>
 
 </section>
 

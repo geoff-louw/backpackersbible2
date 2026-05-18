@@ -6,12 +6,6 @@
 
 <meta charset="UTF-8">
 
-<link rel="preconnect" href="https://api.maptiler.com">
-<link rel="dns-prefetch" href="https://api.maptiler.com">
-<link rel="preconnect" href="https://unpkg.com">
-<link rel="dns-prefetch" href="https://unpkg.com">
-<link rel="preload" href="https://unpkg.com/maplibre-gl@4.1.3/dist/maplibre-gl.css" as="style">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Zululand Backpacking Guide: Wildlife & Cultural Missions</title>
@@ -21,6 +15,11 @@
 <meta name="description" content="Ready for a real bushveld adventure? We provide the full hostel directory, interactive maps, and real safety advice for exploring the hills of Zululand.">
 
 <link rel="canonical" href="https://www.backpackersbible.com/backpacking-south-africa/zululand.htm" />
+
+<!-- hreflang -->
+  <link rel="alternate" hreflang="x-default" href="https://www.backpackersbible.com/backpacking-south-africa/zululand">
+
+  <link rel="alternate" hreflang="en"         href="https://www.backpackersbible.com/backpacking-south-africa/zululand">
 
 <link rel="preload" as="image" href="/assets/backpacking_south_africa-nyala_bull.webp" fetchpriority="high">
 
@@ -1057,17 +1056,16 @@
 
 <section>
 
-<div id="bb-map-wrap"></div>
-<script>
-  window.BB_MAP_CONFIG = {
-    region: 'zululand',
-    center: [32.44, -27.84],
-    zoom: 9,
-    pitch: 80,
-    bearing: 42
-  };
-</script>
-<script src="/assets/js/hostel-map.js" defer></script>
+<iframe
+  src="/map.html?region=zululand&center=32.44,-27.84&zoom=9&pitch=80&bearing=42"
+  width="100%"
+  height="620"
+  style="border:none;display:block;"
+  title="Interactive map of backpacker hostels in Zululand"
+  aria-label="Interactive map of backpacker hostels in Zululand"
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"
+></iframe>
 
 </section>
 

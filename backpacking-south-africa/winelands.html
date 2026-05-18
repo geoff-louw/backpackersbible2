@@ -4,13 +4,6 @@
 
 <head>
 
-<link rel="preconnect" href="https://www.google.com">
-<link rel="preconnect" href="https://maps.googleapis.com">
-<link rel="preconnect" href="https://maps.gstatic.com">
-<link rel="dns-prefetch" href="https://www.google.com">
-<link rel="dns-prefetch" href="https://maps.googleapis.com">
-<link rel="dns-prefetch" href="https://maps.gstatic.com">
-
 <meta charset="UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,6 +15,11 @@
 <meta name="description" content="Ready for world-class wines and epic hikes? Get direct contact info for every Winelands hostel, plus interactive maps and honest safety tips for the mission.">
 
 <link rel="canonical" href="https://www.backpackersbible.com/backpacking-south-africa/winelands.htm" />
+
+<!-- hreflang -->
+  <link rel="alternate" hreflang="x-default" href="https://www.backpackersbible.com/backpacking-south-africa/winelands">
+
+  <link rel="alternate" hreflang="en"         href="https://www.backpackersbible.com/backpacking-south-africa/winelands">
 
 <link rel="preload" as="image" href="/assets/backpacking_cape_winelands-winery.webp" fetchpriority="high">
 
@@ -774,18 +772,16 @@
 <span id="map" style="display:none;" aria-hidden="true"></span>
 <section>
 
-
-<div id="bb-map-wrap"></div>
-<script>
-  window.BB_MAP_CONFIG = {
-    region: 'winelands',
-    center: [18.86, -33.82],
-    zoom: 9,
-    pitch: 30,
-    bearing: 150
-  };
-</script>
-<script src="/assets/js/hostel-map.js" defer></script>
+<iframe
+  src="/map.html?region=winelands&center=18.86,-33.82&zoom=9&pitch=30&bearing=150"
+  width="100%"
+  height="620"
+  style="border:none;display:block;"
+  title="Interactive map of backpacker hostels in the Cape Winelands"
+  aria-label="Interactive map of backpacker hostels in the Cape Winelands"
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"
+></iframe>
 
 </section>
 

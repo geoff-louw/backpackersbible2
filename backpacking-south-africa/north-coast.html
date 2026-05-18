@@ -4,12 +4,6 @@
 
 <head>
 
-<link rel="preconnect" href="https://api.maptiler.com">
-<link rel="dns-prefetch" href="https://api.maptiler.com">
-<link rel="preconnect" href="https://unpkg.com">
-<link rel="dns-prefetch" href="https://unpkg.com">
-<link rel="preload" href="https://unpkg.com/maplibre-gl@4.1.3/dist/maplibre-gl.css" as="style">
-
 <meta charset="UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,6 +17,11 @@
 <link rel="preload" as="image" href="/assets/backpacking_north_coast-ballito.webp" fetchpriority="high">
 
 <link rel="canonical" href="https://www.backpackersbible.com/backpacking-south-africa/north-coast" />
+
+<!-- hreflang -->
+  <link rel="alternate" hreflang="x-default" href="https://www.backpackersbible.com/backpacking-south-africa/north-coast">
+
+  <link rel="alternate" hreflang="en"         href="https://www.backpackersbible.com/backpacking-south-africa/north-coast">
 
 <link rel="stylesheet" href="/css/style.css">
 
@@ -763,6 +762,18 @@
   };
 </script>
 <script src="/assets/js/hostel-map.js" defer></script>
+
+
+<iframe
+  src="/map.html?region=north-coast&center=31.18,-29.58&zoom=10&pitch=80&bearing=40"
+  width="100%"
+  height="620"
+  style="border:none;display:block;"
+  title="Interactive map of backpacker hostels on the KwaZulu-Natal North Coast"
+  aria-label="Interactive map of backpacker hostels on the KwaZulu-Natal North Coast"
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"
+></iframe>
 
 </section>
 

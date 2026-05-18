@@ -4,12 +4,6 @@
 
 <head>
 
-<link rel="preconnect" href="https://api.maptiler.com">
-<link rel="dns-prefetch" href="https://api.maptiler.com">
-<link rel="preconnect" href="https://unpkg.com">
-<link rel="dns-prefetch" href="https://unpkg.com">
-<link rel="preload" href="https://unpkg.com/maplibre-gl@4.1.3/dist/maplibre-gl.css" as="style">
-
 <meta charset="UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,6 +17,11 @@
 <link rel="preload" as="image" href="/assets/backpacking_midlands-mandela_capture_site.webp" fetchpriority="high">
 
 <link rel="canonical" href="https://www.backpackersbible.com/backpacking-south-africa/midlands" />
+
+<!-- hreflang -->
+  <link rel="alternate" hreflang="x-default" href="https://www.backpackersbible.com/backpacking-south-africa/midlands">
+
+  <link rel="alternate" hreflang="en"         href="https://www.backpackersbible.com/backpacking-south-africa/midlands">
 
 <link rel="stylesheet" href="/css/style.css">
 
@@ -860,17 +859,16 @@
 
 <section>
 
-<div id="bb-map-wrap"></div>
-<script>
-  window.BB_MAP_CONFIG = {
-    region: 'midlands',
-    center: [30.20, -29.57],
-    zoom: 9,
-    pitch: 80,
-    bearing: 290
-  };
-</script>
-<script src="/assets/js/hostel-map.js" defer></script>
+<iframe
+  src="/map.html?region=midlands&center=30.20,-29.57&zoom=9&pitch=80&bearing=290"
+  width="100%"
+  height="620"
+  style="border:none;display:block;"
+  title="Interactive map of backpacker hostels in the KwaZulu-Natal Midlands"
+  aria-label="Interactive map of backpacker hostels in the KwaZulu-Natal Midlands"
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"
+></iframe>
 
 </section>
 
