@@ -1533,11 +1533,11 @@ details:not([open]) {
     .btn-booking-com,
     .btn-hostelworld-com,
     .btn-getyourguide-com {
-        width: 200px;
-        min-width: 200px;
-        height: 60px;
-        min-height: 60px;
-        font-size: 11pt;
+        width: 160px;
+        min-width: 160px;
+        height: 50px;
+        min-height: 50px;
+        font-size: 10pt;
     }
 
     .booking-btn-container {
@@ -1932,15 +1932,27 @@ details:not([open]) {
     align-items: center;
 }
 
+/* Regional hostel card sections — must have yellow background so
+   .container-wide-hostels cards sit on a matching colour. */
+.region-header-section {
+    background-color: #ffd400;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+}
+
 .hostel-col {
     text-align: left;
 }
 
-/* h4 headings (region names) — bold.
-   Needed because the base typography reset sets font-weight: normal
-   on all headings to avoid browser defaults. */
+/* h4 headings (region/area names) in hostel directory columns.
+   Smaller than default, bold, with space above and below. */
 .hostel-col h4 {
+    font-size: 0.95rem;
     font-weight: bold;
+    margin-top: 1.25rem;
     margin-bottom: 0.4rem;
 }
 
@@ -2372,9 +2384,10 @@ details.hostel-details[open] > .expanded-text {
     margin-top: auto;
 }
 
-/* Ensure paragraphs above the button have breathing room below them */
+/* Ensure paragraphs above the button have breathing room */
 .product-col p {
     margin-bottom: 1rem;
+    padding: 0 1rem;
 }
 
 /* "ABSOLUTELY FREE!" badge */
