@@ -766,29 +766,48 @@
 </header>
 
 
-
-     <!-- Map Libre start -->
+<!-- Map Libre start -->
 
 <div class="header-spacer" aria-hidden="true"></div>
 
 <main id="main-content">
 
-<span id="map" aria-hidden="true"></span>
-<section>
+<section class="sa-hostel-map-shell">
 
+  <!-- SEO + visual poster image -->
+  <picture class="sa-hostel-map-poster">
+    <source
+      media="(max-width: 768px)"
+      srcset="/assets/fallback_map_national_mobile.jpg"
+    >
 
-<iframe
-  src="/map.html?region=national&center=23.68,-29.92&zoom=5"
-  width="100%"
-  height="620"
-  style="border:none;display:block;"
-  title="Interactive map of backpacker hostels across South Africa"
-  aria-label="Interactive map of backpacker hostels across South Africa"
-  loading="lazy"
-  referrerpolicy="no-referrer-when-downgrade"
-></iframe>
+    <img
+      src="/assets/fallback_map_national.webp"
+      alt="Map showing backpacker hostels across South Africa"
+      width="1600"
+      height="620"
+      fetchpriority="high"
+      decoding="async"
+    >
+  </picture>
+
+  <!-- Interactive map -->
+  <iframe
+    src="/map.html?region=national&center=23.68,-29.92&zoom=5"
+    width="100%"
+    height="620"
+    class="sa-hostel-map-iframe"
+    title="Interactive map of backpacker hostels across South Africa"
+    aria-label="Interactive map of backpacker hostels across South Africa"
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+  ></iframe>
 
 </section>
+
+
+
+
 
      <!-- Horizontal regional menu -->
 
