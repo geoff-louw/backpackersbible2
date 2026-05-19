@@ -2223,6 +2223,7 @@ details.hostel-details[open] > .expanded-text {
     width: 100%;
     text-align: center;
     line-height: 1.2;
+    background-color: #ffff00;
 }
 
 .card-img {
