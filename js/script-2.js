@@ -834,3 +834,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+
+
+/* ============================================================
+   MAP IFRAME — MOBILE ZOOM
+   On mobile (≤768px), reduce the zoom level in all map iframe
+   src URLs by 1.5 stops so the region fits a small screen.
+   Pitch and bearing are preserved — the 3D effect stays.
+   ============================================================ */
+(function () {
+    if (window.innerWidth > 768) return;
+
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('iframe[src*="map.html"]').forEach(function (iframe) {
+            var src = iframe.src;
+            src = src.replace(/([?&]zoom=)([\d.]+)/, function (match, key, val) {
+                var reduced = Math.max(parseFloat(val) - 1.5, 3);
+                return key + reduced;
+            });
+            iframe.src = src;
+        });
+    });
+}());
