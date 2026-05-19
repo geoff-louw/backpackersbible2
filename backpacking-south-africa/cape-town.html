@@ -1199,7 +1199,7 @@
 
                 <a href="/#download-pwa" class="site-nav__cta"
                    title="Choose between a PDF and an App to use on your phone while travelling">
-                    ★ <strong>FREE Hostel Guide!</strong>
+                    ★ <strong>Download our FREE Hostel Guide!</strong>
                 </a>
 
                 <a href="/" class="site-nav__link">Home</a>
@@ -1392,13 +1392,33 @@
 <div class="header-spacer" aria-hidden="true"></div>
 
 
-     <!-- Map Libre start -->
+<!-- Map Libre start -->
+
+<div class="header-spacer" aria-hidden="true"></div>
 
 <main id="main-content">
 
-<section>
+<section class="sa-hostel-map-shell">
 
-<iframe
+  <!-- SEO + visual poster image -->
+  <picture class="sa-hostel-map-poster">
+    <source
+      media="(max-width: 768px)"
+      srcset="/assets/fallback_map_cape-town_mobile.jpg"
+    >
+
+    <img
+      src="/assets/fallback_map_cape-town.jpg"
+      alt="Map showing backpacker hostels across South Africa"
+      width="1600"
+      height="620"
+      fetchpriority="high"
+      decoding="async"
+    >
+  </picture>
+
+  <!-- Interactive map -->
+  <iframe
   src="/map.html?region=cape-town&center=18.412,-33.937&zoom=13&pitch=60&bearing=180"
   width="100%"
   height="620"
@@ -4240,6 +4260,7 @@ window.BB_TIPS = [
                     aria-controls="mobile-menu-search-results"
                     aria-expanded="false">
         </div>
+        <!-- Results portal created by JS — this div is removed and replaced -->
         <div id="mobile-menu-search-results" class="mobile-menu__search-results" role="listbox" aria-live="polite" aria-label="Search results"></div>
     </div>
 
@@ -4280,18 +4301,65 @@ window.BB_TIPS = [
     </div>
 
     <button class="accordion" aria-expanded="false" aria-controls="panel-advice">ADVICE</button>
-    <div class="panel" id="panel-advice" role="region" aria-label="Advice">
-        <a href="/backpacking-south-africa-advice/">All Advice</a>
-        <a href="/backpacking-south-africa-advice/#transport">Transport</a>
-        <a href="/backpacking-south-africa-advice/#money">Money & Budget</a>
+
+    <div class="panel" id="panel-advice" role="region" aria-label="Advice sections">
+        <h3>Preparation</h3>
+        <a href="/backpacking-south-africa-advice/#checklists">Preflight Checklists</a>
         <a href="/backpacking-south-africa-advice/#safety">Safety</a>
-        <a href="/backpacking-south-africa-advice/#health">Health</a>
-        <a href="/backpacking-south-africa-advice/#visas">Visas</a>
+        <a href="/backpacking-south-africa-advice/#money">Money</a>
+        <a href="/backpacking-south-africa-advice/#medical">Medical</a>
+        <a href="/backpacking-south-africa-advice/#embassies">Embassies</a>
+        <a href="/backpacking-south-africa-advice/#cannabis">Cannabis &amp; The Law</a>
+        <a href="/backpacking-south-africa-advice/#apps">Useful Apps</a>
+        <h3>In-Country</h3>
+        <a href="/backpacking-south-africa-advice/in-country#emergencies">Emergencies</a>
+        <a href="/backpacking-south-africa-advice/in-country#transport">Transport</a>
+        <a href="/backpacking-south-africa-advice/in-country#food-and-drink">Food &amp; Drink</a>
+        <a href="/backpacking-south-africa-advice/in-country#language">Language</a>
+        <a href="/backpacking-south-africa-advice/in-country#etiquette">African Etiquette</a>
+        <a href="/backpacking-south-africa-advice/in-country#games">Fun &amp; Games</a>
+        <a href="/backpacking-south-africa-advice/specifics#onward-travel">Onward Travel</a>
+        <h3>Specific Interests</h3>
+        <a href="/backpacking-south-africa-advice/specifics#festivals">Festivals &amp; Clubs</a>
+        <a href="/backpacking-south-africa-advice/specifics#surfing">Surfing</a>
+        <a href="/backpacking-south-africa-advice/specifics#digital-nomads">Digital Nomads</a>
+        <a href="/backpacking-south-africa-advice/specifics#overlanding">Overlanding</a>
+        <a href="/backpacking-south-africa-advice/specifics#cycling">Cycle Touring</a>
+        <a href="/backpacking-south-africa-advice/specifics#volunteering">Volunteering</a>
+        <a href="/backpacking-south-africa-advice/specifics#language-schools">Language Schools</a>
     </div>
 
-    <button class="accordion" aria-expanded="false" aria-controls="panel-tours">TOURS & ITINERARIES</button>
-    <div class="panel" id="panel-tours" role="region" aria-label="Tours and Itineraries">
-        <a href="/backpacking-south-africa-tours/">All Tours & Itineraries</a>
+    <button class="accordion" aria-expanded="false" aria-controls="panel-tours">TOURS</button>
+
+    <div class="panel" id="panel-tours" role="region" aria-label="Tours and itineraries">
+        <h3>Self-Drive Itineraries</h3>
+        <a href="/backpacking-south-africa-tours/#cape-loop">1 Week: The Cape Loop</a>
+        <a href="/backpacking-south-africa-tours/#whistlestop">2 Weeks: The Whistlestop Tour</a>
+        <a href="/backpacking-south-africa-tours/#northeast-triangle">2 Weeks: The Northeast Triangle</a>
+        <a href="/backpacking-south-africa-tours/#grand-cape-loop">2 Weeks: The Grand Cape Loop</a>
+        <a href="/backpacking-south-africa-tours/#wild-north">2 Weeks: The Wild North</a>
+        <a href="/backpacking-south-africa-tours/#road-less-travelled">2 Weeks: The Road Less Travelled</a>
+        <a href="/backpacking-south-africa-tours/#backpackers-bible">3 Weeks: The Backpacker's Bible</a>
+        <a href="/backpacking-south-africa-tours/#coast-and-karoo">3 Weeks: Coast &amp; Karoo</a>
+        <a href="/backpacking-south-africa-tours/#off-the-beaten-track">3 Weeks: Off The Beaten Track</a>
+        <a href="/backpacking-south-africa-tours/#rainbow-nation">1 Month: The Rainbow Nation</a>
+        <a href="/backpacking-south-africa-tours/#full-monty">3 Months: The Full Monty</a>
+        <h3>Tours &amp; Day Trips</h3>
+        <a href="/backpacking-south-africa/cape-town#tours">Cape Town</a>
+        <a href="/backpacking-south-africa/winelands#tours">Winelands</a>
+        <a href="/backpacking-south-africa/west-coast#tours">West Coast</a>
+        <a href="/backpacking-south-africa/garden-route#tours">Garden Route</a>
+        <a href="/backpacking-south-africa/karoo#tours">Karoo</a>
+        <a href="/backpacking-south-africa/route-62#tours">Route 62</a>
+        <a href="/backpacking-south-africa/overberg#tours">The Overberg</a>
+        <a href="/backpacking-south-africa/sunshine-coast#tours">Sunshine Coast</a>
+        <a href="/backpacking-south-africa/durban#tours">Durban</a>
+        <a href="/backpacking-south-africa/drakensberg#tours">Drakensberg</a>
+        <a href="/backpacking-south-africa/zululand#tours">Zululand</a>
+        <a href="/backpacking-south-africa/kruger#tours">Kruger</a>
+        <a href="/backpacking-south-africa/johannesburg#tours">Johannesburg</a>
+        <a href="/backpacking-south-africa/eswatini#tours">Eswatini</a>
+        <a href="/backpacking-south-africa/lesotho#tours">Lesotho</a>
     </div>
 
     <a href="/misc/about-backpacking">About Backpacking</a>
@@ -4299,7 +4367,7 @@ window.BB_TIPS = [
     <a href="/misc/resources" class="site-nav__link">Resources</a>
 
     <!-- CTA -->
-    <a href="/pdf/Backpackers_Bible_Lite-South_Africa.pdf" target="_blank"><strong>★ FREE HOSTEL GUIDE!</strong><br>(PDF or App)</a>
+    <a href="/pdf/Backpackers_Bible_Lite-South_Africa.pdf" target="_blank"><strong>★ FREE HOSTEL GUIDE!</strong><br> <span style="font-size:0.9rem;">(PDF - 1mb)</span><span class="sr-only">(opens in a new tab)</span></a>
 
     <!-- WhatsApp share -->
     <a class="mobile-menu__share"
