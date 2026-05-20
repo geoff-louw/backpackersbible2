@@ -32,6 +32,7 @@
    25. Tour Guide Popup (#ma)
    26. Hostel Directory Cards (regional pages)
    27. MAPLIBRE Poster Image (Behind interactive map)
+   28. Map Description Bar
    ============================================================ */
 
 
@@ -3227,4 +3228,26 @@ img.bb-marker-icon {
   border: none;
   z-index: 2;
   background: transparent;
+}
+
+/* ============================================================
+   27. MAP DESCRIPTION BAR
+   Dark bar with green text, sits between header and map.
+   ============================================================ */
+
+.map-description {
+    background: #111111;
+    padding: 10px 18px;
+    font-size: 14px;
+    line-height: 1.2;
+    display: block;
+}
+
+.map-description__label {
+    color: #00ff4c;
+    font-weight: 600;
+}
+
+.map-description__text {
+    color: #00ff4c;
 }
