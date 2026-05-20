@@ -8,9 +8,6 @@
 
   <title>Hostel Map — The Backpacker's Bible</title>
 
-  <!-- Prevent this utility page from appearing in search results -->
-  <meta name="robots" content="noindex, nofollow">
-
   <link rel="preconnect" href="https://api.maptiler.com">
   <link rel="dns-prefetch" href="https://api.maptiler.com">
   <link rel="preconnect" href="https://unpkg.com">
@@ -27,12 +24,49 @@
       width: 100%;
       height: 100%;
     }
+    #map-shield {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.08);
+    }
+    #map-shield span {
+      background: rgba(0,0,0,0.55);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-family: 'Century Gothic', sans-serif;
+      font-size: 13px;
+      pointer-events: none;
+    }
+    /* Only show the shield on touch devices */
+    @media (hover: hover) {
+      #map-shield { display: none; }
+    }
   </style>
 
 </head>
 <body>
 
+<!-- Tap-to-interact overlay — prevents map swallowing scroll on mobile.
+     Hidden automatically on desktop (hover: hover media query above).
+     Dismissed by the user's first tap on mobile. -->
+<div id="map-shield" aria-hidden="true">
+  <span>Tap to interact with map</span>
+</div>
+
 <div id="bb-map-wrap"></div>
+
+<script>
+  // Dismiss the shield on first tap
+  document.getElementById('map-shield').addEventListener('click', function () {
+    this.remove();
+  }, { once: true });
+</script>
 
 <script>
   // Read config from URL parameters
