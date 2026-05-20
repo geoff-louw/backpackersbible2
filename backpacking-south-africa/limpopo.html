@@ -808,16 +808,38 @@
 
 </header>
 
-     <!-- Header end -->
+<!-- Map Libre start -->
 
 <div class="header-spacer" aria-hidden="true"></div>
 
-     <!-- Map Libre start -->
-
 <main id="main-content">
 
-<section>
+<!-- Map description -->
+<div class="map-description">
+  <span class="map-description__label">Backpacking South Africa:</span>
+  <span class="map-description__text">Use our interactive 3D map to find all the backpackers hostels in Limpopo Province, with their full contact details and comprehensive reviews.</span>
+</div>
 
+<section class="sa-hostel-map-shell">
+
+  <!-- SEO + visual poster image -->
+  <picture class="sa-hostel-map-poster">
+    <source
+      media="(max-width: 768px)"
+      srcset="/assets/fallback_map_limpopo_mobile.jpg"
+    >
+
+    <img
+      src="/assets/fallback_map_limpopo.jpg"
+      alt="Map showing backpacker hostels in Limpopo Province"
+      width="1600"
+      height="620"
+      fetchpriority="high"
+      decoding="async"
+    >
+  </picture>
+
+  <!-- Interactive map -->
 <iframe
   src="/map.html?region=limpopo&center=30.76,-23.83&zoom=9&pitch=80&bearing=25"
   width="100%"

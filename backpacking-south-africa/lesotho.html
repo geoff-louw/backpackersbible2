@@ -931,16 +931,38 @@
 
 </header>
 
-     <!-- Header end -->
+<!-- Map Libre start -->
 
 <div class="header-spacer" aria-hidden="true"></div>
 
-     <!-- Map Libre start -->
-
 <main id="main-content">
 
-<section>
+<!-- Map description -->
+<div class="map-description">
+  <span class="map-description__label">Backpacking Southern Africa:</span>
+  <span class="map-description__text">Use our interactive 3D map to find all the backpackers hostels in Lesotho, with their full contact details and comprehensive reviews.</span>
+</div>
 
+<section class="sa-hostel-map-shell">
+
+  <!-- SEO + visual poster image -->
+  <picture class="sa-hostel-map-poster">
+    <source
+      media="(max-width: 768px)"
+      srcset="/assets/fallback_map_lesotho_mobile.jpg"
+    >
+
+    <img
+      src="/assets/fallback_map_lesotho.jpg"
+      alt="Map showing backpacker hostels in Lesotho"
+      width="1600"
+      height="620"
+      fetchpriority="high"
+      decoding="async"
+    >
+  </picture>
+
+  <!-- Interactive map -->
 <iframe
   src="/map.html?region=lesotho&center=27.91,-29.72&zoom=9pitch=90&bearing=265"
   width="100%"
@@ -953,6 +975,7 @@
 ></iframe>
 
 </section>
+
 
      <!-- Tour guide initial -->
 

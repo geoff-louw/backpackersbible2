@@ -1145,16 +1145,38 @@
 
 </header>
 
-     <!-- Header end -->
+<!-- Map Libre start -->
 
 <div class="header-spacer" aria-hidden="true"></div>
 
-     <!-- Map Libre start -->
-
 <main id="main-content">
 
-<section>
+<!-- Map description -->
+<div class="map-description">
+  <span class="map-description__label">Backpacking South Africa:</span>
+  <span class="map-description__text">Use our interactive 3D map to find all the backpackers hostels in the Drakensberg, with their full contact details and comprehensive reviews.</span>
+</div>
 
+<section class="sa-hostel-map-shell">
+
+  <!-- SEO + visual poster image -->
+  <picture class="sa-hostel-map-poster">
+    <source
+      media="(max-width: 768px)"
+      srcset="/assets/fallback_map_drakensberg_mobile.jpg"
+    >
+
+    <img
+      src="/assets/fallback_map_drakensberg.jpg"
+      alt="Map showing backpacker hostels in the Drakensberg"
+      width="1600"
+      height="620"
+      fetchpriority="high"
+      decoding="async"
+    >
+  </picture>
+
+  <!-- Interactive map -->
 <iframe
   src="/map.html?region=drakensberg&center=29.37,-29.35&zoom=9&pitch=75&bearing=330"
   width="100%"
@@ -1166,10 +1188,8 @@
   referrerpolicy="no-referrer-when-downgrade"
 ></iframe>
 
-</script>
-<script src="/assets/js/hostel-map.js" defer></script>
-
 </section>
+
 
      <!-- Tour guide initial -->
 

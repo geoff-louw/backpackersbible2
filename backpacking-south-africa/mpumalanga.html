@@ -1104,28 +1104,51 @@
 
 </header>
 
-     <!-- Header end -->
+<!-- Map Libre start -->
 
 <div class="header-spacer" aria-hidden="true"></div>
 
-     <!-- Map Libre start -->
-
 <main id="main-content">
 
-<section>
+<!-- Map description -->
+<div class="map-description">
+  <span class="map-description__label">Backpacking South Africa:</span>
+  <span class="map-description__text">Use our interactive 3D map to find all the backpackers hostels in Mpumalanga Province, with their full contact details and comprehensive reviews.</span>
+</div>
 
+<section class="sa-hostel-map-shell">
+
+  <!-- SEO + visual poster image -->
+  <picture class="sa-hostel-map-poster">
+    <source
+      media="(max-width: 768px)"
+      srcset="/assets/fallback_map_mpumalanga_mobile.jpg"
+    >
+
+    <img
+      src="/assets/fallback_map_mpumalanga.jpg"
+      alt="Map showing backpacker hostels in Mpumalanga Province"
+      width="1600"
+      height="620"
+      fetchpriority="high"
+      decoding="async"
+    >
+  </picture>
+
+  <!-- Interactive map -->
 <iframe
-  src="/map.html?region=midlands&center=30.20,-29.57&zoom=9&pitch=80&bearing=290"
+  src="/map.html?region=mpumalanga&center=31.01,-25.25&zoom=9&pitch=80&bearing=150"
   width="100%"
   height="620"
   style="border:none;display:block;"
-  title="Interactive map of backpacker hostels in the KwaZulu-Natal Midlands"
-  aria-label="Interactive map of backpacker hostels in the KwaZulu-Natal Midlands"
+  title="Interactive map of backpacker hostels in Mpumalanga Province"
+  aria-label="Interactive map of backpacker hostels in Mpumalanga Province"
   loading="lazy"
   referrerpolicy="no-referrer-when-downgrade"
 ></iframe>
 
 </section>
+
 
      <!-- Tour guide initial -->
 

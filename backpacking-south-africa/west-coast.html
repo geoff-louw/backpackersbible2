@@ -988,15 +988,36 @@
 
 </header>
 
-     <!-- Header end -->
+<!-- Map Libre start -->
 
 <div class="header-spacer" aria-hidden="true"></div>
 
-     <!-- Map Libre start -->
-
 <main id="main-content">
 
-<section>
+<!-- Map description -->
+<div class="map-description">
+  <span class="map-description__label">Backpacking South Africa:</span>
+  <span class="map-description__text">Use our interactive 3D map to find all the backpackers hostels on the Cape West Coast, with their full contact details and comprehensive reviews.</span>
+</div>
+
+<section class="sa-hostel-map-shell">
+
+  <!-- SEO + visual poster image -->
+  <picture class="sa-hostel-map-poster">
+    <source
+      media="(max-width: 768px)"
+      srcset="/assets/fallback_map_west-coast_mobile.jpg"
+    >
+
+    <img
+      src="/assets/fallback_map_west-coast.jpg"
+      alt="Map showing backpacker hostels on the Cape West Coast"
+      width="1600"
+      height="620"
+      fetchpriority="high"
+      decoding="async"
+    >
+  </picture>
 
 <iframe
   src="/map.html?region=west-coast&center=18.25,-32.67&zoom=9&pitch=75&bearing=330"
@@ -1010,6 +1031,7 @@
 ></iframe>
 
 </section>
+
 
      <!-- Tour guide initial -->
 

@@ -1151,16 +1151,38 @@
 
 </header>
 
-     <!-- Header end -->
+<!-- Map Libre start -->
 
 <div class="header-spacer" aria-hidden="true"></div>
 
-     <!-- Map Libre start -->
-
 <main id="main-content">
 
-<section>
+<!-- Map description -->
+<div class="map-description">
+  <span class="map-description__label">Backpacking South Africa:</span>
+  <span class="map-description__text">Use our interactive 3D map to find all the backpackers hostels on the Garden Route, with their full contact details and comprehensive reviews.</span>
+</div>
 
+<section class="sa-hostel-map-shell">
+
+  <!-- SEO + visual poster image -->
+  <picture class="sa-hostel-map-poster">
+    <source
+      media="(max-width: 768px)"
+      srcset="/assets/fallback_map_garden-route_mobile.jpg"
+    >
+
+    <img
+      src="/assets/fallback_map_garden-route.jpg"
+      alt="Map showing backpacker hostels on the Garden Route"
+      width="1600"
+      height="620"
+      fetchpriority="high"
+      decoding="async"
+    >
+  </picture>
+
+  <!-- Interactive map -->
 <iframe
   src="/map.html?region=garden-route&center=22.5,-34.0&zoom=9&pitch=45&bearing=0"
   width="100%"

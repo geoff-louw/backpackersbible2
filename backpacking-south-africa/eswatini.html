@@ -945,16 +945,38 @@
 
 </header>
 
-     <!-- Header end -->
+<!-- Map Libre start -->
 
 <div class="header-spacer" aria-hidden="true"></div>
 
-     <!-- Map Libre start -->
-
 <main id="main-content">
 
-<section>
+<!-- Map description -->
+<div class="map-description">
+  <span class="map-description__label">Backpacking Southern Africa:</span>
+  <span class="map-description__text">Use our interactive 3D map to find all the backpackers hostels in the Eswatini, with their full contact details and comprehensive reviews.</span>
+</div>
 
+<section class="sa-hostel-map-shell">
+
+  <!-- SEO + visual poster image -->
+  <picture class="sa-hostel-map-poster">
+    <source
+      media="(max-width: 768px)"
+      srcset="/assets/fallback_map_eswatini_mobile.jpg"
+    >
+
+    <img
+      src="/assets/fallback_map_eswatini.jpg"
+      alt="Map showing backpacker hostels in Eswatini"
+      width="1600"
+      height="620"
+      fetchpriority="high"
+      decoding="async"
+    >
+  </picture>
+
+  <!-- Interactive map -->
 <iframe
   src="/map.html?region=eswatini&center=31.48,-26.62&zoom=9&pitch=70&bearing=330"
   width="100%"
