@@ -22,7 +22,24 @@
   <link rel="alternate" hreflang="en"         href="https://www.backpackersbible.com/backpacking-south-africa/eastern-cape-interior">
 
 <!-- Preloads -->
-<link rel="preload" as="image" href="/assets/backpacking_eastern_cape-addo_elephants.webp" fetchpriority="high">
+
+<!-- Desktop -->
+<link
+  rel="preload"
+  as="image"
+  href="/assets/fallback_map_e-cape-interior.webp"
+  media="(min-width: 769px)"
+  fetchpriority="high"
+>
+
+<!-- Mobile -->
+<link
+  rel="preload"
+  as="image"
+  href="/assets/fallback_map_e-cape-interior_mobile.webp"
+  media="(max-width: 768px)"
+  fetchpriority="high"
+>
 
 <link rel="preload" as="style" href="/css/style-2.css">
 

@@ -22,7 +22,24 @@
   <link rel="alternate" hreflang="en"         href="https://www.backpackersbible.com/backpacking-south-africa/north-west">
 
 <!-- Preloads -->
-<link rel="preload" as="image" href="/assets/backpacking_north_west-kudu.webp" fetchpriority="high">
+
+<!-- Desktop -->
+<link
+  rel="preload"
+  as="image"
+  href="/assets/fallback_map_north-west.webp"
+  media="(min-width: 769px)"
+  fetchpriority="high"
+>
+
+<!-- Mobile -->
+<link
+  rel="preload"
+  as="image"
+  href="/assets/fallback_map_north-west_mobile.webp"
+  media="(max-width: 768px)"
+  fetchpriority="high"
+>
 
 <link rel="preload" as="style" href="/css/style-2.css">
 

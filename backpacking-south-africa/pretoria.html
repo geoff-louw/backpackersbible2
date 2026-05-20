@@ -22,7 +22,24 @@
   <link rel="alternate" hreflang="en"         href="https://www.backpackersbible.com/backpacking-south-africa/pretoria">
 
 <!-- Preloads -->
-<link rel="preload" as="image" href="/assets/backpacking_pretoria_nelson_mandela_statue.webp" fetchpriority="high">
+
+<!-- Desktop -->
+<link
+  rel="preload"
+  as="image"
+  href="/assets/fallback_map_pretoria.webp"
+  media="(min-width: 769px)"
+  fetchpriority="high"
+>
+
+<!-- Mobile -->
+<link
+  rel="preload"
+  as="image"
+  href="/assets/fallback_map_pretoria_mobile.webp"
+  media="(max-width: 768px)"
+  fetchpriority="high"
+>
 
 <link rel="preload" as="style" href="/css/style-2.css">
 
