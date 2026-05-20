@@ -1271,6 +1271,21 @@ main {
     margin: 0 auto;
 }
 
+/* Hero text container — yellow section between header and map */
+.area-hero-container {
+    background-color: var(--color-yellow);
+    width: 100%;
+    min-height: 205px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    position: relative;
+}
+
 /* h1 — used for region/page title */
 .area-hero-title {
     font-size: var(--text-4xl);        /* 4rem / ~64px */
@@ -2223,7 +2238,6 @@ details.hostel-details[open] > .expanded-text {
     width: 100%;
     text-align: center;
     line-height: 1.2;
-    background-color: #ffff00;
 }
 
 .card-img {
