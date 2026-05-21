@@ -47,7 +47,7 @@
 
   const wrap = document.getElementById('bb-map-wrap');
   if (!wrap) return;
-  wrap.style.cssText = 'position:relative;width:100%;height:590px;';
+  wrap.style.cssText = 'position:relative;width:100%;height:620px;';
 
   wrap.innerHTML = `
     <div id="bb-map"
