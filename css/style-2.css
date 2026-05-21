@@ -1973,6 +1973,20 @@ details:not([open]) {
     margin-bottom: 0.4rem;
 }
 
+
+
+
+/* h2 headings (region/area names) in hostel directory columns.
+   Smaller than default, bold, with space above and below. */
+.hostel-col h2 {
+    font-size: 0.95rem;
+    font-weight: bold;
+    margin-top: 1.25rem;
+    margin-bottom: 0.4rem;
+}
+
+
+
 .hostel-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
