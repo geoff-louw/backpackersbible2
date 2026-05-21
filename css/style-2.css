@@ -1979,7 +1979,7 @@ details:not([open]) {
 /* h2 headings (region/area names) in hostel directory columns.
    Smaller than default, bold, with space above and below. */
 .hostel-col h2 {
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: bold;
     margin-top: 1.25rem;
     margin-bottom: 0.4rem;
