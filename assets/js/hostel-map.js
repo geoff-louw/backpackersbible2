@@ -240,4 +240,239 @@
 
         map.addSource('terrain-src', {
           type: 'raster-dem',
-          url: `https://api.maptiler
+          url: `https://api.maptiler.com/tiles/terrain-rgb/tiles.json?key=${MAPTILER_KEY}`,
+          tileSize: 256
+        });
+        map.setTerrain({ source:'terrain-src', exaggeration:1.15 });
+
+        const sources = map.getStyle().sources;
+        const vecSrc  = Object.keys(sources).find(k => sources[k].type==='vector');
+        if (vecSrc) {
+          try {
+            map.addLayer({
+              id:'bb-3d-buildings', source:vecSrc, 'source-layer':'building',
+              type:'fill-extrusion', minzoom:12,
+              paint:{
+                'fill-extrusion-color':['interpolate',['linear'],['get','render_height'],0,'#c8b89a',50,'#a89070',100,'#7a6a5a'],
+                'fill-extrusion-height':['coalesce',['get','render_height'],['get','height'],5],
+                'fill-extrusion-base':['coalesce',['get','render_min_height'],['get','min_height'],0],
+                'fill-extrusion-opacity':0.85
+              }
+            });
+          } catch(e) { console.warn('3D buildings:',e.message); }
+        }
+
+        // ── REGION OVERLAYS ──────────────────────────────────────────────────
+        const regionsToShow = REGION==='national' ? Object.keys(regions) : [REGION];
+
+        regionsToShow.forEach(key => {
+          const r = regions[key];
+          if (!r || !r.polygon || r.polygon.length < 2) return;
+
+          const isLine      = r.geom === 'LineString';
+          const fillColor   = r.color       || BRAND_RED;
+          const lineColor   = r.lineColor   || fillColor;
+          const fillOpacity = r.fillOpacity !== undefined ? r.fillOpacity : 0.25;
+
+          if (isLine) {
+            map.addSource(`region-${key}`, {
+              type:'geojson',
+              data:{ type:'Feature', geometry:{ type:'LineString', coordinates:r.polygon }, properties:{ name:r.name, url:r.url, key } }
+            });
+            map.addLayer({ id:`region-line-${key}`, type:'line', source:`region-${key}`,
+              paint:{ 'line-color':lineColor, 'line-width':4, 'line-opacity':0.85 } });
+            map.addLayer({ id:`region-hit-${key}`, type:'line', source:`region-${key}`,
+              paint:{ 'line-color':lineColor, 'line-width':20, 'line-opacity':0 } });
+          } else {
+            const ring = [...r.polygon];
+            if (ring[0][0]!==ring[ring.length-1][0] || ring[0][1]!==ring[ring.length-1][1]) ring.push(ring[0]);
+            map.addSource(`region-${key}`, {
+              type:'geojson',
+              data:{ type:'Feature', geometry:{ type:'Polygon', coordinates:[ring] }, properties:{ name:r.name, url:r.url, key } }
+            });
+            map.addLayer({ id:`region-fill-${key}`, type:'fill', source:`region-${key}`,
+              paint:{ 'fill-color':fillColor, 'fill-opacity':fillOpacity } });
+            map.addLayer({ id:`region-line-${key}`, type:'line', source:`region-${key}`,
+              paint:{ 'line-color':lineColor, 'line-width':2, 'line-opacity':0.8 } });
+          }
+
+          if (REGION==='national' && !isLine) {
+            const pts = r.polygon;
+            const cx  = pts.reduce((s,p)=>s+p[0],0)/pts.length;
+            const cy  = pts.reduce((s,p)=>s+p[1],0)/pts.length;
+            map.addSource(`rlbl-${key}`, {
+              type:'geojson',
+              data:{ type:'Feature', geometry:{ type:'Point', coordinates:[cx,cy] }, properties:{ name:r.name } }
+            });
+            map.addLayer({
+              id:`region-label-${key}`, type:'symbol', source:`rlbl-${key}`,
+              layout:{ 'text-field':r.name, 'text-font':['Open Sans Bold','Arial Unicode MS Bold'], 'text-size':12, 'text-anchor':'center', 'text-max-width':8 },
+              paint:{ 'text-color':'#fff', 'text-halo-color':'rgba(0,0,0,0.65)', 'text-halo-width':2 }
+            });
+          }
+
+          if (REGION==='national') {
+            const hitLayer = isLine ? `region-hit-${key}` : `region-fill-${key}`;
+            map.on('click',      hitLayer, (e) => { 
+              e.clickHandled = true; 
+              if (r.url) window.top.location.href = r.url; 
+            });
+            map.on('mouseenter', hitLayer, () => { map.getCanvas().style.cursor='pointer'; });
+            map.on('mouseleave', hitLayer, () => { map.getCanvas().style.cursor=''; });
+          }
+        });
+
+        // ── MARKERS / CLUSTERS ───────────────────────────────────────────────
+        let activePopup = null;
+
+        function showPopup(coords, html) {
+          const open = () => {
+            const p = new maplibregl.Popup({ offset:15, closeButton:false })
+              .setHTML(html).setLngLat(coords).addTo(map);
+            activePopup = p;
+            setTimeout(() => { const el=p.getElement(); if(el) el.classList.add('bb-fade-in'); }, 50);
+          };
+          if (activePopup) {
+            const el = activePopup.getElement();
+            if (el) el.classList.remove('bb-fade-in');
+            setTimeout(() => { if(activePopup) activePopup.remove(); open(); }, 400);
+          } else { open(); }
+        }
+
+        map.on('click', (e) => {
+          if (e.clickHandled) return;
+          if (activePopup) {
+            const el = activePopup.getElement();
+            if (el) el.classList.remove('bb-fade-in');
+            setTimeout(() => { if(activePopup) { activePopup.remove(); activePopup=null; } }, 400);
+          }
+        });
+
+        if (REGION === 'national') {
+          // ── CLUSTERED VIEW (national page only) ──────────────────────────
+          map.addSource('hostels-clustered', {
+            type: 'geojson',
+            data: { type: 'FeatureCollection', features: features },
+            cluster: true,
+            clusterMaxZoom: 7,
+            clusterRadius: 50
+          });
+
+          // Cluster circles
+          map.addLayer({
+            id: 'clusters',
+            type: 'circle',
+            source: 'hostels-clustered',
+            filter: ['has', 'point_count'],
+            paint: {
+              'circle-color': '#bc1d23',
+              'circle-radius': ['step', ['get','point_count'], 18, 5, 24, 20, 30],
+              'circle-stroke-width': 2,
+              'circle-stroke-color': '#ffffff'
+            }
+          });
+
+          // Cluster count labels
+          map.addLayer({
+            id: 'cluster-count',
+            type: 'symbol',
+            source: 'hostels-clustered',
+            filter: ['has', 'point_count'],
+            layout: {
+              'text-field': '{point_count_abbreviated}',
+              'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'],
+              'text-size': 12
+            },
+            paint: { 'text-color': '#333333' }
+          });
+
+          // Individual unclustered points
+          map.addLayer({
+            id: 'unclustered-point',
+            type: 'circle',
+            source: 'hostels-clustered',
+            filter: ['!', ['has', 'point_count']],
+            paint: {
+              'circle-color': '#ffd400',
+              'circle-radius': 7,
+              'circle-stroke-width': 2,
+              'circle-stroke-color': '#ffffff'
+            }
+          });
+
+          // Click cluster → zoom in
+          map.on('click', 'clusters', (e) => {
+            e.clickHandled = true;
+            const id = e.features[0].properties.cluster_id;
+            map.getSource('hostels-clustered').getClusterExpansionZoom(id, (err, zoom) => {
+              if (err) return;
+              map.easeTo({ center: e.features[0].geometry.coordinates, zoom });
+            });
+          });
+
+          // Click individual point → show popup
+          map.on('click', 'unclustered-point', (e) => {
+            e.clickHandled = true;
+            const h = e.features[0].properties;
+            const coords = e.features[0].geometry.coordinates.slice();
+            
+            // Fixes coordinate wrapping if users spin the map globe sideways
+            while (Math.abs(e.lngLat.lng - coords[0]) > 180) {
+              coords[0] += e.lngLat.lng > coords[0] ? 360 : -360;
+            }
+            
+            showPopup(coords, buildPopup(h));
+          });
+
+          map.on('mouseenter', 'clusters',          () => { map.getCanvas().style.cursor = 'pointer'; });
+          map.on('mouseleave', 'clusters',          () => { map.getCanvas().style.cursor = ''; });
+          map.on('mouseenter', 'unclustered-point', () => { map.getCanvas().style.cursor = 'pointer'; });
+          map.on('mouseleave', 'unclustered-point', () => { map.getCanvas().style.cursor = ''; });
+
+        } else {
+          // ── INDIVIDUAL MARKERS (regional pages) ──────────────────────────
+
+          features.forEach(feature => {
+            const h      = feature.properties;
+            const coords = feature.geometry.coordinates;
+            const html   = buildPopup(h);
+
+            const container = document.createElement('div');
+            container.className = 'bb-marker';
+            container.setAttribute('role','button');
+            container.setAttribute('tabindex','0');
+            container.setAttribute('aria-label',`${h.name} — click for details`);
+
+            const icon = document.createElement('img');
+            icon.src   = '/assets/icons/hostel-pin.png';
+            icon.className = 'bb-marker-icon';
+            icon.alt   = '';
+            icon.setAttribute('aria-hidden','true');
+            icon.width = 32; icon.height = 32;
+            icon.onerror = function() {
+              this.style.cssText='width:18px;height:18px;border-radius:50%;background:#bc1d23;border:2px solid #fff;flex-shrink:0;display:block;';
+              this.src='';
+            };
+            container.appendChild(icon);
+
+            const label = document.createElement('div');
+            label.className  = 'bb-marker-label';
+            label.textContent = h.name;
+            label.setAttribute('aria-hidden','true');
+            container.appendChild(label);
+
+            const openPopup = e => { if(e) e.stopPropagation(); showPopup(coords,html); };
+            container.addEventListener('click', openPopup);
+            container.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' '){e.preventDefault();openPopup();} });
+
+            new maplibregl.Marker({ element:container, anchor:'left' }).setLngLat(coords).addTo(map);
+          }); // end features.forEach
+
+        } // end else (regional markers)
+
+      }); // end map.on('load')
+
+    }).catch(err => { console.error('BB map error:',err); showOffline(); });
+  }
+
+})();
