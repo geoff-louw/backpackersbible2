@@ -189,6 +189,19 @@
         ? hostelGeoJSON.features
         : hostelGeoJSON.features.filter(f => f.properties.region === REGION);
 
+
+
+
+
+
+// Keep a reference to the HTML markers for regional maps
+      const regionalMarkers = [];
+
+
+
+
+
+
       const noscriptEl = wrap.querySelector('noscript');
       if (noscriptEl) {
         noscriptEl.innerHTML = `<ul aria-label="Hostel list">${
@@ -260,7 +273,44 @@
               }
             });
           } catch(e) { console.warn('3D buildings:',e.message); }
-        }
+       
+
+
+
+
+
+
+// ── DYNAMIC FILTERING LISTENER ────────────────────────────────────────
+        window.addEventListener('message', (event) => {
+          if (event.data && event.data.type === 'BB_FILTER_MAP') {
+            const filterKey = event.data.filter;
+            
+            // 1. Filter the raw GeoJSON data
+            const filteredFeatures = filterKey === 'all' 
+              ? masterFeatures 
+              : masterFeatures.filter(f => f.properties[filterKey] === true);
+
+            if (REGION === 'national') {
+              // National View: Update the data source. MapLibre handles recalculating the clusters automatically!
+              const src = map.getSource('hostels-clustered');
+              if (src) {
+                src.setData({
+                  type: 'FeatureCollection',
+                  features: filteredFeatures
+                });
+              }
+            } else {
+              // Regional View: Hide or show the custom HTML markers via CSS display
+              regionalMarkers.forEach(item => {
+                const matches = filterKey === 'all' || item.properties[filterKey] === true;
+                item.marker.getElement().style.display = matches ? 'flex' : 'none';
+              });
+            }
+          }
+        });
+
+
+}
 
         // ── REGION OVERLAYS ──────────────────────────────────────────────────
         const regionsToShow = REGION==='national' ? Object.keys(regions) : [REGION];
@@ -352,7 +402,7 @@
           // ── CLUSTERED VIEW (national page only) ──────────────────────────
           map.addSource('hostels-clustered', {
             type: 'geojson',
-            data: { type: 'FeatureCollection', features: features },
+            data: { type: 'FeatureCollection', features: masterFeatures },
             cluster: true,
             clusterMaxZoom: 7,
             clusterRadius: 50
