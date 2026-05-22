@@ -444,7 +444,7 @@
             container.setAttribute('aria-label',`${h.name} — click for details`);
 
             const icon = document.createElement('img');
-            icon.src   = '/assets/icons/hostel-pin.png';
+            icon.src   = '/assets/icons/hostel-pin.svg';
             icon.className = 'bb-marker-icon';
             icon.alt   = '';
             icon.setAttribute('aria-hidden','true');
