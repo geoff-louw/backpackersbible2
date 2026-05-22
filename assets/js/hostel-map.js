@@ -365,7 +365,7 @@
             source: 'hostels-clustered',
             filter: ['has', 'point_count'],
             paint: {
-              'circle-color': '#bc1d23',
+              'circle-color': '#ffd400',
               'circle-radius': ['step', ['get','point_count'], 18, 5, 24, 20, 30],
               'circle-stroke-width': 2,
               'circle-stroke-color': '#ffffff'
