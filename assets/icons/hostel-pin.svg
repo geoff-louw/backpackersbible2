@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="31.999996mm"
+   height="31.999996mm"
+   viewBox="0 0 31.999996 31.999996"
+   version="1.1"
+   id="svg1"
+   inkscape:export-filename="hostel-pin.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:export-bgcolor="#ffffff00" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-42.664205,-71.524004)">
+    <circle
+       style="fill:#ffd400;fill-opacity:1;stroke:#ffffff;stroke-width:4.25829;stroke-linecap:square;stroke-opacity:1;paint-order:markers stroke fill"
+       id="path1"
+       cx="58.664204"
+       cy="87.524002"
+       r="13.870853" />
+    <g
+       id="g3">
+      <path
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:7.08824;stroke-linecap:square;stroke-opacity:1;paint-order:markers stroke fill"
+         d="M 47.957407,85.240779 H 69.371001 L 58.648272,77.569192 Z"
+         id="path2" />
+      <path
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:6.00001;stroke-linecap:square;stroke-opacity:1;paint-order:markers stroke fill"
+         d="m 50.34761,95.737449 h 5.993427 v -7.591674 h 4.646333 v 7.591674 h 5.993427 V 86.182214 H 50.359026 Z"
+         id="path3" />
+    </g>
+  </g>
+</svg>
