@@ -7521,14 +7521,14 @@
         "is_party": false,
         "is_chill": false,
         "is_solo_women": false,
-        "is_digital_nomad": true,
+        "is_digital_nomad": false,
         "is_surfer": false,
         "is_safety": false,
         "is_amenities": false,
         "is_ethical": false,
         "is_adventure": false,
         "is_nature": false,
-        "is_cultural": true,
+        "is_cultural": false,
         "is_cheapest": false,
         "is_camping": true
       }
