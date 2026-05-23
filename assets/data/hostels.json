@@ -19,13 +19,26 @@
         "whatsapp": "+27724942197",
         "email": "info@bigbackpackers.com",
         "website": "bigbackpackers.com",
-        "info": "The best hostel in Cape Town. Top-rated across every platform. The free breakfast alone is worth the price. Book early \u2014 it fills fast.",
+        "info": "The best hostel in Cape Town. Top-rated across every platform. The free breakfast alone is worth the price. Book early — it fills fast.",
         "anchor": "/backpacking-south-africa/cape-town#big-backpackers",
         "googleRating": "4.7 / 5",
         "bookingRating": "9.2 / 10",
         "hwRating": "9.7 / 10",
         "booking": "https://www.booking.com/hotel/za/the-b-i-g-backpackers.en-gb.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/59426/the-big/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/59426/the-big/",
+        "is_best_overall": true,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -52,7 +65,20 @@
         "bookingRating": "8.1 / 10",
         "hwRating": "8.8 / 10",
         "booking": "https://www.booking.com/hotel/za/longstreet-backpackers.en-gb.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/1220/long-street-backpackers/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/1220/long-street-backpackers/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": true,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": true
       }
     },
     {
@@ -79,7 +105,20 @@
         "bookingRating": "8.1 / 10",
         "hwRating": "8.9 / 10",
         "booking": "https://www.booking.com/hotel/za/ashanti-lodge-gardens.en-gb.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/978/ashanti-lodge-gardens/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/978/ashanti-lodge-gardens/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": true,
+        "is_solo_women": true,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -106,7 +145,20 @@
         "bookingRating": "7.1 / 10",
         "hwRating": "7.4 / 10",
         "booking": "https://www.booking.com/hotel/za/urban-hive-backpackers.en-gb.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/282233/urban-hive-backpackers/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/282233/urban-hive-backpackers/",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -132,7 +184,20 @@
         "bookingRating": "8.5 / 10",
         "hwRating": "9.3 / 10",
         "booking": "https://www.booking.com/hotel/za/the-backpack-africa-travel-centre.en-gb.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/984/villa-viva-cape-town/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/984/villa-viva-cape-town/",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -154,7 +219,20 @@
         "website": "stagshead.co.za",
         "info": "A characterful inn in the heart of Gardens, well-located for the City Bowl and Kloof Street.",
         "anchor": "/backpacking-south-africa/cape-town#anzac-backpackers",
-        "googleRating": "4.2 / 5"
+        "googleRating": "4.2 / 5",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -181,7 +259,20 @@
         "bookingRating": "8.2 / 10",
         "hwRating": "9.7 / 10",
         "booking": "https://www.booking.com/hotel/za/112-kloof-street-apartments.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/327937/curiocity-kloof-street/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/327937/curiocity-kloof-street/",
+        "is_best_overall": true,
+        "is_value": true,
+        "is_party": true,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -207,7 +298,20 @@
         "bookingRating": "8.2 / 10",
         "hwRating": "8.6 / 10",
         "booking": "https://www.booking.com/hotel/za/91-loop.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/100300/91-loop/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/100300/91-loop/",
+        "is_best_overall": true,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -230,7 +334,20 @@
         "website": "forty8backpackers.co.za",
         "info": "Solid budget option near District Six. Best for independent travellers who don't need a hostel community to have a good time.",
         "anchor": "/backpacking-south-africa/cape-town#forty-eight-backpackers",
-        "googleRating": "3.6 / 5"
+        "googleRating": "3.6 / 5",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -250,7 +367,20 @@
         "phone": "+27214225401",
         "info": "Solid budget option in the City Bowl.",
         "anchor": "/backpacking-south-africa/cape-town#two-oceans-backpackers",
-        "googleRating": "4.0 / 5"
+        "googleRating": "4.0 / 5",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -277,7 +407,20 @@
         "bookingRating": "8.3 / 10",
         "hwRating": "8.7 / 10",
         "booking": "https://www.booking.com/hotel/za/zebra-crossing-backpacker.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/13430/zebra-crossing/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/13430/zebra-crossing/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -299,7 +442,20 @@
         "website": "bokaapbackpackers.co.za",
         "info": "Uniquely located in one of Cape Town's most beautiful and historically significant neighbourhoods.",
         "anchor": "/backpacking-south-africa/cape-town#bokaap-backpackers",
-        "googleRating": "4.8 / 5"
+        "googleRating": "4.8 / 5",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": true
       }
     },
     {
@@ -326,7 +482,20 @@
         "bookingRating": "8.0 / 10",
         "hwRating": "8.6 / 10",
         "booking": "https://www.booking.com/hotel/za/curiocity-cape-town.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/302857/curiocity-green-point/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/302857/curiocity-green-point/",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -352,7 +521,20 @@
         "bookingRating": "8.0 / 10",
         "hwRating": "8.1 / 10",
         "booking": "https://www.booking.com/hotel/za/big-blue-backpackers-lodge.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/1239/big-blue-backpackers/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/1239/big-blue-backpackers/",
+        "is_best_overall": true,
+        "is_value": false,
+        "is_party": true,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -375,7 +557,20 @@
         "website": "atlanticpoint.co.za",
         "info": "A dependable, quiet budget base for the Atlantic Seaboard explorer.",
         "anchor": "/backpacking-south-africa/cape-town#atlantic-point-backpackers",
-        "googleRating": "4.2 / 5"
+        "googleRating": "4.2 / 5",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -401,7 +596,20 @@
         "googleRating": "4.4 / 5",
         "bookingRating": "8.4 / 10",
         "booking": "https://www.booking.com/hotel/za/house-on-the-hill.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/328833/house-on-the-hill/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/328833/house-on-the-hill/",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -427,7 +635,20 @@
         "bookingRating": "8.8 / 10",
         "hwRating": "9.4 / 10",
         "booking": "https://www.booking.com/hotel/za/never-home.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/90106/never-at-home-green-point/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/90106/never-at-home-green-point/",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -454,7 +675,20 @@
         "bookingRating": "8.6 / 10",
         "hwRating": "9.3 / 10",
         "booking": "https://www.booking.com/hotel/za/a-sunflower-stop.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/1733/a-sunflower-stop/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/1733/a-sunflower-stop/",
+        "is_best_overall": true,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": true,
+        "is_solo_women": true,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -481,7 +715,20 @@
         "bookingRating": "7.4 / 10",
         "hwRating": "8.0 / 10",
         "booking": "https://www.booking.com/hotel/za/mojo-hotel.en-gb.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/263570/mojo-hostel-and-market/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/263570/mojo-hostel-and-market/",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -508,7 +755,20 @@
         "bookingRating": "7.3 / 10",
         "hwRating": "6.9 / 10",
         "booking": "https://www.booking.com/hotel/za/green-elephant-backpackers.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/977/green-elephant/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/977/green-elephant/",
+        "is_best_overall": true,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -531,7 +791,20 @@
         "website": "africanheartbackpackers.com",
         "info": "Reliable ultra-budget option in Observatory. Best for independent travellers who know what they want and don't need a hostel to organise it.",
         "anchor": "/backpacking-south-africa/cape-town#african-heart-backpackers",
-        "googleRating": "4.0 / 5"
+        "googleRating": "4.0 / 5",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -553,7 +826,20 @@
         "website": "bohemianlofts.com",
         "info": "A characterful budget option with an artistic edge. Best for creatively inclined travellers who want Observatory's neighbourhood character.",
         "anchor": "/backpacking-south-africa/cape-town#bohemian-lofts-backpackers",
-        "googleRating": "4.4 / 5"
+        "googleRating": "4.4 / 5",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -580,7 +866,20 @@
         "bookingRating": "7.1 / 10",
         "hwRating": "6.0 / 10",
         "booking": "https://www.booking.com/hotel/za/lighthouse-farm-backpackers.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/994/light-house-lodge/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/994/light-house-lodge/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -605,7 +904,20 @@
         "anchor": "/backpacking-south-africa/cape-town#riverlodge-backpackers",
         "googleRating": "3.6 / 5",
         "hwRating": "7.1 / 10",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/5661/riverlodge-backpackers/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/5661/riverlodge-backpackers/",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -632,7 +944,20 @@
         "bookingRating": "8.6 / 10",
         "hwRating": "9.1 / 10",
         "booking": "https://www.booking.com/hotel/za/hout-bay-backpackers-hout-bay.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/317980/dune-lodge/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/317980/dune-lodge/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": true
       }
     },
     {
@@ -659,7 +984,20 @@
         "bookingRating": "8.0 / 10",
         "hwRating": "5.6 / 10",
         "booking": "https://www.booking.com/hotel/za/saltycrax-backpackers.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/13924/saltycrax-backpackers-and-surflodge/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/13924/saltycrax-backpackers-and-surflodge/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": true,
+        "is_solo_women": true,
+        "is_digital_nomad": true,
+        "is_surfer": true,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -685,7 +1023,20 @@
         "googleRating": "4.5 / 5",
         "bookingRating": "7.6 / 10",
         "booking": "https://www.booking.com/hotel/za/african-soul-surfer.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/299441/african-soul-surfer/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/299441/african-soul-surfer/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": true,
+        "is_surfer": true,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -707,7 +1058,20 @@
         "website": "cederbergoasis.co.za",
         "info": "The definitive Cederberg backpacker base. If you are visiting the Cederberg for hiking and you are not sure where to stay, this is where you stay. Book the spare ribs when you arrive.",
         "anchor": "/backpacking-south-africa/cederberg#cederberg-oasis",
-        "googleRating": "4.7 / 5"
+        "googleRating": "4.7 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": true,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -729,7 +1093,20 @@
         "website": "geckocreek.com",
         "info": "The most beautiful setting in the Cederberg backpacker scene, on a private nature reserve, at prices that should not be possible. Bring cash, bring a torch, and bring at least two nights.",
         "anchor": "/backpacking-south-africa/cederberg#gecko-creek",
-        "googleRating": "4.6 / 5"
+        "googleRating": "4.6 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": true,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": false
       }
     },
     {
@@ -752,7 +1129,20 @@
         "website": "heuningvlei.yolasite.com",
         "info": "The most remote, most unusual, and most ethically significant accommodation in the Cederberg. Not for casual visitors. Essential for serious travellers. Call ahead, bring a 4x4, bring all your food, and do not miss the community rock art guide.",
         "anchor": "/backpacking-south-africa/cederberg#heuningvlei",
-        "googleRating": "4.6 / 5"
+        "googleRating": "4.6 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -775,7 +1165,20 @@
         "website": "khotso.co.za",
         "info": "The best adventure farm experience in the Southern Drakensberg. Essential for horse riders; highly recommended for anyone who wants a genuinely immersive Southern Berg base. One of the best-value, most distinctive hostels in this guide.",
         "anchor": "/backpacking-south-africa/drakensberg#khotso-lodge",
-        "googleRating": "4.6 / 5"
+        "googleRating": "4.6 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -798,7 +1201,20 @@
         "website": "sanilodge.co.za",
         "info": "The finest ethically-run hostel in the Drakensberg, and one of the most beautifully located. The definitive Southern Berg base for the Sani Pass, Fair Trade credentials, and genuine wilderness immersion. Highly recommended without reservation.",
         "anchor": "/backpacking-south-africa/drakensberg#sani-lodge-backpackers",
-        "googleRating": "4.4 / 5"
+        "googleRating": "4.4 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -821,7 +1237,20 @@
         "website": "mountainbase.co.za",
         "info": "The best budget option in the Central Berg. Outstanding value for hikers and activity-seekers targeting the Champagne Valley and Cathedral Peak area.",
         "anchor": "/backpacking-south-africa/drakensberg#mountain-base-backpackers",
-        "googleRating": "3.1 / 5"
+        "googleRating": "3.1 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -844,7 +1273,20 @@
         "website": "drakensberg-hikes.co.za",
         "info": "The best-value private room option in the Central Berg. Ideal for couples and pairs who want farm quiet, mountain access, and no dorm compromise.",
         "anchor": "/backpacking-south-africa/drakensberg#berg-backpackers",
-        "booking": "https://www.booking.com/hotel/za/berg-backpackers.html"
+        "booking": "https://www.booking.com/hotel/za/berg-backpackers.html",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -871,7 +1313,20 @@
         "bookingRating": "6.3 / 10",
         "hwRating": "9.3 / 10",
         "booking": "https://www.booking.com/hotel/za/amphitheatre-backpackers-lodge.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/316894/amphitheatre-backpackers-lodge/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/316894/amphitheatre-backpackers-lodge/",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": true,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -892,11 +1347,24 @@
         "whatsapp": "+27761934444",
         "email": "bookings@malutibackpackers.co.za",
         "website": "malutibackpackers.co.za",
-        "info": "\u2605 BackpackersBible.com's recommended base for the Tugela Falls hike. The closest accommodation to the Sentinel Car Park trailhead; also the best base for Golden Gate Highlands National Park. Practical, honest, and community-supporting. The platform ratings do not capture what matters most here: the proximity.",
+        "info": "★ BackpackersBible.com's recommended base for the Tugela Falls hike. The closest accommodation to the Sentinel Car Park trailhead; also the best base for Golden Gate Highlands National Park. Practical, honest, and community-supporting. The platform ratings do not capture what matters most here: the proximity.",
         "anchor": "/backpacking-south-africa/drakensberg#maluti-backpackers",
         "googleRating": "3.9 / 5",
         "bookingRating": "5.6 / 10",
-        "booking": "https://www.booking.com/hotel/za/maluti-backpackers-phuthaditjhaba1.html"
+        "booking": "https://www.booking.com/hotel/za/maluti-backpackers-phuthaditjhaba1.html",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": true
       }
     },
     {
@@ -923,7 +1391,20 @@
         "bookingRating": "8.5 / 10",
         "hwRating": "10 / 10",
         "booking": "https://www.booking.com/hotel/za/karma-backpackers.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/27273/karma-backpackers/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/27273/karma-backpackers/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -949,7 +1430,20 @@
         "bookingRating": "5.6 / 10",
         "hwRating": "7.8 / 10",
         "booking": "https://www.booking.com/hotel/za/tekweni.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/1236/tekweni-backpackers-hostel/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/1236/tekweni-backpackers-hostel/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": true,
+        "is_solo_women": true,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -973,7 +1467,20 @@
         "info": "The Berea's best-value base. Quieter than Tekweni, equally well-located, and the garden views are something special. Best for travellers who want a residential feel over a hostel buzz.",
         "anchor": "/backpacking-south-africa/durban#gibela-travellers-lodge",
         "googleRating": "4.7 / 5",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/4413/gibela-backpackers-lodge-durban/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/4413/gibela-backpackers-lodge-durban/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -996,7 +1503,20 @@
         "website": "nomads.co.za",
         "info": "The budget choice on the Berea. Reliable, honest, functional. Good value for travellers who are counting rands without wanting to compromise on neighbourhood quality.",
         "anchor": "/backpacking-south-africa/durban#nomads-backpackers",
-        "googleRating": "4.0 / 5"
+        "googleRating": "4.0 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -1021,7 +1541,20 @@
         "anchor": "/backpacking-south-africa/durban#aweh-africa-backpackers",
         "googleRating": "4.2 / 5",
         "hwRating": "10 / 10",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/99985/aweh-africa-backpackers/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/99985/aweh-africa-backpackers/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -1048,7 +1581,20 @@
         "bookingRating": "7.6 / 10",
         "hwRating": "10 / 10",
         "booking": "https://www.booking.com/hotel/za/ansteys-beach-self-catering-apartments-durban.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/1221/ansteys-beach-backpackers/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/1221/ansteys-beach-backpackers/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": true,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": true,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -1063,7 +1609,7 @@
       "properties": {
         "region": "durban",
         "id": "durban-backpackers-on-the-beach",
-        "name": "DURBAN BACKPACKERS \u2014 ON THE BEACH",
+        "name": "DURBAN BACKPACKERS — ON THE BEACH",
         "address": "17 The Promenade, Glenashley, Durban North, 4051",
         "phone": "+27315724054",
         "whatsapp": "+27834561664",
@@ -1073,7 +1619,20 @@
         "anchor": "/backpacking-south-africa/durban#durban-backpackers-on-the-beach",
         "googleRating": "4.5 / 5",
         "hwRating": "3.7 / 10",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/10195/durban-backpackers-on-the-beach/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/10195/durban-backpackers-on-the-beach/",
+        "is_best_overall": true,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -1096,7 +1655,20 @@
         "website": "peacevalegetaway.co.za",
         "info": "The overlander's and camper's Durban base. Cheapest rates, greenest setting, most rural character. Best for travellers with their own transport using Durban as a staging point.",
         "anchor": "/backpacking-south-africa/durban#peacevale-backpackers",
-        "googleRating": "3.9 / 5"
+        "googleRating": "3.9 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -1120,7 +1692,20 @@
         "info": "The essential Addo base. Go for the safari. Stay for the stories.",
         "anchor": "/backpacking-south-africa/eastern-cape-interior#orange-elephant-backpackers",
         "googleRating": "4.1 / 5",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/14042/orange-elephant-backpackers-and-thirsty-herds-pub/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/14042/orange-elephant-backpackers-and-thirsty-herds-pub/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": false
       }
     },
     {
@@ -1142,7 +1727,20 @@
         "email": "blueskiesbackpackers@gmail.com",
         "info": "Makhanda's best-value base, owned by the kind of host who makes a hostel a home. The skydiving is optional. The Sean recommendation is not.",
         "anchor": "/backpacking-south-africa/eastern-cape-interior#blue-skies-backpackers",
-        "googleRating": "4.2 / 5"
+        "googleRating": "4.2 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": true,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -1165,7 +1763,20 @@
         "website": "cannastay.co.za",
         "info": "Makhanda's most atmospheric option. Bohemian, historic, affordable, and best suited to travellers who value character over consistency.",
         "anchor": "/backpacking-south-africa/eastern-cape-interior#the-smokey-moon",
-        "googleRating": "4.0 / 5"
+        "googleRating": "4.0 / 5",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -1190,7 +1801,20 @@
         "anchor": "/backpacking-south-africa/eastern-cape-interior#away-with-the-fairies",
         "googleRating": "4.4 / 5",
         "bookingRating": "7.7 / 10",
-        "booking": "https://www.booking.com/hotel/za/away-with-the-fairies.html"
+        "booking": "https://www.booking.com/hotel/za/away-with-the-fairies.html",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": true,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": false
       }
     },
     {
@@ -1213,7 +1837,20 @@
         "website": "terrakhaya.co.za",
         "info": "For nature-lovers, eco-travellers, conscious explorers, and anyone who needs to remember what silence sounds like. The outdoor bath at sunset is worth the entire trip on its own.",
         "anchor": "/backpacking-south-africa/eastern-cape-interior#terra-khaya",
-        "googleRating": "4.7 / 5"
+        "googleRating": "4.7 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": true,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -1237,7 +1874,20 @@
         "info": "The most singular experience on this guide. Genuine Xhosa village hospitality, extraordinary community, perfect silence, and stars that do not look real. Come here.",
         "anchor": "/backpacking-south-africa/eastern-cape-interior#elundini-backpackers",
         "googleRating": "4.6 / 5",
-        "hostelworld": "https://www.hostelworld.com/pwa/hosteldetails.php/Elundini-Backpackers/Hogsback/71978"
+        "hostelworld": "https://www.hostelworld.com/pwa/hosteldetails.php/Elundini-Backpackers/Hogsback/71978",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": true,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": true
       }
     },
     {
@@ -1258,11 +1908,24 @@
         "whatsapp": "+27727427113",
         "email": "backpackers@owlhouse.info",
         "website": "owlhouse.info",
-        "info": "The essential Nieu-Bethesda accommodation option \u2014 welcoming, eco-conscious, expertly located, and run with the personal warmth that only owner-managed properties can sustain. Two nights minimum. Ask Ian about Aunt Evelyn's.",
+        "info": "The essential Nieu-Bethesda accommodation option — welcoming, eco-conscious, expertly located, and run with the personal warmth that only owner-managed properties can sustain. Two nights minimum. Ask Ian about Aunt Evelyn's.",
         "anchor": "/backpacking-south-africa/eastern-cape-interior#owlhouse-backpackers",
         "googleRating": "4.4 / 5",
         "bookingRating": "8.1 / 10",
-        "booking": "https://www.booking.com/hotel/za/the-owlhouse-backpackers.html"
+        "booking": "https://www.booking.com/hotel/za/the-owlhouse-backpackers.html",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": true
       }
     },
     {
@@ -1287,7 +1950,20 @@
         "anchor": "/backpacking-south-africa/eswatini#legends-backpackers",
         "googleRating": "4.2 / 5",
         "bookingRating": "8.1 / 10",
-        "booking": "https://www.booking.com/hotel/sz/legends-shared.html"
+        "booking": "https://www.booking.com/hotel/sz/legends-shared.html",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": false
       }
     },
     {
@@ -1312,7 +1988,20 @@
         "anchor": "/backpacking-south-africa/eswatini#lidwala-backpacker-lodge",
         "googleRating": "4.3 / 5",
         "bookingRating": "8.5 / 10",
-        "booking": "https://www.booking.com/hotel/sz/lidwala-lodge.html"
+        "booking": "https://www.booking.com/hotel/sz/lidwala-lodge.html",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": true,
+        "is_solo_women": true,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": false
       }
     },
     {
@@ -1337,7 +2026,20 @@
         "anchor": "/backpacking-south-africa/eswatini#sondzela-backpackers",
         "googleRating": "4.5 / 5",
         "hwRating": "9.4 / 10",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/58528/sondzela-backpackers/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/58528/sondzela-backpackers/",
+        "is_best_overall": true,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": true,
+        "is_nature": true,
+        "is_cultural": false
       }
     },
     {
@@ -1362,7 +2064,20 @@
         "anchor": "/backpacking-south-africa/eswatini#entsabeni-backpackers",
         "googleRating": "4.3 / 5",
         "bookingRating": "8.0 / 10",
-        "booking": "https://www.booking.com/hotel/sz/entsabeni-cottage.html"
+        "booking": "https://www.booking.com/hotel/sz/entsabeni-cottage.html",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -1384,7 +2099,20 @@
         "email": "clarensinn@gmail.com",
         "info": "The only show in town, in the best possible sense. Clarens at the right price, in the right location, with the mountains visible from the garden.",
         "anchor": "/backpacking-south-africa/free-state#clarens-inn-backpackers",
-        "googleRating": "4.3 / 5"
+        "googleRating": "4.3 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": true,
+        "is_solo_women": true,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": true,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -1405,11 +2133,24 @@
         "whatsapp": "+27761934444",
         "email": "bookings@malutibackpackers.co.za",
         "website": "malutibackpackers.co.za",
-        "info": "\u2605 BackpackersBible.com's recommended base for the Tugela Falls hike. The closest accommodation to the Sentinel Car Park trailhead; also the best base for Golden Gate Highlands National Park. Practical, honest, and community-supporting. The platform ratings do not capture what matters most here: the proximity.",
+        "info": "★ BackpackersBible.com's recommended base for the Tugela Falls hike. The closest accommodation to the Sentinel Car Park trailhead; also the best base for Golden Gate Highlands National Park. Practical, honest, and community-supporting. The platform ratings do not capture what matters most here: the proximity.",
         "anchor": "/backpacking-south-africa/free-state#maluti-backpackers",
         "googleRating": "3.9 / 5",
         "bookingRating": "5.6 / 10",
-        "booking": "https://www.booking.com/hotel/za/maluti-backpackers-phuthaditjhaba1.html"
+        "booking": "https://www.booking.com/hotel/za/maluti-backpackers-phuthaditjhaba1.html",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": true
       }
     },
     {
@@ -1436,7 +2177,20 @@
         "bookingRating": "8.5 / 10",
         "hwRating": "10 / 10",
         "booking": "https://www.booking.com/hotel/za/karma-backpackers.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/27273/karma-backpackers/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/27273/karma-backpackers/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -1458,7 +2212,20 @@
         "website": "parkhouse.co.za",
         "info": "Mossel Bay's best hostel. Consistently excellent Booking.com score. Good base for the St Blaize Trail, shark diving, and the western Garden Route.",
         "anchor": "/backpacking-south-africa/garden-route#park-house-lodge",
-        "googleRating": "4.0 / 5"
+        "googleRating": "4.0 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": true
       }
     },
     {
@@ -1482,7 +2249,20 @@
         "anchor": "/backpacking-south-africa/garden-route#mile-crunchers-backpackers",
         "googleRating": "4.0 / 5",
         "bookingRating": "6.7 / 10",
-        "booking": "https://www.booking.com/hotel/za/mile-crunchers-backpackers-mossel-bay.html"
+        "booking": "https://www.booking.com/hotel/za/mile-crunchers-backpackers-mossel-bay.html",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -1507,7 +2287,20 @@
         "anchor": "/backpacking-south-africa/garden-route#santos-express-train-lodge",
         "googleRating": "4.1 / 5",
         "hwRating": "9.1 / 10",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/2309/santos-express-train-b-and-b/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/2309/santos-express-train-b-and-b/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -1534,7 +2327,20 @@
         "bookingRating": "6.7 / 10",
         "hwRating": "5.1 / 10",
         "booking": "https://www.booking.com/hotel/za/shark-shacks.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/299274/shark-shack-backpackers/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/299274/shark-shack-backpackers/",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -1556,7 +2362,20 @@
         "website": "georgebackpackers.co.za",
         "info": "The practical Garden Route airport stopover. Best for hire car collections, Baz Bus connections, and anyone who knows about Victoria Bay surf and wants to stay for it.",
         "anchor": "/backpacking-south-africa/garden-route#george-backpackers",
-        "googleRating": "3.9 / 5"
+        "googleRating": "3.9 / 5",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -1583,7 +2402,20 @@
         "bookingRating": "8.5 / 10",
         "hwRating": "8.6 / 10",
         "booking": "https://www.booking.com/hotel/za/beach-house-backpackers.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/52697/wilderness-beach-house-backpackers/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/52697/wilderness-beach-house-backpackers/",
+        "is_best_overall": true,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -1610,7 +2442,20 @@
         "bookingRating": "7.9 / 10",
         "hwRating": "6.9 / 10",
         "booking": "https://www.booking.com/hotel/za/fairy-knowe-backpackers.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/59083/fairy-knowe-backpackers/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/59083/fairy-knowe-backpackers/",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": false
       }
     },
     {
@@ -1637,7 +2482,20 @@
         "bookingRating": "7.5 / 10",
         "hwRating": "6.4 / 10",
         "booking": "https://www.booking.com/hotel/za/the-wild-farm.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/24201/the-wild-farm-backpackers/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/24201/the-wild-farm-backpackers/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -1661,7 +2519,20 @@
         "info": "The Garden Route's quiet gem. Best for independent travellers with a car who want the coast without the crowd. The Saturday markets alone are worth planning around.",
         "anchor": "/backpacking-south-africa/garden-route#sedgefield-backpacker",
         "googleRating": "4.4 / 5",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/311061/sedgefield-backpacker/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/311061/sedgefield-backpacker/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": true
       }
     },
     {
@@ -1686,7 +2557,20 @@
         "anchor": "/backpacking-south-africa/garden-route#pilipili-beach-cabanas",
         "googleRating": "4.4 / 5",
         "bookingRating": "8.0 / 10",
-        "booking": "https://www.booking.com/hotel/za/pili-pili-beach-cabanas.html"
+        "booking": "https://www.booking.com/hotel/za/pili-pili-beach-cabanas.html",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -1711,7 +2595,20 @@
         "anchor": "/backpacking-south-africa/garden-route#the-riverdeck-lodge",
         "googleRating": "4.1 / 5",
         "bookingRating": "7.4 / 10",
-        "booking": "https://www.booking.com/hotel/za/the-riverdeck.html"
+        "booking": "https://www.booking.com/hotel/za/the-riverdeck.html",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -1738,7 +2635,20 @@
         "bookingRating": "7.8 / 10",
         "hwRating": "8.4 / 10",
         "booking": "https://www.booking.com/hotel/za/island-vibe-knysna.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/17272/island-vibe-knysna/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/17272/island-vibe-knysna/",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -1762,7 +2672,20 @@
         "info": "A good choice for travellers seeking peace and quiet.",
         "anchor": "/backpacking-south-africa/garden-route#knysna-backpackers",
         "googleRating": "4.1 / 5",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/292092/knysna-backpackers/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/292092/knysna-backpackers/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -1787,7 +2710,20 @@
         "anchor": "/backpacking-south-africa/garden-route#keedols-backpackers",
         "googleRating": "4.8 / 5",
         "bookingRating": "8.1 / 10",
-        "booking": "https://www.booking.com/hotel/za/alpaca-inn-knysna12.html"
+        "booking": "https://www.booking.com/hotel/za/alpaca-inn-knysna12.html",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -1814,7 +2750,20 @@
         "bookingRating": "7.6 / 10",
         "hwRating": "8.9 / 10",
         "booking": "https://www.booking.com/hotel/za/amakaya-backpackers.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/44908/amakaya-backpackers-travellers-accommodation/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/44908/amakaya-backpackers-travellers-accommodation/",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": false
       }
     },
     {
@@ -1839,7 +2788,20 @@
         "anchor": "/backpacking-south-africa/garden-route#plett-beachfront",
         "googleRating": "4.5 / 5",
         "bookingRating": "8.1 / 10",
-        "booking": "https://www.booking.com/hotel/za/plett-beachfront-accommodation.html"
+        "booking": "https://www.booking.com/hotel/za/plett-beachfront-accommodation.html",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -1862,7 +2824,20 @@
         "website": "pletbackpackers.co.za",
         "info": "The central Main Street option with a penthouse twist. Good for Baz Bus travellers wanting to be in the middle of Plett's action.",
         "anchor": "/backpacking-south-africa/garden-route#plett-backpackers",
-        "googleRating": "3.6 / 5"
+        "googleRating": "3.6 / 5",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -1877,19 +2852,32 @@
       "properties": {
         "region": "garden-route",
         "id": "nothando-backpackers",
-        "name": "NOTHANDO BACKPACKERS \u2605",
+        "name": "NOTHANDO BACKPACKERS ★",
         "address": "5 Wilder Street, Plettenberg Bay, 6600",
         "phone": "+27445330220",
         "whatsapp": "+27828259811",
         "email": "info@nothando.co.za",
         "website": "nothando.co.za",
-        "info": "\u2605 The best hostel in Plettenberg Bay. #1 on Hostelworld (9.7/10). The top solo female recommendation on the Garden Route. TGCSA 5-star graded. Outstanding employment ethics. The Robberg hike starts 10 minutes away. Book it.",
+        "info": "★ The best hostel in Plettenberg Bay. #1 on Hostelworld (9.7/10). The top solo female recommendation on the Garden Route. TGCSA 5-star graded. Outstanding employment ethics. The Robberg hike starts 10 minutes away. Book it.",
         "anchor": "/backpacking-south-africa/garden-route#nothando-backpackers",
         "googleRating": "4.6 / 5",
         "bookingRating": "9.2 / 10",
         "hwRating": "9.9 / 10",
         "booking": "https://www.booking.com/hotel/za/nothando-backpackers-lodge.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/319728/nothando/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/319728/nothando/",
+        "is_best_overall": true,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": false
       }
     },
     {
@@ -1914,7 +2902,20 @@
         "anchor": "/backpacking-south-africa/garden-route#wild-spirit-backpackers",
         "googleRating": "4.6 / 5",
         "hwRating": "8.8 / 10",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/31428/wild-spirit-lodge/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/31428/wild-spirit-lodge/",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": false
       }
     },
     {
@@ -1941,7 +2942,20 @@
         "bookingRating": "8.4 / 10",
         "hwRating": "9.4 / 10",
         "booking": "https://www.booking.com/hotel/za/tube-n-axe-backpackers.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/16476/tube-n-axe-backpackers-lodge/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/16476/tube-n-axe-backpackers-lodge/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": true,
+        "is_nature": true,
+        "is_cultural": false
       }
     },
     {
@@ -1966,7 +2980,20 @@
         "anchor": "/backpacking-south-africa/garden-route#dijembe-backpackers",
         "googleRating": "4.1 / 5",
         "bookingRating": "7.8 / 10",
-        "booking": "https://www.booking.com/hotel/za/stormsriver-backpackers-dijembe.html"
+        "booking": "https://www.booking.com/hotel/za/stormsriver-backpackers-dijembe.html",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -1987,9 +3014,22 @@
         "whatsapp": "+27834542948",
         "email": "info@backpackersconnection.co.za",
         "website": "backpackersconnection.co.za",
-        "info": "The essential airport hostel. Perfect first or last night for anyone transiting through OR Tambo \u2014 clean, calm, personal, and managed by people who genuinely understand what tired travellers need.",
+        "info": "The essential airport hostel. Perfect first or last night for anyone transiting through OR Tambo — clean, calm, personal, and managed by people who genuinely understand what tired travellers need.",
         "anchor": "/backpacking-south-africa/johannesburg#backpackers-connection",
-        "googleRating": "4.4 / 5"
+        "googleRating": "4.4 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -2014,7 +3054,20 @@
         "anchor": "/backpacking-south-africa/johannesburg#brown-sugar-backpackers",
         "googleRating": "4.1 / 5",
         "hwRating": "9.0 / 10",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/6608/brown-sugar-backpackers/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/6608/brown-sugar-backpackers/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -2037,7 +3090,20 @@
         "website": "geminibackpackers.co.za",
         "info": "A reliable budget transit option near the airport. No frills, no surprises. Best suited to travellers who need a clean, quiet night near OR Tambo and nothing else.",
         "anchor": "/backpacking-south-africa/johannesburg#gemini-backpackers-lodge",
-        "googleRating": "3.6 / 5"
+        "googleRating": "3.6 / 5",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -2060,7 +3126,20 @@
         "info": "The most characterful of the East cluster. Good value, good atmosphere, and an unexpectedly social environment for an airport-proximity hostel. The Caribbean-themed bar will either delight you or confuse you.",
         "anchor": "/backpacking-south-africa/johannesburg#mikasa-sukasa-backpackers",
         "googleRating": "4.6 / 5",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/279894/mikasa-sukasa-backpackers/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/279894/mikasa-sukasa-backpackers/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": true
       }
     },
     {
@@ -2082,7 +3161,20 @@
         "email": "terrylin@mweb.co.za",
         "info": "An unpretentious budget option in the East Rand zone. Best for travellers whose only requirement is a clean, affordable, quiet night near the airport.",
         "anchor": "/backpacking-south-africa/johannesburg#terrylinn-backpackers",
-        "googleRating": "4.0 / 5"
+        "googleRating": "4.0 / 5",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -2102,10 +3194,23 @@
         "phone": "+27824915344",
         "whatsapp": "+27824915344",
         "email": "roneldutoit@gmail.com",
-        "info": "The East Rand's scenic option \u2014 ideal for safari returnees and couples who want to decompress in natural surroundings. Book the private room for the full effect.",
+        "info": "The East Rand's scenic option — ideal for safari returnees and couples who want to decompress in natural surroundings. Book the private room for the full effect.",
         "anchor": "/backpacking-south-africa/johannesburg#lakeview-backpackers",
         "googleRating": "4.3 / 5",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/266759/Lakeview-Backpackers/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/266759/Lakeview-Backpackers/",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -2130,7 +3235,20 @@
         "bookingRating": "6.8 / 10",
         "hwRating": "8.1 / 10",
         "booking": "https://www.booking.com/hotel/za/accoustix-backpackers-hostel.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/23697/accoustix-backpackers-hostel/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/23697/accoustix-backpackers-hostel/",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": true,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -2151,7 +3269,20 @@
         "email": "info@joburgbackpackers.com",
         "info": "A well-positioned, well-managed social hostel in one of Johannesburg's most characterful residential neighbourhoods. Strong choice for solo travellers who want engagement with the real city.",
         "anchor": "/backpacking-south-africa/johannesburg#joburg-backpackers",
-        "googleRating": "4.1 / 5"
+        "googleRating": "4.1 / 5",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -2172,13 +3303,26 @@
         "whatsapp": "+27711370207",
         "email": "bookings@explorerbackpackers.com",
         "website": "explorerbackpackers.com",
-        "info": "The best hostel in Johannesburg. Consistently the highest-rated on all major platforms, in the best neighbourhood for safety and walkability. Book early \u2014 it fills up.",
+        "info": "The best hostel in Johannesburg. Consistently the highest-rated on all major platforms, in the best neighbourhood for safety and walkability. Book early — it fills up.",
         "anchor": "/backpacking-south-africa/johannesburg#explorer-backpackers",
         "googleRating": "4.7 / 5",
         "bookingRating": "8.8 / 10",
         "hwRating": "8.3 / 10",
         "booking": "https://www.booking.com/hotel/za/explorer-backpackers.html",
-        "hostelworld": "https://www.hostelworld.com/pwa/hosteldetails.php/Explorer-Backpackers/Johannesburg/303894"
+        "hostelworld": "https://www.hostelworld.com/pwa/hosteldetails.php/Explorer-Backpackers/Johannesburg/303894",
+        "is_best_overall": true,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -2204,7 +3348,20 @@
         "googleRating": "2.7 / 5",
         "bookingRating": "6.6 / 10",
         "booking": "https://www.booking.com/hotel/za/rosebank-lodge-and-backpacker.en-gb.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/41002/rosebank-lodge/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/41002/rosebank-lodge/",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -2231,7 +3388,20 @@
         "bookingRating": "7.6 / 10",
         "hwRating": "7.8 / 10",
         "booking": "https://www.booking.com/hotel/za/curiocity-backpackers-johannesburg.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/90149/curiocity-joburg/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/90149/curiocity-joburg/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": true,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -2258,7 +3428,20 @@
         "bookingRating": "9.2 / 10",
         "hwRating": "9.8 / 10",
         "booking": "https://www.booking.com/hotel/za/lebo-39-s-soweto-backpackers.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/19555/lebo-s-soweto-backpackers/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/19555/lebo-s-soweto-backpackers/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": true
       }
     },
     {
@@ -2273,7 +3456,7 @@
       "properties": {
         "region": "karoo",
         "id": "go-baviaans",
-        "name": "GO BAVIAANS \u2014 CEDAR FALLS BASE CAMP",
+        "name": "GO BAVIAANS — CEDAR FALLS BASE CAMP",
         "address": "Cedar Falls Farm, Baviaanskloof, Willowmore, 6445, Eastern Cape",
         "phone": "+27749394395",
         "whatsapp": "+27749394395",
@@ -2281,7 +3464,20 @@
         "website": "gobaviaans.co.za",
         "info": "The single most spectacular outdoor adventure base camp on this entire guide. If you hike or cycle and are in the Eastern Cape for more than a week, the Baviaanskloof via Go Baviaans is non-negotiable. Book the Leopard Trail months in advance.",
         "anchor": "/backpacking-south-africa/karoo#go-baviaans",
-        "googleRating": "4.7 / 5"
+        "googleRating": "4.7 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": true,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": true
       }
     },
     {
@@ -2302,11 +3498,24 @@
         "whatsapp": "+27727427113",
         "email": "backpackers@owlhouse.info",
         "website": "owlhouse.info",
-        "info": "The essential Nieu-Bethesda accommodation option \u2014 welcoming, eco-conscious, and run with personal warmth. Two nights minimum. Ask Ian about Aunt Evelyn's.",
+        "info": "The essential Nieu-Bethesda accommodation option — welcoming, eco-conscious, and run with personal warmth. Two nights minimum. Ask Ian about Aunt Evelyn's.",
         "anchor": "/backpacking-south-africa/karoo#owlhouse-backpackers",
         "googleRating": "4.4 / 5",
         "bookingRating": "8.1 / 10",
-        "booking": "https://www.booking.com/hotel/za/the-owlhouse-backpackers.html"
+        "booking": "https://www.booking.com/hotel/za/the-owlhouse-backpackers.html",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": true
       }
     },
     {
@@ -2327,9 +3536,22 @@
         "whatsapp": "+27824925815",
         "email": "lodge96@telkomsa.net",
         "website": "lodge96.co.za",
-        "info": "The best-facilities hostel in Oudtshoorn \u2014 en-suite dorms at backpacker prices, excellent pool. Arrange the George shuttle when you book.",
+        "info": "The best-facilities hostel in Oudtshoorn — en-suite dorms at backpacker prices, excellent pool. Arrange the George shuttle when you book.",
         "anchor": "/backpacking-south-africa/karoo#lodge-96",
-        "googleRating": "4.2 / 5"
+        "googleRating": "4.2 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": true,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -2356,7 +3578,20 @@
         "bookingRating": "7.1 / 10",
         "hwRating": "10 / 10",
         "booking": "https://www.booking.com/hotel/za/karoo-soul-bacpackers-amp-cottages.en-gb.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/14621/karoo-soul-backpackers/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/14621/karoo-soul-backpackers/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": true,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -2376,11 +3611,24 @@
         "phone": "+27442791163",
         "email": "oasis@mailbox.co.za",
         "website": "oasisshanti.com",
-        "info": "The food-forward, garden-centred option in Oudtshoorn \u2014 standout for the ostrich egg breakfast, on-site restaurant, and large pool.",
+        "info": "The food-forward, garden-centred option in Oudtshoorn — standout for the ostrich egg breakfast, on-site restaurant, and large pool.",
         "anchor": "/backpacking-south-africa/karoo#oasis-shanti",
         "googleRating": "4.2 / 5",
         "bookingRating": "8.3 / 10",
-        "booking": "https://www.booking.com/hotel/za/oasis-shanti-backpackers.html"
+        "booking": "https://www.booking.com/hotel/za/oasis-shanti-backpackers.html",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": true,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": true,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -2401,11 +3649,24 @@
         "whatsapp": "+27828963082",
         "email": "info@swartbergbackpackers.co.za",
         "website": "swartbergbackpackers.co.za",
-        "info": "The finest eco-farm wilderness experience in the Little Karoo. 45km from Oudtshoorn, fully self-catering. Louis is the reason for the five stars. Book well in advance \u2014 there are only two units.",
+        "info": "The finest eco-farm wilderness experience in the Little Karoo. 45km from Oudtshoorn, fully self-catering. Louis is the reason for the five stars. Book well in advance — there are only two units.",
         "anchor": "/backpacking-south-africa/karoo#swartberg-backpackers",
         "googleRating": "4.5 / 5",
         "bookingRating": "8.9 / 10",
-        "booking": "https://www.booking.com/hotel/za/swartberg-backpackers-matjiesrivier.html"
+        "booking": "https://www.booking.com/hotel/za/swartberg-backpackers-matjiesrivier.html",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": true,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -2427,7 +3688,20 @@
         "email": "backpackers@isat.co.za",
         "website": "backpackersparadise.net",
         "info": "The definitive Oudtshoorn backpacker base. Reliable, central, and consistently good value.",
-        "anchor": "/backpacking-south-africa/karoo#backpackers-paradise"
+        "anchor": "/backpacking-south-africa/karoo#backpackers-paradise",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -2449,7 +3723,20 @@
         "email": "info@krugerview.com",
         "info": "The most strategically positioned safari base for dedicated wildlife travellers. Southern Kruger access, bush atmosphere, backpacker prices.",
         "anchor": "/backpacking-south-africa/kruger#kruger-view-backpackers",
-        "googleRating": "3.1 / 5"
+        "googleRating": "3.1 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": false
       }
     },
     {
@@ -2475,7 +3762,20 @@
         "bookingRating": "8.6 / 10",
         "hwRating": "9.8 / 10",
         "booking": "https://www.booking.com/hotel/za/kruger-inn-backpackers-marloth-park.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/33354/kruger-inn-backpackers/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/33354/kruger-inn-backpackers/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": false
       }
     },
     {
@@ -2500,7 +3800,20 @@
         "anchor": "/backpacking-south-africa/kruger#old-vic-travellers-inn",
         "googleRating": "4.1 / 5",
         "bookingRating": "7.7 / 10",
-        "booking": "https://www.booking.com/hotel/za/old-vic-travellers-inn-nelspruit.html"
+        "booking": "https://www.booking.com/hotel/za/old-vic-travellers-inn-nelspruit.html",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -2525,7 +3838,20 @@
         "anchor": "/backpacking-south-africa/kruger#hazyview-adventure-backpackers",
         "googleRating": "4.1 / 5",
         "booking": "https://www.booking.com/hotel/za/hazyview-adventure-backpackers.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/310620/hazyview-adventure-backpackers/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/310620/hazyview-adventure-backpackers/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": true,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -2550,7 +3876,20 @@
         "anchor": "/backpacking-south-africa/kruger#shik-shack-backpackers",
         "googleRating": "4.5 / 5",
         "bookingRating": "8.2 / 10",
-        "booking": "https://www.booking.com/hotel/za/shik-shack-backpackers.html"
+        "booking": "https://www.booking.com/hotel/za/shik-shack-backpackers.html",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -2575,7 +3914,20 @@
         "anchor": "/backpacking-south-africa/lesotho#malealea-lodge",
         "googleRating": "4.5 / 5",
         "bookingRating": "9.1 / 10",
-        "booking": "https://www.booking.com/hotel/ls/malealea-lodge.html"
+        "booking": "https://www.booking.com/hotel/ls/malealea-lodge.html",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -2596,9 +3948,22 @@
         "whatsapp": "+26658442309",
         "email": "tradingpostram@leo.co.ls",
         "website": "ramabanta.com",
-        "info": "The finest overnight stop on the Maseru\u2013Semonkong route. The cliff-edge view, the home-cooked food, and the proximity to Thaba Bosiu make this essential. Book dinner in advance.",
+        "info": "The finest overnight stop on the Maseru–Semonkong route. The cliff-edge view, the home-cooked food, and the proximity to Thaba Bosiu make this essential. Book dinner in advance.",
         "anchor": "/backpacking-south-africa/lesotho#ramabanta-trading-post",
-        "googleRating": "4.6 / 5"
+        "googleRating": "4.6 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -2619,9 +3984,22 @@
         "whatsapp": "+27665754149",
         "email": "reservations@satvik.co.za",
         "website": "satvik.co.za",
-        "info": "The right hostel for the right traveller \u2014 bush setting, minimal cost, and the real Lowveld. Confirm by WhatsApp before arriving and plan to arrive in daylight.",
+        "info": "The right hostel for the right traveller — bush setting, minimal cost, and the real Lowveld. Confirm by WhatsApp before arriving and plan to arrive in daylight.",
         "anchor": "/backpacking-south-africa/limpopo#satvik-backpackers",
-        "googleRating": "3.7 / 5"
+        "googleRating": "3.7 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -2646,7 +4024,20 @@
         "anchor": "/backpacking-south-africa/limpopo#elephant-walk-backpackers",
         "googleRating": "3.8 / 5",
         "bookingRating": "6.5 / 10",
-        "booking": "https://www.booking.com/hotel/za/elephant-walk-guesthouse.en-gb.html"
+        "booking": "https://www.booking.com/hotel/za/elephant-walk-guesthouse.en-gb.html",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": true
       }
     },
     {
@@ -2669,7 +4060,20 @@
         "website": "pmbbackpackers.co.za",
         "info": "The practical choice for budget travellers using Pietermaritzburg as a base for Midlands exploration.",
         "anchor": "/backpacking-south-africa/midlands#pmb-backpackers-lodge",
-        "googleRating": "3.7 / 5"
+        "googleRating": "3.7 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -2692,7 +4096,20 @@
         "anchor": "/backpacking-south-africa/midlands#msunduzi-river-view-backpackers",
         "googleRating": "4.3 / 5",
         "bookingRating": "4.4 / 10",
-        "booking": "https://www.booking.com/hotel/za/msunduzi-river-view-backpackers.html"
+        "booking": "https://www.booking.com/hotel/za/msunduzi-river-view-backpackers.html",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": true,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -2717,7 +4134,20 @@
         "anchor": "/backpacking-south-africa/midlands#riverside-manor",
         "googleRating": "4.3 / 5",
         "bookingRating": "7.9 / 10",
-        "booking": "https://www.booking.com/hotel/za/riverside-manor-rosetta.html"
+        "booking": "https://www.booking.com/hotel/za/riverside-manor-rosetta.html",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -2738,9 +4168,22 @@
         "whatsapp": "+27835618996",
         "email": "alet@summerplacelodge.co.za",
         "website": "summerplacelodge.co.za",
-        "info": "The perfect base for the northern Meander \u2014 quiet, rural, affordable, and exactly the kind of place that turns a one-night stop into a three-day stay.",
+        "info": "The perfect base for the northern Meander — quiet, rural, affordable, and exactly the kind of place that turns a one-night stop into a three-day stay.",
         "anchor": "/backpacking-south-africa/midlands#summer-place-backpackers-lodge",
-        "googleRating": "3.8 / 5"
+        "googleRating": "3.8 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -2763,7 +4206,20 @@
         "website": "ermelobackpackers.co.za",
         "info": "A functional transit hostel for the KZN-to-Mpumalanga route. Not a destination in itself, but reliably useful when you need it.",
         "anchor": "/backpacking-south-africa/mpumalanga#ermelo-backpackers",
-        "googleRating": "4.3 / 5"
+        "googleRating": "4.3 / 5",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -2788,7 +4244,20 @@
         "anchor": "/backpacking-south-africa/mpumalanga#shik-shack-backpackers",
         "googleRating": "4.5 / 5",
         "bookingRating": "8.2 / 10",
-        "booking": "https://www.booking.com/hotel/za/shik-shack-backpackers.html"
+        "booking": "https://www.booking.com/hotel/za/shik-shack-backpackers.html",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -2813,7 +4282,20 @@
         "anchor": "/backpacking-south-africa/mpumalanga#valley-view-backpackers-graskop",
         "googleRating": "4.1 / 5",
         "hwRating": "9.7 / 10",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/73460/valley-view-backpackers/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/73460/valley-view-backpackers/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -2836,7 +4318,20 @@
         "website": "sabiebackpackers.com",
         "info": "The most relaxed base on the Panorama Route. Best for travellers who want waterfalls, forest, and a slower pace. Pairs well with a day trip to Pilgrim's Rest.",
         "anchor": "/backpacking-south-africa/mpumalanga#sabie-backpackers",
-        "googleRating": "3.8 / 5"
+        "googleRating": "3.8 / 5",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -2861,7 +4356,20 @@
         "anchor": "/backpacking-south-africa/mpumalanga#old-vic-travellers-inn",
         "googleRating": "4.1 / 5",
         "bookingRating": "7.7 / 10",
-        "booking": "https://www.booking.com/hotel/za/old-vic-travellers-inn-nelspruit.html"
+        "booking": "https://www.booking.com/hotel/za/old-vic-travellers-inn-nelspruit.html",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -2887,7 +4395,20 @@
         "bookingRating": "8.6 / 10",
         "hwRating": "9.8 / 10",
         "booking": "https://www.booking.com/hotel/za/kruger-inn-backpackers-marloth-park.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/33354/kruger-inn-backpackers/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/33354/kruger-inn-backpackers/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": false
       }
     },
     {
@@ -2912,7 +4433,20 @@
         "anchor": "/backpacking-south-africa/mpumalanga#hazyview-adventure-backpackers",
         "googleRating": "4.1 / 5",
         "booking": "https://www.booking.com/hotel/za/hazyview-adventure-backpackers.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/310620/hazyview-adventure-backpackers/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/310620/hazyview-adventure-backpackers/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": true,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -2933,7 +4467,20 @@
         "whatsapp": "+27723707219",
         "info": "The most characterful hostel in the Lowveld Kruger gateway area. Best for travellers who want a safari base with personality.",
         "anchor": "/backpacking-south-africa/mpumalanga#billy-bongo-backpackers",
-        "googleRating": "3.7 / 5"
+        "googleRating": "3.7 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -2955,7 +4502,20 @@
         "email": "info@krugerview.com",
         "info": "The most strategically positioned safari base for dedicated wildlife travellers. Southern Kruger access, bush atmosphere, backpacker prices.",
         "anchor": "/backpacking-south-africa/mpumalanga#kruger-view-backpackers",
-        "googleRating": "3.8 / 5"
+        "googleRating": "3.8 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": false
       }
     },
     {
@@ -2980,7 +4540,20 @@
         "anchor": "/backpacking-south-africa/north-coast#ballito-backpackers",
         "googleRating": "3.3 / 5",
         "bookingRating": "6.0 / 10",
-        "booking": "https://www.booking.com/hotel/za/ballito-backpackers.en-gb.html"
+        "booking": "https://www.booking.com/hotel/za/ballito-backpackers.en-gb.html",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -2999,9 +4572,22 @@
         "address": "22 Doctor Nelson Mandela Drive, Upington, Northern Cape, 8801",
         "phone": "+27792879315",
         "email": "aardwolfbackpackers@gmail.com",
-        "info": "The Northern Cape's best backpacker \u2014 and the only one in Upington. Essential for anyone using Upington as a Kgalagadi base or a stopover on the Cape Town\u2013Namibia route.",
+        "info": "The Northern Cape's best backpacker — and the only one in Upington. Essential for anyone using Upington as a Kgalagadi base or a stopover on the Cape Town–Namibia route.",
         "anchor": "/backpacking-south-africa/northern-cape#aardwolf-backpackers",
-        "googleRating": "4.4 / 5"
+        "googleRating": "4.4 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -3022,9 +4608,22 @@
         "whatsapp": "+27725156079",
         "email": "augrabiesfallsbackpackers@gmail.com",
         "website": "augrabies.iblog.co.za",
-        "info": "The Northern Cape's most characterful backpacker \u2014 remote, rustic, on the doorstep of Augrabies Falls. Call ahead to confirm current conditions.",
+        "info": "The Northern Cape's most characterful backpacker — remote, rustic, on the doorstep of Augrabies Falls. Call ahead to confirm current conditions.",
         "anchor": "/backpacking-south-africa/northern-cape#augrabies-backpackers",
-        "googleRating": "4.2 / 5"
+        "googleRating": "4.2 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": true,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": true,
+        "is_nature": true,
+        "is_cultural": false
       }
     },
     {
@@ -3045,9 +4644,22 @@
         "whatsapp": "+27846042756",
         "email": "info@thegrowcery.co.za",
         "website": "thegrowcery.co.za",
-        "info": "The essential Namibia-route stopover. The best-positioned budget camp on the Cape Town\u2013Windhoek corridor. Book the riverside camping site. Swim in the river. Cross the border in the morning.",
+        "info": "The essential Namibia-route stopover. The best-positioned budget camp on the Cape Town–Windhoek corridor. Book the riverside camping site. Swim in the river. Cross the border in the morning.",
         "anchor": "/backpacking-south-africa/northern-cape#the-growcery-camp",
-        "googleRating": "4.0 / 5"
+        "googleRating": "4.0 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": true,
+        "is_ethical": true,
+        "is_adventure": true,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -3070,7 +4682,20 @@
         "website": "hodgepodgebackpackers.co.za",
         "info": "The only budget option for the Pilanesberg/Magaliesberg circuit, in a genuinely beautiful mountain setting. Read the honest note about security before booking.",
         "anchor": "/backpacking-south-africa/north-west#hodge-podge-backpackers",
-        "googleRating": "3.8 / 5"
+        "googleRating": "3.8 / 5",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": true,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": false
       }
     },
     {
@@ -3093,7 +4718,20 @@
         "anchor": "/backpacking-south-africa/north-west#paljas-backpackers",
         "googleRating": "2.6 / 5",
         "bookingRating": "2.9 / 10",
-        "booking": "https://www.booking.com/hotel/za/paljas-backpackers.html"
+        "booking": "https://www.booking.com/hotel/za/paljas-backpackers.html",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": true
       }
     },
     {
@@ -3119,7 +4757,20 @@
         "bookingRating": "9.0 / 10",
         "hwRating": "10 / 10",
         "booking": "https://www.booking.com/hotel/za/hermanus-backpackers-amp-budget-accommodation.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/336054/hermanus-backpackers/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/336054/hermanus-backpackers/",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": true,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": false
       }
     },
     {
@@ -3146,7 +4797,20 @@
         "bookingRating": "8.1 / 10",
         "hwRating": "8.9 / 10",
         "booking": "https://www.booking.com/hotel/za/zoete-inval-traveller-39-s-lodge.html",
-        "hostelworld": "https://www.hostelworld.com/pwa/hosteldetails.php/Zoete-Inval-Travellers-Lodge/Hermanus/983"
+        "hostelworld": "https://www.hostelworld.com/pwa/hosteldetails.php/Zoete-Inval-Travellers-Lodge/Hermanus/983",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": true,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": false
       }
     },
     {
@@ -3173,7 +4837,20 @@
         "bookingRating": "9.1 / 10",
         "hwRating": "9.9 / 10",
         "booking": "https://www.booking.com/hotel/za/zzzone.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/293204/zzzone/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/293204/zzzone/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": false
       }
     },
     {
@@ -3196,7 +4873,20 @@
         "website": "jaminadventures.com",
         "info": "The Overberg's most accessible backpacker hostel and a genuinely worthwhile overnight stop in one of South Africa's most historically interesting small towns.",
         "anchor": "/backpacking-south-africa/overberg#swellendam-backpackers",
-        "googleRating": "4.0 / 5"
+        "googleRating": "4.0 / 5",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": true
       }
     },
     {
@@ -3218,7 +4908,20 @@
         "email": "info@mcgregorbackpackers.co.za",
         "website": "mcgregorbackpackers.co.za",
         "info": "The only logical base for budget travellers in McGregor. A backpackers that consistently over-delivers on its price point, in a village that consistently over-delivers on its reputation.",
-        "anchor": "/backpacking-south-africa/overberg#mcgregor-backpackers"
+        "anchor": "/backpacking-south-africa/overberg#mcgregor-backpackers",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -3244,7 +4947,20 @@
         "googleRating": "4.6 / 5",
         "bookingRating": "9.1 / 10",
         "booking": "https://www.booking.com/hotel/za/cape-agulhas-backpackers.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/17092/cape-agulhas-backpackers/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/17092/cape-agulhas-backpackers/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": true,
+        "is_surfer": true,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": false
       }
     },
     {
@@ -3269,7 +4985,20 @@
         "anchor": "/backpacking-south-africa/overberg#witsand-poshpackers",
         "googleRating": "4.6 / 5",
         "bookingRating": "8.4 / 10",
-        "booking": "https://www.booking.com/hotel/za/witsand-backpackers.html"
+        "booking": "https://www.booking.com/hotel/za/witsand-backpackers.html",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -3289,9 +5018,22 @@
         "phone": "+27123439754",
         "email": "info@pretoriabackpackers.net",
         "website": "pretoriabackpackers.net",
-        "info": "The most warmly-managed hostel in Pretoria \u2014 family-run, excellent value with free breakfast, and a perfect staging post for Kruger-bound travellers.",
+        "info": "The most warmly-managed hostel in Pretoria — family-run, excellent value with free breakfast, and a perfect staging post for Kruger-bound travellers.",
         "anchor": "/backpacking-south-africa/pretoria#pretoria-backpackers",
-        "googleRating": "4.4 / 5"
+        "googleRating": "4.4 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": true,
+        "is_solo_women": true,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -3312,13 +5054,26 @@
         "whatsapp": "+27846439444",
         "email": "reception@1322backpackers.com",
         "website": "1322backpackers.com",
-        "info": "The best-connected hostel in Pretoria \u2014 solar-powered, Baz Bus-accessible, 500 metres from the Gautrain, run by an owner who is genuinely present and engaged.",
+        "info": "The best-connected hostel in Pretoria — solar-powered, Baz Bus-accessible, 500 metres from the Gautrain, run by an owner who is genuinely present and engaged.",
         "anchor": "/backpacking-south-africa/pretoria#1322-backpackers-international",
         "googleRating": "4.3 / 5",
         "bookingRating": "8.3 / 10",
         "hwRating": "9.4 / 10",
         "booking": "https://www.booking.com/hotel/za/1322-backpackers-internasional.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/4762/1322-backpackers-international/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/4762/1322-backpackers-international/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -3338,9 +5093,22 @@
         "phone": "+27123625343",
         "email": "info@pumbas.co.za",
         "website": "pumbas.co.za",
-        "info": "The best choice in Pretoria for solo women \u2014 quiet garden-lodge atmosphere with genuine privacy, 11 minutes' walk from the Gautrain.",
+        "info": "The best choice in Pretoria for solo women — quiet garden-lodge atmosphere with genuine privacy, 11 minutes' walk from the Gautrain.",
         "anchor": "/backpacking-south-africa/pretoria#pumbas-backpackers",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/82454/pumbas-backpackers/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/82454/pumbas-backpackers/",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": true,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -3362,7 +5130,20 @@
         "email": "tomsbackpackers@gmail.com",
         "info": "A scenic rural escape in the Schurveberg Mountains. Perfect for quiet decompression; check whether group events coincide with your dates before booking.",
         "anchor": "/backpacking-south-africa/pretoria#toms-backpackers",
-        "googleRating": "4.1 / 5"
+        "googleRating": "4.1 / 5",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": true,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -3386,7 +5167,20 @@
         "info": "The essential Pretoria base for overlanders heading northeast. On-site vehicle workshop, 76 beds, camping, and adventure tours to six countries.",
         "anchor": "/backpacking-south-africa/pretoria#twana-backpackers-lodge",
         "googleRating": "4.1 / 5",
-        "booking": "https://www.booking.com/hotel/za/twana-backpackers-lodge-pretoria.html"
+        "booking": "https://www.booking.com/hotel/za/twana-backpackers-lodge-pretoria.html",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -3407,11 +5201,24 @@
         "whatsapp": "+27714628812",
         "email": "info@debos.co.za",
         "website": "debos.co.za",
-        "info": "Montagu's climbers' hostel \u2014 where Cape Town's climbing community has based itself for weekends for decades. Beautiful farm setting even for non-climbers.",
+        "info": "Montagu's climbers' hostel — where Cape Town's climbing community has based itself for weekends for decades. Beautiful farm setting even for non-climbers.",
         "anchor": "/route-62#de-bos-backpackers",
         "googleRating": "4.3 / 5",
         "booking": "https://www.booking.com/hotel/za/de-bos-backpackers.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/306780/de-bos-backpackers-and-camping/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/306780/de-bos-backpackers-and-camping/",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -3436,7 +5243,20 @@
         "anchor": "/route-62#tolbos-backpackers",
         "googleRating": "3.3 / 5",
         "bookingRating": "6.4 / 10",
-        "booking": "https://www.booking.com/hotel/za/tolbos-backpackers-worcester2.html"
+        "booking": "https://www.booking.com/hotel/za/tolbos-backpackers-worcester2.html",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": true
       }
     },
     {
@@ -3457,11 +5277,24 @@
         "whatsapp": "+27724475991",
         "email": "info@robertsonbackpackers.co.za",
         "website": "robertsonbackpackers.co.za",
-        "info": "The benchmark for the Route 62 corridor. Stay three nights minimum \u2014 one for recovery, one for the river, one for the wine estates. Book the garden en-suite room well in advance.",
+        "info": "The benchmark for the Route 62 corridor. Stay three nights minimum — one for recovery, one for the river, one for the wine estates. Book the garden en-suite room well in advance.",
         "anchor": "/route-62#robertson-boutique-backpackers",
         "googleRating": "4.5 / 5",
         "bookingRating": "8.8 / 10",
-        "booking": "https://www.booking.com/hotel/za/robertson-backpackers.html"
+        "booking": "https://www.booking.com/hotel/za/robertson-backpackers.html",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": true,
+        "is_ethical": false,
+        "is_adventure": true,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -3484,7 +5317,20 @@
         "website": "barrydalebackpackers.co.za",
         "info": "A characterful Route 62 pub-stop with attached accommodation, at its best on a Saturday night with a braai and a crowd. Verify current ownership before travelling.",
         "anchor": "/route-62#barrydale-backpackers",
-        "googleRating": "4.4 / 5"
+        "googleRating": "4.4 / 5",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -3506,7 +5352,20 @@
         "email": "backpackers@isat.co.za",
         "website": "backpackersparadise.net",
         "info": "The definitive Oudtshoorn backpacker base. Reliable, central, and consistently good value.",
-        "anchor": "/route-62#backpackers-paradise"
+        "anchor": "/route-62#backpackers-paradise",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -3527,9 +5386,22 @@
         "whatsapp": "+27824925815",
         "email": "lodge96@telkomsa.net",
         "website": "lodge96.co.za",
-        "info": "The best-facilities hostel in Oudtshoorn \u2014 en-suite dorms at backpacker prices, excellent pool. Arrange the George shuttle when you book.",
+        "info": "The best-facilities hostel in Oudtshoorn — en-suite dorms at backpacker prices, excellent pool. Arrange the George shuttle when you book.",
         "anchor": "/route-62#lodge-96",
-        "googleRating": "4.2 / 5"
+        "googleRating": "4.2 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": true,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -3556,7 +5428,20 @@
         "bookingRating": "7.1 / 10",
         "hwRating": "10 / 10",
         "booking": "https://www.booking.com/hotel/za/karoo-soul-bacpackers-amp-cottages.en-gb.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/14621/karoo-soul-backpackers/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/14621/karoo-soul-backpackers/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": true,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -3580,7 +5465,20 @@
         "anchor": "/route-62#oasis-shanti",
         "googleRating": "4.2 / 5",
         "bookingRating": "8.3 / 10",
-        "booking": "https://www.booking.com/hotel/za/oasis-shanti-backpackers.html"
+        "booking": "https://www.booking.com/hotel/za/oasis-shanti-backpackers.html",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": true,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": true,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -3601,11 +5499,24 @@
         "whatsapp": "+27828963082",
         "email": "info@swartbergbackpackers.co.za",
         "website": "swartbergbackpackers.co.za",
-        "info": "The finest eco-farm wilderness experience in the Little Karoo. 45km from Oudtshoorn, fully self-catering. Book well in advance \u2014 there are only two units.",
+        "info": "The finest eco-farm wilderness experience in the Little Karoo. 45km from Oudtshoorn, fully self-catering. Book well in advance — there are only two units.",
         "anchor": "/route-62#swartberg-backpackers",
         "googleRating": "4.5 / 5",
         "bookingRating": "8.9 / 10",
-        "booking": "https://www.booking.com/hotel/za/swartberg-backpackers-matjiesrivier.html"
+        "booking": "https://www.booking.com/hotel/za/swartberg-backpackers-matjiesrivier.html",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": true,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -3628,7 +5539,20 @@
         "website": "aliwalshoal.co.za",
         "info": "The non-negotiable stop on the South Coast for anyone with even a passing interest in diving. Book a multi-day dive package. Get in the water.",
         "anchor": "/backpacking-south-africa/south-coast#aliwal-dive-centre",
-        "googleRating": "4.7 / 5"
+        "googleRating": "4.7 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -3651,7 +5575,20 @@
         "website": "spotbackpackers.com",
         "info": "The classic South Coast backpacker experience, well-executed and honestly priced. Fills up on word of mouth and stays full on repeat business.",
         "anchor": "/backpacking-south-africa/south-coast#the-spot-backpackers",
-        "googleRating": "4.4 / 5"
+        "googleRating": "4.4 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": true,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -3671,7 +5608,20 @@
         "phone": "+27393112333",
         "info": "The uncomplicated South Coast backpacker experience. Small, honest, well-located, and exactly what it says it is.",
         "anchor": "/backpacking-south-africa/south-coast#driftwood-backpacking-lodge",
-        "googleRating": "5.0 / 5"
+        "googleRating": "5.0 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": true,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": true,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -3694,7 +5644,20 @@
         "website": "pumulasurfcamp.co.za",
         "info": "The South Coast's best surf school experience. Learn to surf here, in warm water, with good instruction and great value. If the sardine run is on, nothing else on this coast compares.",
         "anchor": "/backpacking-south-africa/south-coast#pumula-surf-camp",
-        "googleRating": "4.9 / 5"
+        "googleRating": "4.9 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": true,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -3720,7 +5683,20 @@
         "bookingRating": "7.6 / 10",
         "hwRating": "10 / 10",
         "booking": "https://www.booking.com/hotel/za/mantis-and-moon-backpackers-and-surf-hostel.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/325374/mantis-and-moon-backpackers/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/325374/mantis-and-moon-backpackers/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": true,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -3745,7 +5721,20 @@
         "anchor": "/backpacking-south-africa/south-coast#umzumbe-surf-house",
         "googleRating": "4.8 / 5",
         "bookingRating": "9.2 / 10",
-        "booking": "https://www.booking.com/hotel/za/umzumbe-surf-house.html"
+        "booking": "https://www.booking.com/hotel/za/umzumbe-surf-house.html",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": true,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -3767,7 +5756,20 @@
         "email": "earthwormbackpackers@gmail.com",
         "info": "The South Coast's best transit hub and hire-car base. Functional, affordable, central.",
         "anchor": "/backpacking-south-africa/south-coast#earthworm-margate-backpackers",
-        "googleRating": "4.0 / 5"
+        "googleRating": "4.0 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": true,
+        "is_surfer": true,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -3788,11 +5790,24 @@
         "whatsapp": "+27769625595",
         "email": "sealsbackpackers@gmail.com",
         "website": "sealsbackpackers.com",
-        "info": "An unconventional backpacker option next to one of South Africa's most famous waves. Not for the social hostel crowd \u2014 ideal for surfers and couples wanting a resort base at hostel-adjacent prices.",
+        "info": "An unconventional backpacker option next to one of South Africa's most famous waves. Not for the social hostel crowd — ideal for surfers and couples wanting a resort base at hostel-adjacent prices.",
         "anchor": "/backpacking-south-africa/sunshine-coast#seals-backpackers",
         "googleRating": "4.3 / 5",
         "bookingRating": "7.9 / 10",
-        "booking": "https://www.booking.com/hotel/za/seals-backpackers.html"
+        "booking": "https://www.booking.com/hotel/za/seals-backpackers.html",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -3813,7 +5828,20 @@
         "whatsapp": "+27723446451",
         "email": "stfrancisbackpackers@gmail.com",
         "info": "The best-equipped small backpackers in the St Francis area, in a uniquely beautiful village.",
-        "anchor": "/backpacking-south-africa/sunshine-coast#st-francis-bay-backpackers"
+        "anchor": "/backpacking-south-africa/sunshine-coast#st-francis-bay-backpackers",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -3840,7 +5868,20 @@
         "bookingRating": "8.4 / 10",
         "hwRating": "9.3 / 10",
         "booking": "https://www.booking.com/hotel/za/island-vibe-jbay.html",
-        "hostelworld": "https://www.hostelworld.com/pwa/hosteldetails.php/Island-Vibe-Jeffreys-Bay/Jeffreys-Bay/1483"
+        "hostelworld": "https://www.hostelworld.com/pwa/hosteldetails.php/Island-Vibe-Jeffreys-Bay/Jeffreys-Bay/1483",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": true,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": true,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": false
       }
     },
     {
@@ -3864,7 +5905,20 @@
         "info": "The sensible town-centre alternative to Island Vibe. Pool, garden chalets, good kitchen, five minutes to everything.",
         "anchor": "/backpacking-south-africa/sunshine-coast#jeffreys-bay-backpackers",
         "googleRating": "3.8 / 5",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/4090/jeffreys-bay-backpackers/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/4090/jeffreys-bay-backpackers/",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -3891,7 +5945,20 @@
         "bookingRating": "8.5 / 10",
         "hwRating": "8.2 / 10",
         "booking": "https://www.booking.com/hotel/za/african-ubuntu-backpackers.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/18548/ubuntu-backpackers/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/18548/ubuntu-backpackers/",
+        "is_best_overall": true,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": true,
+        "is_surfer": true,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -3911,11 +5978,24 @@
         "whatsapp": "+27828550341",
         "email": "info@stayinjbay.co.za",
         "website": "littlehouseonsupers.co.za",
-        "info": "Fifty metres from Supertubes. The definitive Jeffreys Bay self-catering option for small surf groups. Best suited to groups of 3\u20136.",
+        "info": "Fifty metres from Supertubes. The definitive Jeffreys Bay self-catering option for small surf groups. Best suited to groups of 3–6.",
         "anchor": "/backpacking-south-africa/sunshine-coast#little-house-on-supers",
         "googleRating": "4.9 / 5",
         "bookingRating": "6.5 / 10",
-        "booking": "https://www.booking.com/hotel/za/little-house-on-supers.html"
+        "booking": "https://www.booking.com/hotel/za/little-house-on-supers.html",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": true,
+        "is_surfer": true,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -3941,7 +6021,20 @@
         "googleRating": "3.2 / 5",
         "bookingRating": "5.4 / 10",
         "booking": "https://www.booking.com/hotel/za/ikhayalam-lodge.html",
-        "hostelworld": "https://www.hostelworld.com/pwa/hosteldetails.php/Ikhayalam-Lodge-and-Tours/Port-Elizabeth/330270"
+        "hostelworld": "https://www.hostelworld.com/pwa/hosteldetails.php/Ikhayalam-Lodge-and-Tours/Port-Elizabeth/330270",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": true
       }
     },
     {
@@ -3966,7 +6059,20 @@
         "anchor": "/backpacking-south-africa/sunshine-coast#lungile-backpackers",
         "googleRating": "4.2 / 5",
         "hwRating": "9.5 / 10",
-        "hostelworld": "https://www.hostelworld.com/pwa/hosteldetails.php/Lungile-Backpackers/Port-Elizabeth/29026"
+        "hostelworld": "https://www.hostelworld.com/pwa/hosteldetails.php/Lungile-Backpackers/Port-Elizabeth/29026",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": true
       }
     },
     {
@@ -3993,7 +6099,20 @@
         "bookingRating": "7.8 / 10",
         "hwRating": "9.4 / 10",
         "booking": "https://www.booking.com/hotel/za/jikeleza-lodge.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/1237/jikeleza-lodge-international-backpackers-hostel/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/1237/jikeleza-lodge-international-backpackers-hostel/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": true,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": true
       }
     },
     {
@@ -4016,7 +6135,20 @@
         "website": "thehippo.co.za",
         "info": "The most comfortable mid-range backpackers in Gqeberha. Best Addo/Schotia safari package value in the city. The Richmond Hill location is the secret weapon.",
         "anchor": "/backpacking-south-africa/sunshine-coast#the-hippo-backpackers",
-        "googleRating": "4.0 / 5"
+        "googleRating": "4.0 / 5",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": false
       }
     },
     {
@@ -4037,10 +6169,23 @@
         "whatsapp": "+27723441941",
         "email": "28towpath@gmail.com",
         "website": "28towpath.com",
-        "info": "Gqeberha's alternative for the eco-traveller \u2014 river-mouth location, on-site restaurant, private boma baths, Big 5 day trips on the doorstep.",
+        "info": "Gqeberha's alternative for the eco-traveller — river-mouth location, on-site restaurant, private boma baths, Big 5 day trips on the doorstep.",
         "anchor": "/backpacking-south-africa/sunshine-coast#riverfront-backpackers",
         "googleRating": "4.5 / 5",
-        "hwRating": "9.0 / 10"
+        "hwRating": "9.0 / 10",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": true,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": true
       }
     },
     {
@@ -4063,7 +6208,20 @@
         "website": "woodlandscottages.co.za",
         "info": "The Sunshine Coast's most atmospheric bush-and-river property. Extraordinary setting, on-site restaurant, private boma baths, Big 5 day trips on the doorstep.",
         "anchor": "/backpacking-south-africa/sunshine-coast#woodlands-cottages-backpackers",
-        "googleRating": "4.1 / 5"
+        "googleRating": "4.1 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": true,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": false
       }
     },
     {
@@ -4087,7 +6245,20 @@
         "info": "The essential Addo base. Go for the safari. Stay for the stories.",
         "anchor": "/backpacking-south-africa/sunshine-coast#orange-elephant-backpackers",
         "googleRating": "4.1 / 5",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/14042/orange-elephant-backpackers-and-thirsty-herds-pub/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/14042/orange-elephant-backpackers-and-thirsty-herds-pub/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": false
       }
     },
     {
@@ -4110,7 +6281,20 @@
         "website": "wildwoodycape.com",
         "info": "One of the most dramatically located backpackers on the entire South African coast. The Alexandria Trail, the world's biggest active dune field, and Addo Elephant Park all within reach.",
         "anchor": "/backpacking-south-africa/sunshine-coast#wild-woody-cape",
-        "googleRating": "3.9 / 5"
+        "googleRating": "3.9 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": true,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": false
       }
     },
     {
@@ -4132,7 +6316,20 @@
         "website": "kowiebackpackers.thinklocal.co.za",
         "info": "Port Alfred's sole backpackers option. Book it as part of a Sunshine Coast road trip. Stay longer than you planned.",
         "anchor": "/backpacking-south-africa/sunshine-coast#kowie-backpackers",
-        "googleRating": "2.4 / 5"
+        "googleRating": "2.4 / 5",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -4154,7 +6351,20 @@
         "email": "hamburgbackpackers@gmail.com",
         "website": "canoetrails.co.za",
         "info": "The most extraordinary off-the-beaten-track backpackers on the Sunshine Coast. If you have the time and the willingness to take a 14km dirt road, Hamburg will reward you more profoundly than anywhere else in this guide.",
-        "anchor": "/backpacking-south-africa/sunshine-coast#hamburg-backpackers"
+        "anchor": "/backpacking-south-africa/sunshine-coast#hamburg-backpackers",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": false
       }
     },
     {
@@ -4175,9 +6385,22 @@
         "whatsapp": "+27834014833",
         "email": "buffalobackpackers@gmail.com",
         "website": "buffalobackpackers.yolasite.com",
-        "info": "East London's practical alternative backpackers \u2014 purpose-built, secure parking, close to the beach. Best for travellers in transit on the Sunshine Coast / Wild Coast circuit.",
+        "info": "East London's practical alternative backpackers — purpose-built, secure parking, close to the beach. Best for travellers in transit on the Sunshine Coast / Wild Coast circuit.",
         "anchor": "/backpacking-south-africa/sunshine-coast#buffalo-backpackers",
-        "googleRating": "3.5 / 5"
+        "googleRating": "3.5 / 5",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": true
       }
     },
     {
@@ -4201,7 +6424,20 @@
         "info": "East London's iconic surf hostel, with an extraordinary location and a legendary lookout tower. Come for the surf and the tower.",
         "anchor": "/backpacking-south-africa/sunshine-coast#sugar-shack-backpackers",
         "googleRating": "4.0 / 5",
-        "hostelworld": "https://www.hostelworld.com/pwa/hosteldetails.php/Sugarshack-Backpackers/East-London/1231"
+        "hostelworld": "https://www.hostelworld.com/pwa/hosteldetails.php/Sugarshack-Backpackers/East-London/1231",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": true,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": true,
+        "is_safety": false,
+        "is_amenities": true,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -4228,7 +6464,20 @@
         "bookingRating": "8.3 / 10",
         "hwRating": "10 / 10",
         "booking": "https://www.booking.com/hotel/za/buccaneers-lodge-amp-backpackers.en-gb.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/1353/buccaneers-beach-lodge/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/1353/buccaneers-beach-lodge/",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": true,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -4251,7 +6500,20 @@
         "website": "windstone.co.za",
         "info": "The best-value dorm on the West Coast. Essential for overlanders, group travellers, and budget backpackers who want an en-suite room at camping prices.",
         "anchor": "/backpacking-south-africa/west-coast#windstone-backpackers",
-        "googleRating": "4.1 / 5"
+        "googleRating": "4.1 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -4266,7 +6528,7 @@
       "properties": {
         "region": "west-coast",
         "id": "jacobs-bay-backpackers",
-        "name": "JACOBS BAY BACKPACKERS \u2014 THE PLOT",
+        "name": "JACOBS BAY BACKPACKERS — THE PLOT",
         "address": "Plot 307, Main Road, Jacobs Bay, 7380, Western Cape",
         "phone": "+27227153034",
         "whatsapp": "+27828220047",
@@ -4276,7 +6538,20 @@
         "anchor": "/backpacking-south-africa/west-coast#jacobs-bay-backpackers",
         "googleRating": "3.9 / 5",
         "bookingRating": "6.1 / 10",
-        "booking": "https://www.booking.com/hotel/za/jacobs-bay-backpackers-jacobsbay.html"
+        "booking": "https://www.booking.com/hotel/za/jacobs-bay-backpackers-jacobsbay.html",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": true,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -4291,7 +6566,7 @@
       "properties": {
         "region": "west-coast",
         "id": "west-coast-backpackers",
-        "name": "WEST COAST BACKPACKERS \u2014 COZY CORNER KITEHOUSE",
+        "name": "WEST COAST BACKPACKERS — COZY CORNER KITEHOUSE",
         "address": "88 Main Street, Langebaan, 7357, Western Cape",
         "phone": "+27718803561",
         "whatsapp": "+27718803561",
@@ -4301,7 +6576,20 @@
         "anchor": "/backpacking-south-africa/west-coast#west-coast-backpackers",
         "googleRating": "4.1 / 5",
         "bookingRating": "9.4 / 10",
-        "booking": "https://www.booking.com/hotel/za/cozy-crner-kitehouse-langebaan.html"
+        "booking": "https://www.booking.com/hotel/za/cozy-crner-kitehouse-langebaan.html",
+        "is_best_overall": true,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": true,
+        "is_surfer": true,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -4324,7 +6612,20 @@
         "website": "elandsbayhotel.co.za",
         "info": "The essential Elands Bay surf base. Spartan, purposeful, and completely correct for what it is. Serious surfers only.",
         "anchor": "/backpacking-south-africa/west-coast#elands-bay-offshore",
-        "googleRating": "4.9 / 5"
+        "googleRating": "4.9 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": true,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -4347,7 +6648,20 @@
         "website": "seashack.co.za",
         "info": "The most beautiful glamping experience on the West Coast. Oceanfront wooden shacks inside a nature reserve. Bring towels, food and wine. Stay two nights minimum.",
         "anchor": "/backpacking-south-africa/west-coast#sea-shack",
-        "googleRating": "4.6 / 5"
+        "googleRating": "4.6 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": false
       }
     },
     {
@@ -4371,7 +6685,20 @@
         "info": "The better-managed Elands Bay surf option. Excellent for self-catering groups hiring the house for a surf week.",
         "anchor": "/backpacking-south-africa/west-coast#surf-shack-house",
         "googleRating": "4.7 / 5",
-        "booking": "https://www.booking.com/hotel/za/elands-bay-guesthouse-elands-bay.html"
+        "booking": "https://www.booking.com/hotel/za/elands-bay-guesthouse-elands-bay.html",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": true,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -4398,7 +6725,20 @@
         "bookingRating": "8.3 / 10",
         "hwRating": "10 / 10",
         "booking": "https://www.booking.com/hotel/za/buccaneers-lodge-amp-backpackers.en-gb.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/1353/buccaneers-beach-lodge/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/1353/buccaneers-beach-lodge/",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": true,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -4423,7 +6763,20 @@
         "anchor": "/backpacking-south-africa/wild-coast#in-the-green-backpackers",
         "googleRating": "4.4 / 5",
         "bookingRating": "7.6 / 10",
-        "booking": "https://www.booking.com/hotel/za/in-the-green-backpackers-morgans-bay.html"
+        "booking": "https://www.booking.com/hotel/za/in-the-green-backpackers-morgans-bay.html",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -4450,7 +6803,20 @@
         "bookingRating": "8.4 / 10",
         "hwRating": "10 / 10",
         "booking": "https://www.booking.com/hotel/za/coffee-shack-backpackers.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/988/coffee-shack-adventure-backpackers-and-accommodation/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/988/coffee-shack-adventure-backpackers-and-accommodation/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": true,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": true
       }
     },
     {
@@ -4476,7 +6842,20 @@
         "googleRating": "4.5 / 5",
         "bookingRating": "8.0 / 10",
         "booking": "https://www.booking.com/hotel/za/bulungula-lodge.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/309369/bulungula-lodge/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/309369/bulungula-lodge/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": true
       }
     },
     {
@@ -4499,7 +6878,20 @@
         "website": "lubanzi.co.za",
         "info": "The most architecturally distinctive hostel on the Wild Coast. Book the Hobbit House. If it's taken, book a safari tent. Either way, go.",
         "anchor": "/backpacking-south-africa/wild-coast#wild-lubanzi-backpackers",
-        "googleRating": "4.7 / 5"
+        "googleRating": "4.7 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -4522,7 +6914,20 @@
         "website": "thekraal.co.za",
         "info": "For the traveller who wants the Wild Coast in its most unmediated form. Primitive, tranquil, and genuinely extraordinary. Contact by WhatsApp only.",
         "anchor": "/backpacking-south-africa/wild-coast#the-kraal-backpackers",
-        "googleRating": "4.6 / 5"
+        "googleRating": "4.6 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -4545,7 +6950,20 @@
         "website": "mdumbi.co.za",
         "info": "BackpackersBible.com's top-rated Wild Coast hostel. Community-owned, beachfront surf break, extraordinary setting. One of the best backpacker properties in South Africa. Non-negotiable.",
         "anchor": "/backpacking-south-africa/wild-coast#mdumbi-backpackers",
-        "googleRating": "4.7 / 5"
+        "googleRating": "4.7 / 5",
+        "is_best_overall": true,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": true,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -4569,7 +6987,20 @@
         "info": "Mdumbi's equally outstanding neighbour. Joint-highest rated on this list. The Driftwood Room is not to be missed.",
         "anchor": "/backpacking-south-africa/wild-coast#vukani-backpackers",
         "googleRating": "4.8 / 5",
-        "hostelworld": "https://www.hostelworld.com/pwa/hosteldetails.php/Vukani-Backpackers/Port-St-Johns/301185"
+        "hostelworld": "https://www.hostelworld.com/pwa/hosteldetails.php/Vukani-Backpackers/Port-St-Johns/301185",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -4592,7 +7023,20 @@
         "website": "freedomoclock.co.za",
         "info": "Highly-rated, family-run, river-mouth location. The top solo female recommendation in the Mdumbi cluster. Follow the host's directions, not GPS.",
         "anchor": "/backpacking-south-africa/wild-coast#freedom-o-clock",
-        "googleRating": "4.4 / 5"
+        "googleRating": "4.4 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -4617,7 +7061,20 @@
         "anchor": "/backpacking-south-africa/wild-coast#amapondo-backpackers",
         "googleRating": "4.1 / 5",
         "bookingRating": "8.3 / 10",
-        "booking": "https://www.booking.com/hotel/za/amapondo-backpackers-lodge.html"
+        "booking": "https://www.booking.com/hotel/za/amapondo-backpackers-lodge.html",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -4642,7 +7099,20 @@
         "anchor": "/backpacking-south-africa/wild-coast#jungle-monkey-backpackers",
         "googleRating": "4.0 / 5",
         "bookingRating": "6.9 / 10",
-        "booking": "https://www.booking.com/hotel/za/jungle-monkey-backpackers.html"
+        "booking": "https://www.booking.com/hotel/za/jungle-monkey-backpackers.html",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -4665,7 +7135,20 @@
         "website": "mthathabackpackers.co.za",
         "info": "The safest and most practical Mthatha overnight option. Use it as a transit base; take the Mandela heritage tour. Follow the safety guidance carefully.",
         "anchor": "/backpacking-south-africa/wild-coast#mthatha-backpackers",
-        "googleRating": "3.9 / 5"
+        "googleRating": "3.9 / 5",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": true
       }
     },
     {
@@ -4690,7 +7173,20 @@
         "anchor": "/backpacking-south-africa/wild-coast#louis-at-magwa",
         "googleRating": "4.9 / 5",
         "bookingRating": "8.8 / 10",
-        "booking": "https://www.booking.com/hotel/za/louis-at-magwa-falls-lusikisiki.html"
+        "booking": "https://www.booking.com/hotel/za/louis-at-magwa-falls-lusikisiki.html",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -4715,7 +7211,20 @@
         "anchor": "/backpacking-south-africa/winelands#stumble-inn",
         "googleRating": "4.0 / 5",
         "hwRating": "7.8 / 10",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/999/stumble-inn-backpackers-lodge/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/999/stumble-inn-backpackers-lodge/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": true
       }
     },
     {
@@ -4736,11 +7245,24 @@
         "whatsapp": "+27648723501",
         "email": "info@ottersbendlodge.co.za",
         "website": "ottersbendlodge.co.za",
-        "info": "The essential Franschhoek backpacker base \u2014 a riverside farmstay 1km from the gourmet capital of South Africa. Book the cabin if you can stretch to it. Eat the pears.",
+        "info": "The essential Franschhoek backpacker base — a riverside farmstay 1km from the gourmet capital of South Africa. Book the cabin if you can stretch to it. Eat the pears.",
         "anchor": "/backpacking-south-africa/winelands#otters-bend",
         "googleRating": "4.1 / 5",
         "hwRating": "8.4 / 10",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/21581/otters-bend-lodge/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/21581/otters-bend-lodge/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -4765,7 +7287,20 @@
         "anchor": "/backpacking-south-africa/winelands#paarl-backpackers",
         "googleRating": "2.9 / 5",
         "bookingRating": "3.4 / 10",
-        "booking": "https://www.booking.com/hotel/za/paarl-backpackers.html"
+        "booking": "https://www.booking.com/hotel/za/paarl-backpackers.html",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": false
       }
     },
     {
@@ -4788,7 +7323,20 @@
         "website": "eshowe.com",
         "info": "The cultural heart of the Zululand backpacker circuit. Thirty years of genuine community relationships, a beautiful Victorian house, and an owner who speaks fluent Zulu. Non-negotiable if you care about understanding where you are.",
         "anchor": "/backpacking-south-africa/zululand#zululand-backpackers",
-        "googleRating": "5.0 / 5"
+        "googleRating": "5.0 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": true
       }
     },
     {
@@ -4809,11 +7357,24 @@
         "whatsapp": "+27793670134",
         "email": "info@monzisafaris.com",
         "website": "monzisafaris.com",
-        "info": "The cleanest, most intelligently designed backpacker option in St Lucia \u2014 dome tents with proper beds on a rooftop deck, no dishes, and a discount on your safari. Walk carefully after dark.",
+        "info": "The cleanest, most intelligently designed backpacker option in St Lucia — dome tents with proper beds on a rooftop deck, no dishes, and a discount on your safari. Walk carefully after dark.",
         "anchor": "/backpacking-south-africa/zululand#monzi-safaris",
         "googleRating": "4.4 / 5",
         "bookingRating": "9.2 / 10",
-        "booking": "https://www.booking.com/hotel/za/monzi-safari-lodge.en-gb.html"
+        "booking": "https://www.booking.com/hotel/za/monzi-safari-lodge.en-gb.html",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": true,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": true
       }
     },
     {
@@ -4837,7 +7398,20 @@
         "anchor": "/backpacking-south-africa/zululand#bibs-backpackers",
         "googleRating": "4.7 / 5",
         "hwRating": "7.4 / 10",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/10772/st-lucia-bib-s-international-backpackers/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/10772/st-lucia-bib-s-international-backpackers/",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": true
       }
     },
     {
@@ -4861,7 +7435,20 @@
         "anchor": "/backpacking-south-africa/zululand#isinkwe",
         "googleRating": "3.9 / 5",
         "bookingRating": "6.1 / 10",
-        "booking": "https://www.booking.com/hotel/za/isinkwe-safaris-bush-camp.en-gb.html"
+        "booking": "https://www.booking.com/hotel/za/isinkwe-safaris-bush-camp.en-gb.html",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": true,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": true
       }
     },
     {
@@ -4881,11 +7468,24 @@
         "phone": "+27333456531",
         "email": "bookings@coraldivers.co.za",
         "website": "coraldivers.co.za",
-        "info": "The definitive Sodwana Bay diving base \u2014 inside the park, free beach shuttle, PADI 5 Star dive centre, 30+ years of reef knowledge, boma fires every evening.",
+        "info": "The definitive Sodwana Bay diving base — inside the park, free beach shuttle, PADI 5 Star dive centre, 30+ years of reef knowledge, boma fires every evening.",
         "anchor": "/backpacking-south-africa/zululand#coral-divers",
         "googleRating": "4.6 / 5",
         "bookingRating": "8.3 / 10",
-        "booking": "https://www.booking.com/hotel/za/coral-divers.html"
+        "booking": "https://www.booking.com/hotel/za/coral-divers.html",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": true,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": true
       }
     },
     {
@@ -4906,9 +7506,22 @@
         "whatsapp": "+27832361756",
         "email": "natural.moments.sodwana@gmail.com",
         "website": "divesodwana.com",
-        "info": "The most atmospheric option in Sodwana village \u2014 genuine passion for the place, a loyal return visitor base, and an honest rusticity that suits some travellers perfectly.",
+        "info": "The most atmospheric option in Sodwana village — genuine passion for the place, a loyal return visitor base, and an honest rusticity that suits some travellers perfectly.",
         "anchor": "/backpacking-south-africa/zululand#natural-moments",
-        "googleRating": "3.8 / 5"
+        "googleRating": "3.8 / 5",
+        "is_best_overall": false,
+        "is_value": false,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": true
       }
     },
     {
@@ -4932,7 +7545,20 @@
         "info": "The most remote and most quietly extraordinary backpacker in Zululand. Wooden walkways in the bush, 14km from Mozambique. Bring a passport. Stay longer than you planned.",
         "anchor": "/backpacking-south-africa/zululand#thobeka",
         "googleRating": "4.2 / 5",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/296670/thobeka-backpackers-lodge/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/296670/thobeka-backpackers-lodge/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": true,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": true,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": true
       }
     },
     {
@@ -4954,7 +7580,20 @@
         "email": "clarensinn@gmail.com",
         "info": "The only show in town, in the best possible sense. Clarens at the right price, in the right location, with the mountains visible from the garden.",
         "anchor": "/backpacking-south-africa/free-state#clarens-inn-backpackers",
-        "googleRating": "4.3 / 5"
+        "googleRating": "4.3 / 5",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": true,
+        "is_solo_women": true,
+        "is_digital_nomad": true,
+        "is_surfer": false,
+        "is_safety": true,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": true,
+        "is_nature": false,
+        "is_cultural": false
       }
     },
     {
@@ -4975,11 +7614,24 @@
         "whatsapp": "+27761934444",
         "email": "bookings@malutibackpackers.co.za",
         "website": "malutibackpackers.co.za",
-        "info": "\u2605 BackpackersBible.com's recommended base for the Tugela Falls hike. The closest accommodation to the Sentinel Car Park trailhead; also the best base for Golden Gate. The platform ratings do not capture what matters most here: the proximity.",
+        "info": "★ BackpackersBible.com's recommended base for the Tugela Falls hike. The closest accommodation to the Sentinel Car Park trailhead; also the best base for Golden Gate. The platform ratings do not capture what matters most here: the proximity.",
         "anchor": "/backpacking-south-africa/free-state#maluti-backpackers",
         "googleRating": "3.9 / 5",
         "bookingRating": "5.6 / 10",
-        "booking": "https://www.booking.com/hotel/za/maluti-backpackers-phuthaditjhaba1.html"
+        "booking": "https://www.booking.com/hotel/za/maluti-backpackers-phuthaditjhaba1.html",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": true,
+        "is_adventure": false,
+        "is_nature": true,
+        "is_cultural": true
       }
     },
     {
@@ -5006,7 +7658,20 @@
         "bookingRating": "8.5 / 10",
         "hwRating": "10 / 10",
         "booking": "https://www.booking.com/hotel/za/karma-backpackers.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/27273/karma-backpackers/"
+        "hostelworld": "https://www.hostelworld.com/hostels/p/27273/karma-backpackers/",
+        "is_best_overall": false,
+        "is_value": true,
+        "is_party": false,
+        "is_chill": false,
+        "is_solo_women": false,
+        "is_digital_nomad": false,
+        "is_surfer": false,
+        "is_safety": false,
+        "is_amenities": false,
+        "is_ethical": false,
+        "is_adventure": false,
+        "is_nature": false,
+        "is_cultural": false
       }
     }
   ]
