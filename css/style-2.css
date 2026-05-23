@@ -33,6 +33,7 @@
    26. Hostel Directory Cards (regional pages)
    27. MAPLIBRE Poster Image (Behind interactive map)
    28. Map Description Bar
+   29. Map Filter Buttons
    ============================================================ */
 
 
@@ -3280,3 +3281,74 @@ img.bb-marker-icon {
         padding: 3px 7px;
     }
 
+
+
+/* ============================================================
+   29. MAP FILTER BUTTONS
+   The scrollable row of hostel-filter buttons that sits below
+   the interactive map on national and regional pages.
+
+   Colour is per-button data, not a design pattern, so each
+   <a> carries  style="--btn-bg: #e83e8c"  (and optionally
+   --btn-color: #000000 for dark-text buttons like the yellow
+   "All Hostels" button).  All structural rules live here.
+   ============================================================ */
+
+.map-filter-bar {
+    background-color: #000000;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 0;
+    text-align: center;
+}
+
+.map-filter-bar__scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    padding: 0 20px 4px 20px;
+    box-sizing: border-box;
+}
+
+.map-filter-bar__row {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    white-space: nowrap;
+    min-height: 45px;
+}
+
+.map-filter-btn {
+    background-color: var(--btn-bg, #bc1d23);
+    color: var(--btn-color, #ffffff);
+    padding: 10px 6px;
+    text-decoration: none;
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 0.85rem;
+    font-weight: normal;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 0;
+    flex-shrink: 0;
+    cursor: pointer;
+    /* Active state (border + box-shadow) is applied via JS */
+}
+
+.map-filter-btn--active {
+    border: 3px solid #ffffff;
+    font-weight: bold;
+    box-shadow: 0 0 12px color-mix(in srgb, var(--btn-bg) 40%, transparent);
+}
+
+.map-filter-bar__note {
+    color: #a0a0a0;
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-top: 10px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    white-space: normal;
+}
