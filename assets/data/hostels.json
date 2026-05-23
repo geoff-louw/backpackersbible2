@@ -7764,9 +7764,9 @@
         "is_safety": true,
         "is_amenities": true,
         "is_ethical": false,
-        "is_adventure": false,
+        "is_adventure": true,
         "is_nature": true,
-        "is_cultural": true,
+        "is_cultural": false,
         "is_cheapest": false,
         "is_camping": true
       }
@@ -7805,7 +7805,7 @@
         "is_ethical": false,
         "is_adventure": false,
         "is_nature": false,
-        "is_cultural": true,
+        "is_cultural": false,
         "is_cheapest": true,
         "is_camping": true
       }
@@ -7842,7 +7842,7 @@
         "is_safety": true,
         "is_amenities": true,
         "is_ethical": true,
-        "is_adventure": false,
+        "is_adventure": true,
         "is_nature": true,
         "is_cultural": true,
         "is_cheapest": false,
@@ -7881,7 +7881,7 @@
         "is_safety": true,
         "is_amenities": true,
         "is_ethical": true,
-        "is_adventure": false,
+        "is_adventure": true,
         "is_nature": true,
         "is_cultural": true,
         "is_cheapest": false,
@@ -7919,9 +7919,9 @@
         "is_safety": false,
         "is_amenities": false,
         "is_ethical": false,
-        "is_adventure": false,
+        "is_adventure": true,
         "is_nature": true,
-        "is_cultural": true,
+        "is_cultural": false,
         "is_cheapest": true,
         "is_camping": true
       }
@@ -7951,7 +7951,7 @@
         "is_best_overall": true,
         "is_value": true,
         "is_party": false,
-        "is_chill": false,
+        "is_chill": true,
         "is_solo_women": true,
         "is_digital_nomad": false,
         "is_surfer": false,
