@@ -3258,7 +3258,7 @@ img.bb-marker-icon {
 
 .map-description {
     background: #000000;
-    padding: 7px 18px;
+    padding: 7px 8px 0px 8px;
     font-size: 14px;
     line-height: 1.2;
     display: block;
@@ -3302,7 +3302,7 @@ img.bb-marker-icon {
     background-color: #000000;
     width: 100%;
     box-sizing: border-box;
-    padding: 12px 0 8px 0;
+    padding: 7px 0 0px 0;
     text-align: center;
 }
 
