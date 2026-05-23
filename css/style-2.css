@@ -3289,9 +3289,9 @@ img.bb-marker-icon {
    the interactive map on national and regional pages.
 
    Colour is per-button data, not a design pattern, so each
-   <a> carries  style="--btn-bg: #5a2d9c"  (and optionally
-   --btn-color: #000000 for the two light buttons: yellow and
-   amber).  All structural rules live here.
+   <a> carries a direct  style="background-color: #xxx"  inline
+   style (and  color: #000000  on the two light buttons: yellow
+   and amber).  All structural rules live here.
 
    All 16 button colours are WCAG AA compliant (≥4.5:1) against
    their text colour.  See the contrast audit in the dev notes.
@@ -3345,8 +3345,8 @@ img.bb-marker-icon {
 }
 
 .map-filter-btn {
-    background-color: var(--btn-bg, #b01c22);
-    color: var(--btn-color, #ffffff);
+    /* background-color and color are set per-button via inline style="background-color: #xxx" */
+    color: #ffffff; /* default; overridden inline to #000000 on the two light buttons */
     padding: 10px 8px;
     text-decoration: none;
     font-family: 'Century Gothic', sans-serif;
