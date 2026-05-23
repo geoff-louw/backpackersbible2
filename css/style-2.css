@@ -3289,25 +3289,50 @@ img.bb-marker-icon {
    the interactive map on national and regional pages.
 
    Colour is per-button data, not a design pattern, so each
-   <a> carries  style="--btn-bg: #e83e8c"  (and optionally
-   --btn-color: #000000 for dark-text buttons like the yellow
-   "All Hostels" button).  All structural rules live here.
+   <a> carries  style="--btn-bg: #5a2d9c"  (and optionally
+   --btn-color: #000000 for the two light buttons: yellow and
+   amber).  All structural rules live here.
+
+   All 16 button colours are WCAG AA compliant (≥4.5:1) against
+   their text colour.  See the contrast audit in the dev notes.
    ============================================================ */
 
 .map-filter-bar {
     background-color: #000000;
     width: 100%;
     box-sizing: border-box;
-    padding: 12px 0;
+    padding: 12px 0 8px 0;
     text-align: center;
 }
 
+/* Scroll container — matches jump menu scrollbar treatment:
+   dark (#333) track, mid-grey (#999) thumb, hidden on mobile */
 .map-filter-bar__scroll {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     width: 100%;
-    padding: 0 20px 4px 20px;
+    padding: 0 20px 6px 20px;
     box-sizing: border-box;
+    scrollbar-width: auto;
+    scrollbar-color: #999999 #333333;
+}
+
+.map-filter-bar__scroll::-webkit-scrollbar {
+    height: 6px;
+}
+
+.map-filter-bar__scroll::-webkit-scrollbar-track {
+    background: #333333;
+}
+
+.map-filter-bar__scroll::-webkit-scrollbar-thumb {
+    background: #999999;
+    border-radius: 3px;
+}
+
+.map-filter-bar__scroll::-webkit-scrollbar-button {
+    background: #333333;
+    width: 6px;
 }
 
 .map-filter-bar__row {
@@ -3320,35 +3345,70 @@ img.bb-marker-icon {
 }
 
 .map-filter-btn {
-    background-color: var(--btn-bg, #bc1d23);
+    background-color: var(--btn-bg, #b01c22);
     color: var(--btn-color, #ffffff);
-    padding: 10px 6px;
+    padding: 10px 8px;
     text-decoration: none;
     font-family: 'Century Gothic', sans-serif;
     font-size: 0.85rem;
     font-weight: normal;
     text-transform: uppercase;
-    border: none;
+    border: 3px solid transparent; /* reserve space so active border doesn't shift layout */
     border-radius: 0;
     flex-shrink: 0;
     cursor: pointer;
-    /* Active state (border + box-shadow) is applied via JS */
+    transition: opacity 0.15s ease;
 }
 
+.map-filter-btn:hover {
+    opacity: 0.85;
+    text-decoration: none;
+}
+
+.map-filter-btn:focus-visible {
+    outline: 3px solid var(--color-yellow-bright);
+    outline-offset: 2px;
+}
+
+/* Active state — JS toggles this class */
 .map-filter-btn--active {
-    border: 3px solid #ffffff;
+    border-color: #ffffff;
     font-weight: bold;
-    box-shadow: 0 0 12px color-mix(in srgb, var(--btn-bg) 40%, transparent);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
 }
 
+/* Disclaimer note below the buttons */
 .map-filter-bar__note {
-    color: #a0a0a0;
+    color: #a0a0a0; /* 8.0:1 on black — AAA */
     font-family: 'Century Gothic', sans-serif;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 0.8px;
-    margin-top: 10px;
+    margin-top: 8px;
+    margin-bottom: 0;
     padding: 0 20px;
     box-sizing: border-box;
     white-space: normal;
+}
+
+@media (max-width: 600px) {
+    .map-filter-bar__scroll {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .map-filter-bar__scroll::-webkit-scrollbar {
+        display: none;
+    }
+
+    .map-filter-btn {
+        font-size: 0.75rem;
+        padding: 8px 6px;
+    }
+
+    .map-filter-bar__note {
+        font-size: 0.55rem;
+        letter-spacing: 0.5px;
+        margin-top: 6px;
+    }
 }
