@@ -4797,6 +4797,58 @@ window.BB_TIPS = [
 <script src="/js/script-2.js" defer></script>
 
 
+<!-- Map filter buttons -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('[data-filter]');
+    const mapIframe     = document.querySelector('.sa-hostel-map-iframe');
+    if (!mapIframe) return;
+
+    let iframeReady  = false;
+    let pendingFilter = null;
+
+    function sendFilter(filterKey) {
+      if (iframeReady && mapIframe.contentWindow) {
+        mapIframe.contentWindow.postMessage({ type: 'BB_FILTER_MAP', filter: filterKey }, '*');
+      } else {
+        pendingFilter = filterKey;
+      }
+    }
+
+    mapIframe.addEventListener('load', () => {
+      iframeReady = true;
+      if (pendingFilter !== null) {
+        // Small delay to let MapLibre finish its own load handler
+        setTimeout(() => {
+          mapIframe.contentWindow.postMessage({ type: 'BB_FILTER_MAP', filter: pendingFilter }, '*');
+          pendingFilter = null;
+        }, 300);
+      }
+    });
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        // Reset all buttons
+        filterButtons.forEach(b => {
+          b.style.border     = 'none';
+          b.style.boxShadow  = 'none';
+          b.style.fontWeight = 'normal';
+        });
+
+        // Highlight clicked button
+        btn.style.border     = '3px solid #ffffff';
+        btn.style.fontWeight = 'bold';
+        const bgColor = window.getComputedStyle(btn).backgroundColor;
+        btn.style.boxShadow  = `0 0 12px ${bgColor.replace('rgb', 'rgba').replace(')', ', 0.4)')}`;
+
+        sendFilter(btn.getAttribute('data-filter'));
+      });
+    });
+  });
+</script>
+
 <!-- Default Statcounter code for Backpackers Bible
 https://www.backpackersbible.com/ -->
 <script type="text/javascript">
