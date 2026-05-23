@@ -3346,6 +3346,7 @@ img.bb-marker-icon {
 
 .map-filter-btn {
     /* background-color and color are set per-button via inline style="background-color: #xxx" */
+    display: inline-block;
     color: #ffffff; /* default; overridden inline to #000000 on the two light buttons */
     padding: 10px 8px;
     text-decoration: none;
