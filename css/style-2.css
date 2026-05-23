@@ -3257,7 +3257,7 @@ img.bb-marker-icon {
    ============================================================ */
 
 .map-description {
-    background: #111111;
+    background: #000000;
     padding: 7px 18px;
     font-size: 14px;
     line-height: 1.2;
@@ -3340,7 +3340,7 @@ img.bb-marker-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 5px;
     white-space: nowrap;
     min-height: 45px;
 }
@@ -3349,10 +3349,10 @@ img.bb-marker-icon {
     /* background-color and color are set per-button via inline style="background-color: #xxx" */
     display: inline-block;
     color: #ffffff; /* default; overridden inline to #000000 on the two light buttons */
-    padding: 10px 8px;
+    padding: 7px 4px;
     text-decoration: none;
     font-family: 'Century Gothic', sans-serif;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: normal;
     text-transform: uppercase;
     border: 3px solid transparent; /* reserve space so active border doesn't shift layout */
