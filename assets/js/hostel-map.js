@@ -348,6 +348,37 @@
           }
         });
 
+        // ── FILTER STATE ─────────────────────────────────────────────────
+        let activeFilter = 'all';
+        const allMarkers = []; // populated below for regional pages
+
+        function applyFilter(filterKey) {
+          activeFilter = filterKey;
+          const filtered = filterKey === 'all'
+            ? features
+            : features.filter(f => f.properties[filterKey] === true);
+
+          if (REGION === 'national') {
+            map.getSource('hostels-clustered').setData({
+              type: 'FeatureCollection',
+              features: filtered
+            });
+          } else {
+            // Show/hide individual marker elements
+            allMarkers.forEach(({ marker, feature }) => {
+              const show = filterKey === 'all' || feature.properties[filterKey] === true;
+              marker.getElement().style.display = show ? '' : 'none';
+            });
+          }
+        }
+
+        // Listen for postMessage filter instructions from parent page
+        window.addEventListener('message', (e) => {
+          if (e.data && e.data.type === 'BB_FILTER_MAP') {
+            applyFilter(e.data.filter);
+          }
+        });
+
         if (REGION === 'national') {
           // ── CLUSTERED VIEW (national page only) ──────────────────────────
           map.addSource('hostels-clustered', {
@@ -465,7 +496,8 @@
             container.addEventListener('click', openPopup);
             container.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' '){e.preventDefault();openPopup();} });
 
-            new maplibregl.Marker({ element:container, anchor:'left' }).setLngLat(coords).addTo(map);
+            const marker = new maplibregl.Marker({ element:container, anchor:'left' }).setLngLat(coords).addTo(map);
+            allMarkers.push({ marker, feature });
           }); // end features.forEach
 
         } // end else (regional markers)
