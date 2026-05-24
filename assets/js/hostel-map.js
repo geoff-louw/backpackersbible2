@@ -59,6 +59,15 @@
                    box-shadow:0 2px 6px rgba(0,0,0,0.25);transition:background 0.2s;">
       Switch to 2D
     </button>
+    <button id="bb-map-locate"
+            aria-label="Show my location on the map"
+            style="position:absolute;top:46px;left:10px;z-index:10;
+                   background:#fff;border:2px solid ${BRAND_YELLOW};border-radius:4px;
+                   padding:6px 12px;font-family:'Century Gothic',sans-serif;
+                   font-size:11px;font-weight:bold;color:#333;cursor:pointer;
+                   box-shadow:0 2px 6px rgba(0,0,0,0.25);transition:background 0.2s;">
+      📍 My Location
+    </button>
     <div id="bb-map-offline"
          style="display:none;position:absolute;top:0;right:0;bottom:0;left:0;overflow:hidden;">
       <picture>
@@ -232,6 +241,76 @@
           this.setAttribute('aria-pressed','false');
           this.setAttribute('aria-label','Switch map to 3D view');
         }
+      });
+
+      // ── GEOLOCATION ───────────────────────────────────────────────────────
+      // Pulsing blue dot CSS — injected once into the iframe document
+      (function() {
+        const style = document.createElement('style');
+        style.textContent = `
+          .bb-locate-dot {
+            width: 18px; height: 18px;
+            border-radius: 50%;
+            background: #2979ff;
+            border: 2px solid #ffffff;
+            box-shadow: 0 0 0 rgba(41,121,255,0.5);
+            animation: bb-locate-pulse 2s ease-out infinite;
+          }
+          @keyframes bb-locate-pulse {
+            0%   { box-shadow: 0 0 0 0 rgba(41,121,255,0.5); }
+            70%  { box-shadow: 0 0 0 12px rgba(41,121,255,0); }
+            100% { box-shadow: 0 0 0 0 rgba(41,121,255,0); }
+          }
+        `;
+        document.head.appendChild(style);
+      }());
+
+      let locateMarker = null;
+      document.getElementById('bb-map-locate').addEventListener('click', function() {
+        if (!navigator.geolocation) {
+          alert('Geolocation is not supported by your browser.');
+          return;
+        }
+        const btn = this;
+        btn.textContent = '📍 Locating…';
+        btn.disabled = true;
+
+        navigator.geolocation.getCurrentPosition(
+          (pos) => {
+            const lng = pos.coords.longitude;
+            const lat = pos.coords.latitude;
+
+            // Remove previous dot if any
+            if (locateMarker) { locateMarker.remove(); locateMarker = null; }
+
+            // Create pulsing dot element
+            const dot = document.createElement('div');
+            dot.className = 'bb-locate-dot';
+            dot.setAttribute('aria-label', 'Your location');
+
+            locateMarker = new maplibregl.Marker({ element: dot, anchor: 'center' })
+              .setLngLat([lng, lat])
+              .addTo(map);
+
+            // Only fly to location if user is within southern Africa bounds
+            // (roughly: lng 15–34, lat -35 to -17)
+            const inSA = lng >= 15 && lng <= 34 && lat >= -35 && lat <= -17;
+            if (inSA) {
+              map.flyTo({ center: [lng, lat], zoom: Math.max(map.getZoom(), 10), duration: 1200 });
+            }
+
+            btn.textContent = '📍 My Location';
+            btn.disabled = false;
+          },
+          (err) => {
+            btn.textContent = '📍 My Location';
+            btn.disabled = false;
+            if (err.code !== err.PERMISSION_DENIED) {
+              alert('Could not get your location. Please check your device settings.');
+            }
+          },
+          { timeout: 10000, maximumAge: 60000 }
+        );
       });
 
       map.on('load', () => {
@@ -414,17 +493,31 @@
             paint: { 'text-color': '#333333' }
           });
 
-          // Individual unclustered points
+          // Individual unclustered points — standard
           map.addLayer({
             id: 'unclustered-point',
             type: 'circle',
             source: 'hostels-clustered',
-            filter: ['!', ['has', 'point_count']],
+            filter: ['all', ['!', ['has', 'point_count']], ['!=', ['get', 'is_best_overall'], true]],
             paint: {
               'circle-color': '#ffd400',
               'circle-radius': 7,
               'circle-stroke-width': 2,
               'circle-stroke-color': '#ffffff'
+            }
+          });
+
+          // Best overall unclustered points — larger gold circle with red stroke
+          map.addLayer({
+            id: 'unclustered-point-best',
+            type: 'circle',
+            source: 'hostels-clustered',
+            filter: ['all', ['!', ['has', 'point_count']], ['==', ['get', 'is_best_overall'], true]],
+            paint: {
+              'circle-color': '#ffd400',
+              'circle-radius': 10,
+              'circle-stroke-width': 3,
+              'circle-stroke-color': '#bc1d23'
             }
           });
 
@@ -452,10 +545,23 @@
             showPopup(coords, buildPopup(h));
           });
 
-          map.on('mouseenter', 'clusters',          () => { map.getCanvas().style.cursor = 'pointer'; });
-          map.on('mouseleave', 'clusters',          () => { map.getCanvas().style.cursor = ''; });
-          map.on('mouseenter', 'unclustered-point', () => { map.getCanvas().style.cursor = 'pointer'; });
-          map.on('mouseleave', 'unclustered-point', () => { map.getCanvas().style.cursor = ''; });
+          map.on('mouseenter', 'clusters',               () => { map.getCanvas().style.cursor = 'pointer'; });
+          map.on('mouseleave', 'clusters',               () => { map.getCanvas().style.cursor = ''; });
+          map.on('mouseenter', 'unclustered-point',      () => { map.getCanvas().style.cursor = 'pointer'; });
+          map.on('mouseleave', 'unclustered-point',      () => { map.getCanvas().style.cursor = ''; });
+          map.on('mouseenter', 'unclustered-point-best', () => { map.getCanvas().style.cursor = 'pointer'; });
+          map.on('mouseleave', 'unclustered-point-best', () => { map.getCanvas().style.cursor = ''; });
+
+          // Click best-overall point → show popup
+          map.on('click', 'unclustered-point-best', (e) => {
+            e.clickHandled = true;
+            const h = e.features[0].properties;
+            const coords = e.features[0].geometry.coordinates.slice();
+            while (Math.abs(e.lngLat.lng - coords[0]) > 180) {
+              coords[0] += e.lngLat.lng > coords[0] ? 360 : -360;
+            }
+            showPopup(coords, buildPopup(h));
+          });
 
         } else {
           // ── INDIVIDUAL MARKERS (regional pages) ──────────────────────────
@@ -472,7 +578,7 @@
             container.setAttribute('aria-label',`${h.name} — click for details`);
 
             const icon = document.createElement('img');
-            icon.src   = '/assets/icons/hostel-pin.svg';
+            icon.src   = h.is_best_overall ? '/assets/icons/hostel-pin-best.svg' : '/assets/icons/hostel-pin.svg';
             icon.className = 'bb-marker-icon';
             icon.alt   = '';
             icon.setAttribute('aria-hidden','true');
