@@ -43,9 +43,12 @@
   // point of interest lands in the middle of the mobile frame rather than the bottom.
   // Formula: visible_lat_span = (360 / (256 * 2^zoom)) / cos(lat_rad) * map_height_px
   function mobileCenter(center, zoom) {
+    // Only offset at higher zoom levels where desktop pitch pulls the centre low.
+    // At low zooms (national overview) the whole country fits and no shift is needed.
+    if (zoom < 7) return center;
     const latRad   = Math.abs(center[1] * Math.PI / 180);
     const degPerPx = 360 / (256 * Math.pow(2, zoom)) / Math.cos(latRad);
-    const offset   = degPerPx * 310 * 0.25;          // 25% of visible height
+    const offset   = degPerPx * 310 * 0.25;
     return [center[0], center[1] - offset];           // shift centre south, pulls content up into frame
   }
 
