@@ -71,24 +71,28 @@
 <script>
   // Read config from URL parameters
   // e.g. /map.html?region=cape-town&center=18.412,-33.937&zoom=13&pitch=60&bearing=180
+  // Mobile overrides: &mobile-center=18.412,-33.857&mobile-zoom=11.5
   (function () {
     var p = new URLSearchParams(window.location.search);
+    var isMobile = window.innerWidth <= 768;
 
-    var centerRaw = p.get('center');
-    var center;
-    if (centerRaw) {
-      var parts = centerRaw.split(',').map(Number);
-      if (parts.length === 2 && !parts.some(isNaN)) center = parts;
+    function parseCenter(str) {
+      if (!str) return null;
+      var parts = str.split(',').map(Number);
+      return (parts.length === 2 && !parts.some(isNaN)) ? parts : null;
     }
 
-    var zoom    = p.has('zoom')    ? Number(p.get('zoom'))    : undefined;
-    var pitch   = p.has('pitch')   ? Number(p.get('pitch'))   : undefined;
-    var bearing = p.has('bearing') ? Number(p.get('bearing')) : undefined;
+    var centerDesktop = parseCenter(p.get('center'));
+    var centerMobile  = parseCenter(p.get('mobile-center'));
+    var zoomDesktop   = p.has('zoom')         ? Number(p.get('zoom'))         : undefined;
+    var zoomMobile    = p.has('mobile-zoom')  ? Number(p.get('mobile-zoom'))  : undefined;
+    var pitch         = p.has('pitch')        ? Number(p.get('pitch'))        : undefined;
+    var bearing       = p.has('bearing')      ? Number(p.get('bearing'))      : undefined;
 
     window.BB_MAP_CONFIG = {
       region:  p.get('region') || 'national',
-      center:  center          || [23.68, -29.92],
-      zoom:    zoom,
+      center:  (isMobile && centerMobile) ? centerMobile : (centerDesktop || [23.68, -29.92]),
+      zoom:    (isMobile && zoomMobile  !== undefined) ? zoomMobile  : zoomDesktop,
       pitch:   pitch,
       bearing: bearing
     };
