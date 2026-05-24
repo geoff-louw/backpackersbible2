@@ -32,8 +32,24 @@
 
   const cfg     = window.BB_MAP_CONFIG || {};
   const REGION  = cfg.region  || 'national';
-  const CENTER  = cfg.center  || [25.0, -29.0];
   const isMobile = window.innerWidth <= 768;
+
+  // Raw centre from config or default
+  const CENTER_RAW = cfg.center || [25.0, -29.0];
+
+  // On mobile, the map is 310px tall vs 590px desktop, and pitch is forced to 0.
+  // The desktop centre was tuned for a taller frame with pitch, so it sits too
+  // low on mobile. Shift it north by 25% of the visible latitude span so the
+  // point of interest lands in the middle of the mobile frame rather than the bottom.
+  // Formula: visible_lat_span = (360 / (256 * 2^zoom)) / cos(lat_rad) * map_height_px
+  function mobileCenter(center, zoom) {
+    const latRad   = Math.abs(center[1] * Math.PI / 180);
+    const degPerPx = 360 / (256 * Math.pow(2, zoom)) / Math.cos(latRad);
+    const offset   = degPerPx * 310 * 0.25;          // 25% of visible height
+    return [center[0], center[1] + offset];           // shift north (less negative)
+  }
+
+  const CENTER = isMobile ? mobileCenter(CENTER_RAW, cfg.zoom || (REGION === 'national' ? 4 : 11)) : CENTER_RAW;
   // On mobile, zoom out by 1.5 stops so the full region fits on screen
   const ZOOM    = cfg.zoom    !== undefined
     ? (isMobile ? Math.max(cfg.zoom - 1.5, 3) : cfg.zoom)
@@ -348,37 +364,6 @@
           }
         });
 
-        // ── FILTER STATE ─────────────────────────────────────────────────
-        let activeFilter = 'all';
-        const allMarkers = []; // populated below for regional pages
-
-        function applyFilter(filterKey) {
-          activeFilter = filterKey;
-          const filtered = filterKey === 'all'
-            ? features
-            : features.filter(f => f.properties[filterKey] === true);
-
-          if (REGION === 'national') {
-            map.getSource('hostels-clustered').setData({
-              type: 'FeatureCollection',
-              features: filtered
-            });
-          } else {
-            // Show/hide individual marker elements
-            allMarkers.forEach(({ marker, feature }) => {
-              const show = filterKey === 'all' || feature.properties[filterKey] === true;
-              marker.getElement().style.display = show ? '' : 'none';
-            });
-          }
-        }
-
-        // Listen for postMessage filter instructions from parent page
-        window.addEventListener('message', (e) => {
-          if (e.data && e.data.type === 'BB_FILTER_MAP') {
-            applyFilter(e.data.filter);
-          }
-        });
-
         if (REGION === 'national') {
           // ── CLUSTERED VIEW (national page only) ──────────────────────────
           map.addSource('hostels-clustered', {
@@ -496,8 +481,7 @@
             container.addEventListener('click', openPopup);
             container.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' '){e.preventDefault();openPopup();} });
 
-            const marker = new maplibregl.Marker({ element:container, anchor:'left' }).setLngLat(coords).addTo(map);
-            allMarkers.push({ marker, feature });
+            new maplibregl.Marker({ element:container, anchor:'left' }).setLngLat(coords).addTo(map);
           }); // end features.forEach
 
         } // end else (regional markers)
