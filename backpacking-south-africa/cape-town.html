@@ -1763,6 +1763,38 @@
   <span class="map-description__text">Use our interactive 3D map to find all the backpackers hostels in Cape Town, with their full contact details and comprehensive reviews.</span>
 </div>
 
+<section class="sa-hostel-map-shell">
+
+  <!-- SEO + visual poster image -->
+  <picture class="sa-hostel-map-poster">
+    <source
+      media="(max-width: 768px)"
+      srcset="/assets/fallback_map_cape-town_mobile.jpg"
+    >
+
+    <img
+      src="/assets/fallback_map_cape-town.jpg"
+      alt="Map showing backpacker hostels in Cape Town"
+      width="1600"
+      height="620"
+      fetchpriority="high"
+      decoding="async"
+    >
+  </picture>
+
+  <!-- Interactive map -->
+<iframe
+  src="/map.html?region=cape-town&center=18.412,-33.937&zoom=13&pitch=60&bearing=180&mobile-center=18.412,-33.857&mobile-zoom=11.5"
+  width="100%"
+  height="620"
+  class="sa-hostel-map-iframe"
+  title="Interactive map of backpacker hostels in Cape Town"
+  aria-label="Interactive map of backpacker hostels in Cape Town"
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"
+></iframe>
+
+</section>
 
   <!-- Map filter buttons -->
 
@@ -1789,41 +1821,10 @@
 
         </div>
     </div>
+    <div class="map-filter-bar__note" aria-live="polite">
+        Results are calculated from traveller reviews from across the Web.
+    </div>
 </div>
-
-
-<section class="sa-hostel-map-shell">
-
-  <!-- SEO + visual poster image -->
-  <picture class="sa-hostel-map-poster">
-    <source
-      media="(max-width: 768px)"
-      srcset="/assets/fallback_map_cape-town_mobile.jpg"
-    >
-
-    <img
-      src="/assets/fallback_map_cape-town.jpg"
-      alt="Map showing backpacker hostels in Cape Town"
-      width="1600"
-      height="620"
-      fetchpriority="high"
-      decoding="async"
-    >
-  </picture>
-
-  <!-- Interactive map -->
-<iframe
-  src="/map.html?region=cape-town&center=18.412,-33.937&zoom=13&pitch=60&bearing=180"
-  width="100%"
-  height="620"
-  class="sa-hostel-map-iframe"
-  title="Interactive map of backpacker hostels in Cape Town"
-  aria-label="Interactive map of backpacker hostels in Cape Town"
-  loading="lazy"
-  referrerpolicy="no-referrer-when-downgrade"
-></iframe>
-
-</section>
 
      <!-- Horizontal regional menu -->
 
