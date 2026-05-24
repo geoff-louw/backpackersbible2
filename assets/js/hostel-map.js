@@ -46,14 +46,14 @@
     const latRad   = Math.abs(center[1] * Math.PI / 180);
     const degPerPx = 360 / (256 * Math.pow(2, zoom)) / Math.cos(latRad);
     const offset   = degPerPx * 310 * 0.25;          // 25% of visible height
-    return [center[0], center[1] + offset];           // shift north (less negative)
+    return [center[0], center[1] - offset];           // shift centre south, pulls content up into frame
   }
 
-  const CENTER = isMobile ? mobileCenter(CENTER_RAW, cfg.zoom || (REGION === 'national' ? 4 : 11)) : CENTER_RAW;
-  // On mobile, zoom out by 1.5 stops so the full region fits on screen
   const ZOOM    = cfg.zoom    !== undefined
     ? (isMobile ? Math.max(cfg.zoom - 1.5, 3) : cfg.zoom)
     : (REGION === 'national' ? (isMobile ? 4 : 5) : 11);
+
+  const CENTER = isMobile ? mobileCenter(CENTER_RAW, ZOOM) : CENTER_RAW;
   const PITCH   = isMobile ? 0 : (cfg.pitch   !== undefined ? cfg.pitch   : 55);
   const BEARING = isMobile ? 0 : (cfg.bearing !== undefined ? cfg.bearing : 0);
 
