@@ -60,20 +60,20 @@
       Switch to 2D
     </button>
     <div id="bb-map-offline"
-         style="display:none;position:absolute;top:0;right:0;bottom:0;left:0;background:${BRAND_YELLOW};
-                align-items:center;justify-content:center;flex-direction:column;
-                font-family:'Century Gothic',sans-serif;text-align:center;padding:20px;">
-      <p style="font-weight:bold;color:#333;margin:0 0 12px;">Map unavailable offline</p>
-      <p style="color:#555;font-size:13px;margin:0 0 16px;">
-        Here's a static overview — full interactive map available when online.
-      </p>
+         style="display:none;position:absolute;top:0;right:0;bottom:0;left:0;overflow:hidden;">
       <picture>
         <source media="(max-width:600px)" srcset="/assets/fallback_map_${REGION}_mobile.jpg">
         <img src="/assets/fallback_map_${REGION}.jpg"
              alt="Static map of ${REGION} hostels"
-             style="max-width:100%;border-radius:6px;border:2px solid ${BRAND_YELLOW};"
+             style="width:100%;height:100%;object-fit:cover;display:block;"
              onerror="this.style.display='none'">
       </picture>
+      <div style="position:absolute;bottom:20px;left:50%;transform:translateX(-50%);
+                  background:rgba(0,0,0,0.75);color:#ffffff;
+                  font-family:'Century Gothic',sans-serif;font-size:13px;text-align:center;
+                  padding:10px 18px;white-space:nowrap;pointer-events:none;">
+        <strong>Offline</strong> — full interactive map available when online
+      </div>
     </div>
     <noscript>
       <p style="padding:1em;">
