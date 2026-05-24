@@ -1551,11 +1551,11 @@ details:not([open]) {
     .btn-booking-com,
     .btn-hostelworld-com,
     .btn-getyourguide-com {
-        width: 160px;
-        min-width: 160px;
-        height: 50px;
-        min-height: 50px;
-        font-size: 10pt;
+        width: 200px;
+        min-width: 200px;
+        height: 60px;
+        min-height: 60px;
+        font-size: 11pt;
     }
 
     .booking-btn-container {
@@ -3257,8 +3257,8 @@ img.bb-marker-icon {
    ============================================================ */
 
 .map-description {
-    background: #000000;
-    padding: 7px 8px 0px 8px;
+    background: #111111;
+    padding: 7px 18px;
     font-size: 14px;
     line-height: 1.2;
     display: block;
@@ -3302,7 +3302,7 @@ img.bb-marker-icon {
     background-color: #000000;
     width: 100%;
     box-sizing: border-box;
-    padding: 7px 0 0px 0;
+    padding: 12px 0 8px 0;
     text-align: center;
 }
 
@@ -3340,7 +3340,7 @@ img.bb-marker-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: 10px;
     white-space: nowrap;
     min-height: 45px;
 }
@@ -3349,10 +3349,10 @@ img.bb-marker-icon {
     /* background-color and color are set per-button via inline style="background-color: #xxx" */
     display: inline-block;
     color: #ffffff; /* default; overridden inline to #000000 on the two light buttons */
-    padding: 7px 4px;
+    padding: 10px 8px;
     text-decoration: none;
     font-family: 'Century Gothic', sans-serif;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     font-weight: normal;
     text-transform: uppercase;
     border: 3px solid transparent; /* reserve space so active border doesn't shift layout */
