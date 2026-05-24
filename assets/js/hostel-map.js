@@ -34,29 +34,8 @@
   const REGION  = cfg.region  || 'national';
   const isMobile = window.innerWidth <= 768;
 
-  // Raw centre from config or default
-  const CENTER_RAW = cfg.center || [25.0, -29.0];
-
-  // On mobile, the map is 310px tall vs 590px desktop, and pitch is forced to 0.
-  // The desktop centre was tuned for a taller frame with pitch, so it sits too
-  // low on mobile. Shift it north by 25% of the visible latitude span so the
-  // point of interest lands in the middle of the mobile frame rather than the bottom.
-  // Formula: visible_lat_span = (360 / (256 * 2^zoom)) / cos(lat_rad) * map_height_px
-  function mobileCenter(center, zoom) {
-    // Only offset at higher zoom levels where desktop pitch pulls the centre low.
-    // At low zooms (national overview) the whole country fits and no shift is needed.
-    if (zoom < 7) return center;
-    const latRad   = Math.abs(center[1] * Math.PI / 180);
-    const degPerPx = 360 / (256 * Math.pow(2, zoom)) / Math.cos(latRad);
-    const offset   = degPerPx * 310 * 0.25;
-    return [center[0], center[1] - offset];           // shift centre south, pulls content up into frame
-  }
-
-  const ZOOM    = cfg.zoom    !== undefined
-    ? (isMobile ? Math.max(cfg.zoom - 1.5, 3) : cfg.zoom)
-    : (REGION === 'national' ? (isMobile ? 4 : 5) : 11);
-
-  const CENTER = isMobile ? mobileCenter(CENTER_RAW, ZOOM) : CENTER_RAW;
+  const CENTER  = cfg.center || [25.0, -29.0];
+  const ZOOM    = cfg.zoom   !== undefined ? cfg.zoom : (REGION === 'national' ? (isMobile ? 4 : 5) : 11);
   const PITCH   = isMobile ? 0 : (cfg.pitch   !== undefined ? cfg.pitch   : 55);
   const BEARING = isMobile ? 0 : (cfg.bearing !== undefined ? cfg.bearing : 0);
 
