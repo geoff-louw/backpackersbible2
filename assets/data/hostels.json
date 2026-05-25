@@ -80,7 +80,7 @@
         "is_ethical": false,
         "is_adventure": false,
         "is_nature": false,
-        "is_cultural": true,
+        "is_cultural": false,
         "is_cheapest": false,
         "is_camping": false
       }
@@ -285,7 +285,7 @@
         "is_adventure": false,
         "is_nature": false,
         "is_cultural": false,
-        "is_cheapest": true,
+        "is_cheapest": false,
         "is_camping": false
       }
     },
