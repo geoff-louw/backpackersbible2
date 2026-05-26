@@ -14,7 +14,16 @@
 <link rel="canonical" href="https://www.backpackersbible.com/misc/resources">
 
 <!-- Preloads -->
-<link rel="preload" as="image" href="/assets/backpackers_bible_panorama-route.webp" fetchpriority="high">
+<link 
+  rel="preload" 
+  as="image"
+  imagesrcset="
+    /assets/backpackers_bible_panorama-route_mobile.webp 767w,
+    /assets/backpackers_bible_panorama-route.webp 768w
+  "
+  imagesizes="100vw"
+>
+
 <link rel="preload" as="style" href="/css/style-2.css">
 <link rel="preload" href="/fonts/CenturyGothic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/CenturyGothic-Bold.woff2" as="font" type="font/woff2" crossorigin>
@@ -327,7 +336,7 @@
 <!-- Hero image -->
 <section class="hero-section">
     <picture>
-        <source media="(max-width: 767px)" srcset="/assets/about_backpackers_bible_mobile.jpg">
+        <source media="(max-width: 767px)" srcset="/assets/backpackers_bible_panorama-route_mobile.webp">
         <source media="(min-width: 768px)" srcset="/assets/backpackers_bible_panorama-route.webp">
         <img src="/assets/backpackers_bible_panorama-route.webp"
              alt="Blyde River Canyon panorama"
