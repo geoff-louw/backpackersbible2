@@ -34,6 +34,7 @@
    27. MAPLIBRE Poster Image (Behind interactive map)
    28. Map Description Bar
    29. Map Filter Buttons
+   30. Resource list
    ============================================================ */
 
 
@@ -3417,4 +3418,23 @@ img.bb-marker-icon {
         letter-spacing: 0.5px;
         margin-top: 6px;
     }
+}
+
+
+/* ============================================================
+   30. RESOURCE LIST
+   ============================================================ */
+
+.resource-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-section-gap) 0 0 0;
+}
+.resource-list li {
+    margin-top: var(--space-section-gap);
+}
+.resource-list__title {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 0.75rem;
 }
