@@ -3543,10 +3543,14 @@ img.bb-marker-icon {
     flex-shrink: 0;
 }
 
-.red-explore-btn:hover,
+.red-explore-btn:hover {
+    color: #da8293;
+    text-decoration: none;
+}
+
 .red-explore-btn:focus-visible {
-    background-color: #8e1519;
-    color: #ffffff;
+    color: #da8293;
+    text-decoration: none;
     outline: 3px solid #ffffff;
     outline-offset: 2px;
 }
