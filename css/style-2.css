@@ -3438,3 +3438,149 @@ img.bb-marker-icon {
     display: block;
     margin-bottom: 0.75rem;
 }
+
+/* ============================================================
+   31. REGIONS GRID
+   Cards with background images and semi-transparent glass boxes.
+   Used on /backpacking-south-africa/
+   ============================================================ */
+
+/* Intro paragraph above the grid */
+.about-p-text {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    max-width: 1200px;
+    padding: 0 40px;
+    text-align: center;
+    margin: 0 auto var(--space-section-gap) auto;
+}
+
+/* The grid itself */
+.overlay-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 380px);
+    gap: 30px;
+    justify-content: center;
+    padding: 0 20px var(--space-section-gap) 20px;
+    box-sizing: border-box;
+}
+
+/* Individual card */
+.card-wrapper {
+    width: 380px;
+    height: 380px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.card-wrapper:hover {
+    transform: scale(1.05);
+}
+
+/* Full-bleed background image */
+.card-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    background-color: #666;
+}
+
+/* Semi-transparent overlay box */
+.glass-box {
+    position: relative;
+    z-index: 2;
+    width: 300px;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.glass-box h3 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin: 0 0 0.625rem 0;
+    color: #000;
+}
+
+.glass-box p {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    margin: 0 0 1.25rem 0;
+    line-height: 1.3;
+    color: #000;
+}
+
+/* Explore button */
+.red-explore-btn {
+    background-color: #bc1d23;
+    width: 212px;
+    height: 49px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    transition: background-color 0.3s ease;
+    flex-shrink: 0;
+}
+
+.red-explore-btn:hover,
+.red-explore-btn:focus-visible {
+    background-color: #8e1519;
+    color: #ffffff;
+    outline: 3px solid #ffffff;
+    outline-offset: 2px;
+}
+
+/* ---- Responsive ---- */
+
+/* Two columns at medium widths */
+@media (max-width: 1260px) {
+    .overlay-grid {
+        grid-template-columns: repeat(2, 380px);
+    }
+}
+
+/* Single column on mobile — cards go full-width */
+@media (max-width: 800px) {
+    .overlay-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .card-wrapper {
+        width: 100%;
+        height: 320px;
+    }
+
+    .glass-box {
+        width: 85%;
+        height: auto;
+        min-height: 240px;
+        padding: 16px;
+    }
+
+    .about-p-text {
+        padding: 0 20px;
+        font-size: 1rem;
+    }
+}
