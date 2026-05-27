@@ -19,7 +19,25 @@
   <link rel="alternate" hreflang="en"         href="https://www.backpackersbible.com/backpacking-south-africa/cape-town">
 
 <!-- Preloads -->
-<link rel="preload" as="image" href="/assets/backpacker_table_mountain_desktop.webp" fetchpriority="high">
+
+<!-- Desktop -->
+<link
+  rel="preload"
+  as="image"
+  href="/assets/fallback_map_cape-town.webp"
+  media="(min-width: 769px)"
+  fetchpriority="high"
+>
+
+<!-- Mobile -->
+<link
+  rel="preload"
+  as="image"
+  href="/assets/fallback_map_cape-town_mobile.webp"
+  media="(max-width: 768px)"
+  fetchpriority="high"
+>
+
 <link rel="preload" as="style" href="/css/style-2.css">
 <link rel="preload" href="/fonts/CenturyGothic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/CenturyGothic-Bold.woff2" as="font" type="font/woff2" crossorigin>
