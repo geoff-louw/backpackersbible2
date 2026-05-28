@@ -1,57 +1,50 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>About The Backpacker's Bible: The Ultimate Independent Guide</title>
-
 <meta name="title" content="About The Backpacker's Bible: The Ultimate Independent Guide">
-
 <meta name="description" content="Learn how The Backpacker's Bible helps you navigate South Africa with a free offline hostel guide, detailed transport advice, honest safety warnings, and regional backpacking essentials.">
 
-<link rel="canonical" href="https://www.backpackersbible.com/misc/about-backpackers-bible" />
+<link rel="canonical" href="https://www.backpackersbible.com/misc/about-backpackers-bible">
 
-<link 
-  rel="preload" 
-  as="image"
-  imagesrcset="
-    /assets/about_backpackers_bible_mobile.jpg 767w,
-    /assets/about_backpackers_bible.jpg 768w
-  "
-  imagesizes="100vw"
->
+<!-- Preload critical image -->
+<link rel="preload" as="image"
+  imagesrcset="/assets/about_backpackers_bible_mobile.jpg 767w, /assets/about_backpackers_bible.jpg 768w"
+  imagesizes="100vw">
+<link rel="preload" href="/fonts/CenturyGothic.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="/fonts/CenturyGothic-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" as="style" href="/css/style-2.css">
 
-<link rel="stylesheet" href="/css/style.css">
+<!-- Stylesheet -->
+<link rel="stylesheet" href="/css/style-2.css">
+<script src="/js/script-2.js" defer></script>
 
-<script src="/js/script.js" defer></script>
-
-     <!-- Favicon -->
-
+<!-- Favicon -->
 <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
 
-     <!-- Social media stuff -->
-
+<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.backpackersbible.com/misc/about-backpackers-bible">
 <meta property="og:title" content="About The Backpacker's Bible: The Ultimate Independent Guide">
 <meta property="og:description" content="Learn how The Backpacker's Bible helps you navigate South Africa with a free offline hostel guide, detailed transport advice, honest safety warnings, and regional backpacking essentials.">
 <meta property="og:image" content="https://www.backpackersbible.com/assets/social_preview.jpg">
 
+<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://www.backpackersbible.com/misc/about-backpackers-bible">
 <meta name="twitter:title" content="About The Backpacker's Bible: The Ultimate Independent Guide">
 <meta name="twitter:description" content="Learn how The Backpacker's Bible helps you navigate South Africa with a free offline hostel guide, detailed transport advice, honest safety warnings, and regional backpacking essentials.">
 <meta name="twitter:image" content="https://www.backpackersbible.com/assets/social_preview.jpg">
 
-     <!-- Schema markup -->
-
+<!-- Schema markup -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -190,540 +183,472 @@
 }
 </script>
 
+<!-- hreflang -->
+<link rel="alternate" hreflang="en" href="https://www.backpackersbible.com/misc/about-backpackers-bible">
+
 </head>
 <body>
 
 <!-- Skip links -->
-
 <a class="skip-link" href="#main-content">Skip to main content</a>
-<a class="skip-link" href="#site-search-desktop">Skip to search</a>
-<a class="skip-link" href="#primary-nav">Skip to navigation</a>
+<a class="skip-link" href="#site-search-input">Skip to search</a>
+<a class="skip-link" href="#site-nav">Skip to navigation</a>
 
-     <!-- Header start -->
+<!-- Header start -->
 
-<header id="mainHeader">
+<header id="site-header" aria-label="Site header">
 
-    <div class="header-main">
 
-        <div class="branding">
+    <div class="site-header__bar">
 
-            <a href="https://www.backpackersbible.com">
 
-                <img src="/assets/backpackers_bible_logo_250x250.png" alt="Backpackers Bible Logo" style="width:80px; height:80px; background:#fff;">
+        <div class="site-header__branding">
 
+            <a href="https://www.backpackersbible.com" class="site-header__logo-link">
+                <img src="/assets/backpackers_bible_logo_250x250.png"
+                     alt="Backpackers Bible — home"
+                     class="site-header__logo"
+                     width="80"
+                     height="80">
             </a>
 
-            <div>
-<div style="display: flex; align-items: center; flex-wrap: wrap; gap: 10px;">
-                <div class="brand-name">BackpackersBible.com</div>
 
-<span class="location-badge">About Us</span>
+            <div class="site-header__brand-text">
 
-</div>
-                <span class="payoff">The World In Your Pocket</span>
+
+                <div class="site-header__brand-row">
+
+                    <span class="site-header__brand-name">BackpackersBible.com</span>
+
+                    <span class="site-header__location-badge">Cape Town</span>
+
+                </div>
+
+                <span class="site-header__payoff">The World In Your Pocket</span>
 
             </div>
 
         </div>
 
-      <!-- Menu start -->
+        <div class="site-header__controls">
 
-        <div class="right-stack">
-            <div class="utils-row">
-                <button id="hamburger-icon" onclick="toggleMobileMenu()" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">☰</button>
-            </div>
+            <button class="site-header__nav-toggle"
+                    id="nav-toggle"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
+                    aria-controls="mobile-menu">
+                <span class="site-header__nav-toggle-bar" aria-hidden="true"></span>
+                <span class="site-header__nav-toggle-bar" aria-hidden="true"></span>
+                <span class="site-header__nav-toggle-bar" aria-hidden="true"></span>
+            </button>
 
-<!-- Search bar (desktop) -->
 
-            <div class="desktop-search site-search-wrap">
-              <div class="site-search-bar" onclick="document.getElementById('search-input-desktop').focus()">
-                <input id="search-input-desktop" type="search" placeholder="Search this site..." autocomplete="off"
-                       aria-label="Search this site" aria-autocomplete="list" aria-controls="search-results-desktop"
-                       oninput="runSearch(this.value,'search-results-desktop')"
-                       onfocus="if(this.value) document.getElementById('search-results-desktop').classList.add('open')"
-                       onblur="setTimeout(()=>document.getElementById('search-results-desktop').classList.remove('open'),500)">
-                <span class="search-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false">
-                    <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
-                  </svg>
-                </span>
-              </div>
-              <div id="search-results-desktop" class="search-results" role="listbox" aria-live="polite" aria-label="Search results"></div>
-            </div>
-            
-            <nav class="desktop-nav" id="primary-nav" aria-label="Primary navigation">
+            <div class="site-header__search" id="site-search" role="search">
 
-    <strong><a href="/#download-pwa" style="font-size:1rem; letter-spacing:2px; margin-right: 1.5rem;" title="Choose between a PDF and an App to use on your phone while travelling">★ FREE Hostel Guide!</a></strong>
+                <div class="site-header__search-bar">
 
-    <a href="/">Home</a>
+                    <input  class="site-header__search-input"
+                            id="site-search-input"
+                            type="search"
+                            placeholder="Search this site..."
+                            autocomplete="off"
+                            aria-label="Search this site"
+                            aria-autocomplete="list"
+                            aria-controls="site-search-results"
+                            aria-expanded="false">
 
-    <div class="nav-item">
+                    <span class="site-header__search-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true">
+                            <circle cx="11" cy="11" r="7"/>
+                            <line x1="16.5" y1="16.5" x2="22" y2="22"/>
+                        </svg>
+                    </span>
 
-        <a href="/backpacking-south-africa/" class="mega-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="mega-regions">▾ Backpacking South Africa</a>
+                </div>
 
-        <div class="mega-menu" id="mega-regions" role="region" aria-label="Backpacking South Africa regions">
-
-            <div class="mega-col">
-
-                <h3>All Regions</h3>
-
-                <a href="/backpacking-south-africa/">Regions Map / Full Hostel Directory</a>
-
-                <h3>Popular</h3>
-
-                <a href="/backpacking-south-africa/cape-town">Cape Town</a>
-                <a href="/backpacking-south-africa/winelands">Winelands</a>
-                <a href="/backpacking-south-africa/route-62">Route 62</a>
-                <a href="/backpacking-south-africa/garden-route">Garden Route</a>
-                <a href="/backpacking-south-africa/sunshine-coast">Sunshine Coast</a>
-                <a href="/backpacking-south-africa/wild-coast">Wild Coast</a>
-                <a href="/backpacking-south-africa/drakensberg">Drakensberg</a>
-                <a href="/backpacking-south-africa/zululand">Zululand</a>
-                <a href="/backpacking-south-africa/kruger">Kruger National Park</a>
+                <div class="site-header__search-results"
+                     id="site-search-results"
+                     role="listbox"
+                     aria-live="polite"
+                     aria-label="Search results"></div>
 
             </div>
 
-            <div class="mega-col">
+            <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
 
-                <h3>The Interior</h3>
+                <a href="/pdf/Backpackers_Bible_Lite-South_Africa.pdf" class="site-nav__cta"
+                   title="Interactive PDF - 800kb" target="_blank"><span class="sr-only">(opens in a new tab)</span>
+                    ★ <strong>FREE Interactive Hostel Guide!</strong>
+                </a>
 
-                <a href="/backpacking-south-africa/cederberg">Cederberg</a>
-                <a href="/backpacking-south-africa/karoo">The Karoo</a>
-                <a href="/backpacking-south-africa/eastern-cape-interior">Eastern Cape Interior</a>
-                <a href="/backpacking-south-africa/midlands">KZN Midlands</a>
-                <a href="/backpacking-south-africa/free-state">Free State</a>
-                <a href="/backpacking-south-africa/johannesburg">Johannesburg</a>
-                <a href="/backpacking-south-africa/pretoria">Pretoria</a>
-                <a href="/backpacking-south-africa/mpumalanga">Mpumalanga</a>
-                <a href="/backpacking-south-africa/limpopo">Limpopo</a>
-                <a href="/backpacking-south-africa/north-west">North West</a>
-                <a href="/backpacking-south-africa/northern-cape">Northern Cape</a>
+                <a href="/" class="site-nav__link">Home</a>
 
-            </div>
+                <div class="site-nav__item">
 
-            <div class="mega-col">
+                    <button class="site-nav__mega-trigger"
+                            aria-haspopup="menu"
+                            aria-expanded="false"
+                            aria-controls="mega-regions">
+                        Backpacking South Africa
+                    </button>
 
-                <h3>The Coast</h3>
+                    <div class="site-nav__mega-menu" id="mega-regions" role="menu" aria-label="Backpacking South Africa regions">
 
-                <a href="/backpacking-south-africa/west-coast">West Coast</a>
-                <a href="/backpacking-south-africa/overberg">Overberg</a>
-                <a href="/backpacking-south-africa/durban">Durban</a>
-                <a href="/backpacking-south-africa/south-coast">South Coast</a>
-                <a href="/backpacking-south-africa/north-coast">North Coast</a>
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">All Regions</h3>
+                            <a href="/backpacking-south-africa/" role="menuitem">Regions Map / Full Hostel Directory</a>
+                            <h3 class="site-nav__mega-heading">Popular</h3>
+                            <a href="/backpacking-south-africa/cape-town" role="menuitem">Cape Town</a>
+                            <a href="/backpacking-south-africa/winelands" role="menuitem">Winelands</a>
+                            <a href="/backpacking-south-africa/route-62" role="menuitem">Route 62</a>
+                            <a href="/backpacking-south-africa/garden-route" role="menuitem">Garden Route</a>
+                            <a href="/backpacking-south-africa/sunshine-coast" role="menuitem">Sunshine Coast</a>
+                            <a href="/backpacking-south-africa/wild-coast" role="menuitem">Wild Coast</a>
+                            <a href="/backpacking-south-africa/drakensberg" role="menuitem">Drakensberg</a>
+                            <a href="/backpacking-south-africa/zululand" role="menuitem">Zululand</a>
+                            <a href="/backpacking-south-africa/kruger" role="menuitem">Kruger National Park</a>
+                        </div>
 
-                <h3>Neighbouring Countries</h3>
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">The Interior</h3>
+                            <a href="/backpacking-south-africa/cederberg" role="menuitem">Cederberg</a>
+                            <a href="/backpacking-south-africa/karoo" role="menuitem">The Karoo</a>
+                            <a href="/backpacking-south-africa/eastern-cape-interior" role="menuitem">Eastern Cape Interior</a>
+                            <a href="/backpacking-south-africa/midlands" role="menuitem">KZN Midlands</a>
+                            <a href="/backpacking-south-africa/free-state" role="menuitem">Free State</a>
+                            <a href="/backpacking-south-africa/johannesburg" role="menuitem">Johannesburg</a>
+                            <a href="/backpacking-south-africa/pretoria" role="menuitem">Pretoria</a>
+                            <a href="/backpacking-south-africa/mpumalanga" role="menuitem">Mpumalanga</a>
+                            <a href="/backpacking-south-africa/limpopo" role="menuitem">Limpopo</a>
+                            <a href="/backpacking-south-africa/north-west" role="menuitem">North West</a>
+                            <a href="/backpacking-south-africa/northern-cape" role="menuitem">Northern Cape</a>
+                        </div>
 
-                <a href="/backpacking-south-africa/eswatini">Eswatini</a>
-                <a href="/backpacking-south-africa/lesotho">Lesotho</a>
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">The Coast</h3>
+                            <a href="/backpacking-south-africa/west-coast" role="menuitem">West Coast</a>
+                            <a href="/backpacking-south-africa/overberg" role="menuitem">Overberg</a>
+                            <a href="/backpacking-south-africa/durban" role="menuitem">Durban</a>
+                            <a href="/backpacking-south-africa/south-coast" role="menuitem">South Coast</a>
+                            <a href="/backpacking-south-africa/north-coast" role="menuitem">North Coast</a>
+                            <h3 class="site-nav__mega-heading">Neighbouring Countries</h3>
+                            <a href="/backpacking-south-africa/eswatini" role="menuitem">Eswatini</a>
+                            <a href="/backpacking-south-africa/lesotho" role="menuitem">Lesotho</a>
+                        </div>
 
-            </div>
+                    </div>
+
+                </div>
+
+
+                <!-- Mega menu item: Advice -->
+
+                <div class="site-nav__item">
+
+                    <button class="site-nav__mega-trigger"
+                            aria-haspopup="menu"
+                            aria-expanded="false"
+                            aria-controls="mega-advice">
+                        Advice
+                    </button>
+
+                    <div class="site-nav__mega-menu" id="mega-advice" role="menu" aria-label="Advice sections">
+
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">Preparation</h3>
+                            <a href="/backpacking-south-africa-advice/#checklists" role="menuitem">Preflight Checklist</a>
+                            <a href="/backpacking-south-africa-advice/#safety" role="menuitem">Safety</a>
+                            <a href="/backpacking-south-africa-advice/#money" role="menuitem">Money &amp; Budgeting</a>
+                            <a href="/backpacking-south-africa-advice/#medical" role="menuitem">Medical</a>
+                            <a href="/backpacking-south-africa-advice/#embassies" role="menuitem">Embassies</a>
+                            <a href="/backpacking-south-africa-advice/#cannabis" role="menuitem">Cannabis &amp; The Law</a>
+                            <a href="/backpacking-south-africa-advice/#apps" role="menuitem">Useful Apps</a>
+                        </div>
+
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">In-Country</h3>
+                            <a href="/backpacking-south-africa-advice/in-country#emergencies" role="menuitem">Emergencies</a>
+                            <a href="/backpacking-south-africa-advice/in-country#transport" role="menuitem">Transport</a>
+                            <a href="/backpacking-south-africa-advice/in-country#food-and-drink" role="menuitem">Food &amp; Drink</a>
+                            <a href="/backpacking-south-africa-advice/in-country#language" role="menuitem">Language</a>
+                            <a href="/backpacking-south-africa-advice/in-country#etiquette" role="menuitem">African Etiquette</a>
+                            <a href="/backpacking-south-africa-advice/in-country#games" role="menuitem">Fun &amp; Games</a>
+                            <a href="/backpacking-south-africa-advice/in-country#onward-travel" role="menuitem">Onward Travel</a>
+                        </div>
+
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">Specific Interests</h3>
+                            <a href="/backpacking-south-africa-advice/specifics#festivals" role="menuitem">Clubs &amp; Festivals</a>
+                            <a href="/backpacking-south-africa-advice/specifics#digital-nomads" role="menuitem">Digital Nomads</a>
+                            <a href="/backpacking-south-africa-advice/specifics#surfing" role="menuitem">Surfing</a>
+                            <a href="/backpacking-south-africa-advice/specifics#overlanding" role="menuitem">Overlanding</a>
+                            <a href="/backpacking-south-africa-advice/specifics#cycling" role="menuitem">Cycle Touring</a>
+                            <a href="/backpacking-south-africa-advice/specifics#volunteering" role="menuitem">Volunteering</a>
+                            <a href="/backpacking-south-africa-advice/specifics#language-schools" role="menuitem">Language Schools</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Mega menu item: Tours -->
+
+                <div class="site-nav__item">
+
+                    <button class="site-nav__mega-trigger"
+                            aria-haspopup="menu"
+                            aria-expanded="false"
+                            aria-controls="mega-tours">
+                        Tours
+                    </button>
+
+                    <div class="site-nav__mega-menu" id="mega-tours" role="menu" aria-label="Tours and itineraries">
+
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">Self-Drive — Short Stay</h3>
+                            <a href="/backpacking-south-africa-tours/#cape-loop" role="menuitem">One Week: The Cape Loop</a>
+                            <a href="/backpacking-south-africa-tours/#whistle-stop" role="menuitem">Two Weeks: The Whistle-Stop Tour</a>
+                            <a href="/backpacking-south-africa-tours/#northeast-triangle" role="menuitem">Two Weeks: The Northeast Triangle</a>
+                            <a href="/backpacking-south-africa-tours/#grand-cape-loop" role="menuitem">Two Weeks: The Grand Cape Loop</a>
+                            <a href="/backpacking-south-africa-tours/#wild-north" role="menuitem">Two Weeks: The Wild North</a>
+                            <a href="/backpacking-south-africa-tours/#road-less-travelled" role="menuitem">Two Weeks: The Road Less Travelled</a>
+                        </div>
+
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">Self-Drive — Medium Stay</h3>
+                            <a href="/backpacking-south-africa-tours/#backpackers-bible" role="menuitem">Three Weeks: The Backpacker's Bible</a>
+                            <a href="/backpacking-south-africa-tours/#coast-and-karoo" role="menuitem">Three Weeks: Coast &amp; Karoo</a>
+                            <a href="/backpacking-south-africa-tours/#off-the-beaten-track" role="menuitem">Three Weeks: Off The Beaten Track</a>
+                            <h3 class="site-nav__mega-heading">Self-Drive — Long Stay</h3>
+                            <a href="/backpacking-south-africa-tours/#rainbow-nation" role="menuitem">One Month: The Rainbow Nation</a>
+                            <a href="/backpacking-south-africa-tours/#full-monty" role="menuitem">Three Months: The Full Monty</a>
+                        </div>
+
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">Tours &amp; Day Trips</h3>
+                            <a href="/backpacking-south-africa/cape-town#tours" role="menuitem">Cape Town</a>
+                            <a href="/backpacking-south-africa/winelands#tours" role="menuitem">Winelands</a>
+                            <a href="/backpacking-south-africa/west-coast#tours" role="menuitem">West Coast</a>
+                            <a href="/backpacking-south-africa/garden-route#tours" role="menuitem">Garden Route</a>
+                            <a href="/backpacking-south-africa/karoo#tours" role="menuitem">Karoo</a>
+                            <a href="/backpacking-south-africa/route-62#tours" role="menuitem">Route 62</a>
+                            <a href="/backpacking-south-africa/overberg#tours" role="menuitem">The Overberg</a>
+                            <a href="/backpacking-south-africa/sunshine-coast#tours" role="menuitem">Sunshine Coast</a>
+                            <a href="/backpacking-south-africa/durban#tours" role="menuitem">Durban</a>
+                            <a href="/backpacking-south-africa/drakensberg#tours" role="menuitem">Drakensberg</a>
+                            <a href="/backpacking-south-africa/zululand#tours" role="menuitem">Zululand</a>
+                            <a href="/backpacking-south-africa/kruger#tours" role="menuitem">Kruger</a>
+                            <a href="/backpacking-south-africa/johannesburg#tours" role="menuitem">Johannesburg</a>
+                            <a href="/backpacking-south-africa/eswatini#tours" role="menuitem">Eswatini</a>
+                            <a href="/backpacking-south-africa/lesotho#tours" role="menuitem">Lesotho</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+    <a href="/misc/about-backpacking" class="site-nav__link">About Backpacking</a>
+
+    <a href="/misc/backpacking-resources" class="site-nav__link">Resources</a>
+
+            </nav>
 
         </div>
 
     </div>
 
-   <div class="nav-item">
+    <div class="site-header__strip site-header__strip--black"  aria-hidden="true"></div>
+    <div class="site-header__strip site-header__strip--yellow" aria-hidden="true"></div>
+    <div class="site-header__strip site-header__strip--blue"   aria-hidden="true"></div>
+    <div class="site-header__strip site-header__strip--green"  aria-hidden="true"></div>
 
-        <a href="/backpacking-south-africa-advice/" class="mega-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="mega-advice">▾ Advice</a>
-
-        <div class="mega-menu" id="mega-advice" role="region" aria-label="Advice sections">
-
-            <div class="mega-col">
-
-                <h3>Preparation</h3>
-
-                <a href="/backpacking-south-africa-advice/#checklists">Preflight Checklist</a>
-                <a href="/backpacking-south-africa-advice/#safety">Safety</a>
-                <a href="/backpacking-south-africa-advice/#money">Money & Budgeting</a>
-                <a href="/backpacking-south-africa-advice/#medical">Medical</a>
-                <a href="/backpacking-south-africa-advice/#embassies">Embassies</a>
-                <a href="/backpacking-south-africa-advice/#cannabis">Cannabis & The Law</a>
-                <a href="/backpacking-south-africa-advice/#apps">Useful Apps</a>
-
-            </div>
-
-            <div class="mega-col">
-
-                <h3>In-Country</h3>
-
-                <a href="/backpacking-south-africa-advice/in-country#emergencies">Emergencies</a>
-                <a href="/backpacking-south-africa-advice/in-country#transport">Transport</a>
-                <a href="/backpacking-south-africa-advice/in-country#food-and-drink">Food & Drink</a>
-                <a href="/backpacking-south-africa-advice/in-country#language">Language</a>
-                <a href="/backpacking-south-africa-advice/in-country#etiquette">African Etiquette</a>
-                <a href="/backpacking-south-africa-advice/in-country#games">Fun & Games</a>
-                <a href="/backpacking-south-africa-advice/in-country#onward-travel">Onward Travel</a>
-
-            </div>
-
-            <div class="mega-col">
-
-                <h3>Specific Interests</h3>
-
-                <a href="/backpacking-south-africa-advice/specifics#festivals">Clubs & Festivals</a>
-                <a href="/backpacking-south-africa-advice/specifics#digital-nomads">Digital Nomads</a>
-                <a href="/backpacking-south-africa-advice/specifics#surfing">Surfing</a>
-                <a href="/backpacking-south-africa-advice/specifics#overlanding">Overlanding</a>
-                <a href="/backpacking-south-africa-advice/specifics#cycling">Cycle Touring</a>
-                <a href="/backpacking-south-africa-advice/specifics#volunteering">Volunteering</a>
-                <a href="/backpacking-south-africa-advice/specifics#language-schools">Language Schools</a>
-
-            </div>
-            
-        </div>
-    </div>
-
-    <div class="nav-item">
-
-        <a href="/backpacking-south-africa-tours/" class="mega-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="mega-tours">▾ TOURS</a>
-
-        <div class="mega-menu" id="mega-tours" role="region" aria-label="Tours and itineraries">
-
-            <div class="mega-col">
-
-                <h3>Self-Drive Itineraries - Short Stay</h3>
-
-                <a href="/backpacking-south-africa-tours/#cape-loop">ONE WEEK: The Cape Loop</a>
-                <a href="/backpacking-south-africa-tours/#whistle-stop">TWO WEEKS: The Whistle-Stop Tour</a>
-                <a href="/backpacking-south-africa-tours/#northeast-triangle">TWO WEEKS: The Northeast Triangle</a>
-                <a href="/backpacking-south-africa-tours/#grand-cape-loop">TWO WEEKS: The Grand Cape Loop</a>
-                <a href="/backpacking-south-africa-tours/#wild-north">TWO WEEKS: The Wild North</a>
-                <a href="/backpacking-south-africa-tours/#road-less-travelled">TWO WEEKS: The Road Less Travelled</a>
-
-            </div>
-
-            <div class="mega-col">
-
-                <h3>Self-Drive Itineraries - Medium Stay</h3>
-
-                <a href="/backpacking-south-africa-tours/#backpackers-bible">THREE WEEKS: The Backpacker's Bible</a>
-                <a href="/backpacking-south-africa-tours/#coast-and-karoo">THREE WEEKS: Coast & Karoo</a>
-                <a href="/backpacking-south-africa-tours/#off-the-beaten-track">THREE WEEKS: Off The Beaten Track</a>
-                
-                <h3>Self-Drive Itineraries - Long Stay</h3>
-
-                <a href="/backpacking-south-africa-tours/#rainbow-nation">ONE MONTH: The Rainbow Nation</a>
-                <a href="/backpacking-south-africa-tours/#full-monty">THREE MONTHS: The Full Monty</a>
-
-            </div>
-
-            <div class="mega-col">
-
-                <h3>Tours</h3>
-
-                <a href="/backpacking-south-africa/cape-town#tours">Cape Town</a>
-                <a href="/backpacking-south-africa/winelands#tours">Winelands</a>
-                <a href="/backpacking-south-africa/west-coast#tours">West Coast</a>
-                <a href="/backpacking-south-africa/garden-route#tours">Garden Route</a>
-                <a href="/backpacking-south-africa/karoo#tours">Karoo</a>
-                <a href="/backpacking-south-africa/route-62#tours">Route 62</a>
-                <a href="/backpacking-south-africa/overberg#tours">The Overberg</a>
-                <a href="/backpacking-south-africa/sunshine-coast#tours">Sunshine Coast</a>
-                <a href="/backpacking-south-africa/durban#tours">Durban</a>
-                <a href="/backpacking-south-africa/drakensberg#tours">Drakensberg</a>
-                <a href="/backpacking-south-africa/zululand#tours">Zululand</a>
-                <a href="/backpacking-south-africa/kruger#tours">Kruger</a>
-                <a href="/backpacking-south-africa/johannesburg#tours">Johannesburg</a>
-                <a href="/backpacking-south-africa/eswatini#tours">Eswatini</a>
-                <a href="/backpacking-south-africa/lesotho#tours">Lesotho</a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</nav>
-
-        </div>
-
-    </div>
-
-     <!-- Menu end -->
-
-    <div class="strip black"></div>
-    <div class="strip yellow"></div>
-    <div class="strip blue"></div>
-    <div class="strip green"></div>
 
 </header>
 
-     <!-- Header end -->
+<!-- Header end -->
 
-       <!-- srcset image -->
+<div class="header-spacer" aria-hidden="true"></div>
 
-<section class="hero-section">
-  <picture>
-    <source 
-      media="(max-width: 767px)" 
-      srcset="../assets/about_backpackers_bible_mobile.jpg">
+<main id="main-content">
 
-    <source 
-      media="(min-width: 768px)" 
-      srcset="../assets/about_backpackers_bible.jpg">
+    <!-- Hero image -->
 
-    <img 
-      src="../assets/about_backpackers_bible.jpg" 
-      alt="Backpacker with camera" 
-      class="hero-img-fluid"
-      fetchpriority="high">
-  </picture>
-</section>
+    <section class="hero-section">
+        <picture>
+            <source media="(max-width: 767px)" srcset="/assets/about_backpackers_bible_mobile.jpg">
+            <source media="(min-width: 768px)" srcset="/assets/about_backpackers_bible.jpg">
+            <img src="/assets/about_backpackers_bible.jpg"
+                 alt="Backpacker with camera looking over a South African landscape"
+                 class="hero-img-fluid"
+                 fetchpriority="high"
+                 width="1600" height="662">
+        </picture>
+    </section>
 
-     <!-- Content section -->
+    <!-- Intro section -->
 
-<section class="area-hero-container" id="guide">
+    <section class="area-hero-container text-section--after-parallax" id="guide">
 
-    <h1 class="area-hero-title" id="faq">About The Backpacker's Bible</h1>
+        <h1 class="area-hero-title" id="faq">About The Backpacker's Bible</h1>
 
-    <p class="intro-p" style="margin-bottom:70px;">Most travel platforms only show you what's good for their business. We built this guide to show you what's good for yours — your safety, your budget, your holiday. We list every hostel in South Africa, not just those who pay for the privilege. We tell you what other guides won't. And we give you the information you need to have a fantastic trip and come home safely.</p>
+        <p class="intro-p">Most travel platforms only show you what's good for their business. We built this guide to show you what's good for yours — your safety, your budget, your holiday. We list every hostel in South Africa, not just those who pay for the privilege. We tell you what other guides won't. And we give you the information you need to have a fantastic trip and come home safely.</p>
 
-     <!-- Website section cards -->
+        <!-- Website section cards -->
 
-    <div class="cards-grid">
+        <div class="cards-grid">
 
-        <div class="card">
+            <div class="card">
+                <div class="card-header-bg"><h3>Backpacking South Africa</h3></div>
+                <img src="/assets/backpacking_south_africa.jpg" class="card-img" alt="Backpacker on Table Mountain">
+                <p class="card-text">South Africa ROCKS! This diverse destination offers safaris, surf, mountains, deserts, jungles and vibrant culture. The Backpacker's Bible is your ultimate companion, uncovering local secrets.</p>
+                <a href="/backpacking-south-africa/" class="card-btn">Explore</a>
+            </div>
 
-            <div class="card-header-bg"><h3>Backpacking South Africa</h3></div>
+            <div class="card">
+                <div class="card-header-bg"><h3>Choose The Right Hostels</h3></div>
+                <img src="/assets/hostel_guide_72dpi.jpg" class="card-img" alt="Vibe Meter gauge">
+                <p class="card-text">We list every single hostel — which no-one else does. Use our unique tools like the Vibe Meter and Solo Female Friendliness Scorecard to make informed decisions.</p>
+                <a href="/backpacking-south-africa/cape-town#cape-town-hostels" class="card-btn">Explore</a>
+            </div>
 
-            <img src="../assets/backpacking_south_africa.jpg" class="card-img" alt="Backpacker on Table Mountain">
+            <div class="card">
+                <div class="card-header-bg"><h3>The Best Advice</h3></div>
+                <img src="/assets/backpacking_advice_72dpi.jpg" class="card-img" alt="Safety guide">
+                <p class="card-text">Travel smart with essential insights on everything from safety and transport to local etiquette. We break down the complicated bits — like navigating city zones, which areas to avoid, and how to stay safe.</p>
+                <a href="/backpacking-south-africa-advice/" class="card-btn">Explore</a>
+            </div>
 
-            <p class="card-text">South Africa ROCKS! This diverse destination offers safaris, surf, mountains, deserts, jungles and vibrant culture. The Backpacker's Bible is your ultimate companion, uncovering local secrets.</p>
-
-            <a href="../backpacking-south-africa/index.htm" class="card-btn">Explore</a>
-
-        </div>
-
-     <!-- Card -->
-
-        <div class="card">
-
-            <div class="card-header-bg"><h3>Choose The Right Hostels</h3></div>
-
-            <img src="../assets/hostel_guide_72dpi.jpg" class="card-img" alt="Vibe Meter gauge">
-
-            <p class="card-text">We list every single hostel — which no-one else does. Use our unique tools like the Vibe Meter and Solo Female Friendliness Scorecard to make informed decisions.</p>
-
-            <a href="../backpacking-south-africa/cape-town.htm#cape-town-hostels" class="card-btn">Explore</a>
-
-        </div>
-
-     <!-- Card -->
-
-        <div class="card">
-
-            <div class="card-header-bg"><h3>The Best Advice</h3></div>
-
-            <img src="../assets/backpacking_advice_72dpi.jpg" class="card-img" alt="Safety guide">
-
-            <p class="card-text">Travel smart with essential insights on everything from safety and transport to local etiquette. We break down the complicated bits — like navigating city zones, which areas to avoid, and how to stay safe.</p>
-
-            <a href="../backpacking-south-africa-advice/index.htm" class="card-btn">Explore</a>
+            <div class="card">
+                <div class="card-header-bg"><h3>Tours &amp; Itineraries</h3></div>
+                <img src="/assets/tour_of_south_africa_map.jpg" class="card-img" alt="Tour map of South Africa">
+                <p class="card-text">Maximise your adventure with our curated itineraries featuring precise daily distances and transparent cost breakdowns for every budget. Browse top-rated experiences.</p>
+                <a href="/backpacking-south-africa-tours/" class="card-btn">Explore</a>
+            </div>
 
         </div>
 
-     <!-- Card -->
+    </section>
 
-        <div class="card">
+    <!-- Main content -->
 
-            <div class="card-header-bg"><h3>Tours & Itineraries</h3></div>
+    <section class="region-header-section" id="guide-philosophy">
 
-            <img src="../assets/tour_of_south_africa_map.jpg" class="card-img" alt="Tour map">
+        <div class="hostel-container-1200">
 
-            <p class="card-text">Maximise your adventure with our curated itineraries featuring precise daily distances and transparent cost breakdowns for every budget. Browse top-rated experiences.</p>
+            <h2 class="section-heading-desktop area-hero-title--section-gap">Better Information = A Better Holiday</h2>
 
-            <a href="../south-africa-tours/index.htm" class="card-btn">Explore</a>
+            <p class="intro-p">Planning a trip shouldn't be harder than the travel itself. Yet anyone who has ever spent six hours with forty-two browser tabs open knows the struggle: one site has the price, another has the location, a third has a review from 2014, and none of them seem to agree on whether the "free breakfast" is actually just a single piece of dry toast.</p>
+
+            <p class="intro-p">BackpackersBible.com was built to end the tab-fatigue. We are the digital home for the modern nomad — a comprehensive, all-in-one resource designed to give you the full picture without the fluff. One place. Everything you need. Nothing held back.</p>
+
+            <h3 class="sub-heading-desktop">AN AI-ASSISTED, HUMAN-CENTRIC TRAVEL GUIDE</h3>
+
+            <p class="intro-p">Information is everywhere, but clarity is rare. BackpackersBible.com is an AI-assisted travel guide that combines boots-on-the-ground experience with data pulled from across the web — centralised in a way that simply wasn't possible until very recently. Instead of you sifting through dozens of sites with partial information, we collect the essentials — logistics, costs, vibes, and practicalities — in one place, together with genuine local knowledge. So you can spend less time staring at a screen and more time exploring the world.</p>
+
+            <p class="intro-p">We also use AI to surface insights you won't find anywhere else. Our Solo Female Friendliness Scorecard, for example, is not a random number: it weighs the ratio of women posting positive reviews across all platforms (a meaningful signal in itself), combined with factors like whether the hostel has a night receptionist, coded entry, female-only dorms, a reputation for cleanliness, and staff who observe professional boundaries. We apply similar processes to arrive at our Vibe Meter, Value For Money Rating, and Safety Rating. All of it done with you — the traveller — in mind.</p>
+
+            <h3 class="sub-heading-desktop">TRUTH OVER ADVERTISING</h3>
+
+            <p class="intro-p">The internet is full of paid-for sunshine. Most travel sites today are essentially billboards for whoever pays the most, producing guides that say only good things about every hostel, tour, and destination — because that's what keeps the advertisers happy.</p>
+
+            <p class="intro-p">We do things differently. BackpackersBible.com carries no paid advertising and accepts no payment from tourism operators. Our only goal is to give you information that is genuinely useful. If a road is bumpy, we'll say it's bumpy. If a hostel is legendary for its atmosphere but lacks a quiet corner to sleep, you'll know about it. If an area carries real risks, or a particular activity has a dangerous track record, we will tell you — clearly, without softening it for the sake of tourism.</p>
+
+            <p class="intro-p" id="safety-commitment">That last point matters more than most travel guides want to admit. According to the UK's Foreign, Commonwealth and Development Office (FCDO), approximately 4,500 British nationals die abroad every year — and comparable figures apply proportionally across Germany, France, the Netherlands, and the rest of Europe. Across the continent as a whole, the number runs into the tens of thousands annually. Some of those deaths are unavoidable. But some are not, and inadequate or misleading information plays a part in that. We don't know how many people have come to grief in a strange place because a travel guide glossed over the risks to protect the tourism industry's feelings — but we suspect the number is not zero. So throughout this guide, wherever there is something genuinely worth knowing about safety, we say it plainly. That's true for South Africa, and it will be true for every destination we cover.</p>
+
+            <h3 class="sub-heading-desktop">TRANSPARENCY AND CHOICE: OUR BUSINESS MODEL</h3>
+
+            <p class="intro-p">To keep the lights on and the data flowing, we use an affiliate marketing model. If you book through certain links on our site — Booking.com, Hostelworld, or GetYourGuide — we may earn a small commission at no extra cost to you. That's it. No hostels pay us for coverage. No tour operators pay us for recommendations. The affiliate commission is our only revenue stream, and it costs you nothing.</p>
+
+            <p class="intro-p">We are also aware that not everyone wants to use a booking platform. So unlike sites that hide direct contact information to push you through their booking engine, we provide the full contact details for every hostel and operator we list — direct website, phone number, social media, email address, and location. For once, the choice is entirely yours. Use Booking.com if you prefer the interface, or call the hostel direct and perhaps negotiate a better deal. We give you the data; you make the decision.</p>
+
+            <h2 class="sub-heading-desktop">ACCURACY AND CORRECTIONS</h2>
+
+            <p class="intro-p">We strive for 100% accuracy, but the world moves fast. Borders open, prices shift, and even the best hostels change hands. Because we are an AI-assisted platform, we acknowledge that we can occasionally get things wrong or miss a recent update. We don't claim to be infallible — we just claim to be helpful.</p>
+
+            <p class="intro-p">That's where you come in. The Backpacker's Bible is a "human-in-the-loop" project, and we are always open to corrections from the community of travellers who are actually on the ground — because you know things we don't.</p>
+
+            <ul class="intro-p">
+                <li>Spot an error?</li>
+                <li>Have a price update?</li>
+                <li>Were we wrong about a hostel's vibe?</li>
+                <li>Know a hidden gem we missed?</li>
+            </ul>
+
+            <p class="intro-p">Please let us know. You can suggest any corrections or updates by emailing us at:</p>
+
+            <div class="section-cta">
+                <a href="mailto:info@backpackersbible.com" class="download-btn">info@backpackersbible.com</a>
+            </div>
+
+            <p class="intro-p">Please share this guide with fellow backpackers, and tell the hostels that you found them on BackpackersBible.com. Safe travels, and we hope you have a fantastic holiday! <img src="/assets/heart.png" alt="" aria-hidden="true"></p>
+
+            <div class="footer-share">
+                <span id="whatsapp-share-about">SHARE <span class="sr-only">(opens in a new tab)</span></span>
+                <a href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://backpackersbible.com" target="_blank" aria-describedby="whatsapp-share-about">
+                    <img src="/assets/whatsapp_icon_round.png" alt="Share on WhatsApp" class="footer-share__icon">
+                </a>
+            </div>
+
+            <h2 class="area-hero-title area-hero-title--section-gap" id="geoff-louw">The Story Behind the Guide</h2>
+
+            <p class="intro-p"><em>"Geoffrey has a flair for art... his drawings of people and animals are very advanced." That line, lifted straight from his Grade 1 report card, turned out to be prophetic.</em></p>
+
+            <p class="intro-p">This site was produced by Geoff Louw, whose path to digital publishing wasn't entirely linear. After dropping out of civil engineering, he followed that childhood creative spark to study design, first at Technikon Natal in Durban and later at the Inscape Design School in Johannesburg — both highly regarded institutions at the time. He cut his teeth as a storyboard artist at J. Walter Thompson (JWT) in Johannesburg, launching a seven-year career through internationally-affiliated advertising agencies across Johannesburg, Mauritius, Durban, and Cape Town.</p>
+
+            <p class="intro-p">Working as an art director, copywriter, creative director, and finally creative consultant, he spent his days crafting TV, newspaper, and magazine campaigns, alongside extensive graphic design work. Along the way, his work picked up numerous industry awards — though he privately maintained that the accolades were largely nonsense, firmly believing that award juries almost invariably selected the wrong ads.</p>
+
+            <h3 class="section-heading-desktop">Trading Corporate Politics for the Open Road</h3>
+
+            <p class="intro-p">The breaking point came during a flaming row with an agency managing director in Durban. Walking out of the boardroom in a huff, Geoff caught a sudden newsflash on a studio monitor: a global event was unfolding in New York as a plane struck the first tower. Sensing the world was shifting, he dashed across the road to the local pub to watch the news.</p>
+
+            <p class="intro-p">In a uniquely South African twist of irony, the bar lady flatly refused to change the channel — South Africa and Zimbabwe were playing cricket, and to her, the match was infinitely more important than some building across the Atlantic. Eventually, she relented and switched on a TV in the corner. Watching the literal pillars of the corporate world come crashing down, Geoff took it as a sign. He vowed never to live his life in a corporate office again. While he returned to agencies a few times for brief, three-month stints when desperate for cash, his mindset had permanently shifted.</p>
+
+            <p class="intro-p">Seeking a total escape from corporate drudgery, he quit the traditional agency world that day, armed only with a portfolio and just enough website building knowledge to get by. In a backpackers hostel in Durban he discovered <em>Coast to Coast</em> — the iconic little guidebook that served as the pillar of South Africa's backpacking industry for decades.</p>
+
+            <p class="intro-p">Geoff used the book to hunt down hostels that didn't have a web presence yet. He would pitch up at their gates, say, "Hey, I build websites," and end up staying for three months at a time. That hustle is how the legendary Coffee Shack in the Wild Coast got its very first website. Up the coast in Port St Johns, Amapondo Backpackers is still using the brand logo Geoff designed for them back in 2003, despite going through two changes in ownership.</p>
+
+            <p class="intro-p">He fell in love with the backpacker culture. Being around people on holiday means seeing humanity at its best — individuals who genuinely wanted to explore, connect, and be happy, a world away from the friction of office politics.</p>
+
+            <p class="intro-p">For 20 years he travelled, doing his bit in building the digital foundations for the backpacking industry. His philosophy was simple: his job was to attract customers, and how a website looked and felt to a young tourist sitting in Cape Town was a thousand times more important than whether it measured up to rigid technical standards dreamed up by a tech nerd who didn't understand human communication. He has continued this work for today's backpacking escapes, with recent examples being Witsand Poshpackers (<a href="https://www.witsand.co.za" target="_blank" rel="noopener" class="blue-link">www.witsand.co.za</a>) and Karma Backpackers (<a href="https://www.karmalodge.co.za" target="_blank" rel="noopener" class="blue-link">www.karmalodge.co.za</a>).</p>
+
+            <p class="intro-p">A collection of his original visual and design work can still be viewed on his <a href="http://geoffl.yolasite.com" target="_blank" rel="noopener" class="blue-link">graphic design portfolio</a>.</p>
+
+            <h3 class="section-heading-desktop">Building Backpackers Bible</h3>
+
+            <p class="intro-p">That two-decade journey laid the foundation for backpackersbible.com. The site represents Geoff's blueprint for the perfect travel guide: fun, highly informative, and deeply responsible.</p>
+
+            <p class="intro-p">An independent, comprehensive project of this scale would not have been possible without modern technology. Because one person cannot physically step into every single hostel simultaneously, Geoff utilises AI as a sophisticated research partner. By combining his decades of boots-on-the-ground industry knowledge with AI's ability to analyse and cross-reference thousands of real traveller reviews, the project brings a new level of technical accuracy, current safety data, and objective analysis to the youth travel space, all while keeping the focus firmly on the actual human experience, and what people actually want when they go on holiday — in a word, Fun. With a capital F.</p>
 
         </div>
 
-    </div>
+    </section>
 
-</section>
-
-<section class="region-header-section">
-
-        <div class="hostel-container-1200" style="margin-top:30px;margin-bottom:60px;">
-
-            <h2 class="section-heading-desktop" id="guide-philosophy">Better Information = A Better Holiday</h2>
-
-        </div>
-
-<p class="intro-p">Planning a trip shouldn't be harder than the travel itself. Yet anyone who has ever spent six hours with forty-two browser tabs open knows the struggle: one site has the price, another has the location, a third has a review from 2014, and none of them seem to agree on whether the "free breakfast" is actually just a single piece of dry toast.</p>
-
-<p class="intro-p">BackpackersBible.com was built to end the tab-fatigue. We are the digital home for the modern nomad — a comprehensive, all-in-one resource designed to give you the full picture without the fluff. One place. Everything you need. Nothing held back.</p>
-
-
-    <h3 class="sub-heading-desktop">AN AI-ASSISTED, HUMAN-CENTRIC TRAVEL GUIDE</h3>
-
-
-<p class="intro-p">Information is everywhere, but clarity is rare. BackpackersBible.com is an AI-assisted travel guide that combines boots-on-the-ground experience with data pulled from across the web — centralised in a way that simply wasn't possible until very recently. Instead of you sifting through dozens of sites with partial information, we collect the essentials — logistics, costs, vibes, and practicalities — in one place, together with genuine local knowledge. So you can spend less time staring at a screen and more time exploring the world.</p>
-
-<p class="intro-p">We also use AI to surface insights you won't find anywhere else. Our Solo Female Friendliness Scorecard, for example, is not a random number: it weighs the ratio of women posting positive reviews across all platforms (a meaningful signal in itself), combined with factors like whether the hostel has a night receptionist, coded entry, female-only dorms, a reputation for cleanliness, and staff who observe professional boundaries. We apply similar processes to arrive at our Vibe Meter, Value For Money Rating, and Safety Rating. All of it done with you — the traveller — in mind.</p>
-
-
-    <h3 class="sub-heading-desktop">TRUTH OVER ADVERTISING</h3>
-
-
-<p class="intro-p">The internet is full of paid-for sunshine. Most travel sites today are essentially billboards for whoever pays the most, producing guides that say only good things about every hostel, tour, and destination — because that's what keeps the advertisers happy.</p>
-
-<p class="intro-p">We do things differently. BackpackersBible.com carries no paid advertising and accepts no payment from tourism operators. Our only goal is to give you information that is genuinely useful. If a road is bumpy, we'll say it's bumpy. If a hostel is legendary for its atmosphere but lacks a quiet corner to sleep, you'll know about it. If an area carries real risks, or a particular activity has a dangerous track record, we will tell you — clearly, without softening it for the sake of tourism.</p>
-
-<p class="intro-p" id="safety-commitment">That last point matters more than most travel guides want to admit. According to the UK's Foreign, Commonwealth and Development Office (FCDO), approximately 4,500 British nationals die abroad every year — and comparable figures apply proportionally across Germany, France, the Netherlands, and the rest of Europe. Across the continent as a whole, the number runs into the tens of thousands annually. Some of those deaths are unavoidable. But some are not, and inadequate or misleading information plays a part in that. We don't know how many people have come to grief in a strange place because a travel guide glossed over the risks to protect the tourism industry's feelings — but we suspect the number is not zero. So throughout this guide, wherever there is something genuinely worth knowing about safety, we say it plainly. That's true for South Africa, and it will be true for every destination we cover.</p>
-
-
-    <h3 class="sub-heading-desktop">TRANSPARENCY AND CHOICE: OUR BUSINESS MODEL</h3>
-
-
-<p class="intro-p">To keep the lights on and the data flowing, we use an affiliate marketing model. If you book through certain links on our site — Booking.com, Hostelworld, or GetYourGuide — we may earn a small commission at no extra cost to you. That's it. No hostels pay us for coverage. No tour operators pay us for recommendations. The affiliate commission is our only revenue stream, and it costs you nothing.</p>
-
-<p class="intro-p">We are also aware that not everyone wants to use a booking platform. So unlike sites that hide direct contact information to push you through their booking engine, we provide the full contact details for every hostel and operator we list — direct website, phone number, social media, email address, and location. For once, the choice is entirely yours. Use Booking.com if you prefer the interface, or call the hostel direct and perhaps negotiate a better deal. We give you the data; you make the decision.</p>
-
-
-    <h2 class="sub-heading-desktop">ACCURACY AND CORRECTIONS</h2>
-
-
-<p class="intro-p">We strive for 100% accuracy, but the world moves fast. Borders open, prices shift, and even the best hostels change hands. Because we are an AI-assisted platform, we acknowledge that we can occasionally get things wrong or miss a recent update. We don't claim to be infallible — we just claim to be helpful.</p>
-
-<p class="intro-p">That's where you come in. The Backpacker's Bible is a "human-in-the-loop" project, and we are always open to corrections from the community of travellers who are actually on the ground — because you know things we don't.</p>
-
-<p class="intro-p" style="text-align:left;">
-• Spot an error?
-<br>
-• Have a price update?
-<br>
-• Were we wrong about a hostel's vibe?
-<br>
-• Know a hidden gem we missed?
-</p>
-
-<p class="intro-p">Please let us know. You can suggest any corrections or updates by emailing us at: </p>
-
-<center>
-                <a href="mailto:info@backpackersbible.com" class="download-btn" style="margin-top:60px;margin-bottom:70px;">info@backpackersbible.com</a>
-</center>
-
-
-<p class="intro-p" style="margin-bottom: 50px">Please share this guide with fellow backpackers, and tell the hostels that you found them on BackpackersBible.com. Safe travels, and we hope you have a fantastic holiday! <img src="../assets/heart.png" alt="heart"></p>
-
-<div class="footer-share">
-            <span>SHARE</span>
-            <a href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://backpackersbible.com" target="_blank">
-                <img src="../assets/whatsapp_icon_round.png" alt="WA" style="width:80px; height:80px;">
-            </a>
-        </div>
-
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 60px; width: 100%; display: block; margin-top: 0px; background-color: #ffd400;">
-</div>
-
-<div class="hide-on-desktop" style="height: 30px; width: 100%; display: block; background-color: #ffd400;">
-</div>
-
-
-
-
-<h2 class="area-hero-title" id="geoff-louw">The Story Behind the Guide</h2>
-
-<p class="intro-p"><em>
-  "Geoffrey has a flair for art... his drawings of people and animals are very advanced." That line, lifted straight from his Grade 1 report card, turned out to be prophetic. 
-</em></p>
-
-<p class="intro-p">
-  This site was produced by Geoff Louw, whose path to digital publishing wasn't entirely linear. After dropping out of civil engineering, he followed that childhood creative spark to study design, first at Technikon Natal in Durban and later at the Inscape Design School in Johannesburg—both highly regarded institutions at the time. He cut his teeth as a storyboard artist at J. Walter Thompson (JWT) in Johannesburg, launching a seven-year career through internationally-affiliated advertising agencies across Johannesburg, Mauritius, Durban, and Cape Town. 
-</p>
-
-<p class="intro-p">
-  Working as an art director, copywriter, creative director, and finally creative consultant, he spent his days crafting TV, newspaper, and magazine campaigns, alongside extensive graphic design work. Along the way, his work picked up numerous industry awards—though he privately maintained that the accolades were largely nonsense, firmly believing that award juries almost invariably selected the wrong ads. 
-</p>
-
-<h3 class="section-heading-desktop">Trading Corporate Politics for the Open Road</h3>
-
-<p class="intro-p">
-  The breaking point came during a flaming row with an agency managing director in Durban. Walking out of the boardroom in a huff, Geoff caught a sudden newsflash on a studio monitor: a global event was unfolding in New York as a plane struck the first tower. Sensing the world was shifting, he dashed across the road to the local pub to watch the news. 
-</p>
-
-<p class="intro-p">
-  In a uniquely South African twist of irony, the bar lady flatly refused to change the channel—South Africa and Zimbabwe were playing cricket, and to her, the match was infinitely more important than some building across the Atlantic. Eventually, she relented and switched on a TV in the corner. Watching the literal pillars of the corporate world come crashing down, Geoff took it as a sign. He vowed never to live his life in a corporate office again. While he returned to agencies a few times for brief, three-month stints when desperate for cash, his mindset had permanently shifted.
-</p>
-
-<p class="intro-p">
-  Seeking a total escape from corporate drudgery, he quit the traditional agency world that day, armed only with a portfolio and just enough website building knowledge to get by. In a backpackers hostel in Durban he discovered <em>Coast to Coast</em>—the iconic little guidebook that served as the pillar of South Africa's backpacking industry for decades. 
-</p>
-
-<p class="intro-p">
-  Geoff used the book to hunt down hostels that didn't have a web presence yet. He would pitch up at their gates, say, "Hey, I build websites," and end up staying for three months at a time. That hustle is how the legendary Coffee Shack in the Wild Coast got its very first website. Up the coast in Port St Johns, Amapondo Backpackers is still using the brand logo Geoff designed for them back in 2003, despite going through two changes in ownership. 
-</p>
-
-<p class="intro-p">
-  He fell in love with the backpacker culture. Being around people on holiday means seeing humanity at its best—individuals who genuinely wanted to explore, connect, and be happy, a world away from the friction of office politics. 
-</p>
-
-<p class="intro-p">
-  For 20 years he travelled, doing his bit in building the digital foundations for the backpacking industry. His philosophy was simple: his job was to attract customers, and how a website looked and felt to a young tourist sitting in Cape Town was a thousand times more important than whether it measured up to rigid technical standards dreamed up by a tech nerd who didn't understand human communication. He has continued this work for today's backpacking escapes, with recent examples being Witsand Poshpackers (<a href="https://www.witsand.co.za" target="_blank" rel="noopener" class="blue-link">www.witsand.co.za</a>) and Karma Backpackers (<a href="https://www.karmalodge.co.za" target="_blank" rel="noopener" class="blue-link">www.karmalodge.co.za</a>).
-</p>
-
-<p class="intro-p">
-  A collection of his original visual and design work can still be viewed on his <a href="http://geoffl.yolasite.com" target="_blank" rel="noopener" class="blue-link">graphic design portfolio</a>.
-</p>
-
-<h3 class="section-heading-desktop">Building Backpackers Bible</h3>
-
-<p class="intro-p">
-  That two-decade journey laid the foundation for backpackersbible.com. The site represents Geoff’s blueprint for the perfect travel guide: fun, highly informative, and deeply responsible. 
-</p>
-
-<p class="intro-p">
-  An independent, comprehensive project of this scale would not have been possible without modern technology. Because one person cannot physically step into every single hostel simultaneously, Geoff utilises AI as a sophisticated research partner. By combining his decades of boots-on-the-ground industry knowledge with AI's ability to analyse and cross-reference thousands of real traveller reviews, the project brings a new level of technical accuracy, current safety data, and objective analysis to the youth travel space, all while keeping the focus firmly on the actual human experience, and what people actually want when they go on holiday—in a word, Fun. With a capital F.
-</p>
-
-     <!-- Spacer -->
-
-<div class="hide-on-mobile" style="height: 60px; width: 100%; display: block; margin-top: 0px; background-color: #ffd400;">
-</div>
-
-<div class="hide-on-desktop" style="height: 30px; width: 100%; display: block; background-color: #ffd400;">
-</div>
-
-
-
-
-</section>
-
-     <!-- Parallax image -->
+    <!-- Parallax image -->
 
     <div class="strip black"></div>
-<div class="parallax-window" style="background-image: url('../assets/backpacking_cape_town.jpg');"></div>
-
-
-     <!-- Content section end -->
-
-    <!-- Footer start -->
+    <div class="parallax-window" style="background-image: url('/assets/backpacking_cape_town.jpg');"></div>
 
 </main>
 
 <footer role="contentinfo">
 
-    <div class="strip black"></div>
+    <div class="f-strip black"></div>
 
     <section class="affiliate-disclosure">
 
-        <h4>Please Support The Backpacker’s Bible</h4>
+        <h4>Please Support The Backpacker's Bible</h4>
         <p class="disclosure-text">If you find this guide useful, please book through us. We use affiliate links to help keep the guide going, and will receive a small commission - at no extra cost to you - when you hit the Booking.com, Hostelworld or GetYourGuide buttons. <a href="/misc/affiliate-links-disclosure">MORE INFO...</a></p>
-        
-<p class="disclosure-text">Not everyone wants to use booking platforms though, so we've provided the hostels' full contact details too. Please tell the hostels that you found them on BackpackersBible.com. Share the love of travelling by clicking the WhatsApp icon below to send the link to fellow travellers. </p>
 
-<p class="disclosure-text">Thank you. Safe travels, and may you have a fantastic holiday! <img src="/assets/heart.png" alt="" aria-hidden="true"></p>
+        <p class="disclosure-text">Not everyone wants to use booking platforms though, so we've provided the hostels' full contact details too. Please tell the hostels that you found them on BackpackersBible.com. Share the love of travelling by clicking the WhatsApp icon below to send the link to fellow travellers.</p>
 
-<CENTER>
+        <p class="disclosure-text">Thank you. Safe travels, and may you have a fantastic holiday! <img src="/assets/heart.png" alt="" aria-hidden="true"></p>
 
-            <img src="/assets/hand-phone__backpacking_map_small2.png" alt="Backpacking guide on mobile phone" style="margin: 20px 0px -5px 0px">
-
-                <a href="/pdf/Backpackers_Bible_Lite-South_Africa.pdf" target="_blank" class="download-btn-yellow" style="margin: 0px 0px 20px 0px">DOWNLOAD THE FREE OFFLINE GUIDE </a>
-
-</CENTER>
-
-                <p class="file-specs" style="margin-bottom:50px;">(PDF - 3,5mb)</p>
+        <div class="affiliate-disclosure__cta">
+            <img src="/assets/hand-phone__backpacking_map_small2.png" alt="Backpacking guide on mobile phone">
+            <a href="/pdf/Backpackers_Bible_Lite-South_Africa.pdf" target="_blank" class="download-btn-yellow" aria-describedby="pdf-info">DOWNLOAD THE FREE OFFLINE GUIDE <span class="sr-only">(opens in a new tab)</span></a>
+            <p class="file-specs" id="pdf-info">(Interactive PDF - 800kb)</p>
+        </div>
 
     </section>
 
@@ -733,9 +658,9 @@
     <div class="f-strip green"></div>
 
     <section class="footer-main-red">
-        
+
         <a href="https://backpackersbible.com">
-            <img src="/assets/backpackers_bible_logo_250x250.png" alt="Logo" class="footer-logo">
+            <img src="/assets/backpackers_bible_logo_250x250.png" alt="Backpackers Bible logo" class="footer-logo">
         </a>
         <h2 class="footer-brand">BackpackersBible.com</h2>
         <p class="footer-payoff">The World In Your Pocket</p>
@@ -752,27 +677,18 @@
             <a href="/misc/about-backpackers-bible">About Us</a>
         </nav>
 
-<div class="hide-on-desktop">
-<div style="height: 30px; width: 100%; display: block;"></div>
-</div>
-
-<div class="footer-share">
-            <span>SHARE</span>
+        <div class="footer-share">
+            <span id="whatsapp-share">SHARE <span class="sr-only">(opens in a new tab)</span></span>
             <a href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://backpackersbible.com" target="_blank">
-                <img src="/assets/whatsapp_icon_round.png" alt="Share on WhatsApp" style="width:45px; height:45px;">
+                <img src="/assets/whatsapp_icon_round.png" alt="WhatsApp icon" class="footer-share__icon" aria-describedby="whatsapp-share">
             </a>
         </div>
 
     </section>
 
     <div class="footer-contribute">
-       Help keep this guide up-to-date and accurate:
-<br>
-<span class="contact-link-multi"></span>
-
-<div class="hide-on-desktop">
-<div style="height: 20px; width: 100%; display: block;"></div>
-</div>
+        Help keep this guide up-to-date and accurate:<br>
+        <span class="contact-link-multi"></span>
     </div>
 
     <div class="footer-copyright">
@@ -781,52 +697,51 @@
 
 </footer>
 
-     <!-- Footer end -->
-
-<button id="backToTop" class="back-to-top" aria-label="Back to top">
-  <span class="arrow-up"></span>
-</button>
-
-<div id="cookie-banner" class="cookie-container">
-    <div class="cookie-content">
-        <p>This guide uses cookies to improve your experience and keep it free. <a href=../"misc/cookies.htm">Read our Cookie Policy.</a></p>
-        <div class="cookie-buttons">
-            <button id="accept-cookies" class="cookie-btn accept">Accept All</button>
-            <button id="decline-cookies" class="cookie-btn decline">Necessary Only</button>
-        </div>
+<div id="ma">
+    <img id="ma-img" src="/assets/_god_6.png" alt="">
+    <div id="ma-bubble">
+        <div id="t-out"></div>
+        <div id="t-in"></div>
+        <p id="ma-text">Welcome to the Backpackers Bible!</p>
+        <a id="ma-link" href="/">Discover more</a>
     </div>
 </div>
 
      <!-- Mobile menu -->
 
-<div id="mobile-menu" style="position: fixed !important; z-index: 99999 !important;" role="dialog" aria-modal="true" aria-label="Navigation menu" hidden>
+<div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu" hidden>
 
-    <span class="close-btn" onclick="toggleMobileMenu()" role="button" aria-label="Close navigation menu" tabindex="0">&times;</span>
+    <!-- Close button -->
+    <button class="mobile-menu__close" id="mobile-menu-close" aria-label="Close navigation menu">&times;</button>
 
-    <!-- Search bar (mobile) -->
-
-    <div class="mobile-search site-search-wrap">
-      <div class="site-search-bar" onclick="document.getElementById('search-input-mobile').focus()">
-        <input id="search-input-mobile" type="search" placeholder="Search this site..." autocomplete="off"
-               aria-label="Search this site" aria-autocomplete="list" aria-controls="search-results-mobile"
-               oninput="runSearch(this.value,'search-results-mobile')"
-               onfocus="if(this.value) document.getElementById('search-results-mobile').classList.add('open')"
-               onblur="setTimeout(()=>document.getElementById('search-results-mobile').classList.remove('open'),500)">
-        <span class="search-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false">
-            <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
-          </svg>
-        </span>
-      </div>
-      <div id="search-results-mobile" class="search-results" role="listbox" aria-live="polite" aria-label="Search results"></div>
+    <!-- Search bar -->
+    <div class="mobile-menu__search" role="search">
+        <div class="mobile-menu__search-bar">
+            <span class="mobile-menu__search-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
+                </svg>
+            </span>
+            <input  id="mobile-menu-search-input"
+                    class="mobile-menu__search-input"
+                    type="search"
+                    placeholder="Search this site..."
+                    autocomplete="off"
+                    aria-label="Search this site"
+                    aria-autocomplete="list"
+                    aria-controls="mobile-menu-search-results"
+                    aria-expanded="false">
+        </div>
+        <!-- Results portal created by JS — this div is removed and replaced -->
+        <div id="mobile-menu-search-results" class="mobile-menu__search-results" role="listbox" aria-live="polite" aria-label="Search results"></div>
     </div>
 
-    <a href="/">HOME</a>
+    <!-- Nav links -->
+    <a href="/">Home</a>
 
-    <button class="accordion" onclick="toggleAccordion(this)" aria-expanded="false" aria-controls="panel-regions">BACKPACKING SOUTH AFRICA</button>
+    <button class="accordion" aria-expanded="false" aria-controls="panel-regions">BACKPACKING SOUTH AFRICA</button>
 
     <div class="panel" id="panel-regions" role="region" aria-label="Backpacking South Africa regions">
-
         <a href="/backpacking-south-africa/">Regions Map / Full Hostel Directory</a>
         <a href="/backpacking-south-africa/cape-town">Cape Town</a>
         <a href="/backpacking-south-africa/winelands">Winelands</a>
@@ -855,52 +770,41 @@
         <a href="/backpacking-south-africa/northern-cape">Northern Cape</a>
         <a href="/backpacking-south-africa/eswatini">Eswatini</a>
         <a href="/backpacking-south-africa/lesotho">Lesotho</a>
-
     </div>
 
-    <button class="accordion" onclick="toggleAccordion(this)" aria-expanded="false" aria-controls="panel-advice">ADVICE</button>
+    <button class="accordion" aria-expanded="false" aria-controls="panel-advice">ADVICE</button>
 
     <div class="panel" id="panel-advice" role="region" aria-label="Advice sections">
-
-                <h3 style="color: #fff; font-size: 1.4rem; font-weight: normal; margin-top: 3rem; ">PREPARATION</h3>
-
+        <h3>Preparation</h3>
         <a href="/backpacking-south-africa-advice/#checklists">Preflight Checklists</a>
         <a href="/backpacking-south-africa-advice/#safety">Safety</a>
         <a href="/backpacking-south-africa-advice/#money">Money</a>
         <a href="/backpacking-south-africa-advice/#medical">Medical</a>
         <a href="/backpacking-south-africa-advice/#embassies">Embassies</a>
-        <a href="/backpacking-south-africa-advice/#cannabis">Cannabis & The Law</a>
+        <a href="/backpacking-south-africa-advice/#cannabis">Cannabis &amp; The Law</a>
         <a href="/backpacking-south-africa-advice/#apps">Useful Apps</a>
-
-                <h3 style="color: #fff; font-size: 1.4rem; font-weight: normal; margin-top: 3rem; ">IN-COUNTRY</h3>
-
+        <h3>In-Country</h3>
         <a href="/backpacking-south-africa-advice/in-country#emergencies">Emergencies</a>
         <a href="/backpacking-south-africa-advice/in-country#transport">Transport</a>
-        <a href="/backpacking-south-africa-advice/in-country#food-and-drink">Food & Drink</a>
+        <a href="/backpacking-south-africa-advice/in-country#food-and-drink">Food &amp; Drink</a>
         <a href="/backpacking-south-africa-advice/in-country#language">Language</a>
         <a href="/backpacking-south-africa-advice/in-country#etiquette">African Etiquette</a>
-        <a href="/backpacking-south-africa-advice/in-country#games">Fun & Games</a>
+        <a href="/backpacking-south-africa-advice/in-country#games">Fun &amp; Games</a>
         <a href="/backpacking-south-africa-advice/specifics#onward-travel">Onward Travel</a>
-
-
-                <h3 style="color: #fff; font-size: 1.4rem; font-weight: normal; margin-top: 3rem; ">SPECIFIC INTERESTS</h3>
-
-        <a href="/backpacking-south-africa-advice/specifics#festivals">Festivals & Clubs</a>
+        <h3>Specific Interests</h3>
+        <a href="/backpacking-south-africa-advice/specifics#festivals">Festivals &amp; Clubs</a>
         <a href="/backpacking-south-africa-advice/specifics#surfing">Surfing</a>
         <a href="/backpacking-south-africa-advice/specifics#digital-nomads">Digital Nomads</a>
         <a href="/backpacking-south-africa-advice/specifics#overlanding">Overlanding</a>
         <a href="/backpacking-south-africa-advice/specifics#cycling">Cycle Touring</a>
         <a href="/backpacking-south-africa-advice/specifics#volunteering">Volunteering</a>
         <a href="/backpacking-south-africa-advice/specifics#language-schools">Language Schools</a>
-
     </div>
 
-    <button class="accordion" onclick="toggleAccordion(this)" aria-expanded="false" aria-controls="panel-tours">TOURS</button>
+    <button class="accordion" aria-expanded="false" aria-controls="panel-tours">TOURS</button>
 
-    <div class="panel" id="panel-advice" role="region" aria-label="Advice sections">
-
-                <h3 style="color: #fff; font-size: 1.4rem; font-weight: normal; margin-top: 3rem; ">SELF-DRIVE ITINERARIES</h3>
-
+    <div class="panel" id="panel-tours" role="region" aria-label="Tours and itineraries">
+        <h3>Self-Drive Itineraries</h3>
         <a href="/backpacking-south-africa-tours/#cape-loop">1 Week: The Cape Loop</a>
         <a href="/backpacking-south-africa-tours/#whistlestop">2 Weeks: The Whistlestop Tour</a>
         <a href="/backpacking-south-africa-tours/#northeast-triangle">2 Weeks: The Northeast Triangle</a>
@@ -908,88 +812,76 @@
         <a href="/backpacking-south-africa-tours/#wild-north">2 Weeks: The Wild North</a>
         <a href="/backpacking-south-africa-tours/#road-less-travelled">2 Weeks: The Road Less Travelled</a>
         <a href="/backpacking-south-africa-tours/#backpackers-bible">3 Weeks: The Backpacker's Bible</a>
-        <a href="/backpacking-south-africa-tours/#coast-and-karoo">3 Weeks: Coast & Karoo</a>
+        <a href="/backpacking-south-africa-tours/#coast-and-karoo">3 Weeks: Coast &amp; Karoo</a>
         <a href="/backpacking-south-africa-tours/#off-the-beaten-track">3 Weeks: Off The Beaten Track</a>
         <a href="/backpacking-south-africa-tours/#rainbow-nation">1 Month: The Rainbow Nation</a>
         <a href="/backpacking-south-africa-tours/#full-monty">3 Months: The Full Monty</a>
-
-                <h3 style="color: #fff; font-size: 1.4rem; font-weight: normal; margin-top: 3rem; ">TOURS / DAY TRIPS</h3>
-
-                <a href="/backpacking-south-africa/cape-town#tours">Cape Town</a>
-                <a href="/backpacking-south-africa/winelands#tours">Winelands</a>
-                <a href="/backpacking-south-africa/west-coast#tours">West Coast</a>
-                <a href="/backpacking-south-africa/garden-route#tours">Garden Route</a>
-                <a href="/backpacking-south-africa/karoo#tours">Karoo</a>
-                <a href="/backpacking-south-africa/route-62#tours">Route 62</a>
-                <a href="/backpacking-south-africa/overberg#tours">The Overberg</a>
-                <a href="/backpacking-south-africa/sunshine-coast#tours">Sunshine Coast</a>
-                <a href="/backpacking-south-africa/durban#tours">Durban</a>
-                <a href="/backpacking-south-africa/drakensberg#tours">Drakensberg</a>
-                <a href="/backpacking-south-africa/zululand#tours">Zululand</a>
-                <a href="/backpacking-south-africa/kruger#tours">Kruger</a>
-                <a href="/backpacking-south-africa/johannesburg#tours">Johannesburg</a>
-                <a href="/backpacking-south-africa/eswatini#tours">Eswatini</a>
-                <a href="/backpacking-south-africa/lesotho#tours">Lesotho</a>
-
+        <h3>Tours &amp; Day Trips</h3>
+        <a href="/backpacking-south-africa/cape-town#tours">Cape Town</a>
+        <a href="/backpacking-south-africa/winelands#tours">Winelands</a>
+        <a href="/backpacking-south-africa/west-coast#tours">West Coast</a>
+        <a href="/backpacking-south-africa/garden-route#tours">Garden Route</a>
+        <a href="/backpacking-south-africa/karoo#tours">Karoo</a>
+        <a href="/backpacking-south-africa/route-62#tours">Route 62</a>
+        <a href="/backpacking-south-africa/overberg#tours">The Overberg</a>
+        <a href="/backpacking-south-africa/sunshine-coast#tours">Sunshine Coast</a>
+        <a href="/backpacking-south-africa/durban#tours">Durban</a>
+        <a href="/backpacking-south-africa/drakensberg#tours">Drakensberg</a>
+        <a href="/backpacking-south-africa/zululand#tours">Zululand</a>
+        <a href="/backpacking-south-africa/kruger#tours">Kruger</a>
+        <a href="/backpacking-south-africa/johannesburg#tours">Johannesburg</a>
+        <a href="/backpacking-south-africa/eswatini#tours">Eswatini</a>
+        <a href="/backpacking-south-africa/lesotho#tours">Lesotho</a>
     </div>
 
-    <a href="/#download-pwa"><strong>★ FREE HOSTEL GUIDE!</strong> <br> <span style="font-size:0.9rem;">(PDF or App)</span></a>
+    <a href="/misc/about-backpacking">About Backpacking</a>
 
-            
-            <a href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://backpackersbible.com" target="_blank">
+    <a href="/misc/backpacking-resources">Resources</a>
 
-                <img src="/assets/whatsapp_icon_round.png" alt="Share on WhatsApp" style="width:45px; height:45px;">
+    <!-- CTA -->
+    <a href="/pdf/Backpackers_Bible_Lite-South_Africa.pdf" target="_blank"><strong>★ FREE HOSTEL GUIDE!</strong><br> <span style="font-size:0.9rem;">(Interactive PDF - 800kb)</span><span class="sr-only">(opens in a new tab)</span></a>
 
-            <br>
+    <!-- WhatsApp share -->
+    <a class="mobile-menu__share"
+       href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://backpackersbible.com"
+       target="_blank"
+       rel="noopener noreferrer">
+        <img src="/assets/whatsapp_icon_round.png" alt="Share on WhatsApp" width="45" height="45">
+        SHARE <span class="sr-only">(opens in a new tab)</span>
+    </a>
 
-            SHARE</a>
+</div>
 
-            </div>
-
-<!-- Search functionality -->
+<!-- ARIA overrides for mobile menu and accordion are in script-2.js -->
 
 <script>
-(function() {
-  var SEARCH_DATA = [];
-
-  fetch('/search.json')
-    .then(function(r) { return r.json(); })
-    .then(function(data) { SEARCH_DATA = data; })
-    .catch(function() { SEARCH_DATA = []; });
-
-  window.runSearch = function(query, resultsId) {
-    var box = document.getElementById(resultsId);
-    if (!box) return;
-    var q = query.trim().toLowerCase();
-    if (!q) { box.classList.remove('open'); box.innerHTML = ''; return; }
-
-    var matches = SEARCH_DATA.filter(function(item) {
-      return item.title.toLowerCase().includes(q) || item.desc.toLowerCase().includes(q);
-    }).slice(0, 8);
-
-    if (!matches.length) {
-      box.innerHTML = '<div class="search-no-results">No results for "' + escHtml(query) + '"</div>';
-    } else {
-      box.innerHTML = matches.map(function(m) {
-        return '<a class="search-result-item" href="' + m.url + '">'
-          + '<strong>' + highlight(m.title, q) + '</strong>'
-          + '<span>' + highlight(m.desc, q) + '</span>'
-          + '</a>';
-      }).join('');
-    }
-    box.classList.add('open');
-  };
-
-  function escHtml(s) {
-    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-  }
-  function highlight(text, q) {
-    var re = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')', 'gi');
-    return escHtml(text).replace(re, '<mark style="background:#fce8ed;color:#bc1d23;border-radius:2px;">$1</mark>');
-  }
-})();
+/* Page-specific tour guide tips */
+window.BB_TIPS = [
+    { trigger: 'guide-philosophy', side: 'left',
+      img:  '/assets/_god_3.png',
+      text: 'Want to explore South Africa? Check out my complete hostel directory!',
+      href: '/backpacking-south-africa/' },
+    { trigger: 'geoff-louw', side: 'right',
+      img:  '/assets/_god_4.png',
+      text: 'Download the free offline guide — works without wifi!',
+      href: '/#download-pwa' }
+];
 </script>
+<script src="/js/tourguide.js" defer></script>
 
+<button id="backToTop" class="back-to-top" aria-label="Back to top">
+    <span class="arrow-up"></span>
+</button>
+
+<div id="cookie-banner" class="cookie-container">
+    <div class="cookie-content">
+        <p>This guide uses cookies to improve your experience and keep it free. <a href="/misc/privacy">Read our Cookie Policy.</a></p>
+        <div class="cookie-buttons">
+            <button class="cookie-btn accept" id="cookie-accept">Accept</button>
+            <button class="cookie-btn decline" id="cookie-decline">Decline</button>
+        </div>
+    </div>
+</div>
 
 <!-- Default Statcounter code for Backpackers Bible
 https://www.backpackersbible.com/ -->
