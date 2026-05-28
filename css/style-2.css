@@ -3588,3 +3588,84 @@ img.bb-marker-icon {
         font-size: 1rem;
     }
 }
+
+
+/* ============================================================
+   29. ABOUT PAGE — CARDS GRID
+   Used on the about-backpackers-bible page.
+   Verbatim from style.css, cleaned up.
+   ============================================================ */
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 1100px;
+    gap: 40px;
+    justify-content: center;
+    margin: 2rem auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.card {
+    background-color: #e7bd1d;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    justify-content: flex-start;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-header-bg {
+    background-color: var(--color-red);
+    height: 35px;
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.card-header-bg h3 {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin: 0;
+    padding: 0;
+    line-height: 35px;
+    text-align: center;
+}
+
+.card-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    width: 100%;
+    max-width: 460px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    text-align: center;
+    flex-grow: 0;
+}
+
+.hostel-container-1200 {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1000px) {
+    .cards-grid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+    }
+    .card {
+        width: 100%;
+        height: auto;
+        padding-bottom: 30px;
+    }
+}
