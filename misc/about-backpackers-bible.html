@@ -49,11 +49,12 @@
 {
   "@context": "https://schema.org",
   "@graph": [
+
     {
       "@type": "Organization",
       "@id": "https://www.backpackersbible.com/#organization",
       "name": "BackpackersBible.com",
-      "url": "https://backpackersbible.com",
+      "url": "https://www.backpackersbible.com/",
       "logo": {
         "@type": "ImageObject",
         "url": "https://www.backpackersbible.com/assets/backpackers_bible_logo_250x250.png",
@@ -62,17 +63,31 @@
       },
       "description": "Independent, non-advertiser-biased backpacker guides to South Africa and beyond. Every hostel listed, direct contact details, honest safety information, and write-ups that tell the full story.",
       "email": "info@backpackersbible.com"
-      ]
     },
+
+    {
+      "@type": "Person",
+      "@id": "https://www.backpackersbible.com/#geoff-louw",
+      "name": "Geoff Louw",
+      "jobTitle": "Travel Writer, Designer and Creative Consultant",
+      "url": "https://www.backpackersbible.com/misc/about-backpackers-bible",
+      "worksFor": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      }
+    },
+
     {
       "@type": "WebSite",
       "@id": "https://www.backpackersbible.com/#website",
-      "url": "https://www.backpackersbible.com",
+      "url": "https://www.backpackersbible.com/",
       "name": "BackpackersBible.com",
       "description": "The ultimate independent guide to backpacking South Africa — free offline hostel guide, regional write-ups, safety advice, itineraries, and more.",
-      "publisher": { "@id": "https://backpackersbible.com/#organization" },
+      "publisher": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      },
       "inLanguage": "en"
     },
+
     {
       "@type": ["WebPage", "AboutPage"],
       "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#webpage",
@@ -81,29 +96,39 @@
       "headline": "About The Backpacker's Bible: The Ultimate Independent Guide",
       "description": "Learn how The Backpacker's Bible helps you navigate South Africa with a free offline hostel guide, honest safety warnings, detailed transport advice, and regional backpacking essentials.",
       "inLanguage": "en",
-      "isPartOf": { "@id": "https://www.backpackersbible.com/#website" },
-      "publisher": { "@id": "https://backpackersbible.com/#organization" },
-      "author": { "@id": "https://www.backpackersbible.com/#organization" },
+      "isPartOf": {
+        "@id": "https://www.backpackersbible.com/#website"
+      },
+      "publisher": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      },
+      "author": {
+        "@id": "https://www.backpackersbible.com/#geoff-louw"
+      },
+      "mainEntity": {
+        "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#faq"
+      },
       "dateModified": "2026-01-01",
       "primaryImageOfPage": {
         "@type": "ImageObject",
-        "url": "https://www.backpackersbible.com/assets/social_preview.jpg"
+        "url": "https://www.backpackersbible.com/assets/social_preview.jpg",
+        "width": 1200,
+        "height": 630
       },
       "about": [
-        { "@type": "Thing", "name": "Backpacking", "sameAs": "https://en.wikipedia.org/wiki/Backpacking_(travel)" },
-        { "@type": "Country", "name": "South Africa", "sameAs": "https://en.wikipedia.org/wiki/South_Africa" }
-      ],
-      "mentions": [
-        { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#guide-philosophy" },
-        { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#safety-commitment" },
-        { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#free-guide" },
-        { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#faq" }
-      ],
-      "speakable": {
-        "@type": "SpeakableSpecification",
-        "cssSelector": [".intro-p", "#guide-philosophy", "#safety-commitment"]
-      }
+        {
+          "@type": "Thing",
+          "name": "Backpacking",
+          "sameAs": "https://en.wikipedia.org/wiki/Backpacking_(travel)"
+        },
+        {
+          "@type": "Country",
+          "name": "South Africa",
+          "sameAs": "https://en.wikipedia.org/wiki/South_Africa"
+        }
+      ]
     },
+
     {
       "@type": "BreadcrumbList",
       "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#breadcrumb",
@@ -118,14 +143,16 @@
           "@type": "ListItem",
           "position": 2,
           "name": "About The Backpacker's Bible",
-          "item": "https://www.backpackersbible.com/misc/about-backpackers-bible.htm"
+          "item": "https://www.backpackersbible.com/misc/about-backpackers-bible"
         }
       ]
     },
+
     {
       "@type": "FAQPage",
-      "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible.htm#faq",
+      "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#faq",
       "mainEntity": [
+
         {
           "@type": "Question",
           "name": "What is The Backpacker's Bible?",
@@ -134,6 +161,7 @@
             "text": "The Backpacker's Bible is an independent, AI-assisted travel guide to South Africa. It lists every backpacker hostel in the country — not just paying members — and provides honest safety information, regional write-ups, suggested itineraries, and direct hostel contact details. It is available as a free offline PDF (the Lite version) and as a paid full version with extended write-ups, interactive maps, and a companion app."
           }
         },
+
         {
           "@type": "Question",
           "name": "Is The Backpacker's Bible free?",
@@ -142,6 +170,7 @@
             "text": "The Backpacker's Bible Lite is completely free. It is a 300-page offline PDF containing write-ups of all South Africa's backpacking regions and the full contact details of every hostel. The full version — approximately 1,000 pages with extended write-ups, regional maps, photos, itineraries, and a companion online app — is available for €10."
           }
         },
+
         {
           "@type": "Question",
           "name": "Why does The Backpacker's Bible include so many safety warnings?",
@@ -150,6 +179,7 @@
             "text": "According to the UK's Foreign, Commonwealth and Development Office (FCDO), approximately 4,500 British nationals die abroad every year. Comparable figures apply proportionally to travellers from Germany, France, the Netherlands, and other European countries — meaning that across Europe, tens of thousands of people die overseas annually, many of them while on holiday. South Africa requires specific awareness of certain risks that other destinations do not. Our safety warnings are not scaremongering — they are the information that most travel guides deliberately leave out, because telling you what can go wrong is not good for the tourism business. We disagree with that approach. Knowing the risks means you can take simple precautions, and simple precautions save lives."
           }
         },
+
         {
           "@type": "Question",
           "name": "How does The Backpacker's Bible stay independent?",
@@ -158,27 +188,34 @@
             "text": "BackpackersBible.com accepts no payment from hostels or tour operators for inclusion or positive coverage. Every hostel in South Africa is listed regardless of whether they advertise, belong to an industry association, or appear on other booking platforms. Revenue comes from affiliate commissions on bookings made through Booking.com, Hostelworld, and GetYourGuide links — commissions that cost the traveller nothing extra. Full direct contact details are always provided alongside these links so travellers can book however they prefer."
           }
         },
+
         {
           "@type": "Question",
           "name": "How can I help improve The Backpacker's Bible?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The Backpacker's Bible operates on a 'human-in-the-loop' model. If you spot an error, a price change, a hostel that has closed, or a hidden gem we have missed, please email info@backpackersbible.com. Travellers on the ground are the most reliable source of current information, and your updates help keep the guide accurate for everyone who comes after you."
+            "text": "The Backpacker's Bible operates on a human-in-the-loop model. If you spot an error, a price change, a hostel that has closed, or a hidden gem we have missed, please email info@backpackersbible.com. Travellers on the ground are the most reliable source of current information, and your updates help keep the guide accurate for everyone who comes after you."
           }
         }
+
       ]
     },
+
     {
       "@type": "CreativeWork",
       "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#free-guide",
       "name": "Backpacker's Bible Lite — Free Offline Hostel Guide",
       "description": "A free 300-page offline PDF guide to backpacking South Africa, containing regional write-ups and the full contact details of every backpacker hostel in the country. Works without a mobile data connection.",
       "url": "https://www.backpackersbible.com/pdf/Backpackers_Bible_Lite-South_Africa.pdf",
-      "publisher": { "@id": "https://backpackersbible.com/#organization" },
+      "publisher": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      },
       "inLanguage": "en",
       "isAccessibleForFree": true,
-      "fileFormat": "application/pdf"
+      "fileFormat": "application/pdf",
+      "encodingFormat": "application/pdf"
     }
+
   ]
 }
 </script>
