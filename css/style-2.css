@@ -971,6 +971,19 @@ body {
     margin-bottom: 0.5rem;
 }
 
+.panel__desc {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: var(--text-sm);
+    line-height: 1.5;
+    margin: 4px 0 10px 0;
+}
+
+.panel__spec {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: var(--text-xs);
+    margin: 6px 0 20px 0;
+}
+
 .mobile-menu__share {
     display: flex;
     flex-direction: column;
