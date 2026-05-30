@@ -208,7 +208,7 @@
         style: `https://api.maptiler.com/maps/topo-v2/style.json?key=${MAPTILER_KEY}`,
         center: CENTER, zoom: ZOOM, pitch: PITCH, bearing: BEARING, antialias: true
       });
-      window._bbMap = map; // temporary diagnostic handle — remove after layer IDs confirmed
+
 
       map.on('error', e => { if (e.error && (e.error.status===0 || !navigator.onLine)) showOffline(); });
 
@@ -324,167 +324,167 @@
         map.setTerrain({ source:'terrain-src', exaggeration:1.15 });
 
         // ── ANTIQUE MAP STYLING ──────────────────────────────────────────────
-        // 1. Parchment background — loaded as a repeating pattern image
-        map.loadImage('/assets/maps/parchment-background.webp', (err, img) => {
-          if (err) { console.warn('BB map: parchment image failed to load', err); return; }
-          map.addImage('parchment-tile', img, { pixelRatio: 1 });
+        // Layer IDs confirmed from live topo-v2 diagnostic, May 2026
 
-          // Replace the existing background layer's paint with our pattern,
-          // or add a new background layer if one doesn't exist
-          if (map.getLayer('background')) {
-            map.setPaintProperty('background', 'background-pattern', 'parchment-tile');
-            map.setPaintProperty('background', 'background-opacity', 1);
-          } else {
-            map.addLayer({
-              id: 'parchment-bg',
-              type: 'background',
-              paint: {
-                'background-pattern': 'parchment-tile',
-                'background-opacity': 1
-              }
-            }, map.getStyle().layers[0].id);
-          }
-        });
-
-        // ── helper: safely set paint on any layer that exists ────────────────
+        // ── helper: safely set paint/layout on any layer that exists ─────────
         function ap(layerId, prop, value) {
-          try { if (map.getLayer(layerId)) map.setPaintProperty(layerId, prop, value); } catch(e) {}
+          try { if (map.getLayer(layerId)) map.setPaintProperty(layerId, prop, value); } catch(e) { console.warn('BB ap:', layerId, prop, e.message); }
         }
         function al(layerId, prop, value) {
           try { if (map.getLayer(layerId)) map.setLayoutProperty(layerId, prop, value); } catch(e) {}
         }
 
-        // ── Hide any satellite/raster imagery layers from the base style ─────
-        // topo-v2 shouldn't have these but belt-and-braces in case of style bleed
-        map.getStyle().layers.forEach(layer => {
-          if (layer.type === 'raster' && layer.id !== 'parchment-bg') {
-            try { map.setLayoutProperty(layer.id, 'visibility', 'none'); } catch(e) {}
-          }
+        // 1. Parchment background
+        map.loadImage('/assets/maps/parchment-background.webp', (err, img) => {
+          if (err) { console.warn('BB map: parchment load failed', err); return; }
+          console.log('BB map: parchment loaded OK');
+          map.addImage('parchment-tile', img, { pixelRatio: 1 });
+          // 'Background' is the confirmed layer ID from diagnostic
+          ap('Background', 'background-pattern', 'parchment-tile');
+          ap('Background', 'background-opacity', 1);
         });
 
-        // ── 3. Water — washed-out antique blue ──────────────────────────────
-        const WATER_BLUE   = '#a8bfcc';
-        const WATER_BORDER = '#8aaab8';
-        ['water', 'water_name', 'water-shadow', 'waterway'].forEach(id => {
-          ap(id, 'fill-color',   WATER_BLUE);
-          ap(id, 'line-color',   WATER_BORDER);
-          ap(id, 'text-color',   '#4a6a7a');
-          ap(id, 'text-halo-color', 'rgba(168,191,204,0.6)');
-        });
-        // Topo-v2 specific water layer names
-        ['Water', 'water_poly', 'ocean'].forEach(id => {
-          ap(id, 'fill-color', WATER_BLUE);
+        // 2. Water — washed-out antique blue
+        const WATER_BLUE = '#a8bfcc';
+        const WATER_LINE = '#7a9aaa';
+        const WATER_TEXT = '#3a5a6a';
+        ap('Water',             'fill-color',   WATER_BLUE);
+        ap('Water intermittent','fill-color',   WATER_BLUE);
+        ap('Water intermittent','fill-opacity', 0.6);
+        ap('River',             'line-color',   WATER_LINE);
+        ap('River',             'line-opacity', 0.8);
+        ap('River intermittent','line-color',   WATER_LINE);
+        ap('River intermittent','line-opacity', 0.5);
+        ap('Waterway',          'line-color',   WATER_LINE);
+        ap('Waterway',          'line-opacity', 0.7);
+        ap('Waterway intermittent','line-color',WATER_LINE);
+        ap('Waterway intermittent','line-opacity',0.5);
+        ap('River labels',      'text-color',   WATER_TEXT);
+        ap('River labels',      'text-halo-color','rgba(168,191,204,0.6)');
+        ap('Lakeline labels',   'text-color',   WATER_TEXT);
+        ap('Lakeline labels',   'text-halo-color','rgba(168,191,204,0.6)');
+        ap('Ocean labels',      'text-color',   WATER_TEXT);
+        ap('Ocean labels',      'text-halo-color','rgba(168,191,204,0.6)');
+        ap('Sea labels',        'text-color',   WATER_TEXT);
+        ap('Sea labels',        'text-halo-color','rgba(168,191,204,0.6)');
+        ap('Lake labels',       'text-color',   WATER_TEXT);
+        ap('Lake labels',       'text-halo-color','rgba(168,191,204,0.6)');
+
+        // 3. Land cover — antique greens and naturals
+        ap('Wood',   'fill-color',   '#b8c9a0');  // sage green
+        ap('Wood',   'fill-opacity', 0.55);
+        ap('Forest', 'fill-color',   '#b8c9a0');  // sage green (globallandcover)
+        ap('Forest', 'fill-opacity', 0.5);
+        ap('Grass',  'fill-color',   '#cdd5a8');  // pale olive
+        ap('Grass',  'fill-opacity', 0.45);
+        ap('Scrub',  'fill-color',   '#c8ce9a');  // olive-grey
+        ap('Scrub',  'fill-opacity', 0.4);
+        ap('Crop',   'fill-color',   '#d5d4a0');  // pale straw
+        ap('Crop',   'fill-opacity', 0.35);
+        ap('Sand',   'fill-color',   '#e8d8a8');  // warm parchment
+        ap('Sand',   'fill-opacity', 0.6);
+        ap('Glacier','fill-color',   '#e0eaf0');  // icy pale blue-white
+        ap('Glacier','fill-opacity', 0.5);
+
+        // 4. Land use — slightly darker parchment tones
+        ap('Residential', 'fill-color',   '#d8c898');
+        ap('Residential', 'fill-opacity', 0.25);
+        ap('Industrial',  'fill-color',   '#c8b888');
+        ap('Industrial',  'fill-opacity', 0.25);
+        ap('Cemetery',    'fill-color',   '#c0cc98');
+        ap('Cemetery',    'fill-opacity', 0.4);
+        ap('Hospital',    'fill-color',   '#ddc8c8');
+        ap('Hospital',    'fill-opacity', 0.35);
+        ap('Stadium',     'fill-color',   '#c8d4a8');
+        ap('Stadium',     'fill-opacity', 0.35);
+        ap('Dam',         'fill-color',   WATER_BLUE);
+        ap('Dam',         'fill-opacity', 0.6);
+
+        // 5. Roads — national routes deep red, others sepia
+        const ROAD_NATIONAL = '#8b1a1a';  // deep antique red — Highway (N1/N2/N3)
+        const ROAD_OUTLINE  = '#c8a070';  // warm tan casing
+        const ROAD_MAJOR    = '#9b6030';  // sienna — Major road
+        const ROAD_MINOR    = '#9a8060';  // mid sepia — Minor road
+
+        ap('Highway',           'line-color',   ROAD_NATIONAL);
+        ap('Highway',           'line-opacity', 0.9);
+        ap('Highway outline',   'line-color',   ROAD_OUTLINE);
+        ap('Highway outline',   'line-opacity', 0.7);
+        ap('Major road',        'line-color',   ROAD_MAJOR);
+        ap('Major road',        'line-opacity', 0.85);
+        ap('Major road outline','line-color',   ROAD_OUTLINE);
+        ap('Major road outline','line-opacity', 0.6);
+        ap('Minor road',        'line-color',   ROAD_MINOR);
+        ap('Minor road',        'line-opacity', 0.7);
+        ap('Minor road outline','line-color',   ROAD_OUTLINE);
+        ap('Minor road outline','line-opacity', 0.4);
+        ap('Tunnel',            'line-color',   ROAD_MINOR);
+        ap('Tunnel',            'line-opacity', 0.5);
+        ap('Tunnel outline',    'line-color',   ROAD_OUTLINE);
+        ap('Tunnel outline',    'line-opacity', 0.3);
+        ap('Path',              'line-color',   '#8a7050');
+        ap('Path',              'line-opacity', 0.5);
+        ap('Path minor',        'line-color',   '#8a7050');
+        ap('Path minor',        'line-opacity', 0.35);
+        ap('Ferry',             'line-color',   WATER_LINE);
+        ap('Ferry',             'line-opacity', 0.6);
+        ap('Runway',            'line-color',   '#8a7a60');
+        ap('Taxiway',           'line-color',   '#9a8a70');
+
+        // 6. Railways — dark sepia hatching
+        ap('Major railway',         'line-color',   '#5a4a3a');
+        ap('Major railway',         'line-opacity', 0.5);
+        ap('Major railway hatching','line-color',   '#5a4a3a');
+        ap('Major railway hatching','line-opacity', 0.3);
+        ap('Minor railway',         'line-color',   '#7a6a5a');
+        ap('Minor railway',         'line-opacity', 0.4);
+        ap('Minor railway hatching','line-color',   '#7a6a5a');
+        ap('Minor railway hatching','line-opacity', 0.25);
+
+        // 7. Contour lines — warm sepia
+        ap('Contour',        'line-color',   '#8b6940');
+        ap('Contour',        'line-opacity', 0.4);
+        ap('Contour index',  'line-color',   '#7a5830');
+        ap('Contour index',  'line-opacity', 0.6);
+        ap('Glacier contour',      'line-color',   '#8a9aaa');
+        ap('Glacier contour',      'line-opacity', 0.4);
+        ap('Glacier contour index','line-color',   '#7a8a9a');
+        ap('Glacier contour index','line-opacity', 0.5);
+        ap('Contour labels',       'text-color',   '#7a5830');
+        ap('Contour labels',       'text-halo-color','rgba(235,220,185,0.6)');
+        ap('Glacier contour labels','text-color',  '#6a7a8a');
+
+        // 8. Boundaries — dark brown
+        ap('Country border', 'line-color',   '#5a3a1a');
+        ap('Country border', 'line-opacity', 0.8);
+        ap('Other border',   'line-color',   '#7a5a3a');
+        ap('Other border',   'line-opacity', 0.5);
+        ap('Disputed border','line-color',   '#8a6a4a');
+        ap('Disputed border','line-opacity', 0.4);
+
+        // 9. Buildings — keep existing warm stone tones from bb-3d-buildings,
+        //    but restyle the flat 'Building' fill layer
+        ap('Building', 'fill-color',   '#c8b89a');
+        ap('Building', 'fill-opacity', 0.5);
+        ap('Building', 'fill-outline-color', '#a89878');
+
+        // 10. Labels — ink brown with parchment halo
+        const LABEL_INK  = '#2a1a0a';
+        const LABEL_HALO = 'rgba(235,220,185,0.8)';
+        // Water labels already done above; restyle all others
+        ['Road labels','Place labels','Village labels','Town labels',
+         'City labels','State labels','Country labels','Continent labels',
+         'Peak labels','Peak labels (US)','Volcano labels','Volcano labels (US)',
+         'National park labels','Protected area labels',
+         'Airport labels','Aerialway labels'].forEach(id => {
+          ap(id, 'text-color',      LABEL_INK);
+          ap(id, 'text-halo-color', LABEL_HALO);
         });
 
-        // ── 4. Land cover — antique greens and naturals ──────────────────────
-        // Forest / wood → sage green
-        ['landcover_wood', 'landcover-wood', 'landuse_wood', 'wood'].forEach(id => {
-          ap(id, 'fill-color', '#b8c9a0');
-          ap(id, 'fill-opacity', 0.55);
-        });
-        // Grass / scrub → pale olive
-        ['landcover_grass', 'landcover-grass', 'landuse_grass', 'grass', 'scrub'].forEach(id => {
-          ap(id, 'fill-color', '#cdd5a8');
-          ap(id, 'fill-opacity', 0.45);
-        });
-        // Sand / beach → warm parchment
-        ['landcover_sand', 'sand', 'beach'].forEach(id => {
-          ap(id, 'fill-color', '#e8d8a8');
-          ap(id, 'fill-opacity', 0.6);
-        });
-        // Wetland / marsh
-        ['wetland', 'landuse_wetland'].forEach(id => {
-          ap(id, 'fill-color', '#b0c4a8');
-          ap(id, 'fill-opacity', 0.5);
-        });
-        // Urban / built-up → slightly darker parchment
-        ['landuse_residential', 'landuse-residential', 'urban', 'residential'].forEach(id => {
-          ap(id, 'fill-color', '#d8c898');
-          ap(id, 'fill-opacity', 0.3);
-        });
-
-        // ── 5. Roads — national routes deep red, others sepia ───────────────
-        const ROAD_NATIONAL = '#8b1a1a';   // deep antique red  — N1/N2/N3 etc
-        const ROAD_PRIMARY  = '#a0522d';   // sienna            — main regional roads
-        const ROAD_SECONDARY= '#7a5c3a';   // dark sepia        — secondary
-        const ROAD_MINOR    = '#9a8060';   // mid sepia         — minor / residential
-        const ROAD_CASING   = '#c8a878';   // light sepia casing
-
-        // Motorway / trunk = national routes (N1 N2 etc in SA)
-        ['road_motorway', 'road-motorway', 'motorway', 'road_trunk', 'road-trunk', 'trunk'].forEach(id => {
-          ap(id, 'line-color',       ROAD_NATIONAL);
-          ap(id, 'line-opacity',     0.9);
-        });
-        ['road_motorway_casing', 'road-motorway-casing', 'motorway_casing',
-         'road_trunk_casing',    'road-trunk-casing',    'trunk_casing'].forEach(id => {
-          ap(id, 'line-color', ROAD_CASING);
-        });
-
-        // Primary roads
-        ['road_primary', 'road-primary', 'primary'].forEach(id => {
-          ap(id, 'line-color',   ROAD_PRIMARY);
-          ap(id, 'line-opacity', 0.85);
-        });
-        ['road_primary_casing', 'road-primary-casing', 'primary_casing'].forEach(id => {
-          ap(id, 'line-color', ROAD_CASING);
-        });
-
-        // Secondary
-        ['road_secondary', 'road-secondary', 'secondary',
-         'road_tertiary',  'road-tertiary',  'tertiary'].forEach(id => {
-          ap(id, 'line-color',   ROAD_SECONDARY);
-          ap(id, 'line-opacity', 0.8);
-        });
-
-        // Minor / residential / service
-        ['road_minor', 'road-minor', 'minor', 'road_residential', 'road-residential',
-         'residential', 'road_service', 'road-service', 'service', 'road_path'].forEach(id => {
-          ap(id, 'line-color',   ROAD_MINOR);
-          ap(id, 'line-opacity', 0.65);
-        });
-
-        // ── 6. Contour lines — warm sepia ───────────────────────────────────
-        ['contour', 'contour_label', 'contour-label', 'contour_index', 'contour-index'].forEach(id => {
-          ap(id, 'line-color',  '#8b6940');
-          ap(id, 'line-opacity', 0.45);
-          ap(id, 'fill-color',  '#8b6940');
-          ap(id, 'text-color',  '#7a5c30');
-        });
-
-        // ── 7. Boundaries — dark brown ───────────────────────────────────────
-        ['boundary_country', 'boundary-country', 'admin_country',
-         'boundary_state',   'boundary-state',   'admin_state',
-         'boundary',         'admin'].forEach(id => {
-          ap(id, 'line-color',   '#6b4a2a');
-          ap(id, 'line-opacity', 0.7);
-        });
-
-        // ── 8. Labels — serif-style ink brown ───────────────────────────────
-        const LABEL_INK   = '#3a2a1a';
-        const LABEL_HALO  = 'rgba(235,220,185,0.75)';
-        const LABEL_WATER = '#4a6a7a';
-
-        // Collect all symbol layers and restyle text
-        map.getStyle().layers.forEach(layer => {
-          if (layer.type !== 'symbol') return;
-          const id = layer.id;
-          // Water labels stay blue-grey
-          if (id.includes('water') || id.includes('ocean') || id.includes('lake') || id.includes('river')) {
-            ap(id, 'text-color',      LABEL_WATER);
-            ap(id, 'text-halo-color', 'rgba(168,191,204,0.5)');
-          } else {
-            ap(id, 'text-color',      LABEL_INK);
-            ap(id, 'text-halo-color', LABEL_HALO);
-          }
-        });
-
-        // ── 9. Hillshade — warm tone to blend with parchment ────────────────
-        ['hillshade', 'terrain_hillshade', 'terrain-hillshade'].forEach(id => {
-          ap(id, 'hillshade-shadow-color',    '#5a3a1a');
-          ap(id, 'hillshade-highlight-color', '#f5ead0');
-          ap(id, 'hillshade-illumination-direction', 315);
-          ap(id, 'hillshade-exaggeration',    0.5);
-        });
+        // 11. Hillshade — warm shadow tones to blend with parchment
+        ap('Hillshade', 'hillshade-shadow-color',    '#5a3a1a');
+        ap('Hillshade', 'hillshade-highlight-color', '#f5ead0');
+        ap('Hillshade', 'hillshade-exaggeration',    0.45);
 
         // ── END ANTIQUE STYLING ──────────────────────────────────────────────
 
