@@ -259,7 +259,7 @@
 
                     <span class="site-header__brand-name">BackpackersBible.com</span>
 
-                    <span class="site-header__location-badge">Cape Town</span>
+                    <span class="site-header__location-badge">About The Backpackers Bible</span>
 
                 </div>
 
@@ -315,10 +315,40 @@
 
             <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
 
-                <a href="/pdf/Backpackers_Bible_Lite-South_Africa.pdf" class="site-nav__cta"
-                   title="Interactive PDF - 800kb" target="_blank"><span class="sr-only">(opens in a new tab)</span>
-                    ★ <strong>FREE Interactive Hostel Guide!</strong>
-                </a>
+                <div class="site-nav__item">
+
+                    <button class="site-nav__mega-trigger site-nav__mega-trigger--downloads"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            aria-controls="mega-downloads">
+                        ★ <strong>Free Offline Guides</strong>
+                    </button>
+
+                    <div class="site-nav__mega-menu site-nav__mega-menu--downloads" id="mega-downloads" role="menu" aria-label="Free offline guides">
+
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">PDF Hostel Guide</h3>
+                            <p class="site-nav__mega-desc">A compact interactive PDF with a clickable map and the contact details of every backpacking hostel in South Africa. No wifi needed — just save it to your phone and go.</p>
+                            <a href="/pdf/Backpackers_Bible_Lite-South_Africa.pdf"
+                               class="site-nav__mega-btn"
+                               target="_blank">
+                                Download PDF <span class="sr-only">(opens in a new tab)</span>
+                            </a>
+                            <p class="site-nav__mega-spec">(Interactive PDF — 800kb)</p>
+                        </div>
+
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">Full Backpackers Bible App</h3>
+                            <p class="site-nav__mega-desc">The complete guide — maps, regions, advice, tours, and hostel reviews — installed as an app icon on your home screen. Works fully offline, even in the Kalahari.</p>
+                            <a href="/#download-pwa" class="site-nav__mega-btn">
+                                Get the App →
+                            </a>
+                            <p class="site-nav__mega-spec">(Progressive Web App — free)</p>
+                        </div>
+
+                    </div>
+
+                </div>
 
                 <a href="/" class="site-nav__link">Home</a>
 
@@ -878,8 +908,19 @@
 
     <a href="/misc/backpacking-resources">Resources</a>
 
-    <!-- CTA -->
-    <a href="/pdf/Backpackers_Bible_Lite-South_Africa.pdf" target="_blank"><strong>★ FREE HOSTEL GUIDE!</strong><br> <span style="font-size:0.9rem;">(Interactive PDF - 800kb)</span><span class="sr-only">(opens in a new tab)</span></a>
+    <!-- Downloads accordion -->
+    <button class="accordion accordion--downloads" aria-expanded="false" aria-controls="panel-downloads">★ FREE OFFLINE GUIDES</button>
+
+    <div class="panel" id="panel-downloads" role="region" aria-label="Free offline guides">
+        <h3>PDF Hostel Guide</h3>
+        <p class="panel__desc">A compact interactive PDF with a clickable map and every hostel's contact details. No wifi needed — just save it to your phone.</p>
+        <a href="/pdf/Backpackers_Bible_Lite-South_Africa.pdf" target="_blank">Download PDF <span class="sr-only">(opens in a new tab)</span></a>
+        <p class="panel__spec">(Interactive PDF — 800kb)</p>
+        <h3>Full Backpackers Bible App</h3>
+        <p class="panel__desc">The complete guide installed as an app icon on your home screen. Maps, regions, advice, tours, and hostel reviews — fully offline.</p>
+        <a href="/#download-pwa">Get the App →</a>
+        <p class="panel__spec">(Progressive Web App — free)</p>
+    </div>
 
     <!-- WhatsApp share -->
     <a class="mobile-menu__share"
