@@ -322,6 +322,163 @@
         });
         map.setTerrain({ source:'terrain-src', exaggeration:1.15 });
 
+        // ── ANTIQUE MAP STYLING ──────────────────────────────────────────────
+        // 1. Parchment raster background — tiled 256px webp underneath everything
+        map.addSource('parchment-src', {
+          type: 'raster',
+          tiles: ['/assets/maps/parchment-background.webp'],
+          tileSize: 256,
+          minzoom: 0,
+          maxzoom: 0   // same tile at every zoom — it's a texture, not geo data
+        });
+
+        // Find the lowest layer id so parchment goes beneath everything
+        const firstLayerId = map.getStyle().layers[0].id;
+        map.addLayer({
+          id: 'parchment-bg',
+          type: 'raster',
+          source: 'parchment-src',
+          paint: { 'raster-opacity': 1 }
+        }, firstLayerId);
+
+        // 2. Make the style's own background transparent so parchment shows
+        try { map.setPaintProperty('background', 'background-color', 'rgba(0,0,0,0)'); } catch(e) {}
+        try { map.setPaintProperty('background', 'background-opacity', 0); } catch(e) {}
+
+        // ── helper: safely set paint on any layer that exists ────────────────
+        function ap(layerId, prop, value) {
+          try { if (map.getLayer(layerId)) map.setPaintProperty(layerId, prop, value); } catch(e) {}
+        }
+        function al(layerId, prop, value) {
+          try { if (map.getLayer(layerId)) map.setLayoutProperty(layerId, prop, value); } catch(e) {}
+        }
+
+        // ── 3. Water — washed-out antique blue ──────────────────────────────
+        const WATER_BLUE   = '#a8bfcc';
+        const WATER_BORDER = '#8aaab8';
+        ['water', 'water_name', 'water-shadow', 'waterway'].forEach(id => {
+          ap(id, 'fill-color',   WATER_BLUE);
+          ap(id, 'line-color',   WATER_BORDER);
+          ap(id, 'text-color',   '#4a6a7a');
+          ap(id, 'text-halo-color', 'rgba(168,191,204,0.6)');
+        });
+        // Topo-v2 specific water layer names
+        ['Water', 'water_poly', 'ocean'].forEach(id => {
+          ap(id, 'fill-color', WATER_BLUE);
+        });
+
+        // ── 4. Land cover — antique greens and naturals ──────────────────────
+        // Forest / wood → sage green
+        ['landcover_wood', 'landcover-wood', 'landuse_wood', 'wood'].forEach(id => {
+          ap(id, 'fill-color', '#b8c9a0');
+          ap(id, 'fill-opacity', 0.55);
+        });
+        // Grass / scrub → pale olive
+        ['landcover_grass', 'landcover-grass', 'landuse_grass', 'grass', 'scrub'].forEach(id => {
+          ap(id, 'fill-color', '#cdd5a8');
+          ap(id, 'fill-opacity', 0.45);
+        });
+        // Sand / beach → warm parchment
+        ['landcover_sand', 'sand', 'beach'].forEach(id => {
+          ap(id, 'fill-color', '#e8d8a8');
+          ap(id, 'fill-opacity', 0.6);
+        });
+        // Wetland / marsh
+        ['wetland', 'landuse_wetland'].forEach(id => {
+          ap(id, 'fill-color', '#b0c4a8');
+          ap(id, 'fill-opacity', 0.5);
+        });
+        // Urban / built-up → slightly darker parchment
+        ['landuse_residential', 'landuse-residential', 'urban', 'residential'].forEach(id => {
+          ap(id, 'fill-color', '#d8c898');
+          ap(id, 'fill-opacity', 0.3);
+        });
+
+        // ── 5. Roads — national routes deep red, others sepia ───────────────
+        const ROAD_NATIONAL = '#8b1a1a';   // deep antique red  — N1/N2/N3 etc
+        const ROAD_PRIMARY  = '#a0522d';   // sienna            — main regional roads
+        const ROAD_SECONDARY= '#7a5c3a';   // dark sepia        — secondary
+        const ROAD_MINOR    = '#9a8060';   // mid sepia         — minor / residential
+        const ROAD_CASING   = '#c8a878';   // light sepia casing
+
+        // Motorway / trunk = national routes (N1 N2 etc in SA)
+        ['road_motorway', 'road-motorway', 'motorway', 'road_trunk', 'road-trunk', 'trunk'].forEach(id => {
+          ap(id, 'line-color',       ROAD_NATIONAL);
+          ap(id, 'line-opacity',     0.9);
+        });
+        ['road_motorway_casing', 'road-motorway-casing', 'motorway_casing',
+         'road_trunk_casing',    'road-trunk-casing',    'trunk_casing'].forEach(id => {
+          ap(id, 'line-color', ROAD_CASING);
+        });
+
+        // Primary roads
+        ['road_primary', 'road-primary', 'primary'].forEach(id => {
+          ap(id, 'line-color',   ROAD_PRIMARY);
+          ap(id, 'line-opacity', 0.85);
+        });
+        ['road_primary_casing', 'road-primary-casing', 'primary_casing'].forEach(id => {
+          ap(id, 'line-color', ROAD_CASING);
+        });
+
+        // Secondary
+        ['road_secondary', 'road-secondary', 'secondary',
+         'road_tertiary',  'road-tertiary',  'tertiary'].forEach(id => {
+          ap(id, 'line-color',   ROAD_SECONDARY);
+          ap(id, 'line-opacity', 0.8);
+        });
+
+        // Minor / residential / service
+        ['road_minor', 'road-minor', 'minor', 'road_residential', 'road-residential',
+         'residential', 'road_service', 'road-service', 'service', 'road_path'].forEach(id => {
+          ap(id, 'line-color',   ROAD_MINOR);
+          ap(id, 'line-opacity', 0.65);
+        });
+
+        // ── 6. Contour lines — warm sepia ───────────────────────────────────
+        ['contour', 'contour_label', 'contour-label', 'contour_index', 'contour-index'].forEach(id => {
+          ap(id, 'line-color',  '#8b6940');
+          ap(id, 'line-opacity', 0.45);
+          ap(id, 'fill-color',  '#8b6940');
+          ap(id, 'text-color',  '#7a5c30');
+        });
+
+        // ── 7. Boundaries — dark brown ───────────────────────────────────────
+        ['boundary_country', 'boundary-country', 'admin_country',
+         'boundary_state',   'boundary-state',   'admin_state',
+         'boundary',         'admin'].forEach(id => {
+          ap(id, 'line-color',   '#6b4a2a');
+          ap(id, 'line-opacity', 0.7);
+        });
+
+        // ── 8. Labels — serif-style ink brown ───────────────────────────────
+        const LABEL_INK   = '#3a2a1a';
+        const LABEL_HALO  = 'rgba(235,220,185,0.75)';
+        const LABEL_WATER = '#4a6a7a';
+
+        // Collect all symbol layers and restyle text
+        map.getStyle().layers.forEach(layer => {
+          if (layer.type !== 'symbol') return;
+          const id = layer.id;
+          // Water labels stay blue-grey
+          if (id.includes('water') || id.includes('ocean') || id.includes('lake') || id.includes('river')) {
+            ap(id, 'text-color',      LABEL_WATER);
+            ap(id, 'text-halo-color', 'rgba(168,191,204,0.5)');
+          } else {
+            ap(id, 'text-color',      LABEL_INK);
+            ap(id, 'text-halo-color', LABEL_HALO);
+          }
+        });
+
+        // ── 9. Hillshade — warm tone to blend with parchment ────────────────
+        ['hillshade', 'terrain_hillshade', 'terrain-hillshade'].forEach(id => {
+          ap(id, 'hillshade-shadow-color',    '#5a3a1a');
+          ap(id, 'hillshade-highlight-color', '#f5ead0');
+          ap(id, 'hillshade-illumination-direction', 315);
+          ap(id, 'hillshade-exaggeration',    0.5);
+        });
+
+        // ── END ANTIQUE STYLING ──────────────────────────────────────────────
+
         const sources = map.getStyle().sources;
         const vecSrc  = Object.keys(sources).find(k => sources[k].type==='vector');
         if (vecSrc) {
