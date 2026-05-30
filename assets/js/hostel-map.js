@@ -205,7 +205,7 @@
 
       const map = new maplibregl.Map({
         container: 'bb-map',
-        style: `https://api.maptiler.com/maps/hybrid/style.json?key=${MAPTILER_KEY}`,
+        style: `https://api.maptiler.com/maps/topo-v2/style.json?key=${MAPTILER_KEY}`,
         center: CENTER, zoom: ZOOM, pitch: PITCH, bearing: BEARING, antialias: true
       });
 
