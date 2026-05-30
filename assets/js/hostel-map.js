@@ -208,6 +208,7 @@
         style: `https://api.maptiler.com/maps/topo-v2/style.json?key=${MAPTILER_KEY}`,
         center: CENTER, zoom: ZOOM, pitch: PITCH, bearing: BEARING, antialias: true
       });
+      window._bbMap = map; // temporary diagnostic handle — remove after layer IDs confirmed
 
       map.on('error', e => { if (e.error && (e.error.status===0 || !navigator.onLine)) showOffline(); });
 
@@ -323,27 +324,27 @@
         map.setTerrain({ source:'terrain-src', exaggeration:1.15 });
 
         // ── ANTIQUE MAP STYLING ──────────────────────────────────────────────
-        // 1. Parchment raster background — tiled 256px webp underneath everything
-        map.addSource('parchment-src', {
-          type: 'raster',
-          tiles: ['/assets/maps/parchment-background.webp'],
-          tileSize: 256,
-          minzoom: 0,
-          maxzoom: 0   // same tile at every zoom — it's a texture, not geo data
+        // 1. Parchment background — loaded as a repeating pattern image
+        map.loadImage('/assets/maps/parchment-background.webp', (err, img) => {
+          if (err) { console.warn('BB map: parchment image failed to load', err); return; }
+          map.addImage('parchment-tile', img, { pixelRatio: 1 });
+
+          // Replace the existing background layer's paint with our pattern,
+          // or add a new background layer if one doesn't exist
+          if (map.getLayer('background')) {
+            map.setPaintProperty('background', 'background-pattern', 'parchment-tile');
+            map.setPaintProperty('background', 'background-opacity', 1);
+          } else {
+            map.addLayer({
+              id: 'parchment-bg',
+              type: 'background',
+              paint: {
+                'background-pattern': 'parchment-tile',
+                'background-opacity': 1
+              }
+            }, map.getStyle().layers[0].id);
+          }
         });
-
-        // Find the lowest layer id so parchment goes beneath everything
-        const firstLayerId = map.getStyle().layers[0].id;
-        map.addLayer({
-          id: 'parchment-bg',
-          type: 'raster',
-          source: 'parchment-src',
-          paint: { 'raster-opacity': 1 }
-        }, firstLayerId);
-
-        // 2. Make the style's own background transparent so parchment shows
-        try { map.setPaintProperty('background', 'background-color', 'rgba(0,0,0,0)'); } catch(e) {}
-        try { map.setPaintProperty('background', 'background-opacity', 0); } catch(e) {}
 
         // ── helper: safely set paint on any layer that exists ────────────────
         function ap(layerId, prop, value) {
@@ -352,6 +353,14 @@
         function al(layerId, prop, value) {
           try { if (map.getLayer(layerId)) map.setLayoutProperty(layerId, prop, value); } catch(e) {}
         }
+
+        // ── Hide any satellite/raster imagery layers from the base style ─────
+        // topo-v2 shouldn't have these but belt-and-braces in case of style bleed
+        map.getStyle().layers.forEach(layer => {
+          if (layer.type === 'raster' && layer.id !== 'parchment-bg') {
+            try { map.setLayoutProperty(layer.id, 'visibility', 'none'); } catch(e) {}
+          }
+        });
 
         // ── 3. Water — washed-out antique blue ──────────────────────────────
         const WATER_BLUE   = '#a8bfcc';
