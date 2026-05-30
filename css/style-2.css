@@ -35,6 +35,8 @@
    28. Map Description Bar
    29. Map Filter Buttons
    30. Resource list
+   31. REGIONS GRID
+   32. Cartouche illustration
    ============================================================ */
 
 
@@ -3753,4 +3755,22 @@ img.bb-marker-icon {
         height: auto;
         padding-bottom: 30px;
     }
+}
+
+/* ============================================================
+   32. CARTOUCHE ILLUSTRATION
+   ============================================================ */
+
+.cartouche-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto; /* Adds some breathing room above and below the image */
+  width: 100%;
+}
+
+.cartouche-container img {
+  display: block;
+  max-width: 100%;
+  height: auto; /* Ensures the image scales proportionally if a screen is ultra-small */
 }
