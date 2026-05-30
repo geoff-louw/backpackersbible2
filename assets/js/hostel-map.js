@@ -205,9 +205,10 @@
 
       const map = new maplibregl.Map({
         container: 'bb-map',
-        style: `https://api.maptiler.com/maps/topo-v2/style.json?key=${MAPTILER_KEY}`,
+        style: `https://api.maptiler.com/maps/dataviz/style.json?key=${MAPTILER_KEY}`,
         center: CENTER, zoom: ZOOM, pitch: PITCH, bearing: BEARING, antialias: true
       });
+      window._bbMap = map; // temp diagnostic — remove after layer IDs confirmed
 
 
       map.on('error', e => { if (e.error && (e.error.status===0 || !navigator.onLine)) showOffline(); });
