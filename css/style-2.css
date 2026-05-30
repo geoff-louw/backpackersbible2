@@ -3338,7 +3338,7 @@ img.bb-marker-icon {
 .sa-hostel-map-iframe {
   border: none;
   z-index: 2;
-  background: #e8d5a3; /* parchment fallback — blocks poster bleed-through while map loads */
+  background: transparent;
 }
 
 /* ============================================================
