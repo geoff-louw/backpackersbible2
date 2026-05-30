@@ -3761,16 +3761,24 @@ img.bb-marker-icon {
    32. CARTOUCHE ILLUSTRATION
    ============================================================ */
 
+/* Base styles (Mobile First) */
 .cartouche-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 2rem auto; /* Adds some breathing room above and below the image */
   width: 100%;
+  margin-bottom: 30px;  /* Mobile bottom margin */
 }
 
 .cartouche-container img {
   display: block;
   max-width: 100%;
-  height: auto; /* Ensures the image scales proportionally if a screen is ultra-small */
+  height: auto;
+}
+
+/* Desktop styles (Screens wider than 767px) */
+@media (min-width: 768px) {
+  .cartouche-container {
+    margin-bottom: 60px; /* Desktop bottom margin */
+  }
 }
