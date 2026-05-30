@@ -334,15 +334,19 @@
           try { if (map.getLayer(layerId)) map.setLayoutProperty(layerId, prop, value); } catch(e) {}
         }
 
-        // 1. Parchment background
-        map.loadImage('/assets/maps/parchment-background.webp', (err, img) => {
-          if (err) { console.warn('BB map: parchment load failed', err); return; }
-          console.log('BB map: parchment loaded OK');
-          map.addImage('parchment-tile', img, { pixelRatio: 1 });
-          // 'Background' is the confirmed layer ID from diagnostic
-          ap('Background', 'background-pattern', 'parchment-tile');
-          ap('Background', 'background-opacity', 1);
-        });
+        // 1. Parchment background — use HTMLImageElement to avoid fetch/SW issues
+        const _parchmentImg = new Image();
+        _parchmentImg.crossOrigin = 'anonymous';
+        _parchmentImg.onload = () => {
+          console.log('BB map: parchment loaded OK', _parchmentImg.width, _parchmentImg.height);
+          try {
+            map.addImage('parchment-tile', _parchmentImg, { pixelRatio: 1 });
+            ap('Background', 'background-pattern', 'parchment-tile');
+            ap('Background', 'background-opacity', 1);
+          } catch(e) { console.warn('BB map: parchment addImage failed', e.message); }
+        };
+        _parchmentImg.onerror = (e) => { console.warn('BB map: parchment load failed', e); };
+        _parchmentImg.src = '/assets/maps/parchment-background.webp';
 
         // 2. Water — washed-out antique blue
         const WATER_BLUE = '#a8bfcc';
