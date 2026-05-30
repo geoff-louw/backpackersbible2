@@ -3526,6 +3526,12 @@ img.bb-marker-icon {
     margin-bottom: 0.75rem;
 }
 
+@media (max-width: 600px) {
+    .resource-list {
+        padding: 0 20px;
+    }
+}
+
 /* ============================================================
    31. REGIONS GRID
    Cards with background images and semi-transparent glass boxes.
