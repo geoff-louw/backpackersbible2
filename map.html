@@ -110,9 +110,8 @@
 <script>
   window.addEventListener('load', function() {
     setTimeout(function() {
-      var mapEl = document.getElementById('bb-map');
-      if (!mapEl || !mapEl._map) { console.log('BB-DIAG: map instance not on #bb-map._map'); return; }
-      var map = mapEl._map;
+      var map = window._bbMap;
+      if (!map) { console.log('BB-DIAG: window._bbMap not found'); return; }
       var layers = map.getStyle().layers;
       console.log('BB-DIAG LAYERS:');
       layers.forEach(function(l) {
