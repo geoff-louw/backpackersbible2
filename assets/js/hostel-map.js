@@ -323,18 +323,22 @@
         });
         map.setTerrain({ source:'terrain-src', exaggeration:1.15 });
 
-        // ── ANTIQUE MAP STYLING ──────────────────────────────────────────────
-        // Layer IDs confirmed from live topo-v2 diagnostic, May 2026
+        // ── ANTIQUE MAP STYLING — ink on parchment ───────────────────────────
+        // Philosophy: no colour fills. Parchment does all the "colour" work.
+        // Only ink lines, ink labels, and warm hillshade shadow remain.
 
-        // ── helper: safely set paint/layout on any layer that exists ─────────
+        // ── helpers ──────────────────────────────────────────────────────────
         function ap(layerId, prop, value) {
           try { if (map.getLayer(layerId)) map.setPaintProperty(layerId, prop, value); } catch(e) { console.warn('BB ap:', layerId, prop, e.message); }
         }
         function al(layerId, prop, value) {
           try { if (map.getLayer(layerId)) map.setLayoutProperty(layerId, prop, value); } catch(e) {}
         }
+        function hide(layerId) {
+          try { if (map.getLayer(layerId)) map.setLayoutProperty(layerId, 'visibility', 'none'); } catch(e) {}
+        }
 
-        // 1. Parchment background — use HTMLImageElement to avoid fetch/SW issues
+        // 1. Parchment background
         const _parchmentImg = new Image();
         _parchmentImg.crossOrigin = 'anonymous';
         _parchmentImg.onload = () => {
@@ -348,135 +352,108 @@
         _parchmentImg.onerror = (e) => { console.warn('BB map: parchment load failed', e); };
         _parchmentImg.src = '/assets/maps/parchment-background.webp';
 
-        // 2. Water — semi-transparent so parchment texture shows through with a blue tint
-        const WATER_BLUE = '#7aaabb';
-        const WATER_LINE = '#5a8898';
-        const WATER_TEXT = '#3a5a6a';
-        ap('Water',             'fill-color',   WATER_BLUE);
-        ap('Water',             'fill-opacity', 0.35);
-        ap('Water intermittent','fill-color',   WATER_BLUE);
-        ap('Water intermittent','fill-opacity', 0.2);
-        ap('River',             'line-color',   WATER_LINE);
-        ap('River',             'line-opacity', 0.6);
-        ap('River intermittent','line-color',   WATER_LINE);
-        ap('River intermittent','line-opacity', 0.35);
-        ap('Waterway',          'line-color',   WATER_LINE);
-        ap('Waterway',          'line-opacity', 0.55);
-        ap('Waterway intermittent','line-color',WATER_LINE);
+        // 2. Hide all fill layers — parchment shows everywhere underneath
+        ['Glacier','Crop','Scrub','Forest','Residential','Industrial',
+         'Pedestrian','Dam','Garages','Cemetery','Hospital','Stadium',
+         'Wood','Grass','Sand','Water intermittent',
+         'Bridge','Pier','Building'].forEach(hide);
+
+        // Water — hide the fill, keep it parchment-coloured, but add a
+        // subtle ink outline so coastlines and lake shores read as lines
+        ap('Water', 'fill-color',   '#c8b882');  // warm parchment tone
+        ap('Water', 'fill-opacity', 1);           // opaque — ocean = parchment
+
+        // 3. Ink colours
+        const INK        = '#2a1a0a';   // dark chocolate — main ink
+        const INK_LIGHT  = '#6a5040';   // lighter ink — minor features
+        const INK_FAINT  = '#9a8070';   // faint ink — least important
+        const INK_WATER  = '#4a6070';   // slate-ink — rivers, waterways
+
+        // 4. Waterways — ink lines, no fills
+        ap('River',               'line-color',   INK_WATER);
+        ap('River',               'line-opacity', 0.7);
+        ap('River tunnel',        'line-color',   INK_WATER);
+        ap('River tunnel',        'line-opacity', 0.3);
+        ap('River intermittent',  'line-color',   INK_WATER);
+        ap('River intermittent',  'line-opacity', 0.4);
+        ap('Waterway',            'line-color',   INK_WATER);
+        ap('Waterway',            'line-opacity', 0.55);
+        ap('Waterway intermittent','line-color',  INK_WATER);
         ap('Waterway intermittent','line-opacity',0.35);
-        ap('River labels',      'text-color',   WATER_TEXT);
-        ap('River labels',      'text-halo-color','rgba(168,191,204,0.5)');
-        ap('Lakeline labels',   'text-color',   WATER_TEXT);
-        ap('Lakeline labels',   'text-halo-color','rgba(168,191,204,0.5)');
-        ap('Ocean labels',      'text-color',   WATER_TEXT);
-        ap('Ocean labels',      'text-halo-color','rgba(168,191,204,0.5)');
-        ap('Sea labels',        'text-color',   WATER_TEXT);
-        ap('Sea labels',        'text-halo-color','rgba(168,191,204,0.5)');
-        ap('Lake labels',       'text-color',   WATER_TEXT);
-        ap('Lake labels',       'text-halo-color','rgba(168,191,204,0.5)');
+        ap('Ferry',               'line-color',   INK_WATER);
+        ap('Ferry',               'line-opacity', 0.4);
 
-        // 3. Land cover — light washes so parchment texture breathes through
-        ap('Wood',   'fill-color',   '#6a8a50');  // sage green
-        ap('Wood',   'fill-opacity', 0.2);
-        ap('Forest', 'fill-color',   '#6a8a50');  // sage green (globallandcover)
-        ap('Forest', 'fill-opacity', 0.18);
-        ap('Grass',  'fill-color',   '#8a9a60');  // olive
-        ap('Grass',  'fill-opacity', 0.15);
-        ap('Scrub',  'fill-color',   '#7a8a58');  // olive-grey
-        ap('Scrub',  'fill-opacity', 0.15);
-        ap('Crop',   'fill-color',   '#9a9a60');  // pale straw
-        ap('Crop',   'fill-opacity', 0.12);
-        ap('Sand',   'fill-color',   '#c8a860');  // warm tan
-        ap('Sand',   'fill-opacity', 0.2);
-        ap('Glacier','fill-color',   '#a0b8c8');  // icy blue
-        ap('Glacier','fill-opacity', 0.2);
+        // 5. Roads — national routes strong ink red, others graduated ink
+        const INK_RED    = '#6b1010';   // deep ink red — N1/N2/N3 highways
+        const INK_BROWN  = '#5a3010';   // dark sienna — major roads
+        ap('Highway',            'line-color',   INK_RED);
+        ap('Highway',            'line-opacity', 0.85);
+        ap('Highway outline',    'line-color',   INK_RED);
+        ap('Highway outline',    'line-opacity', 0.25);
+        ap('Major road',         'line-color',   INK_BROWN);
+        ap('Major road',         'line-opacity', 0.7);
+        ap('Major road outline', 'line-color',   INK_BROWN);
+        ap('Major road outline', 'line-opacity', 0.2);
+        ap('Minor road',         'line-color',   INK_LIGHT);
+        ap('Minor road',         'line-opacity', 0.5);
+        ap('Minor road outline', 'line-color',   INK_LIGHT);
+        ap('Minor road outline', 'line-opacity', 0.15);
+        ap('Tunnel',             'line-color',   INK_FAINT);
+        ap('Tunnel',             'line-opacity', 0.4);
+        ap('Tunnel outline',     'line-color',   INK_FAINT);
+        ap('Tunnel outline',     'line-opacity', 0.15);
+        ap('Tunnel path',        'line-color',   INK_FAINT);
+        ap('Tunnel path',        'line-opacity', 0.3);
+        ap('Path',               'line-color',   INK_FAINT);
+        ap('Path',               'line-opacity', 0.4);
+        ap('Path minor',         'line-color',   INK_FAINT);
+        ap('Path minor',         'line-opacity', 0.25);
+        ap('Pier road',          'line-color',   INK_LIGHT);
+        ap('Pier road',          'line-opacity', 0.5);
+        ap('Runway',             'line-color',   INK_FAINT);
+        ap('Runway',             'line-opacity', 0.5);
+        ap('Taxiway',            'line-color',   INK_FAINT);
+        ap('Taxiway',            'line-opacity', 0.35);
 
-        // 4. Land use — very light tints only
-        ap('Residential', 'fill-color',   '#8a7040');
-        ap('Residential', 'fill-opacity', 0.1);
-        ap('Industrial',  'fill-color',   '#7a6030');
-        ap('Industrial',  'fill-opacity', 0.1);
-        ap('Cemetery',    'fill-color',   '#608050');
-        ap('Cemetery',    'fill-opacity', 0.15);
-        ap('Hospital',    'fill-color',   '#905050');
-        ap('Hospital',    'fill-opacity', 0.12);
-        ap('Stadium',     'fill-color',   '#607840');
-        ap('Stadium',     'fill-opacity', 0.12);
-        ap('Dam',         'fill-color',   WATER_BLUE);
-        ap('Dam',         'fill-opacity', 0.35);
+        // 6. Railways — fine ink hatching
+        ap('Major railway',          'line-color',   INK_LIGHT);
+        ap('Major railway',          'line-opacity', 0.45);
+        ap('Major railway hatching', 'line-color',   INK_LIGHT);
+        ap('Major railway hatching', 'line-opacity', 0.3);
+        ap('Minor railway',          'line-color',   INK_FAINT);
+        ap('Minor railway',          'line-opacity', 0.35);
+        ap('Minor railway hatching', 'line-color',   INK_FAINT);
+        ap('Minor railway hatching', 'line-opacity', 0.2);
+        ap('Cable car',              'line-color',   INK_FAINT);
+        ap('Cable car',              'line-opacity', 0.4);
+        ap('Cable car dash',         'line-color',   INK_FAINT);
+        ap('Minor lift',             'line-color',   INK_FAINT);
+        ap('Minor lift dash',        'line-color',   INK_FAINT);
 
-        // 5. Roads — national routes deep red, others sepia
-        const ROAD_NATIONAL = '#8b1a1a';  // deep antique red — Highway (N1/N2/N3)
-        const ROAD_OUTLINE  = '#c8a070';  // warm tan casing
-        const ROAD_MAJOR    = '#9b6030';  // sienna — Major road
-        const ROAD_MINOR    = '#9a8060';  // mid sepia — Minor road
+        // 7. Contour lines — warm sepia ink
+        const INK_CONTOUR = '#7a5830';
+        ap('Contour',              'line-color',   INK_CONTOUR);
+        ap('Contour',              'line-opacity', 0.35);
+        ap('Contour index',        'line-color',   INK_CONTOUR);
+        ap('Contour index',        'line-opacity', 0.55);
+        ap('Glacier contour',      'line-color',   INK_FAINT);
+        ap('Glacier contour',      'line-opacity', 0.3);
+        ap('Glacier contour index','line-color',   INK_FAINT);
+        ap('Glacier contour index','line-opacity', 0.4);
 
-        ap('Highway',           'line-color',   ROAD_NATIONAL);
-        ap('Highway',           'line-opacity', 0.9);
-        ap('Highway outline',   'line-color',   ROAD_OUTLINE);
-        ap('Highway outline',   'line-opacity', 0.7);
-        ap('Major road',        'line-color',   ROAD_MAJOR);
-        ap('Major road',        'line-opacity', 0.85);
-        ap('Major road outline','line-color',   ROAD_OUTLINE);
-        ap('Major road outline','line-opacity', 0.6);
-        ap('Minor road',        'line-color',   ROAD_MINOR);
-        ap('Minor road',        'line-opacity', 0.7);
-        ap('Minor road outline','line-color',   ROAD_OUTLINE);
-        ap('Minor road outline','line-opacity', 0.4);
-        ap('Tunnel',            'line-color',   ROAD_MINOR);
-        ap('Tunnel',            'line-opacity', 0.5);
-        ap('Tunnel outline',    'line-color',   ROAD_OUTLINE);
-        ap('Tunnel outline',    'line-opacity', 0.3);
-        ap('Path',              'line-color',   '#8a7050');
-        ap('Path',              'line-opacity', 0.5);
-        ap('Path minor',        'line-color',   '#8a7050');
-        ap('Path minor',        'line-opacity', 0.35);
-        ap('Ferry',             'line-color',   WATER_LINE);
-        ap('Ferry',             'line-opacity', 0.6);
-        ap('Runway',            'line-color',   '#8a7a60');
-        ap('Taxiway',           'line-color',   '#9a8a70');
+        // 8. Boundaries — strong ink, country borders boldest
+        ap('Country border', 'line-color',   INK);
+        ap('Country border', 'line-opacity', 0.7);
+        ap('Other border',   'line-color',   INK_LIGHT);
+        ap('Other border',   'line-opacity', 0.45);
+        ap('Disputed border','line-color',   INK_FAINT);
+        ap('Disputed border','line-opacity', 0.35);
 
-        // 6. Railways — dark sepia hatching
-        ap('Major railway',         'line-color',   '#5a4a3a');
-        ap('Major railway',         'line-opacity', 0.5);
-        ap('Major railway hatching','line-color',   '#5a4a3a');
-        ap('Major railway hatching','line-opacity', 0.3);
-        ap('Minor railway',         'line-color',   '#7a6a5a');
-        ap('Minor railway',         'line-opacity', 0.4);
-        ap('Minor railway hatching','line-color',   '#7a6a5a');
-        ap('Minor railway hatching','line-opacity', 0.25);
+        // 9. Labels — dark ink with warm parchment halo
+        const LABEL_INK   = INK;
+        const LABEL_HALO  = 'rgba(210,190,150,0.85)';
+        const LABEL_WATER = '#3a5060';
 
-        // 7. Contour lines — warm sepia
-        ap('Contour',        'line-color',   '#8b6940');
-        ap('Contour',        'line-opacity', 0.4);
-        ap('Contour index',  'line-color',   '#7a5830');
-        ap('Contour index',  'line-opacity', 0.6);
-        ap('Glacier contour',      'line-color',   '#8a9aaa');
-        ap('Glacier contour',      'line-opacity', 0.4);
-        ap('Glacier contour index','line-color',   '#7a8a9a');
-        ap('Glacier contour index','line-opacity', 0.5);
-        ap('Contour labels',       'text-color',   '#7a5830');
-        ap('Contour labels',       'text-halo-color','rgba(235,220,185,0.6)');
-        ap('Glacier contour labels','text-color',  '#6a7a8a');
-
-        // 8. Boundaries — dark brown
-        ap('Country border', 'line-color',   '#5a3a1a');
-        ap('Country border', 'line-opacity', 0.8);
-        ap('Other border',   'line-color',   '#7a5a3a');
-        ap('Other border',   'line-opacity', 0.5);
-        ap('Disputed border','line-color',   '#8a6a4a');
-        ap('Disputed border','line-opacity', 0.4);
-
-        // 9. Buildings — keep existing warm stone tones from bb-3d-buildings,
-        //    but restyle the flat 'Building' fill layer
-        ap('Building', 'fill-color',   '#c8b89a');
-        ap('Building', 'fill-opacity', 0.5);
-        ap('Building', 'fill-outline-color', '#a89878');
-
-        // 10. Labels — ink brown with parchment halo
-        const LABEL_INK  = '#2a1a0a';
-        const LABEL_HALO = 'rgba(235,220,185,0.8)';
-        // Water labels already done above; restyle all others
         ['Road labels','Place labels','Village labels','Town labels',
          'City labels','State labels','Country labels','Continent labels',
          'Peak labels','Peak labels (US)','Volcano labels','Volcano labels (US)',
@@ -485,13 +462,25 @@
           ap(id, 'text-color',      LABEL_INK);
           ap(id, 'text-halo-color', LABEL_HALO);
         });
+        ['River labels','Lakeline labels','Ocean labels',
+         'Sea labels','Lake labels'].forEach(id => {
+          ap(id, 'text-color',      LABEL_WATER);
+          ap(id, 'text-halo-color', 'rgba(200,184,140,0.7)');
+        });
+        ['Contour labels','Glacier contour labels'].forEach(id => {
+          ap(id, 'text-color',      INK_CONTOUR);
+          ap(id, 'text-halo-color', LABEL_HALO);
+        });
 
-        // 11. Hillshade — warm shadow tones to blend with parchment
-        ap('Hillshade', 'hillshade-shadow-color',    '#5a3a1a');
-        ap('Hillshade', 'hillshade-highlight-color', '#f5ead0');
-        ap('Hillshade', 'hillshade-exaggeration',    0.45);
+        // 10. Hillshade — warm shadow only, no bright highlight
+        // This gives the mountains their ink-wash / stipple feel
+        ap('Hillshade', 'hillshade-shadow-color',    '#3a2510');
+        ap('Hillshade', 'hillshade-highlight-color', 'rgba(0,0,0,0)');
+        ap('Hillshade', 'hillshade-accent-color',    '#3a2510');
+        ap('Hillshade', 'hillshade-exaggeration',    0.6);
 
         // ── END ANTIQUE STYLING ──────────────────────────────────────────────
+
 
         const sources = map.getStyle().sources;
         const vecSrc  = Object.keys(sources).find(k => sources[k].type==='vector');
