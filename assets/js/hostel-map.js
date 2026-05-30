@@ -348,61 +348,62 @@
         _parchmentImg.onerror = (e) => { console.warn('BB map: parchment load failed', e); };
         _parchmentImg.src = '/assets/maps/parchment-background.webp';
 
-        // 2. Water — washed-out antique blue
-        const WATER_BLUE = '#a8bfcc';
-        const WATER_LINE = '#7a9aaa';
+        // 2. Water — semi-transparent so parchment texture shows through with a blue tint
+        const WATER_BLUE = '#7aaabb';
+        const WATER_LINE = '#5a8898';
         const WATER_TEXT = '#3a5a6a';
         ap('Water',             'fill-color',   WATER_BLUE);
+        ap('Water',             'fill-opacity', 0.35);
         ap('Water intermittent','fill-color',   WATER_BLUE);
-        ap('Water intermittent','fill-opacity', 0.6);
+        ap('Water intermittent','fill-opacity', 0.2);
         ap('River',             'line-color',   WATER_LINE);
-        ap('River',             'line-opacity', 0.8);
+        ap('River',             'line-opacity', 0.6);
         ap('River intermittent','line-color',   WATER_LINE);
-        ap('River intermittent','line-opacity', 0.5);
+        ap('River intermittent','line-opacity', 0.35);
         ap('Waterway',          'line-color',   WATER_LINE);
-        ap('Waterway',          'line-opacity', 0.7);
+        ap('Waterway',          'line-opacity', 0.55);
         ap('Waterway intermittent','line-color',WATER_LINE);
-        ap('Waterway intermittent','line-opacity',0.5);
+        ap('Waterway intermittent','line-opacity',0.35);
         ap('River labels',      'text-color',   WATER_TEXT);
-        ap('River labels',      'text-halo-color','rgba(168,191,204,0.6)');
+        ap('River labels',      'text-halo-color','rgba(168,191,204,0.5)');
         ap('Lakeline labels',   'text-color',   WATER_TEXT);
-        ap('Lakeline labels',   'text-halo-color','rgba(168,191,204,0.6)');
+        ap('Lakeline labels',   'text-halo-color','rgba(168,191,204,0.5)');
         ap('Ocean labels',      'text-color',   WATER_TEXT);
-        ap('Ocean labels',      'text-halo-color','rgba(168,191,204,0.6)');
+        ap('Ocean labels',      'text-halo-color','rgba(168,191,204,0.5)');
         ap('Sea labels',        'text-color',   WATER_TEXT);
-        ap('Sea labels',        'text-halo-color','rgba(168,191,204,0.6)');
+        ap('Sea labels',        'text-halo-color','rgba(168,191,204,0.5)');
         ap('Lake labels',       'text-color',   WATER_TEXT);
-        ap('Lake labels',       'text-halo-color','rgba(168,191,204,0.6)');
+        ap('Lake labels',       'text-halo-color','rgba(168,191,204,0.5)');
 
-        // 3. Land cover — antique greens and naturals
-        ap('Wood',   'fill-color',   '#b8c9a0');  // sage green
-        ap('Wood',   'fill-opacity', 0.55);
-        ap('Forest', 'fill-color',   '#b8c9a0');  // sage green (globallandcover)
-        ap('Forest', 'fill-opacity', 0.5);
-        ap('Grass',  'fill-color',   '#cdd5a8');  // pale olive
-        ap('Grass',  'fill-opacity', 0.45);
-        ap('Scrub',  'fill-color',   '#c8ce9a');  // olive-grey
-        ap('Scrub',  'fill-opacity', 0.4);
-        ap('Crop',   'fill-color',   '#d5d4a0');  // pale straw
-        ap('Crop',   'fill-opacity', 0.35);
-        ap('Sand',   'fill-color',   '#e8d8a8');  // warm parchment
-        ap('Sand',   'fill-opacity', 0.6);
-        ap('Glacier','fill-color',   '#e0eaf0');  // icy pale blue-white
-        ap('Glacier','fill-opacity', 0.5);
+        // 3. Land cover — light washes so parchment texture breathes through
+        ap('Wood',   'fill-color',   '#6a8a50');  // sage green
+        ap('Wood',   'fill-opacity', 0.2);
+        ap('Forest', 'fill-color',   '#6a8a50');  // sage green (globallandcover)
+        ap('Forest', 'fill-opacity', 0.18);
+        ap('Grass',  'fill-color',   '#8a9a60');  // olive
+        ap('Grass',  'fill-opacity', 0.15);
+        ap('Scrub',  'fill-color',   '#7a8a58');  // olive-grey
+        ap('Scrub',  'fill-opacity', 0.15);
+        ap('Crop',   'fill-color',   '#9a9a60');  // pale straw
+        ap('Crop',   'fill-opacity', 0.12);
+        ap('Sand',   'fill-color',   '#c8a860');  // warm tan
+        ap('Sand',   'fill-opacity', 0.2);
+        ap('Glacier','fill-color',   '#a0b8c8');  // icy blue
+        ap('Glacier','fill-opacity', 0.2);
 
-        // 4. Land use — slightly darker parchment tones
-        ap('Residential', 'fill-color',   '#d8c898');
-        ap('Residential', 'fill-opacity', 0.25);
-        ap('Industrial',  'fill-color',   '#c8b888');
-        ap('Industrial',  'fill-opacity', 0.25);
-        ap('Cemetery',    'fill-color',   '#c0cc98');
-        ap('Cemetery',    'fill-opacity', 0.4);
-        ap('Hospital',    'fill-color',   '#ddc8c8');
-        ap('Hospital',    'fill-opacity', 0.35);
-        ap('Stadium',     'fill-color',   '#c8d4a8');
-        ap('Stadium',     'fill-opacity', 0.35);
+        // 4. Land use — very light tints only
+        ap('Residential', 'fill-color',   '#8a7040');
+        ap('Residential', 'fill-opacity', 0.1);
+        ap('Industrial',  'fill-color',   '#7a6030');
+        ap('Industrial',  'fill-opacity', 0.1);
+        ap('Cemetery',    'fill-color',   '#608050');
+        ap('Cemetery',    'fill-opacity', 0.15);
+        ap('Hospital',    'fill-color',   '#905050');
+        ap('Hospital',    'fill-opacity', 0.12);
+        ap('Stadium',     'fill-color',   '#607840');
+        ap('Stadium',     'fill-opacity', 0.12);
         ap('Dam',         'fill-color',   WATER_BLUE);
-        ap('Dam',         'fill-opacity', 0.6);
+        ap('Dam',         'fill-opacity', 0.35);
 
         // 5. Roads — national routes deep red, others sepia
         const ROAD_NATIONAL = '#8b1a1a';  // deep antique red — Highway (N1/N2/N3)
