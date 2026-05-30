@@ -106,5 +106,19 @@
 
 <script src="/assets/js/hostel-map.js" defer></script>
 
+<!-- TEMP DIAGNOSTIC — remove after confirmed -->
+<script>
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      var map = window._bbMap;
+      if (!map) { console.log('BB-DIAG: no map'); return; }
+      console.log('BB-DIAG LAYERS:');
+      map.getStyle().layers.forEach(function(l) {
+        console.log('  ' + l.type.padEnd(14) + ' | ' + (l['source-layer']||'-').padEnd(22) + ' | ' + l.id);
+      });
+    }, 3000);
+  });
+</script>
+
 </body>
 </html>
