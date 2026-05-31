@@ -346,6 +346,41 @@
   }
   canvas.addEventListener('click', handleTap);
   canvas.addEventListener('touchstart', e=>{ e.preventDefault(); handleTap(); }, {passive:false});
+  // Keyboard: Space or Enter to shoot/start
+  canvas.addEventListener('keydown', e=>{
+    if (e.code==='Space'||e.code==='Enter'){ e.preventDefault(); handleTap(); }
+  });
+
+  // ── SCREEN READER LIVE REGION ─────────────────────────────────────────────────
+  const ariaLive = document.createElement('div');
+  ariaLive.setAttribute('aria-live', 'polite');
+  ariaLive.setAttribute('aria-atomic', 'true');
+  ariaLive.style.cssText = 'position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;';
+  canvas.parentNode.insertBefore(ariaLive, canvas.nextSibling);
+
+  function announce(msg) {
+    ariaLive.textContent = '';
+    setTimeout(() => { ariaLive.textContent = msg; }, 50);
+  }
+
+  let _lastState = state, _lastScore = score;
+  function checkAnnouncements() {
+    if (state !== _lastState) {
+      if (state === 'playing') announce('Game started. Tap or press Space to shoot.');
+      if (state === 'dead')    announce('Game over. Score: ' + score + '. Best: ' + hiScore + '. Press Enter or tap to try again.');
+      _lastState = state;
+    }
+    if (state === 'playing' && score !== _lastScore) {
+      _lastScore = score;
+      if (score % 50 === 0) announce('Score: ' + score);
+    }
+  }
+
+  function announcingLoop() {
+    checkAnnouncements();
+    requestAnimationFrame(announcingLoop);
+  }
+  requestAnimationFrame(announcingLoop);
 
   // ── START ────────────────────────────────────────────────────────────────────
   function waitAndStart(){
