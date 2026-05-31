@@ -1,20 +1,13 @@
 (function () {
   'use strict';
 
-  // ── CONFIG ──────────────────────────────────────────────────────────────────
-  const ASSET_PATH = '/assets/game/';
-  const CANVAS_H   = 200;
-  const COOLDOWN_F = 52;          // frames between shots (~0.87s at 60fps)
-  const HUNTER_SCALE = 1.7;       // size scalar for hunter
-  const HUNTER_X_PCT = 0.12;      // hunter left position as fraction of width
-  const HUNTER_Y_PCT = 0.22;      // hunter top as fraction of height
+  const ASSET_PATH   = '/assets/game/';
+  const CANVAS_H     = 200;
+  const COOLDOWN_F   = 72;        // longer reload — more skill required
+  const HUNTER_X_PCT = 0.12;
+  const HUNTER_Y_PCT = 0.22;
 
-  // SVG natural dimensions (mm, but we treat as unitless ratio)
-  const HUNTER_VB  = { w: 62.27,  h: 79.91 };  // hunter viewBox
-  const ELAND_VB   = { w: 61.02,  h: 27.16 };  // eland viewBox (frames 1+2)
-  const ELAND3_VB  = { w: 61.16,  h: 29.67 };  // eland frame 3 is slightly taller
-
-  // ── CANVAS SETUP ────────────────────────────────────────────────────────────
+  // ── CANVAS ──────────────────────────────────────────────────────────────────
   const canvas = document.getElementById('kalahari-game');
   if (!canvas) return;
 
@@ -27,403 +20,328 @@
   const ctx = canvas.getContext('2d');
   ctx.scale(DPR, DPR);
 
-  // ── DERIVED CONSTANTS ────────────────────────────────────────────────────────
+  // ── RESPONSIVE SCALE ────────────────────────────────────────────────────────
+  // On narrow screens (mobile) figures are smaller
+  const isMobile   = W < 600;
+  const SCALE_MOD  = isMobile ? 0.70 : 1.0;
+  const HS         = 1.7 * SCALE_MOD;
+
   const HX = W * HUNTER_X_PCT;
   const HY = H * HUNTER_Y_PCT;
-  const HS = HUNTER_SCALE;
 
-  // Hunter rendered dimensions
-  const HUNTER_W = HUNTER_VB.w * HS * (H / HUNTER_VB.h) * 0.38;
-  const HUNTER_H = H * HS * 0.38;
+  // Hunter rendered size derived from SVG aspect ratio (62.27 x 79.91mm)
+  const HUNTER_H_PX = H * HS * 0.38;
+  const HUNTER_W_PX = HUNTER_H_PX * (62.27 / 79.91);
 
-  // Arrow launch point (tip of nocked arrow in frame)
-  const ARROW_SX = HX + HUNTER_W * 1.05;
-  const ARROW_SY = HY + HUNTER_H * 0.27;
+  // Arrow launch point
+  const ARROW_SX = HX + HUNTER_W_PX * 1.05;
+  const ARROW_SY = HY + HUNTER_H_PX * 0.27;
 
-  // Hunter collision box (torso only)
-  const H_COLL = { x: HX + 2, y: HY + 4, w: HUNTER_W * 0.55, h: HUNTER_H * 0.85 };
+  // Hunter collision box
+  const H_COLL = { x: HX + 2, y: HY + 4, w: HUNTER_W_PX * 0.55, h: HUNTER_H_PX * 0.85 };
 
-  // ── IMAGE LOADING ────────────────────────────────────────────────────────────
+  // Eland size — aspect ratio 61.02 x 27.16mm
+  const ELAND_RENDER_H = H * 0.38 * SCALE_MOD;
+  const ELAND_RENDER_W = ELAND_RENDER_H * (61.02 / 27.16);
+
+  // ── IMAGES ──────────────────────────────────────────────────────────────────
   const imgs = {};
-  const IMG_KEYS = ['h1','h2','h3','h1n','h2n','h3n','e1','e2','e3','rock','arrow'];
   const IMG_SRCS = {
-    h1:   ASSET_PATH + 'khoisan-1.svg',
-    h2:   ASSET_PATH + 'khoisan-2.svg',
-    h3:   ASSET_PATH + 'khoisan-3.svg',
-    h1n:  ASSET_PATH + 'khoisan-1_NO_ARROW.svg',
-    h2n:  ASSET_PATH + 'khoisan-2_NO_ARROW.svg',
-    h3n:  ASSET_PATH + 'khoisan-3_NO_ARROW.svg',
-    e1:   ASSET_PATH + 'eland-1.svg',
-    e2:   ASSET_PATH + 'eland-2.svg',
-    e3:   ASSET_PATH + 'eland-3.svg',
-    rock: ASSET_PATH + 'rock.webp',
-    arrow:ASSET_PATH + 'arrow.svg',
+    h1:   'khoisan-1.svg',    h2:   'khoisan-2.svg',    h3:   'khoisan-3.svg',
+    h1n:  'khoisan-1_NO_ARROW.svg', h2n: 'khoisan-2_NO_ARROW.svg', h3n: 'khoisan-3_NO_ARROW.svg',
+    e1:   'eland-1.svg',      e2:   'eland-2.svg',      e3:   'eland-3.svg',
+    rock: 'rock2.webp',
+    arrow:'arrow.svg',
   };
-
   let imagesLoaded = 0;
-  const TOTAL_IMAGES = IMG_KEYS.length;
-
-  IMG_KEYS.forEach(k => {
+  const TOTAL_IMAGES = Object.keys(IMG_SRCS).length;
+  Object.keys(IMG_SRCS).forEach(k => {
     const img = new Image();
-    img.onload  = () => { imagesLoaded++; };
-    img.onerror = () => { imagesLoaded++; }; // degrade gracefully
-    img.src = IMG_SRCS[k];
+    img.onload = img.onerror = () => imagesLoaded++;
+    img.src = ASSET_PATH + IMG_SRCS[k];
     imgs[k] = img;
   });
 
-  // ── STATE ────────────────────────────────────────────────────────────────────
-  let state      = 'start';   // 'start' | 'playing' | 'dead'
-  let score      = 0;
-  let hiScore    = 0;
-  let gameTick   = 0;
-  let huntFrame  = 0;
-  let frameTick  = 0;
-  let cooldown   = 0;
-  let arrows     = [];        // { x, y, vx, vy }
-  let eland      = [];        // { x, y, w, h, frame, frameTick, alpha, dying, dyingTimer }
-  let particles  = [];        // { x, y, vx, vy, life, maxLife }
-  let spawnTimer = 0;
-  let spawnInterval = 130;
-  let gameSpeed  = 1;
+  // ── SCROLLING BACKGROUND ────────────────────────────────────────────────────
+  // rock2.webp is 2200px wide (seamless loop: original + h-flipped copy)
+  // We scroll it leftward and reset when one full width has passed
+  const BG_IMG_W   = 2200;   // actual pixel width of rock2.webp
+  const BG_SCROLL_SPEED = 1.8;  // px/frame — matches feel of running
+  let bgOffset = 0;           // how many px we've scrolled (0..BG_IMG_W/2)
+  const BG_LOOP_AT = BG_IMG_W / 2; // loop every half-image (the image is its own mirror)
 
-  // Eland rendered size
-  const ELAND_RENDER_H = H * 0.38;
-  const ELAND_RENDER_W = ELAND_VB.w / ELAND_VB.h * ELAND_RENDER_H;
-
-  // ── HELPERS ──────────────────────────────────────────────────────────────────
-  function resetGame() {
-    state = 'playing';
-    score = 0;
-    gameTick = 0;
-    huntFrame = 0;
-    frameTick = 0;
-    cooldown = 0;
-    arrows = [];
-    eland = [];
-    particles = [];
-    spawnTimer = 60;
-    spawnInterval = 130;
-    gameSpeed = 1;
-  }
-
-  function shoot() {
-    if (cooldown > 0 || state !== 'playing') return;
-    arrows.push({ x: ARROW_SX, y: ARROW_SY, vx: 11, vy: -0.4 });
-    cooldown = COOLDOWN_F;
-  }
-
-  function spawnEland() {
-    // vertical alignment: feet sit at same level as hunter's feet
-    const groundY = HY + HUNTER_H * 0.98;
-    const y = groundY - ELAND_RENDER_H;
-    eland.push({
-      x: W + 20,
-      y: y,
-      w: ELAND_RENDER_W,
-      h: ELAND_RENDER_H,
-      frame: 0,
-      frameTick: 0,
-      alpha: 1,
-      dying: false,
-      dyingTimer: 0,
-    });
-  }
-
-  function addParticles(x, y) {
-    for (let i = 0; i < 10; i++) {
-      const a  = Math.random() * Math.PI * 2;
-      const sp = 1.5 + Math.random() * 3;
-      particles.push({ x, y, vx: Math.cos(a)*sp, vy: Math.sin(a)*sp, life: 35, maxLife: 35 });
-    }
-  }
-
-  // ── DRAW HELPERS ─────────────────────────────────────────────────────────────
   function drawBg() {
-    if (imgs.rock.complete && imgs.rock.naturalWidth > 0) {
-      ctx.drawImage(imgs.rock, 0, 0, W, H);
-      // slight darkening tint for contrast
-      ctx.fillStyle = 'rgba(50,15,0,0.18)';
-      ctx.fillRect(0, 0, W, H);
+    bgOffset += BG_SCROLL_SPEED;
+    if (bgOffset >= BG_LOOP_AT) bgOffset -= BG_LOOP_AT;
+
+    const img = imgs.rock;
+    if (img.complete && img.naturalWidth > 0) {
+      // Scale the image to canvas height
+      const scale  = H / (img.naturalHeight || H);
+      const sw     = BG_IMG_W;          // full source width
+      const sh     = img.naturalHeight || H;
+      const dw     = sw * scale;        // destination width (may be > W)
+      const dh     = H;
+
+      // Draw offset slice: we render the 2200px-wide image shifted left by bgOffset
+      // Two draws handle the wrap-around seam
+      ctx.drawImage(img, 0, 0, sw, sh, -bgOffset * scale, 0, dw, dh);
+      // Second copy to fill the right side after the seam
+      ctx.drawImage(img, 0, 0, sw, sh, dw - bgOffset * scale, 0, dw, dh);
     } else {
       // Fallback gradient
-      const g = ctx.createLinearGradient(0, 0, W, H);
-      g.addColorStop(0,   '#c8966a');
-      g.addColorStop(0.4, '#b07840');
-      g.addColorStop(1,   '#a06030');
-      ctx.fillStyle = g;
-      ctx.fillRect(0, 0, W, H);
+      const g = ctx.createLinearGradient(0,0,W,H);
+      g.addColorStop(0,'#c8966a'); g.addColorStop(0.4,'#b07840'); g.addColorStop(1,'#a06030');
+      ctx.fillStyle = g; ctx.fillRect(0,0,W,H);
     }
+    // Slight tint for contrast
+    ctx.fillStyle = 'rgba(40,10,0,0.15)';
+    ctx.fillRect(0,0,W,H);
   }
 
+  // ── DRAW HUNTER ─────────────────────────────────────────────────────────────
   function drawHunter() {
-    // Choose frame set: with arrow if cooldown=0 (arrow ready), without if reloading
-    const hasArrow = cooldown === 0;
-    const fi = huntFrame; // 0,1,2
-    const key = hasArrow ? ['h1','h2','h3'][fi] : ['h1n','h2n','h3n'][fi];
+    const fi  = huntFrame;
+    const key = cooldown === 0 ? ['h1','h2','h3'][fi] : ['h1n','h2n','h3n'][fi];
     const img = imgs[key];
+    ctx.save();
+    ctx.globalAlpha = 0.82;   // slight transparency so rock texture shows through
     if (img && img.complete && img.naturalWidth > 0) {
-      ctx.drawImage(img, HX, HY, HUNTER_W, HUNTER_H);
+      ctx.drawImage(img, HX, HY, HUNTER_W_PX, HUNTER_H_PX);
     }
+    ctx.restore();
   }
 
+  // ── DRAW ELAND ───────────────────────────────────────────────────────────────
   function drawEland(e) {
     ctx.save();
-    ctx.globalAlpha = e.alpha;
-    const fi = e.frame; // 0,1,2
-    const key = ['e1','e2','e3'][fi];
+    ctx.globalAlpha = e.alpha * 0.85;
+    const key = ['e1','e2','e3'][e.frame];
     const img = imgs[key];
     if (img && img.complete && img.naturalWidth > 0) {
       ctx.drawImage(img, e.x, e.y, e.w, e.h);
     } else {
-      // Fallback silhouette rectangle
       ctx.fillStyle = '#4d0000';
       ctx.fillRect(e.x, e.y, e.w, e.h);
     }
     ctx.restore();
   }
 
+  // ── DRAW ARROW ───────────────────────────────────────────────────────────────
   function drawArrow(ar) {
     const img = imgs.arrow;
+    const angle = Math.atan2(ar.vy, ar.vx);
+    ctx.save();
+    ctx.globalAlpha = 0.9;
+    ctx.translate(ar.x, ar.y);
+    ctx.rotate(angle);
     if (img && img.complete && img.naturalWidth > 0) {
-      // Arrow SVG is horizontal; rotate to match velocity
-      const angle = Math.atan2(ar.vy, ar.vx);
-      const aw = 55, ah = 8;
-      ctx.save();
-      ctx.translate(ar.x, ar.y);
-      ctx.rotate(angle);
-      ctx.drawImage(img, 0, -ah/2, aw, ah);
-      ctx.restore();
+      ctx.drawImage(img, 0, -4, 55, 8);
     } else {
-      // Fallback
-      ctx.save();
-      ctx.strokeStyle = '#4d0000';
-      ctx.lineWidth = 2;
-      ctx.lineCap = 'round';
-      const angle = Math.atan2(ar.vy, ar.vx);
-      ctx.translate(ar.x, ar.y);
-      ctx.rotate(angle);
-      ctx.beginPath();
-      ctx.moveTo(-14, 0);
-      ctx.lineTo(10, 0);
-      ctx.stroke();
+      ctx.strokeStyle = '#4d0000'; ctx.lineWidth = 2; ctx.lineCap = 'round';
+      ctx.beginPath(); ctx.moveTo(-14,0); ctx.lineTo(10,0); ctx.stroke();
       ctx.fillStyle = '#4d0000';
-      ctx.beginPath();
-      ctx.moveTo(10,0); ctx.lineTo(4,-4); ctx.lineTo(4,4);
-      ctx.closePath(); ctx.fill();
-      ctx.restore();
+      ctx.beginPath(); ctx.moveTo(10,0); ctx.lineTo(4,-4); ctx.lineTo(4,4); ctx.closePath(); ctx.fill();
     }
+    ctx.restore();
   }
 
+  // ── PARTICLES ────────────────────────────────────────────────────────────────
   function drawParticles() {
     particles.forEach(p => {
       ctx.save();
       ctx.globalAlpha = (p.life / p.maxLife) * 0.85;
       ctx.fillStyle = '#4d0000';
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, 2.5, 0, Math.PI*2);
-      ctx.fill();
+      ctx.beginPath(); ctx.arc(p.x, p.y, 2.5, 0, Math.PI*2); ctx.fill();
       ctx.restore();
     });
   }
 
+  function addParticles(x, y) {
+    for (let i = 0; i < 10; i++) {
+      const a = Math.random()*Math.PI*2, sp = 1.5+Math.random()*3;
+      particles.push({x, y, vx:Math.cos(a)*sp, vy:Math.sin(a)*sp, life:35, maxLife:35});
+    }
+  }
+
+  // ── COOLDOWN BAR ─────────────────────────────────────────────────────────────
   function drawCooldownBar() {
     if (cooldown <= 0) return;
     const pct = cooldown / COOLDOWN_F;
-    const bw = 44, bh = 5, bx = HX + 2, by = HY - 14;
-    ctx.fillStyle = 'rgba(0,0,0,0.28)';
-    ctx.fillRect(bx, by, bw, bh);
-    // Colour shifts red→gold as it refills
-    const r = Math.floor(255);
-    const g = Math.floor(180 + 75 * (1 - pct));
-    ctx.fillStyle = `rgba(${r},${g},80,0.88)`;
-    ctx.fillRect(bx, by, bw * pct, bh);
+    const bw=44, bh=5, bx=HX+2, by=HY-14;
+    ctx.fillStyle='rgba(0,0,0,0.28)'; ctx.fillRect(bx,by,bw,bh);
+    const g = Math.floor(180 + 75*(1-pct));
+    ctx.fillStyle=`rgba(255,${g},80,0.88)`; ctx.fillRect(bx,by,bw*pct,bh);
   }
 
+  // ── HUD ──────────────────────────────────────────────────────────────────────
   function drawHUD() {
     ctx.save();
-    ctx.font = 'bold 13px Georgia, serif';
-    ctx.fillStyle = 'rgba(255,220,150,0.92)';
-    ctx.textAlign = 'right';
-    ctx.fillText('Score: ' + score, W - 12, 20);
-    if (hiScore > 0) {
-      ctx.font = '11px Georgia, serif';
-      ctx.fillStyle = 'rgba(255,210,130,0.72)';
-      ctx.fillText('Best: ' + hiScore, W - 12, 36);
-    }
+    ctx.font='bold 13px Georgia,serif'; ctx.fillStyle='rgba(255,220,150,0.92)'; ctx.textAlign='right';
+    ctx.fillText('Score: '+score, W-12, 20);
+    if (hiScore>0){ ctx.font='11px Georgia,serif'; ctx.fillStyle='rgba(255,210,130,0.72)'; ctx.fillText('Best: '+hiScore, W-12, 36); }
     ctx.restore();
   }
 
+  // ── OVERLAY ──────────────────────────────────────────────────────────────────
   function drawOverlay(lines) {
     ctx.save();
-    ctx.font = 'bold 15px Georgia, serif';
     let maxW = 0;
     lines.forEach(l => {
-      ctx.font = l.bold ? 'bold 15px Georgia,serif' : '12px Georgia,serif';
+      ctx.font = l.bold ? 'bold 18px Georgia,serif' : '14px Georgia,serif';
       maxW = Math.max(maxW, ctx.measureText(l.t).width);
     });
-    const lh = 22, pad = 16;
-    const boxW = maxW + pad * 2.5;
-    const boxH = lh * lines.length + pad * 2 - 4;
-    const bx = W/2 - boxW/2, by = H/2 - boxH/2;
-    ctx.fillStyle = 'rgba(0,0,0,0.38)';
-    ctx.beginPath();
-    ctx.roundRect(bx, by, boxW, boxH, 8);
-    ctx.fill();
-    lines.forEach((l, i) => {
-      ctx.font = l.bold ? 'bold 15px Georgia,serif' : '12px Georgia,serif';
-      ctx.fillStyle = l.col || 'rgba(255,220,150,0.97)';
-      ctx.textAlign = 'center';
-      ctx.fillText(l.t, W/2, by + pad + lh * i + lh * 0.7);
+    const lh=26, pad=18, boxW=maxW+pad*2.5, boxH=lh*lines.length+pad*2-4;
+    const bx=W/2-boxW/2, by=H/2-boxH/2;
+    ctx.fillStyle='rgba(0,0,0,0.42)';
+    ctx.beginPath(); ctx.roundRect(bx,by,boxW,boxH,8); ctx.fill();
+    lines.forEach((l,i)=>{
+      ctx.font = l.bold ? 'bold 18px Georgia,serif' : '14px Georgia,serif';
+      ctx.fillStyle = l.col||'rgba(255,220,150,0.97)';
+      ctx.textAlign='center';
+      ctx.fillText(l.t, W/2, by+pad+lh*i+lh*0.72);
     });
     ctx.restore();
+  }
+
+  // ── STATE ────────────────────────────────────────────────────────────────────
+  let state='start', score=0, hiScore=0;
+  let gameTick=0, huntFrame=0, frameTick=0, cooldown=0;
+  let arrows=[], eland=[], particles=[];
+  let spawnTimer=0, spawnInterval=55;
+  let gameSpeed=1;
+
+  function resetGame() {
+    state='playing'; score=0; gameTick=0;
+    huntFrame=0; frameTick=0; cooldown=0;
+    arrows=[]; eland=[]; particles=[];
+    spawnTimer=0; spawnInterval=55; gameSpeed=1;
+
+    // Pre-populate: spawn several eland already on screen so game starts immediately
+    for (let i=0; i<3; i++) {
+      spawnEland();
+      // Spread them across the right half of the screen
+      eland[i].x = W * 0.4 + i * (W * 0.22);
+    }
+  }
+
+  function spawnEland() {
+    const groundY = HY + HUNTER_H_PX * 0.98;
+    eland.push({
+      x: W + 20,
+      y: groundY - ELAND_RENDER_H,
+      w: ELAND_RENDER_W,
+      h: ELAND_RENDER_H,
+      frame:0, frameTick:0, alpha:1, dying:false, dyingTimer:0,
+    });
+  }
+
+  function shoot() {
+    if (cooldown>0 || state!=='playing') return;
+    arrows.push({x:ARROW_SX, y:ARROW_SY, vx:12, vy:-0.5});
+    cooldown = COOLDOWN_F;
   }
 
   // ── UPDATE ───────────────────────────────────────────────────────────────────
   function update() {
-    if (state !== 'playing') return;
+    if (state!=='playing') return;
     gameTick++;
 
-    // Animate hunter
-    frameTick++;
-    if (frameTick >= 9) { frameTick = 0; huntFrame = (huntFrame + 1) % 3; }
+    frameTick++; if (frameTick>=9){frameTick=0; huntFrame=(huntFrame+1)%3;}
+    if (cooldown>0) cooldown--;
 
-    // Cooldown
-    if (cooldown > 0) cooldown--;
+    gameSpeed = 1 + gameTick*0.0009;
 
-    // Speed ramp
-    gameSpeed = 1 + gameTick * 0.0009;
-
-    // Eland speed: eland runs ahead of (to the right of) the hunter,
-    // moving rightward but slower than the hunter would scroll — achieved
-    // by moving them leftward at a modest speed so they close distance gradually
-    const elandSpeed = 1.1 * gameSpeed;
+    // Eland move leftward (fleeing, but slower than hunter's apparent run)
+    const elandSpeed = 1.4 * gameSpeed;
 
     // Spawn
     spawnTimer++;
-    spawnInterval = Math.max(55, 130 - gameTick * 0.03);
-    if (spawnTimer >= spawnInterval) {
-      spawnTimer = 0;
-      spawnEland();
-    }
+    spawnInterval = Math.max(45, 95 - gameTick*0.025);
+    if (spawnTimer>=spawnInterval){ spawnTimer=0; spawnEland(); }
 
-    // Move eland
-    eland.forEach(e => {
-      if (!e.dying) {
+    // Move & animate eland
+    eland.forEach(e=>{
+      if (!e.dying){
         e.x -= elandSpeed;
-        // Animate eland run cycle
-        e.frameTick++;
-        if (e.frameTick >= 8) { e.frameTick = 0; e.frame = (e.frame + 1) % 3; }
+        e.frameTick++; if(e.frameTick>=7){e.frameTick=0; e.frame=(e.frame+1)%3;}
       }
     });
 
     // Move arrows
-    arrows = arrows.filter(ar => {
-      ar.x += ar.vx;
-      ar.vy += 0.1;
-      ar.y += ar.vy;
-      return ar.x < W + 30 && ar.y < H + 30 && ar.y > -20;
+    arrows = arrows.filter(ar=>{
+      ar.x+=ar.vx; ar.vy+=0.1; ar.y+=ar.vy;
+      return ar.x<W+30 && ar.y<H+30 && ar.y>-20;
     });
 
     // Arrow–eland collision
-    arrows.forEach((ar, ai) => {
-      eland.forEach(e => {
-        if (e.dying) return;
-        if (ar.x > e.x && ar.x < e.x + e.w && ar.y > e.y && ar.y < e.y + e.h) {
-          e.dying = true;
-          e.dyingTimer = 45;
-          score += 10 + Math.floor(gameTick / 100);
+    arrows.forEach((ar,ai)=>{
+      eland.forEach(e=>{
+        if(e.dying) return;
+        if(ar.x>e.x && ar.x<e.x+e.w && ar.y>e.y && ar.y<e.y+e.h){
+          e.dying=true; e.dyingTimer=45;
+          score += 10+Math.floor(gameTick/100);
           addParticles(ar.x, ar.y);
-          arrows.splice(ai, 1);
+          arrows.splice(ai,1);
         }
       });
     });
 
-    // Dying eland fade
-    eland = eland.filter(e => {
-      if (e.dying) {
-        e.dyingTimer--;
-        e.alpha = e.dyingTimer / 45;
-        return e.dyingTimer > 0;
-      }
-      // Off screen to the left — eland escaped
-      if (e.x + e.w < 0) {
-        // Eland escaped — game over
-        state = 'dead';
-        if (score > hiScore) hiScore = score;
-        return false;
-      }
+    // Eland lifecycle
+    eland = eland.filter(e=>{
+      if(e.dying){ e.dyingTimer--; e.alpha=e.dyingTimer/45; return e.dyingTimer>0; }
+      // Eland reaches left edge — escaped, game over
+      if(e.x+e.w < 0){ state='dead'; if(score>hiScore)hiScore=score; return false; }
       // Collision with hunter
-      if (
-        e.x < H_COLL.x + H_COLL.w &&
-        e.x + e.w > H_COLL.x &&
-        e.y < H_COLL.y + H_COLL.h &&
-        e.y + e.h > H_COLL.y
-      ) {
-        state = 'dead';
-        if (score > hiScore) hiScore = score;
+      if(e.x < H_COLL.x+H_COLL.w && e.x+e.w > H_COLL.x && e.y < H_COLL.y+H_COLL.h && e.y+e.h > H_COLL.y){
+        state='dead'; if(score>hiScore)hiScore=score;
       }
       return true;
     });
 
-    // Particles
-    particles = particles.filter(p => {
-      p.x += p.vx; p.y += p.vy; p.life--;
-      return p.life > 0;
-    });
+    particles = particles.filter(p=>{ p.x+=p.vx; p.y+=p.vy; p.life--; return p.life>0; });
   }
 
-  // ── MAIN LOOP ────────────────────────────────────────────────────────────────
+  // ── LOOP ─────────────────────────────────────────────────────────────────────
   function loop() {
-    ctx.clearRect(0, 0, W, H);
+    ctx.clearRect(0,0,W,H);
     drawBg();
     update();
-
     eland.forEach(drawEland);
     arrows.forEach(drawArrow);
     drawParticles();
     drawHunter();
     drawCooldownBar();
-
-    if (state === 'playing') {
-      drawHUD();
-    } else if (state === 'start') {
+    if(state==='playing') drawHUD();
+    if(state==='start') {
       drawHUD();
       drawOverlay([
-        { t: 'CAN YOU SURVIVE THE KALAHARI?', bold: true },
-        { t: 'Tap to play', col: 'rgba(255,210,130,0.85)' },
-      ]);
-    } else if (state === 'dead') {
-      drawHUD();
-      drawOverlay([
-        { t: 'The Kalahari claimed you.', bold: true, col: 'rgba(255,190,110,0.97)' },
-        { t: 'Score: ' + score + '   Best: ' + hiScore, col: 'rgba(255,220,150,0.9)' },
-        { t: 'Tap to try again', col: 'rgba(255,210,130,0.75)' },
+        {t:'CAN YOU SURVIVE THE KALAHARI?', bold:true},
+        {t:'Tap to play', col:'rgba(255,210,130,0.85)'},
       ]);
     }
-
+    if(state==='dead') {
+      drawHUD();
+      drawOverlay([
+        {t:'The Kalahari claimed you.', bold:true, col:'rgba(255,190,110,0.97)'},
+        {t:'Score: '+score+'   Best: '+hiScore, col:'rgba(255,220,150,0.9)'},
+        {t:'Tap to try again', col:'rgba(255,210,130,0.75)'},
+      ]);
+    }
     requestAnimationFrame(loop);
   }
 
   // ── INPUT ────────────────────────────────────────────────────────────────────
-  function handleTap() {
-    if (state === 'start' || state === 'dead') {
-      resetGame();
-    } else {
-      shoot();
-    }
+  function handleTap(){
+    if(state==='start'||state==='dead') resetGame(); else shoot();
   }
-
   canvas.addEventListener('click', handleTap);
-  canvas.addEventListener('touchstart', e => { e.preventDefault(); handleTap(); }, { passive: false });
+  canvas.addEventListener('touchstart', e=>{ e.preventDefault(); handleTap(); }, {passive:false});
 
   // ── START ────────────────────────────────────────────────────────────────────
-  // Wait for at least the rock image before first paint; otherwise start anyway
-  function waitAndStart() {
-    if (imagesLoaded >= TOTAL_IMAGES || imagesLoaded >= 1) {
-      loop();
-    } else {
-      setTimeout(waitAndStart, 50);
-    }
+  function waitAndStart(){
+    if(imagesLoaded>=TOTAL_IMAGES || imagesLoaded>=1) loop();
+    else setTimeout(waitAndStart,50);
   }
   waitAndStart();
 
