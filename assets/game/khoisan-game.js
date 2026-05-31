@@ -3,9 +3,7 @@
 
   const ASSET_PATH   = '/assets/game/';
   const CANVAS_H     = 200;
-  const COOLDOWN_F   = 72;        // longer reload — more skill required
-  const HUNTER_X_PCT = 0.12;
-  const HUNTER_Y_PCT = 0.22;
+  const COOLDOWN_F   = 72;
 
   // ── CANVAS ──────────────────────────────────────────────────────────────────
   const canvas = document.getElementById('kalahari-game');
@@ -21,13 +19,12 @@
   ctx.scale(DPR, DPR);
 
   // ── RESPONSIVE SCALE ────────────────────────────────────────────────────────
-  // On narrow screens (mobile) figures are smaller
-  const isMobile   = W < 600;
-  const SCALE_MOD  = isMobile ? 0.70 : 1.0;
-  const HS         = 1.7 * SCALE_MOD;
+  const isMobile  = W < 600;
+  const SCALE_MOD = isMobile ? 0.70 : 1.0;
+  const HS        = 1.7 * SCALE_MOD;
 
-  const HX = W * HUNTER_X_PCT;
-  const HY = H * HUNTER_Y_PCT;
+  const HX = W * (isMobile ? 0.06 : 0.12);
+  const HY = H * 0.22;
 
   // Hunter rendered size derived from SVG aspect ratio (62.27 x 79.91mm)
   const HUNTER_H_PX = H * HS * 0.38;
@@ -65,36 +62,35 @@
   // ── SCROLLING BACKGROUND ────────────────────────────────────────────────────
   // rock2.webp is 2200px wide (seamless loop: original + h-flipped copy)
   // We scroll it leftward and reset when one full width has passed
-  const BG_IMG_W   = 2200;   // actual pixel width of rock2.webp
-  const BG_SCROLL_SPEED = 1.8;  // px/frame — matches feel of running
-  let bgOffset = 0;           // how many px we've scrolled (0..BG_IMG_W/2)
-  const BG_LOOP_AT = BG_IMG_W / 2; // loop every half-image (the image is its own mirror)
+  const BG_IMG_W        = 2200;  // actual pixel width of rock2.webp
+  const BG_SCROLL_SPEED = 1.1;   // px/frame — slower, more natural
+  let bgOffset = 0;              // scrolled px, 0..BG_LOOP_AT
 
   function drawBg() {
-    bgOffset += BG_SCROLL_SPEED;
-    if (bgOffset >= BG_LOOP_AT) bgOffset -= BG_LOOP_AT;
+    // Only scroll when game is active
+    if (state === 'playing') {
+      bgOffset += BG_SCROLL_SPEED;
+      if (bgOffset >= BG_IMG_W) bgOffset -= BG_IMG_W;
+    }
 
     const img = imgs.rock;
     if (img.complete && img.naturalWidth > 0) {
-      // Scale the image to canvas height
-      const scale  = H / (img.naturalHeight || H);
-      const sw     = BG_IMG_W;          // full source width
-      const sh     = img.naturalHeight || H;
-      const dw     = sw * scale;        // destination width (may be > W)
-      const dh     = H;
-
-      // Draw offset slice: we render the 2200px-wide image shifted left by bgOffset
-      // Two draws handle the wrap-around seam
-      ctx.drawImage(img, 0, 0, sw, sh, -bgOffset * scale, 0, dw, dh);
-      // Second copy to fill the right side after the seam
-      ctx.drawImage(img, 0, 0, sw, sh, dw - bgOffset * scale, 0, dw, dh);
+      const sh = img.naturalHeight || 200;
+      const scale = H / sh;
+      // Draw the full 2200px image as one strip, shifted left by bgOffset
+      // dw is the full destination width of the image at canvas scale
+      const dw = Math.ceil(BG_IMG_W * scale);
+      const dx = -Math.floor(bgOffset * scale);
+      ctx.drawImage(img, 0, 0, BG_IMG_W, sh, dx, 0, dw, H);
+      // Second copy immediately to the right to fill any gap after wrap
+      if (dx + dw < W) {
+        ctx.drawImage(img, 0, 0, BG_IMG_W, sh, dx + dw, 0, dw, H);
+      }
     } else {
-      // Fallback gradient
       const g = ctx.createLinearGradient(0,0,W,H);
       g.addColorStop(0,'#c8966a'); g.addColorStop(0.4,'#b07840'); g.addColorStop(1,'#a06030');
       ctx.fillStyle = g; ctx.fillRect(0,0,W,H);
     }
-    // Slight tint for contrast
     ctx.fillStyle = 'rgba(40,10,0,0.15)';
     ctx.fillRect(0,0,W,H);
   }
@@ -188,15 +184,15 @@
     ctx.save();
     let maxW = 0;
     lines.forEach(l => {
-      ctx.font = l.bold ? 'bold 18px Georgia,serif' : '14px Georgia,serif';
+      ctx.font = l.bold ? 'bold 22px Georgia,serif' : '15px Georgia,serif';
       maxW = Math.max(maxW, ctx.measureText(l.t).width);
     });
-    const lh=26, pad=18, boxW=maxW+pad*2.5, boxH=lh*lines.length+pad*2-4;
+    const lh=30, pad=18, boxW=Math.min(maxW+pad*2.5, W-20), boxH=lh*lines.length+pad*2-4;
     const bx=W/2-boxW/2, by=H/2-boxH/2;
     ctx.fillStyle='rgba(0,0,0,0.42)';
     ctx.beginPath(); ctx.roundRect(bx,by,boxW,boxH,8); ctx.fill();
     lines.forEach((l,i)=>{
-      ctx.font = l.bold ? 'bold 18px Georgia,serif' : '14px Georgia,serif';
+      ctx.font = l.bold ? 'bold 22px Georgia,serif' : '15px Georgia,serif';
       ctx.fillStyle = l.col||'rgba(255,220,150,0.97)';
       ctx.textAlign='center';
       ctx.fillText(l.t, W/2, by+pad+lh*i+lh*0.72);
@@ -217,11 +213,19 @@
     arrows=[]; eland=[]; particles=[];
     spawnTimer=0; spawnInterval=55; gameSpeed=1;
 
-    // Pre-populate: spawn several eland already on screen so game starts immediately
-    for (let i=0; i<3; i++) {
-      spawnEland();
-      // Spread them across the right half of the screen
-      eland[i].x = W * 0.4 + i * (W * 0.22);
+    // Pre-populate eland so game starts immediately
+    if (isMobile) {
+      // Mobile: 2 eland, further right so player has time to react
+      for (let i = 0; i < 2; i++) {
+        spawnEland();
+        eland[i].x = W * 0.65 + i * (W * 0.28);
+      }
+    } else {
+      // Desktop: 3 eland spread across middle of screen
+      for (let i = 0; i < 3; i++) {
+        spawnEland();
+        eland[i].x = W * 0.45 + i * (W * 0.18);
+      }
     }
   }
 
