@@ -77,18 +77,17 @@
       const sh    = img.naturalHeight || 200;
       const scale = H / sh;
       // Convert scroll offset from canvas-px back to source-px
-      const srcX  = Math.floor(bgOffset);          // source x in image pixels
-      const srcW1 = BG_IMG_W - srcX;               // pixels from srcX to end of image
-      const dstW1 = Math.ceil(srcW1 * scale);      // destination width of first slice
+      const srcX  = Math.floor(bgOffset);
+      const srcW1 = BG_IMG_W - srcX;
+      const dstW1 = Math.round(srcW1 * scale);
 
-      // Slice 1: from srcX to end of image
+      // Slice 1: from srcX to end of image, fills left portion of canvas
       ctx.drawImage(img, srcX, 0, srcW1, sh, 0, 0, dstW1, H);
 
-      // Slice 2: beginning of image fills the remainder — no seam, no overlap needed
+      // Slice 2: start of image, forced to fill exactly from dstW1 to W — no gap possible
       if (dstW1 < W) {
-        const srcW2 = BG_IMG_W - srcW1;            // remaining source pixels from start
-        const dstW2 = Math.ceil(srcW2 * scale) + 1;
-        ctx.drawImage(img, 0, 0, srcW2, sh, dstW1, 0, dstW2, H);
+        const srcW2 = BG_IMG_W - srcW1;
+        ctx.drawImage(img, 0, 0, srcW2, sh, dstW1, 0, W - dstW1, H);
       }
     } else {
       const g = ctx.createLinearGradient(0,0,W,H);
