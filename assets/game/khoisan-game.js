@@ -77,15 +77,11 @@
     if (img.complete && img.naturalWidth > 0) {
       const sh = img.naturalHeight || 200;
       const scale = H / sh;
-      // Draw the full 2200px image as one strip, shifted left by bgOffset
-      // dw is the full destination width of the image at canvas scale
-      const dw = Math.ceil(BG_IMG_W * scale);
+      // floor offset, ceil+1 width so copies always overlap by 1px — kills the seam
+      const dw = Math.ceil(BG_IMG_W * scale) + 1;
       const dx = -Math.floor(bgOffset * scale);
       ctx.drawImage(img, 0, 0, BG_IMG_W, sh, dx, 0, dw, H);
-      // Second copy immediately to the right to fill any gap after wrap
-      if (dx + dw < W) {
-        ctx.drawImage(img, 0, 0, BG_IMG_W, sh, dx + dw, 0, dw, H);
-      }
+      ctx.drawImage(img, 0, 0, BG_IMG_W, sh, dx + dw - 1, 0, dw, H);
     } else {
       const g = ctx.createLinearGradient(0,0,W,H);
       g.addColorStop(0,'#c8966a'); g.addColorStop(0.4,'#b07840'); g.addColorStop(1,'#a06030');
@@ -173,27 +169,29 @@
   // ── HUD ──────────────────────────────────────────────────────────────────────
   function drawHUD() {
     ctx.save();
-    ctx.font='bold 13px Georgia,serif'; ctx.fillStyle='rgba(255,220,150,0.92)'; ctx.textAlign='right';
+    ctx.font='bold 13px "Century Gothic",CenturyGothic,AppleGothic,sans-serif'; ctx.fillStyle='#670000'; ctx.textAlign='right';
     ctx.fillText('Score: '+score, W-12, 20);
-    if (hiScore>0){ ctx.font='11px Georgia,serif'; ctx.fillStyle='rgba(255,210,130,0.72)'; ctx.fillText('Best: '+hiScore, W-12, 36); }
+    if (hiScore>0){ ctx.font='11px "Century Gothic",CenturyGothic,AppleGothic,sans-serif'; ctx.fillStyle='#670000'; ctx.fillText('Best: '+hiScore, W-12, 36); }
     ctx.restore();
   }
 
-  // ── OVERLAY ──────────────────────────────────────────────────────────────────
+  const FONT_BOLD = 'bold 22px "Century Gothic",CenturyGothic,AppleGothic,sans-serif';
+  const FONT_NORM = '15px "Century Gothic",CenturyGothic,AppleGothic,sans-serif';
+
   function drawOverlay(lines) {
     ctx.save();
     let maxW = 0;
     lines.forEach(l => {
-      ctx.font = l.bold ? 'bold 22px Georgia,serif' : '15px Georgia,serif';
+      ctx.font = l.bold ? FONT_BOLD : FONT_NORM;
       maxW = Math.max(maxW, ctx.measureText(l.t).width);
     });
     const lh=30, pad=18, boxW=Math.min(maxW+pad*2.5, W-20), boxH=lh*lines.length+pad*2-4;
     const bx=W/2-boxW/2, by=H/2-boxH/2;
-    ctx.fillStyle='rgba(0,0,0,0.42)';
+    ctx.fillStyle='rgba(255,240,200,0.72)';
     ctx.beginPath(); ctx.roundRect(bx,by,boxW,boxH,8); ctx.fill();
     lines.forEach((l,i)=>{
-      ctx.font = l.bold ? 'bold 22px Georgia,serif' : '15px Georgia,serif';
-      ctx.fillStyle = l.col||'rgba(255,220,150,0.97)';
+      ctx.font = l.bold ? FONT_BOLD : FONT_NORM;
+      ctx.fillStyle = '#670000';
       ctx.textAlign='center';
       ctx.fillText(l.t, W/2, by+pad+lh*i+lh*0.72);
     });
@@ -321,15 +319,15 @@
       drawHUD();
       drawOverlay([
         {t:'CAN YOU SURVIVE THE KALAHARI?', bold:true},
-        {t:'Tap to play', col:'rgba(255,210,130,0.85)'},
+        {t:'Tap to play'},
       ]);
     }
     if(state==='dead') {
       drawHUD();
       drawOverlay([
-        {t:'The Kalahari claimed you.', bold:true, col:'rgba(255,190,110,0.97)'},
-        {t:'Score: '+score+'   Best: '+hiScore, col:'rgba(255,220,150,0.9)'},
-        {t:'Tap to try again', col:'rgba(255,210,130,0.75)'},
+        {t:'The Kalahari claimed you.', bold:true},
+        {t:'Score: '+score+'   Best: '+hiScore},
+        {t:'Tap to try again'},
       ]);
     }
     requestAnimationFrame(loop);
