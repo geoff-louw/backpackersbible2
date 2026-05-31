@@ -63,11 +63,10 @@
   // rock2.webp is 2200px wide (seamless loop: original + h-flipped copy)
   // We scroll it leftward and reset when one full width has passed
   const BG_IMG_W        = 2200;  // actual pixel width of rock2.webp
-  const BG_SCROLL_SPEED = 1.1;   // px/frame — slower, more natural
-  let bgOffset = 0;              // scrolled px, 0..BG_LOOP_AT
+  const BG_SCROLL_SPEED = 0.7;   // source-pixels/frame (slow, natural)
+  let bgOffset = 0;              // current scroll in source pixels, 0..BG_IMG_W
 
   function drawBg() {
-    // Only scroll when game is active
     if (state === 'playing') {
       bgOffset += BG_SCROLL_SPEED;
       if (bgOffset >= BG_IMG_W) bgOffset -= BG_IMG_W;
@@ -75,13 +74,22 @@
 
     const img = imgs.rock;
     if (img.complete && img.naturalWidth > 0) {
-      const sh = img.naturalHeight || 200;
+      const sh    = img.naturalHeight || 200;
       const scale = H / sh;
-      // floor offset, ceil+1 width so copies always overlap by 1px — kills the seam
-      const dw = Math.ceil(BG_IMG_W * scale) + 1;
-      const dx = -Math.floor(bgOffset * scale);
-      ctx.drawImage(img, 0, 0, BG_IMG_W, sh, dx, 0, dw, H);
-      ctx.drawImage(img, 0, 0, BG_IMG_W, sh, dx + dw - 1, 0, dw, H);
+      // Convert scroll offset from canvas-px back to source-px
+      const srcX  = Math.floor(bgOffset);          // source x in image pixels
+      const srcW1 = BG_IMG_W - srcX;               // pixels from srcX to end of image
+      const dstW1 = Math.ceil(srcW1 * scale);      // destination width of first slice
+
+      // Slice 1: from srcX to end of image
+      ctx.drawImage(img, srcX, 0, srcW1, sh, 0, 0, dstW1, H);
+
+      // Slice 2: beginning of image fills the remainder — no seam, no overlap needed
+      if (dstW1 < W) {
+        const srcW2 = BG_IMG_W - srcW1;            // remaining source pixels from start
+        const dstW2 = Math.ceil(srcW2 * scale) + 1;
+        ctx.drawImage(img, 0, 0, srcW2, sh, dstW1, 0, dstW2, H);
+      }
     } else {
       const g = ctx.createLinearGradient(0,0,W,H);
       g.addColorStop(0,'#c8966a'); g.addColorStop(0.4,'#b07840'); g.addColorStop(1,'#a06030');
