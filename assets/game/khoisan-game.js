@@ -79,7 +79,7 @@
 
       // Slice 1: from srcX to end of image, fills left portion of canvas
       const srcW1 = BG_IMG_W - srcX;
-      const dstW1 = Math.round((srcW1 / BG_IMG_W) * W);
+      const dstW1 = Math.ceil((srcW1 / BG_IMG_W) * W);
       ctx.drawImage(img, srcX, 0, srcW1, sh,  0,    0, dstW1,    H);
 
       // Slice 2: start of image, fills the remaining right portion exactly — no gap possible
