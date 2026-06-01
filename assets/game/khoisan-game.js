@@ -74,20 +74,17 @@
 
     const img = imgs.rock;
     if (img.complete && img.naturalWidth > 0) {
-      const sh    = img.naturalHeight || 200;
-      const scale = H / sh;
-      // Convert scroll offset from canvas-px back to source-px
-      const srcX  = Math.floor(bgOffset);
-      const srcW1 = BG_IMG_W - srcX;
-      const dstW1 = Math.round(srcW1 * scale);
+      const sh   = img.naturalHeight || 200;
+      const srcX = Math.floor(bgOffset);
 
       // Slice 1: from srcX to end of image, fills left portion of canvas
-      ctx.drawImage(img, srcX, 0, srcW1, sh, 0, 0, dstW1, H);
+      const srcW1 = BG_IMG_W - srcX;
+      const dstW1 = Math.round((srcW1 / BG_IMG_W) * W);
+      ctx.drawImage(img, srcX, 0, srcW1, sh,  0,    0, dstW1,    H);
 
-      // Slice 2: start of image, forced to fill exactly from dstW1 to W — no gap possible
+      // Slice 2: start of image, fills the remaining right portion exactly — no gap possible
       if (dstW1 < W) {
-        const srcW2 = BG_IMG_W - srcW1;
-        ctx.drawImage(img, 0, 0, srcW2, sh, dstW1, 0, W - dstW1, H);
+        ctx.drawImage(img, 0, 0, srcX, sh,  dstW1, 0, W - dstW1, H);
       }
     } else {
       const g = ctx.createLinearGradient(0,0,W,H);
