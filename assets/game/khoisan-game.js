@@ -44,9 +44,11 @@
   // ── IMAGES ──────────────────────────────────────────────────────────────────
   const imgs = {};
   const IMG_SRCS = {
-    h1:   'khoisan-1.svg',    h2:   'khoisan-2.svg',    h3:   'khoisan-3.svg',
-    h1n:  'khoisan-1_NO_ARROW.svg', h2n: 'khoisan-2_NO_ARROW.svg', h3n: 'khoisan-3_NO_ARROW.svg',
-    e1:   'eland-1.svg',      e2:   'eland-2.svg',      e3:   'eland-3.svg',
+    h1:   'khoisan-1.svg',          h2:   'khoisan-2.svg',          h3:   'khoisan-3.svg',
+    h1n:  'khoisan-1_NO_ARROW.svg', h2n:  'khoisan-2_NO_ARROW.svg', h3n:  'khoisan-3_NO_ARROW.svg',
+    h1u:  'khoisan-1_up.svg',       h2u:  'khoisan-2_up.svg',       h3u:  'khoisan-3_up.svg',
+    h1nu: 'khoisan-1_NO_ARROW_up.svg', h2nu: 'khoisan-2_NO_ARROW_up.svg', h3nu: 'khoisan-3_NO_ARROW_up.svg',
+    e1:   'eland-1.svg',            e2:   'eland-2.svg',            e3:   'eland-3.svg',
     rock: 'rock2.webp',
     arrow:'arrow.svg',
   };
@@ -60,11 +62,9 @@
   });
 
   // ── SCROLLING BACKGROUND ────────────────────────────────────────────────────
-  // rock2.webp is 2200px wide (seamless loop: original + h-flipped copy)
-  // We scroll it leftward and reset when one full width has passed
-  const BG_IMG_W        = 2200;  // actual pixel width of rock2.webp
-  const BG_SCROLL_SPEED = 0.7;   // source-pixels/frame (slow, natural)
-  let bgOffset = 0;              // current scroll in source pixels, 0..BG_IMG_W
+  const BG_IMG_W        = 2200;
+  const BG_SCROLL_SPEED = 0.7;
+  let bgOffset = 0;
 
   function drawBg() {
     if (state === 'playing') {
@@ -77,15 +77,11 @@
       const sh   = img.naturalHeight || 200;
       const srcX = Math.floor(bgOffset);
 
-      // Scale factor: how many canvas-px per source-px (horizontal)
       const hScale = W / BG_IMG_W;
-
-      // Slice 1: srcX → end of image
-      const srcW1 = BG_IMG_W - srcX;
-      const dstX2 = Math.round(srcW1 * hScale); // pixel-snapped join point
+      const srcW1  = BG_IMG_W - srcX;
+      const dstX2  = Math.round(srcW1 * hScale);
       ctx.drawImage(img, srcX, 0, srcW1, sh,  0,    0, dstX2,    H);
 
-      // Slice 2: 0 → srcX, drawn from dstX2 hard to W — no proportional calc, no gap
       if (dstX2 < W) {
         ctx.drawImage(img, 0, 0, srcX, sh,  dstX2, 0, W - dstX2, H);
       }
@@ -100,11 +96,16 @@
 
   // ── DRAW HUNTER ─────────────────────────────────────────────────────────────
   function drawHunter() {
-    const fi  = huntFrame;
-    const key = cooldown === 0 ? ['h1','h2','h3'][fi] : ['h1n','h2n','h3n'][fi];
+    const fi = huntFrame;
+    let key;
+    if (aimHigh) {
+      key = cooldown === 0 ? ['h1u','h2u','h3u'][fi] : ['h1nu','h2nu','h3nu'][fi];
+    } else {
+      key = cooldown === 0 ? ['h1','h2','h3'][fi]    : ['h1n','h2n','h3n'][fi];
+    }
     const img = imgs[key];
     ctx.save();
-    ctx.globalAlpha = 0.82;   // slight transparency so rock texture shows through
+    ctx.globalAlpha = 0.82;
     if (img && img.complete && img.naturalWidth > 0) {
       ctx.drawImage(img, HX, HY, HUNTER_W_PX, HUNTER_H_PX);
     }
@@ -185,14 +186,15 @@
   const FONT_BOLD = 'bold 22px "Century Gothic",CenturyGothic,AppleGothic,sans-serif';
   const FONT_NORM = '15px "Century Gothic",CenturyGothic,AppleGothic,sans-serif';
 
-  function drawOverlay(lines) {
+  function drawOverlay(lines, lh) {
+    lh = lh || 30;
     ctx.save();
     let maxW = 0;
     lines.forEach(l => {
       ctx.font = l.bold ? FONT_BOLD : FONT_NORM;
       maxW = Math.max(maxW, ctx.measureText(l.t).width);
     });
-    const lh=30, pad=18, boxW=Math.min(maxW+pad*2.5, W-20), boxH=lh*lines.length+pad*2-4;
+    const pad=18, boxW=Math.min(maxW+pad*2.5, W-20), boxH=lh*lines.length+pad*2-4;
     const bx=W/2-boxW/2, by=H/2-boxH/2;
     ctx.fillStyle='rgba(255,240,200,0.72)';
     ctx.beginPath(); ctx.roundRect(bx,by,boxW,boxH,8); ctx.fill();
@@ -211,22 +213,21 @@
   let arrows=[], eland=[], particles=[];
   let spawnTimer=0, spawnInterval=55;
   let gameSpeed=1;
+  let aimHigh=false;   // true while player is aiming the high arc shot
 
   function resetGame() {
     state='playing'; score=0; gameTick=0;
     huntFrame=0; frameTick=0; cooldown=0;
     arrows=[]; eland=[]; particles=[];
     spawnTimer=0; spawnInterval=55; gameSpeed=1;
+    aimHigh=false;
 
-    // Pre-populate eland so game starts immediately
     if (isMobile) {
-      // Mobile: 2 eland, further right so player has time to react
       for (let i = 0; i < 2; i++) {
         spawnEland();
         eland[i].x = W * 0.65 + i * (W * 0.28);
       }
     } else {
-      // Desktop: 3 eland spread across middle of screen
       for (let i = 0; i < 3; i++) {
         spawnEland();
         eland[i].x = W * 0.45 + i * (W * 0.18);
@@ -245,9 +246,15 @@
     });
   }
 
-  function shoot() {
+  function shoot(high) {
     if (cooldown>0 || state!=='playing') return;
-    arrows.push({x:ARROW_SX, y:ARROW_SY, vx:12, vy:-0.5});
+    if (high) {
+      // High arc: steeper launch, slower horizontal — longer range parabola
+      arrows.push({x:ARROW_SX, y:ARROW_SY, vx:5, vy:-6});
+    } else {
+      // Flat shot: fast horizontal, shallow drop
+      arrows.push({x:ARROW_SX, y:ARROW_SY, vx:12, vy:-0.5});
+    }
     cooldown = COOLDOWN_F;
   }
 
@@ -261,15 +268,12 @@
 
     gameSpeed = 1 + gameTick*0.0009;
 
-    // Eland move leftward (fleeing, but slower than hunter's apparent run)
     const elandSpeed = 1.4 * gameSpeed;
 
-    // Spawn
     spawnTimer++;
     spawnInterval = Math.max(45, 95 - gameTick*0.025);
     if (spawnTimer>=spawnInterval){ spawnTimer=0; spawnEland(); }
 
-    // Move & animate eland
     eland.forEach(e=>{
       if (!e.dying){
         e.x -= elandSpeed;
@@ -277,13 +281,12 @@
       }
     });
 
-    // Move arrows
+    // Move arrows — extended upper bound so high-arc arrows don't vanish at apex
     arrows = arrows.filter(ar=>{
       ar.x+=ar.vx; ar.vy+=0.1; ar.y+=ar.vy;
-      return ar.x<W+30 && ar.y<H+30 && ar.y>-20;
+      return ar.x<W+30 && ar.y<H+30 && ar.y>-H;
     });
 
-    // Arrow–eland collision
     arrows.forEach((ar,ai)=>{
       eland.forEach(e=>{
         if(e.dying) return;
@@ -296,12 +299,9 @@
       });
     });
 
-    // Eland lifecycle
     eland = eland.filter(e=>{
       if(e.dying){ e.dyingTimer--; e.alpha=e.dyingTimer/45; return e.dyingTimer>0; }
-      // Eland reaches left edge — escaped, game over
       if(e.x+e.w < 0){ state='dead'; if(score>hiScore)hiScore=score; return false; }
-      // Collision with hunter
       if(e.x < H_COLL.x+H_COLL.w && e.x+e.w > H_COLL.x && e.y < H_COLL.y+H_COLL.h && e.y+e.h > H_COLL.y){
         state='dead'; if(score>hiScore)hiScore=score;
       }
@@ -326,8 +326,9 @@
       drawHUD();
       drawOverlay([
         {t:'CAN YOU SURVIVE THE KALAHARI?', bold:true},
+        {t: isMobile ? 'Tap top half to shoot high, bottom to shoot flat' : 'Click to shoot · Hold ↑ for high arc'},
         {t:'Tap to play'},
-      ]);
+      ], 26);
     }
     if(state==='dead') {
       drawHUD();
@@ -341,14 +342,40 @@
   }
 
   // ── INPUT ────────────────────────────────────────────────────────────────────
-  function handleTap(){
-    if(state==='start'||state==='dead') resetGame(); else shoot();
+
+  // Helper: get canvas-relative Y from a clientY value
+  function canvasRelativeY(clientY) {
+    const rect = canvas.getBoundingClientRect();
+    return clientY - rect.top;
   }
-  canvas.addEventListener('click', handleTap);
-  canvas.addEventListener('touchstart', e=>{ e.preventDefault(); handleTap(); }, {passive:false});
-  // Keyboard: Space or Enter to shoot/start
-  canvas.addEventListener('keydown', e=>{
-    if (e.code==='Space'||e.code==='Enter'){ e.preventDefault(); handleTap(); }
+
+  canvas.addEventListener('click', e => {
+    if (state === 'start' || state === 'dead') { resetGame(); return; }
+    const high = e.offsetY < H / 2;
+    shoot(high);
+  });
+
+  canvas.addEventListener('touchstart', e => {
+    e.preventDefault();
+    if (state === 'start' || state === 'dead') { resetGame(); return; }
+    const y = canvasRelativeY(e.touches[0].clientY);
+    const high = y < H / 2;
+    shoot(high);
+  }, {passive: false});
+
+  // Desktop: hold ↑ to aim high (hunter sprite switches); Space/Enter fires at current aim
+  canvas.addEventListener('keydown', e => {
+    if (e.code === 'ArrowUp')   { e.preventDefault(); if(state==='playing') aimHigh = true;  return; }
+    if (e.code === 'ArrowDown') { e.preventDefault(); if(state==='playing') aimHigh = false; return; }
+    if (e.code === 'Space' || e.code === 'Enter') {
+      e.preventDefault();
+      if (state === 'start' || state === 'dead') { resetGame(); return; }
+      shoot(aimHigh);
+    }
+  });
+
+  canvas.addEventListener('keyup', e => {
+    if (e.code === 'ArrowUp') { aimHigh = false; }
   });
 
   // ── SCREEN READER LIVE REGION ─────────────────────────────────────────────────
@@ -366,7 +393,7 @@
   let _lastState = state, _lastScore = score;
   function checkAnnouncements() {
     if (state !== _lastState) {
-      if (state === 'playing') announce('Game started. Tap or press Space to shoot.');
+      if (state === 'playing') announce('Game started. Tap or press Space to shoot. Hold up arrow for high arc.');
       if (state === 'dead')    announce('Game over. Score: ' + score + '. Best: ' + hiScore + '. Press Enter or tap to try again.');
       _lastState = state;
     }
