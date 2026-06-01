@@ -77,14 +77,17 @@
       const sh   = img.naturalHeight || 200;
       const srcX = Math.floor(bgOffset);
 
-      // Slice 1: from srcX to end of image, fills left portion of canvas
-      const srcW1 = BG_IMG_W - srcX;
-      const dstW1 = Math.ceil((srcW1 / BG_IMG_W) * W);
-      ctx.drawImage(img, srcX, 0, srcW1, sh,  0,    0, dstW1,    H);
+      // Scale factor: how many canvas-px per source-px (horizontal)
+      const hScale = W / BG_IMG_W;
 
-      // Slice 2: start of image, fills the remaining right portion exactly — no gap possible
-      if (dstW1 < W) {
-        ctx.drawImage(img, 0, 0, srcX, sh,  dstW1, 0, W - dstW1, H);
+      // Slice 1: srcX → end of image
+      const srcW1 = BG_IMG_W - srcX;
+      const dstX2 = Math.round(srcW1 * hScale); // pixel-snapped join point
+      ctx.drawImage(img, srcX, 0, srcW1, sh,  0,    0, dstX2,    H);
+
+      // Slice 2: 0 → srcX, drawn from dstX2 hard to W — no proportional calc, no gap
+      if (dstX2 < W) {
+        ctx.drawImage(img, 0, 0, srcX, sh,  dstX2, 0, W - dstX2, H);
       }
     } else {
       const g = ctx.createLinearGradient(0,0,W,H);
