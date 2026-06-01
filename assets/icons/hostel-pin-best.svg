@@ -7,8 +7,34 @@
    viewBox="0 0 31.999996 31.999996"
    version="1.1"
    id="svg1"
+   sodipodi:docname="hostel-pin-best.svg"
+   inkscape:export-filename="hostel-pin-best.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.58903705"
+     inkscape:cx="-387.07242"
+     inkscape:cy="-58.570169"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
   <defs
      id="defs1" />
   <g
@@ -20,16 +46,16 @@
        cx="58.664204"
        cy="87.524002"
        r="13.870853" />
-    <g
-       id="g3">
-      <path
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:7.08824;stroke-linecap:square;stroke-opacity:1;paint-order:markers stroke fill"
-         d="M 47.957407,85.240779 H 69.371001 L 58.648272,77.569192 Z"
-         id="path2" />
-      <path
-         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:6.00001;stroke-linecap:square;stroke-opacity:1;paint-order:markers stroke fill"
-         d="m 50.34761,95.737449 h 5.993427 v -7.591674 h 4.646333 v 7.591674 h 5.993427 V 86.182214 H 50.359026 Z"
-         id="path3" />
-    </g>
   </g>
+  <text
+     xml:space="preserve"
+     style="font-weight:bold;font-size:24.2398px;line-height:1;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic, Bold';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#d9bd91;stroke-width:3.12324;stroke-linecap:square;paint-order:markers stroke fill"
+     x="16.094685"
+     y="25.089928"
+     id="text1"><tspan
+       sodipodi:role="line"
+       id="tspan1"
+       style="fill:#ffffff;fill-opacity:1;stroke-width:3.12324"
+       x="16.094685"
+       y="25.089928">★</tspan></text>
 </svg>
