@@ -343,39 +343,50 @@
 
   // ── INPUT ────────────────────────────────────────────────────────────────────
 
-  // Helper: get canvas-relative Y from a clientY value
-  function canvasRelativeY(clientY) {
-    const rect = canvas.getBoundingClientRect();
-    return clientY - rect.top;
-  }
+  canvas.setAttribute('tabindex', '0');
 
   canvas.addEventListener('click', e => {
     if (state === 'start' || state === 'dead') { resetGame(); return; }
-    const high = e.offsetY < H / 2;
+    // Use bounding rect for Y — offsetY can be DPR-scaled on some browsers
+    const rect = canvas.getBoundingClientRect();
+    const high = (e.clientY - rect.top) < rect.height / 2;
     shoot(high);
   });
 
   canvas.addEventListener('touchstart', e => {
     e.preventDefault();
     if (state === 'start' || state === 'dead') { resetGame(); return; }
-    const y = canvasRelativeY(e.touches[0].clientY);
-    const high = y < H / 2;
+    const rect = canvas.getBoundingClientRect();
+    const y = e.touches[0].clientY - rect.top;
+    const high = y < rect.height / 2;
     shoot(high);
   }, {passive: false});
 
-  // Desktop: hold ↑ to aim high (hunter sprite switches); Space/Enter fires at current aim
-  canvas.addEventListener('keydown', e => {
-    if (e.code === 'ArrowUp')   { e.preventDefault(); if(state==='playing') aimHigh = true;  return; }
-    if (e.code === 'ArrowDown') { e.preventDefault(); if(state==='playing') aimHigh = false; return; }
+  // Track whether canvas is near viewport to decide whether to block arrow keys
+  let canvasInView = false;
+  const observer = new IntersectionObserver(entries => {
+    canvasInView = entries[0].isIntersecting;
+  });
+  observer.observe(canvas);
+
+  // Capture arrow keys at window level BEFORE browser scroll gets them
+  window.addEventListener('keydown', e => {
+    if (e.code === 'ArrowUp' || e.code === 'ArrowDown') {
+      if (!canvasInView) return;
+      e.preventDefault();   // must be before any async work to block scroll
+      if (state === 'playing') aimHigh = (e.code === 'ArrowUp');
+      return;
+    }
     if (e.code === 'Space' || e.code === 'Enter') {
+      if (!canvasInView) return;
       e.preventDefault();
       if (state === 'start' || state === 'dead') { resetGame(); return; }
       shoot(aimHigh);
     }
-  });
+  }, {capture: true});   // capture phase — fires before any other handler
 
-  canvas.addEventListener('keyup', e => {
-    if (e.code === 'ArrowUp') { aimHigh = false; }
+  window.addEventListener('keyup', e => {
+    if (e.code === 'ArrowUp') aimHigh = false;
   });
 
   // ── SCREEN READER LIVE REGION ─────────────────────────────────────────────────
