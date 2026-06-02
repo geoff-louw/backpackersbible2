@@ -37,6 +37,7 @@
    30. Resource list
    31. REGIONS GRID
    32. Cartouche illustration
+   33. Map overlay circle
    ============================================================ */
 
 
@@ -3787,4 +3788,45 @@ img.bb-marker-icon {
   .cartouche-container {
     margin-bottom: 60px; /* Desktop bottom margin */
   }
+}
+
+
+/* ============================================================
+   33. MAP OVERLAY CIRCLE
+   ============================================================ */
+
+.map-overlay-circle {
+    position: absolute;
+    top: 60px; /* Adjust distance from top */
+    right: 30px; /* Adjust distance from right edge */
+    width: 170px;
+    height: 170px;
+    background-color: #fff200; /* Matches your site's yellow theme */
+    color: #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1.1;
+    padding: 15px;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.9);
+    z-index: 10; /* Ensures it sits above the map */
+    pointer-events: none; /* CRITICAL: Lets users click "through" the circle onto the map */
+    border: 3px solid #fff;
+}
+
+/* Optional: Make it slightly smaller on mobile devices */
+@media (max-width: 600px) {
+    .map-overlay-circle {
+        width: 110px;
+        height: 110px;
+        font-size: 11px;
+        top: 50px;
+        right: 5px;
+        padding: 20px 10px 10px 10px;
+    }
 }
