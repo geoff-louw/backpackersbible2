@@ -20,6 +20,13 @@
 
   <link rel="alternate" hreflang="en"         href="https://www.backpackersbible.com/">
 
+<link rel="preconnect" href="https://www.google.com">
+<link rel="preconnect" href="https://maps.googleapis.com">
+<link rel="preconnect" href="https://maps.gstatic.com">
+<link rel="dns-prefetch" href="https://www.google.com">
+<link rel="dns-prefetch" href="https://maps.googleapis.com">
+<link rel="dns-prefetch" href="https://maps.gstatic.com">
+
 <!-- Desktop preload -->
 <link
   rel="preload"
@@ -880,63 +887,30 @@
   <span class="map-description__text">Use our interactive 3D map to find all the backpackers hostels in South Africa, with their full contact details and comprehensive reviews.</span>
 </div>
 
-  <!-- Map filter buttons -->
+     <!-- My Map start -->
 
-<div class="map-filter-bar">
-    <div class="map-filter-bar__scroll">
-        <div class="map-filter-bar__row" role="toolbar" aria-label="Filter hostels by category">
+<div style="height: 143px; width: 100%; display: block;"></div>
 
-            <a href="#" class="map-filter-btn map-filter-btn--active" style="background-color: #ffd400; color: #000000;" data-filter="all" aria-pressed="true"  aria-label="Show all hostels">★ All Hostels</a>
-            <a href="#" class="map-filter-btn" style="background-color: #b01c22;"                       data-filter="is_best_overall"  aria-pressed="false" aria-label="Filter: Best Overall">Top Picks</a>
-            <a href="#" class="map-filter-btn" style="background-color: #9b1268;"                       data-filter="is_party"         aria-pressed="false" aria-label="Filter: Best Parties">Best Parties</a>
-            <a href="#" class="map-filter-btn" style="background-color: #5a2d9c;"                       data-filter="is_value"         aria-pressed="false" aria-label="Filter: Best Value">Best Value</a>
-            <a href="#" class="map-filter-btn" style="background-color: #0d7a8a;"                       data-filter="is_chill"         aria-pressed="false" aria-label="Filter: Chill Vibes">Chill Vibes</a>
-            <a href="#" class="map-filter-btn" style="background-color: #ffc107; color: #000000;"       data-filter="is_solo_women"    aria-pressed="false" aria-label="Filter: Best for Solo Women">Best for Solo Women</a>
-            <a href="#" class="map-filter-btn" style="background-color: #1a6e32;"                       data-filter="is_digital_nomad" aria-pressed="false" aria-label="Filter: Digital Nomads">Digital Nomads</a>
-            <a href="#" class="map-filter-btn" style="background-color: #b85400;"                       data-filter="is_surfer"        aria-pressed="false" aria-label="Filter: Surfers">Surfers</a>
-            <a href="#" class="map-filter-btn" style="background-color: #0f7a5a;"                       data-filter="is_safety"        aria-pressed="false" aria-label="Filter: Safest">Safest</a>
-            <a href="#" class="map-filter-btn" style="background-color: #0047d4;"                       data-filter="is_amenities"     aria-pressed="false" aria-label="Filter: Best Amenities">Best Amenities</a>
-            <a href="#" class="map-filter-btn" style="background-color: #5c3a1e;"                       data-filter="is_ethical"       aria-pressed="false" aria-label="Filter: Most Ethical">Most Ethical</a>
-            <a href="#" class="map-filter-btn" style="background-color: #7a0026;"                       data-filter="is_adventure"     aria-pressed="false" aria-label="Filter: Adventure">Adventure</a>
-            <a href="#" class="map-filter-btn" style="background-color: #2d5a1b;"                       data-filter="is_nature"        aria-pressed="false" aria-label="Filter: Best for Nature">Best for Nature</a>
-            <a href="#" class="map-filter-btn" style="background-color: #8a4a00;"                       data-filter="is_cultural"      aria-pressed="false" aria-label="Filter: Best African Culture">Best African Culture</a>
-            <a href="#" class="map-filter-btn" style="background-color: #1a3a6b;"                       data-filter="is_cheapest"      aria-pressed="false" aria-label="Filter: Cheapest">Cheapest</a>
-            <a href="#" class="map-filter-btn" style="background-color: #3d2b6b;"                       data-filter="is_camping"       aria-pressed="false" aria-label="Filter: Camping">Camping</a>
+<section id="map-visual" style="width: 100vw; margin-left: calc(-50vw + 50%); position: relative; line-height: 0;">
 
-        </div>
+    <div class="map-overlay-circle">
+        We list ALL the hostels in South Africa! Click the icons for info.
     </div>
-</div>
+    
+    <div id="region-map">
+        <iframe 
+            src="https://www.google.com/maps/d/embed?mid=1YlCywz3bXNDCOhw6bLz-F3iPhC9XD4A&ehbc=2E312F&noprof=1" 
+            width="100%" height="570" style="border:0; display: block;" allowfullscreen="">
+        </iframe>
+    </div>
 
-<section class="sa-hostel-map-shell">
-
-  <!-- SEO + visual poster image -->
-  <picture class="sa-hostel-map-poster">
-    <source
-      media="(max-width: 768px)"
-      srcset="/assets/fallback_map_national_mobile.webp"
-    >
-
-    <img
-      src="/assets/fallback_map_national.webp"
-      alt="Map showing backpacker hostels across South Africa"
-      width="1600"
-      height="590"
-      fetchpriority="high"
-      decoding="async"
-    >
-  </picture>
-
-  <!-- Interactive map -->
-  <iframe
-    src="/map.html?region=national&center=23.68,-29.92&zoom=5&mobile-center=23.00,-35.40&mobile-zoom=4"
-    width="100%"
-    height="620"
-    class="sa-hostel-map-iframe"
-    title="Interactive map of backpacker hostels across South Africa"
-    aria-label="Interactive map of backpacker hostels across South Africa"
-    loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade"
-  ></iframe>
+    <div id="map-fallback" style="display:none;">
+        <picture>
+            <source media="(max-width: 767px)" srcset="/assets/fallback_map_national_mobile.webp">
+            
+            <img src="assets/fallback_map_national.webp" alt="Map unavailable offline" style="width: 100%; height: auto; display: block; margin: 0;">
+        </picture>
+    </div>
 
 </section>
 
@@ -1083,8 +1057,6 @@
 <!-- ░░ END KALAHARI GAME ░░ -->
 
     <div class="strip black"></div>
-
-     <!-- Spacer (desktop: 60px / mobile: 30px gap — controlled via --space-section-gap in style-2.css) -->
 
 <section id="content-section-2" class="text-section--after-parallax">
     <div class="container-wide">
