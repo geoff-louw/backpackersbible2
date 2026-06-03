@@ -237,13 +237,21 @@
   let gameTick=0, huntFrame=0, frameTick=0, cooldown=0;
   let arrows=[], eland=[], rhinos=[], particles=[];
   let spawnTimer=0, spawnInterval=55;
-  let rhinoTimer=0, rhinoInterval=0;
   let gameSpeed=1;
   let aimHigh=false;
 
-  function nextRhinoInterval() {
-    // Rhino appears every 25–40 seconds (at 60fps)
-    return 1500 + Math.floor(Math.random() * 900);
+  // Wave system: eland wave → rhino → repeat, escalating
+  let waveElandCount=0;   // eland left to spawn in current wave
+  let waveElandSpawned=0; // eland spawned so far in current wave
+  let waveRhinoPending=false; // rhino due after this wave clears
+  let waveNum=0;          // which wave we're on
+
+  function startNextWave() {
+    waveNum++;
+    // Wave 1: 3 eland. Wave 2: 4. Wave 3+: 5, escalating
+    waveElandCount = Math.min(3 + waveNum - 1, 6);
+    waveElandSpawned = 0;
+    waveRhinoPending = waveNum > 1; // rhino appears before each wave from wave 2 onward
   }
 
   function resetGame() {
@@ -251,19 +259,19 @@
     huntFrame=0; frameTick=0; cooldown=0;
     arrows=[]; eland=[]; rhinos=[]; particles=[];
     spawnTimer=0; spawnInterval=55; gameSpeed=1;
-    rhinoTimer=0; rhinoInterval=nextRhinoInterval();
+    waveNum=0; waveElandCount=0; waveElandSpawned=0; waveRhinoPending=false;
     aimHigh=false;
+    startNextWave();
 
-    if (isMobile) {
-      // Mobile: start with one eland just off screen right
-      spawnEland();
-    } else {
-      // Desktop: 3 eland pre-placed across the middle
-      for (let i = 0; i < 3; i++) {
+    if (!isMobile) {
+      // Desktop: pre-place first wave's eland across the middle so game feels instant
+      for (let i = 0; i < waveElandCount; i++) {
         spawnEland();
-        eland[i].x = W * 0.45 + i * (W * 0.18);
+        eland[i].x = W * 0.50 + i * (W * 0.16);
+        waveElandSpawned++;
       }
     }
+    // Mobile: eland arrive from off-screen right — wave system handles it
   }
 
   function spawnEland() {
@@ -310,11 +318,27 @@
 
     gameSpeed = 1 + gameTick*0.0009;
 
-    // ── Eland spawn & move
+    // ── Wave-based spawn
     const elandSpeed = 1.4 * gameSpeed;
     spawnTimer++;
-    spawnInterval = Math.max(45, 95 - gameTick*0.025);
-    if (spawnTimer >= spawnInterval) { spawnTimer=0; spawnEland(); }
+    spawnInterval = Math.max(50, 110 - gameTick*0.02);
+
+    if (spawnTimer >= spawnInterval) {
+      spawnTimer = 0;
+
+      // If a rhino is due and no rhinos on screen, send it first
+      if (waveRhinoPending && rhinos.length === 0) {
+        waveRhinoPending = false;
+        spawnRhino();
+      } else if (!waveRhinoPending && waveElandSpawned < waveElandCount) {
+        // Spawn next eland in this wave
+        spawnEland();
+        waveElandSpawned++;
+      } else if (!waveRhinoPending && waveElandSpawned >= waveElandCount && eland.length === 0 && rhinos.length === 0) {
+        // Wave cleared — start next wave
+        startNextWave();
+      }
+    }
 
     eland.forEach(e => {
       if (!e.dying) {
@@ -323,12 +347,7 @@
       }
     });
 
-    // ── Rhino spawn & move (faster than eland, charges straight at hunter)
-    rhinoTimer++;
-    if (rhinoTimer >= rhinoInterval) {
-      rhinoTimer=0; rhinoInterval=nextRhinoInterval();
-      spawnRhino();
-    }
+    // ── Rhino move
     const rhinoSpeed = 2.2 * gameSpeed;
     rhinos.forEach(r => {
       if (!r.dying) {
@@ -454,17 +473,24 @@
   new IntersectionObserver(entries => { canvasInView = entries[0].isIntersecting; }).observe(canvas);
 
   window.addEventListener('keydown', e => {
-    if (e.code==='ArrowUp' || e.code==='ArrowDown') {
+    if (e.code==='ArrowUp') {
       if (!canvasInView) return;
       e.preventDefault();
-      if (state==='playing') aimHigh = (e.code==='ArrowUp');
+      if (state==='start' || state==='dead') { resetGame(); return; }
+      aimHigh = true;
+      shoot(true);   // ↑ key fires a high arc shot directly
+      return;
+    }
+    if (e.code==='ArrowDown') {
+      if (!canvasInView) return;
+      e.preventDefault();
       return;
     }
     if (e.code==='Space' || e.code==='Enter') {
       if (!canvasInView) return;
       e.preventDefault();
       if (state==='start' || state==='dead') { resetGame(); return; }
-      shoot(aimHigh);
+      shoot(false);  // Space/Enter fires flat
     }
   }, {capture: true});
 
