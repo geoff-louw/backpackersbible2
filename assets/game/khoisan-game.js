@@ -23,15 +23,15 @@
   const SCALE_MOD = isMobile ? 0.72 : 1.0;
 
   const HX = W * (isMobile ? 0.05 : 0.10);
-  const HY = H * 0.10;
+  const HY = H * (isMobile ? 0.18 : 0.10);
 
   // Hunter SVGs are now 100×100 (square)
-  const HUNTER_H_PX = H * 0.80 * SCALE_MOD;
+  const HUNTER_H_PX = H * (isMobile ? 0.72 : 0.80);
   const HUNTER_W_PX = HUNTER_H_PX; // 1:1 aspect ratio
 
-  // Arrow launch point — tip of bow
+  // Arrow launch point — tip of bow (centred vertically on the raised bow)
   const ARROW_SX = HX + HUNTER_W_PX * 0.92;
-  const ARROW_SY = HY + HUNTER_H_PX * 0.22;
+  const ARROW_SY = HY + HUNTER_H_PX * 0.28;
 
   // Hunter collision box
   const H_COLL = { x: HX + HUNTER_W_PX*0.1, y: HY + HUNTER_H_PX*0.1,
@@ -42,7 +42,7 @@
   const ELAND_RENDER_W = ELAND_RENDER_H * (61.02 / 27.16);
 
   // Rhino: SVG viewBox 80×50, so aspect = 1.6
-  const RHINO_RENDER_H = H * 0.42 * SCALE_MOD;
+  const RHINO_RENDER_H = isMobile ? H * 0.38 : H * 0.58;
   const RHINO_RENDER_W = RHINO_RENDER_H * (80 / 50);
 
   // ── IMAGES ──────────────────────────────────────────────────────────────────
@@ -79,13 +79,18 @@
     const img = imgs.rock;
     if (img.complete && img.naturalWidth > 0) {
       const sh   = img.naturalHeight || 200;
-      const srcX = Math.floor(bgOffset);
-      const hScale = W / BG_IMG_W;
-      const srcW1  = BG_IMG_W - srcX;
-      const dstX2  = Math.round(srcW1 * hScale);
-      ctx.drawImage(img, srcX, 0, srcW1, sh,  0,     0, dstX2,     H);
-      if (dstX2 < W)
-        ctx.drawImage(img, 0,    0, srcX,  sh,  dstX2, 0, W - dstX2, H);
+      // On narrow screens the image would be squashed — instead scroll at natural
+      // aspect ratio and tile multiple times if canvas is narrower than image
+      const naturalScale = H / sh;          // scale to fill canvas height
+      const tileW = BG_IMG_W * naturalScale; // how wide one full tile is on canvas
+      const srcX  = Math.floor(bgOffset);
+
+      // Draw as many tiles as needed to fill W
+      let destX = -((srcX * naturalScale) % tileW);
+      while (destX < W) {
+        ctx.drawImage(img, 0, 0, BG_IMG_W, sh, destX, 0, tileW, H);
+        destX += tileW;
+      }
     } else {
       const g = ctx.createLinearGradient(0,0,W,H);
       g.addColorStop(0,'#c8966a'); g.addColorStop(0.4,'#b07840'); g.addColorStop(1,'#a06030');
@@ -301,9 +306,10 @@
   function shoot(high) {
     if (cooldown>0 || state!=='playing') return;
     if (high) {
-      arrows.push({x:ARROW_SX, y:ARROW_SY, vx:5, vy:-6});
+      // 45°+ arc: vx and vy roughly equal magnitude, stronger gravity lands it at 2-3x flat range
+      arrows.push({x:ARROW_SX, y:ARROW_SY, vx:7, vy:-7, gravity:0.18});
     } else {
-      arrows.push({x:ARROW_SX, y:ARROW_SY, vx:12, vy:-0.5});
+      arrows.push({x:ARROW_SX, y:ARROW_SY, vx:12, vy:-0.5, gravity:0.10});
     }
     cooldown = COOLDOWN_F;
   }
@@ -326,16 +332,17 @@
     if (spawnTimer >= spawnInterval) {
       spawnTimer = 0;
 
-      // If a rhino is due and no rhinos on screen, send it first
-      if (waveRhinoPending && rhinos.length === 0) {
-        waveRhinoPending = false;
-        spawnRhino();
-      } else if (!waveRhinoPending && waveElandSpawned < waveElandCount) {
-        // Spawn next eland in this wave
+      if (waveElandSpawned < waveElandCount) {
+        // Still spawning eland in this wave
         spawnEland();
         waveElandSpawned++;
-      } else if (!waveRhinoPending && waveElandSpawned >= waveElandCount && eland.length === 0 && rhinos.length === 0) {
-        // Wave cleared — start next wave
+        // Send rhino after half the eland are on screen (from wave 2 onward)
+        if (waveRhinoPending && waveElandSpawned === Math.ceil(waveElandCount / 2)) {
+          waveRhinoPending = false;
+          spawnRhino();
+        }
+      } else if (eland.length === 0 && rhinos.length === 0) {
+        // All eland and rhino cleared — start next wave after a short breath
         startNextWave();
       }
     }
@@ -357,9 +364,9 @@
       }
     });
 
-    // ── Move arrows
+    // ── Move arrows (each arrow carries its own gravity)
     arrows = arrows.filter(ar => {
-      ar.x+=ar.vx; ar.vy+=0.1; ar.y+=ar.vy;
+      ar.x+=ar.vx; ar.vy+=(ar.gravity||0.10); ar.y+=ar.vy;
       return ar.x<W+30 && ar.y<H+30 && ar.y>-H;
     });
 
@@ -469,8 +476,13 @@
     shoot(y < rect.height / 2);
   }, {passive: false});
 
+  // Prevent page scroll (yellow strips) when arrow keys used over the game
+  canvas.style.touchAction = 'none';
   let canvasInView = false;
-  new IntersectionObserver(entries => { canvasInView = entries[0].isIntersecting; }).observe(canvas);
+  new IntersectionObserver(entries => {
+    canvasInView = entries[0].isIntersecting;
+    document.body.style.overflowY = canvasInView ? 'hidden' : '';
+  }).observe(canvas);
 
   window.addEventListener('keydown', e => {
     if (e.code==='ArrowUp') {
