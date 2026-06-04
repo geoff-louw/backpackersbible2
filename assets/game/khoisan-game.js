@@ -254,7 +254,7 @@
   function startNextWave() {
     waveNum++;
     // Wave 1: 3 eland. Wave 2: 4. Wave 3+: 5, escalating
-    waveElandCount = Math.min(3 + waveNum - 1, 6);
+    waveElandCount = Math.min(5 + waveNum, 10);  // wave 1=6, 2=7, ... cap at 10
     waveElandSpawned = 0;
     waveRhinoPending = waveNum > 1; // rhino appears before each wave from wave 2 onward
   }
@@ -290,7 +290,7 @@
   }
 
   function spawnRhino() {
-    const groundY = HY + HUNTER_H_PX * 0.96;
+    const groundY = HY + HUNTER_H_PX * 0.96;  // same floor as eland
     rhinos.push({
       x: W + 20,
       y: groundY - RHINO_RENDER_H,
@@ -306,8 +306,8 @@
   function shoot(high) {
     if (cooldown>0 || state!=='playing') return;
     if (high) {
-      // 45°+ arc: vx and vy roughly equal magnitude, stronger gravity lands it at 2-3x flat range
-      arrows.push({x:ARROW_SX, y:ARROW_SY, vx:7, vy:-7, gravity:0.18});
+      // Lob: peaks near canvas top, lands ~2x further than flat shot
+      arrows.push({x:ARROW_SX, y:ARROW_SY, vx:11, vy:-3.4, gravity:0.11});
     } else {
       arrows.push({x:ARROW_SX, y:ARROW_SY, vx:12, vy:-0.5, gravity:0.10});
     }
@@ -322,12 +322,12 @@
     frameTick++; if (frameTick>=9){frameTick=0; huntFrame=(huntFrame+1)%3;}
     if (cooldown>0) cooldown--;
 
-    gameSpeed = 1 + gameTick*0.0009;
+    gameSpeed = 1 + gameTick*0.0004;  // slower speed ramp so game stays playable longer
 
     // ── Wave-based spawn
     const elandSpeed = 1.4 * gameSpeed;
     spawnTimer++;
-    spawnInterval = Math.max(50, 110 - gameTick*0.02);
+    spawnInterval = Math.max(35, 70 - gameTick*0.015);  // faster spawn, gentler ramp
 
     if (spawnTimer >= spawnInterval) {
       spawnTimer = 0;
@@ -476,13 +476,18 @@
     shoot(y < rect.height / 2);
   }, {passive: false});
 
-  // Prevent page scroll (yellow strips) when arrow keys used over the game
   canvas.style.touchAction = 'none';
   let canvasInView = false;
   new IntersectionObserver(entries => {
     canvasInView = entries[0].isIntersecting;
-    document.body.style.overflowY = canvasInView ? 'hidden' : '';
   }).observe(canvas);
+
+  // Dedicated passive:false listener solely to block browser scroll on arrow keys
+  window.addEventListener('keydown', e => {
+    if ((e.code==='ArrowUp' || e.code==='ArrowDown') && canvasInView) {
+      e.preventDefault();
+    }
+  }, {passive: false});
 
   window.addEventListener('keydown', e => {
     if (e.code==='ArrowUp') {
