@@ -105,40 +105,39 @@
         "height": 250
       },
       "description": "An independent travel publisher providing the most comprehensive backpacking guide to South Africa, including a complete national hostel directory with verified contact details and independent reviews.",
-
-"founder": {
-  "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw"
-}
-},
-{
-  "@type": "Person",
-  "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw",
-  "name": "Geoff Louw",
-  "url": "https://www.backpackersbible.com/misc/about-backpackers-bible",
-  "jobTitle": [
-    "Travel Publisher",
-    "Travel Writer",
-    "Creative Consultant",
-    "Former Advertising Creative Director"
-  ],
-  "description": "South African travel publisher and long-term backpacking industry specialist with more than 20 years of experience working with backpacker hostels and youth travel businesses across Southern Africa.",
-  "nationality": {
-    "@type": "Country",
-    "name": "South Africa"
-  },
-  "knowsAbout": [
-    "Backpacking South Africa",
-    "Youth travel",
-    "Backpacker hostels",
-    "Budget travel",
-    "South African tourism",
-    "Travel safety",
-    "Digital publishing"
-  ],
-  "worksFor": {
-    "@id": "https://www.backpackersbible.com/#organization"
-  }
-},
+      "founder": {
+        "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw",
+      "name": "Geoff Louw",
+      "url": "https://www.backpackersbible.com/misc/about-backpackers-bible",
+      "jobTitle": [
+        "Travel Publisher",
+        "Travel Writer",
+        "Creative Consultant",
+        "Former Advertising Creative Director"
+      ],
+      "description": "South African travel publisher and long-term backpacking industry specialist with more than 20 years of experience working with backpacker hostels and youth travel businesses across Southern Africa.",
+      "nationality": {
+        "@type": "Country",
+        "name": "South Africa"
+      },
+      "knowsAbout": [
+        "Backpacking South Africa",
+        "Youth travel",
+        "Backpacker hostels",
+        "Budget travel",
+        "South African tourism",
+        "Travel safety",
+        "Digital publishing"
+      ],
+      "worksFor": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      }
+    },
     {
       "@type": "TravelGuide",
       "@id": "https://www.backpackersbible.com/#main-guide",
@@ -146,7 +145,7 @@
       "url": "https://www.backpackersbible.com",
       "description": "A complete guide to backpacking South Africa. Covers all 27 backpacking regions of the country with in-depth regional write-ups, safety guides, FAQs, activities and tours for backpackers including free activities — plus a full directory of every backpacker hostel in South Africa with independent reviews and full contact details.",
       "author": {
-         "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw"
+        "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw"
       },
       "publisher": {
         "@id": "https://www.backpackersbible.com/#organization"
@@ -170,6 +169,9 @@
           "@id": "https://www.backpackersbible.com/#hostel-map"
         },
         {
+          "@id": "https://www.backpackersbible.com/#hostel-map-google"
+        },
+        {
           "@id": "https://www.backpackersbible.com/#hostel-directory"
         },
         {
@@ -186,13 +188,10 @@
       "@id": "https://www.backpackersbible.com/#south-africa",
       "name": "South Africa",
       "sameAs": "https://en.wikipedia.org/wiki/South_Africa",
-      "hasMap": {
-        "@id": "https://www.backpackersbible.com/#hostel-map",
-        "name": "Interactive South Africa Backpacker Hostel Map",
-        "description": "Interactive 3D map showing the location of every backpacker hostel in South Africa, with direct links to each hostel's full contact details, independent review, and booking information.",
-        "mapType": "https://schema.org/VenueMap",
-        "url": "https://www.backpackersbible.com/map.html?region=national&center=23.68,-29.92&zoom=5"
-      }
+      "hasMap": [
+        { "@id": "https://www.backpackersbible.com/#hostel-map" },
+        { "@id": "https://www.backpackersbible.com/#hostel-map-google" }
+      ]
     },
     {
       "@type": "Map",
@@ -201,6 +200,14 @@
       "description": "Interactive 3D map showing the location of every backpacker hostel in South Africa, with direct links to each hostel's full contact details, independent review, and booking information.",
       "mapType": "https://schema.org/VenueMap",
       "url": "https://www.backpackersbible.com/map.html?region=national&center=23.68,-29.92&zoom=5"
+    },
+    {
+      "@type": "Map",
+      "@id": "https://www.backpackersbible.com/#hostel-map-google",
+      "name": "South Africa Backpacker Hostel Map (Google My Maps)",
+      "description": "Google My Maps showing the location of every backpacker hostel in South Africa, with pins for all hostels across all 27 backpacking regions.",
+      "mapType": "https://schema.org/VenueMap",
+      "url": "https://www.google.com/maps/d/viewer?mid=1YlCywz3bXNDCOhw6bLz-F3iPhC9XD4A"
     },
     {
       "@type": "Dataset",
