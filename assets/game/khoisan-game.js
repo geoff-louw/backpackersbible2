@@ -23,13 +23,16 @@
   const SCALE_MOD = isMobile ? 0.72 : 1.0;
 
   const HX = W * (isMobile ? 0.05 : 0.10);
-  const HY = H * (isMobile ? 0.18 : 0.10);
 
-  // Hunter SVGs are now 100×100 (square)
-  const HUNTER_H_PX = H * (isMobile ? 0.72 : 0.80);
-  const HUNTER_W_PX = HUNTER_H_PX; // 1:1 aspect ratio
+  // Single ground line everything stands on — centred in canvas with room above & below
+  const GROUND_Y = H * (isMobile ? 0.82 : 0.88);
 
-  // Arrow launch point — tip of bow (centred vertically on the raised bow)
+  // Hunter: square SVG, sized to fit above ground
+  const HUNTER_H_PX = isMobile ? H * 0.58 : H * 0.75;
+  const HUNTER_W_PX = HUNTER_H_PX;
+  const HY = GROUND_Y - HUNTER_H_PX;  // hunter stands exactly on GROUND_Y
+
+  // Arrow launch point — tip of bow
   const ARROW_SX = HX + HUNTER_W_PX * 0.92;
   const ARROW_SY = HY + HUNTER_H_PX * 0.28;
 
@@ -37,12 +40,12 @@
   const H_COLL = { x: HX + HUNTER_W_PX*0.1, y: HY + HUNTER_H_PX*0.1,
                    w: HUNTER_W_PX * 0.55,    h: HUNTER_H_PX * 0.85 };
 
-  // Eland: aspect ratio 61.02 × 27.16mm
-  const ELAND_RENDER_H = H * 0.34 * SCALE_MOD;
+  // Eland: aspect ratio 61.02 × 27.16mm — feet on GROUND_Y
+  const ELAND_RENDER_H = isMobile ? H * 0.28 : H * 0.40;
   const ELAND_RENDER_W = ELAND_RENDER_H * (61.02 / 27.16);
 
-  // Rhino: SVG viewBox 80×50, so aspect = 1.6
-  const RHINO_RENDER_H = isMobile ? H * 0.38 : H * 0.58;
+  // Rhino: SVG viewBox 80×50 — feet on GROUND_Y
+  const RHINO_RENDER_H = isMobile ? H * 0.32 : H * 0.52;
   const RHINO_RENDER_W = RHINO_RENDER_H * (80 / 50);
 
   // ── IMAGES ──────────────────────────────────────────────────────────────────
@@ -269,10 +272,11 @@
     startNextWave();
 
     if (!isMobile) {
-      // Desktop: pre-place first wave's eland across the middle so game feels instant
-      for (let i = 0; i < waveElandCount; i++) {
+      // Desktop: pre-place first 3 eland spread across screen so game feels instant
+      const preCount = Math.min(3, waveElandCount);
+      for (let i = 0; i < preCount; i++) {
         spawnEland();
-        eland[i].x = W * 0.50 + i * (W * 0.16);
+        eland[i].x = W * 0.48 + i * (W * 0.19);
         waveElandSpawned++;
       }
     }
@@ -280,20 +284,18 @@
   }
 
   function spawnEland() {
-    const groundY = HY + HUNTER_H_PX * 0.96;
     eland.push({
       x: W + 20,
-      y: groundY - ELAND_RENDER_H,
+      y: GROUND_Y - ELAND_RENDER_H,
       w: ELAND_RENDER_W, h: ELAND_RENDER_H,
       frame:0, frameTick:0, alpha:1, dying:false, dyingTimer:0,
     });
   }
 
   function spawnRhino() {
-    const groundY = HY + HUNTER_H_PX * 0.96;  // same floor as eland
     rhinos.push({
       x: W + 20,
-      y: groundY - RHINO_RENDER_H,
+      y: GROUND_Y - RHINO_RENDER_H,
       w: RHINO_RENDER_W, h: RHINO_RENDER_H,
       frame:0, frameTick:0,
       hp: 2,          // two hits to kill
@@ -333,18 +335,22 @@
       spawnTimer = 0;
 
       if (waveElandSpawned < waveElandCount) {
-        // Still spawning eland in this wave
+        // Still spawning eland in this wave — add jitter so spacing feels natural
         spawnEland();
         waveElandSpawned++;
+        spawnTimer = -(Math.floor(Math.random() * 25));  // random extra gap of 0-25 frames
         // Send rhino after half the eland are on screen (from wave 2 onward)
         if (waveRhinoPending && waveElandSpawned === Math.ceil(waveElandCount / 2)) {
           waveRhinoPending = false;
           spawnRhino();
         }
-      } else if (eland.length === 0 && rhinos.length === 0) {
-        // All eland and rhino cleared — start next wave after a short breath
-        startNextWave();
       }
+      // Wave cleared check happens every tick below (not just on spawn timer)
+    }
+
+    // Start next wave as soon as screen is clear — no extra wait
+    if (waveElandSpawned >= waveElandCount && eland.length === 0 && rhinos.length === 0 && !waveRhinoPending) {
+      startNextWave();
     }
 
     eland.forEach(e => {
@@ -477,6 +483,9 @@
   }, {passive: false});
 
   canvas.style.touchAction = 'none';
+  // Prevent rubber-band / overscroll yellow strips
+  document.documentElement.style.overscrollBehavior = 'none';
+  document.body.style.overscrollBehavior = 'none';
   let canvasInView = false;
   new IntersectionObserver(entries => {
     canvasInView = entries[0].isIntersecting;
