@@ -455,6 +455,19 @@
           }
         });
 
+        // Listen for postMessage to open a specific hostel popup by ID
+        // Sent by "FIND ON MAP" links in the parent regional page
+        window.addEventListener('message', (e) => {
+          if (e.data && e.data.type === 'BB_OPEN_HOSTEL') {
+            const target = allMarkers.find(({ feature }) => feature.properties.id === e.data.id);
+            if (!target) return;
+            const coords = target.feature.geometry.coordinates;
+            const html   = buildPopup(target.feature.properties);
+            map.flyTo({ center: coords, zoom: Math.max(map.getZoom(), 14), duration: 800 });
+            setTimeout(() => showPopup(coords, html), 850);
+          }
+        });
+
         if (REGION === 'national') {
           // ── CLUSTERED VIEW (national page only) ──────────────────────────
           map.addSource('hostels-clustered', {
