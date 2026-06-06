@@ -322,23 +322,6 @@
         });
         map.setTerrain({ source:'terrain-src', exaggeration:1.15 });
 
-        const sources = map.getStyle().sources;
-        const vecSrc  = Object.keys(sources).find(k => sources[k].type==='vector');
-        if (vecSrc) {
-          try {
-            map.addLayer({
-              id:'bb-3d-buildings', source:vecSrc, 'source-layer':'building',
-              type:'fill-extrusion', minzoom:12,
-              paint:{
-                'fill-extrusion-color':['interpolate',['linear'],['get','render_height'],0,'#c8b89a',50,'#a89070',100,'#7a6a5a'],
-                'fill-extrusion-height':['coalesce',['get','render_height'],['get','height'],5],
-                'fill-extrusion-base':['coalesce',['get','render_min_height'],['get','min_height'],0],
-                'fill-extrusion-opacity':0.85
-              }
-            });
-          } catch(e) { console.warn('3D buildings:',e.message); }
-        }
-
         // ── REGION OVERLAYS ──────────────────────────────────────────────────
         const regionsToShow = REGION==='national' ? Object.keys(regions) : [REGION];
 
