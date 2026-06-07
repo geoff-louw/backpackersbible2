@@ -1045,7 +1045,7 @@
         "is_safety": true,
         "is_amenities": false,
         "is_ethical": false,
-        "is_adventure": false,
+        "is_adventure": true,
         "is_nature": false,
         "is_cultural": false,
         "is_cheapest": false,
@@ -5339,43 +5339,6 @@
         "is_safety": true,
         "is_amenities": false,
         "is_ethical": true,
-        "is_adventure": false,
-        "is_nature": false,
-        "is_cultural": false,
-        "is_cheapest": false,
-        "is_camping": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          28.24165,
-          -25.74706
-        ]
-      },
-      "properties": {
-        "region": "pretoria",
-        "id": "pumbas-backpackers",
-        "name": "PUMBAS BACKPACKERS",
-        "address": "1232 Arcadia Street, Hatfield, Pretoria, 0028",
-        "phone": "+27123625343",
-        "email": "info@pumbas.co.za",
-        "website": "pumbas.co.za",
-        "info": "The best choice in Pretoria for solo women — quiet garden-lodge atmosphere with genuine privacy, 11 minutes' walk from the Gautrain.",
-        "anchor": "/backpacking-south-africa/pretoria#pumbas-backpackers",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/82454/pumbas-backpackers/",
-        "is_best_overall": false,
-        "is_value": false,
-        "is_party": false,
-        "is_chill": true,
-        "is_solo_women": true,
-        "is_digital_nomad": false,
-        "is_surfer": false,
-        "is_safety": true,
-        "is_amenities": false,
-        "is_ethical": false,
         "is_adventure": false,
         "is_nature": false,
         "is_cultural": false,
