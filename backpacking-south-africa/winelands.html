@@ -898,7 +898,7 @@
   src="/map.html?region=winelands&center=18.86,-33.82&zoom=9&pitch=30&bearing=150&mobile-center=18.99,-34.07&mobile-zoom=8"
   width="100%"
   height="620"
-  class="sa-hostel-map-iframe"
+  class="sa-hostel-map-iframe bb-map-iframe"
   title="Interactive map of backpacker hostels in the Cape Winelands"
   aria-label="Interactive map of backpacker hostels in the Cape Winelands"
   loading="lazy"
@@ -1376,7 +1376,7 @@
 
             <p><strong>STREET ADDRESS:</strong> 12 Market Street, Stellenbosch Central, Stellenbosch, 7600</p>
 
-            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-33.93885,18.85505" target="_blank" class="blue-link">-33.93885, 18.85505</a></p>
+            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="stumble-inn"><strong>FIND ON MAP ›</strong></a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27218874049" class="blue-link">+27 21 887 4049</a></p>
 
@@ -1454,7 +1454,7 @@
 
             <p><strong>STREET ADDRESS:</strong> Dassenberg Road, Franschhoek, 7690</p>
 
-            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-33.91117,19.1098" target="_blank" class="blue-link">-33.91117, 19.1098</a></p>
+            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="otters-bend"><strong>FIND ON MAP ›</strong></a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27648723501" class="blue-link">+27 64 872 3501</a></p>
 
@@ -1530,7 +1530,7 @@
 
             <p><strong>STREET ADDRESS:</strong> 40 Du Toit Street, Paarl, 7646</p>
 
-            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-33.74447,18.96157" target="_blank" class="blue-link">-33.74447, 18.96157</a></p>
+            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="paarl-backpackers"><strong>FIND ON MAP ›</strong></a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27727363410" class="blue-link">+27 72 736 3410</a> | <a href="tel:+27212018901" class="blue-link">+27 21 201 8901</a></p>
 
@@ -1923,6 +1923,23 @@ src="https://c.statcounter.com/13225228/0/687dc53c/1/"
 alt="Web Analytics"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 <!-- End of Statcounter Code -->
+
+
+<script>
+  /* ── FIND ON MAP — scroll to LibreMap and open hostel popup ── */
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('.bb-find-on-map');
+    if (!link) return;
+    e.preventDefault();
+    var hostelId = link.dataset.hostel;
+    var mapFrame = document.querySelector('.bb-map-iframe');
+    if (!mapFrame) return;
+    mapFrame.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(function() {
+      mapFrame.contentWindow.postMessage({ type: 'BB_OPEN_HOSTEL', id: hostelId }, '*');
+    }, 600);
+  });
+</script>
 
 </body>
 </html>
