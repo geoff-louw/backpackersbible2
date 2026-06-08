@@ -1097,7 +1097,7 @@
   src="/map.html?region=west-coast&center=18.25,-32.67&zoom=9&pitch=75&bearing=330&mobile-center=18.20,-33.61&mobile-zoom=9"
   width="100%"
   height="620"
-  class="sa-hostel-map-iframe"
+  class="sa-hostel-map-iframe bb-map-iframe"
   title="Interactive map of backpacker hostels on the Cape West Coast"
   aria-label="Interactive map of backpacker hostels on the Cape West Coast"
   loading="lazy"
@@ -1580,7 +1580,7 @@
 
             <p><strong>STREET ADDRESS:</strong> R45, Vredenburg, 7380, Western Cape (10km from Vredenburg toward Hopefield)</p>
 
-            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-33.03065,18.28789" target="_blank" class="blue-link">-33.03065, 18.28789</a></p>
+            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="windstone-backpackers"><strong>FIND ON MAP ›</strong></a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27227661645" class="blue-link">+27 22 766 1645</a></p>
 
@@ -1654,7 +1654,7 @@
 
             <p><strong>STREET ADDRESS:</strong> Plot 307, Main Road, Jacobs Bay, 7380, Western Cape</p>
 
-            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-32.96296,17.89411" target="_blank" class="blue-link">-32.96296, 17.89411</a></p>
+            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="jacobs-bay-backpackers"><strong>FIND ON MAP ›</strong></a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27227153034" class="blue-link">+27 22 715 3034</a></p>
 
@@ -1733,7 +1733,7 @@
 
             <p><strong>STREET ADDRESS:</strong> 88 Main Street, Langebaan, 7357, Western Cape</p>
 
-            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-32.80994,17.88733" target="_blank" class="blue-link">-32.80994, 17.88733</a></p>
+            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="west-coast-backpackers"><strong>FIND ON MAP ›</strong></a></p>
 
             <p><strong>PHONE / WHATSAPP:</strong> <a href="https://wa.me/27718803561?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 71 880 3561</a></p>
 
@@ -1806,7 +1806,7 @@
 
             <p><strong>STREET ADDRESS:</strong> R366, Elands Bay, 8110 (at the point, adjacent to the Elands Bay Hotel)</p>
 
-            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-32.3140,18.3441" target="_blank" class="blue-link">-32.3140, 18.3441</a></p>
+            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="elands-bay-offshore"><strong>FIND ON MAP ›</strong></a></p>
 
             <p><strong>PHONE / WHATSAPP:</strong> <a href="https://wa.me/27832524326?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 83 252 4326</a></p>
 
@@ -1874,7 +1874,7 @@
 
             <p><strong>STREET ADDRESS:</strong> Soldaten Bay, Cape Columbine Nature Reserve, Paternoster, 7381</p>
 
-            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-32.81869,17.85535" target="_blank" class="blue-link">-32.81869, 17.85535</a></p>
+            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="sea-shack"><strong>FIND ON MAP ›</strong></a></p>
 
             <p><strong>PHONE / WHATSAPP:</strong> <a href="https://wa.me/27798206824?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 79 820 6824</a></p>
 
@@ -1952,7 +1952,7 @@
 
             <p><strong>STREET ADDRESS:</strong> 14 Strand St, Elands Bay, 8110, South Africa</p>
 
-            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-32.30908,18.3429" target="_blank" class="blue-link">-32.30908, 18.3429</a></p>
+            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="surf-shack-house"><strong>FIND ON MAP ›</strong></a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27215566012" class="blue-link">+27 21 556 6012</a></p>
 
@@ -2351,6 +2351,23 @@ src="https://c.statcounter.com/13225228/0/687dc53c/1/"
 alt="Web Analytics"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 <!-- End of Statcounter Code -->
+
+
+<script>
+  /* ── FIND ON MAP — scroll to LibreMap and open hostel popup ── */
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('.bb-find-on-map');
+    if (!link) return;
+    e.preventDefault();
+    var hostelId = link.dataset.hostel;
+    var mapFrame = document.querySelector('.bb-map-iframe');
+    if (!mapFrame) return;
+    mapFrame.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(function() {
+      mapFrame.contentWindow.postMessage({ type: 'BB_OPEN_HOSTEL', id: hostelId }, '*');
+    }, 600);
+  });
+</script>
 
 </body>
 </html>
