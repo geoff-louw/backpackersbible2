@@ -1041,7 +1041,7 @@
   src="/map.html?region=kruger&center=31.57,-25.05&zoom=8&pitch=80&bearing=55&mobile-center=31.46,-25.72&mobile-zoom=6"
   width="100%"
   height="620"
-  class="sa-hostel-map-iframe bb-map-iframe"
+  class="sa-hostel-map-iframe"
   title="Interactive map of backpacker hostels in the Kruger National Park area"
   aria-label="Interactive map of backpacker hostels in the Kruger National Park area"
   loading="lazy"
@@ -1555,7 +1555,7 @@ Binoculars — the single most important piece of kit, and genuinely irreplaceab
 
             <p><strong>STREET ADDRESS:</strong> 61 Bosbok Street, Komatipoort, 1340, Mpumalanga, South Africa</p>
 
-            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="kruger-view-backpackers"><strong>FIND ON MAP ›</strong></a></p>
+            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-25.42708,31.96082" target="_blank" class="blue-link">-25.42708, 31.96082</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27734459665" class="blue-link">+27 73 445 9665</a></p>
 
@@ -1632,7 +1632,7 @@ Binoculars — the single most important piece of kit, and genuinely irreplaceab
 
             <p><strong>STREET ADDRESS:</strong> 2007 Olifant Drive, Marloth Park, 1340, Mpumalanga, South Africa</p>
 
-            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="kruger-inn-backpackers"><strong>FIND ON MAP ›</strong></a></p>
+            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-25.35146,31.77163" target="_blank" class="blue-link">-25.35146, 31.77163</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27716738484" class="blue-link">+27 71 673 8484</a></p>
 
@@ -1712,7 +1712,7 @@ Binoculars — the single most important piece of kit, and genuinely irreplaceab
 
             <p><strong>STREET ADDRESS:</strong> 12 Impala Street, Mbombela (Nelspruit), 1200, Mpumalanga, South Africa</p>
 
-            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="old-vic-travellers-inn-kruger"><strong>FIND ON MAP ›</strong></a></p>
+            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-25.49391,30.98576" target="_blank" class="blue-link">-25.49391, 30.98576</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27137440993" class="blue-link">+27 13 744 0993</a></p>
 
@@ -1792,7 +1792,7 @@ Binoculars — the single most important piece of kit, and genuinely irreplaceab
 
             <p><strong>STREET ADDRESS:</strong> Route R40 (White River Road), Numbi Park, Hazyview, 1240, Mpumalanga, South Africa</p>
 
-            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="hazyview-adventure-backpackers-kruger"><strong>FIND ON MAP ›</strong></a></p>
+            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-25.06555,31.1081" target="_blank" class="blue-link">-25.06555, 31.1081</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27838590212" class="blue-link">+27 83 859 0212</a></p>
 
@@ -1881,7 +1881,7 @@ Binoculars — the single most important piece of kit, and genuinely irreplaceab
 
             <p><strong>STREET ADDRESS:</strong> Off the R531 Orpen Road, Sigagule Village, Acornhoek, 1380, Mpumalanga, South Africa </p>
 
-            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="shik-shack-backpackers-kruger"><strong>FIND ON MAP ›</strong></a></p>
+            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-24.56418,31.13201" target="_blank" class="blue-link">-24.56418, 31.13201</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27726620970" class="blue-link">+27 72 662 0970</a></p>
 
@@ -2286,23 +2286,6 @@ src="https://c.statcounter.com/13225228/0/687dc53c/1/"
 alt="Web Analytics"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 <!-- End of Statcounter Code -->
-
-
-<script>
-  /* ── FIND ON MAP — scroll to LibreMap and open hostel popup ── */
-  document.addEventListener('click', function(e) {
-    var link = e.target.closest('.bb-find-on-map');
-    if (!link) return;
-    e.preventDefault();
-    var hostelId = link.dataset.hostel;
-    var mapFrame = document.querySelector('.bb-map-iframe');
-    if (!mapFrame) return;
-    mapFrame.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    setTimeout(function() {
-      mapFrame.contentWindow.postMessage({ type: 'BB_OPEN_HOSTEL', id: hostelId }, '*');
-    }, 600);
-  });
-</script>
 
 </body>
 </html>

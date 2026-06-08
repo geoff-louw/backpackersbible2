@@ -1157,7 +1157,7 @@
   src="/map.html?region=karoo&center=22.21,-33.26&zoom=7&pitch=30&bearing=0&mobile-center=22.32,-33.75&mobile-zoom=6"
   width="100%"
   height="620"
-  class="sa-hostel-map-iframe bb-map-iframe"
+  class="sa-hostel-map-iframe"
   title="Interactive map of backpacker hostels in the Karoo"
   aria-label="Interactive map of backpacker hostels in the Karoo"
   loading="lazy"
@@ -1557,7 +1557,7 @@
 
             <p><strong>ADDRESS:</strong> Cedar Falls Farm, Baviaanskloof, Willowmore, 6445, Eastern Cape</p>
 
-            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="go-baviaans"><strong>FIND ON MAP ›</strong></a></p>
+            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-33.57472,23.71639" target="_blank" class="blue-link">-33.57472, 23.71639</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27749394395" class="blue-link">+27 74 939 4395</a></p>
 
@@ -1642,7 +1642,7 @@
 <em>(note: Karoo Lamb restaurant is the reception for this property)</em>
 </p>
 
-            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="owlhouse-backpackers"><strong>FIND ON MAP ›</strong></a></p>
+            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-31.8676,24.55422" target="_blank" class="blue-link">-31.8676, 24.55422</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27499841642" class="blue-link">+27 49 841 1642</a> | <a href="tel:+27727427113" class="blue-link">+27 72 742 7113</a></p>
 
@@ -1726,7 +1726,7 @@
 
             <p><strong>STREET ADDRESS:</strong> 9696 Langenhoven Road, Oudtshoorn, 6620, Western Cape</p>
 
-            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="lodge-96"><strong>FIND ON MAP ›</strong></a></p>
+            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-33.6036,22.20924" target="_blank" class="blue-link">-33.6036, 22.20924</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:27442722996" class="blue-link">+27 44 272 2996</a></p>
 
@@ -1794,7 +1794,7 @@
 
             <p><strong>STREET ADDRESS:</strong> 3 Church Street, Oudtshoorn, 6625, Western Cape, South Africa</p>
 
-            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="oasis-shanti"><strong>FIND ON MAP ›</strong></a></p>
+            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-33.5899,22.2107" target="_blank" class="blue-link">-33.5899,22.2107</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27442722996" class="blue-link">+27 44 279 1163</a></p>
 
@@ -1866,7 +1866,7 @@
 
             <p><strong>ADDRESS:</strong> Cango Valley, Swartberg Pass Road, ~45km north of Oudtshoorn (GPS essential — confirm with Louis on booking)</p>
 
-            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="swartberg-backpackers"><strong>FIND ON MAP ›</strong></a></p>
+            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-33.38218,22.05788" target="_blank" class="blue-link">-33.38218, 22.05788</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:27828963082" class="blue-link">27 82 896 3082</a></p>
 
@@ -1944,7 +1944,7 @@
 
             <p><strong>STREET ADDRESS:</strong> 148 Baron van Rheede Street, Oudtshoorn, 6620</p>
 
-            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="backpackers-paradise"><strong>FIND ON MAP ›</strong></a></p>
+            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-33.57981,22.20521" target="_blank" class="blue-link">-33.57981, 22.20521</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27442723436" class="blue-link">+27 44 272 3436</a></p>
 
@@ -2323,23 +2323,6 @@ src="https://c.statcounter.com/13225228/0/687dc53c/1/"
 alt="Web Analytics"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 <!-- End of Statcounter Code -->
-
-
-<script>
-  /* ── FIND ON MAP — scroll to LibreMap and open hostel popup ── */
-  document.addEventListener('click', function(e) {
-    var link = e.target.closest('.bb-find-on-map');
-    if (!link) return;
-    e.preventDefault();
-    var hostelId = link.dataset.hostel;
-    var mapFrame = document.querySelector('.bb-map-iframe');
-    if (!mapFrame) return;
-    mapFrame.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    setTimeout(function() {
-      mapFrame.contentWindow.postMessage({ type: 'BB_OPEN_HOSTEL', id: hostelId }, '*');
-    }, 600);
-  });
-</script>
 
 </body>
 </html>
