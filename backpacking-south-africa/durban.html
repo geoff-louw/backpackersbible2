@@ -1169,7 +1169,7 @@
   src="/map.html?region=durban&center=31.02,-29.86&zoom=12&pitch=75&bearing=330&mobile-center=31.01,-29.99&mobile-zoom=10"
   width="100%"
   height="620"
-  class="sa-hostel-map-iframe"
+  class="sa-hostel-map-iframe bb-map-iframe"
   title="Interactive map of backpacker hostels in Durban"
   aria-label="Interactive map of backpacker hostels in Durban"
   loading="lazy"
@@ -1763,7 +1763,7 @@
 
             <p><strong>STREET ADDRESS:</strong> 169 Ninth Ave, Morningside, Durban, 4001</p>
 
-            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-29.83354,31.01606" target="_blank" class="blue-link">-29.83354, 31.01606</a></p>
+            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="tekweni-backpackers"><strong>FIND ON MAP ›</strong></a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27313031433" class="blue-link">+27 31 303 1433</a></p>
 
@@ -1848,7 +1848,7 @@
 
             <p><strong>STREET ADDRESS:</strong> 119 Ninth Ave, Morningside, Durban, 4001</p>
 
-            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-29.83538,31.01456" target="_blank" class="blue-link">-29.83538, 31.01456</a></p>
+            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="gibela-travellers-lodge"><strong>FIND ON MAP ›</strong></a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27313036291" class="blue-link">+27 31 303 6291</a></p>
 
@@ -1924,7 +1924,7 @@
             <p><strong>STREET ADDRESS:</strong> 70 Stephen Dlamini Road (formerly Essenwood Road), Musgrave, Durban, 4001, KwaZulu-Natal
 </p>
 
-            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-29.8501,30.99806" target="_blank" class="blue-link">-29.8501, 30.99806</a></p>
+            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="nomads-backpackers"><strong>FIND ON MAP ›</strong></a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27312029709" class="blue-link">+27 31 202 9709</a></p>
 
@@ -1992,7 +1992,7 @@
 
             <p><strong>STREET ADDRESS:</strong> 121 Briar Lane, Park Hill, Durban North, 4051</p>
 
-            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-29.7984,31.02316" target="_blank" class="blue-link">-29.7984, 31.02316</a></p>
+            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="aweh-africa-backpackers"><strong>FIND ON MAP ›</strong></a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27822906063" class="blue-link">+27 82 290 6063</a></p>
 
@@ -2068,7 +2068,7 @@
             <p><strong>STREET ADDRESS:</strong> 477 Marine Drive, Bluff, Durban, 4052, KwaZulu-Natal
 </p>
 
-            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-29.92319,31.01824" target="_blank" class="blue-link">-29.92319, 31.01824</a></p>
+            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="ansteys-beach-backpackers"><strong>FIND ON MAP ›</strong></a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27314671192" class="blue-link">+27 31 467 1192</a></p>
 
@@ -2149,7 +2149,7 @@
 
             <p><strong>STREET ADDRESS:</strong> 17 The Promenade, Glenashley, Durban North, 4051</p>
 
-            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-29.76249,31.06431" target="_blank" class="blue-link">-29.76249, 31.06431</a></p>
+            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="durban-backpackers-on-the-beach"><strong>FIND ON MAP ›</strong></a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27315724054" class="blue-link">+27 31 572 4054</a></p>
 
@@ -2226,7 +2226,7 @@ have dorms. It is the perfect choice for travelers who want the Indian Ocean as 
 
             <p><strong>STREET ADDRESS:</strong> 132 Peacevale Road, Peacevale, Drummond, 3626, KwaZulu-Natal</p>
 
-            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-29.77755,30.70203" target="_blank" class="blue-link">-29.77755, 30.70203</a></p>
+            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="peacevale-backpackers"><strong>FIND ON MAP ›</strong></a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27796972881" class="blue-link">+27 79 697 2881</a></p>
 
@@ -2621,6 +2621,23 @@ src="https://c.statcounter.com/13225228/0/687dc53c/1/"
 alt="Web Analytics"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 <!-- End of Statcounter Code -->
+
+
+<script>
+  /* ── FIND ON MAP — scroll to LibreMap and open hostel popup ── */
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('.bb-find-on-map');
+    if (!link) return;
+    e.preventDefault();
+    var hostelId = link.dataset.hostel;
+    var mapFrame = document.querySelector('.bb-map-iframe');
+    if (!mapFrame) return;
+    mapFrame.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(function() {
+      mapFrame.contentWindow.postMessage({ type: 'BB_OPEN_HOSTEL', id: hostelId }, '*');
+    }, 600);
+  });
+</script>
 
 </body>
 </html>
