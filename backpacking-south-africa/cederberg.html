@@ -906,7 +906,7 @@
   src="/map.html?region=cederberg&center=19.19,-32.45&zoom=9&pitch=45&bearing=330&mobile-center=19.16,-32.83&mobile-zoom=7"
   width="100%"
   height="620"
-  class="sa-hostel-map-iframe"
+  class="sa-hostel-map-iframe bb-map-iframe"
   title="Interactive map of backpacker hostels in the Cederberg"
   aria-label="Interactive map of backpacker hostels in the Cederberg"
   loading="lazy"
@@ -1291,7 +1291,7 @@
 
             <p><strong>ADDRESS:</strong> Cederberg Conservancy, via Op-Die-Berg / Algeria Road, Western Cape</p>
 
-            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-32.55121,19.36113" target="_blank" class="blue-link">-32.55121, 19.36113</a></p>
+            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="cederberg-oasis"><strong>FIND ON MAP ›</strong></a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27274822819" class="blue-link">+27 27 482 2819</a></p>
 
@@ -1364,7 +1364,7 @@
 
             <p><strong>ADDRESS:</strong> Gecko Creek Road, Cederberg Remhoogte, Western Cape (6km off the N7, 28km from Clanwilliam)</p>
 
-            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-32.39603,18.98599" target="_blank" class="blue-link">-32.39603, 18.98599</a></p>
+            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="gecko-creek"><strong>FIND ON MAP ›</strong></a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27274821300" class="blue-link">+27 27 482 1300</a></p>
 
@@ -1430,7 +1430,7 @@
 
             <p><strong>ADDRESS:</strong> Heuningvlei Village (Outpost of Wupperthal), Cederberg, 8138</p>
 
-            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-32.20195,19.09724" target="_blank" class="blue-link">-32.20195, 19.09724</a></p>
+            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="heuningvlei"><strong>FIND ON MAP ›</strong></a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27274928001" class="blue-link">+27 27 492 8001</a></p>
 
@@ -1829,6 +1829,23 @@ src="https://c.statcounter.com/13225228/0/687dc53c/1/"
 alt="Web Analytics"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 <!-- End of Statcounter Code -->
+
+
+<script>
+  /* ── FIND ON MAP — scroll to LibreMap and open hostel popup ── */
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('.bb-find-on-map');
+    if (!link) return;
+    e.preventDefault();
+    var hostelId = link.dataset.hostel;
+    var mapFrame = document.querySelector('.bb-map-iframe');
+    if (!mapFrame) return;
+    mapFrame.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(function() {
+      mapFrame.contentWindow.postMessage({ type: 'BB_OPEN_HOSTEL', id: hostelId }, '*');
+    }, 600);
+  });
+</script>
 
 </body>
 </html>

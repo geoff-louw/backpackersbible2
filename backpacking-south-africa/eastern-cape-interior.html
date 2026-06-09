@@ -1197,7 +1197,7 @@
   src="/map.html?region=eastern-cape-interior&center=26.91,-32.96&zoom=8&pitch=60&bearing=330&mobile-center=26.69,-34.00&mobile-zoom=5"
   width="100%"
   height="620"
-  class="sa-hostel-map-iframe"
+  class="sa-hostel-map-iframe bb-map-iframe"
   title="Interactive map of backpacker hostels in the Eastern Cape Interior"
   aria-label="Interactive map of backpacker hostels in the Eastern Cape Interior"
   loading="lazy"
@@ -1746,7 +1746,7 @@ Nieu-Bethesda is one of the darkest settlements in South Africa, surrounded by 8
 
             <p><strong>STREET ADDRESS:</strong> R335 Main Road, Addo, Eastern Cape, 6105</p>
 
-            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-33.51418,25.69329" target="_blank" class="blue-link">-33.51418, 25.69329</a></p>
+            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="orange-elephant-backpackers"><strong>FIND ON MAP ›</strong></a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27422330023" class="blue-link">+27 42 233 0023</a></p>
 
@@ -1826,7 +1826,7 @@ Nieu-Bethesda is one of the darkest settlements in South Africa, surrounded by 8
 
             <p><strong>STREET ADDRESS:</strong> R350 Cradock Road (near Makhanda Airfield), Makhanda (Grahamstown), Eastern Cape, 6140</p>
 
-            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-33.29097,26.49519" target="_blank" class="blue-link">-33.29097, 26.49519</a></p>
+            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="blue-skies-backpackers"><strong>FIND ON MAP ›</strong></a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27842783193" class="blue-link">+27 84 278 3193</a></p>
 
@@ -1892,7 +1892,7 @@ Nieu-Bethesda is one of the darkest settlements in South Africa, surrounded by 8
 
             <p><strong>STREET ADDRESS:</strong> Three Chimneys Farm Worcester Street Extension, Grahamstown, Makhanda, 6139</p>
 
-            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-33.57472,23.71639" target="_blank" class="blue-link">-33.57472, 23.71639</a></p>
+            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="the-smokey-moon"><strong>FIND ON MAP ›</strong></a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27815315448" class="blue-link">+27 81 531 5448</a></p>
 
@@ -1964,7 +1964,7 @@ Nieu-Bethesda is one of the darkest settlements in South Africa, surrounded by 8
 
             <p><strong>STREET ADDRESS:</strong> 24 Hydrangea Lane Hogsback 5721 Eastern Cape</p>
 
-            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-32.5956,26.9248" target="_blank" class="blue-link">-32.5956, 26.9248</a></p>
+            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="away-with-the-fairies"><strong>FIND ON MAP ›</strong></a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27459621031" class="blue-link">+27 45 962 1031</a></p>
 
@@ -2039,7 +2039,7 @@ Nieu-Bethesda is one of the darkest settlements in South Africa, surrounded by 8
 
             <p><strong>STREET ADDRESS:</strong> Chillington Farm, Hogsback, 5721, Eastern Cape</p>
 
-            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-32.6074,26.9423" target="_blank" class="blue-link">-32.6074, 26.9423</a></p>
+            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="terra-khaya"><strong>FIND ON MAP ›</strong></a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27828977503" class="blue-link">+27 82 897 7503</a></p>
 
@@ -2116,7 +2116,7 @@ Community Focus: They are major proponents of the “Walk Lightly” movement an
 
             <p><strong>STREET ADDRESS:</strong> Elundini Village, Lushington, Hogsback Area, 5721, Eastern Cape.</p>
 
-            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-32.6352,26.8558" target="_blank" class="blue-link">-32.6352, 26.8558</a></p>
+            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="elundini-backpackers"><strong>FIND ON MAP ›</strong></a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27783573285" class="blue-link">+27 78 357 3285</a></p>
 
@@ -2195,7 +2195,7 @@ Community Focus: They are major proponents of the “Walk Lightly” movement an
 <em>(note: Karoo Lamb restaurant is the reception for this property)</em>
 </p>
 
-            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-31.8676,24.55422" target="_blank" class="blue-link">-31.8676, 24.55422</a></p>
+            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="owlhouse-backpackers"><strong>FIND ON MAP ›</strong></a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27499841642" class="blue-link">+27 49 841 1642</a> | <a href="tel:+27727427113" class="blue-link">+27 72 742 7113</a></p>
 
@@ -2600,6 +2600,23 @@ src="https://c.statcounter.com/13225228/0/687dc53c/1/"
 alt="Web Analytics"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 <!-- End of Statcounter Code -->
+
+
+<script>
+  /* ── FIND ON MAP — scroll to LibreMap and open hostel popup ── */
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('.bb-find-on-map');
+    if (!link) return;
+    e.preventDefault();
+    var hostelId = link.dataset.hostel;
+    var mapFrame = document.querySelector('.bb-map-iframe');
+    if (!mapFrame) return;
+    mapFrame.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(function() {
+      mapFrame.contentWindow.postMessage({ type: 'BB_OPEN_HOSTEL', id: hostelId }, '*');
+    }, 600);
+  });
+</script>
 
 </body>
 </html>

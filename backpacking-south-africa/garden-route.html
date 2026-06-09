@@ -77,6 +77,7 @@
 {
   "@context": "https://schema.org",
   "@graph": [
+
     {
       "@type": "Organization",
       "@id": "https://www.backpackersbible.com/#organization",
@@ -88,27 +89,66 @@
         "width": 250,
         "height": 250
       },
-      "description": "Independent, non-affiliate-biased backpacker guides to destinations worldwide. Direct hostel contacts, safety information, and honest write-ups."
+      "description": "Independent backpacker guides to destinations worldwide with direct hostel contacts, safety information, maps, and honest write-ups."
     },
+
     {
-      "@type": ["WebPage", "TravelGuide"],
+      "@type": "Person",
+      "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw",
+      "name": "Geoff Louw",
+      "url": "https://www.backpackersbible.com/misc/about-backpackers-bible",
+      "worksFor": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      }
+    },
+
+    {
+      "@type": "WebSite",
+      "@id": "https://www.backpackersbible.com/#website",
+      "url": "https://www.backpackersbible.com/",
+      "name": "BackpackersBible.com",
+      "publisher": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      },
+      "inLanguage": "en"
+    },
+
+    {
+      "@type": ["WebPage", "CollectionPage"],
       "@id": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#webpage",
       "url": "https://www.backpackersbible.com/backpacking-south-africa/garden-route",
       "name": "Garden Route Backpacking: The Ultimate Adventure Road Trip",
       "headline": "Garden Route Backpacking: The Ultimate Adventure Road Trip",
-      "description": "Bungee, paraglide, and hike! Get direct contact info for every Garden Route hostel, plus interactive maps and honest safety tips for the ultimate adventure.",
+      "description": "Bungee, paraglide, and hike. Direct contact details for every Garden Route hostel, interactive 3D map with filters, honest safety tips, and independent reviews.",
       "inLanguage": "en",
-      "isPartOf": { "@id": "https://www.backpackersbible.com/#website" },
-      "publisher": { "@id": "https://www.backpackersbible.com/#organization" },
-      "author": { "@id": "https://www.backpackersbible.com/#organization" },
+      "wordCount": 22000,
+      "isPartOf": {
+        "@id": "https://www.backpackersbible.com/#website"
+      },
+      "publisher": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      },
+      "author": {
+        "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw"
+      },
       "dateModified": "2026-01-01",
       "primaryImageOfPage": {
         "@type": "ImageObject",
-        "url": "https://www.backpackersbible.com/assets/social-preview.jpg"
+        "url": "https://www.backpackersbible.com/assets/social-preview.jpg",
+        "width": 1200,
+        "height": 630
       },
       "about": [
-        { "@type": "Place", "name": "Garden Route", "sameAs": "https://en.wikipedia.org/wiki/Garden_Route" },
-        { "@type": "Thing", "name": "Backpacking", "sameAs": "https://en.wikipedia.org/wiki/Backpacking_(travel)" }
+        {
+          "@type": "Place",
+          "name": "Garden Route",
+          "sameAs": "https://en.wikipedia.org/wiki/Garden_Route"
+        },
+        {
+          "@type": "Thing",
+          "name": "Backpacking",
+          "sameAs": "https://en.wikipedia.org/wiki/Backpacking_(travel)"
+        }
       ],
       "mentions": [
         { "@id": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#map" },
@@ -119,9 +159,10 @@
       ],
       "speakable": {
         "@type": "SpeakableSpecification",
-        "cssSelector": [".intro-p", ".detail-p", "#safety", "#faq"]
+        "cssSelector": [".intro-p", ".detail-p", "#safety", "#faq", ".final-verdict"]
       }
     },
+
     {
       "@type": "BreadcrumbList",
       "@id": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#breadcrumb",
@@ -131,6 +172,7 @@
         { "@type": "ListItem", "position": 3, "name": "Garden Route Backpacking Guide", "item": "https://www.backpackersbible.com/backpacking-south-africa/garden-route" }
       ]
     },
+
     {
       "@type": "FAQPage",
       "@id": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#faq",
@@ -148,7 +190,7 @@
           "name": "What time of year is best for the Garden Route?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The Garden Route has the most equitable climate in South Africa — no extreme heat, no severe cold, and rain distributed across all seasons (it is officially a year-round destination). Summer (December–February) is the peak season with the best beach weather, highest prices, and most crowded hostels. The shoulder months of October–November and March–April offer near-identical weather at 20–30% lower prices. Winter (June–August) brings some rain and cooler evenings but is the prime whale watching period — southern right whales calve in Plettenberg Bay and Walker Bay from June to November and are commonly visible from Robberg Peninsula. Kloofing (canyoneering) is best from October to April when rivers run faster."
+            "text": "The Garden Route has the most equitable climate in South Africa — no extreme heat, no severe cold, and rain distributed across all seasons. Summer (December–February) is peak season with best beach weather, highest prices, and most crowded hostels. The shoulder months of October–November and March–April offer near-identical weather at 20–30% lower prices. Winter (June–August) is the prime whale watching period — southern right whales calve in Plettenberg Bay and Walker Bay from June to November and are commonly visible from Robberg Peninsula. Kloofing is best from October to April."
           }
         },
         {
@@ -156,7 +198,7 @@
           "name": "What is the Otter Trail, and how do I get a permit?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The Otter Trail is South Africa's oldest and most famous multi-day hiking trail, running 42km along the Tsitsikamma coastline from Storms River Mouth to Nature's Valley over 5 days. It is one of the finest coastal walks in the world. Maximum group size is 12. Permits sell out up to a year in advance for peak months — book early on the SANParks online reservations system (sanparks.org). Solo travellers and pairs can check regularly for cancellations. The trail costs approximately €80–€90 per person for the 5-day permit inclusive of hut accommodation. A doctor's medical certificate is compulsory. Age restrictions apply: minimum 12, maximum 65 (over 65 requires doctor's clearance). There is no mobile signal on the trail."
+            "text": "The Otter Trail is South Africa's oldest and most famous multi-day hiking trail, running 42km along the Tsitsikamma coastline from Storms River Mouth to Nature's Valley over 5 days. Permits sell out up to a year in advance for peak months — book on the SANParks online reservations system (sanparks.org). The trail costs approximately €80–€90 per person for the 5-day permit inclusive of hut accommodation. A doctor's medical certificate is compulsory. Age restrictions apply: minimum 12, maximum 65. There is no mobile signal on the trail."
           }
         },
         {
@@ -164,7 +206,7 @@
           "name": "What are the best free things to do on the Garden Route?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The Garden Route's finest experiences are disproportionately free or very cheap. Top free and low-cost options include: the Diepwalle forest trail system with the 800-year-old Big Tree (free with ~€5 park entry), the Robberg Nature Reserve clifftop circuit in Plettenberg Bay (~€3 entry), the Storms River Mouth suspension bridge and tidal caves walk (included in National Park entry), the Outeniqua Pass drive (petrol only), the Wild Oats Farmers' Market in Sedgefield on Saturday mornings, and watching the sunset from the Knysna Heads viewpoint on the eastern cliff path. Victoria Bay surf break near George is freely accessible. The Wilderness lakeside walk costs nothing."
+            "text": "Top free and low-cost options include: the Diepwalle forest trail system with the 800-year-old Big Tree (free with ~€5 park entry), the Robberg Nature Reserve clifftop circuit in Plettenberg Bay (~€3 entry), the Storms River Mouth suspension bridge and tidal caves walk (included in National Park entry), the Outeniqua Pass drive (petrol only), the Wild Oats Farmers' Market in Sedgefield on Saturday mornings, watching the sunset from the Knysna Heads viewpoint, and Victoria Bay surf break near George."
           }
         },
         {
@@ -172,7 +214,7 @@
           "name": "Is the Garden Route safe for backpackers?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The Garden Route is one of the safer regional destinations in South Africa. The combination of relatively affluent towns, high-density tourism infrastructure, and good Western Cape provincial governance means violent crime is not a primary concern. The main risks are car break-ins (do not leave anything visible in a parked car at trails, beaches, or viewpoints) and phone snatching in town centres, particularly around the Knysna Waterfront and Plettenberg Bay beach access paths. George town centre can be uncomfortable after dark near the main taxi rank. Plettenberg Bay beach access paths are isolated at night — use taxis rather than walking alone after sunset. Natural hazards include rip currents on exposed surf beaches and wildfire risk in fynbos during hot, dry, windy conditions."
+            "text": "The Garden Route is one of the safer regional destinations in South Africa. The main risks are car break-ins (never leave anything visible in a parked car at trails, beaches, or viewpoints) and phone snatching in town centres, particularly around the Knysna Waterfront and Plettenberg Bay beach access paths. George town centre can be uncomfortable after dark near the main taxi rank. Natural hazards include rip currents on exposed surf beaches and wildfire risk in fynbos during hot, dry, windy conditions."
           }
         },
         {
@@ -180,7 +222,7 @@
           "name": "What is the Bloukrans Bridge Bungee Jump?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "At 216 metres above the Bloukrans River gorge, the Bloukrans Bridge Bungee is the highest commercial bungee jump in the world, located on the N2 between Plettenberg Bay and Storms River. The jump involves approximately three seconds of freefall at around 160km/h. The operator is Face Adrenalin, with an excellent safety record. Cost is approximately €85–€100. For those who don't jump, the bridge walkway alone costs around €20 and offers some of the most vertiginous views in South Africa."
+            "text": "At 216 metres above the Bloukrans River gorge, the Bloukrans Bridge Bungee is the highest commercial bungee jump in the world, located on the N2 between Plettenberg Bay and Storms River. The operator is Face Adrenalin, with an excellent safety record. Cost is approximately €85–€100. The bridge walkway alone costs around €20 and offers some of the most vertiginous views in South Africa."
           }
         },
         {
@@ -188,28 +230,35 @@
           "name": "Where should I stay on the Garden Route as a backpacker?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Base yourself strategically rather than trying to stay everywhere. Mossel Bay (Park House Lodge) is the western gateway and a practical first-night stop. George (George Backpackers) suits airport arrivals collecting hire cars. Wilderness (Wilderness Beach House or Fairy Knowe) is the most underrated base on the route — beautiful lake district, excellent hiking, and far less crowded than Knysna. Knysna (Island Vibe, Knysna Backpackers, Riverdeck Lodge) is the natural 2–3 night hub. Plettenberg Bay (Amakaya, Nothando) is ideal for Robberg and whale watching. Storms River (Tube 'n Axe or Dijembe) is the essential base for the Tsitsikamma activities and Bloukrans bungee. A good itinerary allocates 1 night in Mossel Bay, 1–2 in Wilderness, 2–3 in Knysna, 1–2 in Plett, and 1–2 in Storms River."
+            "text": "Base yourself strategically rather than trying to stay everywhere. Mossel Bay (Park House Lodge) is the western gateway. George (George Backpackers) suits airport arrivals collecting hire cars. Wilderness (Wilderness Beach House or Fairy Knowe) is the most underrated base — beautiful lake district, excellent hiking. Knysna (Island Vibe, Knysna Backpackers) is the natural 2–3 night hub. Plettenberg Bay (Nothando, Amakaya) is ideal for Robberg and whale watching. Storms River (Tube 'n Axe or Dijembe) is essential for Tsitsikamma activities and Bloukrans bungee. A good itinerary: 1 night Mossel Bay, 1–2 Wilderness, 2–3 Knysna, 1–2 Plett, 1–2 Storms River."
           }
         }
       ]
     },
+
     {
       "@type": "Map",
       "@id": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#map",
       "name": "Garden Route Backpackers Hostel Map — All Hostels",
-      "description": "Interactive map of all backpacker hostels on the Garden Route, with contact details, addresses, and links to individual write-ups. Covers Mossel Bay, George, Wilderness, Sedgefield, Knysna, Plettenberg Bay, The Crags, and Storms River.",
+      "description": "Interactive 3D map of all backpacker hostels on the Garden Route with one-tap filters for Best Overall, Best Parties, Best Value, Best for Solo Women, Best for Digital Nomads, and Swimming Pool. Covers Mossel Bay, George, Wilderness, Sedgefield, Knysna, Plettenberg Bay, The Crags, and Storms River.",
       "mapType": "https://schema.org/VenueMap",
-      "url": "https://www.backpackersbible.com/backpacking-south-africa/garden-route",
-      "areaServed": {
+      "url": "https://www.backpackersbible.com/map.html?region=garden-route",
+      "potentialAction": [
+        { "@type": "SearchAction", "name": "Filter: Best overall hostels on the Garden Route", "target": "https://www.backpackersbible.com/map.html?region=garden-route&filter=best_overall" },
+        { "@type": "SearchAction", "name": "Filter: Best party hostels on the Garden Route", "target": "https://www.backpackersbible.com/map.html?region=garden-route&filter=best_parties" },
+        { "@type": "SearchAction", "name": "Filter: Best value hostels on the Garden Route", "target": "https://www.backpackersbible.com/map.html?region=garden-route&filter=best_value" },
+        { "@type": "SearchAction", "name": "Filter: Best hostels for solo women on the Garden Route", "target": "https://www.backpackersbible.com/map.html?region=garden-route&filter=best_solo_women" },
+        { "@type": "SearchAction", "name": "Filter: Best hostels for digital nomads on the Garden Route", "target": "https://www.backpackersbible.com/map.html?region=garden-route&filter=best_digital_nomads" },
+        { "@type": "SearchAction", "name": "Filter: Hostels with swimming pools on the Garden Route", "target": "https://www.backpackersbible.com/map.html?region=garden-route&filter=pool" }
+      ],
+      "about": { "@type": "Thing", "name": "Backpacker Hostels on the Garden Route" },
+      "spatialCoverage": {
         "@type": "Place",
         "name": "Garden Route",
         "sameAs": "https://en.wikipedia.org/wiki/Garden_Route"
-      },
-      "about": {
-        "@type": "Thing",
-        "name": "Backpacker Hostels on the Garden Route"
       }
     },
+
     {
       "@type": "HowTo",
       "@id": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#safety-guide",
@@ -219,175 +268,133 @@
         {
           "@type": "HowToStep",
           "name": "Protect your car",
-          "text": "Car break-ins are the most common crime affecting tourists on the Garden Route. Never leave anything visible in a parked car — not a jacket, a charger cable, or an empty bag. This applies especially at trail parking areas, beaches, and viewpoints. Tip informal car guards R10–R15 when you return; it is small money and provides real income."
+          "text": "Car break-ins are the most common crime affecting tourists on the Garden Route. Never leave anything visible in a parked car — not a jacket, a charger cable, or an empty bag. This applies especially at trail parking areas, beaches, and viewpoints. Tip informal car guards R10–R15 when you return."
         },
         {
           "@type": "HowToStep",
           "name": "Keep your phone out of sight",
-          "text": "Phone snatching occurs in the towns, particularly around the Knysna Waterfront, Plettenberg Bay beach access paths, and George's main commercial streets. Keep your phone in your pocket, not in your hand. Don't walk while staring at your screen. If you need to check a map, step into a café."
+          "text": "Phone snatching occurs in the towns, particularly around the Knysna Waterfront, Plettenberg Bay beach access paths, and George's main commercial streets. Keep your phone in your pocket, not in your hand."
         },
         {
           "@type": "HowToStep",
           "name": "Avoid George town centre after dark",
-          "text": "George's CBD — particularly the streets around the main taxi rank on Courtenay Street — becomes less safe after approximately 8:00 PM. The tourist areas (Outeniqua Farmers' Market area, Meade Street coffee shops) are fine. The distinction is between the commercial core and the transport hub areas."
+          "text": "George's CBD — particularly the streets around the main taxi rank on Courtenay Street — becomes less safe after approximately 8:00 PM. The tourist areas are fine. The distinction is between the commercial core and the transport hub areas."
         },
         {
           "@type": "HowToStep",
           "name": "Swim safely on surf beaches",
-          "text": "The Garden Route's surf beaches — particularly Victoria Bay, Buffalo Bay, and main Plettenberg Bay beach — have powerful shore breaks and rip currents. Swim between the flags on patrolled beaches. Robberg Beach and the beaches at Nature's Valley are exposed and unpatrolled — treat them with respect. Wilderness Lagoon, Sedgefield Lagoon, and the Knysna Lagoon are calm and safe."
+          "text": "The Garden Route's surf beaches — particularly Victoria Bay, Buffalo Bay, and main Plettenberg Bay beach — have powerful shore breaks and rip currents. Swim between the flags on patrolled beaches. Wilderness Lagoon, Sedgefield Lagoon, and the Knysna Lagoon are calm and safe."
         },
         {
           "@type": "HowToStep",
           "name": "Time the Bloukrans River crossing correctly on the Otter Trail",
-          "text": "On Day 4 of the Otter Trail, the Bloukrans River crossing must be timed to coincide with low tide. At high tide, the crossing is impossible and potentially fatal. Obtain a tide table before starting the trail and plan Day 4 around it. Emergency escape route E6 is available but means missing the finest section of the trail."
+          "text": "On Day 4 of the Otter Trail, the Bloukrans River crossing must be timed to coincide with low tide. At high tide, the crossing is impossible and potentially fatal. Obtain a tide table before starting the trail and plan Day 4 around it."
         },
         {
           "@type": "HowToStep",
           "name": "Be aware of wildfire risk",
-          "text": "Wildfire is a real hazard on the Garden Route, particularly in late summer after dry periods combined with strong berg winds. If hiking in fynbos or forest in hot, dry, windy conditions, pay attention to any smoke. The GRNP emergency number — available at Storms River Mouth gate and hostel noticeboards — should be saved in your phone. Know where the emergency escape routes are before you start any multi-day hike."
+          "text": "Wildfire is a real hazard on the Garden Route, particularly in late summer after dry periods combined with strong berg winds. If hiking in fynbos or forest in hot, dry, windy conditions, pay attention to any smoke. Know where the emergency escape routes are before you start any multi-day hike."
         }
       ]
     },
+
     {
       "@type": "ItemList",
       "@id": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#activities",
       "name": "Things To Do on the Garden Route — Backpacker Activities",
       "description": "Comprehensive guide to backpacker activities on the Garden Route, from the world's highest commercial bungee jump at Bloukrans to the Otter Trail, whale watching, kloofing, paragliding, forest hiking, and kayaking.",
-      "numberOfItems": 12,
       "itemListElement": [
         {
-          "@type": "ListItem",
-          "position": 1,
+          "@type": "ListItem", "position": 1,
           "item": {
             "@type": "TouristAttraction",
             "name": "Bloukrans Bridge Bungee Jump",
-            "description": "The highest commercial bungee jump in the world at 216 metres above the Bloukrans River gorge, on the N2 between Plettenberg Bay and Storms River. Operated by Face Adrenalin. Cost approximately €85–€100. Bridge walk without jump approximately €20.",
-            "geo": { "@type": "GeoCoordinates", "latitude": -33.9744, "longitude": 23.6561 },
-            "hasMap": "https://maps.google.com/?q=-33.9744,23.6561",
-            "sameAs": "https://en.wikipedia.org/wiki/Bloukrans_Bridge_bungee_jumping"
+            "description": "The highest commercial bungee jump in the world at 216 metres. Operated by Face Adrenalin on the N2 between Plettenberg Bay and Storms River. Approximately €85–€100.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.9725, "longitude": 23.8831 },
+            "isAccessibleForFree": false
           }
         },
         {
-          "@type": "ListItem",
-          "position": 2,
+          "@type": "ListItem", "position": 2,
           "item": {
             "@type": "TouristAttraction",
-            "name": "The Otter Trail",
-            "description": "South Africa's oldest and most celebrated multi-day hiking trail — 42km along the Tsitsikamma coastline from Storms River Mouth to Nature's Valley over 5 days. Permits required and sold out a year in advance for peak months. Book via SANParks.",
-            "geo": { "@type": "GeoCoordinates", "latitude": -33.9906, "longitude": 23.9173 },
-            "hasMap": "https://maps.google.com/?q=-33.9906,23.9173",
-            "sameAs": "https://en.wikipedia.org/wiki/Otter_Trail"
+            "name": "Otter Trail",
+            "description": "South Africa's oldest and most famous multi-day hike. 42km along the Tsitsikamma coastline over 5 days. Permit essential — book up to a year in advance at sanparks.org.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.9865, "longitude": 23.9208 },
+            "isAccessibleForFree": false
           }
         },
         {
-          "@type": "ListItem",
-          "position": 3,
+          "@type": "ListItem", "position": 3,
           "item": {
             "@type": "TouristAttraction",
             "name": "Robberg Nature Reserve",
-            "description": "A 9km peninsula circuit trail 10 minutes from Plettenberg Bay — one of the finest day hikes in South Africa. Cape fur seal colonies, dolphin and whale sightings in season, and dramatic cliffside views over the Indian Ocean. Entry approximately €3.",
-            "geo": { "@type": "GeoCoordinates", "latitude": -34.0811, "longitude": 23.3819 }
+            "description": "A 4km peninsula walk with seal colonies, whales (June–November), and dramatic clifftop views. One of the Garden Route's finest free or low-cost experiences. Approximately €3 entry.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -34.0826, "longitude": 23.3856 },
+            "isAccessibleForFree": false
           }
         },
         {
-          "@type": "ListItem",
-          "position": 4,
-          "item": {
-            "@type": "TouristAttraction",
-            "name": "Tsitsikamma National Park",
-            "description": "The Storms River Mouth section of the Garden Route National Park. Suspension bridge over the Storms River gorge mouth, tidal caves, marine snorkelling, kayaking up the river, and the start of the Otter Trail. One of the most dramatic natural settings in South Africa.",
-            "geo": { "@type": "GeoCoordinates", "latitude": -33.9907, "longitude": 23.9170 }
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 5,
-          "item": {
-            "@type": "TouristAttraction",
-            "name": "Diepwalle Forest and the Big Tree",
-            "description": "The ancient Outeniqua yellowwood forest near Knysna, home to the 800-year-old Big Tree (46m tall, 9m circumference). Three marked trails from the forestry station. Entry approximately €5. One of the finest forest walks in Africa.",
-            "geo": { "@type": "GeoCoordinates", "latitude": -33.9149, "longitude": 23.1602 }
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 6,
-          "item": {
-            "@type": "TouristAttraction",
-            "name": "Wilderness Kayaking and Lagoon System",
-            "description": "The Wilderness lake district — five interconnected lakes and lagoons (Touw River, Island Lake, Langvlei, Rondevlei, Swartvlei) navigable by kayak or canoe. Hire from Fairy Knowe or Eden Adventures. A world-class paddling destination completely overlooked by most Garden Route guides.",
-            "geo": { "@type": "GeoCoordinates", "latitude": -33.9960, "longitude": 22.5850 }
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 7,
-          "item": {
-            "@type": "TouristAttraction",
-            "name": "Knysna Heads Viewpoint",
-            "description": "The dramatic sandstone cliffs guarding the entrance to the Knysna Lagoon. The eastern head cliff path is free to walk and gives some of the most spectacular coastal views on the Garden Route. The western head is accessible by boat only (Featherbed Nature Reserve tour).",
-            "geo": { "@type": "GeoCoordinates", "latitude": -34.0764, "longitude": 23.0754 }
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 8,
-          "item": {
-            "@type": "TouristAttraction",
-            "name": "Paragliding from the Outeniqua Mountains at Sedgefield",
-            "description": "Sedgefield is one of South Africa's premier paragliding sites. The Outeniqua escarpment provides consistent orographic lift for tandem and solo gliding above the N2 corridor with views down to the ocean. Paragliding SA operates from the Sedgefield launch site.",
-            "geo": { "@type": "GeoCoordinates", "latitude": -34.0200, "longitude": 22.7900 }
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 9,
-          "item": {
-            "@type": "TouristAttraction",
-            "name": "Wild Oats Community Farmers' Market",
-            "description": "South Africa's most celebrated weekly farmers' market, running every Saturday morning in Sedgefield from approximately 08:00. Local producers, artisan food, live music, and a genuine community atmosphere. Completely free to enter.",
-            "geo": { "@type": "GeoCoordinates", "latitude": -34.0188, "longitude": 22.7943 }
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 10,
+          "@type": "ListItem", "position": 4,
           "item": {
             "@type": "TouristAttraction",
             "name": "Blackwater Tubing — Storms River",
-            "description": "Tubing through the narrow Storms River gorge in a wetsuit and helmet — one of the most exhilarating and unusual activities on the Garden Route. Bookable through Tube 'n Axe or Storms River Adventures. Approximately €30–€40.",
-            "geo": { "@type": "GeoCoordinates", "latitude": -33.9789, "longitude": 23.8806 }
+            "description": "Tubing down the Storms River gorge through indigenous forest and waterfalls. One of the best adventure activities in the Tsitsikamma. Bookable through Tube 'n Axe hostel.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.9728, "longitude": 23.8829 },
+            "isAccessibleForFree": false
           }
         },
         {
-          "@type": "ListItem",
-          "position": 11,
+          "@type": "ListItem", "position": 5,
           "item": {
             "@type": "TouristAttraction",
-            "name": "Knysna Oyster Festival",
-            "description": "South Africa's biggest food and sport festival, held annually in Knysna over 10 days in July. The oyster tasting is the centrepiece but the festival encompasses mountain biking, trail running, sailing, and live music. Knysna produces some of the finest oysters in the world from its lagoon.",
-            "geo": { "@type": "GeoCoordinates", "latitude": -34.0362, "longitude": 23.0465 }
+            "name": "Diepwalle Forest and the 800-Year-Old Big Tree",
+            "description": "The Diepwalle State Forest north of Knysna contains one of the last remnants of the indigenous Outeniqua yellowwood forest. The Big Tree is approximately 800 years old. Free walk with low-cost park entry.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.9271, "longitude": 23.1592 },
+            "isAccessibleForFree": false
           }
         },
         {
-          "@type": "ListItem",
-          "position": 12,
+          "@type": "ListItem", "position": 6,
           "item": {
             "@type": "TouristAttraction",
-            "name": "Monkeyland and Birds of Eden",
-            "description": "Two adjacent wildlife sanctuaries 15km from Plettenberg Bay in The Crags. Monkeyland is a free-roaming primate sanctuary (14 species); Birds of Eden is the world's largest single free-flight bird aviary under a net canopy covering 2.3ha of indigenous forest. 10% discount for bookings through Nothando Backpackers.",
-            "geo": { "@type": "GeoCoordinates", "latitude": -34.0018, "longitude": 23.4741 }
+            "name": "Storms River Mouth Suspension Bridge",
+            "description": "Suspension bridge across the Storms River gorge at the mouth, with tidal caves accessible at low tide. Included with Tsitsikamma National Park entry. One of the most photographed views in South Africa.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.9919, "longitude": 23.9167 },
+            "isAccessibleForFree": false
+          }
+        },
+        {
+          "@type": "ListItem", "position": 7,
+          "item": {
+            "@type": "TouristAttraction",
+            "name": "Shark Cage Diving — Mossel Bay",
+            "description": "White shark cage diving from Mossel Bay with White Shark Africa or Shark Explorers. A genuine alternative to Gansbaai with significantly smaller crowds. Approximately €120–€150.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -34.1831, "longitude": 22.1401 },
+            "isAccessibleForFree": false
+          }
+        },
+        {
+          "@type": "ListItem", "position": 8,
+          "item": {
+            "@type": "TouristAttraction",
+            "name": "Wild Oats Community Farmers' Market — Sedgefield",
+            "description": "One of the finest farmers' markets in South Africa. Every Saturday morning in Sedgefield. Free to enter. The definitive Sedgefield slow-town experience.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -34.0023, "longitude": 22.7958 },
+            "isAccessibleForFree": true
           }
         }
       ]
     },
+
     {
       "@type": "ItemList",
       "@id": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#hostel-list",
       "name": "Complete Directory of Garden Route Hostels",
-      "description": "Every hostel on the Garden Route reviewed independently and without affiliate bias. Covers Mossel Bay, George, Wilderness, Sedgefield, Knysna, Plettenberg Bay, The Crags, and Storms River.",
+      "description": "Every hostel on the Garden Route reviewed independently. Includes direct contact details, phone, WhatsApp, email, website, pricing, vibe, safety rating, solo-female friendliness, and digital nomad rating.",
       "numberOfItems": 21,
       "itemListElement": [
+
         {
           "@type": "ListItem",
           "position": 1,
@@ -396,32 +403,52 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#park-house-lodge",
             "name": "Park House Lodge",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#park-house-lodge",
-            "description": "Historic Victorian guesthouse and backpackers in Mossel Bay town centre. Dormitories, family rooms, and en-suite doubles. Baz Bus stop. Highest Booking.com score in Mossel Bay.",
+            "description": "Mossel Bay's best hostel. A restored Victorian building in the town centre with the highest Booking.com score in Mossel Bay. Best base for the St Blaize Trail, shark diving, and the western Garden Route.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "121 High Street",
-              "addressLocality": "Mossel Bay Central",
+              "addressLocality": "Mossel Bay",
               "addressRegion": "Western Cape",
               "postalCode": "6506",
               "addressCountry": "ZA"
             },
             "geo": { "@type": "GeoCoordinates", "latitude": -34.18403, "longitude": 22.14056 },
             "telephone": "+27446911937",
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJ9__v6ARq1h0Rh3IDjU8orAk",
+            "email": "info@parkhouse.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=garden-route",
+            "priceRange": "$",
             "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJ9__v6ARq1h0Rh3IDjU8orAk",
               "https://parkhouse.co.za",
               "https://www.facebook.com/ParkHouseLodgeSA"
             ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "9.0",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Booking.com score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "Mossel Bay's best hostel. Consistently excellent Booking.com score. Good base for the St Blaize Trail, shark diving, and the western Garden Route.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "8.0", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
               { "@type": "LocationFeatureSpecification", "name": "Baz Bus stop", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Self-catering kitchen", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Braai", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Parking", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Victorian historic building", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Victorian historic building", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 2,
@@ -430,7 +457,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#mile-crunchers-backpackers",
             "name": "Mile Crunchers Backpackers & Hostelling",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#mile-crunchers-backpackers",
-            "description": "Budget backpackers in Mossel Bay CBD with indoor camping concept — tents pitched inside a weatherproofed structure. Cheapest dorm beds in Mossel Bay.",
+            "description": "Budget option only. Fine for a transit night if Park House is full. Choose Park House if both are available.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "7 Church Street",
@@ -441,18 +468,38 @@
             },
             "geo": { "@type": "GeoCoordinates", "latitude": -34.18072, "longitude": 22.14312 },
             "telephone": "+27446904462",
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJzZ6Gx_dp1h0R67mdfmIFbDM",
+            "email": "milecrushers@gmail.com",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=garden-route",
+            "priceRange": "$",
             "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJzZ6Gx_dp1h0R67mdfmIFbDM",
               "https://milecrunchers.co.za",
               "https://www.facebook.com/MileCrunchersBackpackers"
             ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "6.7",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Booking.com score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "Budget option only. Fine for a transit night if Park House is full. Choose Park House if both are available.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "5.0", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
               { "@type": "LocationFeatureSpecification", "name": "Baz Bus stop", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Self-catering kitchen", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Indoor camping area", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Indoor camping area", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Amber" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 3,
@@ -461,7 +508,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#santos-express-train-lodge",
             "name": "Santos Express Train Lodge",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#santos-express-train-lodge",
-            "description": "Unique accommodation in converted train carriages directly on Santos Beach — the warmest sea temperature beach on the southern Cape coast. One of the most distinctive hostel settings on the Garden Route.",
+            "description": "The most unique accommodation experience in Mossel Bay. A decommissioned train permanently moored on Santos Beach — accommodation in converted train carriages and Royal Suites, directly on one of the warmest-water beaches on the southern Cape coast.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Santos Beach",
@@ -471,14 +518,43 @@
               "addressCountry": "ZA"
             },
             "geo": { "@type": "GeoCoordinates", "latitude": -34.17816, "longitude": 22.1371 },
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJZaqqquZp1h0ROQwYnGE_4Yc",
-            "sameAs": ["https://www.santosexpress.co.za"],
+            "telephone": "+27446911995",
+            "contactPoint": [
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27446911995" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27839430041", "description": "WhatsApp" }
+            ],
+            "email": "reservations@santosexpress.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=garden-route",
+            "priceRange": "$-$$",
+            "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJZaqqquZp1h0ROQwYnGE_4Yc",
+              "https://santosexpress.co.za",
+              "https://www.facebook.com/santosexpress.trainlodge"
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "9.1",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The most unique accommodation experience in Mossel Bay. Recommended for its novelty, beachfront location, and honest value. Book a Royal Suite if you can stretch the budget.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "8.0", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
               { "@type": "LocationFeatureSpecification", "name": "Beachfront location on Santos Beach", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Converted train carriage accommodation", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Converted train carriage accommodation", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Royal Suite private carriages", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 4,
@@ -487,22 +563,52 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#shark-shack-backpackers",
             "name": "Shark Shack Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#shark-shack-backpackers",
-            "description": "Social backpackers in Mossel Bay with a focus on ocean activities, particularly shark cage diving bookings. Well-positioned for activity-oriented travellers targeting Mossel Bay's marine wildlife.",
+            "description": "Primarily useful as a shark cage diving booking base. For general accommodation in Mossel Bay, choose Park House or Santos Express instead.",
             "address": {
               "@type": "PostalAddress",
+              "streetAddress": "16 Marsh Street",
               "addressLocality": "Mossel Bay",
               "addressRegion": "Western Cape",
               "addressCountry": "ZA"
             },
             "geo": { "@type": "GeoCoordinates", "latitude": -34.18281, "longitude": 22.15216 },
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJq7owKwVq1h0RYQr-z4He-9Y",
-            "sameAs": ["https://www.sharkshack.co.za"],
+            "telephone": "+27446903109",
+            "contactPoint": [
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27446903109" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27824933251", "description": "WhatsApp" }
+            ],
+            "email": "sharkshack@gmail.com",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=garden-route",
+            "priceRange": "$",
+            "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJq7owKwVq1h0RYQr-z4He-9Y",
+              "https://sharkshack.co.za",
+              "https://www.facebook.com/SharkShackMBay"
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "5.1",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "Primarily useful as a shark diving booking base. For general accommodation in Mossel Bay, choose Park House or Santos Express instead.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "5.0", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
               { "@type": "LocationFeatureSpecification", "name": "Shark cage diving activity booking", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Baz Bus stop", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Female-only dorm available", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Baz Bus stop", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "1/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Amber" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 5,
@@ -511,27 +617,44 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#george-backpackers",
             "name": "George Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#george-backpackers",
-            "description": "The practical Garden Route airport stopover hostel in Dormehls Drift, a residential suburb of George. Best for hire car collections at George Airport (10 min drive), Baz Bus connections, and anyone targeting Victoria Bay surf.",
+            "description": "The practical Garden Route airport stopover. Best for hire car collections, Baz Bus connections, and anyone who knows about Victoria Bay surf and wants to stay for it.",
             "address": {
               "@type": "PostalAddress",
+              "streetAddress": "29 Cradock Street",
               "addressLocality": "George",
               "addressRegion": "Western Cape",
               "postalCode": "6530",
               "addressCountry": "ZA"
             },
             "geo": { "@type": "GeoCoordinates", "latitude": -33.9596, "longitude": 22.4536 },
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJC7Qw3DcF1h0R5l5xS2Yq9Dg",
-            "sameAs": ["https://www.georgebackpackers.co.za"],
+            "telephone": "+27448730061",
+            "email": "info@georgebackpackers.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=garden-route",
+            "priceRange": "$",
+            "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJC7Qw3DcF1h0R5l5xS2Yq9Dg",
+              "https://georgebackpackers.co.za",
+              "https://www.facebook.com/georgebackpackers"
+            ],
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The practical Garden Route airport stopover. Best for hire car collections, Baz Bus connections, and anyone who knows about Victoria Bay surf and wants to stay for it.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "6.5", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
               { "@type": "LocationFeatureSpecification", "name": "George Airport access (10 min drive)", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Self-catering kitchen", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Braai", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Parking", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Baz Bus stop coordination", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 6,
@@ -540,7 +663,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#wilderness-beach-house",
             "name": "Wilderness Beach House Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#wilderness-beach-house",
-            "description": "The social hostel in Wilderness, directly on the beachfront on Western Road. Ocean views, direct beach access, female dorm, and a bar. One of the highest-rated Garden Route hostels for location. Note employment ethics concerns regarding work-exchange staffing practices.",
+            "description": "Excellent location and strong ratings. One of the finest hostel settings in Wilderness — direct beachfront access, female-only dorm, and among the highest-rated hostels in the area.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "1 Western Road",
@@ -550,21 +673,31 @@
               "addressCountry": "ZA"
             },
             "geo": { "@type": "GeoCoordinates", "latitude": -33.99528, "longitude": 22.56594 },
-            "telephone": "+27714951814",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27714951814",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27714951814" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27714951814", "description": "WhatsApp" }
             ],
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJ8yx4tVMc1h0R4mLiV3s3wGo",
+            "email": "info@wildernessbeachhouse.com",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=garden-route",
+            "priceRange": "$",
             "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJ8yx4tVMc1h0R4mLiV3s3wGo",
               "https://wildernessbeachhouse.com",
-              "https://www.facebook.com/WildernessBeachHouse/",
-              "https://www.instagram.com/wildernessbeachhouse/"
+              "https://www.facebook.com/BeachHouseBackpackers"
             ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "8.6",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "Excellent location and strong ratings. One of the finest hostel settings in Wilderness.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "8.5", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
               { "@type": "LocationFeatureSpecification", "name": "Direct beachfront access", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Ocean views", "value": true },
@@ -572,10 +705,14 @@
               { "@type": "LocationFeatureSpecification", "name": "Bar and social areas", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Self-catering kitchen", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Baz Bus stop", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 7,
@@ -584,7 +721,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#fairy-knowe-backpackers",
             "name": "Fairy Knowe Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#fairy-knowe-backpackers",
-            "description": "Adventure and nature backpackers on the Touw River bank in Wilderness. A 19th-century farmhouse at the heart of the property, adjacent to Wilderness National Park. Nightly bonfires, river kayak access, and hiking trails from the gate. A classic Baz Bus stop for three decades. Note employment ethics concerns regarding work-exchange staffing.",
+            "description": "One of the Garden Route's finest natural settings. A 19th-century farmhouse on the Touw River with direct National Park trail access, nightly bonfires, and kayak hire from the garden gate. Genuinely beautiful.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "1 Dumbleton Road",
@@ -596,42 +733,44 @@
             "geo": { "@type": "GeoCoordinates", "latitude": -33.99263, "longitude": 22.59997 },
             "telephone": "+27813550137",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27813550137"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27448771285"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27834438384",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27813550137" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27834438384", "description": "WhatsApp" }
             ],
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJ_eJPP1Mc1h0RHIEgHGlRpnU",
+            "email": "info@wildernessbackpackers.com",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=garden-route",
+            "priceRange": "$",
             "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJ_eJPP1Mc1h0RHIEgHGlRpnU",
               "https://wildernessbackpackers.com",
-              "https://www.facebook.com/FairyKnoweBackpackers/",
-              "https://www.instagram.com/fairyknowebackpackers/"
+              "https://www.facebook.com/fairyknowe"
             ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "6.9",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "One of the Garden Route's finest natural settings. Genuinely beautiful. Read the employment ethics note on the page and make an informed decision before booking.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "7.5", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
               { "@type": "LocationFeatureSpecification", "name": "Touw River kayak access", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Nightly bonfires", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Wilderness National Park trails from garden gate", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "19th-century farmhouse setting", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Self-catering kitchen", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Camping available", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Baz Bus stop", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Braai", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Camping available", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 8,
@@ -640,17 +779,51 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#the-wild-farm-backpackers",
             "name": "The Wild Farm Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#the-wild-farm-backpackers",
-            "description": "Farm-based backpackers in the Wilderness area offering a rural, nature-focused alternative to the beachfront hostels.",
+            "description": "The best alternative to Fairy Knowe and Beach House in Wilderness. Excellent for independent travellers with a car who want farm quiet and mountain views. Clean employment ethics.",
             "address": {
               "@type": "PostalAddress",
+              "streetAddress": "Farm 460, Hoekwil Road",
               "addressLocality": "Wilderness",
               "addressRegion": "Western Cape",
               "addressCountry": "ZA"
             },
-            "geo": { "@type": "GeoCoordinates", "latitude": -33.98661, "longitude": 22.59517 },
-            "hasMap": "https://maps.google.com/?q=-33.98661,22.59517"
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.97634, "longitude": 22.60124 },
+            "contactPoint": [
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27674166773" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27674166773", "description": "WhatsApp" }
+            ],
+            "email": "info@wildfarm.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=garden-route",
+            "priceRange": "$",
+            "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJr_vYtyW-eB4R73-KEA9ylc0",
+              "https://wildfarmbackpackers.com",
+              "https://www.facebook.com/wildfarm.wilderness.backpackers"
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "6.4",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The best alternative to Fairy Knowe and Beach House in Wilderness. Excellent for independent travellers with a car who want farm quiet and mountain views. Clean employment ethics.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "7.5", "bestRating": "10", "worstRating": "1" }
+            },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Farm and mountain setting", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Log cabins", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Mountain views", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
+            ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 9,
@@ -659,17 +832,42 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#sedgefield-backpacker",
             "name": "Sedgefield Backpacker",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#sedgefield-backpacker",
-            "description": "Backpackers in Sedgefield village, on the N2 between Wilderness and Knysna. Walking distance to the Wild Oats Farmers' Market (Saturday mornings) and access to Swartvlei Lagoon. Sedgefield is also the paragliding launch hub for the Outeniqua Mountains.",
+            "description": "The Garden Route's quiet gem. Best for independent travellers with a car who want the coast without the crowd. The Saturday Wild Oats Farmers' Market alone is worth planning around.",
             "address": {
               "@type": "PostalAddress",
+              "streetAddress": "34 Kingfisher Drive",
               "addressLocality": "Sedgefield",
               "addressRegion": "Western Cape",
               "addressCountry": "ZA"
             },
-            "geo": { "@type": "GeoCoordinates", "latitude": -34.01362, "longitude": 22.80181 },
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJ2SEY-s6jeB4RQik5LeyR1ew"
+            "geo": { "@type": "GeoCoordinates", "latitude": -34.01786, "longitude": 22.79855 },
+            "contactPoint": [
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27720868174" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27720868174", "description": "WhatsApp" }
+            ],
+            "email": "sedgefieldbackpacker@gmail.com",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=garden-route",
+            "priceRange": "$",
+            "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJZT7Mjo7qeB4RhcLXF9mgEkE",
+              "https://sedgefieldbackpacker.co.za"
+            ],
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The Garden Route's quiet gem. Best for independent travellers with a car who want the coast without the crowd. The Saturday markets alone are worth planning around.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "7.5", "bestRating": "10", "worstRating": "1" }
+            },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Heritage cottage setting", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Themed tents", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
+            ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 10,
@@ -678,17 +876,51 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#pilipili-beach-cabanas",
             "name": "Pilipili Beach Cabanas",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#pilipili-beach-cabanas",
-            "description": "Beach cabana accommodation in Sedgefield, offering direct lagoon access in one of the quietest towns on the Garden Route.",
+            "description": "The beachfront Sedgefield choice. Good value in cabanas; expensive in dorms. Best for couples and activity-focused travellers.",
             "address": {
               "@type": "PostalAddress",
+              "streetAddress": "Myoli Beach",
               "addressLocality": "Sedgefield",
               "addressRegion": "Western Cape",
               "addressCountry": "ZA"
             },
-            "geo": { "@type": "GeoCoordinates", "latitude": -34.03354, "longitude": 22.80204 },
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJsSZJG9GieB4RdLngtRVDQUw"
+            "geo": { "@type": "GeoCoordinates", "latitude": -34.02251, "longitude": 22.80059 },
+            "telephone": "+27443433087",
+            "contactPoint": [
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27443433087" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27722872475", "description": "WhatsApp" }
+            ],
+            "email": "reservations@pilipili.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=garden-route",
+            "priceRange": "$-$$",
+            "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJJUwbWmLqeB4R9wtbHd4ArOs",
+              "https://pilipili.co.za",
+              "https://www.facebook.com/pilipilibeachcabanas"
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "8.0",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Booking.com score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The beachfront Sedgefield choice. Good value in cabanas; expensive in dorms. Best for couples and activity-focused travellers.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "7.0", "bestRating": "10", "worstRating": "1" }
+            },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Beachfront location on Myoli Beach", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Private beach cabanas", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
+            ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 11,
@@ -697,17 +929,52 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#the-riverdeck-lodge",
             "name": "The Riverdeck Lodge and Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#the-riverdeck-lodge",
-            "description": "Lodge and backpackers in Knysna with lagoon deck access, one of the more atmospheric hostel settings in the town.",
+            "description": "Best for the riverside cabin experience and the restaurant. For social backpacker Knysna, choose Island Vibe or Knysna Backpackers in town instead.",
             "address": {
               "@type": "PostalAddress",
+              "streetAddress": "N2 National Road",
               "addressLocality": "Knysna",
               "addressRegion": "Western Cape",
               "addressCountry": "ZA"
             },
             "geo": { "@type": "GeoCoordinates", "latitude": -34.03513, "longitude": 22.93926 },
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJr_vYtyW-eB4R73-KEA9ylc0"
+            "telephone": "+27781345873",
+            "contactPoint": [
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27781345873" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27781345873", "description": "WhatsApp" }
+            ],
+            "email": "info@riverdeck.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=garden-route",
+            "priceRange": "$-$$",
+            "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJr_vYtyW-eB4R73-KEA9ylc0",
+              "https://riverdeckrestaurant.co.za",
+              "https://www.facebook.com/riverdeckrestaurantknysna"
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "7.4",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Booking.com score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "Best for the riverside cabin experience and the restaurant. For social backpacker Knysna, choose Island Vibe or Knysna Backpackers in town instead.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "7.0", "bestRating": "10", "worstRating": "1" }
+            },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Riverside cabins", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Restaurant on-site", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Knysna estuary views", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
+            ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 12,
@@ -716,18 +983,52 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#island-vibe-knysna",
             "name": "Island Vibe Backpackers Knysna",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#island-vibe-knysna",
-            "description": "Social backpackers in Knysna, part of the Island Vibe group. Strong community atmosphere with Baz Bus connections.",
+            "description": "The reliable central Knysna social hostel. Good for solo travellers on the Baz Bus circuit. Clean employment ethics.",
             "address": {
               "@type": "PostalAddress",
+              "streetAddress": "6 Main Road",
               "addressLocality": "Knysna",
               "addressRegion": "Western Cape",
               "addressCountry": "ZA"
             },
             "geo": { "@type": "GeoCoordinates", "latitude": -34.03608, "longitude": 23.04186 },
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJZT7Mjo7qeB4RhcLXF9mgEkE",
-            "sameAs": ["https://www.islandvibe.co.za"]
+            "telephone": "+27443821728",
+            "contactPoint": [
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27443821728" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27766125057", "description": "WhatsApp" }
+            ],
+            "email": "knysna@islandvibe.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=garden-route",
+            "priceRange": "$",
+            "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJZT7Mjo7qeB4RhcLXF9mgEkE",
+              "https://islandvibe.co.za",
+              "https://www.facebook.com/islandvibeknysna"
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "8.4",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The reliable central Knysna social hostel. Good for solo travellers on the Baz Bus circuit. Clean employment ethics.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "7.5", "bestRating": "10", "worstRating": "1" }
+            },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Central Main Road location", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Baz Bus stop", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Social bar area", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
+            ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 13,
@@ -736,17 +1037,43 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#knysna-backpackers",
             "name": "Knysna Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#knysna-backpackers",
-            "description": "Established backpackers in Knysna town centre with good access to the waterfront, forest trails, and Baz Bus connections.",
+            "description": "A good choice for travellers seeking peace and quiet. Outscores Island Vibe on Google and Booking.com. Quieter Queen Street location, warm staff, strong value.",
             "address": {
               "@type": "PostalAddress",
+              "streetAddress": "Queen Street",
               "addressLocality": "Knysna",
               "addressRegion": "Western Cape",
               "addressCountry": "ZA"
             },
             "geo": { "@type": "GeoCoordinates", "latitude": -34.03327, "longitude": 23.05116 },
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJJUwbWmLqeB4R9wtbHd4ArOs"
+            "contactPoint": [
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27825837510" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27825837510", "description": "WhatsApp" }
+            ],
+            "email": "info@knysnabackpackers.com",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=garden-route",
+            "priceRange": "$",
+            "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJJUwbWmLqeB4R9wtbHd4ArOs",
+              "https://knysnabackpackers.com",
+              "https://www.facebook.com/KnysnaBackpackers"
+            ],
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "A good choice for travellers seeking peace and quiet. Warm staff atmosphere consistently noted. Family en-suite rooms are excellent for small groups.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "7.5", "bestRating": "10", "worstRating": "1" }
+            },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Family en-suite rooms", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Quiet Queen Street location", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
+            ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 14,
@@ -755,11 +1082,11 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#keedols-backpackers",
             "name": "Keedols Inn & Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#keedols-backpackers",
-            "description": "Personal boutique lodge and backpackers on Queen Street, Knysna. Mixed dorms, en-suite double/twin rooms, and a unique 18-sleeper group unit. Best large-group deal in central Knysna.",
+            "description": "Best for groups. The 18-sleeper unit is exceptional value. Good boutique option for independent solo travellers who prefer personal over brand. Clean employment ethics.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "4 Queen Street",
-              "addressLocality": "Knysna Central",
+              "addressLocality": "Knysna",
               "addressRegion": "Western Cape",
               "postalCode": "6571",
               "addressCountry": "ZA"
@@ -767,30 +1094,40 @@
             "geo": { "@type": "GeoCoordinates", "latitude": -34.03949, "longitude": 23.05022 },
             "telephone": "+27829239223",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27829239223",
-                "description": "WhatsApp contact"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27443822658"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27829239223" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27829239223", "description": "WhatsApp" }
             ],
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJW_JVxgHreB4RPraNGmqmz-8",
-            "sameAs": ["https://keedols.co.za"],
+            "email": "keedols@live.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=garden-route",
+            "priceRange": "$-$$",
+            "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJW_JVxgHreB4RPraNGmqmz-8",
+              "https://keedols.co.za"
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "8.1",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Booking.com score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "Best for groups. The 18-sleeper unit is exceptional value. Good boutique option for independent solo travellers who prefer personal over brand. Clean employment ethics.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "7.5", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
               { "@type": "LocationFeatureSpecification", "name": "18-sleeper group unit", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "En-suite double/twin rooms", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Self-catering kitchen", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Braai", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Parking", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 15,
@@ -799,7 +1136,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#amakaya-backpackers",
             "name": "Amakaya Backpackers & Apartments",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#amakaya-backpackers",
-            "description": "Backpackers and self-catering apartments in Plettenberg Bay, well-positioned for Robberg Nature Reserve and whale watching. Offers both dorm and private apartment options for flexible budgets.",
+            "description": "Best for longer stays and self-catering travellers. Good value apartments in central Plettenberg Bay. Clean employment ethics. For short stays, Nothando is the better Plett choice.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "15 Park Lane",
@@ -809,9 +1146,42 @@
               "addressCountry": "ZA"
             },
             "geo": { "@type": "GeoCoordinates", "latitude": -34.05522, "longitude": 23.36861 },
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJTfCxVRDieB4R5mM5Yus0u5I"
+            "telephone": "+27445334010",
+            "contactPoint": [
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27445334010" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27796915756", "description": "WhatsApp" }
+            ],
+            "email": "bookings@amakaya.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=garden-route",
+            "priceRange": "$-$$",
+            "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJTfCxVRDieB4R5mM5Yus0u5I",
+              "https://amakaya.co.za",
+              "https://www.facebook.com/AmakayaBackpackers"
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "8.9",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "Best for longer stays and self-catering travellers. Good value apartments. Clean employment ethics. For short stays, Nothando is the better Plett choice.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "7.5", "bestRating": "10", "worstRating": "1" }
+            },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Self-catering apartments", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Long-stay rates available", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
+            ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 16,
@@ -820,7 +1190,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#plett-beachfront",
             "name": "Plett Beachfront Accommodation",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#plett-beachfront",
-            "description": "Beachfront adventure hostel on Hopwood Street, Plettenberg Bay. Mixed and female dorms and private en-suite rooms. 10-minute walk from Lookout and Central Beach.",
+            "description": "Strong Plett choice, especially for solo women. Good ratings, beachside location, female dorm available. Nothando remains the overall Plett recommendation.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "22 Hopwood Street",
@@ -832,27 +1202,41 @@
             "geo": { "@type": "GeoCoordinates", "latitude": -34.05975, "longitude": 23.37668 },
             "telephone": "+27445334688",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27824585344",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27445334688" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27824585344", "description": "WhatsApp" }
             ],
-            "hasMap": "https://maps.google.com/?q=-34.05975,23.37668",
+            "email": "info@plettbeachfront.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=garden-route",
+            "priceRange": "$",
             "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJIzFH3RHieB4RrgniCQ7yQq0",
               "https://plettbeachfrontaccommodation.co.za",
               "https://www.facebook.com/plettbeachfrontaccommodation"
             ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "8.1",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Booking.com score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "Strong Plett choice, especially for solo women. Good ratings, beachside location, female dorm available. Nothando remains the overall Plett recommendation.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "7.5", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
               { "@type": "LocationFeatureSpecification", "name": "Female-only dorm", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "En-suite private rooms", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Braai", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Self-catering kitchen", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Beachfront location", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 17,
@@ -861,7 +1245,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#plett-backpackers",
             "name": "Plett Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#plett-backpackers",
-            "description": "Central penthouse hostel on Plett's Main Street. En-suite dorms and private penthouse suites with elevated views over Plettenberg Bay.",
+            "description": "The central Main Street option with a penthouse twist. Good for Baz Bus travellers wanting to be in the middle of Plett's action.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "21 Main Street",
@@ -871,16 +1255,33 @@
               "addressCountry": "ZA"
             },
             "geo": { "@type": "GeoCoordinates", "latitude": -34.05419, "longitude": 23.37264 },
-            "hasMap": "https://maps.google.com/?q=-34.05419,23.37264",
-            "sameAs": ["https://pletbackpackers.co.za"],
+            "contactPoint": [
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27823399531" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27823399531", "description": "WhatsApp" }
+            ],
+            "email": "info@pletbackpackers.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=garden-route",
+            "priceRange": "$",
+            "sameAs": [
+              "https://maps.google.com/maps/?q=-34.05419,23.37264",
+              "https://pletbackpackers.co.za"
+            ],
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The central Main Street option with a penthouse twist. Good for Baz Bus travellers wanting to be in the middle of Plett's action.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "6.5", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
               { "@type": "LocationFeatureSpecification", "name": "Penthouse suites with elevated views", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "En-suite dorms", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Braai", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Self-catering kitchen", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Central Main Street location", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 18,
@@ -889,7 +1290,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#nothando-backpackers",
             "name": "Nothando Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#nothando-backpackers",
-            "description": "Award-winning upscale flashpacker lodge in Plettenberg Bay. TGCSA 5-star graded. Dorms and private en-suite rooms. 5 minutes' walk from Plettenberg Bay Central Beach. Under new ownership (Vinthi Neufeld) since 2023. #1 rated hostel in Plettenberg Bay on Hostelworld.",
+            "description": "The best hostel in Plettenberg Bay. Number one on Hostelworld. The top solo female recommendation on the Garden Route. TGCSA 5-star graded. Outstanding employment ethics. The Robberg hike starts 10 minutes away.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "5 Wilder Street",
@@ -901,39 +1302,47 @@
             "geo": { "@type": "GeoCoordinates", "latitude": -34.05504, "longitude": 23.36977 },
             "telephone": "+27445330220",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27445330220"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27828259811",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27445330220" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27828259811", "description": "WhatsApp" }
             ],
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJIzFH3RHieB4RrgniCQ7yQq0",
+            "email": "info@nothando.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=garden-route",
+            "priceRange": "$-$$",
             "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJIzFH3RHieB4RrgniCQ7yQq0",
               "https://nothando.co.za",
-              "https://www.facebook.com/NothandoBackpackersPlett",
-              "https://www.hostelworld.com/hostels/p/319728/nothando/",
-              "https://www.booking.com/hotel/za/nothando-backpackers-lodge.html"
+              "https://www.facebook.com/NothandoBackpackersPlett"
             ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "9.7",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The best hostel in Plettenberg Bay. Number one on Hostelworld. The top solo female recommendation on the Garden Route. TGCSA 5-star graded. The Robberg hike starts 10 minutes away. Book it.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "9.5", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
               { "@type": "LocationFeatureSpecification", "name": "TGCSA 5-star graded", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Swimming pool", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "On-site bar with pool table", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Daily housekeeping", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Self-catering kitchen", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Tour desk with activity discounts", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Airport transfers", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Gated secure parking", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Tour desk with activity discounts", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Baz Bus stop nearby", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Baz Bus stop nearby", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "5/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 19,
@@ -942,46 +1351,110 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#wild-spirit-backpackers",
             "name": "Wild Spirit Backpackers Lodge",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#wild-spirit-backpackers",
-            "description": "Forest backpackers lodge in The Crags, between Plettenberg Bay and Storms River, with access to Monkeyland, Birds of Eden, and Nature's Valley. A quieter, forest-immersed alternative to the coastal towns.",
+            "description": "A beautiful property in an extraordinary forest location near The Crags. The decision to stay here is an informed one to make — read the employment ethics note on the page before booking.",
             "address": {
               "@type": "PostalAddress",
+              "streetAddress": "Khoinania Farm, R102 Nature's Valley Road",
               "addressLocality": "The Crags",
               "addressRegion": "Western Cape",
+              "postalCode": "6602",
               "addressCountry": "ZA"
             },
-            "geo": { "@type": "GeoCoordinates", "latitude": -34.05504, "longitude": 23.36977 },
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJEWtteI0YeR4RAkjdY62J_1A"
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.97744, "longitude": 23.56692 },
+            "contactPoint": [
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27828288008" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27828288008", "description": "WhatsApp" }
+            ],
+            "email": "book.wildspirit@gmail.com",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=garden-route",
+            "priceRange": "$",
+            "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJEWtteI0YeR4RAkjdY62J_1A",
+              "https://wildspiritlodge.co.za",
+              "https://www.facebook.com/WildSpiritBackpackersLodge"
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "8.8",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "A beautiful property in an extraordinary location, with documented employment practices that raise legitimate concerns under South African labour law. The decision to stay here is an informed one to make, not an unconscious one.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "6.0", "bestRating": "10", "worstRating": "1" }
+            },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Forest farm setting", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Camping available", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
+            ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 20,
           "item": {
             "@type": "Hostel",
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#tube-n-axe",
-            "name": "Tube 'n Axe Backpackers",
+            "name": "Tube 'n Axe Budget Accommodation",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#tube-n-axe",
-            "description": "The social heart of the eastern Garden Route backpacker scene for three decades. Located in Storms River Village with activity booking for Bloukrans Bungee (12km), blackwater tubing, canopy tours, and Tsitsikamma National Park. Hot tub, bar with fire pit, and an energetic atmosphere. The natural base for all Tsitsikamma adventures.",
+            "description": "The definitive Storms River adventure hostel. Essential for Bloukrans bungee, Blackwater Tubing, and Tsitsikamma activity access. Hot tubs, fire pit, full restaurant. Clean employment ethics.",
             "address": {
               "@type": "PostalAddress",
+              "streetAddress": "85 Darnell Street",
               "addressLocality": "Storms River Village",
               "addressRegion": "Eastern Cape",
               "postalCode": "6308",
               "addressCountry": "ZA"
             },
             "geo": { "@type": "GeoCoordinates", "latitude": -33.9728, "longitude": 23.88294 },
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJdaxsUPNueR4RSPyXjG7QK6w",
-            "sameAs": ["https://www.tubenaxe.co.za"],
+            "telephone": "+27422811757",
+            "contactPoint": [
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27422811757" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27761530151", "description": "WhatsApp" }
+            ],
+            "email": "info@tubenaxe.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=garden-route",
+            "priceRange": "$-$$",
+            "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJdaxsUPNueR4RSPyXjG7QK6w",
+              "https://tubenaxe.co.za",
+              "https://www.facebook.com/TubenAxe"
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "9.4",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The definitive Storms River adventure hostel. Essential for Bloukrans bungee, Blackwater Tubing, and Tsitsikamma activity access. Hot tubs, fire pit, full restaurant. Clean employment ethics.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "8.5", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
               { "@type": "LocationFeatureSpecification", "name": "Activity booking for Bloukrans Bungee", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Shuttle service to bungee and activities", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Hot tub", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Bar and fire pit", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Full restaurant", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Safari tents", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Baz Bus stop", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 21,
@@ -990,7 +1463,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#dijembe-backpackers",
             "name": "Dijembe Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/garden-route#dijembe-backpackers",
-            "description": "The quiet, rustic alternative to Tube 'n Axe in Storms River — private log cabins, female dorm, forest garden setting. Same village, same access to all Tsitsikamma activities, but without the bar atmosphere. Highly recommended for independent travellers and solo women. Clean employment ethics.",
+            "description": "The quiet, characterful alternative to Tube 'n Axe. Log cabins, female dorm, rustic forest setting. Same activities, less noise. Highly recommended for independent travellers and solo women. Clean employment ethics.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Formosa Street",
@@ -1000,19 +1473,44 @@
               "addressCountry": "ZA"
             },
             "geo": { "@type": "GeoCoordinates", "latitude": -33.96997, "longitude": 23.88176 },
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJgzFS5PRueR4RQAWZ2FZMrPY",
+            "contactPoint": [
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27793422036" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27793422036", "description": "WhatsApp" }
+            ],
+            "email": "dijembe@gmail.com",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=garden-route",
+            "priceRange": "$",
+            "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJgzFS5PRueR4RQAWZ2FZMrPY",
+              "https://dijembebackpackers.com",
+              "https://www.facebook.com/profile.php?id=100038889434466"
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "7.8",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Booking.com score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The quiet, characterful alternative to Tube 'n Axe. Log cabins, female dorm, rustic forest setting. Same activities, less noise. Highly recommended for independent travellers and solo women. Clean employment ethics.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "8.0", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
               { "@type": "LocationFeatureSpecification", "name": "Private log cabins", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Female-only dorm", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Safari tents", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Braai", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Self-catering kitchen", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Activity booking assistance for Bloukrans and Tsitsikamma", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Garden setting", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Activity booking assistance for Bloukrans and Tsitsikamma", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         }
+
       ]
     }
   ]
@@ -2268,7 +2766,7 @@ Tandem paragliding is available from several launch sites above George and Wilde
 
             <p><strong>THE BLURB:</strong> Park House is Mossel Bay's most reliable hostel option — a Victorian building in the town centre with a Booking.com score that significantly outperforms its Google rating (9.0/10 vs 4.0/5), which is usually a sign that people who actually stay here are having a much better time than the building's external reputation suggests. Mossel Bay itself is underrated as a Garden Route stop: the St Blaize Trail coastal hike, the Bartolomeu Dias Museum, and the shark cage diving operations here are genuinely worthwhile.</p>
 
-            <p><strong>FINAL VERDICT: Mossel Bay's best hostel. Consistently excellent Booking.com score. Good base for the St Blaize Trail, shark diving, and the western Garden Route.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: Mossel Bay's best hostel. Consistently excellent Booking.com score. Good base for the St Blaize Trail, shark diving, and the western Garden Route.</strong></p>
 
   </div>
 </details>
@@ -2345,7 +2843,7 @@ Tandem paragliding is available from several launch sites above George and Wilde
 
             <p><strong>THE BLURB:</strong> Mile Crunchers is Mossel Bay's cheapest dorm option and the "indoor camping" concept is genuinely unusual — pitching a tent inside a weatherproofed structure is either charming or just strange depending on your personality. The Booking.com 6.7/10 tells you it's a step below Park House in execution. If the R100 price difference per night matters to your budget, it's adequate. If it doesn't, Park House on High Street is the better Mossel Bay choice.</p>
 
-            <p><strong>FINAL VERDICT: Budget option only. Fine for a transit night if Park House is full. Choose Park House if both are available.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: Budget option only. Fine for a transit night if Park House is full. Choose Park House if both are available.</strong></p>
 
   </div>
 </details>
@@ -2420,7 +2918,7 @@ Tandem paragliding is available from several launch sites above George and Wilde
 
             <p><strong>THE BLURB:</strong> There is exactly one hostel on the Garden Route where you sleep in a vintage train carriage directly on a beach and wake up to the sound of the Indian Ocean through the compartment window. The Santos Express is that hostel, it has been here for decades, and the concept holds up. The Royal Suite wood-panelled compartments are genuinely charming at the price. It is not the most sophisticated property on this list, but it is the most singular, and on a first visit to South Africa, sleeping in a train on a beach is a story worth having.</p>
 
-            <p><strong>FINAL VERDICT: The most unique accommodation experience in Mossel Bay. Recommended for its novelty, beachfront location, and honest value. Book a Royal Suite if you can stretch the budget.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: The most unique accommodation experience in Mossel Bay. Recommended for its novelty, beachfront location, and honest value. Book a Royal Suite if you can stretch the budget.</strong></p>
 
   </div>
 </details>
@@ -2498,7 +2996,7 @@ Tandem paragliding is available from several launch sites above George and Wilde
 
             <p><strong>THE BLURB:</strong> Shark Shack's best feature is its connections to Mossel Bay's shark diving industry — if you want to be in the water with great whites at 7am, the Shack will organise it efficiently. Everything else is a step below the Mossel Bay competition. The 6.0/10 Booking.com score is the honest summary. For shark diving logistics, it is useful; for everything else, Park House or Santos Express are better bases.</p>
 
-            <p><strong>FINAL VERDICT: Primarily useful as a shark diving booking base. For general accommodation in Mossel Bay, choose Park House or Santos Express instead.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: Primarily useful as a shark diving booking base. For general accommodation in Mossel Bay, choose Park House or Santos Express instead.</strong></p>
 
   </div>
 </details>
@@ -2564,7 +3062,7 @@ Tandem paragliding is available from several launch sites above George and Wilde
 
             <p><strong>THE BLURB:</strong> George Backpackers is what it needs to be: a clean, functional overnight in a residential suburb of the Garden Route's main transport hub. If you are arriving at George Airport and collecting a hire car, or doing the Whistle-Stop Tour itinerary that requires dropping a car here before flying out, this is your base. Victoria Bay — a legendary surf break in a tiny cove 20 minutes away that most tourists drive straight past — is the best nearby reason to stay a day rather than just passing through.</p>
 
-            <p><strong>FINAL VERDICT: The practical Garden Route airport stopover. Best for hire car collections, Baz Bus connections, and anyone who knows about Victoria Bay surf and wants to stay for it.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: The practical Garden Route airport stopover. Best for hire car collections, Baz Bus connections, and anyone who knows about Victoria Bay surf and wants to stay for it.</strong></p>
 
   </div>
 </details>
@@ -2640,7 +3138,7 @@ Tandem paragliding is available from several launch sites above George and Wilde
 
             <p><strong>THE BLURB:</strong> Wilderness Beach House is the best-located hostel in Wilderness and one of the highest-rated on the Garden Route — the beachfront position, the 8.6/10 Booking.com score, and the female dorm option make it a strong choice for most travellers.</p>
 
-            <p><strong>FINAL VERDICT: Excellent location and strong ratings. One of the finest hostel settings in Wilderness.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: Excellent location and strong ratings. One of the finest hostel settings in Wilderness.</strong></p>
 
   </div>
 </details>
@@ -2718,9 +3216,9 @@ Tandem paragliding is available from several launch sites above George and Wilde
 
             <p><strong>EMPLOYMENT ETHICS: CONCERNS NOTED.</strong> Fairy Knowe has active listings on both Workaway and other work-exchange platforms, offering accommodation and meals in exchange for labour — during peak season with international participants and, per reports received by BackpackersBible.com, with South African workers outside peak season receiving accommodation but no monetary wages. Under South Africa's BCEA and Sectoral Determination 14, this arrangement — in a commercial, for-profit accommodation business — does not fall within the "unpaid volunteer in a charitable organisation" exemption. In a country with a 32%+ formal unemployment rate, work-for-accommodation models in commercial hostels directly displace paid employment opportunities for South Africans. BackpackersBible.com notes this concern for the information of guests who wish to make an informed choice. We encourage travellers to ask directly about current staffing and pay practices before booking.</p>
 
-            <p><strong>THE BLURB:</strong> Fairy Knowe is one of the most beautiful hostel settings on the Garden Route — the 19th-century farmhouse, the Touw River, the bonfires, the forest beginning at the fence. It has been a reliable recommendation for decades and the physical setting genuinely justifies the reputation. The employment ethics note above is a separate matter from the quality of the guest experience, which remains good. Travellers who wish to stay here and want to do so ethically are encouraged to ask the management directly about the terms of employment for the people making their stay possible.</p>
+            <p><strong>THE BLURB:</strong> Fairy Knowe is one of the most beautiful hostel settings on the Garden Route — the 19th-century farmhouse, the Touw River, the bonfires, the forest beginning at the fence. It has been a reliable recommendation for decades and the physical setting genuinely justifies the reputation.</p>
 
-            <p><strong>FINAL VERDICT: One of the Garden Route's finest natural settings. Genuinely beautiful. Read the employment ethics note above and make an informed decision before booking.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: One of the Garden Route's finest natural settings. Genuinely beautiful. Read the employment ethics note above and make an informed decision before booking.</strong></p>
 
   </div>
 </details>
@@ -2798,7 +3296,7 @@ Tandem paragliding is available from several launch sites above George and Wilde
 
             <p><strong>THE BLURB:</strong> Wild Farm is the alternative Wilderness choice for travellers who want views over the mountains rather than the ocean, farm animals at breakfast rather than surfers, and the Outeniqua hiking network at the back gate rather than the beach at the front. The log cabins are excellent. The 8.2/10 Booking.com score is earned. If you have a car and want something genuinely different from the beachfront hostel experience, the Hoekwil plateau is one of the better places to be on the Garden Route.</p>
 
-            <p><strong>FINAL VERDICT: The best alternative to Fairy Knowe and Beach House in Wilderness. Excellent for independent travellers with a car who want farm quiet and mountain views. Clean employment ethics.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: The best alternative to Fairy Knowe and Beach House in Wilderness. Excellent for independent travellers with a car who want farm quiet and mountain views. Clean employment ethics.</strong></p>
 
   </div>
 </details>
@@ -2869,7 +3367,7 @@ Tandem paragliding is available from several launch sites above George and Wilde
 
             <p><strong>THE BLURB:</strong> Sedgefield is the Garden Route village that most backpackers drive through on the N2 without stopping, and the Sedgefield Backpacker is the hostel that rewards the ones who do stop. The Swartvlei Lagoon is genuinely beautiful and genuinely uncrowded. The Saturday Slow Market is one of the finest weekly markets on the Garden Route. The heritage cottage setting has character that purpose-built hostels cannot manufacture. If you are doing the Garden Route with a car and you want one night that feels different from the Baz Bus circuit, Sedgefield is it.</p>
 
-            <p><strong>FINAL VERDICT: The Garden Route's quiet gem. Best for independent travellers with a car who want the coast without the crowd. The Saturday markets alone are worth planning around.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: The Garden Route's quiet gem. Best for independent travellers with a car who want the coast without the crowd. The Saturday markets alone are worth planning around.</strong></p>
 
   </div>
 </details>
@@ -2944,7 +3442,7 @@ Tandem paragliding is available from several launch sites above George and Wilde
 
             <p><strong>THE BLURB:</strong> Pilipili is Sedgefield's beachfront option — more expensive than the village hostel but directly on Myoli Beach with kite surfing and SUP on the doorstep. The private cabanas are the value pick: at R1,080 for a beachfront en-suite unit, they represent reasonable value for couples or pairs. The dorm price of R465 is the highest on this list and is difficult to justify unless the beach access specifically is worth the premium to you.</p>
 
-            <p><strong>FINAL VERDICT: The beachfront Sedgefield choice. Good value in cabanas; expensive in dorms. Best for couples and activity-focused travellers.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: The beachfront Sedgefield choice. Good value in cabanas; expensive in dorms. Best for couples and activity-focused travellers.</strong></p>
 
   </div>
 </details>
@@ -3019,7 +3517,7 @@ Tandem paragliding is available from several launch sites above George and Wilde
 
             <p><strong>THE BLURB:</strong> The Riverdeck is best understood as a well-regarded restaurant that also has accommodation — the restaurant is the primary identity and the cabins are the place to stay if you want dinner on the river deck and accommodation without a long drive back into town. For the full Knysna backpacker experience with social atmosphere and central location, Island Vibe or Knysna Backpackers in town are better options. For a quiet riverside cabin on the estuary approach with a good restaurant attached, Riverdeck works well.</p>
 
-            <p><strong>FINAL VERDICT: Best for the riverside cabin experience and the restaurant. For social backpacker Knysna, choose Island Vibe or Knysna Backpackers in town instead.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: Best for the riverside cabin experience and the restaurant. For social backpacker Knysna, choose Island Vibe or Knysna Backpackers in town instead.</strong></p>
 
   </div>
 </details>
@@ -3097,7 +3595,7 @@ Tandem paragliding is available from several launch sites above George and Wilde
 
             <p><strong>THE BLURB:</strong> Island Vibe Knysna is the reliable central-Knysna backpacker option — well-located, well-branded, and a good base for the Knysna Heads, the lagoon, and the forest hikes. The Jeffreys Bay Island Vibe is a higher-rated property in a more extraordinary setting; the Knysna branch is the consistent middle sibling of the family. For a social overnight in the heart of Knysna, it delivers what it promises.</p>
 
-            <p><strong>FINAL VERDICT: The reliable central Knysna social hostel. Good for solo travellers on the Baz Bus circuit. Clean employment ethics.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: The reliable central Knysna social hostel. Good for solo travellers on the Baz Bus circuit. Clean employment ethics.</strong></p>
 
   </div>
 </details>
@@ -3170,7 +3668,7 @@ Tandem paragliding is available from several launch sites above George and Wilde
 
             <p><strong>THE BLURB:</strong> This is a good overall Knysna hostel choice for most travellers — it combines central location, warm management, good ratings, and lower prices in a property that is genuinely worth the marginal extra effort of finding Queen Street rather than the more obvious Main Road address.</p>
 
-            <p><strong>FINAL VERDICT: A good choice for travellers seeking peace & quiet.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: A good choice for travellers seeking peace & quiet.</strong></p>
 
   </div>
 </details>
@@ -3245,7 +3743,7 @@ Tandem paragliding is available from several launch sites above George and Wilde
 
             <p><strong>THE BLURB:</strong> Keedols is the group traveller's Knysna answer and the solo boutique-seeker's alternative to Island Vibe's brand energy. The 18-sleeper unit at R6,000 is the best large-group deal in central Knysna. The Queen Street address puts it within 5 minutes' walk of everything on the Knysna waterfront. If you are organising a group trip and want a central Knysna self-contained base, Keedols is the place to call first.</p>
 
-            <p><strong>FINAL VERDICT: Best for groups. The 18-sleeper unit is exceptional value. Good boutique option for independent solo travellers who prefer personal over brand. Clean employment ethics.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: Best for groups. The 18-sleeper unit is exceptional value. Good boutique option for independent solo travellers who prefer personal over brand. Clean employment ethics.</strong></p>
 
   </div>
 </details>
@@ -3324,7 +3822,7 @@ Tandem paragliding is available from several launch sites above George and Wilde
 
             <p><strong>THE BLURB:</strong> Amakaya is Plett's best option for the longer-stay traveller — the self-catering apartments give it a flexibility that purely dorm-focused hostels don't offer. For the standard 1–2 night Garden Route passing-through visit, Nothando is the stronger choice. For a week in Plett with a full kitchen and central location, Amakaya works very well.</p>
 
-            <p><strong>FINAL VERDICT: Best for longer stays and self-catering travellers. Good value apartments. Clean employment ethics. For short stays, Nothando is the better Plett choice.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: Best for longer stays and self-catering travellers. Good value apartments. Clean employment ethics. For short stays, Nothando is the better Plett choice.</strong></p>
 
   </div>
 </details>
@@ -3400,7 +3898,7 @@ Tandem paragliding is available from several launch sites above George and Wilde
 
             <p><strong>THE BLURB:</strong> Plett Beachfront is a strong Plettenberg Bay option for beach-focused travellers — a female dorm, good ratings, and a 10-minute walk from Lookout Beach. It sits just below Nothando's 9.7/10 Hostelworld rating and 4.6/5 Google score, but for travellers who specifically want a female dorm in Plett, it is the clearest option.</p>
 
-            <p><strong>FINAL VERDICT: Strong Plett choice, especially for solo women. Good ratings, beachside location, female dorm available. Nothando remains the overall Plett recommendation.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: Strong Plett choice, especially for solo women. Good ratings, beachside location, female dorm available. Nothando remains the overall Plett recommendation.</strong></p>
 
   </div>
 </details>
@@ -3465,7 +3963,7 @@ Tandem paragliding is available from several launch sites above George and Wilde
 
             <p><strong>THE BLURB:</strong> Plett Backpackers' "penthouse" angle is genuinely interesting — elevated Main Street views from budget-priced private rooms are not something Nothando or Amakaya offer. For the traveller who wants to be on the main strip, above everything, with good access to the Baz Bus and Plett's social geography, this is a valid and under-appreciated choice. Nothando remains the stronger overall recommendation, but Plett Backpackers has its own appeal.</p>
 
-            <p><strong>FINAL VERDICT: The central Main Street option with a penthouse twist. Good for Baz Bus travellers wanting to be in the middle of Plett's action.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: The central Main Street option with a penthouse twist. Good for Baz Bus travellers wanting to be in the middle of Plett's action.</strong></p>
 
   </div>
 </details>
@@ -3547,7 +4045,7 @@ Tandem paragliding is available from several launch sites above George and Wilde
 
             <p><strong>THE BLURB:</strong> Nothando is the best hostel in Plettenberg Bay, and the evidence for that claim is overwhelming and consistent across every platform. The Hostelworld 9.7/10 makes it the #1 rated hostel in Plett. The Booking.com 9.2/10 puts it in the top tier nationally. The TGCSA 5-star grading means it has been assessed by independent auditors and found to meet the highest standards in the South African grading system. The fresh blueberry muffins on arrival — a small thing, consistently mentioned by guests who have stayed at dozens of hostels — are the physical manifestation of an owner who cares about the details. Vinthi Neufeld took over the property in 2023 and has built a hospitality reputation, already, that the previous 25 years of the Dreyer family's excellent stewardship gave her an excellent foundation for. Robberg Nature Reserve, the finest day hike on the Garden Route, is 10 minutes from the front door. The beach is 5 minutes. The muffins are waiting.</p>
 
-            <p><strong>FINAL VERDICT: ★ The best hostel in Plettenberg Bay. #1 on Hostelworld (9.7/10). The top solo female recommendation on the Garden Route. TGCSA 5-star graded. Outstanding employment ethics. The Robberg hike starts 10 minutes away. Book it.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: ★ The best hostel in Plettenberg Bay. #1 on Hostelworld (9.7/10). The top solo female recommendation on the Garden Route. TGCSA 5-star graded. Outstanding employment ethics. The Robberg hike starts 10 minutes away. Book it.</strong></p>
 
   </div>
 </details>
@@ -3627,7 +4125,7 @@ Tandem paragliding is available from several launch sites above George and Wilde
 
             <p><strong>THE BLURB:</strong> Wild Spirit has one of the most beautiful physical settings of any backpacker lodge on the Garden Route — Tsitsikamma forest, a private waterfall, bunk-free dorms, organic garden dinners, a deck with valley views that reviewers consistently describe as extraordinary. The 4.6/5 Google rating and 8.5/10 Booking.com score are earned by the physical environment and the quality of the guest experience. The employment ethics concern above is a separate matter and is presented here as documented, factual information from publicly available sources. Guests who are satisfied with the physical offering and do not object to the work-exchange staffing model will find a genuinely memorable stay. Guests who believe that the people maintaining their accommodation should be paid for their work should weigh this information accordingly.</p>
 
-            <p><strong>FINAL VERDICT: A beautiful property in an extraordinary location, with documented employment practices that raise legitimate concerns under South African labour law. The decision to stay here is an informed one to make, not an unconscious one.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: A beautiful property in an extraordinary location, with documented employment practices that raise legitimate concerns under South African labour law. The decision to stay here is an informed one to make, not an unconscious one.</strong></p>
 
   </div>
 </details>
@@ -3706,7 +4204,7 @@ Tandem paragliding is available from several launch sites above George and Wilde
 
             <p><strong>THE BLURB:</strong> Tube 'n Axe is Storms River's adventure headquarters — the place you go to jump off the Bloukrans bridge, tube the Storms River gorge, canopy-tour the forest, and spend the evening in a hot tub comparing bruises with the people who jumped before you. The shuttle service is the essential Tsitsikamma logistics tool; no other operator in the area provides it. The dorm-to-bathroom ratio in the larger dorms has been criticised — check before you book. Everything else is a well-run, well-equipped adventure hostel that has been at the centre of Storms River's tourism identity for 25 years. The fire pit every evening is genuinely excellent.</p>
 
-            <p><strong>FINAL VERDICT: The definitive Storms River adventure hostel. Essential for Bloukrans bungee, Blackwater Tubing, and Tsitsikamma activity access. Hot tubs, fire pit, full restaurant. Check dorm bathroom ratios before booking. Clean employment ethics.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: The definitive Storms River adventure hostel. Essential for Bloukrans bungee, Blackwater Tubing, and Tsitsikamma activity access. Hot tubs, fire pit, full restaurant. Check dorm bathroom ratios before booking. Clean employment ethics.</strong></p>
 
   </div>
 </details>
@@ -3780,7 +4278,7 @@ Tandem paragliding is available from several launch sites above George and Wilde
 
             <p><strong>THE BLURB:</strong> Dijembe is the quiet, rustic alternative to Tube 'n Axe in Storms River — same village, same access to all the Tsitsikamma adventures, but with log cabins and a forest garden instead of hot tubs and a bar. The private log cabins at R750 are one of the best-value private accommodation options in Storms River. Solo women who want to do the bungee and the tubing but sleep peacefully afterwards will find Dijembe a more comfortable environment than Tube 'n Axe. The Baz Bus passengers who specifically want the adventure hostel energy should choose Tube 'n Axe; everyone else should give Dijembe serious consideration.</p>
 
-            <p><strong>FINAL VERDICT: The quiet, characterful alternative to Tube 'n Axe. Log cabins, female dorm, rustic forest setting. Same activities, less noise. Highly recommended for independent travellers and solo women. Clean employment ethics.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: The quiet, characterful alternative to Tube 'n Axe. Log cabins, female dorm, rustic forest setting. Same activities, less noise. Highly recommended for independent travellers and solo women. Clean employment ethics.</strong></p>
 
   </div>
 </details>

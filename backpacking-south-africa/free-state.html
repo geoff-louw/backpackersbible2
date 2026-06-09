@@ -948,7 +948,7 @@
   src="/map.html?region=free-state&center=28.17,-28.36&zoom=9&pitch=70&bearing=140&mobile-center=27.28,-30.52&mobile-zoom=5"
   width="100%"
   height="620"
-  class="sa-hostel-map-iframe"
+  class="sa-hostel-map-iframe bb-map-iframe"
   title="Interactive map of backpacker hostels in the Free State"
   aria-label="Interactive map of backpacker hostels in the Free State"
   loading="lazy"
@@ -1441,7 +1441,7 @@ per group up to 4</p>
 
             <p><strong>STREET ADDRESS:</strong> 403 Van Reenen Street, Clarens, 9707, Free State, South Africa</p>
 
-            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-28.51579,28.4132" target="_blank" class="blue-link">-28.51579, 28.4132</a></p>
+            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="clarens-inn-backpackers"><strong>FIND ON MAP ›</strong></a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27582561173" class="blue-link">+27 58 256 1173</a></p>
 
@@ -1517,7 +1517,7 @@ per group up to 4</p>
 
             <p><strong>STREET ADDRESS:</strong> 3232 Nteo Street, Phuthaditjhaba-A, Phuthaditjhaba, 9866, Free State</p>
 
-            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-28.51372,28.81858" target="_blank" class="blue-link">-28.51372, 28.81858</a></p>
+            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="maluti-backpackers"><strong>FIND ON MAP ›</strong></a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27761934444" class="blue-link">+27 76 193 4444</a></p>
 
@@ -1609,7 +1609,7 @@ per group up to 4</p>
 
             <p><strong>STREET ADDRESS:</strong> 2 Piet Retief Street, Kestell, Free State, 9860</p>
 
-            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-28.31098,28.69908" target="_blank" class="blue-link">-28.31098, 28.69908</a></p>
+            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="karma-backpackers"><strong>FIND ON MAP ›</strong></a></p>
 
             <p><strong>PHONE / WHATSAPP:</strong> <a href="tel:+27834423973" class="blue-link">+27 83 442 3973</a></p>
 
@@ -2010,6 +2010,23 @@ src="https://c.statcounter.com/13225228/0/687dc53c/1/"
 alt="Web Analytics"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 <!-- End of Statcounter Code -->
+
+
+<script>
+  /* ── FIND ON MAP — scroll to LibreMap and open hostel popup ── */
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('.bb-find-on-map');
+    if (!link) return;
+    e.preventDefault();
+    var hostelId = link.dataset.hostel;
+    var mapFrame = document.querySelector('.bb-map-iframe');
+    if (!mapFrame) return;
+    mapFrame.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(function() {
+      mapFrame.contentWindow.postMessage({ type: 'BB_OPEN_HOSTEL', id: hostelId }, '*');
+    }, 600);
+  });
+</script>
 
 </body>
 </html>

@@ -1206,7 +1206,7 @@
   src="/map.html?region=overberg&center=19.89,-34.19&zoom=8&pitch=90&bearing=315&mobile-center=20.25,-35.41&mobile-zoom=7"
   width="100%"
   height="620"
-  class="sa-hostel-map-iframe"
+  class="sa-hostel-map-iframe bb-map-iframe"
   title="Interactive map of backpacker hostels in the Overberg"
   aria-label="Interactive map of backpacker hostels in the Overberg"
   loading="lazy"
@@ -1768,7 +1768,7 @@
 
             <p><strong>STREET ADDRESS:</strong> 26 Flower Street, Hermanus, 7200</p>
 
-            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-34.42068,19.23279" target="_blank" class="blue-link">-34.42068, 19.23279</a></p>
+            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="hermanus-backpackers"><strong>FIND ON MAP ›</strong></a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27283124293" class="blue-link">+27 28 312 4293</a></p>
 
@@ -1853,7 +1853,7 @@
 
             <p><strong>STREET ADDRESS:</strong> 23 Main Road (corner Flora Street), Hermanus, 7200</p>
 
-            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-34.41886,19.23054" target="_blank" class="blue-link">-34.41886, 19.23054</a></p>
+            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="zoete-inval"><strong>FIND ON MAP ›</strong></a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27283121242" class="blue-link">+27 28 312 1242</a></p>
 
@@ -1936,7 +1936,7 @@
 
             <p><strong>STREET ADDRESS:</strong> 4 Harbour Road, Warrington Place, Hermanus, 7200</p>
 
-            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-34.42092,19.24206" target="_blank" class="blue-link">-34.42092, 19.24206</a></p>
+            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="zzzone-backpackers"><strong>FIND ON MAP ›</strong></a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27283121799" class="blue-link">+27 28 312 1799</a> / <a href="tel:+27214304000" class="blue-link">+27 21 430 4000</a></p>
 
@@ -2015,7 +2015,7 @@
 
             <p><strong>STREET ADDRESS:</strong> 5 Lichtenstein Street, Swellendam, 6740</p>
 
-            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-34.01259,20.45553" target="_blank" class="blue-link">-34.01259, 20.45553</a></p>
+            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="swellendam-backpackers"><strong>FIND ON MAP ›</strong></a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27721786785" class="blue-link">+27 72 178 6785</a></p>
 
@@ -2074,7 +2074,7 @@
 
             <p><strong>STREET ADDRESS:</strong> 34 Bree Street, McGregor, 6708, Western Cape</p>
 
-            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-33.95131,19.82834" target="_blank" class="blue-link">-33.951252, 19.828317</a></p>
+            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="mcgregor-backpackers"><strong>FIND ON MAP ›</strong></a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27230040018" class="blue-link">+27 23 004 0018</a></p>
 
@@ -2151,7 +2151,7 @@
 
             <p><strong>STREET ADDRESS:</strong> 17 Duiker Street (C/O Main and Duiker), Struisbaai, 7285</p>
 
-            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-34.79837,20.04618" target="_blank" class="blue-link">-34.79837, 20.04618</a></p>
+            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="cape-agulhas-backpackers"><strong>FIND ON MAP ›</strong></a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27823723354" class="blue-link">+27 82 372 3354</a></p>
 
@@ -2231,7 +2231,7 @@
 
             <p><strong>STREET ADDRESS:</strong> 89 Main Road, Witsand, 6666</p>
 
-            <p><strong>GOOGLE MAPS:</strong> <a href="https://maps.google.com/?q=-34.39303,20.83729" target="_blank" class="blue-link">-34.39303, 20.83729</a></p>
+            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="witsand-poshpackers"><strong>FIND ON MAP ›</strong></a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+27285371717" class="blue-link">+27 28 537 1717</a></p>
 
@@ -2642,6 +2642,23 @@ src="https://c.statcounter.com/13225228/0/687dc53c/1/"
 alt="Web Analytics"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 <!-- End of Statcounter Code -->
+
+
+<script>
+  /* ── FIND ON MAP — scroll to LibreMap and open hostel popup ── */
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('.bb-find-on-map');
+    if (!link) return;
+    e.preventDefault();
+    var hostelId = link.dataset.hostel;
+    var mapFrame = document.querySelector('.bb-map-iframe');
+    if (!mapFrame) return;
+    mapFrame.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(function() {
+      mapFrame.contentWindow.postMessage({ type: 'BB_OPEN_HOSTEL', id: hostelId }, '*');
+    }, 600);
+  });
+</script>
 
 </body>
 </html>

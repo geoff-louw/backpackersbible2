@@ -110,13 +110,14 @@
     },
 
     {
-      "@type": ["WebPage","CollectionPage"],
+      "@type": ["WebPage", "CollectionPage"],
       "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#webpage",
       "url": "https://www.backpackersbible.com/backpacking-south-africa/cape-town",
       "name": "Backpacking Cape Town: The Ultimate, Wild Adventure Guide",
       "headline": "Backpacking Cape Town: The Ultimate, Wild Adventure Guide",
-      "description": "Don't just visit Cape Town, live it. We give you the full picture: direct hostel contacts, secret spots, and safety advice the big sites won't tell you.",
+      "description": "Don't just visit Cape Town, live it. Direct hostel contacts, secret spots, safety advice, and an interactive 3D map with filters for parties, solo women, digital nomads, best value, and more.",
       "inLanguage": "en",
+      "wordCount": 28000,
       "isPartOf": {
         "@id": "https://www.backpackersbible.com/#website"
       },
@@ -149,24 +150,12 @@
         }
       ],
       "mentions": [
-        {
-          "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#map"
-        },
-        {
-          "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#hostel-list"
-        },
-        {
-          "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#activities"
-        },
-        {
-          "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#safety-guide"
-        },
-        {
-          "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#faq"
-        },
-        {
-          "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#first-thursdays"
-        }
+        { "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#map" },
+        { "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#hostel-list" },
+        { "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#activities" },
+        { "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#safety-guide" },
+        { "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#faq" },
+        { "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#first-thursdays" }
       ],
       "speakable": {
         "@type": "SpeakableSpecification",
@@ -174,7 +163,8 @@
           ".intro-p",
           ".detail-p",
           "#safety",
-          "#faq"
+          "#faq",
+          ".final-verdict"
         ]
       }
     },
@@ -234,6 +224,14 @@
         },
         {
           "@type": "Question",
+          "name": "What is the best hostel in Cape Town for solo female travellers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Curiocity Kloof Street is the top choice for solo women, scoring 5/5 for Solo Female Friendliness. It offers female-only Luxe Dorms with private en-suite bathrooms and kitchenettes, facial recognition building access, and 24-hour reception. B.I.G.: Backpackers In Green Point also scores 5/5 and is consistently top-rated by solo female travellers across all platforms — it features en-suite bathrooms in all rooms including dorms, a quiet cul-de-sac location, and free breakfast. Hout Bay Dune Lodge scores 5/5 and is particularly praised for its en-suite dorms and attentive management."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "What currency does Cape Town use and how much money do I need?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -279,9 +277,41 @@
       "@type": "Map",
       "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#map",
       "name": "Cape Town Backpackers Hostel Map — All Hostels",
-      "description": "Interactive map of all 28 backpacker hostels in Cape Town, with contact details, addresses, and links to individual write-ups. Covers the City Bowl, Green Point, Sea Point, Observatory, Muizenberg, Hout Bay, Table View, and Bloubergstrand.",
+      "description": "Interactive 3D map of all 28 backpacker hostels in Cape Town with one-tap filters for Best Overall, Best Parties, Best Value, Best for Solo Women, Best for Digital Nomads, Swimming Pool, and more. Covers City Bowl, Green Point, Sea Point, Observatory, Muizenberg, Hout Bay, Table View, and Bloubergstrand.",
       "mapType": "https://schema.org/VenueMap",
       "url": "https://www.backpackersbible.com/map.html?region=cape-town&center=18.412,-33.937&zoom=13&pitch=60&bearing=180",
+      "potentialAction": [
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Best Overall",
+          "target": "https://www.backpackersbible.com/map.html?region=cape-town&filter=best_overall"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Best Parties",
+          "target": "https://www.backpackersbible.com/map.html?region=cape-town&filter=best_parties"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Best for Solo Women",
+          "target": "https://www.backpackersbible.com/map.html?region=cape-town&filter=best_solo_women"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Best for Digital Nomads",
+          "target": "https://www.backpackersbible.com/map.html?region=cape-town&filter=best_digital_nomads"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Best Value",
+          "target": "https://www.backpackersbible.com/map.html?region=cape-town&filter=best_value"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Swimming Pool",
+          "target": "https://www.backpackersbible.com/map.html?region=cape-town&filter=pool"
+        }
+      ],
       "about": {
         "@type": "Thing",
         "name": "Backpacker Hostels in Cape Town"
@@ -327,12 +357,12 @@
         {
           "@type": "HowToStep",
           "name": "Hike Lion's Head safely",
-          "text": "Lion's Head is safe when hiked in a group of three or more people and during daylight hours. Do not hike alone. There have been isolated reports of muggings on the quieter sections of the trail. The popular sunrise and sunset hikes with hostel groups are the safest option. The trail is clearly marked and takes 1.5–2 hours for the full circuit."
+          "text": "Lion's Head is safe when hiked in a group of three or more people and during daylight hours. Do not hike alone. There have been isolated reports of muggings on the quieter sections of the trail. The popular sunrise and sunset hikes with hostel groups are the safest option."
         },
         {
           "@type": "HowToStep",
           "name": "Avoid table mountain cable car queues on windy days",
-          "text": "The Table Mountain cable car closes in winds above a certain threshold, which happens regularly in summer (November–March) when the Cape Doctor south-easterly blows. Check the weather before queuing — the cable car website and the weather at the mountain top can differ significantly from conditions in the City Bowl."
+          "text": "The Table Mountain cable car closes in winds above a certain threshold, which happens regularly in summer (November–March). Check the weather before queuing — the cable car website and conditions at the summit can differ significantly from the City Bowl."
         }
       ]
     },
@@ -349,12 +379,8 @@
           "item": {
             "@type": "TouristAttraction",
             "name": "Table Mountain",
-            "description": "One of the New Seven Wonders of Nature and Cape Town's defining landmark. Take the aerial cableway to the summit (approximately €15) for 360° views across the Cape Peninsula, both oceans, and Robben Island, or hike the Platteklip Gorge trail (free, 2 hours). Cable car operates daily when winds allow.",
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -33.9628,
-              "longitude": 18.4098
-            },
+            "description": "One of the New Seven Wonders of Nature. Take the aerial cableway to the summit or hike the Platteklip Gorge trail (free, 2 hours). Cable car operates daily when winds allow.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.9628, "longitude": 18.4098 },
             "isAccessibleForFree": false,
             "touristType": "Backpackers"
           }
@@ -365,12 +391,8 @@
           "item": {
             "@type": "TouristAttraction",
             "name": "Lion's Head Hike",
-            "description": "A circular 5km hike to the 669-metre summit of Lion's Head, featuring chains and ladders on the upper section. Spectacular 360° views of Table Mountain, the City Bowl, and the Atlantic. Sunrise and full-moon hikes are the most popular. Free to hike; no permits needed. Hike in a group.",
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -33.9344,
-              "longitude": 18.3817
-            },
+            "description": "A circular 5km hike to the 669-metre summit, featuring chains and ladders on the upper section. Spectacular 360° views. Free to hike; hike in a group.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.9344, "longitude": 18.3817 },
             "isAccessibleForFree": true,
             "touristType": "Backpackers"
           }
@@ -381,12 +403,8 @@
           "item": {
             "@type": "TouristAttraction",
             "name": "Robben Island",
-            "description": "The island where Nelson Mandela was imprisoned for 18 of his 27 years. Tours are led by former political prisoners. Ferry departs from the V&A Waterfront. Half-day experience. Book well in advance — tours sell out regularly. Cost approximately €20.",
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -33.8069,
-              "longitude": 18.3662
-            },
+            "description": "The island where Nelson Mandela was imprisoned for 18 of his 27 years. Tours led by former political prisoners. Ferry from the V&A Waterfront.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.8069, "longitude": 18.3662 },
             "isAccessibleForFree": false,
             "touristType": "Backpackers"
           }
@@ -397,12 +415,8 @@
           "item": {
             "@type": "TouristAttraction",
             "name": "Sea Point Promenade",
-            "description": "Eleven kilometres of paved oceanfront path along the Atlantic Seaboard. At dusk it belongs to skateboarders, families, runners, and anyone who wants one of the world's great urban coastal walks. Tidal pools along the route are where local children swim in summer. Completely free.",
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -33.9189,
-              "longitude": 18.3847
-            },
+            "description": "Eleven kilometres of paved oceanfront path along the Atlantic Seaboard. Tidal pools, skateboarders, runners, and one of the world's great urban coastal walks. Free.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.9189, "longitude": 18.3847 },
             "isAccessibleForFree": true,
             "touristType": "Backpackers"
           }
@@ -413,12 +427,8 @@
           "item": {
             "@type": "TouristAttraction",
             "name": "Cape Point and the Cape of Good Hope",
-            "description": "The southwestern tip of the African continent. Drive or cycle the Cape Peninsula via Chapman's Peak Drive and Simon's Town (penguin colony at Boulders Beach). The Cape Point Nature Reserve entrance fee is approximately €15. Half-day from Cape Town minimum; full day recommended.",
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -34.3568,
-              "longitude": 18.4967
-            },
+            "description": "The southwestern tip of the African continent. Drive the Cape Peninsula via Chapman's Peak Drive and Simon's Town. Cape Point Nature Reserve entrance approximately €15.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -34.3568, "longitude": 18.4967 },
             "isAccessibleForFree": false,
             "touristType": "Backpackers"
           }
@@ -429,12 +439,8 @@
           "item": {
             "@type": "TouristAttraction",
             "name": "First Thursdays Cape Town",
-            "description": "On the first Thursday of every month, galleries, studios, and cultural spaces in the city centre open late with free entry, street food vendors, live music, and a street party atmosphere on Bree Street and Shortmarket Street. One of Cape Town's best free nights out. Runs from approximately 17:00 to 21:00.",
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -33.9226,
-              "longitude": 18.4183
-            },
+            "description": "On the first Thursday of every month, galleries and studios in the city centre open late with free entry, street food, and live music. One of Cape Town's best free nights out.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.9226, "longitude": 18.4183 },
             "isAccessibleForFree": true,
             "touristType": "Backpackers"
           }
@@ -445,12 +451,8 @@
           "item": {
             "@type": "TouristAttraction",
             "name": "Surfing at Muizenberg",
-            "description": "Muizenberg Beach is the best beginner surf spot in Cape Town and one of the most accessible in South Africa. Long, consistent, slow-breaking waves ideal for learning. Surf schools operate directly on the beach (lessons from approximately R350 including board and wetsuit). The beach huts are Instagram-famous.",
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -34.1079,
-              "longitude": 18.4698
-            },
+            "description": "The best beginner surf spot in Cape Town. Long, consistent, slow-breaking waves. Surf schools on the beach from approximately R350 including board and wetsuit.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -34.1079, "longitude": 18.4698 },
             "isAccessibleForFree": false,
             "touristType": "Backpackers"
           }
@@ -461,12 +463,8 @@
           "item": {
             "@type": "TouristAttraction",
             "name": "Bo-Kaap Walking Tour",
-            "description": "The Bo-Kaap is Cape Town's historic Cape Malay quarter — steep cobblestone streets, neon-painted houses, and mosques dating to the 18th century. Walk it yourself for free or take a guided tour (approximately €10–€15) that includes a home-cooked Cape Malay meal.",
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -33.9192,
-              "longitude": 18.4136
-            },
+            "description": "Cape Town's historic Cape Malay quarter — steep cobblestone streets, neon-painted houses, and mosques dating to the 18th century. Walk it free or take a guided tour.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.9192, "longitude": 18.4136 },
             "isAccessibleForFree": true,
             "touristType": "Backpackers"
           }
@@ -499,83 +497,53 @@
               "postalCode": "8001",
               "addressCountry": "ZA"
             },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -33.93435,
-              "longitude": 18.4069
-            },
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.93435, "longitude": 18.4069 },
             "telephone": "+27105900210",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27105900210"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27604884746",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27105900210" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27604884746", "description": "WhatsApp" }
             ],
-"hasMap": "https://maps.google.com/?q=place_id:ChIJUWj3cK1nzB0RYa4LnAiACrg",
+            "email": "stay@curiocity.africa",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=cape-town",
+            "priceRange": "$$$",
             "sameAs": [
+              "https://maps.google.com/?q=place_id:ChIJUWj3cK1nzB0RYa4LnAiACrg",
               "https://curiocity.africa/curiocity-kloof-street/",
               "https://www.booking.com/hotel/za/112-kloof-street-apartments.html",
               "https://www.hostelworld.com/hostels/p/327937/curiocity-kloof-street/",
               "https://www.facebook.com/curiocityafrica/",
-              "https://www.instagram.com/curiocityafrica/",
+              "https://www.instagram.com/curiocity.africa/"
             ],
-            "priceRange": "ZAR350–ZAR2100",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "9.7",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The premier choice for flashpackers, digital nomads, and solo women wanting a high-design, professionally managed, genuinely secure base in one of Cape Town's best neighbourhoods.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "9.5", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Female-only dorms with private en-suite bathrooms",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Facial recognition building access",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Bootlegger Coffee café on-site",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Co-working spaces",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "250+ Mbps uncapped fibre Wi-Fi",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Table Mountain terrace views",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Bike hire",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Digital in-room safes",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "24-hour front desk",
-                "value": true
-              }
+              { "@type": "LocationFeatureSpecification", "name": "Female-only dorms with private en-suite bathrooms", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Facial recognition building access", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Bootlegger Coffee café on-site", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Co-working spaces", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "250+ Mbps uncapped fibre Wi-Fi", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Table Mountain terrace views", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Bike hire", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Digital in-room safes", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "24-hour front desk", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "5/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 2,
@@ -584,7 +552,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#long-street-backpackers",
             "name": "Long Street Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#long-street-backpackers",
-            "description": "Cape Town's 25-year-old classic social hostel directly on Long Street. The most central location in the city, a famous bar balcony overlooking the action, free morning porridge, and an unmatched reputation for solo travellers meeting people fast. Loud, basic, and brilliant.",
+            "description": "Cape Town's 25-year-old classic social hostel directly on Long Street. The most central location in the city, a famous bar balcony overlooking the action, free morning porridge, and an unmatched reputation for solo travellers meeting people fast.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "209 Long St",
@@ -593,43 +561,47 @@
               "postalCode": "8001",
               "addressCountry": "ZA"
             },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -33.92526,
-              "longitude": 18.4165
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.92526, "longitude": 18.4165 },
+            "telephone": "+27214230615",
+            "contactPoint": [
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27214230615" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27214230615", "description": "WhatsApp" }
+            ],
+            "email": "reservations@longstreetbackpackers.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=cape-town",
+            "priceRange": "$",
+            "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJV06SemVnzB0R1rOgn3xAq7A",
+              "https://www.longstreetbackpackers.co.za",
+              "https://www.booking.com/hotel/za/longstreet-backpackers.html",
+              "https://www.facebook.com/longstreetbackpackers"
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "8.8",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
             },
-            "priceRange": "ZAR220–ZAR900",
-"hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJV06SemVnzB0R1rOgn3xAq7A",
-            "hasMap": "https://maps.google.com/?q=-33.92526,18.4165",
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "Cape Town's classic social hostel. The best single choice for solo travellers who want to meet people fast in the most central possible location — provided noise and basic facilities are not dealbreakers.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "7.5", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Bar with Long Street balcony views",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Free morning porridge",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Township dinner events",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "24-hour reception",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Communal kitchen",
-                "value": true
-              }
+              { "@type": "LocationFeatureSpecification", "name": "Bar with Long Street balcony views", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Free morning porridge", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Township dinner events", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "24-hour reception", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Communal kitchen", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Amber" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 3,
@@ -647,87 +619,51 @@
               "postalCode": "8001",
               "addressCountry": "ZA"
             },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -33.93347,
-              "longitude": 18.41216
-            },
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.93347, "longitude": 18.41216 },
             "telephone": "+27214238721",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27214238721"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27714592602",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27214238721" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27714592602", "description": "WhatsApp" }
             ],
-"hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJ8Xzj0nZnzB0Rkbth5kNV_AY",
+            "email": "info@ashanti.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=cape-town",
+            "priceRange": "$-$$",
             "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJ8Xzj0nZnzB0Rkbth5kNV_AY",
               "https://www.ashanti.co.za",
               "https://www.booking.com/hotel/za/ashanti-lodge-gardens.html",
               "https://www.hostelworld.com/hostels/p/978/ashanti-lodge-gardens/",
-              "https://www.facebook.com/ashantibackpackers/"
+              "https://www.facebook.com/AshantiLodgeAndTravel"
             ],
-            "priceRange": "ZAR220–ZAR1200",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "8.9",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "Cape Town's gold standard backpacker hostel. The benchmark. If you don't know where else to start, start here.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "9.0", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Large outdoor swimming pool",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "PIN-code gate and room access",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Individual under-bed safes with PIN codes",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Kumasi Café and bar",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Bike hire",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Travel centre and car hire desk",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Solar water heating",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "24-hour on-site staff",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Braai facilities",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Pool table",
-                "value": true
-              }
+              { "@type": "LocationFeatureSpecification", "name": "Large outdoor swimming pool", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "PIN-code gate and room access", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Individual under-bed safes with PIN codes", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Kumasi Café and bar", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Bike hire", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Travel centre and car hire desk", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Braai facilities", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "24-hour on-site staff", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 4,
@@ -736,6 +672,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#urban-hive-backpackers",
             "name": "Urban Hive Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#urban-hive-backpackers",
+            "description": "Straightforward, unpretentious city-centre hostel on Long Street. Good for people using Cape Town as a base for day trips.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "208 Long St",
@@ -744,14 +681,44 @@
               "postalCode": "8001",
               "addressCountry": "ZA"
             },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -33.92565,
-              "longitude": 18.41541
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.92565, "longitude": 18.41541 },
+            "telephone": "+27214220565",
+            "contactPoint": [
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27214220565" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27766012289", "description": "WhatsApp" }
+            ],
+            "email": "info@urbanhivebackpackers.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=cape-town",
+            "priceRange": "$",
+            "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJ_wsliW9nzB0RANHnwLruPp4",
+              "https://www.urbanhive.co.za",
+              "https://www.booking.com/hotel/za/urban-hive-backpackers.html",
+              "https://www.facebook.com/UrbanHiveBackpackers"
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "7.4",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
             },
-"hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJ_wsliW9nzB0RANHnwLruPp4"            
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "A solid, unpretentious CBD base for the practical backpacker who prioritises central location and reasonable price over social atmosphere.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "6.5", "bestRating": "10", "worstRating": "1" }
+            },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Female-only dorm available", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "24-hour reception", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Amber" }
+            ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 5,
@@ -760,6 +727,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#villa-viva-cape-town",
             "name": "Villa Viva Cape Town",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#villa-viva-cape-town",
+            "description": "A distinctive meeting point for creatives, volunteers, NGO workers, and social entrepreneurs. Events — networking evenings, community dinners, creative showcases — happen here that you won't find in a standard hostel.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "74 New Church St",
@@ -768,17 +736,39 @@
               "postalCode": "8001",
               "addressCountry": "ZA"
             },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -33.92714,
-              "longitude": 18.41038
-            },
-            "hasMap": "https://maps.google.com/?q=-33.92714,18.41038",
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.92714, "longitude": 18.41038 },
+            "telephone": "+27214234530",
+            "email": "contact@villaviva.capetown",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=cape-town",
+            "priceRange": "$-$$",
             "sameAs": [
-            "https://maps.google.com/maps/place/?q=place_id:ChIJS7kbEm5nzB0R-7HuAwKZjHo"
+              "https://maps.google.com/maps/place/?q=place_id:ChIJS7kbEm5nzB0R-7HuAwKZjHo",
+              "https://www.villaviva-capetown.com",
+              "https://www.booking.com/hotel/za/the-backpack-africa-travel-centre.html",
+              "https://www.facebook.com/villavivacapetown"
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "9.3",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "An inspired choice for the socially curious traveller who wants to connect with Cape Town's creative community rather than just pass through it.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "8.0", "bestRating": "10", "worstRating": "1" }
+            },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Community events and networking evenings", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Amber" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 6,
@@ -787,6 +777,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#anzac-backpackers",
             "name": "Stags Head Inn",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#anzac-backpackers",
+            "description": "Budget accommodation above the Stags Head pub. The lowest-cost dorm option near Long Street. For the traveller whose primary requirements are cheap, central, and able to walk downstairs to a pint.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "71 Hope Street",
@@ -795,14 +786,30 @@
               "postalCode": "8001",
               "addressCountry": "ZA"
             },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -33.93003,
-              "longitude": 18.41916
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.93003, "longitude": 18.41916 },
+            "telephone": "+27214651325",
+            "email": "info@stagshead.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=cape-town",
+            "priceRange": "$",
+            "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJdWmTrntnzB0RUIHVmwEQUXU",
+              "https://www.stagshead.co.za"
+            ],
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The cheapest legal bed near Long Street. Worth considering only if budget is the absolute deciding factor.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "5.0", "bestRating": "10", "worstRating": "1" }
             },
-"hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJdWmTrntnzB0RUIHVmwEQUXU"            
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Pub on premises", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "1/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Amber" }
+            ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 7,
@@ -811,6 +818,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#ninety-one-loop-boutique-hostel",
             "name": "91 Loop Boutique Hostel",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#ninety-one-loop-boutique-hostel",
+            "description": "The best-designed hostel in Cape Town's CBD. Capsule pod dorms, the Honey Badger bistro restaurant, 250+ Mbps fibre Wi-Fi, coded access, and staff-organised activities. Consistently the top-rated hostel in the City Bowl.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "91 Loop Street",
@@ -819,17 +827,44 @@
               "postalCode": "8001",
               "addressCountry": "ZA"
             },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -33.92211,
-              "longitude": 18.41854
-            },
-            "hasMap": "https://maps.google.com/?q=-33.92211,18.41854"
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.92211, "longitude": 18.41854 },
+            "telephone": "+27212861469",
+            "email": "hello@91loop.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=cape-town",
+            "priceRange": "$$",
             "sameAs": [
-            "https://maps.google.com/maps/place/?q=place_id:ChIJxcf90mVnzB0RuedPG8xA1qM"
+              "https://maps.google.com/maps/place/?q=place_id:ChIJxcf90mVnzB0RuedPG8xA1qM",
+              "https://www.91loop.co.za",
+              "https://www.booking.com/hotel/za/91-loop.html",
+              "https://www.facebook.com/91loop/"
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "8.6",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The best all-rounder in the Cape Town CBD. Consistently top-rated, well-designed, central, and run with genuine care. The capsule pods are the best value sleep in the City Bowl.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "9.0", "bestRating": "10", "worstRating": "1" }
+            },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Capsule pod dorms with privacy screens", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Honey Badger bistro restaurant", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "250+ Mbps uncapped fibre Wi-Fi", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Coded building access", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Female-only dorms available", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "24-hour reception", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 8,
@@ -838,6 +873,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#forty-eight-backpackers",
             "name": "Forty 8 Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#forty-eight-backpackers",
+            "description": "A Victorian terrace house near District Six that does the basics competently. Solid budget option for independent travellers who don't need a hostel community to have a good time.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "48 Hout Street",
@@ -846,14 +882,34 @@
               "postalCode": "8001",
               "addressCountry": "ZA"
             },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -33.92169,
-              "longitude": 18.4205
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.92169, "longitude": 18.4205 },
+            "telephone": "+27214224848",
+            "contactPoint": [
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27214224848" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27214224848", "description": "WhatsApp" }
+            ],
+            "email": "info@forty8backpackers.com",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=cape-town",
+            "priceRange": "$",
+            "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJpzP4G2RnzB0RYYet5pl68k0",
+              "https://www.forty8backpackers.co.za",
+              "https://www.facebook.com/www.forty8bacpackers.co.za"
+            ],
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "Solid budget option near District Six. Best for independent travellers who don't need a hostel community to have a good time.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "6.0", "bestRating": "10", "worstRating": "1" }
             },
-"hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJpzP4G2RnzB0RYYet5pl68k0"            
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Amber" }
+            ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 9,
@@ -862,6 +918,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#two-oceans-backpackers",
             "name": "Two Oceans Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#two-oceans-backpackers",
+            "description": "A quiet, low-key hostel in the Gardens suburb. More of a base camp than a social hub. Best for independent travellers who don't need a hostel to organise their social life.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "47 Long Street",
@@ -870,14 +927,28 @@
               "postalCode": "8001",
               "addressCountry": "ZA"
             },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -33.9213,
-              "longitude": 18.4205
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.9213, "longitude": 18.4205 },
+            "telephone": "+27214225401",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=cape-town",
+            "priceRange": "$",
+            "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJs3VYMGRnzB0Rj4bJK-VuOR8",
+              "https://www.facebook.com/twooceansbp"
+            ],
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "A peaceful budget option in one of Cape Town's best suburbs. Best for independent travellers who don't need a hostel to organise their social life.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "6.0", "bestRating": "10", "worstRating": "1" }
             },
-"hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJs3VYMGRnzB0Rj4bJK-VuOR8"            
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
+            ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 10,
@@ -886,6 +957,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#zebra-crossing-backpacker-lodge",
             "name": "Zebra Crossing Backpacker Lodge",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#zebra-crossing-backpacker-lodge",
+            "description": "One of Cape Town's most underrated hostels. Notable for its genuine community atmosphere — guests consistently report feeling looked after and extending their stays. Excellent for solo travellers and couples wanting a warm, quiet, safe base.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "82 New Church Street",
@@ -894,14 +966,42 @@
               "postalCode": "8001",
               "addressCountry": "ZA"
             },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -33.92751,
-              "longitude": 18.41012
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.92751, "longitude": 18.41012 },
+            "telephone": "+27214221265",
+            "contactPoint": [
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27214221265" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27766017041", "description": "WhatsApp" }
+            ],
+            "email": "zebracrossingbackpacker@gmail.com",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=cape-town",
+            "priceRange": "$",
+            "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJWf0dYkBnzB0RnYheTjZcuy0",
+              "https://www.zebracrossingbp.com",
+              "https://www.booking.com/hotel/za/zebra-crossing-backpacker.html",
+              "https://www.facebook.com/zebracrossingbackpackers"
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "8.7",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
             },
-"hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJWf0dYkBnzB0RnYheTjZcuy0"            
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "One of Cape Town's most underrated hostels. Excellent for solo travellers and couples wanting a warm, quiet, safe base in a beautiful neighbourhood. Highly recommended.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "8.5", "bestRating": "10", "worstRating": "1" }
+            },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
+            ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 11,
@@ -910,7 +1010,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#bokaap-backpackers",
             "name": "Bokaap Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#bokaap-backpackers",
-            "description": "The only hostel in the Bo-Kaap — the historic Cape Malay neighbourhood of steep cobbled streets and neon-painted houses above the CBD. Unique location in one of Cape Town's most culturally significant and photogenic districts.",
+            "description": "The only hostel in the Bo-Kaap — Cape Town's historic Cape Malay neighbourhood of steep cobbled streets and neon-painted houses. Uniquely located in one of Cape Town's most beautiful and historically significant neighbourhoods.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "5 Carl St",
@@ -919,14 +1019,27 @@
               "postalCode": "8001",
               "addressCountry": "ZA"
             },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -33.91835,
-              "longitude": 18.41347
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.91835, "longitude": 18.41347 },
+            "telephone": "+27713319878",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=cape-town",
+            "priceRange": "$",
+            "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJBx0DSGhnzB0R88luvSeW3po"
+            ],
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "Uniquely located in one of Cape Town's most beautiful and historically significant neighbourhoods. The setting alone makes it worth considering, especially for culturally curious travellers.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "7.0", "bestRating": "10", "worstRating": "1" }
             },
-"hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJBx0DSGhnzB0R88luvSeW3po"            
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
+            ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 12,
@@ -935,6 +1048,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#curiocity-green-point",
             "name": "Curiocity Green Point",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#curiocity-green-point",
+            "description": "The Waterfront-facing CURIOCITY option. Same high-security standards as Kloof Street: 24-hour reception, coded access, digital safes, fast fibre Wi-Fi. Best for flashpackers and digital nomads who want to be walking distance from the V&A.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "153 Main Rd",
@@ -943,17 +1057,46 @@
               "postalCode": "8051",
               "addressCountry": "ZA"
             },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -33.9078,
-              "longitude": 18.40638
-            },
-"hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJx3CMwFRnzB0RANzu9UMuyds",            ,
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.9078, "longitude": 18.40638 },
+            "telephone": "+27214334310",
+            "contactPoint": [
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27214334310" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27663524511", "description": "WhatsApp" }
+            ],
+            "email": "greenpoint@curiocity.africa",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=cape-town",
+            "priceRange": "$$$",
             "sameAs": [
-              "https://curiocity.africa/"
+              "https://maps.google.com/maps/place/?q=place_id:ChIJx3CMwFRnzB0RANzu9UMuyds",
+              "https://curiocity.africa/",
+              "https://www.booking.com/hotel/za/curiocity-cape-town.html",
+              "https://www.facebook.com/curiocityafrica/"
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "8.6",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The Waterfront-facing CURIOCITY option. Best for flashpackers and digital nomads who want to be walking distance from the V&A without sacrificing design quality or security.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "8.5", "bestRating": "10", "worstRating": "1" }
+            },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Coded building access", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "24-hour reception", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Fast fibre Wi-Fi", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Female-only shared suites available", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 13,
@@ -962,6 +1105,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#big-backpackers",
             "name": "B.I.G.: Backpackers In Green Point",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#big-backpackers",
+            "description": "The best hostel in Cape Town. Top-rated across every platform. En-suite bathrooms in all rooms including dorms, free breakfast, quiet cul-de-sac location, and management that genuinely cares. Book early — it fills fast.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "18 Thornhill Rd",
@@ -970,14 +1114,47 @@
               "postalCode": "8051",
               "addressCountry": "ZA"
             },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -33.91031,
-              "longitude": 18.40929
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.91031, "longitude": 18.40929 },
+            "telephone": "+27214340688",
+            "contactPoint": [
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27214340688" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27724942197", "description": "WhatsApp" }
+            ],
+            "email": "info@bigbackpackers.com",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=cape-town",
+            "priceRange": "$$-$$$",
+            "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJbe7SnUZnzB0RU0lGbew2kKU",
+              "https://www.bigbackpackers.com",
+              "https://www.booking.com/hotel/za/the-b-i-g-backpackers.html",
+              "https://www.facebook.com/bigbackpackers"
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "9.7",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
             },
-"hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJbe7SnUZnzB0RU0lGbew2kKU"
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The best hostel in Cape Town. Top-rated across every platform. The free breakfast alone is worth the price. Book early — it fills fast.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "9.8", "bestRating": "10", "worstRating": "1" }
+            },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "En-suite bathrooms in all rooms including dorms", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Free breakfast included", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "24-hour staffed reception", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Girls-only dorm available on request", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Inverter backup power", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "5/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
+            ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 14,
@@ -986,6 +1163,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#big-blue-backpackers",
             "name": "Big Blue Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#big-blue-backpackers",
+            "description": "A physically impressive Victorian mansion in a great Green Point location with original plaster ceilings, stained glass, wooden floors, a pool, and a bar with genuine character. Held back by inconsistent standards — check current Hostelworld reviews before booking.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "7 Vesperdene Rd",
@@ -994,14 +1172,41 @@
               "postalCode": "8051",
               "addressCountry": "ZA"
             },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -33.91048,
-              "longitude": 18.41265
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.91048, "longitude": 18.41265 },
+            "telephone": "+27214390807",
+            "email": "big.blue@mweb.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=cape-town",
+            "priceRange": "$-$$",
+            "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJ-bhuYERnzB0RPCYHPmmdxU4",
+              "https://www.bigblue.za.net",
+              "https://www.booking.com/hotel/za/big-blue-backpackers-lodge.html",
+              "https://www.facebook.com/bigbluebackpackers"
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "8.1",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
             },
-"hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJ-bhuYERnzB0RPCYHPmmdxU4"
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "A physically impressive Victorian hostel in a great location, held back by inconsistent standards. Good for the right stay at the right time — but check current Hostelworld reviews first.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "6.5", "bestRating": "10", "worstRating": "1" }
+            },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Outdoor swimming pool", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Bar", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "24-hour reception", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Amber" }
+            ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 15,
@@ -1010,6 +1215,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#atlantic-point-backpackers",
             "name": "Atlantic Point Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#atlantic-point-backpackers",
+            "description": "A dependable, quiet budget base for the Atlantic Seaboard explorer. Not exciting — and sometimes that is exactly what is required.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "2 Cavalcade Rd",
@@ -1018,14 +1224,34 @@
               "postalCode": "8051",
               "addressCountry": "ZA"
             },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -33.90959,
-              "longitude": 18.41165
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.90959, "longitude": 18.41165 },
+            "telephone": "+27214331663",
+            "contactPoint": [
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27214331663" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27768126006", "description": "WhatsApp" }
+            ],
+            "email": "info@atlanticpoint.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=cape-town",
+            "priceRange": "$",
+            "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJoV1GSURnzB0R-BUyi0TfsKs",
+              "https://www.atlanticpoint.co.za",
+              "https://www.facebook.com/atlanticpoint"
+            ],
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "A dependable, quiet budget base for the Atlantic Seaboard explorer. Not exciting — and sometimes that is exactly what is required.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "6.5", "bestRating": "10", "worstRating": "1" }
             },
-"hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJoV1GSURnzB0R-BUyi0TfsKs"
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
+            ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 16,
@@ -1034,6 +1260,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#house-on-the-hill",
             "name": "House On The Hill",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#house-on-the-hill",
+            "description": "The best quiet option in the Atlantic Seaboard area. Mountain views, Signal Hill hiking from the doorstep, and budget prices in one of Cape Town's finest residential areas. Highly recommended for those prioritising peace and views over social atmosphere.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "5 Norman Rd",
@@ -1042,14 +1269,44 @@
               "postalCode": "8051",
               "addressCountry": "ZA"
             },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -33.90889,
-              "longitude": 18.41067
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.90889, "longitude": 18.41067 },
+            "telephone": "+27214393902",
+            "contactPoint": [
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27214393902" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27732173428", "description": "WhatsApp" }
+            ],
+            "email": "info@houseonthehillct.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=cape-town",
+            "priceRange": "$",
+            "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJLTdFzkVnzB0RBM0m1uyWQ_I",
+              "https://www.houseonthehillct.co.za",
+              "https://www.booking.com/hotel/za/house-on-the-hill.html",
+              "https://www.facebook.com/houseonthehillcapetown"
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "9.4",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
             },
-"hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJLTdFzkVnzB0RBM0m1uyWQ_I"
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The best quiet option in the Atlantic Seaboard area. Highly recommended for those prioritising peace, views, and proximity to Signal Hill hiking over social atmosphere.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "8.5", "bestRating": "10", "worstRating": "1" }
+            },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Signal Hill and Lion's Head hiking access", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Mountain views", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
+            ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 17,
@@ -1058,6 +1315,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#never-at-home-cape-town",
             "name": "Never@Home Cape Town",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#never-at-home-cape-town",
+            "description": "A modern, well-managed, activity-focused hostel in Green Point. Excellent staff. Above the mid-range average in almost every measure.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "107 Main Rd",
@@ -1066,14 +1324,38 @@
               "postalCode": "8051",
               "addressCountry": "ZA"
             },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -33.90777,
-              "longitude": 18.40917
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.90777, "longitude": 18.40917 },
+            "telephone": "+27214349282",
+            "email": "reservations@neverathomehostels.com",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=cape-town",
+            "priceRange": "$$",
+            "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJwWdbDkZnzB0RNFSGehfxwps",
+              "https://www.neverathomeworld.com",
+              "https://www.booking.com/hotel/za/never-home.html",
+              "https://www.facebook.com/neverathomeGP"
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "9.3",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
             },
-"hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJwWdbDkZnzB0RNFSGehfxwps"
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "A modern, well-managed, activity-focused hostel. Excellent staff. Above the mid-range average in almost every measure.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "8.5", "bestRating": "10", "worstRating": "1" }
+            },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
+            ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 18,
@@ -1082,6 +1364,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#a-sunflower-stop-backpackers",
             "name": "A Sunflower Stop Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#a-sunflower-stop-backpackers",
+            "description": "Highly recommended. Book the terrace room well in advance. One of Sea Point's finest budget options, with the Sea Point Main Road's restaurants and promenade immediately outside.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "179 Main Rd",
@@ -1090,14 +1373,43 @@
               "postalCode": "8051",
               "addressCountry": "ZA"
             },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -33.90712,
-              "longitude": 18.40834
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.90712, "longitude": 18.40834 },
+            "telephone": "+27214346535",
+            "contactPoint": [
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27214346535" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27646108479", "description": "WhatsApp" }
+            ],
+            "email": "info@sunflowerstop.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=cape-town",
+            "priceRange": "$",
+            "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJI3MU_0dnzB0RKSM6bcZ6xzI",
+              "https://www.sunflowerstop.co.za",
+              "https://www.booking.com/hotel/za/a-sunflower-stop.html",
+              "https://www.facebook.com/ASunflowerStop"
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "9.3",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
             },
-"hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJI3MU_0dnzB0RKSM6bcZ6xzI"
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "Highly recommended. Book the terrace room well in advance. If it's taken, the standard dorms are also excellent. One of Sea Point's finest budget options.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "8.5", "bestRating": "10", "worstRating": "1" }
+            },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Terrace room with views", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
+            ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 19,
@@ -1106,7 +1418,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#mojo-hotel",
             "name": "Mojo Hotel",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#mojo-hotel",
-            "description": "Boutique hotel-hostel hybrid on the Sea Point beachfront strip, directly on the Atlantic Seaboard. Rooftop bar with ocean views, private rooms with hotel-grade amenities at hostel-adjacent pricing.",
+            "description": "The ultimate choice for social explorers, foodies, and digital nomads who thrive on urban energy. Boutique hotel-hostel hybrid on the Sea Point beachfront strip with a rooftop bar and the Mojo Market downstairs.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "30 Regent Rd",
@@ -1115,14 +1427,45 @@
               "postalCode": "8060",
               "addressCountry": "ZA"
             },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -33.91916,
-              "longitude": 18.38615
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.91916, "longitude": 18.38615 },
+            "telephone": "+27879407474",
+            "contactPoint": [
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27879407474" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27822394951", "description": "WhatsApp" }
+            ],
+            "email": "gomojo@themojohotel.com",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=cape-town",
+            "priceRange": "$$$",
+            "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJQ7N0KCJnzB0Ro8SPl08qHJ4",
+              "https://www.themojohotel.com",
+              "https://www.booking.com/hotel/za/mojo-hotel.en-gb.html",
+              "https://www.facebook.com/mojohotel"
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "8.0",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
             },
-"hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJQ7N0KCJnzB0Ro8SPl08qHJ4"
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The ultimate choice for social explorers, foodies, and digital nomads who thrive on urban energy and convenience.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "7.5", "bestRating": "10", "worstRating": "1" }
+            },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Rooftop bar with ocean views", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Mojo Market food hall on-site", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Crash pad pod rooms available", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
+            ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 20,
@@ -1131,7 +1474,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#green-elephant-backpackers",
             "name": "Green Elephant Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#green-elephant-backpackers",
-            "description": "One of Observatory's long-standing backpacker institutions, within walking distance of the Armchair Theatre and the Lower Main Road café strip. Garden setting, relaxed vibe, community atmosphere.",
+            "description": "Cape Town's finest hostel for the traveller who wants character, community, and bohemian neighbourhood atmosphere over centrality and design polish. Highly recommended for those who have already done the CBD circuit.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "57 Milton Rd",
@@ -1140,14 +1483,47 @@
               "postalCode": "7925",
               "addressCountry": "ZA"
             },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -33.93793,
-              "longitude": 18.46531
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.93793, "longitude": 18.46531 },
+            "telephone": "+27214486359",
+            "contactPoint": [
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27214486359" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27214486359", "description": "WhatsApp" }
+            ],
+            "email": "stay@greenelephant.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=cape-town",
+            "priceRange": "$",
+            "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJd9EypQVdzB0RZhPKFtfvU2k",
+              "https://www.greenelephant.co.za",
+              "https://www.booking.com/hotel/za/green-elephant-backpackers.html",
+              "https://www.facebook.com/greenelephantbackpackers"
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "6.9",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
             },
-"hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJd9EypQVdzB0RZhPKFtfvU2k"
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "Cape Town's finest hostel for the traveller who wants character, community, and bohemian neighbourhood atmosphere over centrality and design polish. Highly recommended for those who have already done the CBD circuit.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "8.0", "bestRating": "10", "worstRating": "1" }
+            },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Female-only dorm available", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "100+ Mbps fibre Wi-Fi", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Laptop-compatible safes", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Walled garden with secure perimeter", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "24-hour front desk", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
+            ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 21,
@@ -1156,6 +1532,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#african-heart-backpackers",
             "name": "African Heart Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#african-heart-backpackers",
+            "description": "Reliable ultra-budget option in Observatory. Best for independent travellers who know what they want and don't need a hostel to organise it for them.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "27 Station Rd",
@@ -1164,14 +1541,33 @@
               "postalCode": "7925",
               "addressCountry": "ZA"
             },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -33.93883,
-              "longitude": 18.46689
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.93883, "longitude": 18.46689 },
+            "telephone": "+27214479225",
+            "contactPoint": [
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27214479225" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27768057984", "description": "WhatsApp" }
+            ],
+            "email": "info@africanheartbackpackers.com",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=cape-town",
+            "priceRange": "$",
+            "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJ-wNd-gRdzB0RkI-mCmN5t1w",
+              "https://www.africanheartbackpackers.com"
+            ],
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "Reliable ultra-budget option in Observatory. Best for independent travellers who know what they want and don't need a hostel to organise it for them.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "6.0", "bestRating": "10", "worstRating": "1" }
             },
-"hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJ-wNd-gRdzB0RkI-mCmN5t1w"
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
+            ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 22,
@@ -1180,6 +1576,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#bohemian-lofts-backpackers",
             "name": "Bohemian Lofts Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#bohemian-lofts-backpackers",
+            "description": "A characterful budget option in Observatory with an artistic edge. Best for creatively inclined travellers who want Observatory's neighbourhood character.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "41 Trill Rd",
@@ -1188,14 +1585,37 @@
               "postalCode": "7925",
               "addressCountry": "ZA"
             },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -33.93916,
-              "longitude": 18.46891
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.93916, "longitude": 18.46891 },
+            "telephone": "+27214476204",
+            "email": "info@bohemianlofts.com",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=cape-town",
+            "priceRange": "$",
+            "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJb2jsngRdzB0ROqXQ1MkVbY4",
+              "https://www.bohemianlofts.com",
+              "https://www.facebook.com/bohemianlofts"
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "7.1",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
             },
-"hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJb2jsngRdzB0ROqXQ1MkVbY4"
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "A characterful budget option with an artistic edge. Best for creatively inclined travellers who want Observatory's neighbourhood character.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "6.5", "bestRating": "10", "worstRating": "1" }
+            },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
+            ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 23,
@@ -1204,6 +1624,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#riverlodge-backpackers",
             "name": "Riverlodge Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#riverlodge-backpackers",
+            "description": "The cheapest large-capacity option on this list. 99 beds. Suited to group bookings, sports tours, and airport-proximity overnights. Not recommended for solo international travellers seeking a backpacker community experience.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "80 Alexandra Rd",
@@ -1212,23 +1633,107 @@
               "postalCode": "7405",
               "addressCountry": "ZA"
             },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -33.93947,
-              "longitude": 18.48957
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.93947, "longitude": 18.48957 },
+            "telephone": "+27214480526",
+            "contactPoint": [
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27214480526" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27825150407", "description": "WhatsApp" }
+            ],
+            "email": "info@riverlodge.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=cape-town",
+            "priceRange": "$",
+            "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJS97dMu5czB0RLr8-5H77asw",
+              "https://www.riverlodge.co.za",
+              "https://www.hostelworld.com/hostels/p/5661/riverlodge-backpackers/",
+              "https://www.facebook.com/Riverlodgebackpackers"
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "7.1",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
             },
-"hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJS97dMu5czB0RLr8-5H77asw"
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The cheapest large-capacity option on this list, suited to group bookings and airport-proximity overnights. Not recommended for solo international travellers seeking a backpacker community experience.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "5.0", "bestRating": "10", "worstRating": "1" }
+            },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Large group capacity (99 beds)", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
+            ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 24,
           "item": {
             "@type": "Hostel",
+            "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#lighthouse-farm-backpackers",
+            "name": "Lighthouse Farm Backpackers",
+            "url": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#lighthouse-farm-backpackers",
+            "description": "Cape Town's most unique hostel setting — an eco-village on a converted psychiatric hospital site, home to organic farmers, craftspeople, and horses. Budget prices, 15 minutes from the CBD, with Devil's Peak views and the Know thy Farmer café on-site.",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Alexandra Rd",
+              "addressLocality": "Pinelands, Cape Town",
+              "addressRegion": "Western Cape",
+              "postalCode": "7405",
+              "addressCountry": "ZA"
+            },
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.93755, "longitude": 18.48803 },
+            "telephone": "+27214479165",
+            "contactPoint": [
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27214479165" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27827442504", "description": "WhatsApp" }
+            ],
+            "email": "bookings@lighthousefarm.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=cape-town",
+            "priceRange": "$",
+            "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJB4F5Wu5czB0Rm67zKlWBubU",
+              "https://www.lighthousefarm.co.za",
+              "https://www.booking.com/hotel/za/lighthouse-farm-backpackers.html"
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "6.0",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "Cape Town's most unique hostel setting. Essential for the traveller who wants something genuinely different from the standard backpacker circuit. Quiet, beautiful, and unexpectedly memorable.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "8.5", "bestRating": "10", "worstRating": "1" }
+            },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Eco-village setting with organic farm", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Gated 24-hour security", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Know thy Farmer café on-site", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Horse riding by arrangement", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Devil's Peak views", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
+            ]
+          }
+        },
+
+        {
+          "@type": "ListItem",
+          "position": 25,
+          "item": {
+            "@type": "Hostel",
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#hout-bay-dune-lodge",
             "name": "Hout Bay Dune Lodge",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#hout-bay-dune-lodge",
-            "description": "The only hostel on the Atlantic Seaboard side of the mountain, in the fishing village of Hout Bay. Gateway to Chapman's Peak Drive and the Hout Bay harbour.",
+            "description": "One of the finest backpacker lodges in South Africa. En-suite dorms, private terrace rooms, extraordinary Hout Bay village location, and management that genuinely cares. Book the terrace room if available.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Corner Harbour Rd and North Shore Dr",
@@ -1237,39 +1742,46 @@
               "postalCode": "7806",
               "addressCountry": "ZA"
             },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -34.04543,
-              "longitude": 18.34946
+            "geo": { "@type": "GeoCoordinates", "latitude": -34.04543, "longitude": 18.34946 },
+            "telephone": "+27792679472",
+            "contactPoint": [
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27792679472" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27792679472", "description": "WhatsApp" }
+            ],
+            "email": "bookings@dunelodge.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=cape-town",
+            "priceRange": "$-$$",
+            "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJCQQvoiRpzB0Rr6mi5dnADls",
+              "https://www.dunelodge.co.za",
+              "https://www.booking.com/hotel/za/hout-bay-backpackers-hout-bay.html",
+              "https://www.facebook.com/dunelodgehoutbay"
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "9.1",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
             },
-"hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJCQQvoiRpzB0Rr6mi5dnADls"
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "One of the finest backpacker lodges in South Africa. En-suite dorms, private terrace rooms, an extraordinary location, and management that genuinely cares. Book the terrace room if it's available. Book anything if it isn't.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "9.5", "bestRating": "10", "worstRating": "1" }
+            },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "En-suite bathrooms in all rooms including dorms", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Private terrace rooms", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Free coffee in the mornings", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Guest WhatsApp social group", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "5/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
+            ]
           }
         },
-        {
-          "@type": "ListItem",
-          "position": 25,
-          "item": {
-            "@type": "Hostel",
-            "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#saltycrax-backpackers",
-            "name": "Saltycrax Backpackers and Adventures",
-            "url": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#saltycrax-backpackers",
-            "description": "Adventure-focused hostel in Table View on the northern shore, close to Kite Beach and the kiteboarding scene at Big Bay. Best base for kitesurfers and windsurf enthusiasts.",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "20 Briza Rd",
-              "addressLocality": "Table View, Cape Town",
-              "addressRegion": "Western Cape",
-              "postalCode": "7441",
-              "addressCountry": "ZA"
-            },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -33.82109,
-              "longitude": 18.48276
-            },
-"hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJGXoDwQxfzB0RWUkrFz9y8j8"
-          }
-        },
+
         {
           "@type": "ListItem",
           "position": 26,
@@ -1286,15 +1798,75 @@
             }
           }
         },
+
         {
           "@type": "ListItem",
           "position": 27,
           "item": {
             "@type": "Hostel",
+            "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#saltycrax-backpackers",
+            "name": "Saltycrax Backpackers and Adventures",
+            "url": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#saltycrax-backpackers",
+            "description": "Cape Town's water sports hostel. The base for anyone who wants to spend days kiteboarding or windsurfing at Kite Beach and evenings in a jacuzzi in a tropical garden with a bonfire. TGCSA 5-star graded.",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "20 Briza Rd",
+              "addressLocality": "Table View, Cape Town",
+              "addressRegion": "Western Cape",
+              "postalCode": "7441",
+              "addressCountry": "ZA"
+            },
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.82109, "longitude": 18.48276 },
+            "telephone": "+27664377801",
+            "contactPoint": [
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27664377801" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27664377801", "description": "WhatsApp" }
+            ],
+            "email": "info@saltycrax.com",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=cape-town",
+            "priceRange": "$-$$",
+            "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJGXoDwQxfzB0RWUkrFz9y8j8",
+              "https://saltycrax.com",
+              "https://www.booking.com/hotel/za/saltycrax-backpackers.html",
+              "https://www.facebook.com/SaltyCraxBackpackers"
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "5.6",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "Cape Town's water sports hostel. If you're coming to Cape Town for the wind and water, or want to learn to kite surf in the next three days, this is where you should be.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "7.5", "bestRating": "10", "worstRating": "1" }
+            },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Jacuzzi", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Bonfire pit", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Tropical garden", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solar power backup", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Free private parking", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Kite surfing and wind surfing packages", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
+            ]
+          }
+        },
+
+        {
+          "@type": "ListItem",
+          "position": 28,
+          "item": {
+            "@type": "Hostel",
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#african-soul-surfer-backpackers",
             "name": "African Soul Surfer Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#african-soul-surfer-backpackers",
-            "description": "The essential Cape Town surf hostel. Directly on Surfers' Corner at Muizenberg — the best beginner surf beach in Cape Town. Sea-view rooms with private balconies, on-site surf school (lessons from R350), yoga classes, The Commons Café downstairs, live music nights, and fingerprint building access. 5 minutes from Muizenberg train station (30 min to CBD).",
+            "description": "The essential Cape Town surf hostel. Directly on Surfers' Corner at Muizenberg — the best beginner surf beach in Cape Town. Sea-view rooms with private balconies, on-site surf school, yoga classes, The Commons Café downstairs, live music nights, and fingerprint building access.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "13 York Rd",
@@ -1303,84 +1875,41 @@
               "postalCode": "7945",
               "addressCountry": "ZA"
             },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -34.10792,
-              "longitude": 18.4691
+            "geo": { "@type": "GeoCoordinates", "latitude": -34.10792, "longitude": 18.4691 },
+            "telephone": "+27217881771",
+            "contactPoint": [
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27217881771" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27768057984", "description": "WhatsApp" }
+            ],
+            "email": "info@africansoulsurfer.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=cape-town",
+            "priceRange": "$-$$",
+            "sameAs": [
+              "https://maps.google.com/maps/place/?q=place_id:ChIJTeIaU1FAzB0RWBZkZMJLXPM",
+              "https://www.africansoulsurfer.co.za",
+              "https://www.booking.com/hotel/za/african-soul-surfer.html",
+              "https://www.facebook.com/africansoulsurfer"
+            ],
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The essential Cape Town surf hostel, in the definitive Cape Town surf location. Sea-view rooms with balconies at these prices, 50 metres from Surfers' Corner. Book the ocean-facing room well in advance.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "8.0", "bestRating": "10", "worstRating": "1" }
             },
-"hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJTeIaU1FAzB0RWBZkZMJLXPM",
-            "priceRange": "ZAR250–ZAR1200",
             "amenityFeature": [
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Direct Surfers' Corner beachfront location",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "On-site surf school",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Sea-view rooms with private balconies",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Yoga classes",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "The Commons Café (on-site, open to public)",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Live music and jazz events",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Fingerprint building access",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Board hire and storage",
-                "value": true
-              },
-              {
-                "@type": "LocationFeatureSpecification",
-                "name": "Baz Bus stop on Muizenberg line",
-                "value": true
-              }
+              { "@type": "LocationFeatureSpecification", "name": "Direct Surfers' Corner beachfront location", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "On-site surf school", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Sea-view rooms with private balconies", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Yoga classes", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "The Commons Café (on-site, open to public)", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Live music and jazz events", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Fingerprint building access", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Board hire and storage", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Baz Bus stop on Muizenberg line", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 28,
-          "item": {
-            "@type": "Hostel",
-            "@id": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#lighthouse-farm-backpackers",
-            "name": "Lighthouse Farm Backpackers",
-            "url": "https://www.backpackersbible.com/backpacking-south-africa/cape-town#lighthouse-farm-backpackers",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Alexandra Rd",
-              "addressLocality": "Pinelands, Cape Town",
-              "addressRegion": "Western Cape",
-              "postalCode": "7405",
-              "addressCountry": "ZA"
-            },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": -33.93755,
-              "longitude": 18.48803
-            },
-"hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJB4F5Wu5czB0Rm67zKlWBubU"
           }
         }
 
@@ -1931,7 +2460,7 @@
 
 <h4 class="sub-heading-desktop">The Northern Suburbs: Kite Country</h4>
 
-<p class="intro-p">Drive north from the city past the port and the industrial flatlands and you arrive at Bloubergstrand and Big Bay, on the western shore of Table Bay. This is where the Cape Doctor blows hardest — the fierce south-easterly wind that rakes the city from November to March — and it is, as a consequence, one of the premier kiteboarding destinations on the planet. Between December and February, the sky above Kite Beach is literally filled with hundreds of kites, the surfers below are foil-boarding at 40km/h, and the Table Mountain view across the bay is the most famous photograph in South Africa. There are beginner kite schools along the beachfront that will have you water-starting in three days. If that's not your thing, come at sunset for the view, which costs nothing.</p>
+<p class="intro-p">Drive north from the city past the port and the industrial flatlands and you arrive at Bloubergstrand (translated from Afrikaans, it means "Blue Mountain Beach", a wonderfully exotic name which describes the view of Table Mountain very aptly) and Big Bay, on the western shore of Table Bay. This is where the Cape Doctor blows hardest — the fierce south-easterly wind that rakes the city from November to March — and it is, as a consequence, one of the premier kiteboarding destinations on the planet. Between December and February, the sky above Kite Beach is literally filled with hundreds of kites, the surfers below are foil-boarding at 40km/h, and the Table Mountain view across the bay is the most famous photograph in South Africa. There are beginner kite schools along the beachfront that will have you water-starting in three days. If that's not your thing, come at sunset for the view, which costs nothing.</p>
 
 <h4 class="sub-heading-desktop">The Southern Suburbs and False Bay: The Other Ocean</h4>
 
@@ -2552,7 +3081,7 @@
 
             <p><strong>THE BLURB:</strong> Curiocity Kloof Street positions itself as the thinking traveller's Cape Town base — and it delivers on the pitch. This is a beautifully converted modernist building where the dorms have private kitchenettes, the terrace looks directly at Table Mountain, and the morning flat white from Bootlegger is genuinely one of the better coffees on Kloof Street. It draws digital nomads, solo women, flashpackers, and design-conscious travellers who want hostel prices without hostel compromises. The curated experience programme — cooking classes in Bo-Kaap, guided mountain walks with Bheki himself — adds a dimension that the average hostel bar simply doesn't offer. It isn't cheap by Cape Town hostel standards and it isn't trying to be. For the right traveller, it's exactly right.</p>
 
-            <p><strong>FINAL VERDICT: The premier choice for flashpackers, digital nomads, and solo women wanting a high-design, professionally managed, genuinely secure base in one of Cape Town's best neighbourhoods.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: The premier choice for flashpackers, digital nomads, and solo women wanting a high-design, professionally managed, genuinely secure base in one of Cape Town's best neighbourhoods.</strong></p>
 
   </div>
 </details>
@@ -2631,7 +3160,7 @@
 
             <p><strong>THE BLURB:</strong> Long Street Backpackers is the original Cape Town hostel experience and it has not tried to be anything else in 25+ years of operation. The free morning porridge, the bar balcony overlooking the most energetic street in the city, the township dinners, the staff who know every guest's name by day two — this is the social hostel in its purest form. It is basic, it is loud, and it is the place where more friendships between strangers have been made than perhaps anywhere else in Cape Town. Bring earplugs for the weekends and leave your expectations of a quiet night at the door. You'll be too busy having a good time to need them anyway.</p>
 
-            <p><strong>FINAL VERDICT: Cape Town's classic social hostel. The best single choice for solo travellers who want to meet people fast in the most central possible location — provided noise and basic facilities are not dealbreakers.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: Cape Town's classic social hostel. The best single choice for solo travellers who want to meet people fast in the most central possible location — provided noise and basic facilities are not dealbreakers.</strong></p>
 
   </div>
 </details>
@@ -2704,7 +3233,7 @@
 
             <p><strong>THE BLURB:</strong> Cape Town's oldest backpacker hostel, and the one that set the template everyone else has been trying to match ever since. A Victorian mansion at the foot of Table Mountain, a pool in the garden, a bar with a pool table, PIN-code access everywhere, individual safes in the dorms, and thirty years of accumulated knowledge about exactly what a good hostel feels like. Ashanti is not the flashiest option in Cape Town and it does not try to be — what it offers is something much harder to manufacture: genuine warmth, consistent standards, and the kind of physical infrastructure (the building, the garden, the pool terrace with the mountain above it) that reminds you why you left home in the first place.</p>
 
-            <p><strong>FINAL VERDICT: Cape Town's gold standard backpacker hostel. The benchmark. If you don't know where else to start, start here.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: Cape Town's gold standard backpacker hostel. The benchmark. If you don't know where else to start, start here.</strong></p>
 
   </div>
 </details>
@@ -2777,7 +3306,7 @@
 
             <p><strong>THE BLURB:</strong> Urban Hive is the no-frills, right-in-the-middle-of-it choice for the backpacker who wants to be walking distance from everything and doesn't need a pool or a party scene to be happy. The CBD location puts Greenmarket Square, Long Street, the Waterfront bus, and most of Cape Town's key day-trip starting points within a 10-minute walk. It is clean, it is functional, and the staff are helpful. It is not remarkable — and for a certain kind of traveller, that is precisely what is required.</p>
 
-            <p><strong>FINAL VERDICT: A solid, unpretentious CBD base for the practical backpacker who prioritises central location and reasonable price over social atmosphere.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: A solid, unpretentious CBD base for the practical backpacker who prioritises central location and reasonable price over social atmosphere.</strong></p>
 
   </div>
 </details>
@@ -2850,7 +3379,7 @@
 
             <p><strong>THE BLURB:</strong> Villa Viva is the hostel for the traveller who wants more than a place to sleep — it's a meeting point for Cape Town's creative and social enterprise community, where fellow guests are as likely to be local artists and NGO workers as European backpackers. The regular community events give it a texture that purely tourist-facing hostels can't replicate. If you want to understand Cape Town at a deeper level than the standard attractions trail, a few nights at Villa Viva will help.</p>
 
-            <p><strong>FINAL VERDICT: An inspired choice for the socially curious traveller who wants to connect with Cape Town's creative community rather than just pass through it.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: An inspired choice for the socially curious traveller who wants to connect with Cape Town's creative community rather than just pass through it.</strong></p>
 
   </div>
 </details>
@@ -2916,7 +3445,7 @@
 
             <p><strong>THE BLURB:</strong> ANZAC is the option for the traveller whose primary requirements are: cheap, central, and able to walk downstairs to a pint. It does not pretend to be more than this, and for a certain kind of night-owl budget traveller it is entirely adequate. Everyone else should look elsewhere.</p>
 
-            <p><strong>FINAL VERDICT: The cheapest legal bed near Long Street. Worth considering only if budget is the absolute deciding factor.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: The cheapest legal bed near Long Street. Worth considering only if budget is the absolute deciding factor.</strong></p>
 
   </div>
 </details>
@@ -2992,7 +3521,7 @@
 
             <p><strong>THE BLURB:</strong> 91 Loop is the best-designed hostel in Cape Town's CBD, and one of the best-reviewed in the entire city. The capsule pod dorms are a particularly smart innovation — the privacy screen and individual power station turn a shared room into something genuinely comfortable, at a price that is still within reach of the budget traveller. The Honey Badger bistro is a proper restaurant, not an afterthought bar serving chips. The Wi-Fi is fast. The staff are excellent. The MyCiTi bus is outside the door. If you are visiting Cape Town for the first time and want a base that does everything right without the party-hostel noise or the flashpacker price tag, 91 Loop is the answer.</p>
 
-            <p><strong>FINAL VERDICT: The best all-rounder in the Cape Town CBD. Consistently top-rated, well-designed, central, and run with genuine care. The capsule pods are the best value sleep in the City Bowl.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: The best all-rounder in the Cape Town CBD. Consistently top-rated, well-designed, central, and run with genuine care. The capsule pods are the best value sleep in the City Bowl.</strong></p>
 
   </div>
 </details>
@@ -3061,7 +3590,7 @@
 
             <p><strong>THE BLURB:</strong> Forty 8 is one of Cape Town's quieter, less-famous budget options — a Victorian terrace house that does the basics competently without a strong defining character. It suits the traveller who has already done Cape Town's social hostel circuit and just wants somewhere clean, central, and affordable for a few nights.</p>
 
-            <p><strong>FINAL VERDICT: Solid budget option near District Six. Best for independent travellers who don't need a hostel community to have a good time.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: Solid budget option near District Six. Best for independent travellers who don't need a hostel community to have a good time.</strong></p>
 
   </div>
 </details>
@@ -3129,7 +3658,7 @@
 
             <p><strong>THE BLURB:</strong> Two Oceans is a quiet, residential-feel hostel in the Gardens suburb — a good choice for the traveller who wants the convenience of the CBD without the noise of Long Street, and who prefers a home-like atmosphere to a social hostel scene. The Gardens neighbourhood has excellent restaurants and coffee shops within walking distance and is one of the nicest urban areas in the city.</p>
 
-            <p><strong>FINAL VERDICT: A peaceful budget option in one of Cape Town's best suburbs. Best for independent travellers who don't need a hostel to organise their social life.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: A peaceful budget option in one of Cape Town's best suburbs. Best for independent travellers who don't need a hostel to organise their social life.</strong></p>
 
   </div>
 </details>
@@ -3205,7 +3734,7 @@
 
             <p><strong>THE BLURB:</strong> Zebra Crossing is one of Cape Town's best-kept hostel secrets, consistently outscoring much more famous neighbours in actual guest ratings. The Tamboerskloof location — quiet, residential, leafy, with Signal Hill above you and the Bo-Kaap a short walk below — is genuinely lovely. The pool is clean. The staff are warm and attentive in a way that makes guests feel genuinely welcomed rather than processed. The Tripadvisor reviews include phrases like "the kind of place you remember for years," which is about the highest compliment a backpacker hostel can receive.</p>
 
-            <p><strong>FINAL VERDICT: One of Cape Town's most underrated hostels. Excellent for solo travellers and couples wanting a warm, quiet, safe base in a beautiful neighbourhood. Highly recommended.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: One of Cape Town's most underrated hostels. Excellent for solo travellers and couples wanting a warm, quiet, safe base in a beautiful neighbourhood. Highly recommended.</strong></p>
 
   </div>
 </details>
@@ -3272,7 +3801,7 @@
 
             <p><strong>THE BLURB:</strong> The only hostel in Cape Town where you wake up to the adhan (call to prayer) echoing off coloured walls, look out onto cobbled streets of houses in pink, yellow, and aquamarine, and can buy the best samosas in the city from a woman at the corner who has been making them for thirty years. The Bo-Kaap is a living community, not a museum, and staying in the middle of it — rather than visiting it as a day trip from somewhere else — makes a real difference to how you experience it.</p>
 
-            <p><strong>FINAL VERDICT: Uniquely located in one of Cape Town's most beautiful and historically significant neighbourhoods. The setting alone makes it worth considering, especially for culturally curious travellers.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: Uniquely located in one of Cape Town's most beautiful and historically significant neighbourhoods. The setting alone makes it worth considering, especially for culturally curious travellers.</strong></p>
 
   </div>
 </details>
@@ -3352,7 +3881,7 @@
 
             <p><strong>THE BLURB:</strong> CURIOCITY Green Point is the Waterfront-adjacent option for the traveller who wants the CURIOCITY design and service standard with easy access to the V&A Waterfront, the Sea Point Promenade, and the Stadium. The Somerset Road location is noisier and more urban than Kloof Street, but the neighbourhood is excellent, the Waterfront is walkable, and the design quality of the rooms and communal spaces is consistent with the brand's flagship. If you're spending time at the Waterfront, Camps Bay, or Sea Point, this is the better of the two CURIOCITY properties for your base.</p>
 
-            <p><strong>FINAL VERDICT: The Waterfront-facing CURIOCITY option. Best for flashpackers and digital nomads who want to be walking distance from the V&A without sacrificing design quality or security.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: The Waterfront-facing CURIOCITY option. Best for flashpackers and digital nomads who want to be walking distance from the V&A without sacrificing design quality or security.</strong></p>
 
   </div>
 </details>
@@ -3427,7 +3956,7 @@
 
             <p><strong>THE BLURB:</strong> B.I.G. is, by the evidence of its reviews across every platform, the best backpacker hostel in Cape Town. That claim is made seriously. The combination of en-suite bathrooms in every room (including the dorms), free cooked breakfast around a communal table that turns strangers into friends within twenty minutes, an inverter-powered property that keeps functioning during load shedding, a genuinely outstanding team, and a quiet Green Point cul-de-sac location is not something any other hostel on this list offers in full. The TripAdvisor reviews from solo women in particular are something close to uniform in their enthusiasm. One guest from Brussels wrote that she had never felt safer in a hostel. Another called it "the best backpackers on planet earth." These things are easy to dismiss as hyperbole. In this case, they appear to be accurate.</p>
 
-            <p><strong>FINAL VERDICT: The best hostel in Cape Town. Top-rated across every platform. The free breakfast alone is worth the price. Book early — it fills fast.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: The best hostel in Cape Town. Top-rated across every platform. The free breakfast alone is worth the price. Book early — it fills fast.</strong></p>
 
   </div>
 </details>
@@ -3503,7 +4032,7 @@
 
             <p><strong>THE BLURB:</strong> Big Blue has one of the finest hostel buildings in Cape Town — a large, ornate Victorian mansion with wooden floors, stained glass, original plaster ceilings, and the kind of generous proportions that make a dorm room feel like a room rather than a box. The location is excellent, the pool is good, the bar has genuine character. What lets it down is inconsistency: the reviews tell of a property that on its good days is excellent and on its bad days falls short of what the building deserves. Worth considering — but read the most recent reviews on Hostelworld specifically before you commit.</p>
 
-            <p><strong>FINAL VERDICT: A physically impressive Victorian hostel in a great location, held back by inconsistent standards. Good for the right stay at the right time — but check current Hostelworld reviews first.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: A physically impressive Victorian hostel in a great location, held back by inconsistent standards. Good for the right stay at the right time — but check current Hostelworld reviews first.</strong></p>
 
   </div>
 </details>
@@ -3572,7 +4101,7 @@
 
             <p><strong>THE BLURB:</strong> Atlantic Point is one of Cape Town's quieter, more self-contained backpacker options — a good base for the Sea Point and Atlantic Seaboard area without the noise of the more central hostels. If you're spending time at the ocean-facing attractions (Sea Point Promenade, Clifton, Camps Bay) rather than the CBD nightlife, the location works well.</p>
 
-            <p><strong>FINAL VERDICT: A dependable, quiet budget base for the Atlantic Seaboard explorer. Not exciting — and sometimes that is exactly what is required.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: A dependable, quiet budget base for the Atlantic Seaboard explorer. Not exciting — and sometimes that is exactly what is required.</strong></p>
 
   </div>
 </details>
@@ -3648,7 +4177,7 @@
 
             <p><strong>THE BLURB:</strong> House on the Hill is for the backpacker who wants to wake up to a mountain view, have a quiet morning coffee, and walk down the hill to the Sea Point Promenade without encountering anyone selling anything. It is not a social hostel. It is a quiet retreat in one of Cape Town's finest residential areas, at a budget price, with the Signal Hill hike and the Lion's Head trail starting from the neighbourhood. The kind of place you discover on your second Cape Town visit when you already know where all the social hostels are.</p>
 
-            <p><strong>FINAL VERDICT: The best quiet option in the Atlantic Seaboard area. Highly recommended for those prioritising peace, views, and proximity to Signal Hill hiking over social atmosphere.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: The best quiet option in the Atlantic Seaboard area. Highly recommended for those prioritising peace, views, and proximity to Signal Hill hiking over social atmosphere.</strong></p>
 
   </div>
 </details>
@@ -3724,7 +4253,7 @@
 
             <p><strong>THE BLURB:</strong> Never@Home is a newer brand that has built a strong reputation quickly through consistent quality and proactive staff. If you want a modern, well-designed hostel where the team actively helps you have a good time in Cape Town — booking tours, recommending the right restaurant for a Tuesday night, organising a group for a morning hike — rather than one that leaves you to figure everything out alone, Never@Home delivers that reliably.</p>
 
-            <p><strong>FINAL VERDICT: A modern, well-managed, activity-focused hostel. Excellent staff. Above the mid-range average in almost every measure.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: A modern, well-managed, activity-focused hostel. Excellent staff. Above the mid-range average in almost every measure.</strong></p>
 
   </div>
 </details>
@@ -3800,7 +4329,7 @@
 
             <p><strong>THE BLURB:</strong> A Sunflower Stop has one of the finest private hostel rooms in Cape Town — the terrace unit with its own bathroom, outdoor space, and hammock is a genuinely exceptional find at the price. But even without it, the Sea Point location (best restaurant strip in the city from the door, Promenade in five minutes) and the warm, attentive management would make this worth considering. It is consistently in Cape Town's top-rated hostels and the ratings are earned.</p>
 
-            <p><strong>FINAL VERDICT: Highly recommended. Book the terrace room well in advance. If it's taken, the standard dorms are also excellent. One of Sea Point's finest budget options.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: Highly recommended. Book the terrace room well in advance. If it's taken, the standard dorms are also excellent. One of Sea Point's finest budget options.</strong></p>
 
   </div>
 </details>
@@ -3876,7 +4405,7 @@
 
             <p><strong>THE BLURB:</strong> Mojo Hotel is less of a hotel and more of a lifestyle ecosystem. It’s famous for its “crash pads” - tiny, windowless designer pods for the budget-conscious - and its massive rooftop that offers some of the best sunset views in the city. The defining feature is the Mojo Market downstairs, which serves as your de facto hotel lobby, dining room, and entertainment lounge. It is high-energy, colorful, and relentlessly social. It’s perfect for the traveler who wants to be in the heart of the action and doesn’t mind a bit of noise in exchange for having thirty different world cuisines available just a flight of stairs away.</p>
 
-            <p><strong>FINAL VERDICT: The ultimate choice for social explorers, foodies, and digital nomads who thrive on urban energy and convenience.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: The ultimate choice for social explorers, foodies, and digital nomads who thrive on urban energy and convenience.</strong></p>
 
   </div>
 </details>
@@ -3957,7 +4486,7 @@
 
             <p><strong>THE BLURB:</strong> Green Elephant is Cape Town's bohemian hostel institution — operating since 1994 in the heart of Observatory, the city's most interesting and most genuinely local neighbourhood. This is not the right hostel if you want to be in the CBD, or if you want the polished design of a boutique backpacker. It is very much the right hostel if you want to be in a place that feels like a community rather than a transit hub — where the braai nights involve everyone, where the owner is likely to be sitting in the garden when you arrive, and where the neighbourhood outside your door has vintage record shops, excellent coffee, live music, and the whole of UCT around the corner. It has been doing this for thirty years. It knows what it is.</p>
 
-            <p><strong>FINAL VERDICT: Cape Town's finest hostel for the traveller who wants character, community, and bohemian neighbourhood atmosphere over centrality and design polish. Highly recommended for those who have already done the CBD circuit.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: Cape Town's finest hostel for the traveller who wants character, community, and bohemian neighbourhood atmosphere over centrality and design polish. Highly recommended for those who have already done the CBD circuit.</strong></p>
 
   </div>
 </details>
@@ -4024,7 +4553,7 @@
 
             <p><strong>THE BLURB:</strong> African Heart is a small, unpretentious budget hostel in Observatory that does the basics without fuss. It occupies the same neighbourhood as Green Elephant but with less organised community programming and a quieter atmosphere. Good for the ultra-budget traveller who wants Observatory access without the social overhead of a larger property.</p>
 
-            <p><strong>FINAL VERDICT: Reliable ultra-budget option in Observatory. Best for independent travellers who know what they want and don't need a hostel to organise it for them.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: Reliable ultra-budget option in Observatory. Best for independent travellers who know what they want and don't need a hostel to organise it for them.</strong></p>
 
   </div>
 </details>
@@ -4092,7 +4621,7 @@
 
             <p><strong>THE BLURB:</strong> Bohemian Lofts leans into the Observatory aesthetic with loft-style spaces that have more visual personality than the standard hostel dorm. A good choice for the artistically inclined traveller who wants an Observatory base with some design interest.</p>
 
-            <p><strong>FINAL VERDICT: A characterful budget option with an artistic edge. Best for creatively inclined travellers who want Observatory's neighbourhood character.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: A characterful budget option with an artistic edge. Best for creatively inclined travellers who want Observatory's neighbourhood character.</strong></p>
 
   </div>
 </details>
@@ -4166,7 +4695,7 @@
 
             <p><strong>THE BLURB:</strong> Riverlodge is an honest operation — it does what it says it does, at the price it says it does it at, and it is not pretending to be a boutique backpacker retreat. If you are joining a sports tour, a school group, or simply need the cheapest possible bed near the airport for a night before a flight, it serves its purpose. For solo travellers looking for the Cape Town backpacker experience, the extra few hundred rand for Green Elephant or Ashanti is very well spent.</p>
 
-            <p><strong>FINAL VERDICT: The cheapest large-capacity option on this list, suited to group bookings and airport-proximity overnights. Not recommended for solo international travellers seeking a backpacker community experience.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: The cheapest large-capacity option on this list, suited to group bookings and airport-proximity overnights. Not recommended for solo international travellers seeking a backpacker community experience.</strong></p>
 
   </div>
 </details>
@@ -4240,7 +4769,7 @@
 
             <p><strong>THE BLURB:</strong> Lighthouse Farm is Cape Town's most unexpected hostel option. The Oude Molen Eco Village — a converted psychiatric hospital site that is now home to organic farmers, craftspeople, horses, and a small river — is one of those places that is completely invisible from the main roads yet exists in the middle of the city. Staying here feels less like a hostel and more like a temporary membership of a small, self-sufficient community. The views of Devil's Peak from the open fields in the morning are extraordinary. The "Know thy Farmer" café serves good food. The horses are occasionally visible from your window. This is available at budget prices, 15 minutes from Cape Town CBD. It is, in short, completely unlike anything else on this list.</p>
 
-            <p><strong>FINAL VERDICT: Cape Town's most unique hostel setting. Essential for the traveller who wants something genuinely different from the standard backpacker circuit. Quiet, beautiful, and unexpectedly memorable.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: Cape Town's most unique hostel setting. Essential for the traveller who wants something genuinely different from the standard backpacker circuit. Quiet, beautiful, and unexpectedly memorable.</strong></p>
 
   </div>
 </details>
@@ -4321,7 +4850,7 @@
 
             <p><strong>THE BLURB:</strong> Dune Lodge is what happens when someone builds a hostel in one of the most beautiful settings on the Cape Peninsula, makes every dormitory en-suite, puts a terrace with a hammock on every private room, starts a WhatsApp group so arriving guests immediately have people to explore with, and charges less for it than most city-centre hostels charge for a standard dorm bed. The result is one of the highest-rated backpacker lodges in Cape Town, consistently, year after year. The Chapman's Peak Drive starts 10 minutes from the front door. The seal boat trips leave from the harbour ten minutes' walk away. The hiking into Table Mountain National Park starts from the neighbourhood. The Hout Bay mountains are visible from the breakfast table. This is not a difficult sell.</p>
 
-            <p><strong>FINAL VERDICT: One of the finest backpacker lodges in South Africa. En-suite dorms, private terrace rooms, an extraordinary location, and management that genuinely cares. Book the terrace room if it's available. Book anything if it isn't.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: One of the finest backpacker lodges in South Africa. En-suite dorms, private terrace rooms, an extraordinary location, and management that genuinely cares. Book the terrace room if it's available. Book anything if it isn't.</strong></p>
 
   </div>
 </details>
@@ -4402,7 +4931,7 @@
 
             <p><strong>THE BLURB:</strong> Saltycrax is Cape Town's water sports hostel — the base for anyone who wants to spend their days kiteboarding or windsurfing at Kite Beach (one of the most consistent training grounds in the world, thanks to the Cape Doctor — the famous Cape south-east wind), and their evenings in a jacuzzi in a tropical garden with a bonfire and a cold beer. The Blouberg beach view of Table Mountain across the bay is one of the most photographed vistas in South Africa and it is 5 minutes from the front door. The CURIOCITY group's professional management has made a good independent hostel better. If you're coming to Cape Town for the wind and water, or want to learn to kite surf in the next three days, this is where you should be.</p>
 
-            <p><strong>FINAL VERDICT: Cape Town's best hostel for water sports and adventure activities. TGCSA 5-star graded, professionally managed, and 5 minutes from world-class kiteboarding. Excellent for active, outdoors-oriented travellers.</strong></p>
+            <p class="final-verdict"><strong>FINAL VERDICT: Cape Town's best hostel for water sports and adventure activities. TGCSA 5-star graded, professionally managed, and 5 minutes from world-class kiteboarding. Excellent for active, outdoors-oriented travellers.</strong></p>
 
   </div>
 </details>
@@ -4484,7 +5013,7 @@
 
             <p><strong>THE BLURB:</strong> African Soul Surfer is the only hostel on this entire list where you can book a surf lesson, walk across the road in your wetsuit to the best beginner surf break in Cape Town, learn to stand up on a wave before 9 AM, come back salt-crusted and grinning to a flat white from The Commons Café, and look out from your balcony at the Victorian beach huts and the Full Moon behind Table Mountain in the evening. The live music nights — local jazz and acoustic sets in the downstairs venue — give it a Muizenberg bohemian character that is nothing like the CBD hostels on this list. If you have come to Cape Town to surf, or to learn to surf, this is where you should be.</p>
 
-           <p><strong>FINAL VERDICT: The essential Cape Town surf hostel, in the definitive Cape Town surf location. Sea-view rooms with balconies at these prices, 50 metres from Surfers' Corner. Book the ocean-facing room well in advance.</strong></p>
+           <p class="final-verdict"><strong>FINAL VERDICT: The essential Cape Town surf hostel, in the definitive Cape Town surf location. Sea-view rooms with balconies at these prices, 50 metres from Surfers' Corner. Book the ocean-facing room well in advance.</strong></p>
 
   </div>
 </details>
