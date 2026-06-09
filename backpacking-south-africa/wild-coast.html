@@ -77,6 +77,7 @@
 {
   "@context": "https://schema.org",
   "@graph": [
+
     {
       "@type": "Organization",
       "@id": "https://www.backpackersbible.com/#organization",
@@ -88,27 +89,44 @@
         "width": 250,
         "height": 250
       },
-      "description": "Independent, non-affiliate-biased backpacker guides to destinations worldwide. Direct hostel contacts, safety information, and honest write-ups.",
-      "sameAs": [
-        "https://www.facebook.com/BackpackersBible",
-        "https://www.instagram.com/backpackersbible"
-      ]
+      "description": "Independent backpacker guides to destinations worldwide with direct hostel contacts, safety information, maps, and honest write-ups."
     },
+
     {
-      "@type": ["WebPage", "TravelGuide"],
+      "@type": "Person",
+      "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw",
+      "name": "Geoff Louw",
+      "url": "https://www.backpackersbible.com/misc/about-backpackers-bible",
+      "worksFor": { "@id": "https://www.backpackersbible.com/#organization" }
+    },
+
+    {
+      "@type": "WebSite",
+      "@id": "https://www.backpackersbible.com/#website",
+      "url": "https://www.backpackersbible.com/",
+      "name": "BackpackersBible.com",
+      "publisher": { "@id": "https://www.backpackersbible.com/#organization" },
+      "inLanguage": "en"
+    },
+
+    {
+      "@type": ["WebPage", "CollectionPage"],
       "@id": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#webpage",
       "url": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast",
       "name": "Backpacking the Wild Coast: SA's Most Untamed Adventure",
       "headline": "Backpacking the Wild Coast: SA's Most Untamed Adventure",
-      "description": "Explore the raw beauty of the Transkei. We provide the full hostel directory, interactive maps, and real survival advice for your Wild Coast adventure.",
+      "description": "The complete Wild Coast backpacking guide: community-owned lodges, off-grid river-mouth retreats, the Sardine Run, the Hole in the Wall, and honest safety advice for one of South Africa's most remote and rewarding destinations.",
       "inLanguage": "en",
+      "wordCount": 20000,
       "isPartOf": { "@id": "https://www.backpackersbible.com/#website" },
       "publisher": { "@id": "https://www.backpackersbible.com/#organization" },
-      "author": { "@id": "https://www.backpackersbible.com/#organization" },
+      "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
       "dateModified": "2026-01-01",
       "primaryImageOfPage": {
         "@type": "ImageObject",
-        "url": "https://www.backpackersbible.com/assets/social-preview.jpg"
+        "url": "https://www.backpackersbible.com/assets/social-preview.jpg",
+        "width": 1200,
+        "height": 630
       },
       "about": [
         { "@type": "Place", "name": "Wild Coast", "sameAs": "https://en.wikipedia.org/wiki/Wild_Coast,_Eastern_Cape" },
@@ -119,37 +137,25 @@
         { "@id": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#hostel-list" },
         { "@id": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#activities" },
         { "@id": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#safety-guide" },
-        { "@id": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#faq" }
+        { "@id": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#faq" },
+        { "@id": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#mpondo-festival" }
       ],
       "speakable": {
         "@type": "SpeakableSpecification",
-        "cssSelector": [".intro-p", ".detail-p", "#safety", "#faq"]
+        "cssSelector": [".intro-p", ".detail-p", "#safety", "#faq", ".final-verdict"]
       }
     },
+
     {
       "@type": "BreadcrumbList",
       "@id": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#breadcrumb",
       "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.backpackersbible.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Backpacking South Africa",
-          "item": "https://www.backpackersbible.com/backpacking-south-africa/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Backpacking the Wild Coast",
-          "item": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast"
-        }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.backpackersbible.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Backpacking South Africa", "item": "https://www.backpackersbible.com/backpacking-south-africa/" },
+        { "@type": "ListItem", "position": 3, "name": "Backpacking the Wild Coast", "item": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast" }
       ]
     },
+
     {
       "@type": "FAQPage",
       "@id": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#faq",
@@ -159,7 +165,7 @@
           "name": "What is the best time of year to visit the Wild Coast as a backpacker?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The prime season for most backpackers is April through September (South Africa's autumn and winter). The weather is dry, mild (daytimes 20–26°C), and reliably sunny. The seas are calmer and clearer for diving. The coastal hiking trail is at its most manageable. The sardine run peaks in June and July. Summer (November–February) is hot, humid, and prone to intense afternoon thunderstorms. The trail becomes slippery and rivers run higher after rain, complicating crossings."
+            "text": "The Wild Coast is accessible year-round but the optimal window is April to September: warm days, low rainfall, cleaner sea visibility, and the Sardine Run (June–July) off the KwaZulu-Natal border. December to February is school holiday peak season — hostels fill fast and prices rise. Avoid the Eastern Cape's summer rainy season (November–March) for multi-day hiking, as the rivers rise and access roads become treacherous. Winter nights can be cold inland — bring a sleeping bag liner even in summer."
           }
         },
         {
@@ -167,7 +173,7 @@
           "name": "Is the Wild Coast safe for backpackers?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The Wild Coast requires more situational awareness than most South African tourist destinations, but is rewarding for well-prepared travellers. The vast majority of backpackers experience nothing more alarming than a spectacular time. The local Mpondo communities are extraordinarily hospitable. The region experienced a serious crime wave in 2024 — involving organised gang activity in the Mdumbi area — but a collaborative operation between residents, private security, and police resulted in arrests by November 2024 that are believed to have broken the gang responsible. The key safety rules: never hike remote sections alone, never stop your vehicle for obstacles on isolated gravel roads, never walk on the beach after dark, and always let your hostel know your plans. Get travel insurance that covers emergency evacuation."
+            "text": "The Wild Coast's community-owned and family-run hostels are generally safe environments — the community structure around properties like Bulungula, Mdumbi, Vukani, and Freedom O'Clock is itself a security infrastructure. The primary risks are practical: access road conditions (never drive at night, high-clearance vehicle recommended), incorrect GPS routing (multiple properties warn of dangerous incorrect routes — always follow host directions), remoteness (the nearest medical facilities are in Mthatha or East London), and the N2 corridor around Mthatha city centre (do not stop for obstacles, do not walk in the CBD). Port St Johns (Amapondo and Jungle Monkey) carries an Amber/Red safety rating due to the town's elevated crime environment — exercise heightened awareness there. The coastline itself carries rip current and shark risk at specific locations (Second Beach PSJ has had fatal shark attacks)."
           }
         },
         {
@@ -175,7 +181,7 @@
           "name": "Is it safe to swim on the Wild Coast?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The Wild Coast's ocean is not forgiving. Rip currents are common and strong, and there are virtually no formal lifeguard services outside beaches near East London. Always ask your hostel explicitly before entering unfamiliar water. Second Beach at Port St Johns recorded eight fatal bull shark attacks between 2007 and 2014 — the highest concentration of fatal shark attacks at any single location globally in that period. There have been no fatal attacks since 2014, but the underlying biology has not changed. Do not swim near the rocks at the river mouth at Second Beach, and do not enter the water after heavy rainfall when the river runs brown. The lagoons and estuaries at Chintsa, Coffee Bay, and Morgan Bay are generally calmer and safer than open ocean beaches."
+            "text": "River mouths, lagoons, and sheltered coves are generally safe for swimming. Open surf beaches carry rip current risk — swim only where you can see the bottom and are confident about the conditions, and never alone. Second Beach at Port St Johns has been the site of multiple fatal shark attacks and swimming there is strongly inadvisable. Coffee Bay, Chintsa, and Mdumbi beach are popular swimming spots with lower recorded risk. Always ask your hostel about current conditions before entering the water."
           }
         },
         {
@@ -183,7 +189,7 @@
           "name": "How do I get to the Wild Coast hostels from Mthatha?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Most long-distance buses (Greyhound, Intercape, FlixBus) stop at Mthatha, which is the main transit hub for the Wild Coast. Do not be dropped at the Mthatha bus or taxi rank — the city centre has a documented crime problem. The hostels in the Coffee Bay and Mdumbi areas run their own shuttle services from the Shell Ultracity on the N2 highway outside Mthatha. It is essential to coordinate your pick-up with the hostel before you arrive. Never attempt to drive to Coffee Bay at night — the 95km access road is potholed dirt and has livestock after dark."
+            "text": "The Baz Bus serves Coffee Bay (Coffee Shack), Chintsa (Buccaneers), and Port St Johns (Amapondo, Jungle Monkey) via Mthatha. Most hostels offer their own shuttle transfers from Mthatha — book these in advance, especially for the rural properties (Mdumbi, Vukani, Bulungula, Freedom O'Clock, Wild Lubanzi, The Kraal). Self-drive requires a high-clearance vehicle for most rural access roads and is inadvisable in wet conditions. Never attempt any Wild Coast access road after dark. Flying: Mthatha Airport has connections to Johannesburg and Cape Town."
           }
         },
         {
@@ -191,7 +197,7 @@
           "name": "What is the Wild Coast coastal hiking trail like?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The Wild Coast coastal trail is not a single managed path — it is a tradition and one of the most rewarding multi-day walks in southern Africa. The main sections range from the entry-level Coffee Bay to Hole in the Wall day walk (2 hours each way, free, no guide required) to the full Coffee Bay to Port St Johns traverse (5–7 days, approximately 70km, crossing ten rivers). The Pondo Walk from Mbotyi to Mkhambathi (5 days) is the most remote section, running through the Pondoland Marine Protected Area. A local guide is strongly recommended for any multi-day section and is mandatory on the Pondo Walk. Book community huts at least 6–8 weeks ahead for the June–September peak season."
+            "text": "The Wild Coast Meander and the multi-day coastal trail are among the finest hiking routes in South Africa. The trail runs along cliff-top paths, beaches, river crossings, and through traditional Mpondo and Xhosa homestead land. River crossings are tidal — timing is critical. Permits are required through Eastern Cape Tourism. The full trail takes 5–8 days depending on section. Most backpackers do shorter 2–3 day sections using a hostel as base — Buccaneers (Chintsa to Morgan Bay section), Coffee Shack (Hole in the Wall day walk), or Bulungula (river and coastal walks) are the most common bases. A local guide is strongly recommended for rural sections."
           }
         },
         {
@@ -199,7 +205,7 @@
           "name": "What is the Sardine Run and how do I experience it?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Between June and July, billions of sardines migrate northward along the Wild Coast, pursued by common dolphins, Cape gannets, Bryde's whales, and bronze whaler and dusky sharks. The baitball sequences — in which dolphins corral sardines into a tight sphere at the surface while gannets plunge-dive from altitude — are the scenes familiar from BBC nature documentaries. Getting into the water during a baitball is a legal and relatively safe activity. Several dive operators base themselves on the Wild Coast for the winter season and run daily boat trips when conditions allow. Book early when the run is producing well — boats fill quickly. Note that the run has become increasingly unpredictable in timing and volume in recent years."
+            "text": "The Sardine Run is the annual migration of billions of sardines northward along the Wild Coast and KwaZulu-Natal coast between June and July — one of the greatest wildlife spectacles on earth, involving dolphins, sharks, whales, Cape gannets, and Bryde's whales feeding simultaneously on bait balls near the surface. The best land-based viewing points are the elevated clifftops between Port St Johns and Coffee Bay. The best water-based experience is snorkelling or diving with an operator based out of Chintsa or Coffee Bay when a run is confirmed. The run is unpredictable — follow the SA Sardine Run Facebook group for real-time sightings."
           }
         },
         {
@@ -207,7 +213,7 @@
           "name": "What is the Pondoland Marine Protected Area?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The Pondoland MPA is a marine protected zone stretching 90km along the coast north of Port St Johns, bounded by the Mzimvubu River in the south and the Mzamba River in the north, extending more than 10km out to sea. It is one of South Africa's most important marine conservation zones, lying in a transition zone between subtropical and warm-temperate ocean ecosystems. Fishing within the MPA is strictly regulated, which means the snorkelling and diving in this section are markedly better than south of Port St Johns, where reefs have been more heavily impacted."
+            "text": "The Pondoland Marine Protected Area (MPA) extends along the northern Wild Coast from Port St Johns to the KwaZulu-Natal border. It is one of the largest MPAs in South Africa, protecting a stretch of coastline that has been largely untouched by development due to its remoteness. The MPA prohibits commercial fishing within designated zones and protects key fish breeding grounds, coral reefs, and the sardine migration route. The Pondo Walk — a multi-day coastal hike from Mbotyi to Mkhambathi — passes through its core area."
           }
         },
         {
@@ -215,254 +221,194 @@
           "name": "What about load shedding and infrastructure on the Wild Coast?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The OR Tambo District Municipality, which administers the Wild Coast, is one of the most under-resourced municipalities in South Africa. Reliable electricity, paved roads, clean piped water, and functional sewage systems cannot be taken for granted once you leave the main N2 corridor. Most backpacker lodges run partly or entirely on solar panels and generators — this is the primary system, not a backup. Download the EskomSePush app to track scheduled power cuts, and expect that hairdryers, air-con, and reliable Wi-Fi are not guaranteed at remote locations. Bring cash, a power bank, and any specialist supplies you need."
+            "text": "Most rural Wild Coast properties are deliberately off-grid — solar and gas powered, with no mains electricity, no Wi-Fi, and no mobile data signal. This is a feature, not a failing. Bring cash (no ATMs in most villages), a power bank, a headlamp, and leave your work deadlines behind. Buccaneers, Coffee Shack, Amapondo, Jungle Monkey, and Mthatha Backpackers have mains connectivity and are affected by load shedding — all have backup power to varying degrees. The road to Coffee Bay (95km dirt from the N2) is the most commonly difficult access route and should never be driven at night."
           }
         }
       ]
     },
+
     {
       "@type": "Map",
       "@id": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#map",
       "name": "Wild Coast Backpackers Hostel Map — All Hostels",
-      "description": "Interactive map of all backpacker hostels on the Wild Coast, with contact details, addresses, and links to individual write-ups. Covers the Southern Wild Coast (Chintsa, Morgan Bay), Coffee Bay area, Mdumbi, Port St Johns, Mthatha, and Magwa Falls.",
+      "description": "Interactive 3D map of all backpacker hostels on the Wild Coast with one-tap filters for Best Overall, Best Value, Best for Solo Women, and more. Covers Chintsa, Morgan Bay, Coffee Bay, Bulungula, Mdumbi, Port St Johns, and Mthatha.",
       "mapType": "https://schema.org/VenueMap",
-      "additionalType": "https://schema.org/Map",
-      "url": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast",
-      "hasMap": "https://www.google.com/maps/d/embed?mid=1YlCywz3bXNDCOhw6bLz-F3iPhC9XD4A&ehbc=2E312F&noprof=1&ll=-31.92,28.92&z=8",
-      "areaServed": {
+      "url": "https://www.backpackersbible.com/map.html?region=wild-coast",
+      "potentialAction": [
+        { "@type": "SearchAction", "name": "Filter: Best overall hostels on the Wild Coast", "target": "https://www.backpackersbible.com/map.html?region=wild-coast&filter=best_overall" },
+        { "@type": "SearchAction", "name": "Filter: Best value hostels on the Wild Coast", "target": "https://www.backpackersbible.com/map.html?region=wild-coast&filter=best_value" },
+        { "@type": "SearchAction", "name": "Filter: Best hostels for solo women on the Wild Coast", "target": "https://www.backpackersbible.com/map.html?region=wild-coast&filter=best_solo_women" },
+        { "@type": "SearchAction", "name": "Filter: Best community-owned hostels on the Wild Coast", "target": "https://www.backpackersbible.com/map.html?region=wild-coast&filter=best_overall" }
+      ],
+      "about": { "@type": "Thing", "name": "Backpacker Hostels on the Wild Coast" },
+      "spatialCoverage": {
         "@type": "Place",
-        "name": "Wild Coast, Eastern Cape",
+        "name": "Wild Coast",
         "sameAs": "https://en.wikipedia.org/wiki/Wild_Coast,_Eastern_Cape"
-      },
-      "about": {
-        "@type": "Thing",
-        "name": "Backpacker Hostels on the Wild Coast"
       }
     },
+
     {
       "@type": "HowTo",
       "@id": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#safety-guide",
       "name": "How to Stay Safe on the Wild Coast as a Backpacker",
-      "description": "Practical, honest safety advice for backpackers visiting the Wild Coast, covering remote hiking, coastal swimming, shark awareness, road safety, and the 2024 crime wave context.",
+      "description": "Practical, honest safety advice for backpackers visiting the Wild Coast, covering access roads, GPS hazards, swimming, Mthatha transit, and remoteness preparedness.",
       "step": [
         {
           "@type": "HowToStep",
           "name": "Never hike remote sections alone",
-          "text": "The coastal trail passes through areas with no mobile signal and no guaranteed foot traffic. Always walk with at least one other person. Your hostel will connect you with others heading the same direction — simply ask. For multi-day sections, a local guide is strongly recommended and is mandatory on the Pondo Walk."
+          "text": "Multi-day coastal trail sections and any hike more than 2km from a hostel should be done with at least one other person or a local guide. Tell your hostel your route and expected return time before you leave. If you do not return, they need to know where to look."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Never drive Wild Coast access roads at night",
+          "text": "The access roads to Coffee Bay, Mdumbi, Bulungula, Wild Lubanzi, The Kraal, and Freedom O'Clock are unsurfaced and in some cases require river crossings. After dark: livestock on roads, no visibility, and no mobile signal. Every hostel on this list will tell you the same thing — arrive before 4pm and contact the property before you set out."
         },
         {
           "@type": "HowToStep",
           "name": "Never stop your vehicle for obstacles on isolated roads",
-          "text": "Rocks, branches, or other debris placed across a gravel road on the Wild Coast should be treated as a potential ambush. Keep moving slowly around the obstacle if possible, or reverse. This is the specific tactic used in the September 2024 attack near Mdumbi Beach. Never drive Wild Coast gravel roads at night."
+          "text": "On the N2 between East London and Mthatha, and on isolated rural roads, do not stop for objects placed across the road. Drive around if safe to do so, or reverse. This is a known vehicle hijack technique on this corridor."
         },
         {
           "@type": "HowToStep",
           "name": "Never walk on the beach after dark",
-          "text": "This applies everywhere on the Wild Coast, but most emphatically at Port St Johns and Coffee Bay. The combination of darkness, remoteness, and the visibility of tourists as a target makes solo beach walking at night a genuine risk. Walk between hostel and any evening venue in a group, or take a local taxi (approximately €1)."
+          "text": "On any Wild Coast beach, including those directly adjacent to hostels. This applies everywhere on this list without exception."
         },
         {
           "@type": "HowToStep",
           "name": "Know the shark risks at Port St Johns",
-          "text": "Second Beach at Port St Johns recorded eight fatal bull shark attacks between 2007 and 2014 — the highest concentration at any single global location in that period. There have been no fatal attacks since 2014, but the underlying biology has not changed. Do not swim near the rocks at the river mouth on the right-hand side of Second Beach, and do not enter the water after heavy rainfall. Swim at First Beach instead."
+          "text": "Second Beach at Port St Johns has been the site of multiple fatal shark attacks. Do not swim at Second Beach. First Beach is considered lower risk but should only be entered when local advice confirms it is safe to do so."
         },
         {
           "@type": "HowToStep",
           "name": "Use hostel shuttles from Mthatha",
-          "text": "Never be dropped at Mthatha city centre, bus rank, or taxi rank. The hostels in Coffee Bay and Mdumbi run shuttle services from the Shell Ultracity on the N2 highway outside Mthatha. Coordinate your pick-up before you arrive. Never attempt to drive to Coffee Bay at night on the 95km dirt access road."
+          "text": "Do not attempt to navigate Mthatha independently, especially not the city centre taxi rank or the bus station. Every hostel on this list offers shuttle pickups from Mthatha's safe arrival points. Book this in advance. The Baz Bus serves Chintsa, Coffee Bay, and Port St Johns directly."
         },
         {
           "@type": "HowToStep",
-          "name": "Let your hostel know your plans",
-          "text": "If going for a long coastal walk, tell the hostel where you are going and when to expect you back. In the event of an emergency, your hostel is your primary resource. The hostel managers on the Wild Coast are deeply embedded in their local communities and have relationships and contacts that no emergency telephone number can replicate."
+          "name": "Follow GPS directions from your hostel, not your phone",
+          "text": "Multiple Wild Coast properties — including Freedom O'Clock and others — issue explicit GPS warnings. Standard GPS navigation routes to incorrect, sometimes dangerous locations. Always get the host's written directions before you set out and follow them exclusively."
         },
         {
           "@type": "HowToStep",
           "name": "Get travel insurance that covers emergency evacuation",
-          "text": "This is non-negotiable for the Wild Coast. The nearest level-one trauma hospitals are in East London (southern Wild Coast) and Mthatha (central/northern). Helicopter evacuation from remote coastal locations is possible but expensive. Check that your travel insurance covers emergency airlift before you depart."
+          "text": "The nearest hospitals to most rural Wild Coast properties are in Mthatha (Nelspoort) or East London — 2–4 hours away on rough roads. Medical evacuation by helicopter is expensive. Ensure your travel insurance explicitly covers emergency medical evacuation from remote locations."
         }
       ]
     },
+
     {
       "@type": "ItemList",
       "@id": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#activities",
       "name": "Wild Coast Backpacker Activities and Attractions",
-      "description": "Comprehensive guide to activities on the Wild Coast for backpackers, from the multi-day coastal hiking trail to surfing, sardine run diving, cultural village walks, horse riding, and free natural attractions.",
+      "description": "Guide to activities on the Wild Coast for backpackers, from the Sardine Run and the Hole in the Wall to multi-day coastal hiking, community cultural experiences, horse riding, and fishing.",
       "itemListElement": [
         {
-          "@type": "ListItem",
-          "position": 1,
+          "@type": "ListItem", "position": 1,
           "item": {
             "@type": "TouristAttraction",
             "name": "Hole in the Wall",
-            "description": "A detached cliff of dolerite rock with a sea arch punched through its base by millennia of wave action, known in isiXhosa as esiKhaleni — 'the place of sound'. The 2-hour trail from Coffee Bay passes through Mpondo homesteads and along clifftops with vertiginous views. One of the iconic sights of the Eastern Cape coast.",
-            "geo": { "@type": "GeoCoordinates", "latitude": -32.0222, "longitude": 29.1983 },
-            "isAccessibleForFree": true,
-            "touristType": "Backpackers"
+            "description": "A natural sea arch carved through a cliff headland near Coffee Bay — one of the Wild Coast's most iconic natural landmarks. Day walk from Coffee Shack hostel. Free to visit.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -31.9908, "longitude": 29.0833 },
+            "isAccessibleForFree": true
           }
         },
         {
-          "@type": "ListItem",
-          "position": 2,
+          "@type": "ListItem", "position": 2,
           "item": {
             "@type": "TouristAttraction",
             "name": "Wild Coast Multi-Day Coastal Hiking Trail",
-            "description": "One of the finest multi-day coastal hikes in southern Africa. The full Coffee Bay to Port St Johns section covers approximately 70km over 5–7 days, crossing ten rivers and passing through active Mpondo homesteads. Community huts along the route provide accommodation and meals. A local guide is strongly recommended. Cost approximately €35–€50 per person per day.",
-            "geo": { "@type": "GeoCoordinates", "latitude": -31.988, "longitude": 29.147 },
-            "isAccessibleForFree": false,
-            "touristType": "Backpackers"
+            "description": "One of South Africa's finest multi-day hiking routes along cliff-top paths, beaches, and river crossings through traditional Mpondo and Xhosa homestead land. Permits required. Local guide strongly recommended.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -31.99, "longitude": 29.15 },
+            "isAccessibleForFree": false
           }
         },
         {
-          "@type": "ListItem",
-          "position": 3,
-          "item": {
-            "@type": "TouristAttraction",
-            "name": "Surfing Coffee Bay",
-            "description": "Coffee Bay has been a pilgrimage site for travelling surfers since the 1970s. The point break at the river mouth produces long, peeling left-handers. The bay itself offers gentler waves ideal for beginners. Boards can be hired through most hostels for around €5 a day. Surf lessons available at Coffee Shack from approximately €15.",
-            "geo": { "@type": "GeoCoordinates", "latitude": -31.9888, "longitude": 29.1469 },
-            "isAccessibleForFree": false,
-            "touristType": "Backpackers"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 4,
+          "@type": "ListItem", "position": 3,
           "item": {
             "@type": "TouristAttraction",
             "name": "Sardine Run Snorkelling and Diving",
-            "description": "Between June and July, billions of sardines migrate northward along the Wild Coast, pursued by dolphins, gannets, Bryde's whales, and sharks. The baitball sequences — dolphins corralling sardines at the surface while gannets plunge-dive from altitude — are a world-class wildlife spectacle. Dive operators run daily boat trips when conditions allow. Book early.",
-            "geo": { "@type": "GeoCoordinates", "latitude": -31.64, "longitude": 29.52 },
-            "isAccessibleForFree": false,
-            "touristType": "Backpackers"
+            "description": "The annual sardine migration (June–July) brings dolphins, sharks, whales, and Cape gannets to feed on bait balls near the surface. One of the great wildlife spectacles on earth. Best experienced by snorkel or dive from a boat.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -32.0, "longitude": 29.1 },
+            "isAccessibleForFree": false
           }
         },
         {
-          "@type": "ListItem",
-          "position": 5,
-          "item": {
-            "@type": "TouristAttraction",
-            "name": "Magwa Falls",
-            "description": "The highest waterfall in the Eastern Cape: the Mzizangwa River drops 144 metres into a forested gorge, formed by the Egosa Fault. Located 45km north of Port St Johns near Lusikisiki. Access through Goso State Forest. A shallow river crossing above the falls leads to the far bank for the full curtain view across the canyon. Guided tours available through Louis@Magwa.",
-            "geo": { "@type": "GeoCoordinates", "latitude": -31.4586, "longitude": 29.6289 },
-            "isAccessibleForFree": true,
-            "touristType": "Backpackers"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 6,
-          "item": {
-            "@type": "TouristAttraction",
-            "name": "Horse Riding on the Beach",
-            "description": "Several Wild Coast hostels and local operators offer guided beach horse rides along deserted beaches framed by green cliffs and open ocean. Rides typically last 1–2 hours and cost approximately €15–€20. No prior experience required for the beach routes. Longer trail rides into the hills available for experienced riders.",
-            "geo": { "@type": "GeoCoordinates", "latitude": -31.9888, "longitude": 29.1469 },
-            "isAccessibleForFree": false,
-            "touristType": "Backpackers"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 7,
+          "@type": "ListItem", "position": 4,
           "item": {
             "@type": "TouristAttraction",
             "name": "Bulungula Community Cultural Experience",
-            "description": "The Bulungula Lodge near Nqileni village is one of Africa's most celebrated community tourism projects — 40% community-owned. Cultural experiences include canoe trips up the Bulungula River, village walks with community guides, maize pounding, mud-brick making, cooking with village women, and beadwork. The most rigorous cultural experience available on the Wild Coast.",
-            "geo": { "@type": "GeoCoordinates", "latitude": -32.1401, "longitude": 29.0104 },
-            "isAccessibleForFree": false,
-            "touristType": "Backpackers"
+            "description": "The Bulungula Lodge is 40% community-owned by the Nqileni Village. Guided village walks, traditional cooking, music, and cattle herding experiences are available to guests. The most ethically rigorous cultural immersion on the Wild Coast.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -32.14006, "longitude": 29.01036 },
+            "isAccessibleForFree": false
           }
         },
         {
-          "@type": "ListItem",
-          "position": 8,
+          "@type": "ListItem", "position": 5,
+          "item": {
+            "@type": "TouristAttraction",
+            "name": "Magwa Falls",
+            "description": "One of South Africa's highest waterfalls at approximately 144 metres, plunging into the Msikaba River gorge in Pondoland. Accessible from Louis at Magwa Falls hostel. Remote and largely unknown.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -31.45865, "longitude": 29.62892 },
+            "isAccessibleForFree": true
+          }
+        },
+        {
+          "@type": "ListItem", "position": 6,
+          "item": {
+            "@type": "TouristAttraction",
+            "name": "Horse Riding on the Beach",
+            "description": "Several Wild Coast hostels — including Buccaneers and Coffee Shack — offer horseback rides along the beach at sunrise or sunset. One of the definitive Wild Coast experiences.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -31.9888, "longitude": 29.1469 },
+            "isAccessibleForFree": false
+          }
+        },
+        {
+          "@type": "ListItem", "position": 7,
           "item": {
             "@type": "TouristAttraction",
             "name": "Second Beach Sunrise, Port St Johns",
-            "description": "Get up before 6:00 AM, walk or take a short taxi ride, and watch the sun rise over the Indian Ocean between The Gates at Second Beach. One of the most purely beautiful free experiences in South Africa.",
-            "geo": { "@type": "GeoCoordinates", "latitude": -31.6444, "longitude": 29.5208 },
-            "isAccessibleForFree": true,
-            "touristType": "Backpackers"
+            "description": "The clifftop walk from Port St Johns to Second Beach at sunrise — the Wild Coast at its most visually spectacular. Do not swim here (shark risk) but the walk and the view are outstanding.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -31.62, "longitude": 29.54 },
+            "isAccessibleForFree": true
           }
         },
         {
-          "@type": "ListItem",
-          "position": 9,
+          "@type": "ListItem", "position": 8,
           "item": {
             "@type": "TouristAttraction",
             "name": "Pondo Walk (Mbotyi to Mkhambathi)",
-            "description": "The wildest and most remote section of the Wild Coast trail, running through the Pondoland Marine Protected Area. Waterfalls falling directly into the sea, forests of Pondoland palm (found on the banks of only two rivers in the world), and empty beaches that see perhaps a handful of walkers per month. 5 days. A guide is mandatory. Approximately €50–€65 per person per day all-inclusive.",
-            "geo": { "@type": "GeoCoordinates", "latitude": -31.4, "longitude": 29.7 },
-            "isAccessibleForFree": false,
-            "touristType": "Backpackers"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 10,
-          "item": {
-            "@type": "TouristAttraction",
-            "name": "iSinuka Mineral Springs, Port St Johns",
-            "description": "A series of naturally carbonated mineral springs near Second Beach — rare in southern Africa. The Mpondo regard these springs as a site of healing and ancestral power, visited for spiritual and therapeutic purposes for as long as the oral record extends. Free to visit; treat the site with respect.",
-            "geo": { "@type": "GeoCoordinates", "latitude": -31.6453, "longitude": 29.5193 },
-            "isAccessibleForFree": true,
-            "touristType": "Backpackers"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 11,
-          "item": {
-            "@type": "TouristAttraction",
-            "name": "Wild Coast Meander (Chintsa to Morgan Bay)",
-            "description": "The southern section's classic multi-day walk: 4 days / approximately 55km of rolling coastal grassland and forested river valleys, operated by community-run overnight huts. Cost approximately €45–€60 per person per night all-inclusive including a local community guide. Book at least 6 weeks ahead during June–September.",
-            "geo": { "@type": "GeoCoordinates", "latitude": -32.837, "longitude": 28.110 },
-            "isAccessibleForFree": false,
-            "touristType": "Backpackers"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 12,
-          "item": {
-            "@type": "TouristAttraction",
-            "name": "Deep-Sea and Rock Fishing",
-            "description": "The Wild Coast's waters are legendarily productive. The sardine run draws large pelagic species within striking range: yellowfin tuna, dorado, wahoo, and southern bluefin. Charter a boat from Port St Johns or Mbotyi for approximately €65–€80 per person (best split between 4–6 people). Rock and surf fishing from the headlands is world-class and entirely free — ask your hostel which spots the local fishermen use.",
-            "geo": { "@type": "GeoCoordinates", "latitude": -31.62, "longitude": 29.54 },
-            "isAccessibleForFree": false,
-            "touristType": "Backpackers"
+            "description": "A 3–5 day coastal wilderness hike through the Pondoland Marine Protected Area — one of South Africa's most remote and pristine hiking routes. Requires permits, a local guide, and serious forward planning.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -31.4, "longitude": 29.75 },
+            "isAccessibleForFree": false
           }
         }
       ]
     },
+
     {
       "@type": "Event",
       "@id": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#mpondo-festival",
       "name": "Mpondo Heritage and Cultural Festival",
-      "description": "Held annually every September at Lwandlolubomvu in Ntabankulu district — the seat of the Mpondo royal house. Features traditional dance, the signature Mfene dance of the amaMpondo, choral singing, a Reed Dance, a horse parade, and presentations from the House of Traditional Healers and the royal family. International visitors are welcome.",
-      "isAccessibleForFree": false,
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y",
-        "byMonth": 9
-      },
+      "description": "Annual festival celebrating Mpondo culture, music, dance, and food in Ntabankulu. One of the few opportunities for visitors to experience Mpondo heritage in an authentic community-led context.",
       "location": {
         "@type": "Place",
-        "name": "Lwandlolubomvu, Ntabankulu, Eastern Cape",
-        "geo": { "@type": "GeoCoordinates", "latitude": -31.0, "longitude": 29.3 }
+        "name": "Lwandlolubomvu, Ntabankulu, Eastern Cape"
       },
       "organizer": {
         "@type": "Organization",
-        "name": "Mpondo Royal House"
+        "name": "Mpondo Cultural Heritage Foundation"
       }
     },
+
     {
       "@type": "ItemList",
       "@id": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#hostel-list",
       "name": "Complete Directory of Wild Coast Hostels",
-      "description": "Every hostel on the Wild Coast reviewed independently and without affiliate bias, listed south to north. Includes direct contact details, phone, WhatsApp, email, website, pricing, vibe, safety rating, solo-female friendliness, and digital nomad rating.",
+      "description": "Every hostel on the Wild Coast reviewed independently. Includes direct contact details, phone, WhatsApp, email, website, GPS warnings where applicable, pricing, vibe, safety rating, solo-female friendliness, and digital nomad rating.",
       "numberOfItems": 13,
-
       "itemListElement": [
+
         {
           "@type": "ListItem",
           "position": 1,
@@ -471,7 +417,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#buccaneers-backpackers",
             "name": "Buccaneers Lodge & Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#buccaneers-backpackers",
-            "description": "One of the great South African backpacker experiences. Direct private beach access, a legendary bar, and a large social energy at the gateway to the Wild Coast, 40km north of East London.",
+            "description": "One of the great South African backpacker experiences. The Wild Coast's most social hostel, in the most beautiful location. Chintsa West beachfront with a pool, horse riding, beach volleyball, and the longest-standing reputation on the Wild Coast.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "1 David Way, Chintsa West",
@@ -483,36 +429,46 @@
             "geo": { "@type": "GeoCoordinates", "latitude": -32.83675, "longitude": 28.11023 },
             "telephone": "+27437343012",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27437343012"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27663172858",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27437343012" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27663172858", "description": "WhatsApp" }
             ],
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJCRyF76s8Zx4RC3cj9ZggltY",
+            "email": "buccaneers@cintsa.com",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=wild-coast",
+            "priceRange": "$-$$",
             "sameAs": [
               "https://www.buccaneers.co.za",
               "https://www.hostelworld.com/hostels/South-Africa/Eastern-Cape/East-London/Buccaneers-Lodge-and-Backpackers/9194",
               "https://www.facebook.com/BuccaneersChintsa/",
               "https://www.instagram.com/buccaneers_chintsa/"
             ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "10",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "One of the great South African backpacker experiences. The Wild Coast's most social hostel, in the most beautiful location.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "9.0", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "Direct private beach access", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Beachfront location, Chintsa West", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Swimming pool", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Beach volleyball court", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Bar", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Braai facilities", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Communal kitchen", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Baz Bus stop", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Horse riding on the beach", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Beach volleyball", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Bar and restaurant", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Baz Bus stop", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Wild Coast Meander hiking access", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 2,
@@ -521,7 +477,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#in-the-green-backpackers",
             "name": "In The Green Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#in-the-green-backpackers",
-            "description": "The Wild Coast's finest quiet option. A tiny, beautifully situated eco-backpackers in Morgan Bay offering the cheapest dorm beds on the coast — 5 minutes' walk from an essentially deserted beach.",
+            "description": "The Wild Coast's finest quiet option. Exceptional value, beautiful setting, and genuine peace in the tiny coastal village of Morgan Bay. Best for independent travellers and couples who want the coast without the crowd.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "198 Tanglewood Road",
@@ -533,34 +489,43 @@
             "geo": { "@type": "GeoCoordinates", "latitude": -32.70203, "longitude": 28.33727 },
             "telephone": "+27769813322",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27769813322"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27769813322",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27769813322" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27769813322", "description": "WhatsApp" }
             ],
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJqXYEU8hHZx4RUtWmZRN8d6Y",
+            "email": "inthegreenbackpack@gmail.com",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=wild-coast",
+            "priceRange": "$",
             "sameAs": [
               "https://inthegreenbackpackers.co.za",
               "https://www.booking.com/hotel/za/in-the-green-backpackers-morgans-bay.html",
               "https://www.hostelworld.com/pwa/hosteldetails.php/In-The-Green-Backpackers/Morgans-Bay/101897",
               "https://www.facebook.com/inthegreenbackpackers/"
             ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "7.6",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Booking.com score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The Wild Coast's finest quiet option. Exceptional value, beautiful setting, and genuine peace. Best for independent travellers and couples who want the coast without the crowd.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "8.5", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "Garden and indigenous coastal forest setting", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "5 minutes' walk to Morgan Bay beach", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Braai facilities", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Self-catering kitchen", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Solar power", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Garden setting, Morgan Bay village", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Safari tents", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Private double rooms", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Wild Coast Meander hiking access", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "1/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 3,
@@ -569,7 +534,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#coffee-shack-backpackers",
             "name": "Coffee Shack Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#coffee-shack-backpackers",
-            "description": "The iconic Wild Coast hostel. Coffee Shack is the social heart of Coffee Bay and a 25-year institution. Nightly drum circles, bonfires with Xhosa community participation, beginner surf lessons, beautiful beachfront rondavels, and the Hole in the Wall hike arranged through community guides.",
+            "description": "An iconic Wild Coast hostel with extraordinary location, extraordinary community culture, and exceptional value. The base for the Hole in the Wall day walk and Coffee Bay surfing. Warning: the 95km dirt road from the N2 should never be driven at night.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "1 Coffee Shack Way",
@@ -581,19 +546,12 @@
             "geo": { "@type": "GeoCoordinates", "latitude": -31.9888, "longitude": 29.14688 },
             "telephone": "+27475752048",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27475752048"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27836564350",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27475752048" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27836564350", "description": "WhatsApp" }
             ],
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJAYZ2fPxpXh4Ryl4T-OTcwYY",
+            "email": "happydays@coffeeshack.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=wild-coast",
+            "priceRange": "$-$$",
             "sameAs": [
               "https://coffeeshack.co.za",
               "https://www.booking.com/hotel/za/coffee-shack-backpackers.html",
@@ -601,17 +559,36 @@
               "https://www.facebook.com/CoffeeShackBackpackers/",
               "https://www.instagram.com/coffeeshackbackpackers/"
             ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "10",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "An iconic Wild Coast hostel. Extraordinary location, extraordinary community culture, exceptional value. Use the shuttle from the N2 — never drive the access road at night.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "9.0", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "Beachfront location", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Surf school with board and wetsuit hire", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Nightly drum circles and bonfires", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Bar and restaurant on-site", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Shuttle service from N2 Shell Ultra City", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Guided Hole in the Wall hike", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Self-catering kitchen", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Beachfront Coffee Bay location", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Surf lessons and board hire", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Hole in the Wall day walk access", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Horse riding", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Bar and restaurant", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Baz Bus stop", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "N2 shuttle service", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Camping available", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "En-suite private rooms", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "1/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Amber" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 4,
@@ -620,7 +597,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#bulungula-lodge",
             "name": "Bulungula Lodge",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#bulungula-lodge",
-            "description": "The most ethically rigorous and culturally immersive hostel in South Africa. 100% community-owned (40% equity to Nqileni village), entirely off-grid, on a river estuary of extraordinary beauty. Community guides for canoe trips, village cultural activities, and coastal walks. Fair Trade Tourism certified.",
+            "description": "The most ethically rigorous and culturally immersive hostel in South Africa. 40% community-owned by the Nqileni Village. Off-grid, basic facilities, extraordinary setting. Not for comfort-seekers. Essential for anyone who wants to understand what the Wild Coast actually is.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Nqileni Village, Xhora Mouth AA, Elliotdale District",
@@ -632,35 +609,45 @@
             "geo": { "@type": "GeoCoordinates", "latitude": -32.14006, "longitude": 29.01036 },
             "telephone": "+27475778900",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27475778900"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27833915525",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27475778900" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27833915525", "description": "WhatsApp" }
             ],
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJQxKKtToTXh4R_-bhwPIz4gI",
+            "email": "paradise@bulungula.com",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=wild-coast",
+            "priceRange": "$",
             "sameAs": [
               "https://bulungula.com",
               "https://www.booking.com/hotel/za/bulungula-lodge.html",
               "https://www.facebook.com/bulungula/",
               "https://www.instagram.com/bulungula/"
             ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "8.0",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Booking.com score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The most ethically rigorous and culturally immersive hostel in South Africa. Not for comfort-seekers. Essential for anyone who wants to understand what the Wild Coast actually is, and who wants their presence here to do more good than harm.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "9.5", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "100% community-owned eco-lodge", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Community-guided canoe trips on the Xhora River", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Village cultural activities", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "40% community-owned by Nqileni Village", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Off-grid solar power", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Self-catering kitchen (bring supplies)", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "No Wi-Fi or mobile signal", "value": false }
+              { "@type": "LocationFeatureSpecification", "name": "Guided village cultural walks", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Traditional hut accommodation", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Camping available", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Canoe hire", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "0/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 5,
@@ -669,7 +656,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#wild-lubanzi-backpackers",
             "name": "Wild Lubanzi Backpackers Lodge",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#wild-lubanzi-backpackers",
-            "description": "The most architecturally distinctive hostel on the Wild Coast and joint-highest rated (4.7/5 Google). Hand-built safari tents, a famous Hobbit House (en-suite, upcycled materials), and a double-storey dorm — all constructed from driftwood and reclaimed timber. Off-grid, ocean and estuary views.",
+            "description": "The most architecturally distinctive hostel on the Wild Coast. Book the Hobbit House. If it's taken, book a safari tent. Either way, go. Rated 4.7/5 on Google across all reviews.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Lubanzi Village, Mavaleleni Shinira",
@@ -681,34 +668,35 @@
             "geo": { "@type": "GeoCoordinates", "latitude": -32.06656, "longitude": 29.08305 },
             "telephone": "+27785308997",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27785308997"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27785308997",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27785308997" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27785308997", "description": "WhatsApp" }
             ],
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJ0dwEOHFrXh4RTP8slhXtI8k",
+            "email": "wild@lubanzi.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=wild-coast",
+            "priceRange": "$",
             "sameAs": [
               "https://lubanzi.co.za",
               "https://www.facebook.com/wildlubanzi/",
               "https://www.instagram.com/wildlubanzi/"
             ],
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The most architecturally distinctive hostel on the Wild Coast. Book the Hobbit House. If it's taken, book a safari tent. Either way, go.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "9.0", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "Upcycled/hand-built accommodation structures", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Hobbit House en-suite", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Solar power", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Ocean and estuary views", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Guided coastal hikes", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Braai facilities", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Hobbit House en-suite accommodation", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Safari tents", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Off-grid solar power", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Village community setting", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "0/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 6,
@@ -717,7 +705,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#the-kraal-backpackers",
             "name": "The Kraal Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#the-kraal-backpackers",
-            "description": "For the traveller who wants the Wild Coast in its most unmediated form. A traditional Mpondo homestead on the Wild Coast where you sleep in a hut, cook over a fire, and have no Wi-Fi or signal. Joint-highest Google rating (4.7/5) on the Wild Coast list. Contact by WhatsApp only before attempting the access road.",
+            "description": "For the traveller who wants the Wild Coast in its most unmediated form. Primitive, tranquil, and genuinely extraordinary. Contact by WhatsApp only — and do so well before you attempt the road.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Mpande District, Tsweleni",
@@ -727,30 +715,35 @@
               "addressCountry": "ZA"
             },
             "geo": { "@type": "GeoCoordinates", "latitude": -31.75191, "longitude": 29.36769 },
-            "telephone": "+27828714134",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27828714134",
-                "description": "WhatsApp only — preferred contact method"
-              }
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27828714134", "description": "WhatsApp — primary contact method" }
             ],
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJ7TAPfndXXh4RhiAVtPEOmFg",
+            "email": "info@thekraalbackpackers.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=wild-coast",
+            "priceRange": "$",
             "sameAs": [
               "https://thekraal.co.za",
               "https://www.hostelworld.com/pwa/hosteldetails.php/The-Kraal-Backpackers/Port-St-Johns/24362",
               "https://www.facebook.com/TheKraalBackpackers/"
             ],
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "For the traveller who wants the Wild Coast in its most unmediated form. Primitive, tranquil, and genuinely extraordinary. Contact by WhatsApp only — and do so before you attempt the road.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "9.0", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "Traditional Xhosa/Mpondo homestead setting", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Guided coastal walks", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Cultural activities and community interactions", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Fire cooking", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Off-grid (no mains power, no Wi-Fi)", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Community homestead setting", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Traditional huts", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Camping available", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "WhatsApp-only contact — book before attempting road", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "0/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 7,
@@ -759,7 +752,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#mdumbi-backpackers",
             "name": "Mdumbi Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#mdumbi-backpackers",
-            "description": "BackpackersBible.com's top-rated Wild Coast hostel. A Hostelworld 9.0/10, community-owned eco-hostel on a right-hand surf break in Tshani Village, with traditional huts, extraordinary sunsets, and a river mouth. Multiple Responsible Tourism Awards. One of the finest backpacker properties in South Africa.",
+            "description": "BackpackersBible.com's top-rated Wild Coast hostel. Community-owned, beachfront surf break, extraordinary setting. Hostelworld 9.0/10. One of the best backpacker properties in South Africa. Non-negotiable.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Tshani Village, Mankosi A/A",
@@ -771,35 +764,45 @@
             "geo": { "@type": "GeoCoordinates", "latitude": -31.93964, "longitude": 29.21387 },
             "telephone": "+27834611834",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27834611834"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27834611834",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27834611834" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27834611834", "description": "WhatsApp" }
             ],
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJL8_zjMNCXh4RDJrGQEqG7FA",
+            "email": "mdumbi@mdumbi.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=wild-coast",
+            "priceRange": "$",
             "sameAs": [
               "https://mdumbi.co.za",
               "https://www.hostelworld.com/pwa/hosteldetails.php/Mdumbi-Backpackers/Port-St-Johns/27582",
               "https://www.facebook.com/MdumbiBackpackers/",
               "https://www.instagram.com/mdumbibackpackers/"
             ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "9.0",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "BackpackersBible.com's top-rated Wild Coast hostel. Community-owned, beachfront surf break, extraordinary setting. One of the best backpacker properties in South Africa. Non-negotiable.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "9.8", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "Right-hand surf break directly in front of property", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Community-owned eco-hostel", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Traditional huts with Indian Ocean views", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Community guides for coastal hiking and river canoe trips", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Off-grid solar power", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Board hire", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Community-owned beachfront property", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Surf break directly in front of lodge", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Traditional huts", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Off-grid", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Canoe hire", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Guided cultural walks", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "5/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "0/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 8,
@@ -808,7 +811,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#vukani-backpackers",
             "name": "Vukani Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#vukani-backpackers",
-            "description": "Mdumbi's equally outstanding neighbour in Tshani Village. Joint-highest rated (4.7/5 Google). Features the extraordinary Driftwood Room (hand-built from beach driftwood) and the Larnie Room self-catering unit (sleeping 6, the best group deal on the Wild Coast). Same community ownership ethic and surf break as Mdumbi.",
+            "description": "Mdumbi's equally outstanding neighbour. Joint highest-rated on this list. The Driftwood Room is not to be missed. The Larnie Room is the best group deal on the Wild Coast.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Tshani Village, Mankosi A/A",
@@ -820,35 +823,37 @@
             "geo": { "@type": "GeoCoordinates", "latitude": -31.93658, "longitude": 29.20895 },
             "telephone": "+27718576989",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27718576989"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27718576989",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27718576989" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27718576989", "description": "WhatsApp" }
             ],
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJt5HdPPhDXh4Req9xtSuG4Fg",
+            "email": "stay@vukanibackpackers.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=wild-coast",
+            "priceRange": "$",
             "sameAs": [
               "https://vukanibackpackers.co.za",
               "https://www.hostelworld.com/pwa/hosteldetails.php/Vukani-Backpackers/Port-St-Johns/301185",
               "https://www.facebook.com/VukaniBackpackers/",
               "https://www.instagram.com/vukanibackpackers/"
             ],
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "Mdumbi's equally outstanding neighbour. Joint highest-rated on this list. The Driftwood Room is not to be missed. The Larnie Room is the best group deal on the Wild Coast.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "9.8", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "Driftwood Room (hand-built from beach driftwood)", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Ocean-view rondavels", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Self-catering Larnie Room (sleeps 6)", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Surf access (Mdumbi break, 500m)", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Solar power", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Communal braai", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Community-owned, Tshani Village", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Driftwood Room sea-view accommodation", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Larnie Room self-catering group unit (sleeps 6)", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Private rondavels", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Off-grid", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "5/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "0/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 9,
@@ -857,7 +862,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#freedom-o-clock",
             "name": "Freedom O'Clock Backpackers Retreat",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#freedom-o-clock",
-            "description": "The highest-rated hostel on the Wild Coast list (4.8/5 Google). Family-run by Marleen — consistently cited in reviews as one of the warmest hosts on the South African backpacker circuit. River-mouth eco-retreat on the Mdumbi River. Top solo female recommendation in the Mdumbi cluster. GPS warning: always use the host's arrival directions.",
+            "description": "The highest Google-rated hostel on this Wild Coast list (4.8/5). Family-run by Marleen — consistently cited as one of the warmest hosts on the South African backpacker circuit. River-mouth eco-retreat on the Mdumbi River. Top solo female recommendation in the Mdumbi cluster. GPS warning: always use the host's directions.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Mngcibe Village, Mdumbi River Mouth",
@@ -869,34 +874,37 @@
             "geo": { "@type": "GeoCoordinates", "latitude": -31.92661, "longitude": 29.21429 },
             "telephone": "+27766109723",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27766109723"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27766109723",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27766109723" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27766109723", "description": "WhatsApp" }
             ],
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJL9chTN9CXh4RBubqb4FWkso",
+            "email": "marleen@freedomoclock.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=wild-coast",
+            "priceRange": "$-$$",
             "sameAs": [
               "https://freedomoclock.co.za",
               "https://www.facebook.com/FreedomOClock/",
               "https://www.instagram.com/freedom_o_clock/"
             ],
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "Family-run, personally hosted, river-mouth location. The top solo female recommendation in the Mdumbi cluster. The highest Google-rated hostel on this list. Go. Follow the host's directions, not GPS.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "9.5", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "Mdumbi River mouth location (swimming, canoeing, birdwatching)", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Mdumbi River mouth location", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Family-run personal hosting by Marleen", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Communal meals on request", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Guided walks", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Off-grid solar", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Fire cooking", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Off-grid solar power", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "GPS warning — follow host directions only", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "5/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "0/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 10,
@@ -905,7 +913,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#amapondo-backpackers",
             "name": "Amapondo Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#amapondo-backpackers",
-            "description": "Port St Johns' established backpacker address. Jungle hillside property above Second Beach. Self-catering cottages are the pick of the accommodation — private, forested, and a short walk from one of the finest beaches in South Africa. Note: swim at First Beach, not Second Beach (shark advisory).",
+            "description": "Beautiful Second Beach setting and the liveliest bar in Port St Johns — but the area itself carries a Red safety rating. The lodge is gated. Awareness required when moving between the lodge and town.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Erf 647, Second Beach Road",
@@ -917,19 +925,12 @@
             "geo": { "@type": "GeoCoordinates", "latitude": -31.64438, "longitude": 29.52075 },
             "telephone": "+27833153103",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27833153103"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27833153103",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27833153103" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27833153103", "description": "WhatsApp" }
             ],
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJFyjuvvn7Xh4Rzw9BhGo6xus",
+            "email": "info@amapondo.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=wild-coast",
+            "priceRange": "$-$$",
             "sameAs": [
               "https://amapondo.co.za",
               "https://www.booking.com/hotel/za/amapondo-backpackers-lodge.html",
@@ -937,17 +938,32 @@
               "https://www.facebook.com/Amapondo/",
               "https://www.instagram.com/amapondo_backpackers/"
             ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "8.3",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Booking.com score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "Beautiful setting and nice accommodation, and still the liveliest bar in PSJ, but the area itself is too lively for BackpackersBible.com to be able to recommend it without reservation.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "6.0", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "Jungle hillside setting above Second Beach", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Second Beach Road location", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Gated property", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Bar and restaurant", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Self-catering cottages", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Communal kitchen", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Bar", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Braai facilities", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Secure parking", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Guided tours to local sites bookable through property", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Baz Bus stop", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Red" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 11,
@@ -956,7 +972,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#jungle-monkey-backpackers",
             "name": "Jungle Monkey Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#jungle-monkey-backpackers",
-            "description": "The practical in-town Port St Johns option. Walking distance to PSJ shops, ATMs, and restaurants. Best for transit stops and car-free travellers who need town access. For the full PSJ wilderness experience, Amapondo or the Tshani Village cluster are better choices.",
+            "description": "A fading icon that has largely traded its traveller roots for a local bar identity. Manage expectations accordingly. Best connectivity on the northern Wild Coast if you need to work.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "3 Berea Road",
@@ -968,19 +984,12 @@
             "geo": { "@type": "GeoCoordinates", "latitude": -31.62652, "longitude": 29.54502 },
             "telephone": "+27475641517",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27475641517"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27726834595",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27475641517" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27726834595", "description": "WhatsApp" }
             ],
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJEQmee3D8Xh4R3tzBA4KF3k8",
+            "email": "junglemonkeybp@gmail.com",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=wild-coast",
+            "priceRange": "$",
             "sameAs": [
               "https://junglemonkeybackpackers.co.za",
               "https://www.booking.com/hotel/za/jungle-monkey-backpackers.html",
@@ -988,15 +997,30 @@
               "https://www.facebook.com/JungleMonkeyBackpackers/",
               "https://www.instagram.com/junglemonkeybackpackers/"
             ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "6.9",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Booking.com score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "A fading icon that has largely traded its traveller roots for a local bar identity. Manage your expectations accordingly.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "5.0", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "In-town location (walking distance to ATMs, shops, restaurants)", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Bar", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Braai facilities", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Laundry", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Wi-Fi and mobile data (best connectivity in northern Wild Coast)", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Baz Bus stop", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Amber" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 12,
@@ -1005,7 +1029,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#mthatha-backpackers",
             "name": "Mthatha Backpackers & Tours",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#mthatha-backpackers",
-            "description": "The safest and most practical Mthatha overnight option. In the Fort Gale suburb — significantly safer than the city centre. Runs day trips to Nelson Mandela's birthplace in Qunu (11km) and the Nelson Mandela Museum. The transit base for Wild Coast onward travel. Important: do not be dropped at Mthatha city centre or bus rank.",
+            "description": "A practical, safe transit base in the safer Fort Gale suburb of Mthatha. Essential for backpackers making connections to or from the Wild Coast by bus or Baz Bus. Follow the safety advice precisely.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "12 Aloe Street, Fort Gale",
@@ -1017,34 +1041,36 @@
             "geo": { "@type": "GeoCoordinates", "latitude": -31.5835, "longitude": 28.7562 },
             "telephone": "+27827860441",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27827860441"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27827860441",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27827860441" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27827860441", "description": "WhatsApp" }
             ],
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJtcyiblHXXx4RCukYMYIcbbs",
+            "email": "mthathabackpackers@telkomsa.net",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=wild-coast",
+            "priceRange": "$",
             "sameAs": [
               "https://mthathabackpackers.co.za",
               "https://www.hostelworld.com/hostels/South-Africa/Eastern-Cape/Mthatha/Mthatha-Backpackers-and-Tours",
               "https://www.facebook.com/MthathaBackpackers/"
             ],
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "A practical, safe transit base in the safer Fort Gale suburb. Essential for making bus connections to the Wild Coast. Arrive by day, use the hostel's guidance for getting from the bus drop-off to Fort Gale, and do not walk in the city centre.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "7.0", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "Day tours to Mandela heritage sites (Qunu birthplace, Nelson Mandela Museum)", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Shuttle coordination to/from N2 for Wild Coast transfers", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Communal kitchen", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Fort Gale suburb location (safer area of Mthatha)", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Tours and transfers to Wild Coast properties", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Parking", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Laundry", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Self-catering kitchen", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "En-suite private rooms", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Amber" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 13,
@@ -1053,7 +1079,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#louis-at-magwa",
             "name": "Louis at Magwa Falls",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/wild-coast#louis-at-magwa",
-            "description": "Traditional rondavels perched on a plateau ridge above the Goso Forest, 3km from the 144-metre Magwa Falls — the highest waterfall in the Eastern Cape. Louis has lived in Gwexintaba village since 2006 and runs guided tours to Magwa Falls, Waterfall Bluff, mountain rock pools, and the Goso Forest. Booking.com 9.0/10, TripAdvisor 5/5.",
+            "description": "Perhaps the most 'out there' experience in the country. Traditional African culture and one of South Africa's highest waterfalls at your doorstep. Excellent value for money. Property safety: Green. Access and remoteness: Amber.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Gwexintaba Village, KuGwexintaba",
@@ -1064,40 +1090,46 @@
             "geo": { "@type": "GeoCoordinates", "latitude": -31.45865, "longitude": 29.62892 },
             "telephone": "+27832685611",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27832685611"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27832685611",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27832685611" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27832685611", "description": "WhatsApp" }
             ],
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJr-pyu9AdXx4RrY2kTHP2IRw",
+            "email": "info@louisatmagwafalls.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=wild-coast",
+            "priceRange": "$",
             "sameAs": [
               "https://louisatmagwafalls.co.za",
               "https://www.booking.com/hotel/za/louis-at-magwa-falls-lusikisiki.html",
               "https://www.facebook.com/louisatmagwafalls/"
             ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "8.8",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Booking.com score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "Perhaps the most 'out there' experience in the country. Traditional Mpondo village culture and one of South Africa's highest waterfalls at your doorstep. Excellent value for money.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "9.0", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "Traditional rondavels on plateau above Goso Forest", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Guided 4x4 and walking tours to Magwa Falls and Waterfall Bluff", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Semi-off-grid (solar lights, gas fridge, gas stove)", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Rocket shower", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Communal self-catering kitchen", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Braai area", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Shuttle from Lusikisiki", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Permaculture workshops by arrangement", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Magwa Falls access (144m waterfall)", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Crowned Eagle House en-suite accommodation", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Traditional Mpondo village setting", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Basic Wi-Fi for messaging", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Personal management by Louis", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "20km dirt road from Lusikisiki — high clearance recommended", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3.5/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "1/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green (property) / Amber (access)" }
             ]
           }
         }
 
       ]
     }
-
   ]
 }
 </script>
