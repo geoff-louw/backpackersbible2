@@ -89,23 +89,44 @@
         "width": 250,
         "height": 250
       },
-      "description": "Independent, non-affiliate-biased backpacker guides to destinations worldwide. Direct hostel contacts, safety information, and honest write-ups."
+      "description": "Independent backpacker guides to destinations worldwide with direct hostel contacts, safety information, maps, and honest write-ups."
     },
+
     {
-      "@type": ["WebPage", "TravelGuide"],
+      "@type": "Person",
+      "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw",
+      "name": "Geoff Louw",
+      "url": "https://www.backpackersbible.com/misc/about-backpackers-bible",
+      "worksFor": { "@id": "https://www.backpackersbible.com/#organization" }
+    },
+
+    {
+      "@type": "WebSite",
+      "@id": "https://www.backpackersbible.com/#website",
+      "url": "https://www.backpackersbible.com/",
+      "name": "BackpackersBible.com",
+      "publisher": { "@id": "https://www.backpackersbible.com/#organization" },
+      "inLanguage": "en"
+    },
+
+    {
+      "@type": ["WebPage", "CollectionPage"],
       "@id": "https://www.backpackersbible.com/backpacking-south-africa/drakensberg#webpage",
       "url": "https://www.backpackersbible.com/backpacking-south-africa/drakensberg",
       "name": "Backpacking the Drakensberg: Conquer the Dragon Mountains",
       "headline": "Backpacking the Drakensberg: Conquer the Dragon Mountains",
-      "description": "Ready for epic peaks and the world's highest waterfall? Get direct contact info for every Drakensberg hostel, plus interactive maps and honest safety tips.",
+      "description": "Ready for epic peaks and the world's highest waterfall? Get direct contact info for every Drakensberg hostel, plus interactive maps, rock art guides, and honest safety tips for the chain ladder hike.",
       "inLanguage": "en",
+      "wordCount": 18000,
       "isPartOf": { "@id": "https://www.backpackersbible.com/#website" },
       "publisher": { "@id": "https://www.backpackersbible.com/#organization" },
-      "author": { "@id": "https://www.backpackersbible.com/#organization" },
+      "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
       "dateModified": "2026-01-01",
       "primaryImageOfPage": {
         "@type": "ImageObject",
-        "url": "https://www.backpackersbible.com/assets/social-preview.jpg"
+        "url": "https://www.backpackersbible.com/assets/social-preview.jpg",
+        "width": 1200,
+        "height": 630
       },
       "about": [
         { "@type": "Place", "name": "Drakensberg", "sameAs": "https://en.wikipedia.org/wiki/Drakensberg" },
@@ -116,37 +137,25 @@
         { "@id": "https://www.backpackersbible.com/backpacking-south-africa/drakensberg#hostel-list" },
         { "@id": "https://www.backpackersbible.com/backpacking-south-africa/drakensberg#activities" },
         { "@id": "https://www.backpackersbible.com/backpacking-south-africa/drakensberg#safety-guide" },
-        { "@id": "https://www.backpackersbible.com/backpacking-south-africa/drakensberg#faq" }
+        { "@id": "https://www.backpackersbible.com/backpacking-south-africa/drakensberg#faq" },
+        { "@id": "https://www.backpackersbible.com/backpacking-south-africa/drakensberg#guides" }
       ],
       "speakable": {
         "@type": "SpeakableSpecification",
-        "cssSelector": [".intro-p", ".detail-p", "#safety", "#faq"]
+        "cssSelector": [".intro-p", ".detail-p", "#safety", "#faq", ".final-verdict"]
       }
     },
+
     {
       "@type": "BreadcrumbList",
       "@id": "https://www.backpackersbible.com/backpacking-south-africa/drakensberg#breadcrumb",
       "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.backpackersbible.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Backpacking South Africa",
-          "item": "https://www.backpackersbible.com/backpacking-south-africa/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Backpacking the Drakensberg",
-          "item": "https://www.backpackersbible.com/backpacking-south-africa/drakensberg"
-        }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.backpackersbible.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Backpacking South Africa", "item": "https://www.backpackersbible.com/backpacking-south-africa/" },
+        { "@type": "ListItem", "position": 3, "name": "Backpacking the Drakensberg", "item": "https://www.backpackersbible.com/backpacking-south-africa/drakensberg" }
       ]
     },
+
     {
       "@type": "FAQPage",
       "@id": "https://www.backpackersbible.com/backpacking-south-africa/drakensberg#faq",
@@ -196,7 +205,7 @@
           "name": "Is it safe to drive the Sani Pass?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The nine-kilometre section of Sani Pass between the South African and Lesotho border posts is 4x4 only — mandatory and enforced by the border guards, who will turn back standard vehicles. With a genuine 4x4 and a rental letter of authority (approximately €35 extra, arranged at booking), you can drive it yourself in dry conditions in about two hours. The pass is closed to upward traffic after 15:00. In wet conditions the road becomes significantly more demanding. If you don't have a 4x4, guided day trips from Underberg operators cost approximately €35–€50 per person and are the practical alternative. Note: Phase 3 road upgrade works on the 4x4 section were in planning for 2025–2026; if that section is eventually tarred, the character of the drive changes fundamentally."
+            "text": "The nine-kilometre section of Sani Pass between the South African and Lesotho border posts is 4x4 only — mandatory and enforced by the border guards, who will turn back standard vehicles. With a genuine 4x4 and a rental letter of authority (approximately €35 extra, arranged at booking), you can drive it yourself in dry conditions in about two hours. The pass is closed to upward traffic after 15:00. In wet conditions the road becomes significantly more demanding. If you don't have a 4x4, guided day trips from Underberg operators cost approximately €35–€50 per person and are the practical alternative."
           }
         },
         {
@@ -217,30 +226,33 @@
         }
       ]
     },
+
     {
       "@type": "Map",
       "@id": "https://www.backpackersbible.com/backpacking-south-africa/drakensberg#map",
       "name": "Drakensberg Backpackers Hostel Map — All Hostels",
-      "description": "Interactive map of all backpacker hostels in the Drakensberg, covering the Southern Berg (Underberg / Himeville), Central Berg (Champagne Valley), Northern Berg (Winterton / Bergville), and Free State approaches (Phuthaditjhaba / Kestell). Includes distances to the Sentinel Car Park trailhead.",
+      "description": "Interactive 3D map of all backpacker hostels in the Drakensberg with one-tap filters for Best Overall, Best Value, Best for Solo Women, and Best for Digital Nomads. Covers the Southern Berg, Central Berg, Northern Berg, and the Free State/Lesotho foothills.",
       "mapType": "https://schema.org/VenueMap",
-      "additionalType": "https://schema.org/Map",
-      "url": "https://www.backpackersbible.com/backpacking-south-africa/drakensberg",
-      "hasMap": "https://www.google.com/maps/d/embed?mid=1YlCywz3bXNDCOhw6bLz-F3iPhC9XD4A&ehbc=2E312F&noprof=1&ll=-29.50,29.43&z=8",
-      "areaServed": {
+      "url": "https://www.backpackersbible.com/map.html?region=drakensberg",
+      "potentialAction": [
+        { "@type": "SearchAction", "name": "Filter: Best overall hostels in the Drakensberg", "target": "https://www.backpackersbible.com/map.html?region=drakensberg&filter=best_overall" },
+        { "@type": "SearchAction", "name": "Filter: Best value hostels in the Drakensberg", "target": "https://www.backpackersbible.com/map.html?region=drakensberg&filter=best_value" },
+        { "@type": "SearchAction", "name": "Filter: Best hostels for solo women in the Drakensberg", "target": "https://www.backpackersbible.com/map.html?region=drakensberg&filter=best_solo_women" },
+        { "@type": "SearchAction", "name": "Filter: Best hostels for digital nomads in the Drakensberg", "target": "https://www.backpackersbible.com/map.html?region=drakensberg&filter=best_digital_nomads" }
+      ],
+      "about": { "@type": "Thing", "name": "Backpacker Hostels in the Drakensberg" },
+      "spatialCoverage": {
         "@type": "Place",
-        "name": "Drakensberg, KwaZulu-Natal",
+        "name": "Drakensberg",
         "sameAs": "https://en.wikipedia.org/wiki/Drakensberg"
-      },
-      "about": {
-        "@type": "Thing",
-        "name": "Backpacker Hostels in the Drakensberg"
       }
     },
+
     {
       "@type": "HowTo",
       "@id": "https://www.backpackersbible.com/backpacking-south-africa/drakensberg#safety-guide",
       "name": "How to Stay Safe in the Drakensberg as a Backpacker",
-      "description": "Practical, honest safety advice for backpackers in the Drakensberg, covering lightning, flash floods, hypothermia, snakes, getting lost, and the specific hazards of the Amphitheatre chain ladder hike.",
+      "description": "Practical, honest safety advice for backpackers hiking the Drakensberg, covering lightning risk, the chain ladders, mountain guides, river crossings, hypothermia, navigation, snakes, and travel insurance.",
       "step": [
         {
           "@type": "HowToStep",
@@ -289,159 +301,137 @@
       "@type": "ItemList",
       "@id": "https://www.backpackersbible.com/backpacking-south-africa/drakensberg#activities",
       "name": "Drakensberg Backpacker Activities and Attractions",
-      "description": "Comprehensive guide to activities in the Drakensberg for backpackers — from the Amphitheatre chain ladder hike and Tugela Falls to San rock art, the Sani Pass, multi-day hiking, and free mountain experiences.",
+      "description": "Guide to activities in the Drakensberg for backpackers, from the Tugela Falls chain ladder hike and San rock art to Sani Pass, Golden Gate, bearded vulture watching, and horse riding.",
       "itemListElement": [
         {
-          "@type": "ListItem",
-          "position": 1,
+          "@type": "ListItem", "position": 1,
           "item": {
             "@type": "TouristAttraction",
-            "name": "Amphitheatre Chain Ladder Hike & Tugela Falls",
-            "description": "The defining experience of the Northern Berg and for many the defining experience of South Africa. The route climbs from 2,200m to 3,100m via the Sentinel Peak, finishing via two sections of chain ladders to the escarpment rim. At the top: Tugela Falls, dropping 948 metres in five cascades — the world's second tallest waterfall. 6–8 hours return. A qualified mountain guide and safety harness are strongly recommended.",
+            "name": "Amphitheatre Chain Ladder Hike and Tugela Falls",
+            "description": "The defining Drakensberg experience. The route climbs from 2,200m to 3,100m via the Sentinel Peak, finishing via two sections of chain ladders to the summit of the Amphitheatre. Tugela Falls — the world's second-highest waterfall at 948m — is 30 minutes from the summit. A qualified guide with safety harness is essential.",
             "geo": { "@type": "GeoCoordinates", "latitude": -28.7627, "longitude": 28.9206 },
-            "isAccessibleForFree": false,
-            "touristType": "Backpackers"
+            "isAccessibleForFree": false
           }
         },
         {
-          "@type": "ListItem",
-          "position": 2,
+          "@type": "ListItem", "position": 2,
           "item": {
             "@type": "TouristAttraction",
             "name": "Sani Pass — Drive or Hike into Lesotho",
-            "description": "The only road crossing of the Drakensberg escarpment in KwaZulu-Natal, climbing 1,332 metres over nine kilometres into the Kingdom of Lesotho at 2,876m. Requires a genuine 4x4 — enforced at the border post. The top of the pass is the Lesotho Highlands plateau, with Basotho herders on horseback and the Sani Mountain Lodge (highest pub in Africa). Guided day trips from Underberg approximately €35–€50 per person.",
+            "description": "The only road crossing of the Drakensberg escarpment in KwaZulu-Natal, climbing 1,332 metres over nine kilometres into the Kingdom of Lesotho at 2,876m. Requires a genuine 4x4. The pass is closed to upward traffic after 15:00. Guided day trips available from Underberg.",
             "geo": { "@type": "GeoCoordinates", "latitude": -29.6189, "longitude": 29.4412 },
-            "isAccessibleForFree": false,
-            "touristType": "Backpackers"
+            "isAccessibleForFree": false
           }
         },
         {
-          "@type": "ListItem",
-          "position": 3,
+          "@type": "ListItem", "position": 3,
           "item": {
             "@type": "TouristAttraction",
             "name": "Game Pass Shelter Rock Art, Kamberg",
-            "description": "The most important single rock art site in southern Africa — where Professor David Lewis-Williams decoded the San symbolic system in the 1970s. The Kamberg Rock Art Centre adjacent to the shelter has the best interpretive display of any rock art site in the Drakensberg. Guided tours; book in advance. Approximately €5–€8 per person. 2–3 hours.",
+            "description": "The most important single rock art site in southern Africa — where Professor David Lewis-Williams decoded the San symbolic system in the 1970s. The Kamberg Rock Art Centre adjacent to the shelter has the best interpretive resource for understanding San cosmology available anywhere. Custodian guide mandatory.",
             "geo": { "@type": "GeoCoordinates", "latitude": -29.3558, "longitude": 29.6736 },
-            "isAccessibleForFree": false,
-            "touristType": "Backpackers"
+            "isAccessibleForFree": false
           }
         },
         {
-          "@type": "ListItem",
-          "position": 4,
+          "@type": "ListItem", "position": 4,
           "item": {
             "@type": "TouristAttraction",
             "name": "Main Caves Rock Art, Giant's Castle",
-            "description": "A substantial rock shelter with several hundred San paintings, well-preserved and well-explained on the guided tour. The adjacent interpretive centre is worth an hour before the cave walk. Guided tours twice daily. Half-day experience in a spectacular valley below the Giant's Castle massif.",
+            "description": "A substantial rock shelter with several hundred San paintings, well-preserved and well-explained on the guided tour. The adjacent interpretive centre is worth an hour before the cave walk. Custodian guide mandatory.",
             "geo": { "@type": "GeoCoordinates", "latitude": -29.2406, "longitude": 29.4889 },
-            "isAccessibleForFree": false,
-            "touristType": "Backpackers"
+            "isAccessibleForFree": false
           }
         },
         {
-          "@type": "ListItem",
-          "position": 5,
+          "@type": "ListItem", "position": 5,
           "item": {
             "@type": "TouristAttraction",
             "name": "Battle Cave Rock Art, Injasuti",
-            "description": "A four-hour round-trip guided hike to a shelter with 750 individual paintings, including one of the most striking battle scenes in all of southern African rock art — San and Nguni fighters in violent conflict. Viscerally different to the more contemplative shamanic imagery at other sites. Book at Injasuti Camp the day before.",
+            "description": "A four-hour round-trip guided hike to a shelter with 750 individual paintings, including one of the most striking battle scenes in all of southern African rock art — San and Nguni fighters in violent confrontation. Custodian guide mandatory.",
             "geo": { "@type": "GeoCoordinates", "latitude": -29.1689, "longitude": 29.5725 },
-            "isAccessibleForFree": false,
-            "touristType": "Backpackers"
+            "isAccessibleForFree": false
           }
         },
         {
-          "@type": "ListItem",
-          "position": 6,
+          "@type": "ListItem", "position": 6,
           "item": {
             "@type": "TouristAttraction",
             "name": "Drakensberg Grand Traverse",
-            "description": "A 130km route along the full length of the KwaZulu-Natal escarpment, taking 10–15 days, summiting six peaks above 3,000m. Regarded as one of the most demanding multi-day hikes in the southern hemisphere. For experienced, well-equipped hikers only. Guided fully-portered options available through specialist operators such as Drakensberg Hiker and Peak High Mountaineering.",
+            "description": "A 130km route along the full length of the KwaZulu-Natal escarpment, taking 10–15 days, summiting six peaks above 3,000m. Regarded as one of the most demanding multi-day hikes in the southern hemisphere. Requires a qualified guide and comprehensive mountain experience.",
             "geo": { "@type": "GeoCoordinates", "latitude": -29.0, "longitude": 29.3 },
-            "isAccessibleForFree": false,
-            "touristType": "Backpackers"
+            "isAccessibleForFree": false
           }
         },
         {
-          "@type": "ListItem",
-          "position": 7,
+          "@type": "ListItem", "position": 7,
           "item": {
             "@type": "TouristAttraction",
             "name": "Tugela Gorge Walk, Royal Natal",
-            "description": "A 7km return day hike along the Tugela River through indigenous forest and boulders to a viewpoint at the base of Tugela Falls. No technical sections. The best easy hike in the Northern Berg. Beautiful, consistent, and accessible to any level of fitness.",
+            "description": "A 7km return day hike along the Tugela River through indigenous forest and boulders to a viewpoint at the base of Tugela Falls. No technical sections. The best easy hike in the Northern Berg.",
             "geo": { "@type": "GeoCoordinates", "latitude": -28.7027, "longitude": 28.9586 },
-            "isAccessibleForFree": false,
-            "touristType": "Backpackers"
+            "isAccessibleForFree": false
           }
         },
         {
-          "@type": "ListItem",
-          "position": 8,
+          "@type": "ListItem", "position": 8,
           "item": {
             "@type": "TouristAttraction",
             "name": "Golden Gate Highlands National Park",
-            "description": "One of South Africa's most underrated national parks, 29km from Maluti Backpackers in Phuthaditjhaba. Sandstone cliffs that glow amber, orange, and red in afternoon light. Highlights include the Wodehouse Peak Trail (10km, 4.6/5 on AllTrails, panoramic views), the Brandwag Buttress walk (4.8/5 on AllTrails), and the guided Cathedral Cave Trail. Contains the world's oldest fossilised dinosaur embryos. Entry approximately €12.50 per person.",
-            "geo": { "@type": "GeoCoordinates", "latitude": -28.4960, "longitude": 28.6090 },
-            "isAccessibleForFree": false,
-            "touristType": "Backpackers"
+            "description": "One of South Africa's most underrated national parks, 29km from Maluti Backpackers in Phuthaditjhaba. Sandstone cliffs that glow amber, orange, and red in afternoon light. Highlights include the Wodehouseneck Pass, the Brandwag Buttress, vultures on thermals, and blesbok herds on the plains.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -28.496, "longitude": 28.609 },
+            "isAccessibleForFree": false
           }
         },
         {
-          "@type": "ListItem",
-          "position": 9,
+          "@type": "ListItem", "position": 9,
           "item": {
             "@type": "TouristAttraction",
             "name": "Bearded Vulture (Lammergeyer) Watching, Giant's Castle",
-            "description": "The Giant's Castle feeding station is active in winter, when rangers put out carcasses to attract the globally endangered bearded vulture — a two-metre wingspan, rust-orange chest, and a unique bone-dropping hunting behaviour. One of the outstanding ornithological experiences in southern Africa. Free with park entry outside the feeding station season.",
+            "description": "The Giant's Castle feeding station is active in winter, when rangers put out carcasses to attract the globally endangered bearded vulture — a two-metre wingspan, rust-orange chest, and a unique bone-dropping feeding technique. One of the finest raptor watching opportunities in southern Africa.",
             "geo": { "@type": "GeoCoordinates", "latitude": -29.2406, "longitude": 29.4889 },
-            "isAccessibleForFree": false,
-            "touristType": "Backpackers"
+            "isAccessibleForFree": false
           }
         },
         {
-          "@type": "ListItem",
-          "position": 10,
+          "@type": "ListItem", "position": 10,
           "item": {
             "@type": "TouristAttraction",
             "name": "Horse Riding Through the Drakensberg Foothills",
-            "description": "Several farms and lodges in the Southern and Central Berg offer multi-day horse trails into the foothills led by Basotho guides — a perspective on the landscape inaccessible on foot. Day rides from approximately €15–€30 for two hours; multi-day trail packages from approximately €90 per person per day all-inclusive. Khotso Lodge in Underberg offers the finest equestrian programme in the Drakensberg.",
+            "description": "Several farms and lodges in the Southern and Central Berg offer multi-day horse trails into the foothills led by Basotho guides — a perspective on the landscape inaccessible on foot. Day rides from approximately €20 per person; multi-day trails from €80 per person per day.",
             "geo": { "@type": "GeoCoordinates", "latitude": -29.74596, "longitude": 29.4264 },
-            "isAccessibleForFree": false,
-            "touristType": "Backpackers"
+            "isAccessibleForFree": false
           }
         },
         {
-          "@type": "ListItem",
-          "position": 11,
+          "@type": "ListItem", "position": 11,
           "item": {
             "@type": "TouristAttraction",
             "name": "Stargazing from the Drakensberg Foothills",
-            "description": "The Drakensberg has almost no light pollution. On a clear winter night, the Milky Way is visible as a solid white band across the sky from any foothills campsite. The Southern Cross is overhead. The Magellanic Clouds are visible to the naked eye. Bring a sleeping mat and lie on your back for an hour. Completely free.",
+            "description": "The Drakensberg has almost no light pollution. On a clear winter night, the Milky Way is visible as a solid white band across the sky from any foothills campsite. The Southern Cross is overhead. The Magellanic Clouds are naked-eye objects. Free from any campsite.",
             "geo": { "@type": "GeoCoordinates", "latitude": -29.5, "longitude": 29.4 },
-            "isAccessibleForFree": true,
-            "touristType": "Backpackers"
+            "isAccessibleForFree": true
           }
         },
         {
-          "@type": "ListItem",
-          "position": 12,
+          "@type": "ListItem", "position": 12,
           "item": {
             "@type": "TouristAttraction",
             "name": "Rainbow Gorge, Cathedral Peak",
-            "description": "A 3–4 hour walk along a stream through a gorge of red and orange sandstone walls, with pools deep enough to swim in during summer. The colour of the rock in afternoon light justifies the name. Free with park entry. One of the most beautiful short trails in the Central Berg.",
+            "description": "A 3–4 hour walk along a stream through a gorge of red and orange sandstone walls, with pools deep enough to swim in during summer. The colour of the rock in afternoon light justifies the name. Ezemvelo KZN Wildlife park entry fee applies.",
             "geo": { "@type": "GeoCoordinates", "latitude": -28.9748, "longitude": 29.2233 },
-            "isAccessibleForFree": false,
-            "touristType": "Backpackers"
+            "isAccessibleForFree": false
           }
         }
       ]
     },
+
     {
       "@type": "ItemList",
       "@id": "https://www.backpackersbible.com/backpacking-south-africa/drakensberg#guides",
-      "name": "Recommended Mountain Guides for the Drakensberg Amphitheatre Hike",
-      "description": "Three independently recommended, fully qualified mountain guides for the Amphitheatre chain ladder hike and Tugela Falls. All verified and all with strong records on the route.",
+      "name": "Recommended Mountain Guides for the Drakensberg Amphitheatre",
+      "description": "Three independently verified, fully qualified mountain guides for the Amphitheatre chain ladder hike and Tugela Falls. All hold SAMDET or UIMLA qualifications and confirmed insurance.",
+      "numberOfItems": 3,
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -449,7 +439,7 @@
           "item": {
             "@type": "TouristInformationCenter",
             "name": "Drakensberg Treks — Zee Ndaba",
-            "description": "Zee Ndaba — the first woman Zulu walking guide in South Africa — holds a National Tourism and Guide Diploma in Mountaineering and Adventure from THETA, with over 15 years of guiding experience in the Drakensberg and Lesotho. Her Amphitheatre tours are particularly valued for their depth of cultural and historical context. She has guided BBC presenter Julia Bradbury and directly employs local community guides and porters through her company.",
+            "description": "Zee Ndaba — the first woman Zulu walking guide in South Africa — holds a National Tourism and Guide Diploma in Mountaineering and Adventure from THETA, with over 15 years of guiding experience in the Drakensberg and Lesotho. Her Amphitheatre tours are particularly valued for their depth of cultural and historical context. She has guided BBC presenter Julia Bradbury and directly employs local community guides and porters.",
             "telephone": "+27781908191",
             "url": "https://drakensbergtreks.co.za",
             "sameAs": "https://drakensbergtreks.co.za"
@@ -481,13 +471,13 @@
         }
       ]
     },
+
     {
       "@type": "ItemList",
       "@id": "https://www.backpackersbible.com/backpacking-south-africa/drakensberg#hostel-list",
       "name": "Complete Directory of Drakensberg Hostels",
-      "description": "Every hostel in the Drakensberg reviewed independently and without affiliate bias. Covers the Southern Berg (Underberg / Himeville), Central Berg (Champagne Valley), Northern Berg (Winterton / Bergville), and Free State approaches (Phuthaditjhaba / Kestell). Each listing includes distance to the Sentinel Car Park trailhead for the Tugela Falls hike.",
+      "description": "Every backpacker hostel in the Drakensberg reviewed independently. Includes direct contact details, phone, WhatsApp, email, website, pricing, vibe, safety rating, solo-female friendliness, and digital nomad rating. Covers Southern Berg, Central Berg, Northern Berg, and the Free State foothills.",
       "numberOfItems": 7,
-
       "itemListElement": [
 
         {
@@ -498,7 +488,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/drakensberg#khotso-lodge",
             "name": "Khotso Lodge & Horse Trails",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/drakensberg#khotso-lodge",
-            "description": "The finest adventure farm experience in the Southern Drakensberg. Khotso's multi-day and day horse trails into the foothills — led by experienced Basotho guides on mountain ponies — are the finest equestrian experience in the Drakensberg. 4.5/5 Google, 8.4/10 Booking.com. Southern Berg base; approximately 175km to the Sentinel Car Park.",
+            "description": "The best adventure farm experience in the Southern Drakensberg. Essential for horse riders; highly recommended for anyone who wants a genuinely immersive Southern Berg base. One of the best-value, most distinctive hostels in this guide.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Drakensberg Gardens Road",
@@ -510,37 +500,45 @@
             "geo": { "@type": "GeoCoordinates", "latitude": -29.74596, "longitude": 29.4264 },
             "telephone": "+27824125540",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27824125540"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27824125540",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27824125540" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27824125540", "description": "WhatsApp" }
             ],
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJueREQqRi9B4RxOu-biRr5M8",
+            "email": "info@khotso.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=drakensberg",
+            "priceRange": "$-$$",
             "sameAs": [
               "https://khotso.co.za",
               "https://www.booking.com/hotel/za/khotso-lodge.html",
               "https://www.facebook.com/KhotsoLodge/",
               "https://www.instagram.com/khotsolodge/"
             ],
+                        "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "8.4",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Booking.com score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The best adventure farm experience in the Southern Drakensberg. Essential for horse riders; highly recommended for anyone wanting a genuinely immersive Southern Berg base.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "9.0", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "Multi-day and day horse trails into the Drakensberg (Basotho guides)", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Trout fishing in farm dams", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Mountain hiking directly from property", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Swimming dam", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Braai facilities", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Self-catering kitchen", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Communal lounge with fireplace", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Sani Pass tour arrangements (Underberg operators, 20 min)", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Multi-day horse trails led by Basotho guides", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Self-catering rondavels", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "En-suite rooms", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Camping available", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Farm setting, Drakensberg foothills", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Sani Pass access", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "1/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 2,
@@ -549,7 +547,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/drakensberg#sani-lodge-backpackers",
             "name": "Sani Lodge Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/drakensberg#sani-lodge-backpackers",
-            "description": "The finest ethically-run hostel in the Drakensberg, and one of the most beautifully located. Fair Trade Tourism certified (independently audited). Set 10.5km up the Sani Pass road in the Mkhomazana river valley, with bearded vultures on the thermals above and the pass visible from the terrace. The guided walking ascent of Sani Pass starts from the lodge gate. Top solo female recommendation in the Drakensberg. Approximately 165km to the Sentinel Car Park.",
+            "description": "The finest ethically-run hostel in the Drakensberg, and one of the most beautifully located. Fair Trade Tourism certified. The definitive Southern Berg base for the Sani Pass. One of the top solo female recommendations in the entire Drakensberg.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "10.5km along the Sani Pass Road, Mkhomazana Wilderness Area",
@@ -561,37 +559,38 @@
             "geo": { "@type": "GeoCoordinates", "latitude": -29.66232, "longitude": 29.45614 },
             "telephone": "+27839873071",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27839873071"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27839873071",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27839873071" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27839873071", "description": "WhatsApp" }
             ],
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJp24tg6l89B4RQ_nauVS0Uk0",
+            "email": "info@sanilodge.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=drakensberg",
+            "priceRange": "$-$$",
             "sameAs": [
               "https://sanilodge.co.za",
               "https://www.booking.com/hotel/za/sani-lodge-backpackers.html",
               "https://www.facebook.com/SaniLodgeBackpackers/",
               "https://www.instagram.com/sanilodgebackpackers/"
             ],
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The finest ethically-run hostel in the Drakensberg and one of the most beautifully located. Fair Trade Tourism certified. The definitive Southern Berg base for the Sani Pass. Highly recommended without reservation.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "9.5", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
               { "@type": "LocationFeatureSpecification", "name": "Fair Trade Tourism certified", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Guided Sani Pass hiking and 4x4 tours", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Mkhomazana River swimming and trout fishing", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Birdwatching (bearded vulture / lammergeyer territory)", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Community cultural visits to Basotho villages", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Communal fireplace lounge", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Braai facilities", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Self-catering kitchen", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Sani Pass road access (10.5km from Himeville)", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "River valley setting", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "En-suite rondavels", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Self-catering cottages (sleeps 4)", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Guided Sani Pass day trips", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "5/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "1/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 3,
@@ -600,7 +599,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/drakensberg#mountain-base-backpackers",
             "name": "Mountain Base Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/drakensberg#mountain-base-backpackers",
-            "description": "The best budget option in the Central Berg. Lowest dorm prices on the list in the Champagne Valley — the most activity-rich valley in the Drakensberg. Direct access to zip-lining, quad biking, horse riding, white-water tubing, golf, and hiking access to Monk's Cowl and Cathedral Peak. 4.1/5 Google, 7.6/10 Booking.com. Approximately 120km to the Sentinel Car Park.",
+            "description": "The best budget option in the Central Berg. Outstanding value for hikers and activity-seekers targeting the Champagne Valley and Cathedral Peak area.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "R600 Cathkin Road, Champagne Valley, Central Drakensberg",
@@ -611,19 +610,12 @@
             "geo": { "@type": "GeoCoordinates", "latitude": -29.01608, "longitude": 29.43671 },
             "telephone": "+27364681031",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27364681031"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27814798195",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27364681031" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27814798195", "description": "WhatsApp" }
             ],
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJX09KvzSo8x4RN-g_piGZQm4",
+            "email": "info@mountainbase.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=drakensberg",
+            "priceRange": "$",
             "sameAs": [
               "https://mountainbase.co.za",
               "https://www.booking.com/hotel/za/mountain-base-backpackers.html",
@@ -631,16 +623,32 @@
               "https://www.facebook.com/MountainBaseBackpackers/",
               "https://www.instagram.com/mountainbasebackpackers/"
             ],
+                        "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "7.6",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Booking.com score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The best budget option in the Central Berg. Outstanding value for hikers and activity-seekers targeting the Champagne Valley and Cathedral Peak area.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "8.0", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "Champagne Valley activity corridor (zip-lining, quad biking, horse riding, white-water tubing, golf) bookable through property", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Hiking access to Monk's Cowl (30 min) and Cathedral Peak (45 min)", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Braai facilities", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Self-catering kitchen", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Swimming", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Secure parking", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Champagne Valley Central Berg location", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Activity programme", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Private cabins (shared bath)", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "En-suite rooms", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Cathedral Peak and Champagne Valley trail access", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 4,
@@ -649,7 +657,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/drakensberg#berg-backpackers",
             "name": "Berg Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/drakensberg#berg-backpackers",
-            "description": "The best-value private room option in the Central Berg — private rooms only (no dorms) at dorm-adjacent prices on a quiet working farm outside Winterton. Ideal for couples and pairs targeting both Central and Northern Berg without paying guesthouse prices. 4.3/5 Google, 7.4/10 Booking.com. Approximately 90km to the Sentinel Car Park.",
+            "description": "The best-value private room option in the Central Berg. Ideal for couples and pairs who want farm quiet, mountain access, and no dorm compromise. No mixed dorms, no bar scene.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Glen Gray Farm, R600",
@@ -661,34 +669,42 @@
             "geo": { "@type": "GeoCoordinates", "latitude": -28.82754, "longitude": 29.47028 },
             "telephone": "+27824003724",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27824003724"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27824003724",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27824003724" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27824003724", "description": "WhatsApp" }
             ],
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJycJ2dk5U8h4R57LTciYPRWY",
+            "email": "info@bergbackpackers.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=drakensberg",
+            "priceRange": "$-$$",
             "sameAs": [
               "https://www.drakensberg-hikes.co.za",
               "https://www.booking.com/hotel/za/berg-backpackers.html",
               "https://www.facebook.com/BergBackpackers/"
             ],
+                        "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "7.4",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Booking.com score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The best-value private room option in the Central Berg. Ideal for couples and pairs who want farm quiet, mountain access, and no dorm compromise.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "8.0", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "Private rooms only (no dormitories)", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Farm setting with escarpment views", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Braai facilities", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Self-catering kitchen", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Hiking information and local trail maps", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Parking", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Private rooms only — no mixed dorms", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Family rooms with private bath", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Farm setting, Winterton", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Hiking guide service", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 5,
@@ -697,7 +713,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/drakensberg#amphitheatre-backpackers",
             "name": "Amphitheatre Backpackers Lodge",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/drakensberg#amphitheatre-backpackers",
-            "description": "The Northern Berg's most social hostel — active bar, pool, and a lively atmosphere in the Northern Berg foothills. The Baz Bus stops here (one of very few Drakensberg Baz Bus stops). Important: the Sentinel Car Park trailhead is approximately 160km away via road — factor this into planning for the Tugela Falls hike. Arrange your guide independently before arrival. 4.1/5 Google, 6.3/10 Booking.com.",
+            "description": "The Northern Berg's most social hostel. Arrive with your guide booked independently, your activity budget decided, and your expectations calibrated. Note: 160km from the Sentinel Car Park trailhead — for the Tugela Falls hike, Maluti Backpackers is the practical base.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "R74, Northern Drakensberg",
@@ -709,19 +725,11 @@
             "geo": { "@type": "GeoCoordinates", "latitude": -28.64329, "longitude": 29.15882 },
             "telephone": "+27828559767",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27828559767"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27828559767",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27828559767" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27828559767", "description": "WhatsApp" }
             ],
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJbTv4U5Ls8h4RA1XQw10VoSs",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=drakensberg",
+            "priceRange": "$-$$",
             "sameAs": [
               "https://amphibackpackers.com",
               "https://www.booking.com/hotel/za/amphitheatre-backpackers-lodge.html",
@@ -729,15 +737,32 @@
               "https://www.facebook.com/AmphiBackpackers/",
               "https://www.instagram.com/amphibackpackers/"
             ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "9.3",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The Northern Berg's most social hostel. Arrive with your guide booked independently. Note: 160km from the Sentinel Car Park trailhead — Maluti Backpackers is the practical base for the Tugela Falls hike.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "7.0", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "Swimming pool", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Bar and restaurant", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Baz Bus stop", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Safari tents and camping", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Secure parking", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Social bar and party atmosphere", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "N3 shuttle pickups", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Guided Amphitheatre hike packages", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Camping available", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Private en-suite rooms", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Amber" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 6,
@@ -746,7 +771,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/drakensberg#karma-backpackers",
             "name": "Karma Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/drakensberg#karma-backpackers",
-            "description": "A small, quiet Free State guesthouse-style backpackers in Kestell. More practical base than Amphitheatre for the Tugela Falls hike at ~60km from the Sentinel Car Park, though Maluti Backpackers (25km) remains the clear recommendation. 4.3/5 Google.",
+            "description": "A Free State option at roughly the midpoint between Amphitheatre and the Sentinel trailhead. Adequate for the area. The hostel's reputation for friendliness is more nuanced than reviews from passing travellers would suggest.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "2 Piet Retief Street",
@@ -758,26 +783,40 @@
             "geo": { "@type": "GeoCoordinates", "latitude": -28.31098, "longitude": 28.69908 },
             "telephone": "+27834423973",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27834423973",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27834423973" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27834423973", "description": "WhatsApp" }
             ],
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJz4XkyZVU7R4R7ebMZotjO6E",
+            "email": "kestellkarma@gmail.com",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=drakensberg",
+            "priceRange": "$-$$",
             "sameAs": [
               "https://www.karmalodge.co.za",
               "https://www.booking.com/hotel/za/karma-backpackers.html",
               "https://www.hostelworld.com/hostels/p/27273/karma-backpackers/",
               "https://www.facebook.com/karmabackpackers/"
             ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "10",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "60km from the Sentinel Car Park trailhead — more than twice the distance of Maluti Backpackers (25km). For a hike requiring a 5 AM start, that distance is a meaningful variable. Maluti Backpackers is the practical base for the Tugela Falls hike.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "6.0", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "Small private guesthouse-style property", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Northern Berg / Maluti Mountain setting", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "60km from Sentinel Car Park trailhead", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "1/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Amber" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 7,
@@ -786,7 +825,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/drakensberg#maluti-backpackers",
             "name": "Maluti Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/drakensberg#maluti-backpackers",
-            "description": "BackpackersBible.com's recommended base for the Tugela Falls hike. The closest backpacker accommodation to the Sentinel Car Park trailhead (~25km / 30 minutes) — significantly closer than Amphitheatre (160km), Berg Backpackers (90km), or Mountain Base (120km). Also the best base for Golden Gate Highlands National Park (29km). Locally owned in Phuthaditjhaba township. Free shuttle to Witsieshoek area (confirm at booking). On-site minimarket.",
+            "description": "BackpackersBible.com's recommended base for the Tugela Falls hike. The closest accommodation to the Sentinel Car Park trailhead (~25km, ~30 minutes). Also the best base for Golden Gate Highlands National Park. The platform ratings do not capture what matters most here: the proximity.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "3232 Nteo Street, Phuthaditjhaba-A",
@@ -798,40 +837,43 @@
             "geo": { "@type": "GeoCoordinates", "latitude": -28.51372, "longitude": 28.81858 },
             "telephone": "+27761934444",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27761934444"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27761934444",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27761934444" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27761934444", "description": "WhatsApp" }
             ],
-            "hasMap": "https://maps.google.com/maps/place/?q=place_id:ChIJwQ4u_Wyv8h4RkuFk5Qfh3h8",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=drakensberg",
+            "priceRange": "$",
             "sameAs": [
               "https://malutibackpackers.co.za",
               "https://www.booking.com/hotel/za/maluti-backpackers.html",
               "https://www.facebook.com/MalutiBackpackers/"
             ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "5.6",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Booking.com score, approximated at time of writing. Low score reflects town context, not the practical value of the location for the Tugela Falls hike."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "BackpackersBible.com's recommended base for the Tugela Falls hike. The closest accommodation to the Sentinel Car Park trailhead. Practical, honest, and community-supporting. The platform ratings do not capture what matters most here: the proximity.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "7.5", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "Free shuttle to Witsieshoek Mountain Lodge area (confirm availability)", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "On-site minimarket", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Closest hostel to Sentinel Car Park trailhead (~25km)", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Golden Gate Highlands National Park access (29km)", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Free Wi-Fi", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Self-catering kitchen", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Mountain views toward the Maluti range", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Secure parking", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Proximity to Basotho Cultural Village (15 min)", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Proximity to Golden Gate Highlands National Park (29km)", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Phuthaditjhaba QwaQwa township location", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Amber" }
             ]
           }
         }
 
       ]
     }
-
   ]
 }
 </script>
