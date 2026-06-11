@@ -4179,34 +4179,34 @@ img.bb-marker-icon {
   }
 
   /* NORTH: Lowest of top cluster, shoots straight down to N */
-  .pill.north { top: 180px; }
-  .pill.north::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    width: 2px;
-    height: 30px;
-    background: #bc1d23;
-    transform: translateX(-50%);
-  }
+.pill.north { top: 180px; }
+.pill.north::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 2px;
+  height: 15px; /* Tighter fit for mobile compass */
+  background: #bc1d23;
+  transform: translateX(-50%);
+}
 
   /* ==========================================
      BOTTOM CLUSTER (Stacked Below Compass)
      ========================================== */
 
   /* SOUTH: Highest of bottom cluster, shoots straight up to S */
-  .pill.south { bottom: 180px; }
-  .pill.south::after {
-    content: '';
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    width: 2px;
-    height: 30px;
-    background: #bc1d23;
-    transform: translateX(-50%);
-  }
+.pill.south { bottom: 180px; }
+.pill.south::after {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  width: 2px;
+  height: 15px; /* Tighter fit for mobile compass */
+  background: #bc1d23;
+  transform: translateX(-50%);
+}
 
   /* SOUTH EAST: Steps mid-right, then up to SE */
   .pill.south-east { bottom: 130px; }
