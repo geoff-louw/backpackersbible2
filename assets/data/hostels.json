@@ -3868,43 +3868,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          22.20521,
-          -33.57981
-        ]
-      },
-      "properties": {
-        "region": "karoo",
-        "id": "backpackers-paradise-karoo",
-        "name": "BACKPACKERS PARADISE",
-        "address": "148 Baron van Rheede Street, Oudtshoorn, 6620",
-        "phone": "+27442723436",
-        "whatsapp": "+27832364639",
-        "email": "backpackers@isat.co.za",
-        "website": "backpackersparadise.net",
-        "info": "The definitive Oudtshoorn backpacker base. Reliable, central, and consistently good value.",
-        "anchor": "/backpacking-south-africa/karoo#backpackers-paradise",
-        "is_best_overall": false,
-        "is_value": false,
-        "is_party": false,
-        "is_chill": false,
-        "is_solo_women": true,
-        "is_digital_nomad": false,
-        "is_surfer": false,
-        "is_safety": true,
-        "is_amenities": false,
-        "is_ethical": false,
-        "is_adventure": false,
-        "is_nature": false,
-        "is_cultural": false,
-        "is_cheapest": false,
-        "is_camping": true
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           31.96082,
           -25.42708
         ]
