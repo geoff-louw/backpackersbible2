@@ -4197,19 +4197,63 @@ img.bb-marker-icon {
   .pill.west { right: 680px; top: 50%; transform: translateY(-50%); }
   .pill.west::after { content: ''; position: absolute; left: 100%; top: 50%; width: 25px; height: 2px; background: #bc1d23; transform: translateY(-50%); }
 
-  /* NORTH EAST (Extended line to 65px) */
+  /* NORTH EAST (Centered origin, points down-left to compass) */
   .pill.north-east { top: 170px; left: 630px; }
-  .pill.north-east::after { content: ''; position: absolute; bottom: -15px; left: -15px; width: 2px; height: 65px; background: #bc1d23; transform: rotate(45deg); }
+  .pill.north-east::after { 
+    content: ''; 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    width: 2px; 
+    height: 100px; /* Increased length to bridge the gap */
+    background: #bc1d23; 
+    transform-origin: top center;
+    transform: rotate(45deg); 
+    z-index: -1; /* Tucks seamlessly behind the pill background */
+  }
 
-  /* NORTH WEST (Extended line to 65px) */
+  /* NORTH WEST (Centered origin, points down-right to compass) */
   .pill.north-west { top: 170px; right: 630px; }
-  .pill.north-west::after { content: ''; position: absolute; bottom: -15px; right: -15px; width: 2px; height: 65px; background: #bc1d23; transform: rotate(-45deg); }
+  .pill.north-west::after { 
+    content: ''; 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    width: 2px; 
+    height: 100px; 
+    background: #bc1d23; 
+    transform-origin: top center;
+    transform: rotate(-45deg); 
+    z-index: -1;
+  }
 
-  /* SOUTH EAST (Extended line to 65px) */
+  /* SOUTH EAST (Centered origin, points up-left to compass) */
   .pill.south-east { bottom: 170px; left: 630px; }
-  .pill.south-east::after { content: ''; position: absolute; top: -15px; left: -15px; width: 2px; height: 65px; background: #bc1d23; transform: rotate(-45deg); }
+  .pill.south-east::after { 
+    content: ''; 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    width: 2px; 
+    height: 100px; 
+    background: #bc1d23; 
+    transform-origin: top center;
+    transform: rotate(135deg); 
+    z-index: -1;
+  }
 
-  /* SOUTH WEST (Extended line to 65px) */
+  /* SOUTH WEST (Centered origin, points up-right to compass) */
   .pill.south-west { bottom: 170px; right: 630px; }
-  .pill.south-west::after { content: ''; position: absolute; top: -15px; right: -15px; width: 2px; height: 65px; background: #bc1d23; transform: rotate(45deg); }
+  .pill.south-west::after { 
+    content: ''; 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    width: 2px; 
+    height: 100px; 
+    background: #bc1d23; 
+    transform-origin: top center;
+    transform: rotate(-135deg); 
+    z-index: -1;
+  }
 }
