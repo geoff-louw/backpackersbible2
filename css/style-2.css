@@ -4035,51 +4035,15 @@ img.bb-marker-icon {
    36. COMPASS STYLES
    ============================================================ */
 
-
-/* --- 1. The Needle Animation --- */
-@keyframes swingCompass {
-  /* North (0deg) - Pause */
-  0%, 20% {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  /* Swing to South West (225deg) */
-  30%, 50% {
-    transform: translate(-50%, -50%) rotate(225deg);
-  }
-  /* Swing to East (90deg) */
-  60%, 80% {
-    transform: translate(-50%, -50%) rotate(90deg);
-  }
-  /* Swing back to North */
-  90%, 100% {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
-}
-
-/* --- 1. THE FORCE-CENTERED COMPASS WRAPPER --- */
-
 .compass-container {
-  width: 100%;
+  position: relative !important;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   box-sizing: border-box;
 }
 
 .compass-wrapper-unified {
   position: relative !important;
   display: block !important;
-  
-  /* Mobile Dimensions - Fixed to prevent collapsing */
-  width: 400px !important;
-  height: 400px !important; 
-  max-width: 100% !important;
-  
-  margin: 20px auto !important;
-  padding: 0 !important;
-  
-  /* Background Layer */
   background-image: url('https://backpackersbible.com/assets/compass-background.svg') !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
@@ -4087,64 +4051,44 @@ img.bb-marker-icon {
   z-index: 1;
 }
 
-/* --- 2. THE FORCE-CENTERED NEEDLE --- */
+/* The Spinning Needle */
 .compass-wrapper-unified::before {
   content: '' !important;
   position: absolute !important;
-  
-  /* Standard absolute centering coordinates */
   top: 50% !important;
   left: 50% !important;
   width: 100% !important;
   height: 100% !important;
   display: block !important;
-  
-  /* Needle Layer */
   background-image: url('https://backpackersbible.com/assets/compass-needle.svg') !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
   background-size: 100% 100% !important;
-  
-  /* Axis Anchor */
   transform-origin: center center !important;
-  
-  /* Calls the new centered animation timeline */
   animation: bbbSwingCentred 12s ease-in-out infinite !important;
   z-index: 2 !important;
 }
 
-/* --- 3. THE BULLETPROOF CENTERED ANIMATION --- */
 @keyframes bbbSwingCentred {
-  /* Every frame explicitly commands translate(-50%, -50%) 
-     to crush any rogue top-left positioning */
-  0%, 20% { 
-    transform: translate(-50%, -50%) rotate(0deg); 
-  }
-  30%, 50% { 
-    transform: translate(-50%, -50%) rotate(225deg); 
-  }
-  60%, 80% { 
-    transform: translate(-50%, -50%) rotate(90deg); 
-  }
-  90%, 100% { 
-    transform: translate(-50%, -50%) rotate(360deg); 
-  }
+  0%, 20% { transform: translate(-50%, -50%) rotate(0deg); }
+  30%, 50% { transform: translate(-50%, -50%) rotate(225deg); }
+  60%, 80% { transform: translate(-50%, -50%) rotate(90deg); }
+  90%, 100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
-/* --- 4. PILL & LINK STYLES --- */
+/* ==========================================================================
+   2. GLOBAL PILL & LINK STYLES
+   ========================================================================== */
 .pill {
-  background-color: #bc1d23;
+  position: absolute !important; /* Forces layout tracking globally */
+  background-color: #bc1d23 !important; /* Your exact crimson red */
   color: white !important;
-  padding: 10px 20px;
-  border-radius: 50px;
   font-weight: bold;
-  font-size: 15px;
   white-space: nowrap;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  z-index: 3;
+  z-index: 3 !important; /* Sits above needle, below quick-jump menu */
 }
 
-/* Move the interaction to the links inside the pill */
 .pill a {
   color: white !important;
   text-decoration: none;
@@ -4155,20 +4099,21 @@ img.bb-marker-icon {
   opacity: 0.8;
   text-decoration: underline;
   cursor: pointer;
+}
 
-/* --- 5. MOBILE LAYOUT (Absolute Precision Map for Mobile) --- */
+/* ==========================================================================
+   3. MOBILE MAP LAYOUT (Screens under 768px wide)
+   ========================================================================== */
 @media (max-width: 767px) {
   .compass-container {
-    position: relative;
     width: 100%;
-    max-width: 380px; /* Keeps the map tightly bound on small screens */
-    height: 720px;    /* Locked height gives lines a fixed target */
-    margin: 0 auto;
-    display: block;   /* Disables flex stacking */
+    max-width: 380px;
+    height: 720px;
+    display: block !important;
   }
 
   .compass-wrapper-unified {
-    width: 260px !important;  /* Scaled perfectly to fit mobile screens */
+    width: 260px !important;
     height: 260px !important;
     position: absolute !important;
     top: 50% !important;
@@ -4178,165 +4123,48 @@ img.bb-marker-icon {
   }
 
   .pill {
-    position: absolute;
-    padding: 8px 16px; /* Slightly tighter padding for mobile screens */
+    padding: 8px 16px;
     font-size: 13px;
   }
 
-  /* --- TOP CLUSTER (Above Compass) --- */
+  /* --- Mobile Coordinates & Lines --- */
+  .pill.north { top: 160px; left: 50%; transform: translateX(-50%); }
+  .pill.north::after { content: ''; position: absolute; top: 100%; left: 50%; width: 2px; height: 25px; background: #bc1d23; transform: translateX(-50%); }
 
-  /* NORTH */
-  .pill.north {
-    top: 160px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .pill.north::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    width: 2px;
-    height: 25px;
-    background: #bc1d23;
-    transform: translateX(-50%);
-  }
+  .pill.north-east { top: 105px; right: 20px; }
+  .pill.north-east::after { content: ''; position: absolute; bottom: -12px; left: 5px; width: 2px; height: 35px; background: #bc1d23; transform: rotate(35deg); transform-origin: top left; }
 
-  /* NORTH EAST */
-  .pill.north-east {
-    top: 105px;
-    right: 20px;
-  }
-  .pill.north-east::after {
-    content: '';
-    position: absolute;
-    bottom: -12px;
-    left: 5px;
-    width: 2px;
-    height: 35px;
-    background: #bc1d23;
-    transform: rotate(35deg);
-    transform-origin: top left;
-  }
+  .pill.north-west { top: 105px; left: 20px; }
+  .pill.north-west::after { content: ''; position: absolute; bottom: -12px; right: 5px; width: 2px; height: 35px; background: #bc1d23; transform: rotate(-35deg); transform-origin: top right; }
 
-  /* NORTH WEST */
-  .pill.north-west {
-    top: 105px;
-    left: 20px;
-  }
-  .pill.north-west::after {
-    content: '';
-    position: absolute;
-    bottom: -12px;
-    right: 5px;
-    width: 2px;
-    height: 35px;
-    background: #bc1d23;
-    transform: rotate(-35deg);
-    transform-origin: top right;
-  }
+  .pill.west { top: 45px; left: 50%; transform: translateX(-50%); }
+  .pill.west::after { content: ''; position: absolute; top: 100%; left: 20%; width: 2px; height: 125px; background: #bc1d23; transform: rotate(52deg); transform-origin: top left; }
 
-  /* WEST */
-  .pill.west {
-    top: 45px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .pill.west::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 20%;
-    width: 2px;
-    height: 125px;
-    background: #bc1d23;
-    transform: rotate(52deg);
-    transform-origin: top left;
-  }
+  .pill.south { bottom: 160px; left: 50%; transform: translateX(-50%); }
+  .pill.south::after { content: ''; position: absolute; bottom: 100%; left: 50%; width: 2px; height: 25px; background: #bc1d23; transform: translateX(-50%); }
 
-  /* --- BOTTOM CLUSTER (Below Compass) --- */
+  .pill.south-east { bottom: 105px; right: 20px; }
+  .pill.south-east::after { content: ''; position: absolute; top: -12px; left: 5px; width: 2px; height: 35px; background: #bc1d23; transform: rotate(-35deg); transform-origin: bottom left; }
 
-  /* SOUTH */
-  .pill.south {
-    bottom: 160px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .pill.south::after {
-    content: '';
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    width: 2px;
-    height: 25px;
-    background: #bc1d23;
-    transform: translateX(-50%);
-  }
+  .pill.south-west { bottom: 105px; left: 20px; }
+  .pill.south-west::after { content: ''; position: absolute; top: -12px; right: 5px; width: 2px; height: 35px; background: #bc1d23; transform: rotate(35deg); transform-origin: bottom right; }
 
-  /* SOUTH EAST */
-  .pill.south-east {
-    bottom: 105px;
-    right: 20px;
-  }
-  .pill.south-east::after {
-    content: '';
-    position: absolute;
-    top: -12px;
-    left: 5px;
-    width: 2px;
-    height: 35px;
-    background: #bc1d23;
-    transform: rotate(-35deg);
-    transform-origin: bottom left;
-  }
-
-  /* SOUTH WEST */
-  .pill.south-west {
-    bottom: 105px;
-    left: 20px;
-  }
-  .pill.south-west::after {
-    content: '';
-    position: absolute;
-    top: -12px;
-    right: 5px;
-    width: 2px;
-    height: 35px;
-    background: #bc1d23;
-    transform: rotate(35deg);
-    transform-origin: bottom right;
-  }
-
-  /* EAST */
-  .pill.east {
-    bottom: 45px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .pill.east::after {
-    content: '';
-    position: absolute;
-    bottom: 100%;
-    left: 80%;
-    width: 2px;
-    height: 125px;
-    background: #bc1d23;
-    transform: rotate(52deg);
-    transform-origin: bottom left;
-  }
+  .pill.east { bottom: 45px; left: 50%; transform: translateX(-50%); }
+  .pill.east::after { content: ''; position: absolute; bottom: 100%; left: 80%; width: 2px; height: 125px; background: #bc1d23; transform: rotate(52deg); transform-origin: bottom left; }
 }
 
-/* --- 6. DESKTOP LAYOUT (8-Point Map around 450px Compass) --- */
+/* ==========================================================================
+   4. DESKTOP MAP LAYOUT (Screens 768px and wider)
+   ========================================================================== */
 @media (min-width: 768px) {
   .compass-container {
-    position: relative;
-    width: 850px; /* Expanded back to 850px to give long text room */
+    width: 850px;
     height: 850px;
-    display: block;
+    display: block !important;
   }
 
   .compass-wrapper-unified {
-    width: 450px !important; /* Kept at 75% size */
+    width: 450px !important;
     height: 450px !important;
     position: absolute !important;
     top: 50% !important;
@@ -4346,152 +4174,32 @@ img.bb-marker-icon {
   }
 
   .pill {
-    position: absolute;
+    padding: 10px 20px;
+    font-size: 15px;
   }
 
-  /* --- CARDINAL POINTS --- */
+  /* --- Desktop Coordinates & Lines --- */
+  .pill.north { top: 120px; left: 50%; transform: translateX(-50%); }
+  .pill.north::after { content: ''; position: absolute; top: 100%; left: 50%; width: 2px; height: 35px; background: #bc1d23; transform: translateX(-50%); }
 
-  /* NORTH */
-  .pill.north {
-    top: 120px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .pill.north::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    width: 2px;
-    height: 35px; /* Tuned to stop 5px short */
-    background: #bc1d23;
-    transform: translateX(-50%);
-  }
+  .pill.south { bottom: 120px; left: 50%; transform: translateX(-50%); }
+  .pill.south::after { content: ''; position: absolute; bottom: 100%; left: 50%; width: 2px; height: 35px; background: #bc1d23; transform: translateX(-50%); }
 
-  /* SOUTH */
-  .pill.south {
-    bottom: 120px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .pill.south::after {
-    content: '';
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    width: 2px;
-    height: 35px;
-    background: #bc1d23;
-    transform: translateX(-50%);
-  }
+  .pill.east { left: 680px; top: 50%; transform: translateY(-50%); }
+  .pill.east::after { content: ''; position: absolute; right: 100%; top: 50%; width: 25px; height: 2px; background: #bc1d23; transform: translateY(-50%); }
 
-  /* EAST */
-  .pill.east {
-    left: 680px; /* Pinned from left to stop wide text hitting compass */
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  .pill.east::after {
-    content: '';
-    position: absolute;
-    right: 100%;
-    top: 50%;
-    width: 25px; 
-    height: 2px;
-    background: #bc1d23;
-    transform: translateY(-50%);
-  }
+  .pill.west { right: 680px; top: 50%; transform: translateY(-50%); }
+  .pill.west::after { content: ''; position: absolute; left: 100%; top: 50%; width: 25px; height: 2px; background: #bc1d23; transform: translateY(-50%); }
 
-  /* WEST */
-  .pill.west {
-    right: 680px; 
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  .pill.west::after {
-    content: '';
-    position: absolute;
-    left: 100%;
-    top: 50%;
-    width: 25px;
-    height: 2px;
-    background: #bc1d23;
-    transform: translateY(-50%);
-  }
+  .pill.north-east { top: 170px; left: 630px; }
+  .pill.north-east::after { content: ''; position: absolute; bottom: -15px; left: -15px; width: 2px; height: 35px; background: #bc1d23; transform: rotate(45deg); }
 
-  /* --- DIAGONAL POINTS --- */
+  .pill.north-west { top: 170px; right: 630px; }
+  .pill.north-west::after { content: ''; position: absolute; bottom: -15px; right: -15px; width: 2px; height: 35px; background: #bc1d23; transform: rotate(-45deg); }
 
-  /* NORTH EAST */
-  .pill.north-east {
-    top: 170px;
-    left: 630px;
-  }
-  .pill.north-east::after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    left: -15px;
-    width: 2px;
-    height: 35px;
-    background: #bc1d23;
-    transform: rotate(45deg);
-  }
+  .pill.south-east { bottom: 170px; left: 630px; }
+  .pill.south-east::after { content: ''; position: absolute; top: -15px; left: -15px; width: 2px; height: 35px; background: #bc1d23; transform: rotate(-45deg); }
 
-  /* NORTH WEST */
-  .pill.north-west {
-    top: 170px;
-    right: 630px;
-  }
-  .pill.north-west::after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    right: -15px;
-    width: 2px;
-    height: 35px;
-    background: #bc1d23;
-    transform: rotate(-45deg);
-  }
-
-  /* SOUTH EAST */
-  .pill.south-east {
-    bottom: 170px;
-    left: 630px;
-  }
-  .pill.south-east::after {
-    content: '';
-    position: absolute;
-    top: -15px;
-    left: -15px;
-    width: 2px;
-    height: 35px;
-    background: #bc1d23;
-    transform: rotate(-45deg);
-  }
-
-  /* SOUTH WEST */
-  .pill.south-west {
-    bottom: 170px;
-    right: 630px;
-  }
-  .pill.south-west::after {
-    content: '';
-    position: absolute;
-    top: -15px;
-    right: -15px;
-    width: 2px;
-    height: 35px;
-    background: #bc1d23;
-    transform: rotate(45deg);
-  }
+  .pill.south-west { bottom: 170px; right: 630px; }
+  .pill.south-west::after { content: ''; position: absolute; top: -15px; right: -15px; width: 2px; height: 35px; background: #bc1d23; transform: rotate(45deg); }
 }
-
-/* --- 5. ANIMATION TIMELINE --- */
-
-@keyframes bbbSwing {
-  0%, 20% { transform: rotate(0deg); }       /* North */
-  30%, 50% { transform: rotate(225deg); }     /* South West */
-  60%, 80% { transform: rotate(90deg); }      /* East */
-  90%, 100% { transform: rotate(360deg); }    /* Loop back North */
-}
-
