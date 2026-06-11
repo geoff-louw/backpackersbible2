@@ -79,6 +79,7 @@
 {
   "@context": "https://schema.org",
   "@graph": [
+
     {
       "@type": "Organization",
       "@id": "https://www.backpackersbible.com/#organization",
@@ -90,23 +91,44 @@
         "width": 250,
         "height": 250
       },
-      "description": "Independent, non-affiliate-biased backpacker guides to destinations worldwide. Direct hostel contacts, safety information, and honest write-ups."
+      "description": "Independent backpacker guides to destinations worldwide with direct hostel contacts, safety information, maps, and honest write-ups."
     },
+
     {
-      "@type": ["WebPage", "TravelGuide"],
+      "@type": "Person",
+      "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw",
+      "name": "Geoff Louw",
+      "url": "https://www.backpackersbible.com/misc/about-backpackers-bible",
+      "worksFor": { "@id": "https://www.backpackersbible.com/#organization" }
+    },
+
+    {
+      "@type": "WebSite",
+      "@id": "https://www.backpackersbible.com/#website",
+      "url": "https://www.backpackersbible.com/",
+      "name": "BackpackersBible.com",
+      "publisher": { "@id": "https://www.backpackersbible.com/#organization" },
+      "inLanguage": "en"
+    },
+
+    {
+      "@type": ["WebPage", "CollectionPage"],
       "@id": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#webpage",
       "url": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg",
       "name": "Johannesburg Backpacking: The Ultimate Big City Guide",
       "headline": "Johannesburg Backpacking: The Ultimate Big City Guide",
-      "description": "Dive into SA's most legendary city with confidence. We give you direct hostel contacts, interactive maps, and real safety advice for your Joburg adventure.",
+      "description": "Dive into SA's most legendary city with confidence. Direct hostel contacts, interactive maps, and real safety advice for your Joburg adventure.",
       "inLanguage": "en",
+      "wordCount": 26000,
       "isPartOf": { "@id": "https://www.backpackersbible.com/#website" },
       "publisher": { "@id": "https://www.backpackersbible.com/#organization" },
-      "author": { "@id": "https://www.backpackersbible.com/#organization" },
+      "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
       "dateModified": "2026-01-01",
       "primaryImageOfPage": {
         "@type": "ImageObject",
-        "url": "https://www.backpackersbible.com/assets/social-preview.jpg"
+        "url": "https://www.backpackersbible.com/assets/social-preview.jpg",
+        "width": 1200,
+        "height": 630
       },
       "about": [
         { "@type": "City", "name": "Johannesburg", "sameAs": "https://en.wikipedia.org/wiki/Johannesburg" },
@@ -117,37 +139,25 @@
         { "@id": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#hostel-list" },
         { "@id": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#activities" },
         { "@id": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#safety-guide" },
-        { "@id": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#faq" }
+        { "@id": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#faq" },
+        { "@id": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#rosebank-sunday-market" }
       ],
       "speakable": {
         "@type": "SpeakableSpecification",
-        "cssSelector": [".intro-p", ".detail-p", "#safety", "#faq"]
+        "cssSelector": [".intro-p", ".detail-p", "#safety", "#faq", ".final-verdict"]
       }
     },
+
     {
       "@type": "BreadcrumbList",
       "@id": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#breadcrumb",
       "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.backpackersbible.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Backpacking South Africa",
-          "item": "https://www.backpackersbible.com/backpacking-south-africa/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Backpacking Johannesburg",
-          "item": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg"
-        }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.backpackersbible.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Backpacking South Africa", "item": "https://www.backpackersbible.com/backpacking-south-africa/" },
+        { "@type": "ListItem", "position": 3, "name": "Backpacking Johannesburg", "item": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg" }
       ]
     },
+
     {
       "@type": "FAQPage",
       "@id": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#faq",
@@ -218,30 +228,35 @@
         }
       ]
     },
+
     {
-      "@type": "Map",
+      "@type": ["Map", "SoftwareApplication"],
       "@id": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#map",
       "name": "Johannesburg Backpackers Hostel Map — All Hostels",
-      "description": "Interactive map of all backpacker hostels in Johannesburg, with contact details, addresses, and links to individual write-ups. Covers the East (airport proximity), North (Rosebank, Parkhurst, Melville, Randburg), Central (Maboneng), and Soweto.",
+      "description": "Interactive 3D map of all backpacker hostels in Johannesburg with one-tap filters for Best Overall, Best Value, Best for Solo Women, and Best for Digital Nomads. Covers East Rand (airport cluster), Bruma, Randburg, Melville, Parkhurst, Rosebank, Maboneng, and Soweto.",
+      "applicationCategory": "TravelApplication",
+      "operatingSystem": "Web browser",
       "mapType": "https://schema.org/VenueMap",
-      "additionalType": "https://schema.org/Map",
-      "url": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg",
-      "hasMap": "https://www.google.com/maps/d/embed?mid=1YlCywz3bXNDCOhw6bLz-F3iPhC9XD4A&ehbc=2E312F&noprof=1&ll=-26.20,28.03&z=11",
-      "areaServed": {
+      "url": "https://www.backpackersbible.com/map.html?region=johannesburg",
+      "potentialAction": [
+        { "@type": "SearchAction", "name": "Filter: Best overall hostels in Johannesburg", "target": "https://www.backpackersbible.com/map.html?region=johannesburg&filter=best_overall" },
+        { "@type": "SearchAction", "name": "Filter: Best value hostels in Johannesburg", "target": "https://www.backpackersbible.com/map.html?region=johannesburg&filter=best_value" },
+        { "@type": "SearchAction", "name": "Filter: Best hostels for solo women in Johannesburg", "target": "https://www.backpackersbible.com/map.html?region=johannesburg&filter=best_solo_women" },
+        { "@type": "SearchAction", "name": "Filter: Best hostels for digital nomads in Johannesburg", "target": "https://www.backpackersbible.com/map.html?region=johannesburg&filter=best_digital_nomads" }
+      ],
+      "about": { "@type": "Thing", "name": "Backpacker Hostels in Johannesburg" },
+      "spatialCoverage": {
         "@type": "City",
         "name": "Johannesburg",
         "sameAs": "https://en.wikipedia.org/wiki/Johannesburg"
-      },
-      "about": {
-        "@type": "Thing",
-        "name": "Backpacker Hostels in Johannesburg"
       }
     },
+
     {
       "@type": "HowTo",
       "@id": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#safety-guide",
       "name": "How to Stay Safe in Johannesburg as a Backpacker",
-      "description": "Practical, honest safety advice for backpackers visiting Johannesburg, covering the hub-and-spoke city model, phone security, Park Station, ATMs, fake police, airport arrivals, and neighbourhood-specific guidance.",
+      "description": "Practical, honest safety advice for backpackers in Johannesburg, covering transport, phone safety, Park Station, ATMs, neighbourhood navigation, fake police, and OR Tambo airport arrivals.",
       "step": [
         {
           "@type": "HowToStep",
@@ -280,158 +295,136 @@
         }
       ]
     },
+
     {
       "@type": "ItemList",
       "@id": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#activities",
       "name": "Johannesburg Backpacker Activities and Attractions",
-      "description": "Comprehensive guide to activities in Johannesburg for backpackers — from the Apartheid Museum and Soweto to Maboneng street art, the Rosebank Sunday Market, the Cradle of Humankind, Pilanesberg Game Reserve, live jazz, amapiano clubs, and world-class live sport.",
+      "description": "Guide to the best activities in Johannesburg for backpackers, from the Apartheid Museum and Soweto to the Cradle of Humankind, Pilanesberg, the Rosebank Sunday Market, and the Soweto Derby.",
       "itemListElement": [
         {
-          "@type": "ListItem",
-          "position": 1,
+          "@type": "ListItem", "position": 1,
           "item": {
             "@type": "TouristAttraction",
             "name": "The Apartheid Museum",
             "description": "One of the most brilliantly designed museum experiences in the world. At the entrance your ticket designates you 'White' or 'Non-White' and you enter through the corresponding gate before the paths rejoin. A three-to-four-hour chronological account of the apartheid era follows. Entry approximately €6. Adjacent to Gold Reef City, 20 minutes by Uber from Rosebank or Melville. Non-negotiable.",
             "geo": { "@type": "GeoCoordinates", "latitude": -26.2419, "longitude": 28.0131 },
-            "isAccessibleForFree": false,
-            "touristType": "Backpackers"
+            "isAccessibleForFree": false
           }
         },
         {
-          "@type": "ListItem",
-          "position": 2,
+          "@type": "ListItem", "position": 2,
           "item": {
             "@type": "TouristAttraction",
             "name": "Soweto Full Day",
             "description": "The single most important experience in Johannesburg. The Hector Pieterson Museum (€3), Mandela House on Vilakazi Street (€4), the Orlando Towers bungee jump (€35), Walter Sisulu Square in Kliptown, and shisa nyama on a Sunday afternoon. Go with a community-based guide. Lebo's Soweto Backpackers offers the essential bicycle tour.",
-            "geo": { "@type": "GeoCoordinates", "latitude": -26.2380, "longitude": 27.8590 },
-            "isAccessibleForFree": false,
-            "touristType": "Backpackers"
+            "geo": { "@type": "GeoCoordinates", "latitude": -26.238, "longitude": 27.859 },
+            "isAccessibleForFree": false
           }
         },
         {
-          "@type": "ListItem",
-          "position": 3,
+          "@type": "ListItem", "position": 3,
           "item": {
             "@type": "TouristAttraction",
             "name": "Rosebank Sunday Market",
             "description": "Every Sunday 9am–4pm, the rooftop of Rosebank Mall hosts one of the best and most long-running markets in South Africa — over 140 stalls of handmade crafts, African art, vintage clothing, jewellery, and street food from South African, Ethiopian, Nigerian, and Cape Malay vendors. Car boot sale on the last two Sundays of the month. Live music on the last Sunday. Free to enter.",
             "geo": { "@type": "GeoCoordinates", "latitude": -26.1466, "longitude": 28.0428 },
-            "isAccessibleForFree": true,
-            "touristType": "Backpackers"
+            "isAccessibleForFree": true
           }
         },
         {
-          "@type": "ListItem",
-          "position": 4,
+          "@type": "ListItem", "position": 4,
           "item": {
             "@type": "TouristAttraction",
             "name": "Constitution Hill",
             "description": "The old Johannesburg Fort and Number Four Prison — where Gandhi and Mandela were both held — now houses the Constitutional Court of South Africa, built with bricks from the demolished prison. Cells open to the public; courtroom open when court is not in session. Historic precinct entry approximately €5. Constitutional Court gallery free.",
             "geo": { "@type": "GeoCoordinates", "latitude": -26.1895, "longitude": 28.0447 },
-            "isAccessibleForFree": false,
-            "touristType": "Backpackers"
+            "isAccessibleForFree": false
           }
         },
         {
-          "@type": "ListItem",
-          "position": 5,
+          "@type": "ListItem", "position": 5,
           "item": {
             "@type": "TouristAttraction",
             "name": "The Cradle of Humankind",
             "description": "A UNESCO World Heritage Site 50km northwest of Johannesburg containing more than a third of the world's known hominid fossil record. The Maropeng Centre and Sterkfontein Caves with active excavation sites going back 3.5 million years. Combined ticket approximately €18. Go on a weekday morning.",
             "geo": { "@type": "GeoCoordinates", "latitude": -25.9192, "longitude": 27.7671 },
-            "isAccessibleForFree": false,
-            "touristType": "Backpackers"
+            "isAccessibleForFree": false
           }
         },
         {
-          "@type": "ListItem",
-          "position": 6,
+          "@type": "ListItem", "position": 6,
           "item": {
             "@type": "TouristAttraction",
             "name": "Pilanesberg Game Reserve",
             "description": "The closest Big Five reserve to Johannesburg — 55,000 hectares in an ancient volcanic crater two hours northwest. Lion, elephant, rhino, buffalo, leopard, hippo, giraffe, and zebra. Self-drive possible with a standard hire car. Gate entry approximately €12. Go before sunrise for peak game activity.",
             "geo": { "@type": "GeoCoordinates", "latitude": -25.2585, "longitude": 27.0654 },
-            "isAccessibleForFree": false,
-            "touristType": "Backpackers"
+            "isAccessibleForFree": false
           }
         },
         {
-          "@type": "ListItem",
-          "position": 7,
+          "@type": "ListItem", "position": 7,
           "item": {
             "@type": "TouristAttraction",
             "name": "Gold Reef City Mine Tour",
             "description": "A descent 220 metres underground in an original mine cage at the Crown Mines shaft. Guides explain both the geology and the labour history — who worked here, under what conditions, for what pay. 90 minutes, approximately €12. Combine with the adjacent Apartheid Museum for a full and sobering day.",
             "geo": { "@type": "GeoCoordinates", "latitude": -26.2448, "longitude": 28.0102 },
-            "isAccessibleForFree": false,
-            "touristType": "Backpackers"
+            "isAccessibleForFree": false
           }
         },
         {
-          "@type": "ListItem",
-          "position": 8,
+          "@type": "ListItem", "position": 8,
           "item": {
             "@type": "TouristAttraction",
             "name": "Johannesburg Zoo and Zoo Lake",
-            "description": "The Zoo on Jan Smuts Avenue in Parkview has a comprehensive range of African species and among the better-maintained enclosures in Africa. Entry approximately €8. Adjacent Zoo Lake in Emmarentia is free to enter — lakeside restaurant, rowing boats, peacocks, and a popular Sunday morning park scene. The annual Jazz in the Lights festival is held here each March.",
+            "description": "The Zoo on Jan Smuts Avenue in Parkview has a comprehensive range of African species and among the better-maintained enclosures in Africa. Entry approximately €8. Adjacent Zoo Lake in Emmarentia is free — lakeside restaurant, rowing boats, peacocks, and a popular Sunday morning park scene. The annual Jazz in the Lights festival is held here each March.",
             "geo": { "@type": "GeoCoordinates", "latitude": -26.1536, "longitude": 28.0221 },
-            "isAccessibleForFree": false,
-            "touristType": "Backpackers"
+            "isAccessibleForFree": false
           }
         },
         {
-          "@type": "ListItem",
-          "position": 9,
+          "@type": "ListItem", "position": 9,
           "item": {
             "@type": "TouristAttraction",
             "name": "Maboneng Street Art",
             "description": "Floor-to-roofline murals on multi-storey buildings along Fox Street and the surrounding Maboneng blocks — among the best large-scale public art on the African continent. Free, available every day, and best in morning light. Stay within the Maboneng Precinct boundaries.",
             "geo": { "@type": "GeoCoordinates", "latitude": -26.2037, "longitude": 28.0617 },
-            "isAccessibleForFree": true,
-            "touristType": "Backpackers"
+            "isAccessibleForFree": true
           }
         },
         {
-          "@type": "ListItem",
-          "position": 10,
+          "@type": "ListItem", "position": 10,
           "item": {
             "@type": "TouristAttraction",
             "name": "Melville 7th Street",
             "description": "The bohemian soul of Johannesburg — bookshops, restaurants, bars, and coffee shops on 7th Street and 4th Avenue. Saturday mornings with the Melville Artisanal Market are one of the best things Johannesburg offers. The bar and restaurant strip is active until late and safe for walking between venues on the strip itself.",
             "geo": { "@type": "GeoCoordinates", "latitude": -26.1765, "longitude": 28.0017 },
-            "isAccessibleForFree": true,
-            "touristType": "Backpackers"
+            "isAccessibleForFree": true
           }
         },
         {
-          "@type": "ListItem",
-          "position": 11,
+          "@type": "ListItem", "position": 11,
           "item": {
             "@type": "TouristAttraction",
             "name": "The Soweto Derby — Kaizer Chiefs vs Orlando Pirates",
             "description": "One of the most intensely supported football fixtures on earth. When they meet at FNB Stadium — the 94,000-seat venue that hosted the 2010 FIFA World Cup Final — the atmosphere surpasses almost anything in European football: vuvuzelas, drums, mass chanting. Tickets from approximately €5–€15 via Ticketmaster.",
             "geo": { "@type": "GeoCoordinates", "latitude": -26.2349, "longitude": 27.9826 },
-            "isAccessibleForFree": false,
-            "touristType": "Backpackers"
+            "isAccessibleForFree": false
           }
         },
         {
-          "@type": "ListItem",
-          "position": 12,
+          "@type": "ListItem", "position": 12,
           "item": {
             "@type": "TouristAttraction",
             "name": "The Orbit Jazz Club",
             "description": "Live jazz five to six nights a week in Braamfontein. An intimate room, excellent sound, and an audience that listens with genuine attention. South African jazz is rooted in the Sophiatown scene of the 1950s — hearing it live at The Orbit connects to that lineage directly. Cover approximately €6–€12. Book ahead for headline acts. Arrive and depart by Uber.",
             "geo": { "@type": "GeoCoordinates", "latitude": -26.1937, "longitude": 28.0417 },
-            "isAccessibleForFree": false,
-            "touristType": "Backpackers"
+            "isAccessibleForFree": false
           }
         }
       ]
     },
+
     {
       "@type": "Event",
       "@id": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#rosebank-sunday-market",
@@ -455,14 +448,15 @@
         "name": "Rosebank Sunday Market"
       }
     },
+
     {
       "@type": "ItemList",
       "@id": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#hostel-list",
       "name": "Complete Directory of Johannesburg Hostels — All 12",
-      "description": "Every hostel in Johannesburg reviewed independently and without affiliate bias, from the airport cluster to Soweto. Includes direct contact details, phone, WhatsApp, email, website, pricing, vibe, safety rating, solo-female friendliness, and digital nomad rating.",
+      "description": "Every hostel in Johannesburg reviewed independently. Includes direct contact details, phone, WhatsApp, email, website, pricing, vibe, safety rating, solo-female friendliness, and digital nomad rating. Covers the East Rand airport cluster, Bruma, Randburg, Melville, Parkhurst, Rosebank, Maboneng, and Soweto.",
       "numberOfItems": 12,
-
       "itemListElement": [
+
         {
           "@type": "ListItem",
           "position": 1,
@@ -471,7 +465,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#backpackers-connection",
             "name": "Backpackers Connection",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#backpackers-connection",
-            "description": "The smartest first and last night in Johannesburg. A quiet, gated rural smallholding 8km from OR Tambo Airport with a pool, braai area, and owners Mike and Barbara who are expert at helping travellers prepare for or debrief from the rest of South Africa. Light breakfast included. Safari vehicle camping available.",
+            "description": "The essential airport hostel. Perfect first or last night accommodation for anyone transiting through OR Tambo — clean, calm, personal, and managed by people who genuinely understand what tired travellers need.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "16 Beech Avenue, Highway Gardens",
@@ -483,32 +477,22 @@
             "geo": { "@type": "GeoCoordinates", "latitude": -26.10576, "longitude": 28.30718 },
             "telephone": "+27114524272",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27114524272"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27834542948",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27114524272" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27834542948", "description": "WhatsApp" }
             ],
-            "hasMap": "https://maps.google.com/?q=-26.10576,28.30718",
+            "email": "info@backpackersconnection.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=johannesburg",
+            "priceRange": "$",
             "sameAs": [
               "https://www.backpackersconnection.co.za",
               "https://www.hostelworld.com/pwa/hosteldetails.php/Backpackers-Connection/Johannesburg/26227",
               "https://www.facebook.com/backpackersconnection/"
             ],
-            "priceRange": "ZAR200–ZAR900",
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.5",
-              "bestRating": "5",
-              "worstRating": "1",
-              "reviewCount": 150,
-              "ratingCount": 150
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The essential airport hostel. Perfect first or last night accommodation for anyone transiting through OR Tambo.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "8.0", "bestRating": "10", "worstRating": "1" }
             },
             "amenityFeature": [
               { "@type": "LocationFeatureSpecification", "name": "Light breakfast included", "value": true },
@@ -518,10 +502,14 @@
               { "@type": "LocationFeatureSpecification", "name": "Free Wi-Fi", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Secure gated parking", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "24-hour airport transport arrangements", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Safari vehicle camping facilities", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Safari vehicle camping facilities", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 2,
@@ -530,7 +518,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#brown-sugar-backpackers",
             "name": "Brown Sugar Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#brown-sugar-backpackers",
-            "description": "Johannesburg's most characterful hostel, set in a genuine 1970s gangster mansion on a ridge above the city. Operating since 1998. Pool, multiple outdoor terraces, hot breakfast included, on-site ATM, in-house tour guide (Solomon) running Soweto and wider Joburg tours daily, and free airport pickup for private room bookings.",
+            "description": "Johannesburg's most characterful hostel, in a genuinely extraordinary building with city views. The free airport pickup, hot breakfast, and on-site tour desk make it one of the most complete value packages in the city. Book a private room or the Glass Room, not the 18-bed dorm.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "75 Observatory Avenue, Observatory Ext 1",
@@ -542,33 +530,30 @@
             "geo": { "@type": "GeoCoordinates", "latitude": -26.18015, "longitude": 28.08591 },
             "telephone": "+27833779529",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27833779529"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27833779529",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27833779529" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27833779529", "description": "WhatsApp" }
             ],
-            "hasMap": "ChIJw9DHJvENlR4RiD8vmHAjCfg",
+            "email": "info@brownsugarbackpackers.com",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=johannesburg",
+            "priceRange": "$",
             "sameAs": [
               "https://www.brownsugarbackpackers.com",
               "https://www.booking.com/hotel/za/brown-sugar-backpackers.html",
               "https://www.hostelworld.com/hostels/p/6608/brown-sugar-backpackers/",
               "https://www.facebook.com/brownsugarbackpackers/"
             ],
-            "priceRange": "ZAR150–ZAR950",
             "aggregateRating": {
               "@type": "AggregateRating",
-              "ratingValue": "4.0",
-              "bestRating": "5",
+              "ratingValue": "9.0",
+              "bestRating": "10",
               "worstRating": "1",
-              "reviewCount": 200,
-              "ratingCount": 200
+              "description": "Hostelworld score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "Johannesburg's most characterful hostel in a genuinely extraordinary building with city views. The free airport pickup, hot breakfast, and tour desk make it one of the most complete value packages in the city. Book a private room or the Glass Room, not the 18-bed dorm.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "8.0", "bestRating": "10", "worstRating": "1" }
             },
             "amenityFeature": [
               { "@type": "LocationFeatureSpecification", "name": "Hot breakfast included", "value": true },
@@ -578,10 +563,14 @@
               { "@type": "LocationFeatureSpecification", "name": "Free airport pickup (private rooms)", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Bar and outdoor veranda", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Coin-operated laundry", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Backup generator", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Backup generator", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green/Amber" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 3,
@@ -590,6 +579,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#gemini-backpackers-lodge",
             "name": "Gemini Backpackers Lodge",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#gemini-backpackers-lodge",
+            "description": "A reliable budget transit option in the East Rand cluster. No frills, no surprises. Best suited to travellers who need a clean, quiet night near the airport and nothing else.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "10 Gidani Road, Bruma",
@@ -601,22 +591,30 @@
             "geo": { "@type": "GeoCoordinates", "latitude": -26.11692, "longitude": 28.1029 },
             "telephone": "+27116150192",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27824536610",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27824536610", "description": "WhatsApp" }
             ],
-            "hasMap": "https://maps.google.com/?q=-26.11692,28.1029",
+            "email": "info@geminibackpackers.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=johannesburg",
+            "priceRange": "$",
             "sameAs": [
               "https://www.geminibackpackers.co.za",
               "https://www.hostelworld.com/pwa/hosteldetails.php/Gemini-Backpackers-Lodge/Johannesburg/6620",
               "https://www.facebook.com/GeminiBackpackersLodge/"
             ],
-            "priceRange": "ZAR180–ZAR850"
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "A reliable budget transit option in the East Rand cluster. No frills, no surprises. Best suited to travellers who need a clean, quiet night near the airport and nothing else.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "6.0", "bestRating": "10", "worstRating": "1" }
+            },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
+            ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 4,
@@ -625,7 +623,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#mikasa-sukasa-backpackers",
             "name": "Mikasa Sukasa Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#mikasa-sukasa-backpackers",
-            "description": "The most characterful of the East cluster — uniquely themed en-suite private rooms, a Caribbean-themed self-service bar, outdoor pool, and a genuinely multicultural guest mix. 15 minutes from OR Tambo; adjacent to Alexandra Township and close to the Marlboro Gautrain station. Linen and towels included. 24-hour reception.",
+            "description": "The most characterful of the East Rand cluster. Good value, good atmosphere, and an unexpectedly social environment for an airport-proximity hostel. The Caribbean-themed bar will either delight you or confuse you — either way, it's memorable.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "5 Russel Road, Lombardy West",
@@ -637,26 +635,20 @@
             "geo": { "@type": "GeoCoordinates", "latitude": -26.11767, "longitude": 28.11095 },
             "telephone": "+27653737592",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27653737592",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27653737592", "description": "WhatsApp" }
             ],
-            "hasMap": "https://maps.google.com/?q=-26.11767,28.11095",
+            "email": "mikasasukasabp@gmail.com",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=johannesburg",
+            "priceRange": "$-$$",
             "sameAs": [
               "https://www.hostelworld.com/hostels/p/279894/mikasa-sukasa-backpackers/",
               "https://www.facebook.com/mikasasukasabackpackers/"
             ],
-            "priceRange": "ZAR200–ZAR1100",
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.4",
-              "bestRating": "5",
-              "worstRating": "1",
-              "reviewCount": 80,
-              "ratingCount": 80
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The most characterful of the East Rand cluster. Good value, good atmosphere, and an unexpectedly social environment for an airport-proximity hostel.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "7.5", "bestRating": "10", "worstRating": "1" }
             },
             "amenityFeature": [
               { "@type": "LocationFeatureSpecification", "name": "Outdoor swimming pool", "value": true },
@@ -664,10 +656,14 @@
               { "@type": "LocationFeatureSpecification", "name": "Linen and towels included", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "24-hour reception", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Themed en-suite private rooms", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Secure gated parking", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Secure gated parking", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 5,
@@ -676,6 +672,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#terrylinn-backpackers",
             "name": "Terrylinn Backpackers Hostel",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#terrylinn-backpackers",
+            "description": "An unpretentious budget option in the East Rand zone. Best for travellers whose only requirement is a clean, affordable, quiet night near the airport.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "2 Halifax Street, Rhodesfield",
@@ -686,15 +683,31 @@
             },
             "geo": { "@type": "GeoCoordinates", "latitude": -26.12084, "longitude": 28.23438 },
             "telephone": "+27840818508",
-            "hasMap": "https://maps.google.com/?q=-26.12084,28.23438",
+            "contactPoint": [
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27840818508", "description": "WhatsApp" }
+            ],
+            "email": "terrylin@mweb.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=johannesburg",
+            "priceRange": "$",
             "sameAs": [
               "https://www.booking.com/hotel/za/terrylin-backpackers.en-gb.html",
               "https://www.hostelworld.com/pwa/hosteldetails.php/Terrylin-Backpackers/Johannesburg/26890",
               "https://www.facebook.com/TerrylinforTravellers/"
             ],
-            "priceRange": "ZAR180–ZAR800"
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "An unpretentious budget option in the East Rand zone. Best for travellers whose only requirement is a clean, affordable, quiet night near the airport.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "6.0", "bestRating": "10", "worstRating": "1" }
+            },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
+            ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 6,
@@ -703,7 +716,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#lakeview-backpackers",
             "name": "Lakeview Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#lakeview-backpackers",
-            "description": "The East Rand's scenic option — a lake and garden setting that gives this hostel a peaceful, nature-adjacent character unlike the other airport-cluster hostels. Ideal for safari returnees and couples. Rated the best hostel value for couples in the greater Johannesburg area.",
+            "description": "The East Rand's scenic option — ideal for safari returnees, couples, and anyone who wants to decompress in natural surroundings rather than party in the city. Book the private room for the full effect.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "39 Porto Amelia Avenue, Bonaero Park",
@@ -714,22 +727,32 @@
             },
             "geo": { "@type": "GeoCoordinates", "latitude": -26.11985, "longitude": 28.26796 },
             "telephone": "+27824915344",
-            "hasMap": "https://maps.google.com/?q=-26.11985,28.26796",
+            "contactPoint": [
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27824915344", "description": "WhatsApp" }
+            ],
+            "email": "roneldutoit@gmail.com",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=johannesburg",
+            "priceRange": "$",
             "sameAs": [
               "https://www.hostelworld.com/hostels/p/266759/Lakeview-Backpackers/",
               "https://www.facebook.com/LakeviewBackpackers/"
             ],
-            "priceRange": "ZAR180–ZAR850",
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.1",
-              "bestRating": "5",
-              "worstRating": "1",
-              "reviewCount": 60,
-              "ratingCount": 60
-            }
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The East Rand's scenic option — ideal for safari returnees, couples, and anyone who wants to decompress in natural surroundings rather than party in the city.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "7.0", "bestRating": "10", "worstRating": "1" }
+            },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Lakeside setting", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Private rooms and camping", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
+            ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 7,
@@ -738,6 +761,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#accoustix-lodge-backpacker",
             "name": "Accoustix Lodge & Backpacker",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#accoustix-lodge-backpacker",
+            "description": "The cheapest north-side option, with enough character (the music bar, the pool) to make it workable for the right traveller. Not recommended for solo women as a first choice. Wi-Fi cap is a dealbreaker for remote workers. Best for budget overlanders and group travellers.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "477 Jan Smuts Avenue, Blairgowrie",
@@ -748,24 +772,41 @@
             },
             "geo": { "@type": "GeoCoordinates", "latitude": -26.10153, "longitude": 28.01175 },
             "telephone": "+27113262123",
-            "hasMap": "ChIJeZvt7qN0lR4RLYqY1nt87kw",
+            "email": "accoustix.sleek@gmail.com",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=johannesburg",
+            "priceRange": "$",
             "sameAs": [
               "https://www.booking.com/hotel/za/accoustix-backpackers-hostel.html",
               "https://www.hostelworld.com/hostels/p/23697/accoustix-backpackers-hostel/",
               "https://www.facebook.com/AccoustixBackpackerHostelJohannesburgRandburg/"
             ],
-            "priceRange": "ZAR150–ZAR750",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "8.1",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The cheapest north-side option, with enough character (the music bar, the pool) to make it workable for the right traveller. Not recommended for solo women. Wi-Fi cap is a dealbreaker for remote workers.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "6.0", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
               { "@type": "LocationFeatureSpecification", "name": "Outdoor swimming pool", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Jam Cave music bar", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Baz Bus stop", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Free pickup from Rosebank Gautrain", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Garden lapa and braai area", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Garden lapa and braai area", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Wi-Fi — 20MB/day free cap (paid tiers available)", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "1/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Amber" }
             ]
           }
         },
 
-        
         {
           "@type": "ListItem",
           "position": 8,
@@ -774,7 +815,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#joburg-backpackers",
             "name": "Joburg Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#joburg-backpackers",
-            "description": "A well-positioned, well-managed social hostel in Emmarentia, close to Melville's 7th Street. Pool, helpful staff who actively advise on local safety navigation, and a 10-minute Uber from Wits and Braamfontein.",
+            "description": "A well-positioned, well-managed social hostel in one of Johannesburg's most characterful residential neighbourhoods. Strong choice for solo travellers and small groups who want engagement with the real city.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "14 Umgwezi Road, Extension 1, Emmarentia",
@@ -785,28 +826,32 @@
             },
             "geo": { "@type": "GeoCoordinates", "latitude": -26.14713, "longitude": 28.00529 },
             "telephone": "+27118884742",
-            "hasMap": "ChIJcd4GNW8LlR4RCXIdudr6_KE",
+            "email": "info@joburgbackpackers.com",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=johannesburg",
+            "priceRange": "$-$$",
             "sameAs": [
               "https://www.facebook.com/joburgbackpackers/"
             ],
-            "priceRange": "ZAR200–ZAR950",
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.1",
-              "bestRating": "5",
-              "worstRating": "1",
-              "reviewCount": 90,
-              "ratingCount": 90
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "A well-positioned, well-managed social hostel in one of Johannesburg's most characterful residential neighbourhoods. Strong choice for solo travellers and small groups who want engagement with the real city.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "7.5", "bestRating": "10", "worstRating": "1" }
             },
             "amenityFeature": [
               { "@type": "LocationFeatureSpecification", "name": "Swimming pool", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Braai facilities", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Free Wi-Fi", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Tour desk", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Secure parking", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Secure parking", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Melville 7th Street 10 minutes walk", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 9,
@@ -815,7 +860,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#explorer-backpackers",
             "name": "Explorer Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#explorer-backpackers",
-            "description": "The best hostel in Johannesburg. Consistently the highest-rated on all major platforms, in one of the safest and most walkable neighbourhoods (Parkhurst 4th Avenue strip is 100 metres from the gate), with a legendary communal lounge, included breakfast, free bicycles, 24-hour reception, and a guided tour programme covering Soweto, the Cradle of Humankind, and Pilanesberg. Book early — it fills up.",
+            "description": "The best hostel in Johannesburg. Consistently the highest-rated on all major platforms, in the best neighbourhood for safety and walkability, with the most thoughtfully designed communal spaces on this list. Book early — it fills up.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "27 7th Street, Parkhurst",
@@ -827,33 +872,29 @@
             "geo": { "@type": "GeoCoordinates", "latitude": -26.14226, "longitude": 28.01721 },
             "telephone": "+27711370207",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27711370207"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27711370207",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27711370207" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27711370207", "description": "WhatsApp" }
             ],
-            "hasMap": "ChIJ2zR6Em8LlR4RczWGfVkyHC0",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=johannesburg",
+            "priceRange": "$$",
             "sameAs": [
               "https://explorerbackpackers.com",
               "https://www.booking.com/hotel/za/explorer-backpackers.html",
               "https://www.hostelworld.com/pwa/hosteldetails.php/Explorer-Backpackers/Johannesburg/303894",
               "https://www.facebook.com/ExplorerBackpackers/"
             ],
-            "priceRange": "ZAR250–ZAR1200",
             "aggregateRating": {
               "@type": "AggregateRating",
-              "ratingValue": "4.5",
-              "bestRating": "5",
+              "ratingValue": "8.8",
+              "bestRating": "10",
               "worstRating": "1",
-              "reviewCount": 250,
-              "ratingCount": 250
+              "description": "Booking.com score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The best hostel in Johannesburg. Consistently the highest-rated on all major platforms, in the best neighbourhood for safety and walkability. Book early — it fills up.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "9.5", "bestRating": "10", "worstRating": "1" }
             },
             "amenityFeature": [
               { "@type": "LocationFeatureSpecification", "name": "Breakfast included", "value": true },
@@ -863,10 +904,15 @@
               { "@type": "LocationFeatureSpecification", "name": "Large communal lounge", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Guided tour programme (Soweto, Cradle of Humankind, Pilanesberg)", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Free Wi-Fi", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Private parking", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Private parking", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Parkhurst 4th Avenue strip walkable", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "5/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 10,
@@ -875,6 +921,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#rosebank-backpackers-central",
             "name": "Rosebank Backpackers Central",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#rosebank-backpackers-central",
+            "description": "The location is the product; the management is the risk. Best suited to budget travellers who need the Rosebank/Gautrain access point. Solo women should choose Explorer Backpackers or Curiocity instead.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "219 Jan Smuts Avenue, Parktown North",
@@ -886,23 +933,40 @@
             "geo": { "@type": "GeoCoordinates", "latitude": -26.14196, "longitude": 28.03533 },
             "telephone": "+27114477445",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27746282222",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27746282222", "description": "WhatsApp" }
             ],
-            "hasMap": "ChIJ6QYZQ5EMlR4R3wtKiprSqSg",
+            "email": "rosebankbackpacker@gmail.com",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=johannesburg",
+            "priceRange": "$",
             "sameAs": [
               "https://rosebanklodgeandbackpacker.co.za",
               "https://www.booking.com/hotel/za/rosebank-lodge-and-backpacker.en-gb.html",
               "https://www.hostelworld.com/pwa/hosteldetails.php/Rosebank-Lodge-and-Backpacker/Johannesburg/280042",
               "https://www.facebook.com/RosebankBackpacker/"
             ],
-            "priceRange": "ZAR150–ZAR750"
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "6.6",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Booking.com score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The location is the product; the management is the risk. Best suited to budget travellers who need the Rosebank/Gautrain access point and are not planning to raise any concerns during their stay. Solo women should choose Explorer Backpackers or Curiocity instead.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "5.0", "bestRating": "10", "worstRating": "1" }
+            },
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Rosebank Gautrain station 10 minutes walk", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Cheapest group accommodation in Rosebank", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Amber" }
+            ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 11,
@@ -911,7 +975,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#curiocity-backpackers",
             "name": "Curiocity Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#curiocity-backpackers",
-            "description": "The definitive inner-city Johannesburg hostel, in the Maboneng Precinct in a former apartheid-era printing house. Rooftop bar, breakfast included, individual dorm bed reading lights and charging stations, backup generator, Fox Street-facing balconies, and the best guided experience programme in the city — Maboneng walking tours, Soweto half-day tours, and inner-city nightlife tours. Voted one of the top 10 industrial-chic hostels in the world by The Guardian.",
+            "description": "The definitive inner-city Johannesburg hostel. Voted one of the top 10 industrial-chic hostels in the world by The Guardian. In the most culturally significant neighbourhood, in a building with its own history, with the best guided experience programme in the city. Book the dorm for the community; book the private room for the balcony view over Fox Street. Either way, stay at least three nights.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "302 Fox St, Maboneng",
@@ -923,19 +987,12 @@
             "geo": { "@type": "GeoCoordinates", "latitude": -26.20396, "longitude": 28.06142 },
             "telephone": "+27116140163",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27116140163"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27661626915",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27116140163" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27661626915", "description": "WhatsApp" }
             ],
-            "hasMap": "ChIJfX8PRIYOlR4RElaataHdfLI",
+            "email": "stay@curiocityjoburg.com",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=johannesburg",
+            "priceRange": "$$-$$$",
             "sameAs": [
               "https://curiocity.africa",
               "https://www.booking.com/hotel/za/curiocity-backpackers-johannesburg.html",
@@ -943,14 +1000,18 @@
               "https://www.facebook.com/CURIOCITYAFRICA/",
               "https://www.instagram.com/curiocity.africa/"
             ],
-            "priceRange": "ZAR280–ZAR1600",
             "aggregateRating": {
               "@type": "AggregateRating",
-              "ratingValue": "4.4",
-              "bestRating": "5",
+              "ratingValue": "7.8",
+              "bestRating": "10",
               "worstRating": "1",
-              "reviewCount": 400,
-              "ratingCount": 400
+              "description": "Hostelworld score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The definitive inner-city Johannesburg hostel. Voted one of the top 10 industrial-chic hostels in the world by The Guardian. The best guided experience programme in the city. Stay at least three nights.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "9.0", "bestRating": "10", "worstRating": "1" }
             },
             "amenityFeature": [
               { "@type": "LocationFeatureSpecification", "name": "Breakfast included", "value": true },
@@ -962,10 +1023,14 @@
               { "@type": "LocationFeatureSpecification", "name": "Guided tour programme (Maboneng, Soweto, inner-city nightlife)", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "24-hour reception", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Fox Street-facing balconies", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Free Wi-Fi throughout", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Free Wi-Fi throughout", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 12,
@@ -974,7 +1039,7 @@
             "@id": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#lebos-soweto-backpackers",
             "name": "Lebo's Soweto Backpackers",
             "url": "https://www.backpackersbible.com/backpacking-south-africa/johannesburg#lebos-soweto-backpackers",
-            "description": "The most important hostel in South Africa. The first Black-owned backpackers in the country, set in Orlando West — the epicentre of the 1976 Uprising, where both Mandela and Tutu lived. Guides who were present during those events lead the best bicycle tours in Johannesburg. Outdoor restaurant, CoCo Bar, free bicycles, campsite, and airport transfers by arrangement. Highest-rated hostel in the greater Johannesburg area on most platforms. Give it at least two nights.",
+            "description": "The essential Johannesburg experience. Highest-rated hostel in the city on most platforms. The bicycle tour alone justifies the stay. Book a private room, allow at least two nights, take every tour on offer. The dorm is more basic — worth knowing in advance. Everything else is extraordinary.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "10823 Pooe St, Orlando West",
@@ -986,19 +1051,12 @@
             "geo": { "@type": "GeoCoordinates", "latitude": -26.22454, "longitude": 27.91307 },
             "telephone": "+27119363444",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27119363444"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27815242918",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27119363444" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27815242918", "description": "WhatsApp" }
             ],
-            "hasMap": "ChIJcygGIa2glR4RBWzf4D8gVyk",
+            "email": "lebo@sowetobackpackers.com",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=johannesburg",
+            "priceRange": "$-$$",
             "sameAs": [
               "https://www.sowetobackpackers.com",
               "https://www.booking.com/hotel/za/lebo-39-s-soweto-backpackers.html",
@@ -1006,14 +1064,18 @@
               "https://www.facebook.com/Lebobp/",
               "https://www.instagram.com/sowetobybike/"
             ],
-            "priceRange": "ZAR120–ZAR1100",
             "aggregateRating": {
               "@type": "AggregateRating",
-              "ratingValue": "4.6",
-              "bestRating": "5",
+              "ratingValue": "9.8",
+              "bestRating": "10",
               "worstRating": "1",
-              "reviewCount": 537,
-              "ratingCount": 537
+              "description": "Hostelworld score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The essential Johannesburg experience. The bicycle tour alone justifies the stay. Book a private room, allow at least two nights, take every tour on offer. Everything else is extraordinary.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "9.8", "bestRating": "10", "worstRating": "1" }
             },
             "amenityFeature": [
               { "@type": "LocationFeatureSpecification", "name": "Outdoor restaurant (breakfast, lunch, dinner)", "value": true },
@@ -1025,16 +1087,18 @@
               { "@type": "LocationFeatureSpecification", "name": "Self-catering kitchen", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Free Wi-Fi", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Airport pickup and drop-off (by arrangement)", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Car wash service", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Storytelling evenings", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Secure gated parking", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Secure gated parking", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Vilakazi Street and Hector Pieterson Museum 10 minutes walk", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         }
 
       ]
     }
-
   ]
 }
 </script>
