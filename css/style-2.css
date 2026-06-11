@@ -1182,26 +1182,8 @@ main {
     font-weight: bold;
 }
 
-/* Mobile jump menu — fixed below header, hides with it on scroll */
+/* Mobile jump menu — in-flow below map, smaller cards */
 @media (max-width: 1100px) {
-
-    .jump-menu-section {
-        position: fixed;
-        bottom: 55px;
-        left: 0;
-        width: 100%;
-        min-height: 0;
-        padding: 0;
-        overflow: visible;
-        z-index: calc(var(--z-header) - 1); /* 9998 */
-        isolation: isolate; /* own stacking context — always above #ma */
-        transition: transform var(--transition-slide);
-    }
-
-    /* JS adds .is-hidden on scroll down (same as header) */
-    .jump-menu-section.is-hidden {
-        transform: translateY(200px);
-    }
 
     .jump-menu-container {
         scrollbar-width: none;
@@ -1218,20 +1200,6 @@ main {
 
     .jump-card-overlay {
         font-size: 0.7rem;
-    }
-
-}
-
-
-/* ============================================================
-   EXPERIMENT: Hide regional jump menu on mobile
-   Remove this block to restore the menu.
-   ============================================================ */
-
-@media (max-width: 1100px) {
-
-    .jump-menu-section {
-        display: none !important;
     }
 
 }
