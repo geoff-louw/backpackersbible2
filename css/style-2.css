@@ -4067,11 +4067,13 @@ img.bb-marker-icon {
 }
 
 .compass-wrapper {
-  position: relative;
-  /* Mobile Size */
+  /* Crucial: This anchors the absolute needle inside the square boundary */
+  position: relative !important; 
+  
+  /* Mobile Size default */
   width: 400px;
   height: 400px;
-  margin: 20px 0;
+  margin: 20px auto;
 }
 
 .compass-bg {
@@ -4079,7 +4081,7 @@ img.bb-marker-icon {
   height: 100%;
   display: block;
   position: relative;
-  z-index: 1; /* Keeps the background on the lower layer */
+  z-index: 1;
 }
 
 .compass-needle {
@@ -4088,12 +4090,15 @@ img.bb-marker-icon {
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 2; /* Keeps it on top */
   
+  /* Tells the browser to rotate from the dead-center of the 100% space */
   transform-origin: center center; 
-  transform: rotate(0deg);
-  animation: swingCompass 12s ease-in-out infinite;
   
-  z-index: 2; /* Forces the needle to float directly on top of the background */
+  /* Simplified transform: Since the needle is 100% width/height, 
+     we DO NOT want translate(-50%, -50%) here anymore. 
+     Just let it rotate in place! */
+  animation: swingCompass 12s ease-in-out infinite;
 }
 
 /* --- 3. Pill Styles --- */
