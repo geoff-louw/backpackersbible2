@@ -77,6 +77,7 @@
 {
   "@context": "https://schema.org",
   "@graph": [
+
     {
       "@type": "Organization",
       "@id": "https://www.backpackersbible.com/#organization",
@@ -88,86 +89,82 @@
         "width": 250,
         "height": 250
       },
-      "description": "Independent, non-affiliate-biased backpacker guides to destinations worldwide. Direct hostel contacts, safety information, and honest write-ups.",
-      "sameAs": [
-        "https://www.facebook.com/BackpackersBible",
-        "https://www.instagram.com/backpackersbible"
-      ]
+      "description": "Independent backpacker guides to destinations worldwide with direct hostel contacts, safety information, maps, and honest write-ups."
     },
+
     {
-      "@type": ["WebPage", "TravelGuide"],
-      "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#webpage",
-      "url": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast.htm",
+      "@type": "Person",
+      "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw",
+      "name": "Geoff Louw",
+      "url": "https://www.backpackersbible.com/misc/about-backpackers-bible",
+      "worksFor": { "@id": "https://www.backpackersbible.com/#organization" }
+    },
+
+    {
+      "@type": "WebSite",
+      "@id": "https://www.backpackersbible.com/#website",
+      "url": "https://www.backpackersbible.com/",
+      "name": "BackpackersBible.com",
+      "publisher": { "@id": "https://www.backpackersbible.com/#organization" },
+      "inLanguage": "en"
+    },
+
+    {
+      "@type": ["WebPage", "CollectionPage"],
+      "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#webpage",
+      "url": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast",
       "name": "Backpacking the Sunshine Coast: Epic Surf & Endless Beaches",
       "headline": "Backpacking the Sunshine Coast: Epic Surf & Endless Beaches",
-      "description": "Ready for J-Bay's world-class waves? Get direct contact info for every Sunshine Coast hostel, plus interactive maps and honest safety tips for the mission.",
+      "description": "The complete Sunshine Coast backpacking guide: Supertubes at Jeffreys Bay, Addo Elephant National Park, the Hamburg river kayak, Woodlands Cottages, and honest safety advice for every hostel from Cape St Francis to Chintsa.",
       "inLanguage": "en",
+      "wordCount": 24000,
       "isPartOf": { "@id": "https://www.backpackersbible.com/#website" },
       "publisher": { "@id": "https://www.backpackersbible.com/#organization" },
-      "author": { "@id": "https://www.backpackersbible.com/#organization" },
+      "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
       "dateModified": "2025-01-01",
       "primaryImageOfPage": {
         "@type": "ImageObject",
-        "url": "https://www.backpackersbible.com/assets/social-preview.jpg"
+        "url": "https://www.backpackersbible.com/assets/social-preview.jpg",
+        "width": 1200,
+        "height": 630
       },
       "about": [
-        { "@type": "Place", "name": "Sunshine Coast", "sameAs": "https://en.wikipedia.org/wiki/Sunshine_Coast,_Eastern_Cape" },
+        { "@type": "Place", "name": "Sunshine Coast, Eastern Cape", "sameAs": "https://en.wikipedia.org/wiki/Sunshine_Coast,_Eastern_Cape" },
         { "@type": "Thing", "name": "Backpacking", "sameAs": "https://en.wikipedia.org/wiki/Backpacking_(travel)" }
       ],
       "mentions": [
-        { "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#map" },
-        { "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#hostel-list" },
-        { "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#activities" },
-        { "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#safety-guide" },
-        { "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#faq" }
+        { "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#map" },
+        { "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#hostel-list" },
+        { "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#activities" },
+        { "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#safety-guide" },
+        { "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#faq" }
       ],
       "speakable": {
         "@type": "SpeakableSpecification",
-        "cssSelector": [".intro-p", ".detail-p", "#safety", "#faq"]
+        "cssSelector": [".intro-p", ".detail-p", "#safety", "#faq", ".final-verdict"]
       }
     },
+
     {
       "@type": "BreadcrumbList",
-      "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#breadcrumb",
+      "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#breadcrumb",
       "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.backpackersbible.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Backpacking South Africa",
-          "item": "https://www.backpackersbible.com/backpacking-south-africa/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Backpacking the Sunshine Coast",
-          "item": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast.htm"
-        }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.backpackersbible.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Backpacking South Africa", "item": "https://www.backpackersbible.com/backpacking-south-africa/" },
+        { "@type": "ListItem", "position": 3, "name": "Backpacking the Sunshine Coast", "item": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast" }
       ]
     },
+
     {
       "@type": "FAQPage",
-      "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#faq",
+      "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#faq",
       "mainEntity": [
         {
           "@type": "Question",
           "name": "When is the best time to visit the Sunshine Coast as a backpacker?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The Sunshine Coast earns its name with around 320 days of sunshine per year — more than almost anywhere else in South Africa. Unlike Cape Town, the Eastern Cape coast stays warm and dry even in winter (June–August), making it one of the few South African destinations that is excellent year-round. Winter is also peak surf season: the Southern Ocean swells arrive consistently, the offshore south-west wind is light and perfect, and the WSL JBay Open runs in July — ten days when the world's best surfers compete at Supertubes and you can watch for free from the hillside. Shoulder months (April–May and September–October) offer the best combination of surf, warmth, and lower crowds."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Where should I stay on the Sunshine Coast as a backpacker?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Jeffreys Bay is the default first stop — the surf, the hostel scene, and the town atmosphere are the defining Sunshine Coast experience. For wildlife, base yourself at Orange Elephant Backpackers in Addo (8km from the park gate) and run Addo as a day trip. For mid-coast exploration, Woodlands Cottages in Kenton-on-Sea is the best multi-day nature base between Gqeberha and East London. Gqeberha (Port Elizabeth) works best as a transit hub — Lungile Backpackers on the Humewood beachfront is the standout choice. East London is primarily a surf destination; Sugar Shack (on the sand dune above Eastern Beach) is the iconic choice. For something extraordinary and completely off the beaten track, Hamburg Backpackers on the Keiskamma River mouth deserves a dedicated detour."
+            "text": "The Sunshine Coast has a year-round mild climate — it is one of the most temperate regions in South Africa. For surfing at Jeffreys Bay, the ideal window is June to August when the Supertubes swell peaks and the WSL JBay Open is held. For Addo Elephant National Park, the dry winter months (May to September) are optimal for wildlife visibility. For general road-tripping, October to April provides the warmest swimming conditions. The Sunshine Coast avoids the extreme summer heat of the interior, but Gqeberha and East London can be humid in January and February."
           }
         },
         {
@@ -175,7 +172,7 @@
           "name": "Is the Sunshine Coast safe for backpackers?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The beach towns of the Sunshine Coast — Jeffreys Bay, St Francis Bay, Port Alfred, Kenton-on-Sea — are among the safer tourist environments in South Africa. Small, spread out, and low-intensity by Eastern Cape city standards. Standard precautions apply: don't leave valuables in a hire car, use common sense after dark, and heed local advice. Gqeberha (Port Elizabeth) and East London are larger cities with higher urban crime rates — the same protocols as Cape Town apply (Uber after dark, phone out of sight, stay in known areas). A specific note on the ocean: the Sunshine Coast has a resident great white shark population. Heed flags and warning systems at unfamiliar beaches, and ask locals before entering the water at dusk or dawn."
+            "text": "The Sunshine Coast has a wide safety range. The coastal villages — Cape St Francis, St Francis Bay, Jeffreys Bay, Kenton-on-Sea, Port Alfred, and Hamburg — are all genuinely safe and low-crime. Gqeberha (Port Elizabeth) and East London are larger cities requiring standard urban precautions: Uber after dark, valuables secured, awareness on quieter streets at night. The N2 corridor between Gqeberha and East London is safe in daylight with a well-maintained vehicle. Never stop for obstacles placed across isolated roads — this is a known hijack technique on this route. Every hostel in this guide has a specific safety rating and practical notes."
           }
         },
         {
@@ -183,7 +180,7 @@
           "name": "What does it cost to backpack the Sunshine Coast?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The Sunshine Coast is one of the most affordable stretches of the South African backpacker trail. Dorm beds run from €8–€16 per night — at the lower end for smaller-town hostels in Port Alfred and East London, higher for well-facilitated J-Bay spots like African Ubuntu. Activities are reasonably priced: a surfing lesson in J-Bay costs approximately €20–€30; a self-drive day at Addo Elephant Park is approximately €15 per person including entry; kayaking on the Kariega River from Kenton-on-Sea costs approximately €20–€30. A comfortable daily budget of €40–€60 covers accommodation, food, one activity, and local transport."
+            "text": "The Sunshine Coast is among the most affordable regions to backpack in South Africa. Dorm beds range from R120–R260 per night (approximately €6–€13). Budget travellers can live well on €25–€40 per day including accommodation, self-catering food, and local transport. Major paid activities add to this: Addo Elephant National Park entry is approximately R260 per person (€13); surf lessons in J-Bay cost approximately R350–R450 (€17–€22); kayaking in Hamburg costs approximately R200 (€10). The Sunshine Coast offers better value per kilometre of scenery than almost any comparable coastal route in the world."
           }
         },
         {
@@ -191,15 +188,15 @@
           "name": "What is Jeffreys Bay like for surfers?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Jeffreys Bay is, by widespread consensus among professional surfers, the finest right-hand point break in the world. The wave at Supertubes can travel up to 800 metres down the point — from Boneyards through Supertubes through Impossibles to the Point — in a continuous, mechanically perfect right-hander. Supertubes is for advanced and expert surfers only. The Point is for intermediate surfers. Kitchen Windows, where the surf schools operate, is for beginners and learners — a two-hour lesson with board hire costs approximately €20–€30. The WSL Championship Tour event in July, when the world's 40 best surfers compete at Supertubes, is free to watch from the hillside spectating area."
+            "text": "Jeffreys Bay is one of the top five surf destinations on earth. Supertubes — a right-hand point break running over a kilometre along the beach — is the primary draw: a fast, hollow, perfectly shaped barrel that works best on a south-south-west swell with a light north-west wind. The WSL Championship Tour stop (JBay Open) typically runs in July. Adjacent breaks — Kitchen Windows, Magna Tubes, Boneyards, Albatross — offer conditions for a range of ability levels. Beginners should start at the soft beach break at Da Gama Park or Dolphin Beach. The water temperature in J-Bay averages 16–19°C year-round — a 3mm wetsuit is recommended in winter."
           }
         },
         {
           "@type": "Question",
-          "name": "What is Addo Elephant National Park like and how do I visit from the Sunshine Coast?",
+          "name": "What is Addo Elephant National Park like and how do I visit?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Addo is one of the finest conservation success stories in Africa — from 11 elephants in 1931 to more than 600 today. The park also incorporates the world's only Big Seven conservation area: the original Big Five plus southern right whales and great white sharks in the coastal marine section. The elephant experience at Addo is different from Kruger: the park is smaller, the Eastern Cape spekboom thicket is dense, and close-range sightings are frequent. Day entry for international visitors is approximately €15 per person. The main gate at Addo village is 72km from Gqeberha; the Colchester gate is slightly more convenient from the south. For a dedicated Addo experience, base yourself at Orange Elephant Backpackers in Addo (8km from the gate), which offers in-house guided safaris."
+            "text": "Addo Elephant National Park is South Africa's third-largest national park, 75km north of Gqeberha, and one of the most accessible Big 5 game reserves on the continent. The park hosts the densest elephant population of any national park in the world — over 600 elephants — alongside lions, leopards, buffalos, black rhinos, spotted hyenas, and over 400 bird species. The best base for independent access is Addo Backpackers (Orange Elephant), 2km from the main gate, which also offers guided safari packages. Self-drive game drives are possible with a standard vehicle. The nearest car hire hub is Gqeberha airport. Entrance is approximately R260 per person per day."
           }
         },
         {
@@ -207,7 +204,7 @@
           "name": "How do I get around the Sunshine Coast without a car?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The Baz Bus is the main backpacker transport link on the Sunshine Coast, connecting Cape Town to Durban via Gqeberha and East London with hostel drop-offs. Intercape Mainliner and Greyhound run intercity coach services between the main cities. Within Gqeberha and East London, Uber is reliable, safe, and affordable. Between towns, shuttles are available through most hostels (Orange Elephant runs a Gqeberha shuttle; Jikeleza Lodge in Gqeberha is an Intercape Mainliner agent). Hamburg Backpackers requires a dedicated 14km detour on a gravel road — a hire car or a lift from the last town is needed. The R72 coastal road between Gqeberha and East London is the recommended scenic alternative to the N2 highway, adding about 90 minutes to the journey."
+            "text": "The Baz Bus serves the main Sunshine Coast towns — Jeffreys Bay, Gqeberha, and East London — on its Cape Town to Durban route, and most hostels in those towns are Baz Bus stops. For the more remote properties — Cape St Francis, St Francis Bay, Kenton-on-Sea, Hamburg, Wild Woody Cape, and Addo — a hire car or hostel shuttle is required. Most hostels offer N2 or airport pickup for a modest fee when booked in advance. Uber is available and reliable in Gqeberha and East London."
           }
         },
         {
@@ -215,261 +212,183 @@
           "name": "What are the best free activities on the Sunshine Coast?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Watching Supertubes from the spectating area above the break in J-Bay is one of the finest free sporting spectacles in the world — especially in July during the WSL event. Shell collecting at Cape St Francis, St Francis Bay, and J-Bay beaches (among the richest shell beaches in the world) is free and genuinely absorbing. The Nahoon Point Nature Reserve walking tracks in East London offer cliff-edge coastal paths with extraordinary views — free entry. Watching the Kowie River estuary at dusk from the bridge in Port Alfred costs nothing. Walking the Kenton-on-Sea beaches at low tide — where the Kariega and Bushmans River mouths create ever-changing sandbars and rock pools — is completely free and almost completely empty outside high season. The coelacanth at the East London Museum is free to view (small voluntary donation)."
+            "text": "Top free and low-cost Sunshine Coast experiences include: watching the surf at Supertubes from the J-Bay beachfront path (free); the Donkin Heritage Trail in central Gqeberha (free, 1.5 hours); the Jeffreys Bay Shell Museum (R50 entry, the largest shell collection in South Africa); the Alexandria Dune Field viewpoint at Woody Cape (free with basic park entry); walking Hamburg's Keiskamma River mouth at low tide (free); the Kenton-on-Sea lagoon and river mouth (free swimming); the Cape St Francis lighthouse walk (free); and watching dolphins from the Seal Point headland at Cape St Francis (free)."
           }
         }
       ]
     },
+
     {
       "@type": "Map",
-      "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#map",
+      "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#map",
       "name": "Sunshine Coast Backpackers Hostel Map — All Hostels",
-      "description": "Interactive map of all 18 backpacker hostels on the Sunshine Coast, with contact details, addresses, and links to individual write-ups. Covers Jeffreys Bay, St Francis Bay, Cape St Francis, Gqeberha (Port Elizabeth), Addo, Kenton-on-Sea, Port Alfred, Hamburg, East London, and Chintsa.",
+      "description": "Interactive 3D map of all backpacker hostels on the Sunshine Coast with one-tap filters for Best Overall, Best Value, Best for Solo Women, and Best for Digital Nomads. Covers Cape St Francis, St Francis Bay, Jeffreys Bay, Gqeberha, Kenton-on-Sea, Addo, Port Alfred, Hamburg, East London, and Chintsa.",
       "mapType": "https://schema.org/VenueMap",
-      "additionalType": "https://schema.org/Map",
-      "url": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast.htm",
-      "hasMap": "https://www.google.com/maps/d/embed?mid=1YlCywz3bXNDCOhw6bLz-F3iPhC9XD4A&ehbc=2E312F&noprof=1&ll=-33.4,26.5&z=7",
-      "areaServed": {
+      "url": "https://www.backpackersbible.com/map.html?region=sunshine-coast",
+      "potentialAction": [
+        { "@type": "SearchAction", "name": "Filter: Best overall hostels on the Sunshine Coast", "target": "https://www.backpackersbible.com/map.html?region=sunshine-coast&filter=best_overall" },
+        { "@type": "SearchAction", "name": "Filter: Best value hostels on the Sunshine Coast", "target": "https://www.backpackersbible.com/map.html?region=sunshine-coast&filter=best_value" },
+        { "@type": "SearchAction", "name": "Filter: Best hostels for solo women on the Sunshine Coast", "target": "https://www.backpackersbible.com/map.html?region=sunshine-coast&filter=best_solo_women" },
+        { "@type": "SearchAction", "name": "Filter: Best hostels for digital nomads on the Sunshine Coast", "target": "https://www.backpackersbible.com/map.html?region=sunshine-coast&filter=best_digital_nomads" }
+      ],
+      "about": { "@type": "Thing", "name": "Backpacker Hostels on the Sunshine Coast" },
+      "spatialCoverage": {
         "@type": "Place",
-        "name": "Sunshine Coast",
+        "name": "Sunshine Coast, Eastern Cape",
         "sameAs": "https://en.wikipedia.org/wiki/Sunshine_Coast,_Eastern_Cape"
-      },
-      "about": {
-        "@type": "Thing",
-        "name": "Backpacker Hostels on the Sunshine Coast"
       }
     },
+
     {
       "@type": "HowTo",
-      "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#safety-guide",
+      "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#safety-guide",
       "name": "How to Stay Safe on the Sunshine Coast as a Backpacker",
-      "description": "Practical, honest safety advice for backpackers visiting the Eastern Cape Sunshine Coast, covering street safety in the cities, ocean safety, transport, and town-specific guidance.",
+      "description": "Practical safety advice for backpackers on the Sunshine Coast, covering urban city precautions in Gqeberha and East London, road safety, coastal hazards, and beach safety.",
       "step": [
         {
           "@type": "HowToStep",
           "name": "Use Uber in Gqeberha and East London after dark",
-          "text": "Gqeberha (Port Elizabeth) and East London are the largest cities on the Sunshine Coast and carry the same urban risk profile as any South African city. Use Uber or Bolt after dark rather than walking alone. Confirm the licence plate before getting in and sit in the back. Humewood and Richmond Hill are the safest inner suburbs in Gqeberha for walking in the evening; Central PE and Quigney in East London require more caution."
+          "text": "Both Gqeberha and East London are significant urban centres where walking alone at night carries real risk, particularly in the CBD and beachfront areas after 9pm. Uber is reliable, affordable, and safe in both cities. Never walk between venues at night — book from inside."
         },
         {
           "@type": "HowToStep",
-          "name": "Treat the beach towns differently from the cities",
-          "text": "Jeffreys Bay, St Francis Bay, Cape St Francis, Kenton-on-Sea, and Port Alfred are low-risk tourist environments by South African standards. Walking around during the day and into the evening is generally safe. Standard precautions still apply: don't leave valuables in a parked car (particularly at beach car parks), keep phones out of sight on quieter streets, and ask your hostel about the specific current conditions in each town."
+          "name": "Never stop for obstacles on the N2 corridor",
+          "text": "On the N2 between Gqeberha and East London, objects placed across the road or apparent 'accidents' may be vehicle hijack setups. Do not stop. Drive around obstacles if safe to do so, or reverse. This is a known risk on this specific corridor, particularly at night."
         },
         {
           "@type": "HowToStep",
-          "name": "Respect the ocean and heed shark warnings",
-          "text": "The Sunshine Coast has a resident great white shark population. Incidents have occurred at Nahoon Reef (East London) and elsewhere on this coast. Check for shark warning flags at every beach you enter. Ask locals about conditions before paddling out at unfamiliar breaks. Avoid entering the ocean at dusk or dawn, when sharks are more active. The surf schools in J-Bay operate at Kitchen Windows specifically because it is the safest and most appropriate break for beginners — do not attempt Supertubes without the experience to handle it."
+          "name": "Secure your vehicle at every stop",
+          "text": "Car break-ins are the most common crime affecting tourists on the Sunshine Coast. Remove everything from sight in a parked car — not a bag, not a charger cable, not a jacket. Use hotel and hostel parking where available. Tip informal car guards R10–R20."
         },
         {
           "@type": "HowToStep",
-          "name": "Drive the gravel roads carefully and plan for Addo wildlife",
-          "text": "Several Sunshine Coast backpackers require gravel road access — Hamburg (14km gravel from the R72), Wild Woody Cape (20km from Alexandria). Standard sedans manage with care; high-clearance vehicles are more comfortable. On the R335 near Addo and surrounding farm roads, elephants, warthogs, and other game move onto the road at night. Drive slowly after sunset in this area. Inside Addo Elephant National Park, follow all SANParks rules without exception."
+          "name": "Understand rip currents on surf beaches",
+          "text": "The Sunshine Coast has powerful surf beaches. Supertubes, Boneyards, and the exposed beaches around East London (Eastern Beach, Nahoon) have significant rip currents. Swim between the flags on patrolled beaches only. If caught in a rip, swim parallel to the beach until clear — do not fight it directly."
         },
         {
           "@type": "HowToStep",
-          "name": "Carry cash for off-grid and small-town destinations",
-          "text": "Hamburg has no ATMs — the nearest is in Wesley or King William's Town. Wild Woody Cape near Alexandria is also remote from banking infrastructure. Riverfront Backpackers in Redhouse operates on cash or EFT only. Kowie Backpackers in Port Alfred requires a R100/day cash security deposit on arrival. Stock up on cash before leaving the last major town on your route, and confirm payment methods with your chosen hostel in advance."
+          "name": "Bring cash for Hamburg and remote areas",
+          "text": "Hamburg has no ATM and no card facilities at the backpackers. The nearest cash point is 20 minutes away in a direction requiring driving a dirt road in the dark. Bring sufficient cash before you leave your last town. The same applies to Wild Woody Cape and other remote properties — check with your hostel in advance."
         },
         {
           "@type": "HowToStep",
-          "name": "Know which J-Bay surf breaks are appropriate for your level",
-          "text": "Supertubes is for advanced and expert surfers only — fast, hollow, powerful, and breaking over shallow reef. Paddling out there without the experience to handle it will result in injury and hostility from the established local crew. The Point is suitable for intermediate surfers. Kitchen Windows is the only break where surf schools operate and is appropriate for beginners. Surf instructors and your hostel management will give you honest advice about which break to attempt."
+          "name": "Do not leave valuables on the beach at Jeffreys Bay",
+          "text": "Phone snatching and bag theft on the beach at J-Bay are consistently reported — particularly in the Supertubes to Magna Tubes area at weekends. Take only what you need to the beach. Use the hostel safe or locker for phones, wallets, and cameras. Never leave anything unattended on the sand."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Drive carefully on game area roads after dark",
+          "text": "On the R335 near Addo and on farm roads throughout the Eastern Cape, elephants, warthogs, and other game move onto the road at night. A collision with an elephant at speed is fatal. Drive slowly, use main beam where safe to do so, and stop for any large animal in the road."
         }
       ]
     },
+
     {
       "@type": "ItemList",
-      "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#activities",
+      "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#activities",
       "name": "Sunshine Coast Backpacker Activities and Attractions",
-      "description": "Comprehensive guide to activities on the Sunshine Coast for backpackers, from world-class surfing and Big Seven wildlife to free coastal walks, river kayaking, and off-the-beaten-track villages.",
+      "description": "Guide to activities on the Sunshine Coast for backpackers, from surfing Supertubes and Addo elephant safaris to kayaking the Keiskamma River, the Alexandria Trail, and the WSL JBay Open.",
       "itemListElement": [
         {
-          "@type": "ListItem",
-          "position": 1,
+          "@type": "ListItem", "position": 1,
           "item": {
             "@type": "TouristAttraction",
-            "name": "Jeffreys Bay Surfing — Supertubes and the Point",
-            "description": "The finest right-hand point break in the world. The wave at Supertubes travels up to 800 metres down the point in a continuous, mechanically perfect right-hander. Watch for free from the spectating area above the break, or paddle out at The Point (intermediate) or Kitchen Windows (beginners). Venue of the annual WSL JBay Open in July — free to watch from the hillside.",
+            "name": "Surfing Supertubes — Jeffreys Bay",
+            "description": "One of the top five surf breaks in the world. A long, hollow right-hand point break that works best June–August. Surf lessons available from Island Vibe, African Ubuntu, and independent schools from approximately R350.",
             "geo": { "@type": "GeoCoordinates", "latitude": -34.0496, "longitude": 24.9251 },
-            "isAccessibleForFree": true,
-            "touristType": "Backpackers"
+            "isAccessibleForFree": true
           }
         },
         {
-          "@type": "ListItem",
-          "position": 2,
+          "@type": "ListItem", "position": 2,
           "item": {
             "@type": "TouristAttraction",
             "name": "Addo Elephant National Park",
-            "description": "The world's only Big Seven conservation area — the original Big Five plus southern right whales and great white sharks in the marine component. More than 600 free-roaming elephants, the highest concentration in South Africa. Malaria-free. Day entry approximately €15 per person. Main gate at Addo village, 72km from Gqeberha. Book accommodation through sanparks.org.",
+            "description": "South Africa's third-largest national park with over 600 elephants plus lion, leopard, black rhino, and buffalo. 75km from Gqeberha. Self-drive or guided from Addo Backpackers (2km from the main gate). Entry approximately R260 per person.",
             "geo": { "@type": "GeoCoordinates", "latitude": -33.4704, "longitude": 25.7441 },
-            "isAccessibleForFree": false,
-            "touristType": "Backpackers"
+            "isAccessibleForFree": false
           }
         },
         {
-          "@type": "ListItem",
-          "position": 3,
+          "@type": "ListItem", "position": 3,
           "item": {
             "@type": "TouristAttraction",
-            "name": "The R72 Coastal Road",
-            "description": "The scenic alternative to the N2 between Gqeberha and East London — running along the coast through a sequence of small towns, river mouths, and beach villages. Passes Blue Horizon Bay, Boknes, Cannon Rocks, Kenton-on-Sea, Port Alfred, and several river mouths (Bushman's, Kariega, Kasouga). Adds about 90 minutes to the journey but is the correct way to travel this coast.",
-            "geo": { "@type": "GeoCoordinates", "latitude": -33.6, "longitude": 26.6 },
-            "isAccessibleForFree": true,
-            "touristType": "Backpackers"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 4,
-          "item": {
-            "@type": "TouristAttraction",
-            "name": "Kenton-on-Sea — Rivers, Beaches, and Game Reserves",
-            "description": "The best-kept secret on the Sunshine Coast. Situated between the Kariega and Bushmans river mouths, with wide clean beaches, excellent kayaking on the rivers, and malaria-free Big Five reserves (Kariega and Sibuya) within 30 minutes. The only place on the Sunshine Coast where you can combine a beach day with a proper safari on the same day. Kayaking approximately €20–€30 per person.",
-            "geo": { "@type": "GeoCoordinates", "latitude": -33.6724, "longitude": 26.6803 },
-            "isAccessibleForFree": true,
-            "touristType": "Backpackers"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 5,
-          "item": {
-            "@type": "TouristAttraction",
-            "name": "Port Alfred and the Kowie River",
-            "description": "A small, pretty river town on the Kowie River, with excellent beaches (Kelly's Beach, East Beach), river cruises upstream through indigenous forest, and canoe hire for independent paddling. The town has a good selection of waterfront restaurants. Bathurst, 15km inland, is worth a half-day detour — the oldest pub in South Africa (the Pig and Whistle, since 1831) and the world's largest fibreglass pineapple.",
-            "geo": { "@type": "GeoCoordinates", "latitude": -33.5987, "longitude": 26.8754 },
-            "isAccessibleForFree": true,
-            "touristType": "Backpackers"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 6,
-          "item": {
-            "@type": "TouristAttraction",
-            "name": "East London — Nahoon Reef and the Coelacanth",
-            "description": "South Africa's only river port and a serious surfing destination. Nahoon Reef is a consistent right-hand reef break and venue for national championship events. The East London Museum houses the world's only display of a preserved coelacanth — the fish believed extinct for 65 million years, discovered here in 1938. Free to view (small voluntary donation). The Nahoon Point Nature Reserve offers cliff-edge coastal walks with extraordinary views.",
-            "geo": { "@type": "GeoCoordinates", "latitude": -33.0129, "longitude": 27.9162 },
-            "isAccessibleForFree": true,
-            "touristType": "Backpackers"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 7,
-          "item": {
-            "@type": "TouristAttraction",
-            "name": "Surf Lessons and Board Hire — Jeffreys Bay",
-            "description": "The surf schools operating at Kitchen Windows in J-Bay are the most established on the Sunshine Coast. A two-hour beginner lesson with all equipment costs approximately €20–€30. Board hire throughout J-Bay runs approximately €8–€15 per day. For more experienced surfers, board hire is available in East London and at most coastal towns.",
-            "geo": { "@type": "GeoCoordinates", "latitude": -34.0560, "longitude": 24.9225 },
-            "isAccessibleForFree": false,
-            "touristType": "Backpackers"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 8,
-          "item": {
-            "@type": "TouristAttraction",
-            "name": "Kariega and Sibuya Game Reserves — Kenton-on-Sea",
-            "description": "Two outstanding malaria-free Big Five reserves within easy reach of the Sunshine Coast. Kariega is a private reserve on the Kariega River — some game drives enter the river in the vehicle, approaching drinking animals from the water. Sibuya is only accessible by boat across the Kariega River, which gives it genuine remoteness. Guided safaris approximately €70–€120 per person. Book through Woodlands Cottages in Kenton.",
-            "geo": { "@type": "GeoCoordinates", "latitude": -33.6500, "longitude": 26.5800 },
-            "isAccessibleForFree": false,
-            "touristType": "Backpackers"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 9,
-          "item": {
-            "@type": "TouristAttraction",
-            "name": "Jeffrey's Bay Shell Museum",
-            "description": "One of the finest shell collections in the Southern Hemisphere, located in central Jeffreys Bay. The beaches around J-Bay are among the most productive shell beaches in the world — the convergence of two ocean currents and the shape of the bay creates extraordinary conditions. The museum displays hundreds of species with biological and ecological context. Entry approximately €2; takes 45 minutes.",
-            "geo": { "@type": "GeoCoordinates", "latitude": -34.0541, "longitude": 24.9216 },
-            "isAccessibleForFree": false,
-            "touristType": "Backpackers"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 10,
-          "item": {
-            "@type": "TouristAttraction",
-            "name": "Alexandria Dune Field and the Alexandria Trail",
-            "description": "The Alexandria dune field is the largest active coastal dune system on the planet — 50 kilometres of active coastal dunes. The Alexandria Trail, a 2-day/1-night SANParks hiking trail through the dunes and Woody Cape forest, starts from Wild Woody Cape Backpackers. Direct beach access 5 minutes from the property. Hike permits via sanparks.org. Wild Woody Cape also offers PADI scuba diving sessions, horse riding, and Addo day trips.",
-            "geo": { "@type": "GeoCoordinates", "latitude": -33.7557, "longitude": 26.3890 },
-            "isAccessibleForFree": false,
-            "touristType": "Backpackers"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 11,
-          "item": {
-            "@type": "TouristAttraction",
-            "name": "Hamburg — Keiskamma River Kayaking and the Keiskamma Trust",
-            "description": "One of the most extraordinary off-the-beaten-track communities on the South African coast. Alan's Keiskamma River kayak tours (from approximately €13 per person) take you through islands on the tidal estuary with fish eagles overhead. The Keiskamma Trust arts centre — whose 122-metre Keiskamma Tapestry hangs in the South African Parliament — is walkable from Hamburg Backpackers. Requires a 14km deliberate detour off the R72.",
+            "name": "Keiskamma River Kayaking — Hamburg",
+            "description": "A guided kayak through the Keiskamma River estuary and mangroves — one of the finest eco-experiences on the Sunshine Coast. Bookable through Hamburg Backpackers. Approximately R200 per person.",
             "geo": { "@type": "GeoCoordinates", "latitude": -33.2920, "longitude": 27.4729 },
-            "isAccessibleForFree": false,
-            "touristType": "Backpackers"
+            "isAccessibleForFree": false
           }
         },
         {
-          "@type": "ListItem",
-          "position": 12,
+          "@type": "ListItem", "position": 4,
           "item": {
             "@type": "TouristAttraction",
-            "name": "Seal Point Lighthouse and Cape St Francis Beach",
-            "description": "One of the most photographed lighthouses in South Africa, still operational, at Cape St Francis. Seal Point Beach (200m from the lighthouse) is the legendary right-hand point break immortalised in Bruce Brown's The Endless Summer (1966). Cape St Francis Beach itself is Blue Flag and lifeguarded in season, 7 minutes' walk from Seals Backpackers in the Cape St Francis Resort.",
+            "name": "Alexandria Trail and the World's Largest Active Dune Field",
+            "description": "A 2-day circular hiking trail through the Alexandria coastal dune field — the world's largest active dune system — and indigenous forest. Approximately 36km. Permits required. Closest base: Wild Woody Cape.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.7557, "longitude": 26.3890 },
+            "isAccessibleForFree": false
+          }
+        },
+        {
+          "@type": "ListItem", "position": 5,
+          "item": {
+            "@type": "TouristAttraction",
+            "name": "WSL JBay Open — World Surf League Championship Tour",
+            "description": "The annual WSL Championship Tour stop at Supertubes, typically held in July. Free to watch from the beach. One of the most spectacular spectator surf events in the world — the world's best surfers on the world's best wave.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -34.0496, "longitude": 24.9251 },
+            "isAccessibleForFree": true
+          }
+        },
+        {
+          "@type": "ListItem", "position": 6,
+          "item": {
+            "@type": "TouristAttraction",
+            "name": "Kariega and Sibuya Private Game Reserves — Kenton-on-Sea",
+            "description": "Two Big 5 private game reserves accessible by boat from Kenton-on-Sea. Sibuya is boat-access only (boats from Kariega River mouth). Day and overnight safari packages available. Closest base: Woodlands Cottages.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.6500, "longitude": 26.5800 },
+            "isAccessibleForFree": false
+          }
+        },
+        {
+          "@type": "ListItem", "position": 7,
+          "item": {
+            "@type": "TouristAttraction",
+            "name": "Seal Point Lighthouse and Cape St Francis",
+            "description": "The tallest masonry lighthouse in South Africa, at the tip of the Cape St Francis peninsula. The surrounding Seal Point beach and headland are world-class for dolphin watching and one of South Africa's most perfectly preserved Victorian coastal villages.",
             "geo": { "@type": "GeoCoordinates", "latitude": -34.2031, "longitude": 24.8349 },
-            "isAccessibleForFree": true,
-            "touristType": "Backpackers"
+            "isAccessibleForFree": true
+          }
+        },
+        {
+          "@type": "ListItem", "position": 8,
+          "item": {
+            "@type": "TouristAttraction",
+            "name": "Donkin Heritage Trail — Gqeberha",
+            "description": "A self-guided 1.5-hour walking route through central Gqeberha's Victorian heritage precinct, passing the Donkin Reserve pyramid, the Campanile, and the restored Port Elizabeth Opera House. Free. The best way to understand Gqeberha's surprisingly rich architectural history.",
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.9587, "longitude": 25.6087 },
+            "isAccessibleForFree": true
           }
         }
       ]
     },
-    {
-      "@type": "Event",
-      "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#jbay-open",
-      "name": "WSL JBay Open — World Surf League Championship Tour",
-      "description": "The annual WSL Championship Tour event at Supertubes, Jeffreys Bay — ten days when the world's 40 best surfers compete at the finest right-hand point break in the world. The break is closed to the public during the event but spectating from the beach and surrounding low cliffs is completely free. One of the finest free sporting spectacles available anywhere in the world.",
-      "isAccessibleForFree": true,
-      "eventSchedule": {
-        "@type": "Schedule",
-        "repeatFrequency": "P1Y",
-        "byMonth": 7,
-        "startTime": "07:00",
-        "endTime": "17:00"
-      },
-      "location": {
-        "@type": "Place",
-        "name": "Supertubes, Jeffreys Bay",
-        "geo": { "@type": "GeoCoordinates", "latitude": -34.0496, "longitude": 24.9251 }
-      },
-      "organizer": {
-        "@type": "Organization",
-        "name": "World Surwf League",
-        "sameAs": "https://www.worldsurfleague.com"
-      }
-    },
+
     {
       "@type": "ItemList",
-      "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#hostel-list",
-      "name": "Complete Directory of Sunshine Coast Hostels — All 18",
-      "description": "Every hostel on the Sunshine Coast reviewed independently and without affiliate bias, from Jeffreys Bay to Chintsa. Includes direct contact details, phone, WhatsApp, email, website, pricing, vibe, safety rating, solo-female friendliness, and digital nomad rating.",
-      "numberOfItems": 18,
-
+      "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#hostel-list",
+      "name": "Complete Directory of Sunshine Coast Hostels",
+      "description": "Every hostel on the Sunshine Coast reviewed independently. Includes direct contact details, phone, WhatsApp, email, website, pricing, vibe, safety rating, solo-female friendliness, and digital nomad rating. Covers Cape St Francis, St Francis Bay, Jeffreys Bay, Gqeberha, Kenton-on-Sea, Addo, Alexandria, Port Alfred, Hamburg, East London, and Chintsa.",
+      "numberOfItems": 16,
       "itemListElement": [
+
         {
           "@type": "ListItem",
           "position": 1,
           "item": {
             "@type": "Hostel",
-            "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#seals-backpackers",
-            "name": "Seals Backpackers",
-            "url": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#seals-backpackers",
-            "description": "Self-catering chalets and a standalone cottage within the Cape St Francis Resort complex, 7 minutes' walk from Cape St Francis Beach and 200m from the Seal Point right-hand surf break — the wave immortalised in The Endless Summer (1966). Access to Joe Fish Restaurant, Hibiscus Spa, and pool. Bike hire on site.",
+            "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#seals-backpackers",
+            "name": "Seals Backpackers Resort",
+            "url": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#seals-backpackers",
+            "description": "An unconventional backpacker option in a genuinely exceptional location. Not for the social hostel crowd — ideal for surfers, couples, and travellers wanting a resort base at hostel-adjacent prices next to one of South Africa's most famous waves.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "116 Da Gama Road",
@@ -478,55 +397,53 @@
               "postalCode": "6312",
               "addressCountry": "ZA"
             },
-            "geo": { "@type": "GeoCoordinates", "latitude": -34.19856, "longitude": 24.83189 },
+            "geo": { "@type": "GeoCoordinates", "latitude": -34.1652, "longitude": 24.82757 },
             "telephone": "+27769625595",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27769625595"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27769625595",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27769625595" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27769625595", "description": "WhatsApp" }
             ],
-            "hasMap": "ChIJEwmgXHVZeh4RBy_dJ9aBpBk",
+            "email": "sealsbackpackers@gmail.com",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=sunshine-coast",
+            "priceRange": "$-$$",
             "sameAs": [
-              "https://www.booking.com/hotel/za/seals-backpackers.html",
-              "https://www.hostelworld.com/pwa/hosteldetails.php/Seals-Backpackers/Cape-St-Francis/277054"
+              "https://www.hostelworld.com/pwa/hosteldetails.php/Seals-Backpackers/Cape-St-Francis/277054",
+              "https://www.booking.com/hotel/za/seals-backpackers.html"
             ],
-            "priceRange": "ZAR350–ZAR550",
             "aggregateRating": {
               "@type": "AggregateRating",
-              "ratingValue": "8.4",
+              "ratingValue": "7.9",
               "bestRating": "10",
               "worstRating": "1",
-              "ratingCount": 50
+              "description": "Booking.com score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "An unconventional backpacker option in a genuinely exceptional location. Ideal for surfers, couples, and travellers wanting a resort base at hostel-adjacent prices next to one of South Africa's most famous waves.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "7.5", "bestRating": "10", "worstRating": "1" }
             },
             "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "Self-catering chalets with kitchenettes and private bathrooms", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Access to Joe Fish Restaurant and Bar", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Hibiscus Health and Beauty Spa", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Resort swimming pool", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Bicycle hire", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Free Wi-Fi", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Children's playground", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Airport shuttle", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Self-catering chalets with kitchenettes", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Seal Point surf break access", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "On-site restaurant", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Gated resort environment", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 2,
           "item": {
             "@type": "Hostel",
-            "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#st-francis-bay-backpackers",
-            "name": "St Francis Bay Backpackers",
-            "url": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#st-francis-bay-backpackers",
-            "description": "Upmarket backpackers in the distinctive St Francis Bay village — every room has its own en-suite bathroom and private veranda. Dedicated female-only dormitory. Fully equipped communal kitchen, DStv lounge, pool table, and gas Weber braai. Walking distance to the Blue Flag main beach and the unique canal waterway system.",
+            "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#st-francis-backpackers",
+            "name": "St Francis Backpackers",
+            "url": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#st-francis-backpackers",
+            "description": "The best-equipped small backpackers in the St Francis area, in a uniquely beautiful village. Strong choice for solo women, couples, and road-trippers who want facilities over frenzy.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "3 Assissi Drive",
@@ -535,52 +452,42 @@
               "postalCode": "6312",
               "addressCountry": "ZA"
             },
-            "geo": { "@type": "GeoCoordinates", "latitude": -34.1652, "longitude": 24.82757 },
+            "geo": { "@type": "GeoCoordinates", "latitude": -34.06052, "longitude": 24.92491 },
             "telephone": "+27723446451",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27723446451"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27723446451",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27723446451" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27723446451", "description": "WhatsApp" }
             ],
-            "hasMap": "ChIJuYIFLORZeh4RD29Sj_L8_cU",
-            "priceRange": "ZAR200–ZAR750",
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.2",
-              "bestRating": "5",
-              "worstRating": "1",
-              "ratingCount": 30
+            "email": "stfrancisbackpackers@gmail.com",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=sunshine-coast",
+            "priceRange": "$",
+            "sameAs": [],
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The best-equipped small backpackers in the St Francis area, in a uniquely beautiful village. Strong choice for solo women, couples, and road-trippers who want facilities over frenzy.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "7.5", "bestRating": "10", "worstRating": "1" }
             },
             "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "En-suite bathrooms and private veranda for every room", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Dedicated female-only dormitory", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Fully equipped communal kitchen", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "DStv lounge", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Pool table", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Female-only dormitory", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "En-suite bathrooms for all room types", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Free Wi-Fi", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Free parking", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Gas Weber braai", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Smart TV with Netflix in family room", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 3,
           "item": {
             "@type": "Hostel",
-            "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#island-vibe-backpackers",
-            "name": "Island Vibe Backpackers",
-            "url": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#island-vibe-backpackers",
-            "description": "The iconic Jeffreys Bay surf hostel — perched on a sand dune directly above the Indian Ocean, with 270-degree views from every room and direct beach access. On-site bar and restaurant, Island Vibe Surf School (lessons, board hire, sandboarding), bonfire area, and secured parking. TripAdvisor ranked #1 specialty lodging in Jeffreys Bay.",
+            "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#island-vibe-jbay",
+            "name": "Island Vibe Backpackers Jeffreys Bay",
+            "url": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#island-vibe-jbay",
+            "description": "The iconic Jeffreys Bay surf hostel. The view, the location, and the direct beach access are without peer on the Sunshine Coast. Book a sea-view room. Bring earplugs for the weekends.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "10 Dageraad Street",
@@ -589,58 +496,58 @@
               "postalCode": "6330",
               "addressCountry": "ZA"
             },
-            "geo": { "@type": "GeoCoordinates", "latitude": -34.06052, "longitude": 24.92491 },
+            "geo": { "@type": "GeoCoordinates", "latitude": -34.0517, "longitude": 24.92183 },
             "telephone": "+27422931625",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27422931625"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27761952445",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27422931625" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27761952445", "description": "WhatsApp" }
             ],
-            "hasMap": "ChIJ2cGOVbb4eh4RtnzDQnxCrhs",
+            "email": "jbay@islandvibe.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=sunshine-coast",
+            "priceRange": "$",
             "sameAs": [
               "https://www.islandvibe.co.za",
-              "https://www.booking.com/hotel/za/island-vibe-jbay.html",
               "https://www.hostelworld.com/hostels/p/1483/island-vibe-backpackers/",
+              "https://www.booking.com/hotel/za/island-vibe-jbay.html",
               "https://www.facebook.com/IslandVibeSA"
             ],
-            "priceRange": "ZAR120–ZAR1100",
             "aggregateRating": {
               "@type": "AggregateRating",
-              "ratingValue": "8.6",
+              "ratingValue": "9.3",
               "bestRating": "10",
               "worstRating": "1",
-              "ratingCount": 700
+              "description": "Hostelworld score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The iconic Jeffreys Bay surf hostel. The view, the location, and the direct beach access are without peer on the Sunshine Coast. Book a sea-view room. Bring earplugs for the weekends.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "7.5", "bestRating": "10", "worstRating": "1" }
             },
             "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "270-degree Indian Ocean views from all rooms", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Direct beach access", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "On-site bar and restaurant", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Island Vibe Surf School — lessons and board hire", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Sandboarding activities", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Bonfire area", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Secured on-site parking with overnight security guard", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Self-catering communal kitchen", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Free Wi-Fi", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Direct beachfront access, Supertubes", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Sea-view rooms", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Surf school on-site", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Bar and communal areas", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Overnight security guard", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Secured parking", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Baz Bus stop", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Amber" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 4,
           "item": {
             "@type": "Hostel",
-            "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#jeffreys-bay-backpackers",
+            "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#jeffreys-bay-backpackers",
             "name": "Jeffreys Bay Backpackers",
-            "url": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#jeffreys-bay-backpackers",
-            "description": "The reliable town-centre alternative to Island Vibe — a courtyard swimming pool, garden chalets ('wooden love shacks'), braai facilities, and a fully equipped self-catering kitchen. Five minutes' walk from the beach, restaurants, and J-Bay's famous factory outlet shops. Surf lessons, horse riding, and sandboarding bookable on-site. Baz Bus connections from the N2.",
+            "url": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#jeffreys-bay-backpackers",
+            "description": "The sensible town-centre alternative to Island Vibe. Pool, garden chalets, good kitchen, and five minutes to everything. A solid choice for travellers who want the J-Bay experience without the dune-side noise.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "12 Jeffrey Street",
@@ -649,54 +556,47 @@
               "postalCode": "6330",
               "addressCountry": "ZA"
             },
-            "geo": { "@type": "GeoCoordinates", "latitude": -34.0517, "longitude": 24.92183 },
+            "geo": { "@type": "GeoCoordinates", "latitude": -34.03539, "longitude": 24.92896 },
             "telephone": "+27422931379",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27422931379"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27422931379",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27422931379" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27422931379", "description": "WhatsApp" }
             ],
-            "hasMap": "ChIJpxFvnEz_eh4RAwnDzimu0fE",
+            "email": "jbaybackpackers@gmail.com",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=sunshine-coast",
+            "priceRange": "$",
             "sameAs": [
               "https://www.hostelworld.com/hostels/p/4090/jeffreys-bay-backpackers/",
               "https://www.facebook.com/JeffreysBayBackpackers/"
             ],
-            "priceRange": "ZAR160–ZAR650",
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "7.4",
-              "bestRating": "10",
-              "worstRating": "1",
-              "ratingCount": 80
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The sensible town-centre alternative to Island Vibe. Pool, garden chalets, good kitchen, and five minutes to everything.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "7.0", "bestRating": "10", "worstRating": "1" }
             },
             "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "Courtyard swimming pool", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Wooden love shack garden chalets", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Braai facilities", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Self-catering communal kitchen", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Free secure parking", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Free Wi-Fi", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Baz Bus connections", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Swimming pool", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Garden chalets", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Self-catering kitchen", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Secure parking on site", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Baz Bus stop", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 5,
           "item": {
             "@type": "Hostel",
-            "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#african-ubuntu-backpackers",
-            "name": "African Ubuntu Backpackers",
-            "url": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#african-ubuntu-backpackers",
-            "description": "The standout hostel of the Sunshine Coast — 100 metres from Supertubes, with a Booking.com score of 9.1 ('Superb'). Free daily breakfast (8–10am) and communal traditional African dinner most evenings create the defining community atmosphere. Sea-view flatlet with private balcony directly above Supertubes. Solo female friendliness rated 5/5 — the highest on the Sunshine Coast.",
+            "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#african-ubuntu-backpackers",
+            "name": "African Ubuntu Surf Lodge",
+            "url": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#african-ubuntu-backpackers",
+            "description": "The standout hostel of the Sunshine Coast. Best-reviewed, best value, most ethically run, most recommended by solo women. If you are going to Jeffreys Bay and can only stay at one place, this is the one.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "8 Cherry Street, Wavecrest",
@@ -705,58 +605,58 @@
               "postalCode": "6330",
               "addressCountry": "ZA"
             },
-            "geo": { "@type": "GeoCoordinates", "latitude": -34.03539, "longitude": 24.92896 },
+            "geo": { "@type": "GeoCoordinates", "latitude": -34.0315, "longitude": 24.93193 },
             "telephone": "+27422960376",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27422960376"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27761545313",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27422960376" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27761545313", "description": "WhatsApp" }
             ],
-            "hasMap": "ChIJEdPdZsL_eh4RsbIT0H6AZhc",
+            "email": "info@africanubuntu.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=sunshine-coast",
+            "priceRange": "$",
             "sameAs": [
               "https://ubuntusurflodge.co.za",
-              "https://www.booking.com/hotel/za/african-ubuntu-backpackers.html",
               "https://www.hostelworld.com/hostels/p/18548/ubuntu-backpackers/",
+              "https://www.booking.com/hotel/za/african-ubuntu-backpackers.html",
               "https://www.facebook.com/UbuntuJbay"
             ],
-            "priceRange": "ZAR180–ZAR1200",
             "aggregateRating": {
               "@type": "AggregateRating",
-              "ratingValue": "9.1",
+              "ratingValue": "8.5",
               "bestRating": "10",
               "worstRating": "1",
-              "ratingCount": 150
+              "description": "Booking.com score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The standout hostel of the Sunshine Coast. Best-reviewed, best value, most ethically run, most recommended by solo women. If you are going to Jeffreys Bay and can only stay at one place, this is the one.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "9.5", "bestRating": "10", "worstRating": "1" }
             },
             "amenityFeature": [
               { "@type": "LocationFeatureSpecification", "name": "Free daily breakfast (8–10am)", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Communal traditional African dinner most evenings (included)", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Sea-view flatlet with private balcony above Supertubes", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Top-floor entertainment lounge with ocean views", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Boma fire pit", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Surf lessons from on-site surf instructor", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "7th night free for long-stay guests", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Secure off-street parking", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Free Wi-Fi", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Free evening meals", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Sea-view double room", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Top-floor lounge with ocean views", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Secured parking on site", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Small capacity (30 guests max)", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Surf lessons and board hire available", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "5/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 6,
           "item": {
             "@type": "Hostel",
-            "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#little-house-on-supers",
-            "name": "The Little House on Supers at Supertubes",
-            "url": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#little-house-on-supers",
-            "description": "Self-catering accommodation 50 metres from Supertubes — the most absurdly well-located budget option in Jeffreys Bay. Two options: the Main House (wrap-around deck with full Supertubes view, sleeps up to 6) and The Cottage (private garden, overlooks Pepper Street). Host Eduard renowned for his braais. Best suited to surf groups of 3–6.",
+            "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#little-house-on-supers",
+            "name": "Little House on Supers",
+            "url": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#little-house-on-supers",
+            "description": "The definitive Jeffreys Bay self-catering option for small surf groups. Fifty metres from Supertubes. Best suited to groups of 3–6; solo travellers should budget accordingly or book alongside others.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "14 Pepper Street",
@@ -765,48 +665,50 @@
               "postalCode": "6330",
               "addressCountry": "ZA"
             },
-            "geo": { "@type": "GeoCoordinates", "latitude": -34.0315, "longitude": 24.93193 },
+            "geo": { "@type": "GeoCoordinates", "latitude": -34.0560, "longitude": 24.9225 },
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27828550341",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27828550341", "description": "WhatsApp" }
             ],
-            "hasMap": "ChIJAcOMqqv_eh4Rh8Y4dT6L29I",
+            "email": "info@stayinjbay.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=sunshine-coast",
+            "priceRange": "$-$$",
             "sameAs": [
-              "https://littlehouseonsupers.co.za/",
-              "https://littlehouseonsupers.co.za/"
+              "https://littlehouseonsupers.co.za"
             ],
-            "priceRange": "ZAR400–ZAR600",
             "aggregateRating": {
               "@type": "AggregateRating",
-              "ratingValue": "4.8",
-              "bestRating": "5",
+              "ratingValue": "6.5",
+              "bestRating": "10",
               "worstRating": "1",
-              "ratingCount": 20
+              "description": "Booking.com score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The definitive Jeffreys Bay self-catering option for small surf groups. Fifty metres from Supertubes. Best suited to groups of 3–6.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "7.5", "bestRating": "10", "worstRating": "1" }
             },
             "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "50 metres from Supertubes", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Wrap-around deck with full Supertubes view", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Fully equipped self-catering kitchen", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Private braai area with host Eduard", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Secure board storage", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Free parking", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Free Wi-Fi", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "50m walk to Supertubes paddle-out channel", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Self-catering private house (whole property)", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Private, no shared communal areas", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 7,
           "item": {
             "@type": "Hostel",
-            "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#ikhayalam-lodge",
+            "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#ikhayalam-lodge",
             "name": "Ikhayalam Lodge and Tours",
-            "url": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#ikhayalam-lodge",
-            "description": "Owner-managed by Lester Barendse in the beachfront suburb of Humewood, Gqeberha. Furniture built from railway sleepers. In-house tour operation covers Addo, Schotia, the Baviaanskloof, city tours, and cultural heritage experiences. 600m from Kings Beach. Best for travellers using Gqeberha as a gateway to Eastern Cape adventures.",
+            "url": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#ikhayalam-lodge",
+            "description": "Best for travellers using Gqeberha as a jumping-off point for Eastern Cape activities. The in-house tour operation is the differentiator. Competitively priced in the Humewood beachfront area.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "25 Windermere Road, Humewood",
@@ -815,54 +717,53 @@
               "postalCode": "6001",
               "addressCountry": "ZA"
             },
-            "geo": { "@type": "GeoCoordinates", "latitude": -33.97362, "longitude": 25.63884 },
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.97881, "longitude": 25.64368 },
             "telephone": "+27415825098",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27415825098"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27832704968",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27415825098" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27832704968", "description": "WhatsApp" }
             ],
-            "hasMap": "ChIJj1t4ppjSeh4RXqHhnxORa5c",
+            "email": "ikhayalamlodge@cybertrade.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=sunshine-coast",
+            "priceRange": "$",
             "sameAs": [
               "https://www.ikhayalamlodgeandtours.co.za",
-              "https://www.booking.com/hotel/za/ikhayalam-lodge.html",
-              "https://www.hostelworld.com/hostels/p/330270/ikhayalam-lodge-and-tours/"
+              "https://www.hostelworld.com/hostels/p/330270/ikhayalam-lodge-and-tours/",
+              "https://www.booking.com/hotel/za/ikhayalam-lodge.html"
             ],
-            "priceRange": "ZAR200–ZAR440",
             "aggregateRating": {
               "@type": "AggregateRating",
-              "ratingValue": "7.0",
+              "ratingValue": "5.4",
               "bestRating": "10",
               "worstRating": "1",
-              "ratingCount": 40
+              "description": "Booking.com score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "Best for travellers using Gqeberha as a jumping-off point for Eastern Cape activities. The in-house tour operation is the differentiator.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "6.0", "bestRating": "10", "worstRating": "1" }
             },
             "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "In-house tour desk (Addo, Schotia, Baviaanskloof, heritage tours)", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Breakfast on request", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Garden and shared lounge", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "In-house Eastern Cape tour operation", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Airport transfers (3km to Gqeberha Airport)", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Free Wi-Fi", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Free parking", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Airport transfer available", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Amber" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 8,
           "item": {
             "@type": "Hostel",
-            "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#lungile-backpackers",
+            "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#lungile-backpackers",
             "name": "Lungile Backpackers",
-            "url": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#lungile-backpackers",
-            "description": "Gqeberha's best all-round backpackers — on Marine Drive in Humewood, 5 minutes from the beach, within range of the Boardwalk, restaurants, beach bars, and nightlife. Consistently the cleanest and most well-maintained backpackers in Gqeberha. Swimming pool, communal kitchen, and sea views from select rooms. Sister property in Sedgefield (Garden Route) — 10% cross-property discount.",
+            "url": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#lungile-backpackers",
+            "description": "Gqeberha's best all-round backpackers. Best location, best staff, best maintained. The default choice for the Sunshine Coast's transit hub.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "12 La Roche Drive, Humewood",
@@ -871,57 +772,55 @@
               "postalCode": "6001",
               "addressCountry": "ZA"
             },
-            "geo": { "@type": "GeoCoordinates", "latitude": -33.97881, "longitude": 25.64368 },
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.96609, "longitude": 25.61444 },
             "telephone": "+27415822042",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27415822042"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27722370612",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27415822042" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27722370612", "description": "WhatsApp" }
             ],
-            "hasMap": "ChIJcZeoFF_Seh4RyXbYkk0MK40",
+            "email": "info@lungilebackpackers.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=sunshine-coast",
+            "priceRange": "$",
             "sameAs": [
-              "https://www.lungilebackpackers.co.za/",
+              "https://www.lungilebackpackers.co.za",
               "https://www.hostelworld.com/hostels/p/29026/lungile-backpackers/",
               "https://www.facebook.com/lungilelodge"
             ],
-            "priceRange": "ZAR120–ZAR750",
             "aggregateRating": {
               "@type": "AggregateRating",
-              "ratingValue": "7.8",
+              "ratingValue": "9.5",
               "bestRating": "10",
               "worstRating": "1",
-              "ratingCount": 120
+              "description": "Hostelworld score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "Gqeberha's best all-round backpackers. Best location, best staff, best maintained. The default choice for the Sunshine Coast's transit hub.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "8.5", "bestRating": "10", "worstRating": "1" }
             },
             "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "Swimming pool", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Free pool table", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Communal self-catering kitchen", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Sea views from select rooms and balconies", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Braai facilities", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Secure parking", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Free Wi-Fi", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Marine Drive beachfront location", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Sea-facing balcony rooms", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Secured parking", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Camping available", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Baz Bus stop", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "10% discount at sister property in Sedgefield", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Amber" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 9,
           "item": {
             "@type": "Hostel",
-            "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#jikeleza-lodge",
-            "name": "Jikeleza Lodge Backpackers Hostel",
-            "url": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#jikeleza-lodge",
-            "description": "Gqeberha's heritage hostel — over two decades on the Donkin Heritage Trail in Central PE. Cathedral-shaded garden with rock-dwelling dassies, gleaming wood colonial architecture, and the finest in-house travel desk on the Sunshine Coast. Two kitchens, two TV lounges, 7th night free (or 4th night half price). Baz Bus and Intercape Mainliner agent.",
+            "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#jikeleza-lodge",
+            "name": "Jikeleza Lodge International Backpackers",
+            "url": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#jikeleza-lodge",
+            "description": "Gqeberha's heritage hostel and its best source of Eastern Cape travel intelligence. Unbeatable for budget travellers wanting to extract maximum adventure from the province. The travel desk alone is worth the dorm fee.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "44 Cuyler Street, Central",
@@ -930,57 +829,56 @@
               "postalCode": "6000",
               "addressCountry": "ZA"
             },
-            "geo": { "@type": "GeoCoordinates", "latitude": -33.96609, "longitude": 25.61444 },
+            "geo": { "@type": "GeoCoordinates", "latitude": -33.9587, "longitude": 25.60869 },
             "telephone": "+27415863721",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27415863721"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27827348764",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27415863721" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27827348764", "description": "WhatsApp" }
             ],
-            "hasMap": "ChIJOQXDMP_Teh4RdqG0-m7I6rw",
+            "email": "info@jikelezalodge.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=sunshine-coast",
+            "priceRange": "$",
             "sameAs": [
-              "https://jikelezalodge.co.za/",
-              "https://www.booking.com/hotel/za/jikeleza-lodge.html",
-              "https://www.hostelworld.com/hostels/p/1237/jikeleza-lodge-international-backpackers-hostel/"
+              "https://jikelezalodge.co.za",
+              "https://www.hostelworld.com/hostels/p/1237/jikeleza-lodge-international-backpackers-hostel/",
+              "https://www.booking.com/hotel/za/jikeleza-lodge.html"
             ],
-            "priceRange": "ZAR80–ZAR600",
             "aggregateRating": {
               "@type": "AggregateRating",
-              "ratingValue": "7.8",
+              "ratingValue": "9.4",
               "bestRating": "10",
               "worstRating": "1",
-              "ratingCount": 90
+              "description": "Hostelworld score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "Gqeberha's heritage hostel and its best source of Eastern Cape travel intelligence. The travel desk alone is worth the dorm fee.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "8.0", "bestRating": "10", "worstRating": "1" }
             },
             "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "In-house travel desk (Addo, Schotia, all southern Africa)", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Two fully equipped communal kitchens", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Two TV lounges", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Large cathedral-shaded garden with braai facilities", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "7th night free (or 4th night half price)", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Eastern Cape travel desk", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Free tea and coffee at reception", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Shaded garden", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Free Wi-Fi", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Free tea and coffee", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Baz Bus drop-off and pick-up", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Intercape Mainliner agent", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Baz Bus stop", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Camping available", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Amber" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 10,
           "item": {
             "@type": "Hostel",
-            "@id": "https://backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#the-hippo-backpackers",
+            "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#the-hippo-backpackers",
             "name": "The Hippo Backpackers",
-            "url": "https://backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#the-hippo-backpackers",
-            "description": "Garden-set backpackers in Richmond Hill — Gqeberha's best eating neighbourhood. Owner-managed by Tania. Renowned for its 'hippo-sized' swimming pool and an exceptional Addo/Schotia full-day safari package (two game drives, transfers, two meals, all drinks, lion sightings, second night free). Daily room service. Five minutes' walk from Salt restaurant and Superstar Charlie.",
+            "url": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#the-hippo-backpackers",
+            "description": "The most comfortable mid-range backpackers in Gqeberha. Best Addo/Schotia safari package value in the city. The Richmond Hill location is the secret weapon — Gqeberha's best restaurants are five minutes from the pool.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "14 Glen Street, Richmond Hill",
@@ -992,54 +890,46 @@
             "geo": { "@type": "GeoCoordinates", "latitude": -33.9587, "longitude": 25.60869 },
             "telephone": "+27415856350",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27415856350"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27727520952",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27415856350" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27727520952", "description": "WhatsApp" }
             ],
-            "hasMap": "ChIJ-dr4sF7Seh4RRZI4qiPYI2U",
+            "email": "fun@thehippo.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=sunshine-coast",
+            "priceRange": "$",
             "sameAs": [
               "https://thehippo.co.za"
             ],
-            "priceRange": "ZAR150–ZAR650",
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "7.5",
-              "bestRating": "10",
-              "worstRating": "1",
-              "ratingCount": 60
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The most comfortable mid-range backpackers in Gqeberha. Best Addo/Schotia safari package value in the city. The Richmond Hill location is the secret weapon.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "7.5", "bestRating": "10", "worstRating": "1" }
             },
             "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "Large 'hippo-sized' swimming pool", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Bar with pool table", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Swimming pool", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Garden setting, Richmond Hill", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Addo and Schotia safari packages", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Daily room service", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Addo/Schotia full-day safari package", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Communal self-catering kitchen", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Spacious garden setting", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Free Wi-Fi", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Secure parking", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Gated secure parking", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Amber" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 11,
           "item": {
             "@type": "Hostel",
-            "@id": "https://backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#riverfront-backpackers",
-            "name": "Riverfront Backpackers",
-            "url": "https://backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#riverfront-backpackers",
-            "description": "Eco-conscious, community-oriented alternative to the urban Gqeberha hostels — directly on the Swartkops River tidal estuary in Redhouse, 19km north of central Gqeberha. Founded by Mark, who runs surf lessons, coastal surf tours, Addo safari arrangements, Motherwell township visits, sailing, and windsurfing. Optional community volunteer placements. One of the quietest locations in this guide.",
+            "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#28-towpath",
+            "name": "28 Towpath on the Riverfront",
+            "url": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#28-towpath",
+            "description": "Gqeberha's alternative for the eco-traveller, the community-minded backpacker, and the surfer who wants to sleep next to the river and wake up to birdsong. Not for those wanting urban convenience — essential for those who don't.",
             "address": {
               "@type": "PostalAddress",
-              "streetAddress": "18 Carden Street (or 28 Towpath), Redhouse Village",
+              "streetAddress": "28 Towpath, Redhouse Village",
               "addressLocality": "Gqeberha",
               "addressRegion": "Eastern Cape",
               "postalCode": "6201",
@@ -1048,450 +938,280 @@
             "geo": { "@type": "GeoCoordinates", "latitude": -33.84093, "longitude": 25.57402 },
             "telephone": "+27723441941",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27723441941"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27723441941",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27723441941" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27723441941", "description": "WhatsApp" }
             ],
-            "hasMap": "ChIJK5OtCuPVeh4Rzpbn_m2H8CM",
+            "email": "28towpath@gmail.com",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=sunshine-coast",
+            "priceRange": "$",
             "sameAs": [
               "https://28towpath.com",
               "https://www.hostelworld.com/pwa/hosteldetails.php/28-Towpath-on-the-Riverfront/Port-Elizabeth/273470",
               "https://www.facebook.com/28towpath"
             ],
-            "priceRange": "ZAR150–ZAR550",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "9.0",
+              "bestRating": "10",
+              "worstRating": "1",
+              "description": "Hostelworld score, approximated at time of writing."
+            },
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "Gqeberha's alternative for the eco-traveller and community-minded backpacker. Not for those wanting urban convenience — essential for those who don't.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "8.5", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "Directly on the Swartkops River tidal estuary", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Surf lessons and coastal surf tours with Mark", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Community volunteer placements available", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Aloe Trail and walking tracks from property", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Breakfast and dinner available", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Braai facilities", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Free parking", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Zwartkops River frontage", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Redhouse community setting", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Camping available", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 12,
           "item": {
             "@type": "Hostel",
-            "@id": "https://backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#woodlands-cottages-backpackers",
-            "name": "Woodlands Cottages & Backpackers",
-            "url": "https://backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#woodlands-cottages-backpackers",
-            "description": "The Sunshine Coast's most atmospheric bush-and-river property — 12 acres of indigenous bush garden on the Bushman's River bank, near Kenton-on-Sea. Eight self-catering cottages with private boma baths (fire-lit, open-air), on-site Goat Shed bush bistro and bar, swimming pool, kayaks, Sibuya Big Five day trips. Pet-friendly. The best multi-day stop between Gqeberha and East London.",
+            "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#woodlands-cottages",
+            "name": "Woodlands Cottages and Backpackers",
+            "url": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#woodlands-cottages",
+            "description": "The Sunshine Coast's most atmospheric bush-and-river backpackers/cottages property. Extraordinary setting, on-site restaurant, private boma baths, Big 5 day trips on the doorstep. The best multi-day stop between Gqeberha and East London.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "R343 Grahamstown Road",
               "addressLocality": "Kenton-on-Sea",
               "addressRegion": "Eastern Cape",
+              "postalCode": "6105",
               "addressCountry": "ZA"
             },
             "geo": { "@type": "GeoCoordinates", "latitude": -33.67025, "longitude": 26.65228 },
             "telephone": "+27828085976",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27828085976"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27828085976",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27828085976" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27828085976", "description": "WhatsApp" }
             ],
-            "hasMap": "ChIJZ-9bSxOxZR4RDpj32Q6xuWU",
+            "email": "info@woodlandscottages.co.za",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=sunshine-coast",
+            "priceRange": "$-$$",
             "sameAs": [
-              "https://woodlandscottages.co.za/"
+              "https://woodlandscottages.co.za"
             ],
-            "priceRange": "ZAR120–ZAR1800",
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "8.2",
-              "bestRating": "10",
-              "worstRating": "1",
-              "ratingCount": 70
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The Sunshine Coast's most atmospheric bush-and-river property. Extraordinary setting, on-site restaurant, private boma baths, Big 5 day trips on the doorstep. The best multi-day stop between Gqeberha and East London.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "9.0", "bestRating": "10", "worstRating": "1" }
             },
             "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "Private fire-lit boma baths in cottage gardens", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "The Goat Shed bush bistro and bar", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Swimming pool", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Kayaks and paddle boats", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Sibuya Game Reserve Big Five day trips", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "12-acre indigenous garden on Bushman's River", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Pet-friendly", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Bush camping pitches", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Games room", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "12 acres of indigenous garden", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "On-site restaurant", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Private boma baths", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Self-catering cottages", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Kariega/Sibuya game reserve day trips", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Camping available", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Gated, set back from main road", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 13,
           "item": {
             "@type": "Hostel",
-            "@id": "https://backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#orange-elephant-backpackers",
-            "name": "Orange Elephant Backpackers",
-            "url": "https://backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#orange-elephant-backpackers",
-            "description": "The essential Addo base — 8km from the Addo Elephant National Park main gate, on a working citrus farm bordering the reserve. In-house guided safari tours run by guides with encyclopedic park knowledge. Thirsty Herds Pub on site (famous for braai pizzas and traditional potjie). Owner John Allderman is the social anchor — go for the safari, stay for the stories.",
+            "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#addo-backpackers",
+            "name": "Addo Backpackers (Orange Elephant)",
+            "url": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#addo-backpackers",
+            "description": "The essential Addo base. 2km from the Addo Elephant National Park main gate. Go for the safari. Stay for the stories.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "R335 Main Road",
               "addressLocality": "Addo",
               "addressRegion": "Eastern Cape",
-              "postalCode": "6105",
+              "postalCode": "6185",
               "addressCountry": "ZA"
             },
             "geo": { "@type": "GeoCoordinates", "latitude": -33.51418, "longitude": 25.69329 },
             "telephone": "+27422330023",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27422330023"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27741796715",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27422330023" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27741796715", "description": "WhatsApp" }
             ],
-            "hasMap": "ChIJ74Ef7B3LZB4REFf7ZrwPY9s",
+            "email": "info@addobackpackers.com",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=sunshine-coast",
+            "priceRange": "$",
             "sameAs": [
               "https://www.addobackpackers.com",
               "https://www.hostelworld.com/hostels/p/14042/orange-elephant-backpackers-and-thirsty-herds-pub/",
-              "https://www.facebook.com/orangeelephantbackpackers/"
+              "https://www.facebook.com/orangeelephantbackpackers"
             ],
-            "priceRange": "ZAR100–ZAR950",
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "8.6",
-              "bestRating": "10",
-              "worstRating": "1",
-              "ratingCount": 80
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The essential Addo base. 2km from the main gate. Go for the safari. Stay for the stories.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "8.0", "bestRating": "10", "worstRating": "1" }
             },
             "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "In-house guided Addo safari tours (full day and two-park options)", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Thirsty Herds Pub and restaurant on site", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Shuttle service from Gqeberha", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Shared communal kitchen", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Braai facilities throughout grounds", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Hammock areas in citrus orchards", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Free parking", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Free Wi-Fi in main building and bar", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "2km from Addo Elephant National Park main gate", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Thirsty Herds Pub on site", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Guided safari packages", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Camping available", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Swimming pool", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "1/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 14,
           "item": {
             "@type": "Hostel",
-            "@id": "https://backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#wild-woody-cape",
-            "name": "Wild Woody Cape Backpackers",
-            "url": "https://backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#wild-woody-cape",
-            "description": "One of the most dramatically located backpackers on the entire South African coast — at the edge of the Alexandria Dune Field, the largest active coastal dune system on the planet. The Alexandria Trail (2-day SANParks hike) starts from the property gate. Solar-powered and off-grid. Under new ownership from 2025 by musician and sustainability advocate Ann Jangle ('Wild Woody Cape' rebrand). 20km gravel road from Alexandria — bring cash and stock up before arrival.",
+            "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#wild-woody-cape",
+            "name": "Wild Woody Cape",
+            "url": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#wild-woody-cape",
+            "description": "One of the most dramatically located backpackers on the entire South African coast. The Alexandria Trail, the world's biggest active dune field, and Addo Elephant Park — all within reach. Essential for hikers, adventurers, and anyone who has run out of adjectives for beaches.",
             "address": {
               "@type": "PostalAddress",
-              "streetAddress": "Woody Cape Beach, Alexandria",
+              "streetAddress": "Woody Cape Beach",
               "addressLocality": "Alexandria",
               "addressRegion": "Eastern Cape",
-              "postalCode": "6185",
+              "postalCode": "6170",
               "addressCountry": "ZA"
             },
             "geo": { "@type": "GeoCoordinates", "latitude": -33.75574, "longitude": 26.38898 },
             "telephone": "+27769297184",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27769297184"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27828429606",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27769297184" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27769297184", "description": "WhatsApp" }
             ],
-            "hasMap": "ChIJ3e_WdxEHZR4RfbCIDeUg3as",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=sunshine-coast",
+            "priceRange": "$",
             "sameAs": [
               "https://www.wildwoodycape.com",
               "https://www.facebook.com/people/WILD-WOODY-CAPE/61574442872841/"
             ],
-            "priceRange": "ZAR100–ZAR1800",
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "7.8",
-              "bestRating": "10",
-              "worstRating": "1",
-              "ratingCount": 30
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "One of the most dramatically located backpackers on the entire South African coast. Essential for hikers, adventurers, and anyone who has run out of adjectives for beaches.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "8.5", "bestRating": "10", "worstRating": "1" }
             },
             "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "Alexandria Trail 2-day hike starts from the gate", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Direct beach access (5 min walk)", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Two swimming pools", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Bar and restaurant (home-cooked meals)", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Solar-powered and off-grid", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "PADI scuba diving pool sessions", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Horse riding", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Self-catering chalets with braai patios", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Woody Cape beachfront location", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Alexandria Trail access", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Self-catering chalets", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Camping available", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "1/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 15,
           "item": {
             "@type": "Hostel",
-            "@id": "https://backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#kowie-backpackers",
+            "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#kowie-backpackers",
             "name": "Kowie Backpackers",
-            "url": "https://backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#kowie-backpackers",
-            "description": "Port Alfred's principal budget accommodation — well-established garden, three 8-bed dorms, private rooms, and a cabin option near the Kowie River and town centre. Local activities include scuba diving (PADI courses), game fishing, river cruises, sandboarding, and horse riding. A comfortable stopover that earns a longer stay.",
+            "url": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#kowie-backpackers",
+            "description": "Port Alfred's sole backpackers option, and a comfortable one. Book it as part of a Sunshine Coast road trip. Stay longer than you planned.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "13 Van Riebeeck Street",
               "addressLocality": "Port Alfred",
               "addressRegion": "Eastern Cape",
-              "postalCode": "6170",
+              "postalCode": "5641",
               "addressCountry": "ZA"
             },
             "geo": { "@type": "GeoCoordinates", "latitude": -33.59874, "longitude": 26.87537 },
             "telephone": "+27712668899",
-            "hasMap": "ChIJFRMqJOzLZR4Rc-enubG36uw",
+            "email": "kowiebackpackers@gmail.com",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=sunshine-coast",
+            "priceRange": "$",
             "sameAs": [
               "https://www.kowiebackpackers.thinklocal.co.za",
               "https://www.facebook.com/people/Kowie-Backpackers/100057486908869/"
             ],
-            "priceRange": "ZAR100–ZAR600",
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "Port Alfred's sole backpackers option, and a comfortable one. Book it as part of a Sunshine Coast road trip. Stay longer than you planned.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "7.0", "bestRating": "10", "worstRating": "1" }
+            },
             "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "Well-established communal garden", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Self-catering communal kitchen", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Free parking", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Local activity bookings (scuba, fishing, river cruises)", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Kowie River setting", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Garden hostel", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Camping available", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "3/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "2/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         },
+
         {
           "@type": "ListItem",
           "position": 16,
           "item": {
             "@type": "Hostel",
-            "@id": "https://backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#hamburg-backpackers",
+            "@id": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#hamburg-backpackers",
             "name": "Hamburg Backpackers",
-            "url": "https://backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#hamburg-backpackers",
-            "description": "The most extraordinary off-the-beaten-track backpackers on the Sunshine Coast — on the Keiskamma River mouth in the remote village of Hamburg, 14km off the R72. Run by Mandy and Alan. Alan's Keiskamma River kayak tours (fish eagles, island channels, extraordinary birding) are described as the best wildlife experience in the Eastern Cape outside the big game reserves. Mandy's breakfasts have their own fan base. Bring cash — no ATM in Hamburg.",
+            "url": "https://www.backpackersbible.com/backpacking-south-africa/sunshine-coast#hamburg-backpackers",
+            "description": "The most extraordinary off-the-beaten-track backpackers on the Sunshine Coast. If you have the time and the willingness to take a 14km dirt road, Hamburg will reward you more profoundly than anywhere else in this guide. Do the kayak tour. Bring cash.",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Main Road",
               "addressLocality": "Hamburg",
               "addressRegion": "Eastern Cape",
-              "postalCode": "5641",
+              "postalCode": "5201",
               "addressCountry": "ZA"
             },
             "geo": { "@type": "GeoCoordinates", "latitude": -33.29202, "longitude": 27.47286 },
             "telephone": "+27728744927",
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27827831288",
-                "description": "WhatsApp contact"
-              }
+              { "@type": "ContactPoint", "contactType": "reservations", "telephone": "+27728744927" },
+              { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+27827831288", "description": "WhatsApp" }
             ],
-            "hasMap": "https://maps.google.com/?q=-33.29202,27.47286"
-            ],
-            "priceRange": "ZAR600",
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.5",
-              "bestRating": "5",
-              "worstRating": "1",
-              "ratingCount": 15
+            "email": "hamburgbackpackers@gmail.com",
+            "hasMap": "https://www.backpackersbible.com/map.html?region=sunshine-coast",
+            "priceRange": "$",
+            "sameAs": [],
+            "review": {
+              "@type": "Review",
+              "author": { "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw" },
+              "reviewBody": "The most extraordinary off-the-beaten-track backpackers on the Sunshine Coast. If you have the time and the willingness to take a 14km dirt road, Hamburg will reward you more profoundly than anywhere else in this guide. Do the kayak tour. Bring cash — no card facilities, no ATM in Hamburg.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "9.5", "bestRating": "10", "worstRating": "1" }
             },
             "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "Keiskamma River kayak tours with Alan", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Home-cooked breakfast (Mandy's breakfasts)", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Private rooms with private bathrooms only (no dorms)", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Garden and braai area", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Canoe hire and fishing", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Walking to Keiskamma Trust Arts Centre", "value": true }
-            ]
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 17,
-          "item": {
-            "@type": "Hostel",
-            "@id": "https://backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#buffalo-backpackers",
-            "name": "Buffalo Backpackers",
-            "url": "https://backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#buffalo-backpackers",
-            "description": "Purpose-built courtyard hostel in Quigney, East London — all rooms open onto a central courtyard, with bar and pool table, secure off-street parking, and airport shuttle. Close to Nahoon Beach, the inter-city bus station, and the East London CBD. Baz Bus stop on Moore Street. East London's practical alternative backpackers for travellers in transit on the Sunshine Coast/Wild Coast circuit.",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "79 Moore Street, Quigney",
-              "addressLocality": "East London",
-              "addressRegion": "Eastern Cape",
-              "postalCode": "5201",
-              "addressCountry": "ZA"
-            },
-            "geo": { "@type": "GeoCoordinates", "latitude": -33.01294, "longitude": 27.91615 },
-            "telephone": "+27437811122",
-            "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27437811122"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27834014833",
-                "description": "WhatsApp contact"
-              }
-            ],
-            "hasMap": "ChIJsTLMnt3hZh4R8Snm12SuwJo",
-            "sameAs": [
-              "https://buffalobackpackers.yolasite.com",
-              "https://www.hostelworld.com/pwa/hosteldetails.php/Buffalo-Backpackers/East-London/38317"
-            ],
-            "priceRange": "ZAR150–ZAR600",
-            "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "Central courtyard (all rooms open onto it)", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Bar with pool table", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Secure off-street parking", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Airport shuttle", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Communal self-catering kitchen", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Free Wi-Fi", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Baz Bus stop (Moore Street)", "value": true }
-            ]
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 18,
-          "item": {
-            "@type": "Hostel",
-            "@id": "https://backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#sugar-shack-backpackers",
-            "name": "Sugar Shack Backpackers",
-            "url": "https://backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#sugar-shack-backpackers",
-            "description": "East London's iconic surf hostel — in the original lifesavers' building on a sand dune above Eastern Beach. The legendary lookout tower (open-sided, bean bags and roof, 270-degree views of the Indian Ocean, harbour, and dolphins at first light) is the defining feature. Wooden beach shacks in coastal vegetation. Dolphin and whale watching from the deck. Baz Bus stop and East London Aquarium 100m walk. Come for the surf and the tower.",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "Eastern Esplanade Road, Eastern Beach, Quigney",
-              "addressLocality": "East London",
-              "addressRegion": "Eastern Cape",
-              "postalCode": "5201",
-              "addressCountry": "ZA"
-            },
-            "geo": { "@type": "GeoCoordinates", "latitude": -33.01006, "longitude": 27.92273 },
-            "telephone": "+27437228240",
-            "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27437228240"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27748908405",
-                "description": "WhatsApp contact"
-              }
-            ],
-            "hasMap": "ChIJkR9XtN_hZh4RdVAKYu4-wjs",
-            "sameAs": [
-              "https://www.sugarshack.co.za/",
-              "https://www.hostelworld.com/hostels/p/1231/sugarshack-backpackers/"
-            ],
-            "priceRange": "ZAR100–ZAR450",
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "7.2",
-              "bestRating": "10",
-              "worstRating": "1",
-              "ratingCount": 35
-            },
-            "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "Legendary lookout tower with 270-degree ocean views", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Sun deck for dolphin and whale watching", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Wooden beach shacks in coastal vegetation", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "DStv lounge with sea views", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Self-catering communal kitchen", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Surf lessons", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Sandboarding", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Free Wi-Fi", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Baz Bus stop nearby", "value": true }
-            ]
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 19,
-          "item": {
-            "@type": "Hostel",
-            "@id": "https://backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#buccaneers-chintsa",
-            "name": "Buccaneers Lodge & Backpackers",
-            "url": "https://backpackersbible.com/backpacking-south-africa/sunshine-coast.htm#buccaneers-chintsa",
-            "description": "One of the great South African backpacker institutions — at Chintsa, 40km north of East London on the road to the Wild Coast. Enormous private beach, swimming pool, volleyball court, and a bar of legendary status. The Sunshine Coast's most social hostel, in its most beautiful location. Functions as the gateway hostel to the Wild Coast. Many travellers arrive for one night and stay five.",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "1 David Way, Chintsa West",
-              "addressLocality": "Chintsa",
-              "addressRegion": "Eastern Cape",
-              "postalCode": "5275",
-              "addressCountry": "ZA"
-            },
-            "geo": { "@type": "GeoCoordinates", "latitude": -32.83675, "longitude": 28.11023 },
-            "telephone": "+27437343012",
-            "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "contactType": "reservations",
-                "telephone": "+27437343012"
-              },
-              {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "telephone": "+27663172858",
-                "description": "WhatsApp contact"
-              }
-            ],
-            "hasMap": "ChIJCRyF76s8Zx4RC3cj9ZggltY",
-            "sameAs": [
-              "https://www.buccaneerschintsa.com/",
-              "https://www.hostelworld.com/hostels/p/1353/buccaneers-beach-lodge/",
-"booking.com/hotel/za/buccaneers-lodge-amp-backpackers.en-gb.html",
-              "https://www.facebook.com/buccaneersonthebeach"
-            ],
-            "priceRange": "ZAR230–ZAR340",
-            "amenityFeature": [
-              { "@type": "LocationFeatureSpecification", "name": "Private beach access (enormous, nearly private)", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Swimming pool", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Beach volleyball court", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Bar (of legendary status)", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Communal kitchen", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Braai facilities", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Activities desk", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Baz Bus stop", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Keiskamma River mouth location", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Private rooms only (no dorms)", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Guided kayak tours", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Cash only — bring cash before arrival", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "14km dirt road access — do not drive at night", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Owner-present hosting by Mandy and Alan", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Solo Female Friendliness", "value": "4/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Digital Nomad Friendliness", "value": "1/5" },
+              { "@type": "LocationFeatureSpecification", "name": "Safety Rating", "value": "Green" }
             ]
           }
         }
 
       ]
     }
-
   ]
 }
 </script>
