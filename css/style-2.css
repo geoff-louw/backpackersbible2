@@ -40,6 +40,7 @@
    33. Map overlay circle
    34. Dictionary Definition
    35. Sitemap styles
+   36. Compass styles
    ============================================================ */
 
 
@@ -4025,5 +4026,182 @@ img.bb-marker-icon {
         margin-left: 0; /* Keeps it aligned to the left with the text */
         margin-right: auto;
     }
+}
+
+
+
+
+/* ============================================================
+   36. COMPASS STYLES
+   ============================================================ */
+
+
+/* --- 1. The Needle Animation --- */
+@keyframes swingCompass {
+  /* North (0deg) - Pause */
+  0%, 20% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  /* Swing to South West (225deg) */
+  30%, 50% {
+    transform: translate(-50%, -50%) rotate(225deg);
+  }
+  /* Swing to East (90deg) */
+  60%, 80% {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  /* Swing back to North */
+  90%, 100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* --- 2. Base Container & Shared Styles --- */
+.compass-container {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.compass-wrapper {
+  position: relative;
+  /* Mobile Size */
+  width: 400px;
+  height: 400px;
+  margin: 20px 0;
+}
+
+.compass-bg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.compass-needle {
+  position: absolute;
+  /* Since both SVGs are identical squares, 
+     stretching it to 100% overlays it perfectly */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  /* Centers the rotation point perfectly */
+  transform-origin: center center; 
+  transform: rotate(0deg);
+  animation: swingCompass 12s ease-in-out infinite;
+}
+
+/* --- 3. Pill Styles --- */
+.pill {
+  background-color: #d9534f; /* Red pill color */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 15px;
+  white-space: nowrap;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s, background-color 0.2s;
+  z-index: 10;
+}
+
+.pill:hover {
+  transform: scale(1.05);
+  background-color: #c9302c; /* Slightly darker red on hover */
+  cursor: pointer;
+}
+
+/* --- 4. Mobile Layout (Stacked) --- */
+@media (max-width: 767px) {
+  .compass-container {
+    padding: 10px;
+  }
+  .pill {
+    margin: 8px 0;
+    position: static; /* Stack them naturally on mobile */
+  }
+}
+
+/* --- 5. Desktop Layout (600px Cluster with lines) --- */
+@media (min-width: 768px) {
+  .compass-container {
+    /* Large enough to hold the 600px compass + outer pills */
+    width: 850px; 
+    height: 850px;
+  }
+
+  .compass-wrapper {
+    /* Scale up to Desktop Size */
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+  }
+
+  /* Absolute positioning relative to the 850x850px container */
+  .pill {
+    position: absolute;
+  }
+
+  /* --- NORTH (West Coast) --- */
+  .pill.north {
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  /* Line pointing down to compass edge */
+  .pill.north::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 2px;
+    height: 45px;
+    background: #d9534f;
+    transform: translateX(-50%);
+  }
+
+  /* --- NORTH EAST (Cederberg) --- */
+  .pill.north-east {
+    top: 140px;
+    right: 80px;
+  }
+  /* Line angled back to the center */
+  .pill.north-east::after {
+    content: '';
+    position: absolute;
+    top: 80%;
+    right: 80%;
+    width: 2px;
+    height: 55px;
+    background: #d9534f;
+    transform: rotate(45deg);
+    transform-origin: top left;
+  }
+
+  /* --- EAST (Route 62 & Overberg) --- */
+  .pill.east {
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+  }
+  /* Horizontal line pointing left to compass edge */
+  .pill.east::after {
+    content: '';
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    width: 65px;
+    height: 2px;
+    background: #d9534f;
+    transform: translateY(-50%);
+  }
 }
 
