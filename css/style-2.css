@@ -4133,7 +4133,7 @@ img.bb-marker-icon {
 
 /* --- 4. PILL & LINK STYLES --- */
 .pill {
-  background-color: #d9534f;
+  background-color: #bc1d23;
   color: white !important;
   padding: 10px 20px;
   border-radius: 50px;
@@ -4141,7 +4141,7 @@ img.bb-marker-icon {
   font-size: 15px;
   white-space: nowrap;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  z-index: 10;
+  z-index: 3;
 }
 
 /* Move the interaction to the links inside the pill */
@@ -4155,22 +4155,175 @@ img.bb-marker-icon {
   opacity: 0.8;
   text-decoration: underline;
   cursor: pointer;
-}/* --- 5. MOBILE LAYOUT (Flex Stacking) --- */
+
+/* --- 5. MOBILE LAYOUT (Absolute Precision Map for Mobile) --- */
 @media (max-width: 767px) {
   .compass-container {
-    padding: 20px;
+    position: relative;
+    width: 100%;
+    max-width: 380px; /* Keeps the map tightly bound on small screens */
+    height: 720px;    /* Locked height gives lines a fixed target */
+    margin: 0 auto;
+    display: block;   /* Disables flex stacking */
   }
-  
-  .compass-wrapper-unified { order: 5; } 
-  .pill { margin: 10px 0; }
-  
-  /* Pushes Upper destinations above compass */
-  .pill.north, .pill.north-west, .pill.north-east { order: 1; }
-  .pill.west, .pill.east { order: 2; }
-  
-  /* Keeps Lower destinations below compass */
-  .pill.south-west, .pill.south-east { order: 6; }
-  .pill.south { order: 7; }
+
+  .compass-wrapper-unified {
+    width: 260px !important;  /* Scaled perfectly to fit mobile screens */
+    height: 260px !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    margin: 0 !important;
+  }
+
+  .pill {
+    position: absolute;
+    padding: 8px 16px; /* Slightly tighter padding for mobile screens */
+    font-size: 13px;
+  }
+
+  /* --- TOP CLUSTER (Above Compass) --- */
+
+  /* NORTH */
+  .pill.north {
+    top: 160px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .pill.north::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 2px;
+    height: 25px;
+    background: #bc1d23;
+    transform: translateX(-50%);
+  }
+
+  /* NORTH EAST */
+  .pill.north-east {
+    top: 105px;
+    right: 20px;
+  }
+  .pill.north-east::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 5px;
+    width: 2px;
+    height: 35px;
+    background: #bc1d23;
+    transform: rotate(35deg);
+    transform-origin: top left;
+  }
+
+  /* NORTH WEST */
+  .pill.north-west {
+    top: 105px;
+    left: 20px;
+  }
+  .pill.north-west::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    right: 5px;
+    width: 2px;
+    height: 35px;
+    background: #bc1d23;
+    transform: rotate(-35deg);
+    transform-origin: top right;
+  }
+
+  /* WEST */
+  .pill.west {
+    top: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .pill.west::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 20%;
+    width: 2px;
+    height: 125px;
+    background: #bc1d23;
+    transform: rotate(52deg);
+    transform-origin: top left;
+  }
+
+  /* --- BOTTOM CLUSTER (Below Compass) --- */
+
+  /* SOUTH */
+  .pill.south {
+    bottom: 160px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .pill.south::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    width: 2px;
+    height: 25px;
+    background: #bc1d23;
+    transform: translateX(-50%);
+  }
+
+  /* SOUTH EAST */
+  .pill.south-east {
+    bottom: 105px;
+    right: 20px;
+  }
+  .pill.south-east::after {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 5px;
+    width: 2px;
+    height: 35px;
+    background: #bc1d23;
+    transform: rotate(-35deg);
+    transform-origin: bottom left;
+  }
+
+  /* SOUTH WEST */
+  .pill.south-west {
+    bottom: 105px;
+    left: 20px;
+  }
+  .pill.south-west::after {
+    content: '';
+    position: absolute;
+    top: -12px;
+    right: 5px;
+    width: 2px;
+    height: 35px;
+    background: #bc1d23;
+    transform: rotate(35deg);
+    transform-origin: bottom right;
+  }
+
+  /* EAST */
+  .pill.east {
+    bottom: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .pill.east::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 80%;
+    width: 2px;
+    height: 125px;
+    background: #bc1d23;
+    transform: rotate(52deg);
+    transform-origin: bottom left;
+  }
 }
 
 /* --- 6. DESKTOP LAYOUT (8-Point Map around 450px Compass) --- */
@@ -4211,7 +4364,7 @@ img.bb-marker-icon {
     left: 50%;
     width: 2px;
     height: 35px; /* Tuned to stop 5px short */
-    background: #d9534f;
+    background: #bc1d23;
     transform: translateX(-50%);
   }
 
@@ -4228,7 +4381,7 @@ img.bb-marker-icon {
     left: 50%;
     width: 2px;
     height: 35px;
-    background: #d9534f;
+    background: #bc1d23;
     transform: translateX(-50%);
   }
 
@@ -4245,7 +4398,7 @@ img.bb-marker-icon {
     top: 50%;
     width: 25px; 
     height: 2px;
-    background: #d9534f;
+    background: #bc1d23;
     transform: translateY(-50%);
   }
 
@@ -4262,7 +4415,7 @@ img.bb-marker-icon {
     top: 50%;
     width: 25px;
     height: 2px;
-    background: #d9534f;
+    background: #bc1d23;
     transform: translateY(-50%);
   }
 
@@ -4280,7 +4433,7 @@ img.bb-marker-icon {
     left: -15px;
     width: 2px;
     height: 35px;
-    background: #d9534f;
+    background: #bc1d23;
     transform: rotate(45deg);
   }
 
@@ -4296,7 +4449,7 @@ img.bb-marker-icon {
     right: -15px;
     width: 2px;
     height: 35px;
-    background: #d9534f;
+    background: #bc1d23;
     transform: rotate(-45deg);
   }
 
@@ -4312,7 +4465,7 @@ img.bb-marker-icon {
     left: -15px;
     width: 2px;
     height: 35px;
-    background: #d9534f;
+    background: #bc1d23;
     transform: rotate(-45deg);
   }
 
@@ -4328,7 +4481,7 @@ img.bb-marker-icon {
     right: -15px;
     width: 2px;
     height: 35px;
-    background: #d9534f;
+    background: #bc1d23;
     transform: rotate(45deg);
   }
 }
