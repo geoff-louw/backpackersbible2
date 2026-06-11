@@ -4056,7 +4056,7 @@ img.bb-marker-icon {
   }
 }
 
-/* --- 1. THE BULLETPROOF LAYER LOCK --- */
+/* --- 1. THE FORCE-CENTERED COMPASS WRAPPER --- */
 
 .compass-container {
   width: 100%;
@@ -4071,50 +4071,69 @@ img.bb-marker-icon {
   position: relative !important;
   display: block !important;
   
-  /* Mobile Default Size */
+  /* Mobile Dimensions - Fixed to prevent collapsing */
   width: 400px !important;
+  height: 400px !important; 
   max-width: 100% !important;
-  /* This prevents the theme from turning the box into a wide rectangle */
-  aspect-ratio: 1 / 1 !important; 
-  height: auto !important;
   
   margin: 20px auto !important;
   padding: 0 !important;
   
-  /* Load Background */
+  /* Background Layer */
   background-image: url('https://backpackersbible.com/assets/compass-background.svg') !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
-  background-size: 100% 100% !important; /* Forces it to fill the square precisely */
+  background-size: 100% 100% !important;
   z-index: 1;
 }
 
-/* The Needle Layer */
+/* --- 2. THE FORCE-CENTERED NEEDLE --- */
 .compass-wrapper-unified::before {
   content: '' !important;
   position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
+  
+  /* Standard absolute centering coordinates */
+  top: 50% !important;
+  left: 50% !important;
   width: 100% !important;
   height: 100% !important;
   display: block !important;
   
-  /* Load Needle */
+  /* Needle Layer */
   background-image: url('https://backpackersbible.com/assets/compass-needle.svg') !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
-  background-size: 100% 100% !important; /* Mimics the background perfectly */
+  background-size: 100% 100% !important;
   
-  /* Rotation mechanics */
+  /* Axis Anchor */
   transform-origin: center center !important;
-  animation: bbbSwing 12s ease-in-out infinite !important;
+  
+  /* Calls the new centered animation timeline */
+  animation: bbbSwingCentred 12s ease-in-out infinite !important;
   z-index: 2 !important;
 }
 
-/* --- 2. PILL BUTTON STYLES --- */
+/* --- 3. THE BULLETPROOF CENTERED ANIMATION --- */
+@keyframes bbbSwingCentred {
+  /* Every frame explicitly commands translate(-50%, -50%) 
+     to crush any rogue top-left positioning */
+  0%, 20% { 
+    transform: translate(-50%, -50%) rotate(0deg); 
+  }
+  30%, 50% { 
+    transform: translate(-50%, -50%) rotate(225deg); 
+  }
+  60%, 80% { 
+    transform: translate(-50%, -50%) rotate(90deg); 
+  }
+  90%, 100% { 
+    transform: translate(-50%, -50%) rotate(360deg); 
+  }
+}
 
+/* --- 4. PILL BUTTON STYLES --- */
 .pill {
-  background-color: #d9534f; /* Red pill color */
+  background-color: #d9534f;
   color: white !important;
   padding: 10px 20px;
   border-radius: 50px;
@@ -4133,44 +4152,38 @@ img.bb-marker-icon {
   cursor: pointer;
 }
 
-/* --- 3. MOBILE LAYOUT (Stacked Above & Below) --- */
-
+/* --- 5. MOBILE LAYOUT (Stacked Above & Below) --- */
 @media (max-width: 767px) {
   .compass-container {
     padding: 20px;
   }
   
-  /* Flexbox order organizes layout without changing your HTML structure */
   .compass-wrapper-unified { order: 2; } 
+  .pill { margin: 10px 0; }
   
-  .pill {
-    margin: 10px 0;
-  }
-  
-  /* Pushes North destinations above the compass */
+  /* Pushes North destinations above compass */
   .pill.north { order: 1; }
   .pill.north-east { order: 1; }
   
-  /* Keeps East/South destinations below the compass */
+  /* Keeps East destinations below compass */
   .pill.east { order: 3; }
 }
 
-/* --- 4. DESKTOP LAYOUT (600px Compass with Pointer Lines) --- */
-
+/* --- 6. DESKTOP LAYOUT (600px Compass with Pointer Lines) --- */
 @media (min-width: 768px) {
   .compass-container {
     position: relative;
     width: 850px; 
     height: 850px;
-    display: block; /* Turns off mobile flex stacking */
+    display: block;
   }
 
   .compass-wrapper-unified {
-    /* Scale up to Desktop Size */
     width: 600px !important;
+    height: 600px !important;
     position: absolute !important;
-    top: 50%;
-    left: 50%;
+    top: 50% !important;
+    left: 50% !important;
     transform: translate(-50%, -50%) !important;
     margin: 0 !important;
   }
@@ -4179,7 +4192,7 @@ img.bb-marker-icon {
     position: absolute;
   }
 
-  /* --- NORTH (West Coast) --- */
+  /* NORTH (West Coast) */
   .pill.north {
     top: 40px;
     left: 50%;
@@ -4196,7 +4209,7 @@ img.bb-marker-icon {
     transform: translateX(-50%);
   }
 
-  /* --- NORTH EAST (Cederberg) --- */
+  /* NORTH EAST (Cederberg) */
   .pill.north-east {
     top: 140px;
     right: 80px;
@@ -4213,7 +4226,7 @@ img.bb-marker-icon {
     transform-origin: top left;
   }
 
-  /* --- EAST (Route 62 & Overberg) --- */
+  /* EAST (Route 62 & Overberg) */
   .pill.east {
     top: 50%;
     right: 10px;
