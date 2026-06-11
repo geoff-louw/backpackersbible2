@@ -4056,52 +4056,37 @@ img.bb-marker-icon {
   }
 }
 
-/* --- 2. Base Container & Shared Styles --- */
+/* --- 1. THE BULLETPROOF LAYER LOCK --- */
+
 .compass-container {
-  position: relative;
   width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-sizing: border-box;
 }
 
 .compass-wrapper-unified {
+  position: relative !important;
+  display: block !important;
+  
   /* Mobile Default Size */
-  width: 400px;
-  height: 400px;
-  margin: 20px auto;
-  position: relative !important;
-  display: block !important;
-
-  /* Layer 1: The Needle (Top) | Layer 2: The Background (Bottom) */
-  background-image: 
-    url('/assets/compass-needle.svg'), 
-    url('/assets/compass-background.svg');
+  width: 400px !important;
+  max-width: 100% !important;
+  /* This prevents the theme from turning the box into a wide rectangle */
+  aspect-ratio: 1 / 1 !important; 
+  height: auto !important;
   
-  /* Ensure both images are perfectly centered and fit the box */
-  background-position: center center, center center;
-  background-repeat: no-repeat, no-repeat;
-  background-size: 100% 100%, 100% 100%;
-
-  /* Apply the animation to the entire element? No, we only want the needle to spin! 
-     To do that while keeping them combined, we use a pseudo-element for the needle: */
-}
-
-/* --- THE BULLETPROOF SETUP WITH ABSOLUTE PATHS --- */
-
-.compass-wrapper-unified {
-  width: 400px;
-  height: 400px;
-  margin: 20px auto;
-  position: relative !important;
-  display: block !important;
+  margin: 20px auto !important;
+  padding: 0 !important;
   
-  /* Absolute path to Background Image */
+  /* Load Background */
   background-image: url('https://backpackersbible.com/assets/compass-background.svg') !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
-  background-size: 100% 100% !important;
+  background-size: 100% 100% !important; /* Forces it to fill the square precisely */
+  z-index: 1;
 }
 
 /* The Needle Layer */
@@ -4114,36 +4099,23 @@ img.bb-marker-icon {
   height: 100% !important;
   display: block !important;
   
-  /* Absolute path to Needle Image */
+  /* Load Needle */
   background-image: url('https://backpackersbible.com/assets/compass-needle.svg') !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
-  background-size: 100% 100% !important;
+  background-size: 100% 100% !important; /* Mimics the background perfectly */
   
   /* Rotation mechanics */
   transform-origin: center center !important;
-  animation: swingCompass 12s ease-in-out infinite !important;
+  animation: bbbSwing 12s ease-in-out infinite !important;
   z-index: 2 !important;
 }
 
-/* Scale up for Desktop */
-@media (min-width: 768px) {
-  .compass-wrapper-unified {
-    width: 600px;
-    height: 600px;
-    position: absolute !important;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) !important;
-    margin: 0;
-  }
-}
+/* --- 2. PILL BUTTON STYLES --- */
 
-
-/* --- 3. Pill Styles --- */
 .pill {
   background-color: #d9534f; /* Red pill color */
-  color: white;
+  color: white !important;
   padding: 10px 20px;
   border-radius: 50px;
   font-weight: bold;
@@ -4151,46 +4123,58 @@ img.bb-marker-icon {
   white-space: nowrap;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   transition: transform 0.2s, background-color 0.2s;
+  text-decoration: none;
   z-index: 10;
 }
 
 .pill:hover {
   transform: scale(1.05);
-  background-color: #c9302c; /* Slightly darker red on hover */
+  background-color: #c9302c;
   cursor: pointer;
 }
 
-/* --- 4. Mobile Layout (Stacked) --- */
+/* --- 3. MOBILE LAYOUT (Stacked Above & Below) --- */
+
 @media (max-width: 767px) {
   .compass-container {
-    padding: 10px;
+    padding: 20px;
   }
+  
+  /* Flexbox order organizes layout without changing your HTML structure */
+  .compass-wrapper-unified { order: 2; } 
+  
   .pill {
-    margin: 8px 0;
-    position: static; /* Stack them naturally on mobile */
+    margin: 10px 0;
   }
+  
+  /* Pushes North destinations above the compass */
+  .pill.north { order: 1; }
+  .pill.north-east { order: 1; }
+  
+  /* Keeps East/South destinations below the compass */
+  .pill.east { order: 3; }
 }
 
-/* --- 5. Desktop Layout (600px Cluster with lines) --- */
+/* --- 4. DESKTOP LAYOUT (600px Compass with Pointer Lines) --- */
+
 @media (min-width: 768px) {
   .compass-container {
-    /* Large enough to hold the 600px compass + outer pills */
+    position: relative;
     width: 850px; 
     height: 850px;
+    display: block; /* Turns off mobile flex stacking */
   }
 
-  .compass-wrapper {
+  .compass-wrapper-unified {
     /* Scale up to Desktop Size */
-    width: 600px;
-    height: 600px;
-    position: absolute;
+    width: 600px !important;
+    position: absolute !important;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    margin: 0;
+    transform: translate(-50%, -50%) !important;
+    margin: 0 !important;
   }
 
-  /* Absolute positioning relative to the 850x850px container */
   .pill {
     position: absolute;
   }
@@ -4201,7 +4185,6 @@ img.bb-marker-icon {
     left: 50%;
     transform: translateX(-50%);
   }
-  /* Line pointing down to compass edge */
   .pill.north::after {
     content: '';
     position: absolute;
@@ -4218,7 +4201,6 @@ img.bb-marker-icon {
     top: 140px;
     right: 80px;
   }
-  /* Line angled back to the center */
   .pill.north-east::after {
     content: '';
     position: absolute;
@@ -4237,7 +4219,6 @@ img.bb-marker-icon {
     right: 10px;
     transform: translateY(-50%);
   }
-  /* Horizontal line pointing left to compass edge */
   .pill.east::after {
     content: '';
     position: absolute;
@@ -4248,5 +4229,14 @@ img.bb-marker-icon {
     background: #d9534f;
     transform: translateY(-50%);
   }
+}
+
+/* --- 5. ANIMATION TIMELINE --- */
+
+@keyframes bbbSwing {
+  0%, 20% { transform: rotate(0deg); }       /* North */
+  30%, 50% { transform: rotate(225deg); }     /* South West */
+  60%, 80% { transform: rotate(90deg); }      /* East */
+  90%, 100% { transform: rotate(360deg); }    /* Loop back North */
 }
 
