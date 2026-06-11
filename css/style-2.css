@@ -4109,7 +4109,7 @@ img.bb-marker-icon {
   .compass-container {
     width: 100%;
     max-width: 380px;
-    height: 720px;
+    height: 740px;    /* Slightly expanded to give the vertical stacks breathing room */
     display: block !important;
   }
 
@@ -4123,35 +4123,132 @@ img.bb-marker-icon {
     margin: 0 !important;
   }
 
+  /* Center all pills into a clean vertical spine */
   .pill {
     padding: 8px 16px;
     font-size: 13px;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
   }
 
-  /* --- Mobile Coordinates & Lines --- */
-  .pill.north { top: 160px; left: 50%; transform: translateX(-50%); }
-  .pill.north::after { content: ''; position: absolute; top: 100%; left: 50%; width: 2px; height: 25px; background: #bc1d23; transform: translateX(-50%); }
+  /* ==========================================
+     TOP CLUSTER (Stacked Above Compass)
+     ========================================== */
 
-  .pill.north-east { top: 105px; right: 20px; }
-  .pill.north-east::after { content: ''; position: absolute; bottom: -12px; left: 5px; width: 2px; height: 35px; background: #bc1d23; transform: rotate(35deg); transform-origin: top left; }
+  /* WEST: Highest pill, steps far left, then down to W */
+  .pill.west { top: 30px; }
+  .pill.west::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    width: 130px; 
+    height: 310px;
+    border-left: 2px solid #bc1d23;
+    border-top: 2px solid #bc1d23;
+    z-index: -1;
+  }
 
-  .pill.north-west { top: 105px; left: 20px; }
-  .pill.north-west::after { content: ''; position: absolute; bottom: -12px; right: 5px; width: 2px; height: 35px; background: #bc1d23; transform: rotate(-35deg); transform-origin: top right; }
+  /* NORTH WEST: Steps mid-left, then down to NW */
+  .pill.north-west { top: 80px; }
+  .pill.north-west::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    width: 92px;
+    height: 210px;
+    border-left: 2px solid #bc1d23;
+    border-top: 2px solid #bc1d23;
+    z-index: -1;
+  }
 
-  .pill.west { top: 45px; left: 50%; transform: translateX(-50%); }
-  .pill.west::after { content: ''; position: absolute; top: 100%; left: 20%; width: 2px; height: 125px; background: #bc1d23; transform: rotate(52deg); transform-origin: top left; }
+  /* NORTH EAST: Steps mid-right, then down to NE */
+  .pill.north-east { top: 130px; }
+  .pill.north-east::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 92px;
+    height: 160px;
+    border-right: 2px solid #bc1d23;
+    border-top: 2px solid #bc1d23;
+    z-index: -1;
+  }
 
-  .pill.south { bottom: 160px; left: 50%; transform: translateX(-50%); }
-  .pill.south::after { content: ''; position: absolute; bottom: 100%; left: 50%; width: 2px; height: 25px; background: #bc1d23; transform: translateX(-50%); }
+  /* NORTH: Lowest of top cluster, shoots straight down to N */
+  .pill.north { top: 180px; }
+  .pill.north::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 2px;
+    height: 30px;
+    background: #bc1d23;
+    transform: translateX(-50%);
+  }
 
-  .pill.south-east { bottom: 105px; right: 20px; }
-  .pill.south-east::after { content: ''; position: absolute; top: -12px; left: 5px; width: 2px; height: 35px; background: #bc1d23; transform: rotate(-35deg); transform-origin: bottom left; }
+  /* ==========================================
+     BOTTOM CLUSTER (Stacked Below Compass)
+     ========================================== */
 
-  .pill.south-west { bottom: 105px; left: 20px; }
-  .pill.south-west::after { content: ''; position: absolute; top: -12px; right: 5px; width: 2px; height: 35px; background: #bc1d23; transform: rotate(35deg); transform-origin: bottom right; }
+  /* SOUTH: Highest of bottom cluster, shoots straight up to S */
+  .pill.south { bottom: 180px; }
+  .pill.south::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    width: 2px;
+    height: 30px;
+    background: #bc1d23;
+    transform: translateX(-50%);
+  }
 
-  .pill.east { bottom: 45px; left: 50%; transform: translateX(-50%); }
-  .pill.east::after { content: ''; position: absolute; bottom: 100%; left: 80%; width: 2px; height: 125px; background: #bc1d23; transform: rotate(52deg); transform-origin: bottom left; }
+  /* SOUTH EAST: Steps mid-right, then up to SE */
+  .pill.south-east { bottom: 130px; }
+  .pill.south-east::after {
+    content: '';
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    width: 92px;
+    height: 160px;
+    border-right: 2px solid #bc1d23;
+    border-bottom: 2px solid #bc1d23;
+    z-index: -1;
+  }
+
+  /* SOUTH WEST: Steps mid-left, then up to SW */
+  .pill.south-west { bottom: 80px; }
+  .pill.south-west::after {
+    content: '';
+    position: absolute;
+    bottom: 50%;
+    right: 50%;
+    width: 92px;
+    height: 210px;
+    border-left: 2px solid #bc1d23;
+    border-bottom: 2px solid #bc1d23;
+    z-index: -1;
+  }
+
+  /* EAST: Lowest pill, steps far right, then up to E */
+  .pill.east { bottom: 30px; }
+  .pill.east::after {
+    content: '';
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    width: 130px;
+    height: 310px;
+    border-right: 2px solid #bc1d23;
+    border-bottom: 2px solid #bc1d23;
+    z-index: -1;
+  }
 }
 
 /* ==========================================================================
