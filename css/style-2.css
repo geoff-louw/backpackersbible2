@@ -2642,7 +2642,7 @@ h3.product-title {
 
 @media (max-width: 768px) {
     .back-to-top {
-        bottom: 190px;
+        bottom: 65px; /* 55px quick-jump-menu + 10px gap */
         right: 20px;
         width: 45px;
         height: 45px;
