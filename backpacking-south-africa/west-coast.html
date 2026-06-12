@@ -48,7 +48,7 @@
 <link rel="preload" href="/fonts/CenturyGothic-Bold.woff2" as="font" type="font/woff2" crossorigin>
 
 <!-- Stylesheet -->
-<link rel="stylesheet" href="/css/style-2.css">
+<link rel="stylesheet" href="style-2.css?v=2">
 
 <script src="/js/script-2.js" defer></script>
 
@@ -1502,45 +1502,48 @@
 
      <!-- Compass -->
 
-<section class="area-hero-container text-section--after-parallax" id="compass-nav">
-  <h2 class="area-hero-title" id="faq">Where Do You Want To Go Next?</h2>
+<section class="area-hero-container text-section--after-parallax" id="compass-nav" aria-labelledby="compass-heading">
+  <h2 class="area-hero-title" id="compass-heading">Where Do You Want To Go Next?</h2>
 
-  <div class="compass-container">
-    <div class="compass-wrapper-unified"></div>
+  <nav class="compass-container" aria-label="Regional travel compass">
+    
+    <div class="compass-wrapper-unified" aria-hidden="true"></div>
 
-    <div class="pill north">
-<span>Namibia</span>
-</div>
+    <div class="pill north" aria-hidden="true">
+      <span>Namibia</span>
+    </div>
 
     <div class="pill north-east">
-<a href="/backpacking-south-africa/northern-cape">Northern Cape</a> &amp; <a href="/backpacking-south-africa/karoo">Karoo</a>
-</div>
+      <a href="/backpacking-south-africa/northern-cape" aria-label="Northern Cape, North East">Northern Cape</a> &amp; 
+      <a href="/backpacking-south-africa/karoo" aria-label="Karoo, North East">Karoo</a>
+    </div>
     
     <div class="pill east">
-<a href="/backpacking-south-africa/northern-cape">Cederberg</a> &amp; <a href="/backpacking-south-africa/karoo">Karoo</a>
-</div>
+      <a href="/backpacking-south-africa/northern-cape" aria-label="Cederberg, East">Cederberg</a> &amp; 
+      <a href="/backpacking-south-africa/karoo" aria-label="Karoo, East">Karoo</a>
+    </div>
 
     <div class="pill south-east">
-<a href="/backpacking-south-africa/winelands">Cape Winelands</a>
-</div>
+      <a href="/backpacking-south-africa/winelands" aria-label="Cape Winelands, South East">Cape Winelands</a>
+    </div>
 
     <div class="pill south">
-<a href="/backpacking-south-africa/cape-town">Cape Town</a>
-</div>
+      <a href="/backpacking-south-africa/cape-town" aria-label="Cape Town, South">Cape Town</a>
+    </div>
 
-    <div class="pill south-west">
-<span>Atlantic Ocean</span>
-</div>
+    <div class="pill pill-ocean-blue south-west" aria-hidden="true">
+      <span>Atlantic Ocean</span>
+    </div>
 
-    <div class="pill west">
-<span>Atlantic Ocean</span>
-</div>
+    <div class="pill pill-ocean-blue west" aria-hidden="true">
+      <span>Atlantic Ocean</span>
+    </div>
 
-    <div class="pill north-west">
-<span>Atlantic Ocean</span>
-</div>
+    <div class="pill pill-ocean-blue north-west" aria-hidden="true">
+      <span>Atlantic Ocean</span>
+    </div>
     
-  </div>
+  </nav>
 </section>
 
 

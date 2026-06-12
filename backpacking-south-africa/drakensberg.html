@@ -48,7 +48,7 @@
 <link rel="preload" href="/fonts/CenturyGothic-Bold.woff2" as="font" type="font/woff2" crossorigin>
 
 <!-- Stylesheet -->
-<link rel="stylesheet" href="/css/style-2.css">
+<link rel="stylesheet" href="style-2.css?v=2">
 
 <script src="/js/script-2.js" defer></script>
 
@@ -1898,45 +1898,47 @@ Planning your budget for the Tugela Falls hike involves more components than mos
 
      <!-- Compass -->
 
-<section class="area-hero-container text-section--after-parallax" id="compass-nav">
-  <h2 class="area-hero-title" id="faq">Where Do You Want To Go Next?</h2>
+<section class="area-hero-container text-section--after-parallax" id="compass-nav" aria-labelledby="compass-heading">
+  <h2 class="area-hero-title" id="compass-heading">Where Do You Want To Go Next?</h2>
 
-  <div class="compass-container">
-    <div class="compass-wrapper-unified"></div>
+  <nav class="compass-container" aria-label="Regional travel compass">
+    
+    <div class="compass-wrapper-unified" aria-hidden="true"></div>
 
     <div class="pill north">
-<a href="/backpacking-south-africa/free-state">Free State</a>
-</div>
+      <a href="/backpacking-south-africa/free-state" aria-label="Free State, North">Free State</a>
+    </div>
 
     <div class="pill north-east">
-<a href="/backpacking-south-africa/zululand">Zululand</a>
-</div>
+      <a href="/backpacking-south-africa/zululand" aria-label="Zululand, North East">Zululand</a>
+    </div>
     
     <div class="pill east">
-<a href="/backpacking-south-africa/midlands">KwaZulu-Natal Midlands</a>
-</div>
+      <a href="/backpacking-south-africa/midlands" aria-label="KwaZulu-Natal Midlands, East">KwaZulu-Natal Midlands</a>
+    </div>
 
     <div class="pill south-east">
-<a href="/backpacking-south-africa/south-coast">KwaZulu-Natal South Coast</a>
-</div>
+      <a href="/backpacking-south-africa/south-coast" aria-label="KwaZulu-Natal South Coast, South East">KwaZulu-Natal South Coast</a>
+    </div>
 
     <div class="pill south">
-<a href="/backpacking-south-africa/eastern-cape-interior">Eastern Cape Interior</a> &amp; <a href="/backpacking-south-africa/wild-coast">Wild Coast</a>
-</div>
+      <a href="/backpacking-south-africa/eastern-cape-interior" aria-label="Eastern Cape Interior, South">Eastern Cape Interior</a> &amp; 
+      <a href="/backpacking-south-africa/wild-coast" aria-label="Wild Coast, South">Wild Coast</a>
+    </div>
 
     <div class="pill south-west">
-<a href="/backpacking-south-africa/eastern-cape-interior">Eastern Cape Interior</a>
-</div>
+      <a href="/backpacking-south-africa/eastern-cape-interior" aria-label="Eastern Cape Interior, South West">Eastern Cape Interior</a>
+    </div>
 
     <div class="pill west">
-<a href="/backpacking-south-africa/lesotho">Lesotho</a>
-</div>
+      <a href="/backpacking-south-africa/lesotho" aria-label="Lesotho, West">Lesotho</a>
+    </div>
 
     <div class="pill north-west">
-<a href="/backpacking-south-africa/lesotho">Lesotho</a>
-</div>
+      <a href="/backpacking-south-africa/lesotho" aria-label="Lesotho, North West">Lesotho</a>
+    </div>
     
-  </div>
+  </nav>
 </section>
 
 
