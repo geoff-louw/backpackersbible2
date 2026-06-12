@@ -4037,7 +4037,7 @@ img.bb-marker-icon {
 
 .compass-container {
   position: relative !important;
-  margin: 0 auto;
+  margin: -40px auto 0 auto;
   box-sizing: border-box;
 }
 
