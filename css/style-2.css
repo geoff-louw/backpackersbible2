@@ -4370,3 +4370,18 @@ img.bb-marker-icon {
   background: #005F8A !important;
   border-color: #005F8A !important;
 }
+
+
+/* Keyboard Accessibility Focus States */
+.pill a:focus-visible {
+  outline: 2px dashed #ffd400 !important; /* High contrast yellow ring matching your brand borders */
+  outline-offset: 4px;
+  border-radius: 4px;
+  opacity: 1 !important;
+  text-decoration: underline !important;
+}
+
+/* Ensure parents don't clip the outer focus ring */
+.pill {
+  overflow: visible !important;
+}
