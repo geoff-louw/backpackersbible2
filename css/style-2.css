@@ -4080,14 +4080,15 @@ img.bb-marker-icon {
    2. GLOBAL PILL & LINK STYLES
    ========================================================================== */
 .pill {
-  position: absolute !important; /* Forces layout tracking globally */
-  background-color: #bc1d23 !important; /* Your exact crimson red */
+  position: absolute !important; 
+  background-color: #bc1d23 !important; 
   color: white !important;
   font-weight: bold;
   white-space: nowrap;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  z-index: 3 !important; /* Sits above needle, below quick-jump menu */
- border-radius: 50px !important;
+  z-index: 3 !important; /* Default, will be overridden on mobile */
+  border-radius: 50px !important;
+  border: 2px solid #ffd400 !important; /* ADDED: Yellow border */
 }
 
 .pill a {
@@ -4137,7 +4138,7 @@ img.bb-marker-icon {
      ========================================== */
 
   /* WEST: Highest pill, steps far left, then down to W */
-  .pill.west { top: 30px; }
+  .pill.west { top: 30px; z-index: 11 !important; }
   .pill.west::after {
     content: '';
     position: absolute;
@@ -4151,7 +4152,7 @@ img.bb-marker-icon {
   }
 
   /* NORTH WEST: Steps mid-left, then down to NW */
-  .pill.north-west { top: 80px; }
+  .pill.north-west { top: 80px; z-index: 12 !important; }
   .pill.north-west::after {
     content: '';
     position: absolute;
@@ -4165,7 +4166,7 @@ img.bb-marker-icon {
   }
 
   /* NORTH EAST: Steps mid-right, then down to NE */
-  .pill.north-east { top: 130px; }
+  .pill.north-east { top: 130px; z-index: 13 !important; }
   .pill.north-east::after {
     content: '';
     position: absolute;
@@ -4179,7 +4180,7 @@ img.bb-marker-icon {
   }
 
   /* NORTH: Lowest of top cluster, shoots straight down to N */
-.pill.north { top: 180px; }
+.pill.north { top: 180px; z-index: 14 !important; }
 .pill.north::after {
   content: '';
   position: absolute;
@@ -4196,7 +4197,7 @@ img.bb-marker-icon {
      ========================================== */
 
   /* SOUTH: Highest of bottom cluster, shoots straight up to S */
-.pill.south { bottom: 180px; }
+.pill.south { bottom: 180px; z-index: 14 !important; }
 .pill.south::after {
   content: '';
   position: absolute;
@@ -4209,7 +4210,7 @@ img.bb-marker-icon {
 }
 
   /* SOUTH EAST: Steps mid-right, then up to SE */
-  .pill.south-east { bottom: 130px; }
+  .pill.south-east { bottom: 130px; z-index: 13 !important; }
   .pill.south-east::after {
     content: '';
     position: absolute;
@@ -4223,7 +4224,7 @@ img.bb-marker-icon {
   }
 
   /* SOUTH WEST: Steps mid-left, then up to SW */
-  .pill.south-west { bottom: 80px; }
+  .pill.south-west { bottom: 80px; z-index: 12 !important; }
   .pill.south-west::after {
     content: '';
     position: absolute;
@@ -4237,7 +4238,7 @@ img.bb-marker-icon {
   }
 
   /* EAST: Lowest pill, steps far right, then up to E */
-  .pill.east { bottom: 30px; }
+  .pill.east { bottom: 30px; z-index: 11 !important; }
   .pill.east::after {
     content: '';
     position: absolute;
@@ -4355,21 +4356,3 @@ img.bb-marker-icon {
   }
 }
 
-/* ==========================================================================
-     CAPE TOWN REGIONAL OVERRIDE (Mobile Only)
-     ========================================================================== */
-  .compass-container.cape-town {
-    height: 520px; /* Shrinks the massive empty bottom gap */
-  }
-
-  /* Pull the East pill up into the empty space left by the missing South pills */
-  .compass-container.cape-town .pill.east { 
-    bottom: 40px; 
-  }
-
-  /* Shorten the circuit-board line so it perfectly hits the East compass point */
-  .compass-container.cape-town .pill.east::after {
-    height: 120px; /* Reduced from 310px to match the new close position */
-    border-right: 2px solid #bc1d23;
-    border-bottom: 2px solid #bc1d23;
-  }
