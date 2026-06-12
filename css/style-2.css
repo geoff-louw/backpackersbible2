@@ -4361,27 +4361,25 @@ img.bb-marker-icon {
    ========================================================================== */
 .pill.pill-ocean-blue {
   background-color: #005F8A !important; 
-  border-color: #009FE3 !important; /* Optional: lighter blue border instead of yellow */
-  cursor: default !important; /* Removes the clickable hand cursor */
+  border-color: #009FE3 !important; 
+  cursor: default !important; 
 }
 
-/* Optional: If you want the lines connecting to the compass to turn blue too */
+/* Change borders to blue for the mobile "stepped" lines, but keep the boxes transparent! */
 .pill.pill-ocean-blue::after {
-  background: #005F8A !important;
   border-color: #005F8A !important;
+  background-color: transparent !important; 
 }
 
-
-/* Keyboard Accessibility Focus States */
-.pill a:focus-visible {
-  outline: 2px dashed #ffd400 !important; /* High contrast yellow ring matching your brand borders */
-  outline-offset: 4px;
-  border-radius: 4px;
-  opacity: 1 !important;
-  text-decoration: underline !important;
+/* The straight lines (North/South on mobile) are drawn with backgrounds, not borders */
+.pill.north.pill-ocean-blue::after,
+.pill.south.pill-ocean-blue::after {
+  background-color: #005F8A !important;
 }
 
-/* Ensure parents don't clip the outer focus ring */
-.pill {
-  overflow: visible !important;
+/* On Desktop, ALL lines are straight and drawn with backgrounds */
+@media (min-width: 768px) {
+  .pill.pill-ocean-blue::after {
+    background-color: #005F8A !important;
+  }
 }
