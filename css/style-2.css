@@ -4356,3 +4356,17 @@ img.bb-marker-icon {
   }
 }
 
+/* ==========================================================================
+   OCEAN PILL COLOR MODIFIER
+   ========================================================================== */
+.pill.pill-ocean-blue {
+  background-color: #005F8A !important; 
+  border-color: #009FE3 !important; /* Optional: lighter blue border instead of yellow */
+  cursor: default !important; /* Removes the clickable hand cursor */
+}
+
+/* Optional: If you want the lines connecting to the compass to turn blue too */
+.pill.pill-ocean-blue::after {
+  background: #005F8A !important;
+  border-color: #005F8A !important;
+}
