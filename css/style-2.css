@@ -4354,3 +4354,22 @@ img.bb-marker-icon {
     z-index: -1;
   }
 }
+
+/* ==========================================================================
+     CAPE TOWN REGIONAL OVERRIDE (Mobile Only)
+     ========================================================================== */
+  .compass-container.cape-town {
+    height: 520px; /* Shrinks the massive empty bottom gap */
+  }
+
+  /* Pull the East pill up into the empty space left by the missing South pills */
+  .compass-container.cape-town .pill.east { 
+    bottom: 40px; 
+  }
+
+  /* Shorten the circuit-board line so it perfectly hits the East compass point */
+  .compass-container.cape-town .pill.east::after {
+    height: 120px; /* Reduced from 310px to match the new close position */
+    border-right: 2px solid #bc1d23;
+    border-bottom: 2px solid #bc1d23;
+  }
