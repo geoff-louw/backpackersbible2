@@ -4281,11 +4281,11 @@ img.bb-marker-icon {
   
   /* NORTH */
   .pill.north { top: 120px; left: 50%; transform: translateX(-50%); }
-  .pill.north::after { content: ''; position: absolute; top: 100%; left: 50%; width: 2px; height: 35px; background: #bc1d23; transform: translateX(-50%); }
+  .pill.north::after { content: ''; position: absolute; top: 100%; left: 50%; width: 2px; height: 30px; background: #bc1d23; transform: translateX(-50%); }
 
   /* SOUTH */
   .pill.south { bottom: 120px; left: 50%; transform: translateX(-50%); }
-  .pill.south::after { content: ''; position: absolute; bottom: 100%; left: 50%; width: 2px; height: 35px; background: #bc1d23; transform: translateX(-50%); }
+  .pill.south::after { content: ''; position: absolute; bottom: 100%; left: 50%; width: 2px; height: 30px; background: #bc1d23; transform: translateX(-50%); }
 
   /* EAST */
   .pill.east { left: 680px; top: 50%; transform: translateY(-50%); }
@@ -4303,7 +4303,7 @@ img.bb-marker-icon {
     top: 50%; 
     left: 50%; 
     width: 2px; 
-    height: 100px; /* Increased length to bridge the gap */
+    height: 150px; /* Increased length to bridge the gap */
     background: #bc1d23; 
     transform-origin: top center;
     transform: rotate(45deg); 
@@ -4318,7 +4318,7 @@ img.bb-marker-icon {
     top: 50%; 
     left: 50%; 
     width: 2px; 
-    height: 100px; 
+    height: 150px; 
     background: #bc1d23; 
     transform-origin: top center;
     transform: rotate(-45deg); 
@@ -4333,7 +4333,7 @@ img.bb-marker-icon {
     top: 50%; 
     left: 50%; 
     width: 2px; 
-    height: 100px; 
+    height: 150px; 
     background: #bc1d23; 
     transform-origin: top center;
     transform: rotate(135deg); 
@@ -4348,7 +4348,7 @@ img.bb-marker-icon {
     top: 50%; 
     left: 50%; 
     width: 2px; 
-    height: 100px; 
+    height: 150px; 
     background: #bc1d23; 
     transform-origin: top center;
     transform: rotate(-135deg); 
