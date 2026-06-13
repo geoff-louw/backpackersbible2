@@ -47,6 +47,24 @@
     @media (hover: hover) {
       #map-shield { display: none; }
     }
+
+.map-shield-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .map-overlay-circle {
+      background: #FFD700; /* Your brand yellow */
+      padding: 15px;
+      border-radius: 50px;
+      text-align: center;
+      font-weight: bold;
+      max-width: 80%;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
   </style>
 
 </head>
@@ -55,9 +73,15 @@
 <!-- Tap-to-interact overlay — prevents map swallowing scroll on mobile.
      Hidden automatically on desktop (hover: hover media query above).
      Dismissed by the user's first tap on mobile. -->
-<div id="map-shield" aria-hidden="true">
-  <span>Tap to interact with map</span>
-</div>
+<div id="map-shield">
+      <div class="map-shield-content">
+        <span>Tap to interact with map</span>
+        
+        <div class="map-overlay-circle">
+          <p>We list ALL the hostels in South Africa! Click the icons for info.</p>
+        </div>
+      </div>
+    </div>
 
 <div id="bb-map-wrap"></div>
 
