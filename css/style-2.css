@@ -4383,3 +4383,48 @@ img.bb-marker-icon {
     background-color: #005F8A !important;
   }
 }
+
+/* ==========================================================================
+   EXTRA STANDALONE PILLS (Itineraries & Advice)
+   ========================================================================== */
+
+/* Prevent the compass connecting lines from drawing on these detached pills */
+.pill.extra-itineraries::after,
+.pill.extra-advice::after {
+  display: none !important;
+}
+
+/* --- Mobile Positioning (Screens under 768px) --- */
+@media (max-width: 767px) {
+  /* Expand the gap below the compass so the new pills don't overlap page text */
+  .compass-container {
+    margin-bottom: 110px !important;
+  }
+  
+  /* Pushed below the lowest compass pill (East is at 30px) */
+  .pill.extra-itineraries { 
+    bottom: -40px; 
+    z-index: 10 !important; 
+  }
+  
+  .pill.extra-advice { 
+    bottom: -90px; 
+    z-index: 10 !important; 
+  }
+}
+
+/* --- Desktop Positioning (Screens 768px and wider) --- */
+@media (min-width: 768px) {
+  /* Tucked neatly into the empty space below the South pill */
+  .pill.extra-itineraries { 
+    bottom: 50px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+  }
+  
+  .pill.extra-advice { 
+    bottom: 0px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+  }
+}
