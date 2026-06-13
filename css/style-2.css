@@ -3783,7 +3783,7 @@ img.bb-marker-icon {
 .map-overlay-circle {
     position: absolute;
     top: 60px; /* Adjust distance from top */
-    right: 30px; /* Adjust distance from right edge */
+    right: 70px; /* Adjust distance from right edge */
     width: 170px;
     height: 170px;
     background-color: #fff200; /* Matches your site's yellow theme */
@@ -3814,6 +3814,7 @@ img.bb-marker-icon {
         top: 50px;
         right: 5px;
         padding: 20px 10px 10px 10px;
+display: none !important;
     }
 
     /* When the map container becomes active on mobile, fade out the yellow circle */
