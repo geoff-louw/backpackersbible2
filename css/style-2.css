@@ -4396,35 +4396,40 @@ img.bb-marker-icon {
 
 /* --- Mobile Positioning (Screens under 768px) --- */
 @media (max-width: 767px) {
-  /* Expand the gap below the compass so the new pills don't overlap page text */
+  /* Expand the gap below the compass further to fit the lowered pills */
   .compass-container {
-    margin-bottom: 110px !important;
+    margin-bottom: 180px !important; 
   }
   
-  /* Pushed below the lowest compass pill (East is at 30px) */
+  /* Pushed further away from the lowest compass pill */
   .pill.extra-itineraries { 
-    bottom: -40px; 
+    bottom: -70px; 
     z-index: 10 !important; 
   }
   
   .pill.extra-advice { 
-    bottom: -90px; 
+    bottom: -130px; 
     z-index: 10 !important; 
   }
 }
 
 /* --- Desktop Positioning (Screens 768px and wider) --- */
 @media (min-width: 768px) {
-  /* Tucked neatly into the empty space below the South pill */
+  /* Add margin to the bottom of the container to clear the new pills */
+  .compass-container {
+    margin-bottom: 80px !important; 
+  }
+
+  /* Placed further down and sitting side-by-side in one line */
   .pill.extra-itineraries { 
-    bottom: 50px; 
-    left: 50%; 
-    transform: translateX(-50%); 
+    bottom: -30px; 
+    left: calc(50% - 10px); /* Pushes the right edge 10px left of center */
+    transform: translateX(-100%); 
   }
   
   .pill.extra-advice { 
-    bottom: 0px; 
-    left: 50%; 
-    transform: translateX(-50%); 
+    bottom: -30px; 
+    left: calc(50% + 10px); /* Pushes the left edge 10px right of center */
+    transform: translateX(0); 
   }
 }
