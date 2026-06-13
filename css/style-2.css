@@ -4065,7 +4065,7 @@ img.bb-marker-icon {
   background-repeat: no-repeat !important;
   background-size: 100% 100% !important;
   transform-origin: center center !important;
-  animation: bbbSwingCentred 12s ease-in-out infinite !important;
+  animation: bbbSwingCentred 8s ease-in-out infinite !important;
   z-index: 2 !important;
 }
 
