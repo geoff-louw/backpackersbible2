@@ -55,14 +55,18 @@
       gap: 15px;
     }
     
-    .map-overlay-circle {
-      background: #FFD700; /* Your brand yellow */
+    .overlay-circle {
+      background: #fff200;
+      color: #000;
       padding: 15px;
       border-radius: 50px;
       text-align: center;
       font-weight: bold;
       max-width: 80%;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+font-family: 'Century Gothic', sans-serif; /* Ensures correct font */
+  font-weight: bold;                        /* Ensures bold weight */
+  border: 2px solid #ffffff;                /* Adds the white outline */
     }
 
   </style>
@@ -77,7 +81,7 @@
       <div class="map-shield-content">
         <span>Tap to interact with map</span>
         
-        <div class="map-overlay-circle">
+        <div class="overlay-circle">
           <p>We list ALL the hostels in South Africa! Click the icons for info.</p>
         </div>
       </div>
