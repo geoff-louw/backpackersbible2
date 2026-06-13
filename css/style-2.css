@@ -4388,6 +4388,12 @@ img.bb-marker-icon {
    EXTRA STANDALONE PILLS (Itineraries & Advice)
    ========================================================================== */
 
+/* Bright, accessible green (Contrast ratio: 5.5:1 against white text) */
+.pill.extra-itineraries,
+.pill.extra-advice {
+  background-color: #007B3A !important; 
+}
+
 /* Prevent the compass connecting lines from drawing on these detached pills */
 .pill.extra-itineraries::after,
 .pill.extra-advice::after {
