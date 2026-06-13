@@ -76,20 +76,23 @@ font-family: 'Century Gothic', sans-serif; /* Ensures correct font */
 </head>
 <body>
 
+<h1 style="position: absolute; left: -9999px;">Interactive Backpacking Map of South Africa</h1>
+
 <!-- Tap-to-interact overlay — prevents map swallowing scroll on mobile.
      Hidden automatically on desktop (hover: hover media query above).
      Dismissed by the user's first tap on mobile. -->
 <div id="map-shield">
       <div class="map-shield-content">
-        <span>Tap to interact with map</span>
-        
-        <div class="overlay-circle">
-          <p>We list ALL the hostels in South Africa! Click the icons for info.</p>
+        <span>We list ALL the hostels in South Africa! Click the icons for info.</span>
         </div>
       </div>
     </div>
 
 <div id="bb-map-wrap"></div>
+
+<div style="display:none;">
+    <p>Interactive 3D map showing all the backpackers hostels in South Africa. Includes hostel locations, contact information, and reviews.</p>
+  </div>
 
 <script>
   // Dismiss the shield on first tap
