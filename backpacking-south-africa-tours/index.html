@@ -37,7 +37,7 @@
 <link rel="preload" href="/fonts/CenturyGothic-Bold.woff2" as="font" type="font/woff2" crossorigin>
 
 <!-- Stylesheet -->
-<link rel="stylesheet" href="/css/style-2.css?v=2">
+<link rel="stylesheet" href="/css/style-2.css">
 <script src="/js/script-2.js" defer></script>
 
 <!-- Favicon -->
@@ -845,7 +845,7 @@
 <main id="main-content">
 
 <!-- Map description -->
-<div class="map-description">
+<div class="map-description" role="region" aria-label="Site map description">
   <span class="map-description__label">Backpacking South Africa:</span>
   <span class="map-description__text">Use our interactive map to find all the backpackers hostels in South Africa, with their full contact details and comprehensive reviews.</span>
 </div>
@@ -854,7 +854,7 @@
 
 <div style="height: 95px; width: 100%; display: block;"></div>
 
-<section id="map-visual" style="width: 100vw; margin-left: calc(-50vw + 50%); position: relative; line-height: 0;">
+<section id="map-visual" aria-label="Interactive hostel map of South Africa" style="width: 100vw; margin-left: calc(-50vw + 50%); position: relative; line-height: 0;">
 
     <div class="map-overlay-circle">
         We list ALL the hostels in South Africa! Click the icons for info.
@@ -862,8 +862,9 @@
     
     <div id="region-map">
         <iframe 
-            src="https://www.google.com/maps/d/embed?mid=1YlCywz3bXNDCOhw6bLz-F3iPhC9XD4A&ehbc=2E312F&noprof=1" 
-            width="100%" height="570" style="border:0; display: block;" allowfullscreen="">
+            src="https://www.google.com/maps/d/embed?mid=1YlCywz3bXNDCOhw6bLz-F3iPhC9XD4A&ehbc=2E312F&noprof=1"
+            width="100%" height="570" style="border:0; display: block;" allowfullscreen=""
+            title="Interactive map of all backpacker hostels in South Africa">
         </iframe>
     </div>
 
@@ -871,7 +872,7 @@
         <picture>
             <source media="(max-width: 767px)" srcset="/assets/fallback_map_national_mobile.webp">
             
-            <img src="/assets/fallback_map_national.webp" alt="Map unavailable offline" style="width: 100%; height: auto; display: block; margin: 0;">
+            <img src="/assets/fallback_map_national.webp" alt="Offline fallback map showing all hostel regions in South Africa" style="width: 100%; height: auto; display: block; margin: 0;">
         </picture>
     </div>
 
@@ -894,20 +895,22 @@
 
 </section>
 
+</section>
+
      <!-- Section: 7-Day Cape Loop -->
 
-<section id="cape-loop" class="itinerary-map-section">
+<section id="cape-loop" class="itinerary-map-section" aria-label="7-day Cape Loop itinerary">
     <div class="region-map">
         <iframe
             src="https://www.google.com/maps/d/embed?mid=1rdB2k9jIHT9fk-rn0Ss_H0i0NOgovDU&ehbc=2E312F&noprof=1&ll=-33.92,20.43&z=8"
-            width="100%" height="570" style="border:0; display: block;" allowfullscreen="" loading="lazy">
+            width="100%" height="570" style="border:0; display: block;" allowfullscreen="" loading="lazy" title="7-day Cape Loop self-drive itinerary map">
         </iframe>
     </div>
 
     <div class="map-fallback" style="display:none;">
         <picture>
             <source media="(max-width: 767px)" srcset="/assets/fallback_map_itinerary_cape_loop_mobile.webp">
-            <img src="/assets/fallback_map_itinerary_cape_loop.webp" alt="Map unavailable offline" style="width: 100%; height: auto; display: block; margin: 0;">
+            <img src="/assets/fallback_map_itinerary_cape_loop.webp" alt="Offline fallback map for the 7-day Cape Loop itinerary" style="width: 100%; height: auto; display: block; margin: 0;">
         </picture>
     </div>
 
@@ -920,7 +923,7 @@
 <p class="intro-p">The perfect introduction to the Western Cape for a first visit or a short stay. This route starts and ends in Cape Town, making it the simplest possible South African road trip — one hire car, no one-way fees, no flights. It gives you Cape Town, the Winelands, the heart of Route 62, the Garden Route coast, Hermanus whales (in season), and the Peninsula on the way back. It is, by a good margin, the most concentrated 7-day driving itinerary in the country.</p>
 
 <details>
-  <summary>Read More</summary>
+  <summary aria-label="Read the full day-by-day itinerary details">Read More</summary>
   <div class="expanded-text">
 
 <p class="intro-p"><strong>Day 1: Cape Town to Stellenbosch</strong><br>
@@ -1008,18 +1011,18 @@ Drive west on the R43 to Betty's Bay (stop at the Stony Point penguin colony —
 
      <!-- Section: Whistle-Stop Tour -->
 
-<section id="whistle-stop" class="itinerary-map-section">
+<section id="whistle-stop" class="itinerary-map-section" aria-label="2-week Whistle-Stop Tour itinerary">
     <div class="region-map">
         <iframe
             src="https://www.google.com/maps/d/embed?mid=1SGHCEbt9Z21F7J8cj6gGqaUF-pME-U4&ehbc=2E312F&noprof=1&ll=-29.62,24.24&z=6"
-            width="100%" height="570" style="border:0; display: block;" allowfullscreen="" loading="lazy">
+            width="100%" height="570" style="border:0; display: block;" allowfullscreen="" loading="lazy" title="2-week Whistle-Stop Tour self-drive itinerary map">
         </iframe>
     </div>
 
     <div class="map-fallback" style="display:none;">
         <picture>
             <source media="(max-width: 767px)" srcset="/assets/fallback_map_itinerary_whistle-stop_mobile.webp">
-            <img src="/assets/fallback_map_itinerary_whistle-stop.webp" alt="Map unavailable offline" style="width: 100%; height: auto; display: block; margin: 0;">
+            <img src="/assets/fallback_map_itinerary_whistle-stop.webp" alt="Offline fallback map for the 2-week Whistle-Stop Tour itinerary" style="width: 100%; height: auto; display: block; margin: 0;">
         </picture>
     </div>
 
@@ -1032,7 +1035,7 @@ Drive west on the R43 to Betty's Bay (stop at the Stony Point penguin colony —
 <p class="intro-p">The greatest hits of South Africa in 14 days. This route requires two internal flights to make the distances work without spending the whole trip in a hire car — but it delivers Cape Town, the Garden Route, the Wild Coast, the Drakensberg, and a Kruger safari in a single fortnight. It is fast and it is genuinely extraordinary.</p>
 
 <details>
-  <summary>Read More</summary>
+  <summary aria-label="Read the full day-by-day itinerary details">Read More</summary>
   <div class="expanded-text">
 
 <p class="intro-p"><strong>Days 1–3: Cape Town</strong><br>
@@ -1192,18 +1195,18 @@ Morning game drive (gates open at 6am — be out early). Drive to Nelspruit (Kru
 
      <!-- Section: Northeast Triangle -->
 
-<section id="northeast-triangle" class="itinerary-map-section">
+<section id="northeast-triangle" class="itinerary-map-section" aria-label="2-week Northeast Triangle itinerary">
     <div class="region-map">
         <iframe
             src="https://www.google.com/maps/d/embed?mid=1opDG5WVZnzUsfFW9FSkM39oiREIAgas&ehbc=2E312F&noprof=1&ll=-27.21,30.28&z=6"
-            width="100%" height="570" style="border:0; display: block;" allowfullscreen="" loading="lazy">
+            width="100%" height="570" style="border:0; display: block;" allowfullscreen="" loading="lazy" title="2-week Northeast Triangle self-drive itinerary map">
         </iframe>
     </div>
 
     <div class="map-fallback" style="display:none;">
         <picture>
             <source media="(max-width: 767px)" srcset="/assets/fallback_map_itinerary_northeast_triangle_mobile.webp">
-            <img src="/assets/fallback_map_itinerary_northeast_triangle.webp" alt="Map unavailable offline" style="width: 100%; height: auto; display: block; margin: 0;">
+            <img src="/assets/fallback_map_itinerary_northeast_triangle.webp" alt="Offline fallback map for the 2-week Northeast Triangle itinerary" style="width: 100%; height: auto; display: block; margin: 0;">
         </picture>
     </div>
 
@@ -1216,7 +1219,7 @@ Morning game drive (gates open at 6am — be out early). Drive to Nelspruit (Kru
 <p class="intro-p">Best for: Big Five safari, the Panorama Route, Zulu and Swazi culture, iSimangaliso wetlands, and the Tugela Falls hike. This is the best two-week itinerary if you are flying in and out of Johannesburg and want wildlife and mountains rather than beaches.</p>
 
 <details>
-  <summary>Read More</summary>
+  <summary aria-label="Read the full day-by-day itinerary details">Read More</summary>
   <div class="expanded-text">
 
 <p class="intro-p"><strong>Day 1: Johannesburg to the Panorama Route (Graskop)</strong><br>
@@ -1351,18 +1354,18 @@ Kruger (2 days) ~€58 | Hluhluwe (2 days) ~€30 | iSimangaliso (1 day) ~€15 
 
      <!-- Section: Grand Cape Loop -->
 
-<section id="grand-cape-loop" class="itinerary-map-section">
+<section id="grand-cape-loop" class="itinerary-map-section" aria-label="2-week Grand Cape Loop itinerary">
     <div class="region-map">
         <iframe
             src="https://www.google.com/maps/d/embed?mid=1PdNRz-CzAoW59Yg0nOzGtMY7UrpOZcM&ehbc=2E312F&noprof=1&ll=-33.68,21.41&z=8"
-            width="100%" height="570" style="border:0; display: block;" allowfullscreen="" loading="lazy">
+            width="100%" height="570" style="border:0; display: block;" allowfullscreen="" loading="lazy" title="2-week Grand Cape Loop self-drive itinerary map">
         </iframe>
     </div>
 
     <div class="map-fallback" style="display:none;">
         <picture>
             <source media="(max-width: 767px)" srcset="/assets/fallback_map_itinerary_grand_cape_loop_mobile.webp">
-            <img src="/assets/fallback_map_itinerary_grand_cape_loop.webp" alt="Map unavailable offline" style="width: 100%; height: auto; display: block; margin: 0;">
+            <img src="/assets/fallback_map_itinerary_grand_cape_loop.webp" alt="Offline fallback map for the 2-week Grand Cape Loop itinerary" style="width: 100%; height: auto; display: block; margin: 0;">
         </picture>
     </div>
 
@@ -1375,7 +1378,7 @@ Kruger (2 days) ~€58 | Hluhluwe (2 days) ~€30 | iSimangaliso (1 day) ~€15 
 <p class="intro-p">The ultimate road trip for backpackers who want to see the best of South Africa's southern coast. This 14-day loop starts and ends in Cape Town — no one-way fees, no flights — and takes in the Overberg, Cape Agulhas (the southernmost tip of Africa), Route 62, the Garden Route, Tsitsikamma, Jeffreys Bay, Addo, Hermanus, and Clarence Drive. It is the most geographically compact of the longer itineraries and offers extraordinary value.</p>
 
 <details>
-  <summary>Read More</summary>
+  <summary aria-label="Read the full day-by-day itinerary details">Read More</summary>
   <div class="expanded-text">
 
 <p class="intro-p"><strong>Days 1–3: Cape Town</strong><br>
@@ -1520,18 +1523,18 @@ As per the Cape Loop: Betty's Bay Stony Point penguins, Clarence Drive, Gordon's
 
      <!-- Section: Wild North -->
 
-<section id="wild-north" class="itinerary-map-section">
+<section id="wild-north" class="itinerary-map-section" aria-label="2-week Wild North itinerary">
     <div class="region-map">
         <iframe
             src="https://www.google.com/maps/d/embed?mid=1LYr0XuyPfmk99E7OZ3wtcqNe0U4JM64&ehbc=2E312F&noprof=1&ll=-27.30,29.56&z=7"
-            width="100%" height="570" style="border:0; display: block;" allowfullscreen="" loading="lazy">
+            width="100%" height="570" style="border:0; display: block;" allowfullscreen="" loading="lazy" title="2-week Wild North self-drive itinerary map">
         </iframe>
     </div>
 
     <div class="map-fallback" style="display:none;">
         <picture>
             <source media="(max-width: 767px)" srcset="/assets/fallback_map_itinerary_wild_north_mobile.webp">
-            <img src="/assets/fallback_map_itinerary_wild_north.webp" alt="Map unavailable offline" style="width: 100%; height: auto; display: block; margin: 0;">
+            <img src="/assets/fallback_map_itinerary_wild_north.webp" alt="Offline fallback map for the 2-week Wild North itinerary" style="width: 100%; height: auto; display: block; margin: 0;">
         </picture>
     </div>
 
@@ -1544,7 +1547,7 @@ As per the Cape Loop: Betty's Bay Stony Point penguins, Clarence Drive, Gordon's
 <p class="intro-p">For those who want to combine South Africa's premier wildlife destination with its most dramatic mountain landscapes. Johannesburg in, Johannesburg out — no flights, one hire car, no one-way fees. Kruger, the Panorama Route, and the full length of the Drakensberg from Tugela Falls to the Sani Pass.</p>
 
 <details>
-  <summary>Read More</summary>
+  <summary aria-label="Read the full day-by-day itinerary details">Read More</summary>
   <div class="expanded-text">
 
 <p class="intro-p"><strong>Day 1: Johannesburg to the Panorama Route (Graskop)</strong><br>
@@ -1660,18 +1663,18 @@ Kruger 3 days ~€87 | Sani Pass 4x4 tour ~€48 | Tugela shuttle + entry ~€18
 
      <!-- Section: Road Less Travelled -->
 
-<section id="road-less-travelled" class="itinerary-map-section">
+<section id="road-less-travelled" class="itinerary-map-section" aria-label="2-week Road Less Travelled itinerary">
     <div class="region-map">
         <iframe
             src="https://www.google.com/maps/d/embed?mid=1VRC5miq9evCJk_o6qpiaYNjfVis3yRo&ehbc=2E312F&noprof=1&ll=-29.54,23.06&z=6"
-            width="100%" height="570" style="border:0; display: block;" allowfullscreen="" loading="lazy">
+            width="100%" height="570" style="border:0; display: block;" allowfullscreen="" loading="lazy" title="2-week Road Less Travelled self-drive itinerary map">
         </iframe>
     </div>
 
     <div class="map-fallback" style="display:none;">
         <picture>
             <source media="(max-width: 767px)" srcset="/assets/fallback_map_itinerary_road_less_travelled_mobile.webp">
-            <img src="/assets/fallback_map_itinerary_road_less_travelled.webp" alt="Map unavailable offline" style="width: 100%; height: auto; display: block; margin: 0;">
+            <img src="/assets/fallback_map_itinerary_road_less_travelled.webp" alt="Offline fallback map for the 2-week Road Less Travelled itinerary" style="width: 100%; height: auto; display: block; margin: 0;">
         </picture>
     </div>
 
@@ -1684,7 +1687,7 @@ Kruger 3 days ~€87 | Sani Pass 4x4 tour ~€48 | Tugela shuttle + entry ~€18
 <p class="intro-p">A 14-day traverse from Johannesburg to Cape Town that avoids the standard routes entirely. Instead of the N1 motorway or the coastal Garden Route, this journey cuts through the Free State highlands, Golden Gate, Clarens, the vast Great Karoo, Prince Albert (via the Swartberg Pass), the Cederberg Mountains, and the West Coast. It is quieter, cheaper, less tourist-trafficked, and — for those who find beauty in wide open spaces and silence — more rewarding than the coastal alternatives.</p>
 
 <details>
-  <summary>Read More</summary>
+  <summary aria-label="Read the full day-by-day itinerary details">Read More</summary>
   <div class="expanded-text">
 
 <p class="intro-p"><strong>Phase 1: Highlands and the Great Karoo</strong></p>
@@ -1795,18 +1798,18 @@ A final scenic drive south along the R27 West Coast Road, stopping at the West C
 
      <!-- Section: Backpacker's Bible 21-day tour -->
 
-<section id="backpackers-bible" class="itinerary-map-section">
+<section id="backpackers-bible" class="itinerary-map-section" aria-label="3-week Backpacker's Bible itinerary">
     <div class="region-map">
         <iframe
             src="https://www.google.com/maps/d/embed?mid=1oc2Z3jjiObXyRpcHgN9JItR1pF_gPZw&ehbc=2E312F&noprof=1&ll=-29.1,25.26&z=6"
-            width="100%" height="570" style="border:0; display: block;" allowfullscreen="" loading="lazy">
+            width="100%" height="570" style="border:0; display: block;" allowfullscreen="" loading="lazy" title="3-week Backpacker's Bible self-drive itinerary map">
         </iframe>
     </div>
 
     <div class="map-fallback" style="display:none;">
         <picture>
             <source media="(max-width: 767px)" srcset="/assets/fallback_map_itinerary_backpackers_bible_mobile.webp">
-            <img src="/assets/fallback_map_itinerary_backpackers_bible.webp" alt="Map unavailable offline" style="width: 100%; height: auto; display: block; margin: 0;">
+            <img src="/assets/fallback_map_itinerary_backpackers_bible.webp" alt="Offline fallback map for the 3-week Backpacker's Bible itinerary" style="width: 100%; height: auto; display: block; margin: 0;">
         </picture>
     </div>
 
@@ -1819,7 +1822,7 @@ A final scenic drive south along the R27 West Coast Road, stopping at the West C
 <p class="intro-p">The classic South African odyssey. This 21-day one-way drive from Johannesburg to Cape Town covers the Panorama Route, Kruger, the Northern Drakensberg, the Wild Coast, Addo, Jeffreys Bay, the Garden Route, Route 62, and the Western Cape. It is ambitious, it is rewarding, and it is the trip that most people mean when they say they want to do South Africa properly.</p>
 
 <details>
-  <summary>Read More</summary>
+  <summary aria-label="Read the full day-by-day itinerary details">Read More</summary>
   <div class="expanded-text">
 
 <p class="intro-p"><strong>Day 1: Johannesburg to the Panorama Route (Graskop)</strong><br>
@@ -1990,18 +1993,18 @@ Kruger 2 days ~€58 | Addo 1 day ~€15 | Tsitsikamma entry ~€7 | Cango Caves
 
      <!-- Section: Coast & Karoo Tour -->
 
-<section id="coast-and-karoo" class="itinerary-map-section">
+<section id="coast-and-karoo" class="itinerary-map-section" aria-label="3-week Coast and Karoo itinerary">
     <div class="region-map">
         <iframe
             src="https://www.google.com/maps/d/u/0/embed?mid=1cMX_oDIrGy4teikyK7NNZvAdT-MOoIQ&ehbc=2E312F&noprof=1&ll=-33.6,21.84&z=8"
-            width="100%" height="570" style="border:0; display: block;" allowfullscreen="" loading="lazy">
+            width="100%" height="570" style="border:0; display: block;" allowfullscreen="" loading="lazy" title="3-week Coast and Karoo self-drive itinerary map">
         </iframe>
     </div>
 
     <div class="map-fallback" style="display:none;">
         <picture>
             <source media="(max-width: 767px)" srcset="/assets/fallback_map_itinerary_coast_karoo_mobile.webp">
-            <img src="/assets/fallback_map_itinerary_coast_karoo.webp" alt="Map unavailable offline" style="width: 100%; height: auto; display: block; margin: 0;">
+            <img src="/assets/fallback_map_itinerary_coast_karoo.webp" alt="Offline fallback map for the 3-week Coast and Karoo itinerary" style="width: 100%; height: auto; display: block; margin: 0;">
         </picture>
     </div>
 
@@ -2014,7 +2017,7 @@ Kruger 2 days ~€58 | Addo 1 day ~€15 | Tsitsikamma entry ~€7 | Cango Caves
 <p class="intro-p">A 21-day loop from Cape Town and back again — out along the Garden Route, all the way to the surf capital of Jeffreys Bay, then home via the mountain passes and the vast semi-desert of the Klein Karoo on Route 62. It is THE best road trip in the country and, because it starts and ends in Cape Town with no one-way car hire fees, it is also one of the most affordable. You will cross the southernmost point of Africa, stand on the beach where two oceans meet, watch whales from a clifftop, swim with seals, experience the extraordinary spectacle of the Breede River flowing through an arid coastal plain, and then return over the mountains through landscapes that look nothing like the green coast you drove out on. The contrast between the two roads — N2 outward, Route 62 home — is the whole point of this trip.</p>
 
 <details>
-  <summary>Read More</summary>
+  <summary aria-label="Read the full day-by-day itinerary details">Read More</summary>
   <div class="expanded-text">
 
 <p class="intro-p"><strong>Phase 1: The Overberg (Days 1–4)</strong></p>
@@ -2209,18 +2212,18 @@ Addo 2 days ~€30 | Tsitsikamma entry ~€7 | Robberg ~€5 | Cango Caves Herit
 
      <!-- Section: Off the Beaten Track -->
 
-<section id="off-the-beaten-track" class="itinerary-map-section">
+<section id="off-the-beaten-track" class="itinerary-map-section" aria-label="3-week Off The Beaten Track itinerary">
     <div class="region-map">
         <iframe
             src="https://www.google.com/maps/d/embed?mid=1aOfSiVNzvwMmv56LXbbZcSBOmyupU3E&ehbc=2E312F&noprof=1&ll=-29.76,23.47&z=6"
-            width="100%" height="570" style="border:0; display: block;" allowfullscreen="" loading="lazy">
+            width="100%" height="570" style="border:0; display: block;" allowfullscreen="" loading="lazy" title="3-week Off The Beaten Track self-drive itinerary map">
         </iframe>
     </div>
 
     <div class="map-fallback" style="display:none;">
         <picture>
             <source media="(max-width: 767px)" srcset="/assets/fallback_map_itinerary_beaten_track_mobile.webp">
-            <img src="/assets/fallback_map_itinerary_beaten_track.webp" alt="Map unavailable offline" style="width: 100%; height: auto; display: block; margin: 0;">
+            <img src="/assets/fallback_map_itinerary_beaten_track.webp" alt="Offline fallback map for the 3-week Off The Beaten Track itinerary" style="width: 100%; height: auto; display: block; margin: 0;">
         </picture>
     </div>
 
@@ -2233,7 +2236,7 @@ Addo 2 days ~€30 | Tsitsikamma entry ~€7 | Robberg ~€5 | Cango Caves Herit
 <p class="intro-p">A 21-day odyssey through the parts of South Africa that most international backpackers never reach. The Kalahari, Augrabies, Namaqualand, the diamond coast, the Cederberg, and the West Coast. This route avoids the entire Garden Route, the Wild Coast, Kruger, and the Drakensberg — not because those places aren't extraordinary, but because this guide assumes you've already done them, or that you want something completely different. This is the South Africa that feels like you found it yourself.</p>
 
 <details>
-  <summary>Read More</summary>
+  <summary aria-label="Read the full day-by-day itinerary details">Read More</summary>
   <div class="expanded-text">
 
 <p class="intro-p"><strong>Week 1: Into the Wild North</strong></p>
@@ -2330,18 +2333,18 @@ A final coastal drive south along the R27 to Cape Town, arriving under Table Mou
 
      <!-- Section: Rainbow Nation 30-day -->
 
-<section id="rainbow-nation" class="itinerary-map-section">
+<section id="rainbow-nation" class="itinerary-map-section" aria-label="1-month Rainbow Nation Grand Tour itinerary">
     <div class="region-map">
         <iframe
             src="https://www.google.com/maps/d/embed?mid=14JmSVnXw8HZXklvdvVhPg4wTxXs7FWE&ehbc=2E312F&noprof=1&ll=-29.40,24.74&z=6"
-            width="100%" height="570" style="border:0; display: block;" allowfullscreen="" loading="lazy">
+            width="100%" height="570" style="border:0; display: block;" allowfullscreen="" loading="lazy" title="1-month Rainbow Nation Grand Tour self-drive itinerary map">
         </iframe>
     </div>
 
     <div class="map-fallback" style="display:none;">
         <picture>
             <source media="(max-width: 767px)" srcset="/assets/fallback_map_itinerary_rainbow_nation_mobile.webp">
-            <img src="/assets/fallback_map_itinerary_rainbow_nation.webp" alt="Map unavailable offline" style="width: 100%; height: auto; display: block; margin: 0;">
+            <img src="/assets/fallback_map_itinerary_rainbow_nation.webp" alt="Offline fallback map for the 1-month Rainbow Nation Grand Tour itinerary" style="width: 100%; height: auto; display: block; margin: 0;">
         </picture>
     </div>
 
@@ -2354,7 +2357,7 @@ A final coastal drive south along the R27 to Cape Town, arriving under Table Mou
 <p class="intro-p">The definitive 30-day loop - Cape Town to Johannesburg, or vice-versa - covering the Western Cape, the Garden Route, the Wild Coast, the Drakensberg, the Zululand wetlands, Eswatini, and Kruger. This is the trip that covers everything essential in South Africa in a single month, at a pace that allows you to actually experience it rather than simply drive through it.</p>
 
 <details>
-  <summary>Read More</summary>
+  <summary aria-label="Read the full day-by-day itinerary details">Read More</summary>
   <div class="expanded-text">
 
 <p class="intro-p"><strong>Phase 1: The Cape and Route 62 (Days 1–6)</strong></p>
@@ -2535,18 +2538,18 @@ Soweto tour (~€35). Apartheid Museum (~€8). OR Tambo for your flight home.<b
 
      <!-- Section: Full Monty 90-day -->
 
-<section id="full-monty" class="itinerary-map-section">
+<section id="full-monty" class="itinerary-map-section" aria-label="3-month Full Monty itinerary">
     <div class="region-map">
         <iframe
             src="https://www.google.com/maps/d/embed?mid=1zthOXgLK3yfPav_fnu4yiIFPZyoKVsY&ehbc=2E312F&noprof=1&ll=-28.28,25.49&z=5"
-            width="100%" height="570" style="border:0; display: block;" allowfullscreen="" loading="lazy">
+            width="100%" height="570" style="border:0; display: block;" allowfullscreen="" loading="lazy" title="3-month Full Monty self-drive itinerary map">
         </iframe>
     </div>
 
     <div class="map-fallback" style="display:none;">
         <picture>
             <source media="(max-width: 767px)" srcset="/assets/fallback_map_itinerary_full_monty_mobile.webp">
-            <img src="/assets/fallback_map_itinerary_full_monty.webp" alt="Map unavailable offline" style="width: 100%; height: auto; display: block; margin: 0;">
+            <img src="/assets/fallback_map_itinerary_full_monty.webp" alt="Offline fallback map for the 3-month Full Monty itinerary" style="width: 100%; height: auto; display: block; margin: 0;">
         </picture>
     </div>
 
@@ -2559,7 +2562,7 @@ Soweto tour (~€35). Apartheid Museum (~€8). OR Tambo for your flight home.<b
 <p class="intro-p">The ultimate 90-day South Africa expedition. Every corner of the country, from the red dunes of the Kgalagadi to the Wild Coast, from the Cederberg rock art to Pafuri in the far north of Kruger. This is the trip for people who have a full southern hemisphere gap year, a flexible budget, and the willingness to slow down and go deep rather than rushing the highlights. It requires a robust vehicle and a flexible mindset.</p>
 
 <details>
-  <summary>Read More</summary>
+  <summary aria-label="Read the full day-by-day itinerary details">Read More</summary>
   <div class="expanded-text">
 
 <p class="intro-p"><strong>Month 1: The Atlantic Coast and the Great Karoo</strong></p>
@@ -2698,7 +2701,7 @@ Ascend the escarpment, Blyde River Canyon, God's Window. Final drive across the 
 
     <div class="f-strip black"></div>
 
-    <section class="affiliate-disclosure">
+    <section class="affiliate-disclosure" aria-label="Affiliate disclosure">
         <h4>Please Support The Backpacker's Bible</h4>
         <p class="disclosure-text">If you find this guide useful, please book through us. We use affiliate links to help keep the guide going, and will receive a small commission - at no extra cost to you - when you hit the Booking.com, Hostelworld or GetYourGuide buttons. <a href="/misc/affiliate-links-disclosure">MORE INFO...</a></p>
         <p class="disclosure-text">Not everyone wants to use booking platforms though, so we've provided the hostels' full contact details too. Please tell the hostels that you found them on BackpackersBible.com. Share the love of travelling by clicking the WhatsApp icon below to send the link to fellow travellers.</p>
@@ -2715,7 +2718,7 @@ Ascend the escarpment, Blyde River Canyon, God's Window. Final drive across the 
     <div class="f-strip blue"></div>
     <div class="f-strip green"></div>
 
-    <section class="footer-main-red">
+    <section class="footer-main-red" aria-label="Site footer">
         <a href="https://backpackersbible.com">
             <img src="/assets/backpackers_bible_logo_250x250.png" alt="Backpackers Bible logo" class="footer-logo">
         </a>
@@ -2733,9 +2736,9 @@ Ascend the escarpment, Blyde River Canyon, God's Window. Final drive across the 
             <a href="/misc/about-backpackers-bible">About Us</a>
         </nav>
         <div class="footer-share">
-            <span id="whatsapp-share">SHARE <span class="sr-only">(opens in a new tab)</span></span>
-            <a href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://backpackersbible.com" target="_blank">
-                <img src="/assets/whatsapp_icon_round.png" alt="WhatsApp icon" class="footer-share__icon" aria-describedby="whatsapp-share">
+            <span aria-hidden="true">SHARE</span>
+            <a href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://backpackersbible.com" target="_blank" aria-label="Share BackpackersBible.com on WhatsApp (opens in a new tab)">
+                <img src="/assets/whatsapp_icon_round.png" alt="" aria-hidden="true" class="footer-share__icon">
             </a>
         </div>
     </section>
@@ -2755,7 +2758,7 @@ Ascend the escarpment, Blyde River Canyon, God's Window. Final drive across the 
     <span class="arrow-up"></span>
 </button>
 
-<div id="cookie-banner" class="cookie-container">
+<div id="cookie-banner" class="cookie-container" role="dialog" aria-label="Cookie consent" aria-live="polite">
     <div class="cookie-content">
         <p>This guide uses cookies to keep it going. <a href="/misc/privacy">Read our Cookie Policy.</a></p>
         <div class="cookie-buttons">
@@ -2914,9 +2917,10 @@ Ascend the escarpment, Blyde River Canyon, God's Window. Final drive across the 
     <a class="mobile-menu__share"
        href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://backpackersbible.com"
        target="_blank"
-       rel="noopener noreferrer">
-        <img src="/assets/whatsapp_icon_round.png" alt="Share on WhatsApp" width="45" height="45">
-        SHARE <span class="sr-only">(opens in a new tab)</span>
+       rel="noopener noreferrer"
+       aria-label="Share BackpackersBible.com on WhatsApp (opens in a new tab)">
+        <img src="/assets/whatsapp_icon_round.png" alt="" aria-hidden="true" width="45" height="45">
+        <span aria-hidden="true">SHARE</span>
     </a>
 
 </div>
