@@ -11,14 +11,14 @@
   <meta name="description" content="3D interactive map showing every backpacker hostel in South Africa. Tap any pin for phone, WhatsApp, email, website and Facebook details. Covers all 27 regions.">
 
   <!-- Canonical — this page lives at its own URL as well as inside iframes -->
-  <link rel="canonical" href="https://www.backpackersbible.com/map.html">
+  <link rel="canonical" href="https://www.backpackersbible.com/map">
 
   <!-- Open Graph -->
   <meta property="og:type"        content="website">
   <meta property="og:site_name"   content="Backpackers Bible">
   <meta property="og:title"       content="Interactive Map of Backpacker Hostels in South Africa">
   <meta property="og:description" content="3D interactive map showing every backpacker hostel in South Africa. Tap any pin for phone, WhatsApp, email, website and Facebook details.">
-  <meta property="og:url"         content="https://www.backpackersbible.com/map.html">
+  <meta property="og:url"         content="https://www.backpackersbible.com/map">
   <meta property="og:locale"      content="en_ZA">
 
   <!-- Structured Data: Map + SoftwareApplication (site convention) -->
@@ -179,6 +179,21 @@
 </p>
 
 <main id="map-main" aria-label="South Africa backpacker hostel map">
+
+  <!-- Tap-to-interact overlay — prevents map swallowing scroll on mobile.
+       Hidden automatically on desktop (hover: hover media query above).
+       Dismissed by the user's first tap or keypress on mobile. -->
+  <div
+    id="map-shield"
+    role="button"
+    tabindex="0"
+    aria-label="Tap to interact with the hostel map"
+    aria-describedby="shield-msg"
+  >
+    <div class="map-shield-content">
+      <span id="shield-msg" class="map-intro-text">Tap to interact with map</span>
+    </div>
+  </div>
 
   <!-- Map canvas — MapLibre renders into this element via hostel-map.js -->
   <div
