@@ -3843,7 +3843,7 @@ img.bb-marker-icon {
         top: 50px;
         right: 5px;
         padding: 20px 10px 10px 10px;
-display: none !important;
+        pointer-events: auto; /* Lets the circle register a tap */
     }
 
     /* When the map container becomes active on mobile, fade out the yellow circle */
