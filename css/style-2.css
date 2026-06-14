@@ -1261,6 +1261,11 @@ main {
     outline-offset: -3px;
 }
 
+/* Page title bar hidden on desktop */
+#page-title-bar {
+    display: none;
+}
+
 /* Desktop */
 @media (min-width: 1101px) {
     #quick-jump-menu {
@@ -1298,6 +1303,30 @@ main {
     /* JS adds .is-hidden on scroll down */
     #quick-jump-menu.is-hidden {
         transform: translateY(100%);
+    }
+
+    /* ── Mobile page title bar — sits flush above #quick-jump-menu ── */
+    #page-title-bar {
+        display: block;
+        position: fixed;
+        bottom: 55px; /* flush with top of 55px quick-jump-menu */
+        left: 0;
+        width: 100%;
+        background-color: var(--color-blue);
+        color: #ffffff;
+        font-family: var(--font-primary, 'Century Gothic', sans-serif);
+        font-size: var(--text-base);
+        font-weight: 600;
+        text-align: center;
+        padding: 10px 0;
+        z-index: calc(var(--z-header) - 1); /* same layer as quick-jump-menu */
+        transition: transform var(--transition-slide); /* slides with the menu */
+        pointer-events: none; /* purely informational — no tap target */
+    }
+
+    /* Slide the title bar down with the menu when JS adds .is-hidden */
+    #quick-jump-menu.is-hidden + #page-title-bar {
+        transform: translateY(calc(100% + 55px));
     }
 
     #quick-jump-menu a {
