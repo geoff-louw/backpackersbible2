@@ -3811,11 +3811,14 @@ img.bb-marker-icon {
 
 .map-overlay-circle {
     position: absolute;
-    top: 60px; /* Adjust distance from top */
-    right: 70px; /* Adjust distance from right edge */
+    /* Centers the circle within the parent container */
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    
     width: 170px;
     height: 170px;
-    background-color: #fff200; /* Matches your site's yellow theme */
+    background-color: #fff200; 
     color: #000;
     border-radius: 50%;
     display: flex;
@@ -3828,10 +3831,19 @@ img.bb-marker-icon {
     padding: 15px;
     box-sizing: border-box;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.9);
-    z-index: 10; /* Ensures it sits above the map */
-    pointer-events: none; /* CRITICAL: Lets users click "through" the circle onto the map */
+    z-index: 10; 
+    
+    /* CRITICAL: Changed to 'auto' so the button is actually clickable */
+    pointer-events: auto; 
+    cursor: pointer;      /* Hints to the user that it's a button */
+    
     border: 3px solid #fff;
-    transition: opacity 0.25s ease, visibility 0.25s ease; /* Smooth fadeout */
+    transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.2s ease;
+}
+
+/* Optional: Adds a tiny "bounce" or scale effect when they hover/tap */
+.map-overlay-circle:hover {
+    transform: translate(-50%, -50%) scale(1.05);
 }
 
 /* --- Mobile Responsiveness & Behaviour --- */
