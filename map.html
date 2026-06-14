@@ -5,10 +5,81 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light">
+  <meta name="robots" content="index, follow">
 
-  <title>Backpacking South Africa - 3D Interactive Map</title>
+  <title>Interactive Map of Backpacker Hostels in South Africa | Backpackers Bible</title>
 
-  <meta name="description" content="This map shows the locations of all the backpackers hostels in South Africa. Click the icons to see full contact details and reviews.">
+  <meta name="description" content="3D interactive map showing every backpacker hostel in South Africa. Tap any pin for phone, WhatsApp, email, website and Facebook details. Covers all 27 regions.">
+
+  <!-- Canonical — this page lives at its own URL as well as inside iframes -->
+  <link rel="canonical" href="https://www.backpackersbible.com/map.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:site_name"   content="Backpackers Bible">
+  <meta property="og:title"       content="Interactive Map of Backpacker Hostels in South Africa">
+  <meta property="og:description" content="3D interactive map showing every backpacker hostel in South Africa. Tap any pin for phone, WhatsApp, email, website and Facebook details.">
+  <meta property="og:url"         content="https://www.backpackersbible.com/map.html">
+  <meta property="og:locale"      content="en_ZA">
+
+  <!-- Structured Data: Map + SoftwareApplication (site convention) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["Map", "SoftwareApplication"],
+    "name": "Interactive Map of Backpacker Hostels in South Africa",
+    "alternateName": "Backpackers Bible South Africa Hostel Map",
+    "description": "A 3D interactive map showing the locations of all backpacker hostels in South Africa, across 27 regions. Each hostel pin displays contact details including phone number, WhatsApp number, email address, website URL, and Facebook page.",
+    "url": "https://www.backpackersbible.com/map.html",
+    "applicationCategory": "TravelApplication",
+    "operatingSystem": "Web",
+    "browserRequirements": "Requires JavaScript",
+    "featureList": [
+      "3D terrain and building visualisation",
+      "Interactive hostel location pins",
+      "Hostel phone number",
+      "Hostel WhatsApp number",
+      "Hostel email address",
+      "Hostel website link",
+      "Hostel Facebook page link",
+      "Hostel reviews and ratings",
+      "Pan, zoom and rotate controls",
+      "Mobile-responsive touch controls",
+      "Filter by hostel features",
+      "Coverage of all 27 South African backpacking regions"
+    ],
+    "mapType": "https://schema.org/ParkMap",
+    "about": {
+      "@type": "Country",
+      "name": "South Africa",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -29.92,
+        "longitude": 23.68
+      }
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "South Africa"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Backpackers Bible",
+      "url": "https://www.backpackersbible.com"
+    },
+    "accessibilityFeature": [
+      "highContrastDisplay",
+      "structuredNavigation",
+      "alternativeText"
+    ],
+    "inLanguage": "en-ZA",
+    "isAccessibleForFree": true,
+    "audience": {
+      "@type": "Audience",
+      "audienceType": "Backpackers, budget travellers, youth travellers visiting South Africa"
+    }
+  }
+  </script>
 
   <link rel="preconnect" href="https://api.maptiler.com">
   <link rel="dns-prefetch" href="https://api.maptiler.com">
@@ -67,9 +138,23 @@
       font-weight: bold;
       max-width: 80%;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-font-family: 'Century Gothic', sans-serif; /* Ensures correct font */
-  font-weight: bold;                        /* Ensures bold weight */
-  border: 2px solid #ffffff;                /* Adds the white outline */
+      font-family: 'Century Gothic', sans-serif;
+      font-weight: bold;
+      border: 2px solid #ffffff;
+    }
+
+    /* Accessible visually-hidden utility (screen-reader only).
+       Preferred over left:-9999px — avoids scroll side-effects. */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
 
   </style>
@@ -77,29 +162,64 @@ font-family: 'Century Gothic', sans-serif; /* Ensures correct font */
 </head>
 <body>
 
-<h1 style="position: absolute; left: -9999px;">Interactive Backpacking Map of South Africa</h1>
+<!-- Page heading: visually hidden but read by screen readers and indexed by Google -->
+<h1 class="sr-only">Interactive Map of Backpacker Hostels in South Africa</h1>
 
-<!-- Tap-to-interact overlay — prevents map swallowing scroll on mobile.
-     Hidden automatically on desktop (hover: hover media query above).
-     Dismissed by the user's first tap on mobile. -->
-<div id="map-shield">
-      <div class="map-shield-content">
-        <span>We list ALL the hostels in South Africa!<br> Tap the icons for info.</span>
-        </div>
-      </div>
+<!-- Accessible description: visible to screen readers and Google, hidden visually -->
+<p class="sr-only">
+  A 3D interactive map showing the locations of all backpacker hostels across South Africa,
+  covering 27 regions. Tap or click any hostel pin to view contact details including
+  phone number, WhatsApp number, email address, website and Facebook page.
+</p>
+
+<main id="map-main" aria-label="South Africa backpacker hostel map">
+
+  <!-- Tap-to-interact overlay — prevents map swallowing scroll on mobile.
+       Hidden automatically on desktop (hover: hover media query above).
+       Dismissed by the user's first tap or keypress on mobile. -->
+  <div
+    id="map-shield"
+    role="button"
+    tabindex="0"
+    aria-label="Tap to interact with the hostel map"
+    aria-describedby="shield-msg"
+  >
+    <div class="map-shield-content">
+      <span id="shield-msg">We list ALL the hostels in South Africa!<br>Tap the icons for info.</span>
     </div>
-
-<div id="bb-map-wrap"></div>
-
-<div style="display:none;">
-    <p>Interactive 3D map showing all the backpackers hostels in South Africa. Includes hostel locations, contact information, and reviews.</p>
   </div>
 
+  <!-- Map canvas — MapLibre renders into this element via hostel-map.js -->
+  <div
+    id="bb-map-wrap"
+    role="application"
+    aria-label="3D interactive map of South Africa backpacker hostels"
+    aria-describedby="map-desc"
+  ></div>
+
+  <!-- Accessible description wired to the map via aria-describedby -->
+  <p id="map-desc" class="sr-only">
+    Interactive 3D map. Use mouse or touch to pan and zoom. Click or tap a hostel
+    pin to open a popup with its phone number, WhatsApp number, email address,
+    website and Facebook page. Keyboard users: use Tab to focus hostel pins
+    and Enter or Space to open their details.
+  </p>
+
+</main>
+
 <script>
-  // Dismiss the shield on first tap
-  document.getElementById('map-shield').addEventListener('click', function () {
-    this.remove();
-  }, { once: true });
+  // Dismiss the shield on first tap OR keyboard activation (Enter / Space)
+  (function () {
+    var shield = document.getElementById('map-shield');
+    function dismiss() { shield.remove(); }
+    shield.addEventListener('click', dismiss, { once: true });
+    shield.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        dismiss();
+      }
+    }, { once: true });
+  }());
 </script>
 
 <script>
