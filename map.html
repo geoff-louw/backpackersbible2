@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light">
-  <meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 
   <title>Interactive Map of Backpacker Hostels in South Africa | Backpackers Bible</title>
 
@@ -157,9 +157,13 @@
       border: 0;
     }
 
-.map-intro-text { /* Replace .map-intro-text with the class name of that paragraph */
-    display: none !important;
-  }
+.map-intro-text {
+  display: block;
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.4;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Helps readability over the map */
+}
 
   </style>
 
@@ -169,7 +173,6 @@
 <!-- Page heading: visually hidden but read by screen readers and indexed by Google -->
 <h1 class="sr-only">Interactive Map of Backpacker Hostels in South Africa</h1>
 
-<!-- Accessible description: visible to screen readers and Google, hidden visually -->
 <p class="sr-only">
   A 3D interactive map showing the locations of all backpacker hostels across South Africa,
   covering 27 regions. Tap or click any hostel pin to view contact details including
