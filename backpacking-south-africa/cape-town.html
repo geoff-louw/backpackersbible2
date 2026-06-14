@@ -2214,10 +2214,7 @@
 
   <!-- Interactive map -->
 <iframe
-  data-src="/map.html?region=cape-town&center=18.412,-33.937&zoom=13&pitch=60&bearing=180&mobile-center=18.41649,-33.92525&mobile-zoom=11.5"
-
-  src="about:blank"
-
+  src="/map.html?region=cape-town&center=18.412,-33.937&zoom=13&pitch=60&bearing=180&mobile-center=18.41649,-33.92525&mobile-zoom=11.5"
   width="100%"
   height="620"
   class="sa-hostel-map-iframe bb-map-iframe"
@@ -5326,39 +5323,6 @@ window.BB_TIPS = [
     filterButtons.forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
-
-
-
-
-
-
-
-
-filterButtons.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-
-        // --- ADD THIS SAFETY NET ---
-        if (mapIframe.getAttribute('src') === 'about:blank') {
-          mapIframe.src = mapIframe.getAttribute('data-src');
-          iframeReady = false; // Resets so MapLibre can load properly
-          const poster = document.querySelector('.sa-hostel-map-poster');
-          const circle = document.querySelector('.map-overlay-circle');
-          if (poster) poster.style.display = 'none';
-          if (circle) circle.style.display = 'none';
-        }
-        // ---------------------------
-
-        // Reset all buttons
-
-
-
-
-
-
-
-
-
 
         // Reset all buttons
         filterButtons.forEach(b => {
