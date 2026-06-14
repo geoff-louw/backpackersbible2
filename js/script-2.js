@@ -892,7 +892,7 @@ document.addEventListener("DOMContentLoaded", function() {
       // Change the text in the yellow circle so it's obviously a button
       if (overlayCircle) {
         const textElement = overlayCircle.querySelector('p');
-        if (textElement) textElement.innerHTML = 'Tap to load<br>interactive map';
+        if (textElement) textElement.innerHTML = 'We list ALL the hostels in the country!<br>Tap the icons for info.';
       }
       
       // Wake up when anywhere on the poster is tapped
