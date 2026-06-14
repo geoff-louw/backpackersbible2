@@ -1312,7 +1312,7 @@ main {
         bottom: 55px; /* flush with top of 55px quick-jump-menu */
         left: 0;
         width: 100%;
-        background-color: var(--color-blue);
+        background-color: #005F8A; /* matches .pill-ocean-blue */
         color: #ffffff;
         font-family: var(--font-primary, 'Century Gothic', sans-serif);
         font-size: var(--text-base);
