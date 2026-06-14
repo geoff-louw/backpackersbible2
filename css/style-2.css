@@ -3852,8 +3852,9 @@ img.bb-marker-icon {
         width: 110px;
         height: 110px;
         font-size: 11px;
-        top: 50px;
-        right: 5px;
+        top: 50% !important;  /* Force the override of the global 60px */
+    left: 50%;
+    transform: translate(-50%, -50%);
         padding: 20px 10px 10px 10px;
         pointer-events: auto; /* Lets the circle register a tap */
     }
