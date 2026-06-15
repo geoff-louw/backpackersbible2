@@ -419,7 +419,7 @@
   <!-- Poster image: shows before user loads the map -->
   <picture class="sa-hostel-map-poster">
     <source media="(max-width: 767px)" srcset="/assets/fallback_map_cape-town_mobile.webp">
-    <img src="/assets//assets/fallback_map_cape-town.webp" 
+    <img src="/assets/fallback_map_cape-town.webp" 
          alt="Interactive hostel map of Cape Town — click to load"
          loading="lazy">
   </picture>
@@ -2921,15 +2921,28 @@ window.BB_TIPS = [
 <!-- ARIA overrides for mobile menu and accordion are in script-2.js -->
 
 
-<!-- Map filter buttons -->
+<!-- Map lazy-load + filter buttons -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const filterButtons = document.querySelectorAll('[data-filter]');
-    const mapIframe     = document.querySelector('.sa-hostel-map-iframe');
+    const mapIframe = document.querySelector('.sa-hostel-map-iframe');
     if (!mapIframe) return;
 
-    let iframeReady  = false;
+    let iframeReady = false;
     let pendingFilter = null;
+
+    function wakeUpMap() {
+      if (mapIframe.getAttribute('src') === 'about:blank') {
+        mapIframe.src = mapIframe.getAttribute('data-src');
+        iframeReady = false;
+        const shell = mapIframe.closest('.sa-hostel-map-shell');
+        if (shell) {
+          const poster = shell.querySelector('.sa-hostel-map-poster');
+          const circle = shell.querySelector('.map-overlay-circle');
+          if (poster) poster.style.display = 'none';
+          if (circle) circle.style.display = 'none';
+        }
+      }
+    }
 
     function sendFilter(filterKey) {
       if (iframeReady && mapIframe.contentWindow) {
@@ -2949,33 +2962,26 @@ window.BB_TIPS = [
       }
     });
 
+    // Desktop: auto-load the map immediately (no click required)
+    if (window.innerWidth >= 1024) {
+      wakeUpMap();
+    }
+
+    // Mobile: load on tap of the poster/shell area
+    mapIframe.closest('.sa-hostel-map-shell').addEventListener('click', wakeUpMap, { once: true });
+
+    // Filter buttons (only needed on pages that have them)
+    const filterButtons = document.querySelectorAll('[data-filter]');
     filterButtons.forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
-
-        // If the map facade is still showing, wake it up
-        if (mapIframe.getAttribute('src') === 'about:blank') {
-          mapIframe.src = mapIframe.getAttribute('data-src');
-          iframeReady = false;
-          const shell = mapIframe.closest('.sa-hostel-map-shell');
-          if (shell) {
-            const poster = shell.querySelector('.sa-hostel-map-poster');
-            const circle = shell.querySelector('.map-overlay-circle');
-            if (poster) poster.style.display = 'none';
-            if (circle) circle.style.display = 'none';
-          }
-        }
-
-        // Reset all buttons
+        wakeUpMap();
         filterButtons.forEach(b => {
           b.classList.remove('map-filter-btn--active');
           b.setAttribute('aria-pressed', 'false');
         });
-
-        // Activate clicked button
         btn.classList.add('map-filter-btn--active');
         btn.setAttribute('aria-pressed', 'true');
-
         sendFilter(btn.getAttribute('data-filter'));
       });
     });
