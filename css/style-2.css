@@ -4498,3 +4498,20 @@ display: none !important;
   /* Optional: pointer-events: none; if you don't want it to block clicks */
   pointer-events: none;
 }
+
+/* ============================================================
+   37. KALAHARI GAME — DESKTOP ONLY
+   The game canvas and its wrapper are hidden on mobile/tablet.
+   The JS script itself is also conditionally skipped — see
+   the HTML comment in the page source around the <script> tag.
+   ============================================================ */
+
+.kalahari-game-wrap {
+  display: none; /* Hidden by default (mobile-first) */
+}
+
+@media (min-width: 1024px) {
+  .kalahari-game-wrap {
+    display: block; /* Only visible on desktop */
+  }
+}
