@@ -4175,7 +4175,7 @@ display: none !important;
     max-width: 380px;
     height: 740px;    /* Slightly expanded to give the vertical stacks breathing room */
     display: block !important;
-    margin-top: 50px !important;
+    margin-top: 20px !important;
   }
 
   .compass-wrapper-unified {
