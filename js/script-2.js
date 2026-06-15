@@ -20,6 +20,7 @@
    15. Mama Africa popup
    16. Preview box (hover blurbs)
    17. Contact email obfuscation
+        18.  Map facade (lazy load on mobile)
    ============================================================ */
 
 (function () {
@@ -856,3 +857,48 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 }());
+
+
+
+/* ============================================================
+   18. MAP FACADE (LAZY LOAD ON MOBILE)
+   ============================================================ */
+document.addEventListener("DOMContentLoaded", function() {
+  const mapFrames = document.querySelectorAll('.sa-hostel-map-iframe');
+  
+  mapFrames.forEach(mapFrame => {
+    const container = mapFrame.closest('.sa-hostel-map-shell');
+    const poster = container.querySelector('.sa-hostel-map-poster');
+    const overlayCircle = container.querySelector('.map-overlay-circle');
+
+    function wakeUpMap() {
+      if (mapFrame.getAttribute('src') === 'about:blank') {
+        // Inject the real URL to start downloading the heavy map data
+        mapFrame.src = mapFrame.getAttribute('data-src');
+        // Hide the poster image and the yellow circle
+        if (poster) poster.style.display = 'none';
+        if (overlayCircle) overlayCircle.style.display = 'none';
+      }
+    }
+
+    // 1. Desktop: Auto-load the map immediately
+    if (window.innerWidth > 768) {
+      wakeUpMap();
+    } 
+    // 2. Mobile: Wait for the user to tap the poster or the circle
+    else {
+      if (container) container.style.cursor = 'pointer';
+      
+      // Change the text in the yellow circle so it's obviously a button
+      if (overlayCircle) {
+        const textElement = overlayCircle.querySelector('p');
+        if (textElement) textElement.innerHTML = 'Tap to load<br>the interactive map';
+      }
+      
+      // Wake up when anywhere on the poster is tapped
+      if (container) {
+        container.addEventListener('click', wakeUpMap);
+      }
+    }
+  });
+});
