@@ -1786,6 +1786,30 @@ details:not([open]) {
 }
 
 
+
+.parallax-window {
+    /* 1. Default to the mobile image asset */
+    background-image: var(--bg-mobile);
+    
+    /* 2. Ensure the background scales nicely on smaller screens */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* Your existing layout/height rules for the window go here */
+    min-height: 300px; 
+}
+
+/* 3. Swap to the desktop image and apply parallax on larger screens */
+@media (min-width: 768px) {
+    .parallax-window {
+        background-image: var(--bg-desktop);
+        background-attachment: fixed; /* Standard CSS parallax technique */
+        min-height: 400px; /* Optional: scale up the height for desktop */
+    }
+}
+
+
 /* ============================================================
    14. COLOUR STRIPS
    Used throughout the page as decorative dividers.
