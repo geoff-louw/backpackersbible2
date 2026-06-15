@@ -886,11 +886,19 @@ document.addEventListener("DOMContentLoaded", function() {
     if (window.innerWidth > 768) {
       wakeUpMap(false);
     }
-    // 2. Mobile: wait for tap; hide circle (it's CSS display:none anyway,
-    //    but belt-and-braces in case a tablet slips through)
+    // 2. Mobile: tap the poster OR the yellow circle to load the map
     else {
-      if (container) container.style.cursor = 'pointer';
-      container.addEventListener('click', function() { wakeUpMap(true); }, { once: true });
+      if (poster) {
+        poster.style.cursor = 'pointer';
+        poster.addEventListener('click', function() { wakeUpMap(true); }, { once: true });
+      }
+      if (overlayCircle) {
+        overlayCircle.addEventListener('click', function() { wakeUpMap(true); }, { once: true });
+      }
+      // Fallback: tap anywhere on the shell
+      if (container) {
+        container.addEventListener('click', function() { wakeUpMap(true); }, { once: true });
+      }
     }
   });
 });
