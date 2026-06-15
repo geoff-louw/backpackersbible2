@@ -41,6 +41,7 @@
    34. Dictionary Definition
    35. Sitemap styles
    36. Compass styles
+   37. KALAHARI GAME — DESKTOP ONLY
    ============================================================ */
 
 
@@ -4174,6 +4175,7 @@ display: none !important;
     max-width: 380px;
     height: 740px;    /* Slightly expanded to give the vertical stacks breathing room */
     display: block !important;
+    margin-top: 50px !important;
   }
 
   .compass-wrapper-unified {
