@@ -3841,11 +3841,11 @@ img.bb-marker-icon {
 
 .map-overlay-circle {
     position: absolute;
-    top: 60px; /* Adjust distance from top */
-    right: 70px; /* Adjust distance from right edge */
+    top: 60px;
+    right: 70px;
     width: 170px;
     height: 170px;
-    background-color: #fff200; /* Matches your site's yellow theme */
+    background-color: #fff200;
     color: #000;
     border-radius: 50%;
     display: flex;
@@ -3858,24 +3858,24 @@ img.bb-marker-icon {
     padding: 15px;
     box-sizing: border-box;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.9);
-    z-index: 10; /* Ensures it sits above the map */
-    pointer-events: none; /* CRITICAL: Lets users click "through" the circle onto the map */
+    z-index: 10;
+    pointer-events: none; /* Desktop: click through to the map */
     border: 3px solid #fff;
-    transition: opacity 0.25s ease, visibility 0.25s ease; /* Smooth fadeout */
+    transition: opacity 0.25s ease, visibility 0.25s ease;
 }
 
 /* --- Mobile Responsiveness & Behaviour --- */
 @media (max-width: 767px) {
     .map-overlay-circle {
-        width: 110px;
-        height: 110px;
-        font-size: 11px;
+        width: 130px;
+        height: 130px;
+        font-size: 12px;
+        padding: 15px;
         top: 50%;
-        right: 10px;
-        transform: translateY(-50%);
-        padding: 10px;
-        pointer-events: auto; /* Tappable on mobile — it's the load CTA */
-        z-index: 10; /* Above the poster (z-index: 3) */
+        left: 50%;
+        right: auto;
+        transform: translate(-50%, -50%);
+        pointer-events: auto; /* Mobile: tapping the circle loads the map */
         cursor: pointer;
     }
 
