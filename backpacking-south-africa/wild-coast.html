@@ -1423,43 +1423,36 @@
     </div>
 </div>
 
-<section class="sa-hostel-map-shell">
 
-  <!-- SEO + visual poster image -->
+<!-- ░░ HOSTEL MAP ░░ -->
+<section class="sa-hostel-map-shell" id="hostel-map">
+
+  <!-- Poster image: shows before user loads the map -->
   <picture class="sa-hostel-map-poster">
-    <source
-      media="(max-width: 768px)"
-      srcset="/assets/fallback_map_wild-coast_mobile.webp"
-    >
-
-    <img
-      src="/assets/fallback_map_wild-coast.webp"
-      alt="Map showing backpacker hostels on the Wild Coast"
-      width="1600"
-      height="620"
-      fetchpriority="high"
-      decoding="async"
-    >
+    <source media="(max-width: 767px)" srcset="/assets/fallback_map_wild-coast_mobile.webp">
+    <img src="/assets/fallback_map_wild-coast.webp" 
+         alt="Interactive hostel map of the Wild Coast — click to load"
+         loading="lazy">
   </picture>
 
-<iframe
-  src="/map.html?region=wild-coast&center=29.14,-31.99&zoom=8&pitch=75&bearing=40&mobile-center=29.10,-33.14&mobile-zoom=7"
-  width="100%"
-  height="620"
-  class="sa-hostel-map-iframe bb-map-iframe"
-  title="Interactive map of backpacker hostels on the Wild Coast"
-  aria-label="Interactive map of backpacker hostels on the Wild Coast"
-  loading="lazy"
-  referrerpolicy="no-referrer-when-downgrade"
-></iframe>
+  <!-- The map iframe — src is blank until user clicks -->
+  <iframe
+    class="sa-hostel-map-iframe bb-map-iframe"
+    title="Interactive hostel map of the Wild Coast"
+    src="about:blank"
+    data-src="/map.html?region=wild-coast&center=29.14,-31.99&zoom=8&pitch=75&bearing=40&mobile-center=29.10,-33.14&mobile-zoom=7"
+    loading="lazy"
+    allowfullscreen>
+  </iframe>
 
-<div class="map-overlay-circle" 
-     role="note" 
-     aria-label="Map information note">
-  <p>We list ALL the hostels in South Africa! Click the icons for info.</p>
-</div>
+  <!-- Yellow circle: desktop-only info note; mobile: not shown (CSS) -->
+  <div class="map-overlay-circle" aria-hidden="true">
+    We list ALL the hostels<br>in the country!<br>Click the icons for info.
+  </div>
 
 </section>
+<!-- ░░ END HOSTEL MAP ░░ -->
+
 
      <!-- Tour guide initial -->
 
@@ -1548,9 +1541,9 @@
 <div class="yellow-menu-backdrop"></div>
 
 <nav id="quick-jump-menu" aria-label="Quick section jump menu">
-    <a href="#faq">About</a>
-    <a href="#activities">Activities</a>
-    <a href="#hostels">Hostels</a>
+    <a href="/backpacking-south-africa/wild-coast#faq">About</a>
+    <a href="/backpacking-south-africa/wild-coast#activities">Activities</a>
+    <a href="/south-africa-hostel-directory/wild-coast">Hostels</a>
 </nav>
 
 <div id="page-title-bar" aria-hidden="true">Wild Coast</div>
@@ -1818,15 +1811,20 @@
 </div>
 
 
-    <!-- Parallax image -->
+     <!-- Parallax image -->
 
     <div class="strip black"></div>
-<div class="parallax-window" style="background-image: url('/assets/backpacking_wild_coast-hole_in_the_wall.webp');">
-    <div class="parallax-attribution" style="z-index: 1; position: absolute;">
+
+<div class="parallax-window" 
+     style="--bg-desktop: url('/assets/backpacking_wild_coast-hole_in_the_wall.webp'); 
+            --bg-mobile: url('/assets/backpacking_wild_coast-hole_in_the_wall_mobile.webp');">
+    <div class="parallax-attribution">
         HOLE IN THE WALL - Photo: Vincent van Oosten <a href="https://commons.wikimedia.org/" target="_blank">Wikimedia Commons</a>
     </div>
 </div>
+
     <div class="strip black"></div>
+
 
      <!-- Section 2: Things To Do on the Wild Coast -->
 
@@ -2047,14 +2045,18 @@ THE WILD COAST
 <div id="tip1"></div>
 
 
-    <!-- Parallax image -->
+     <!-- Parallax image -->
 
     <div class="strip black"></div>
-<div class="parallax-window" style="background-image: url('/assets/magwa_falls_wild_coast0.jpg');">
+
+<div class="parallax-window" 
+     style="--bg-desktop: url('/assets/magwa_falls_wild_coast.webp'); 
+            --bg-mobile: url('/assets/magwa_falls_wild_coast_mobile.webp');">
     <div class="parallax-attribution">
         MAGWA FALLS - Photo: Tarryn Elliott
     </div>
 </div>
+
     <div class="strip black"></div>
 
 
@@ -2084,1058 +2086,27 @@ THE WILD COAST
 
 <p class="intro-p">Full contact details are included in case you want to book direct, plus useful info such as Safety Ratings and Value For Money, Solo Female Friendliness, and Digital Nomad scorecards.</p>
 
-    <p class="intro-p">Every listing below is independently researched and unsponsored. We review them all the same way - <br><strong>the hostels do not pay us for advertising.</strong></p>
 
-<p class="intro-p">Did we miss a hostel? Email us at <span class="contact-link-multi"></span> and we'll add it.</p>
-
-    <p class="intro-p" style="text-align:center; max-width: 800px; margin: 0 auto 50px auto;">The Wild Coast hostels are listed south to north — the direction most backpackers travel, coming from the Garden Route. Distances are vast on the Wild Coast and roads are slow and often unpaved. The hostels in the Coffee Bay and Mdumbi areas run their own shuttle services from the Shell Ultracity on the N2 highway at Mthatha (if you're travelling by mainline bus, you'll be dropped off there); <strong>it's important to coordinate your pick-up with them before you arrive.</strong></p>
-
-
-        <div class="hostel-grid">
-            <div class="hostel-col">
-                <h2>SOUTHERN WILD COAST</h2>
-                <ul>
-                    <li><a href="#buccaneers-backpackers">BUCCANEERS LODGE &amp; BACKPACKERS (Chintsa)</a></li>
-                    <li><a href="#in-the-green-backpackers">IN THE GREEN BACKPACKERS (Morgan Bay)</a></li>
-                </ul>
-
-                <h2>COFFEE BAY AREA</h2>
-                <ul>
-                    <li><a href="#coffee-shack-backpackers">COFFEE SHACK BACKPACKERS (Coffee Bay)</a></li>
-                    <li><a href="#bulungula-lodge">BULUNGULA LODGE (Nqileni)</a></li>
-                    <li><a href="#wild-lubanzi-backpackers">WILD LUBANZI BACKPACKERS LODGE (Mavaleleni)</a></li>
-                </ul>
-
-                <h2>PORT ST JOHNS</h2>
-                <ul>
-                    <li><a href="#amapondo-backpackers">AMAPONDO BACKPACKERS</a></li>
-                    <li><a href="#jungle-monkey-backpackers">JUNGLE MONKEY BACKPACKERS</a></li>
-                </ul>
-
-            </div>
-
-            <div class="hostel-col">
-                <h2>MDUMBI TO PORT ST JOHNS AREA</h2>
-                <ul>
-                    <li><a href="#the-kraal-backpackers">THE KRAAL BACKPACKERS (Mpande)</a></li>
-                    <li><a href="#mdumbi-backpackers">MDUMBI BACKPACKERS (Tshani)</a></li>
-                    <li><a href="#vukani-backpackers">VUKANI BACKPACKERS (Tshani)</a></li>
-                    <li><a href="#freedom-o-clock">FREEDOM O'CLOCK BACKPACKERS RETREAT (Lutsheni)</a></li>
-                </ul>
-
-                <h2>MTHATHA (TRANSIT HUB)</h2>
-                <ul>
-                    <li><a href="#mthatha-backpackers">MTHATHA BACKPACKERS &amp; TOURS</a></li>
-                </ul>
-                <h2>MAGWA FALLS</h2>
-                <ul>
-                    <li><a href="#louis-at-magwa">LOUIS@MAGWA</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
+<p class="section-cta__label"><strong>SEE OUR</strong></p>
+<div class="section-cta">
+    <a href="/south-africa-hostel-directory/cape-town" class="download-btn">Hostel Directory</a>
+</div>
 
 </section>
-
-
-<!-- ---- 1. BUCCANEERS LODGE & BACKPACKERS ---- -->
-
- <section class="region-header-section" aria-label="BUCCANEERS LODGE &amp; BACKPACKERS" id="buccaneers-backpackers" style="scroll-margin-top: 120px;">
-    <div class="container-wide-hostels">
-
-        <div class="hostel-card-header">
-        <h2 class="detail-h2">BUCCANEERS LODGE &amp; BACKPACKERS</h2>
-    </div>
-
-        <div class="detail-p">
-
-            <p><strong>AREA:</strong> CHINTSA (40KM NORTH OF EAST LONDON)</p>
-
-            <p><strong>STREET ADDRESS:</strong> 1 David Way, Chintsa West, 5275</p>
-
-            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="buccaneers-backpackers">FIND ON MAP ›</a></p>
-
-            <p><strong>PHONE:</strong> <a href="tel:+27437343012" class="blue-link">+27 43 734 3012</a></p>
-
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27663172858 ?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 66 317 2858</a></p>
-
-            <p><strong>EMAIL:</strong> <a href="mailto:buccaneers@cintsa.com?subject=Contact from BackpackersBible.com" class="blue-link">buccaneers@cintsa.com</a></p>
-
-            <p><strong>WEBSITE:</strong> <a href="https://www.buccaneerschintsa.com/" target="_blank" class="blue-link" rel="nofollow">buccaneerschintsa.com</a></p>
-
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/buccaneersonthebeach" target="_blank" class="blue-link">Facebook</a></p>
-
-        </div>
-
-<div class="booking-btn-container">
-
-            <a href="https://www.booking.com/hotel/za/buccaneers-lodge-amp-backpackers.en-gb.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
-
-            <a href="https://www.hostelworld.com/hostels/p/1353/buccaneers-beach-lodge/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD</a>
-
-        </div>
-
-        <div class="detail-p">
-            <p><strong>ACCOMMODATION TYPE:</strong> Dormitories, private rooms, self-catering chalets, camping.</p>
-            <p><strong>PRICE RANGE:</strong> Budget to mid-range. Dorm beds from approximately R230–R340.</p>
-
-<details>
-<summary>Read More</summary>
-  <div class="expanded-text">
-
-            <p><strong>GOOGLE RATING:</strong> ~4.5 / 5</p>
-            <p><strong>BOOKING.COM RATING:</strong> ~8.3 / 10 ("Very Good")</p>
-            <p><strong>HOSTELWORLD RATING:</strong> ~10 / 10 ("Superb")</p>
-
-            <p><strong>VIBE-METER:</strong> 60% Social Beach Party / 40% Coastal Wilderness Escape.</p>
-            <p><strong>DECIBEL LEVEL:</strong> Moderate to high in the evenings. The bar is an institution and earns its reputation.</p>
-            <p><strong>KEY AMENITIES:</strong> Direct private beach access, swimming pool, beach volleyball court, bar, braai facilities, communal kitchen, activities desk, surfing at the beach, Baz Bus stop.</p>
-            <p><strong>NEARBY HIGHLIGHTS:</strong> East London city (40 km, 40 minutes), Nahoon Reef, Wild Coast entry point — the Kei River mouth and the beginning of the coffee bay trail are approximately 90 minutes north.</p>
-            <p><strong>SOLO FEMALE FRIENDLINESS SCORECARD:</strong> 4 / 5. A large, well-established hostel with a strong community atmosphere and attentive management.</p>
-            <p><strong>SAFETY RATING:</strong> Green. Chintsa is a genuinely remote and peaceful coastal village. The hostel is fenced and well-managed.</p>
-
-<p><strong>THE BLURB:</strong> Buccaneers is one of those South African backpacker institutions that seems to have been around forever and shows no signs of losing its grip on the loyalties of every backpacker who has ever stayed there. The beach is the size of a small country and almost entirely private to the hostel. The bar has hosted legendary nights that are still being talked about in hostels further up and down the coast. The atmosphere is simultaneously a proper beach party and a wilderness experience — you go to sleep listening to the Indian Ocean and wake up to a beach that looks like nobody else has discovered it yet. It functions as the gateway hostel to the Wild Coast for eastbound travellers, and many people who arrive here planning to stay one night end up staying five.</p>
-
-            <p><strong>FINAL VERDICT: One of the great South African backpacker experiences. The Wild Coast's most social hostel, in the most beautiful location.</strong></p>
-
-  </div>
-</details>
-
-    </div>
-</section>
-
-
-     <!-- Backpackers tour guide -->
-
-<div id="tip3"></div>
-
-
-<!-- ---- 2. IN THE GREEN BACKPACKERS ---- -->
-
-<section class="region-header-section" aria-label="IN THE GREEN BACKPACKERS" id="in-the-green-backpackers" style="scroll-margin-top: 120px;">
-    <div class="container-wide-hostels">
-
-        <div class="hostel-card-header">
-        <h2 class="detail-h2">IN THE GREEN BACKPACKERS</h2>
-    </div>
-
-        <div class="detail-p">
-
-            <p><strong>AREA:</strong> SOUTHERN WILD COAST — Morgan Bay</p>
-
-            <p><strong>STREET ADDRESS:</strong> 198 Tanglewood Road, Morgan Bay, 5292</p>
-
-            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="in-the-green-backpackers">FIND ON MAP ›</a></p>
-
-            <p><strong>PHONE:</strong> <a href="tel:27769813322" class="blue-link">+27 76 981 3322</a></p>
-
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27769813322?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 76 981 3322</a></p>
-
-            <p><strong>EMAIL:</strong> <a href="mailto:inthegreenbackpack@gmail.com?subject=Contact from BackpackersBible.com" class="blue-link">inthegreenbackpack@gmail.com</a></p>
-
-            <p><strong>WEBSITE:</strong> N/A</p>
-
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/inthegreenbackpackers" target="_blank" class="blue-link">Facebook</a></p>
-
-        </div>
-
-        <div class="booking-btn-container">
-
-            <a href="https://www.booking.com/hotel/za/in-the-green-backpackers-morgans-bay.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
-
-        </div>
-
-        <div class="detail-p">
-            <p><strong>ACCOMMODATION TYPE:</strong> Small, eco-conscious boutique backpackers. Double rooms with garden views, safari tents, and a 5-bed dormitory. Intimate scale — maximum 20–25 guests at capacity.</p>
-            <p><strong>PRICE RANGE:</strong> Budget. Dorm beds R150–R200; Safari tents from R300; Private double rooms R350–R450.</p>
-
-<details>
-<summary>Read More</summary>
-  <div class="expanded-text">
-
-            <p><strong>GOOGLE RATING:</strong> ~4.4 / 5</p>
-            <p><strong>BOOKING.COM RATING:</strong> ~7.6 / 10 ("Good")</p>
-
-            <p><strong>VALUE FOR MONEY RATING: 5 / 5.</strong> The lowest dorm prices on the Wild Coast at R150, in a property with a 4.6/5 Google rating and a setting — garden, forest edge, 5 minutes' walk from Morgan Bay beach — that larger, more expensive properties cannot match for atmosphere. No frills, no pretension, excellent value across every room type.</p>
-
-            <p><strong>VIBE-METER:</strong> 50% Quiet Eco Retreat / 30% Coastal Nature Explorer / 20% Slow Travel. In the Green is the antithesis of the party hostel. It is small, deliberately unhurried, and oriented around the natural environment — the coastal forest, Morgan Bay's empty beaches, and the hiking trails between Chintsa and Morgan Bay. The guests who find their way here tend to be the ones who specifically sought something off the beaten track even within the Wild Coast. Word-of-mouth discovery is a significant part of how it fills its rooms.</p>
-
-            <p><strong>DECIBEL LEVEL: 1 / 5.</strong> A small garden property in a coastal village with a population measured in dozens. The loudest regular sound is the Indian Ocean. If you need quiet, this is your Wild Coast answer.</p>
-
-            <p><strong>KEY AMENITIES:</strong> Garden and indigenous coastal forest setting, 5 minutes' walk to Morgan Bay beach, hiking access along the Chintsa-to-Morgan Bay coastal trail, braai facilities, self-catering kitchen, outdoor communal seating under the trees. Basic but characterful. Solar power.</p>
-
-            <p><strong>NEARBY HIGHLIGHTS:</strong> Morgan Bay beach (virtually deserted outside school holidays), the coastal hiking trail to Chintsa (4–5 hours one way, one of the finest day hikes in the Eastern Cape), Double Mouth Nature Reserve (estuary and beach, 20 minutes north), the Kei River mouth and the old pont (flat-bottomed ferry — a Wild Coast icon, 30 minutes north).</p>
-
-            <p><strong>SOLO FEMALE FRIENDLINESS: 4 / 5.</strong> The intimate scale of the property — never more than 20-odd guests — creates natural community and mutual awareness between guests. Morgan Bay is a tiny, safe coastal village. The garden setting is peaceful. The main limitation is the small size of the property itself, which means less staffed infrastructure than Buccaneers. Excellent for solo women who prefer a quiet, small-community environment to a social resort.</p>
-
-            <p><strong>DIGITAL NOMAD FRIENDLINESS: 1 / 5.</strong> Basic Wi-Fi. Morgan Bay has patchy mobile data. This is a digital detox destination.</p>
-
-            <p><strong>SAFETY RATING: GREEN.</strong> Morgan Bay is a small, stable coastal village well south of the more complex security environments of the central and northern Wild Coast. Standard precautions apply; no specific adverse reports.</p>
-
-            <p><strong>MANAGEMENT STYLE:</strong> Small owner-managed eco-property with a clear commitment to low-impact tourism and the natural environment. The eco-conscious positioning is reflected in the physical infrastructure rather than just the marketing language.</p>
-
-            <p><strong>EMPLOYMENT ETHICS: POSITIVE.</strong> Small local employer. No adverse reports. The eco-tourism model supports the Morgan Bay community directly.</p>
-
-            <p><strong>THE BLURB:</strong> In the Green is the Wild Coast's quiet secret — a tiny, beautifully situated backpackers in the forgotten coastal village of Morgan Bay, offering the cheapest dorm beds on the coast in a setting that significantly more expensive properties would kill for. The beach is five minutes' walk and essentially empty. The forest is behind the garden. The coastal hiking trail to Chintsa starts from the village. There is no nightlife, no bar, no DJ, and no organised tour programme — and that is entirely the point. For travellers who want to slow down to Wild Coast time without the social pressure of Buccaneers or Coffee Shack, In the Green is the answer.</p>
-
-            <p><strong>FINAL VERDICT: The Wild Coast's finest quiet option. Exceptional value, beautiful setting, and genuine peace. Best for independent travellers and couples who want the coast without the crowd.</strong></p>
-
-  </div>
-</details>
-
-    </div>
-</section>
-
-
-<!-- ---- 3. COFFEE SHACK BACKPACKERS ---- -->
-
-<section class="region-header-section" aria-label="COFFEE SHACK BACKPACKERS" id="coffee-shack-backpackers" style="scroll-margin-top: 120px;">
-    <div class="container-wide-hostels">
-
-        <div class="hostel-card-header">
-        <h2 class="detail-h2">COFFEE SHACK BACKPACKERS</h2>
-    </div>
-
-        <div class="detail-p">
-
-            <p><strong>AREA:</strong> COFFEE BAY</p>
-
-            <p><strong>STREET ADDRESS:</strong> 1 Coffee Shack Way, Coffee Bay, 5082</p>
-
-            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="coffee-shack-backpackers">FIND ON MAP ›</a></p>
-
-            <p><strong>PHONE:</strong> <a href="tel:+27475752048" class="blue-link">+27 47 575 2048</a></p>
-
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27836564350?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 83 656 4350</a></p>
-
-            <p><strong>EMAIL:</strong> <a href="mailto:happydays@coffeeshack.co.za?subject=Contact from BackpackersBible.com" class="blue-link">happydays@coffeeshack.co.za</a></p>
-
-            <p><strong>WEBSITE:</strong> <a href="https://coffeeshack.co.za" target="_blank" class="blue-link" rel="nofollow">coffeeshack.co.za</a></p>
-
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/CoffeeShackBackpackers" target="_blank" class="blue-link">Facebook</a></p>
-
-            <p><strong>ARRIVAL NOTE:</strong> Do not be dropped off at Mthatha bus or taxi stations. Arrange to be collected from the Shell Ultra City on the N2 outside Mthatha. Coffee Shack runs a shuttle service — book it when you confirm your accommodation.</p>
-
-        </div>
-
-        <div class="booking-btn-container">
-
-            <a href="https://www.booking.com/hotel/za/coffee-shack-backpackers.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
-
-            <a href="https://www.hostelworld.com/hostels/p/988/coffee-shack-adventure-backpackers-and-accommodation/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD</a>
-
-        </div>
-
-        <div class="detail-p">
-            <p><strong>ACCOMMODATION TYPE:</strong> Dorms, double rondavels (en-suite), and camping. Beachfront location. The social and cultural hub of Coffee Bay.</p>
-            <p><strong>PRICE RANGE:</strong> Budget to Mid-Range. Dorm beds from R260; Camping from R180; Private en-suite rooms from R825.</p>
-
-<details>
-<summary>Read More</summary>
-  <div class="expanded-text">
-
-            <p><strong>GOOGLE RATING:</strong> ~4.6 / 5</p>
-            <p><strong>BOOKING.COM RATING:</strong> ~8.4 / 10 ("Very Good")</p>
-            <p><strong>HOSTELWORLD RATING:</strong> ~10 / 10 ("Superb")</p>
-
-            <p><strong>VALUE FOR MONEY RATING: 5 / 5.</strong> Coffee Shack includes far more than a bed in its price. The surf lessons and board hire packages are among the cheapest in South Africa (approximately R350 for a 2-hour lesson with board and wetsuit — several reviewers specifically describe learning to surf here as the highlight of their South Africa trip). The drum circle and bonfire culture is entirely free. The guided Hole in the Wall hike can be arranged through the hostel at community guide rates. The rondavels are genuinely beautiful — traditional round construction with thatched roofs, en-suite, and Indian Ocean views. Outstanding value throughout the range.</p>
-
-            <p><strong>VIBE-METER:</strong> 40% Wild Coast Social Institution / 30% Surf Culture / 20% Xhosa Cultural Immersion / 10% Backpacker Party. Coffee Shack is the social heart of Coffee Bay — which is itself the social heart of the Wild Coast. The nightly drum circles and fire pits are not a marketing tagline; they are a genuine, recurring community event that involves both guests and local Xhosa community members. The surf is beginner-friendly, the beach is extraordinary, and the Hole in the Wall day hike is one of the finest walks in the Eastern Cape. The party element exists but is not the dominant register — it is a place people come to experience something genuinely different, and it delivers that consistently.</p>
-
-            <p><strong>DECIBEL LEVEL: 3 / 5.</strong> Drum circles, bonfires, and an active social scene mean evenings are alive. The rondavels and private rooms offer more acoustic separation than the dorms. By the standards of Coffee Bay — where the community vibe is the entire point — this is exactly as it should be.</p>
-
-            <p><strong>KEY AMENITIES:</strong> Beachfront location on Coffee Bay beach, surf school with board and wetsuit hire (approximately R350 for 2-hour lesson), guided Hole in the Wall hike (5km each way — book through the hostel at community guide rates, approximately R150 per person), nightly drum circles and bonfires, bar and restaurant on-site, shuttle service from the N2 Shell Ultra City (essential — do not attempt the Coffee Bay road without hostel shuttle coordination), self-catering kitchen, swimming. Load shedding backup power available.</p>
-
-            <p><strong>NEARBY HIGHLIGHTS:</strong> Hole in the Wall (10km north — a massive detached sea cliff with a central archway through which the surf drives; one of the iconic sights of the Eastern Cape coast), Coffee Bay surf break (directly in front of the hostel, gentle and consistent — ideal for beginners), Xhosa cultural village visits bookable through the hostel, the Wild Coast hiking trail to Bulungula and beyond.</p>
-
-            <p><strong>SOLO FEMALE FRIENDLINESS: 4 / 5.</strong> Coffee Shack has a strong solo female tradition — the communal social culture of the drum circles and fire pits creates instant community for arriving solo travellers, and the surf lesson groups are a reliable social introduction mechanism. The rondavels offer genuine privacy. The shuttle system means no navigating Mthatha alone. The main caveat: the Coffee Bay road is challenging, and the Wild Coast requires more situational awareness than Cape Town. Coffee Shack itself is well-managed and safe. The environment around it requires the standard Wild Coast awareness.</p>
-
-            <p><strong>DIGITAL NOMAD FRIENDLINESS: 1 / 5.</strong> Coffee Bay has sporadic mobile data. Wi-Fi at the hostel is available when load shedding permits. This is a deliberate digital detox environment and should be treated as such.</p>
-
-            <p><strong>SAFETY RATING: AMBER.</strong> Coffee Bay itself is generally safe within the hostel environment and on the Hole in the Wall trail with a local guide. The road from the N2 to Coffee Bay is the primary risk: 95km of potholed dirt road that should never be driven at night, with livestock on the road after dark. The shuttle system from the N2 eliminates this risk entirely for guests without a hire car — use it. Never attempt to drive to Coffee Bay at night in any vehicle.</p>
-
-            <p><strong>MANAGEMENT STYLE:</strong> Long-established owner-managed institution. Coffee Shack has been at the centre of Coffee Bay backpacker culture for over 25 years. The management's deep embeddedness in the local Xhosa community — the drum circle tradition, the community guide programme, the local staff culture — reflects an operation that has genuinely built itself into the fabric of the place it occupies.</p>
-
-            <p><strong>EMPLOYMENT ETHICS: STRONGLY POSITIVE.</strong> The community guide programme employs local Xhosa guides for the Hole in the Wall hike and other activities, returning income directly to Coffee Bay village households. The drum circle tradition involves local community musicians as participants, not performers-for-hire. Long-tenured local staff are mentioned by name in reviews spanning years. The hostel's two-decade-plus presence in Coffee Bay has generated sustained local employment that goes well beyond the minimum required. No Workaway exploitation. No adverse reports.</p>
-
-            <p><strong>THE BLURB:</strong> Coffee Shack is one of those South African backpacker institutions that has transcended its category. It is not simply a place to sleep in Coffee Bay — it is the reason many people go to Coffee Bay in the first place, and the reason most of them arrive planning to stay two nights and leave having stayed five. The drum circles are real. The bonfires outlast midnight. The surf lessons are cheap and the waves in front are gentle enough for complete beginners. The rondavels are beautiful. The Hole in the Wall is a day's walk away and the guide who takes you there was born in the village at the top of the hill. The Wild Coast is not like anywhere else in South Africa, and Coffee Shack is not like anywhere else on the Wild Coast.</p>
-
-            <p><strong>FINAL VERDICT: An iconic Wild Coast hostel. Extraordinary location, extraordinary community culture, exceptional value.</strong></p>
-
-  </div>
-</details>
-
-    </div>
-</section>
-
-
-<!-- ---- 4. BULUNGULA LODGE ---- -->
-
-<section class="region-header-section" aria-label="BULUNGULA LODGE" id="bulungula-lodge" style="scroll-margin-top: 120px;">
-    <div class="container-wide-hostels">
-
-        <div class="hostel-card-header">
-        <h2 class="detail-h2">BULUNGULA LODGE</h2>
-    </div>
-
-        <div class="detail-p">
-
-            <p><strong>AREA:</strong> Xhora Mouth</p>
-
-            <p><strong>STREET ADDRESS:</strong> Nqileni Village, Xhora Mouth AA, Elliotdale District, 5070</p>
-
-            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="bulungula-lodge">FIND ON MAP ›</a></p>
-
-            <p><strong>PHONE:</strong> <a href="tel:+27475778900" class="blue-link">+27 47 577 8900</a></p>
-
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27833915525?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 83 391 5525</a></p>
-
-            <p><strong>EMAIL:</strong> <a href="mailto:paradise@bulungula.com?subject=Contact from BackpackersBible.com" class="blue-link">paradise@bulungula.com</a></p>
-
-            <p><strong>WEBSITE:</strong> <a href="https://bulungula.com" target="_blank" class="blue-link" rel="nofollow">bulungula.com</a></p>
-
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/BulungulaLodge" target="_blank" class="blue-link">Facebook</a></p>
-
-            <p><strong>ARRIVAL:</strong> Bulungula is off-grid and remote. Coordinate your arrival carefully — the road requires a 4x4 or high-clearance vehicle in wet conditions. The lodge can advise on current road conditions and shuttle options.</p>
-        </div>
-
-        <div class="booking-btn-container">
-
-            <a href="https://www.booking.com/hotel/za/bulungula-lodge.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
-            <a href="https://www.hostelworld.com/hostels/p/309369/bulungula-lodge/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD</a>
-
-        </div>
-
-        <div class="detail-p">
-            <p><strong>ACCOMMODATION TYPE:</strong> 100% community-owned eco-lodge. Traditional Xhosa huts, dorm beds, and camping. Entirely off-grid: solar power, composting toilets, no running hot water (bucket shower heated over fire), no Wi-Fi. The Nqileni village community owns 40% of the lodge.</p>
-            <p><strong>PRICE RANGE:</strong> Budget (extremely accessible). Dorm beds from R130; Camping from R70; Traditional huts (double/triple) from R330–R420 per room.</p>
-
-<details>
-<summary>Read More</summary>
-  <div class="expanded-text">
-
-            <p><strong>GOOGLE RATING:</strong> ~4.5 / 5</p>
-            <p><strong>BOOKING.COM RATING:</strong> ~8.0 / 10 ("Very Good")</p>
-
-            <p><strong>VALUE FOR MONEY RATING: 5 / 5.</strong> At R130 for a dorm bed and R70 for a campsite in one of the most remote and beautiful settings on the Wild Coast, the price is almost irrelevant to the value calculation. What Bulungula offers — genuine participation in Xhosa village life, canoe trips on the Xhora River with community guides, maize-pounding and mud-brick making activities, a 4.6/5 Google rating sustained over years — is not available anywhere else on this coast at any price. The community ownership model means your accommodation fee goes directly into the Nqileni village economy.</p>
-
-            <p><strong>VIBE-METER:</strong> 60% Deep Cultural Immersion / 25% Off-Grid Eco Wilderness / 15% Adventurous Independent Travel. Bulungula is not for travellers looking for comfort, reliable hot water, or Wi-Fi. It is for travellers who want to spend three days genuinely inside a Xhosa community — pounding maize alongside village women, canoeing up the river with a guide whose family has lived on this estuary for generations, watching the sun set over the Indian Ocean from a thatched hut on a hillside. This is the deepest cultural experience available on the entire Wild Coast, and one of the most ethically rigorous tourism operations in South Africa.</p>
-
-            <p><strong>DECIBEL LEVEL: 1 / 5.</strong> A village on a river estuary, off-grid, on the Wild Coast. The sounds are the river, the ocean, the village, and the birds. There is no bar noise, no generator hum (solar only), and no traffic. One of the most genuinely quiet sleep environments in this entire guide.</p>
-
-            <p><strong>KEY AMENITIES:</strong> Community-guided canoe trips on the Xhora River, village cultural activities (maize pounding, mud brick making, cooking with village women, beadwork), guided beach and coastal walks, off-grid solar power, composting toilets, bucket showers (hot water by request), communal fire, self-catering kitchen (bring your own supplies — the lodge can supplement from the village), stargazing from the estuary (no light pollution whatsoever).</p>
-
-            <p><strong>NEARBY HIGHLIGHTS:</strong> The Xhora River estuary (directly below the lodge — one of the most beautiful river mouths on the Wild Coast), the beach below the village (virtually unnamed and completely empty), the Wild Coast hiking trail northward toward Mdumbi and southward toward Coffee Bay.</p>
-
-            <p><strong>SOLO FEMALE FRIENDLINESS: 4 / 5.</strong> The community ownership model and the village setting create an environment of collective responsibility and awareness that is inherently safe for solo travellers. Multiple solo female reviewers describe Bulungula as a transformative experience — the village community looks after guests in the most literal sense. The physical facilities are basic (bucket showers, composting toilets) which some travellers find challenging; this is not a safety issue but a comfort one. The remoteness requires forward planning but does not create risk within the lodge environment itself.</p>
-
-            <p><strong>DIGITAL NOMAD FRIENDLINESS: 0 / 5.</strong> Entirely off-grid. No Wi-Fi. No mobile data signal. No exceptions. Come here to be completely offline.</p>
-
-            <p><strong>SAFETY RATING: GREEN (within the lodge environment).</strong> The village community context makes Bulungula one of the safer environments on the Wild Coast — you are a guest of the Nqileni village, and the community takes that responsibility seriously. The access road is the primary practical challenge: it requires care in wet conditions. Coordinate arrival and departure carefully with the lodge team.</p>
-
-            <p><strong>MANAGEMENT STYLE:</strong> Co-managed between founder Dave Martin and the Nqileni village community, who hold 40% ownership. The community ownership model has been in place since the lodge's founding and is regularly cited in responsible tourism literature as a model for ethical eco-tourism in rural South Africa. This is not a token community involvement arrangement — the village has genuine ownership, genuine income, and genuine decision-making authority.</p>
-
-            <p><strong>EMPLOYMENT ETHICS: OUTSTANDING.</strong> The 40% community ownership structure is the most direct form of ethical employment possible: the people who live here own part of the business. All guides, activity leaders, and support staff are drawn from Nqileni village. The cultural activities programme returns income to individual village households rather than to a central operator. Bulungula has been cited by Fair Trade Tourism, Responsible Tourism Awards, and multiple international travel publications as a benchmark for community-based tourism in Africa. There is no higher ethical employment score available in this guide.</p>
-
-            <p><strong>THE BLURB:</strong> Bulungula is the most important hostel on the Wild Coast, and possibly in South Africa. It is 100% community-owned, entirely off-grid, and located on a river estuary of such raw beauty that photographs of it look like they've been edited. You will pound maize with village women, paddle a canoe up the Xhora with a guide whose family has been on this river for generations, and sleep in a thatched hut on a hillside above the Indian Ocean with no light pollution and no Wi-Fi and no reason to want either. The 40% community ownership is not marketing copy — it is an audited, legally structured arrangement that puts your accommodation fee directly into the Nqileni village economy. It is the right way to travel in this landscape, and it has been done right since the lodge opened.</p>
-
-            <p><strong>FINAL VERDICT: The most ethically rigorous and culturally immersive hostel in South Africa. Not for comfort-seekers. Essential for anyone who wants to understand what the Wild Coast actually is, and who wants their presence here to do more good than harm.</strong></p>
-
-  </div>
-</details>
-
-    </div>
-</section>
-
-<!-- ---- 5. WILD LUBANZI BACKPACKERS LODGE ---- -->
-
-<section class="region-header-section" aria-label="WILD LUBANZI BACKPACKERS LODGE" id="wild-lubanzi-backpackers" style="scroll-margin-top: 120px;">
-    <div class="container-wide-hostels">
-
-        <div class="hostel-card-header">
-        <h2 class="detail-h2">WILD LUBANZI BACKPACKERS LODGE</h2>
-        </div>
-
-<div class="detail-p">
-
-            <p><strong>AREA:</strong> Mavaleleni</p>
-
-            <p><strong>STREET ADDRESS:</strong> Lubanzi Village, Mavaleleni Shinira, 5100</p>
-
-            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="wild-lubanzi-backpackers">FIND ON MAP ›</a></p>
-
-            <p><strong>PHONE:</strong> <a href="tel:+27785308997" class="blue-link">+27 78 530 8997</a></p>
-
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27785308997?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 78 530 8997</a></p>
-
-            <p><strong>EMAIL:</strong> <a href="mailto:wild@lubanzi.co.za?subject=Contact from BackpackersBible.com" class="blue-link">wild@lubanzi.co.za</a></p>
-
-            <p><strong>WEBSITE:</strong> <a href="https://lubanzi.co.za" target="_blank" class="blue-link" rel="nofollow">lubanzi.co.za</a></p>
-
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/WildLubanzi" target="_blank" class="blue-link">Facebook</a></p>
-
-        </div>
-
-        <div class="detail-p">
-            <p><strong>ACCOMMODATION TYPE:</strong> Eco-artistic off-grid lodge. Hand-built safari tents, a "Hobbit House" (en-suite), and a double-storey dorm constructed from upcycled materials. No two structures are the same. Solar power throughout.</p>
-            <p><strong>PRICE RANGE:</strong> Budget. Dorm beds from R145; Safari tents from R380 (for 2); Hobbit House (en-suite) from R650.</p>
-
-<details>
-<summary>Read More</summary>
-  <div class="expanded-text">
-
-            <p><strong>GOOGLE RATING:</strong> ~4.7 / 5</p>
-
-            <p><strong>VALUE FOR MONEY RATING: 5 / 5.</strong> A 4.7/5 Google rating — the joint highest on this Wild Coast list — for a property with dorm beds starting at R145. The Hobbit House alone, an upcycled-material en-suite structure that guests consistently describe as "unlike anything I've ever slept in," would justify a 5/5 at twice the price. Wild Lubanzi is operating at a level of creativity and guest satisfaction that bears almost no relationship to its price point.</p>
-
-            <p><strong>VIBE-METER:</strong> 50% Artistic / Creative Off-Grid / 30% Wild Coast Cultural Immersion / 20% Adventure Backpacker. Wild Lubanzi is the most distinctive physical property on this list. The hand-built structures from upcycled materials — driftwood, reclaimed timber, local stone — give it a visual character that is entirely original. The 4.7/5 rating reflects a management approach and an atmosphere that match the physical ambition of the buildings. Guests consistently describe it as "magical," which is not a word that appears often in backpacker reviews.</p>
-
-            <p><strong>DECIBEL LEVEL: 1 / 5.</strong> A village on the Wild Coast. Off-grid. Remote. Quiet in the most complete sense of the word.</p>
-
-            <p><strong>KEY AMENITIES:</strong> Upcycled/hand-built accommodation structures, solar power, ocean and estuary views, guided coastal hikes, local cultural activities, surf access, braai facilities. Off-grid: bring cash, a power bank, and any supplies you need beyond the basics.</p>
-
-            <p><strong>NEARBY HIGHLIGHTS:</strong> Lubanzi Beach (directly below — remote, beautiful, rarely visited), the Wild Coast hiking trail in both directions, coastal rock pools and estuary access.</p>
-
-            <p><strong>SOLO FEMALE FRIENDLINESS: 4 / 5.</strong> The small scale and creative community atmosphere of Wild Lubanzi create a warm and watchful guest environment. The 4.7/5 rating is notably consistent — no adverse safety reports in any platform reviewed. The remote location requires the standard Wild Coast forward planning for arrivals.</p>
-
-            <p><strong>DIGITAL NOMAD FRIENDLINESS: 0 / 5.</strong> Off-grid. No Wi-Fi. No signal. This is correct and intentional.</p>
-
-            <p><strong>SAFETY RATING: GREEN.</strong> Village environment, well-managed, no adverse reports. Standard Wild Coast travel awareness applies for the access road.</p>
-
-            <p><strong>MANAGEMENT STYLE:</strong> Owner-managed creative enterprise. The physical character of the property reflects an owner who has a genuine artistic vision and the commitment to execute it in hand-built form from upcycled materials. This is not a standard backpacker operation; it is something more personal and more interesting.</p>
-
-            <p><strong>EMPLOYMENT ETHICS: POSITIVE.</strong> Local village employment, upcycled and sustainable materials throughout, community-integrated operation. No adverse reports.</p>
-
-            <p><strong>THE BLURB:</strong> Wild Lubanzi has a Hobbit House. This is not a metaphor. It is a hand-built, upcycled-material, en-suite sleeping structure that guests routinely describe as one of the best things they stayed in during their entire South Africa trip — at R650 per night. The rest of the property matches the ambition of the Hobbit House: safari tents built from driftwood and reclaimed timber, a double-storey dorm that looks like it was designed by someone who had never seen a standard hostel dorm and considered that an advantage, and an ocean-and-estuary setting of the kind that makes people question their decision to ever live in a city. The 4.7/5 Google rating is the highest on this Wild Coast list. It is earned.</p>
-
-            <p><strong>FINAL VERDICT: The most architecturally distinctive hostel on the Wild Coast. Book the Hobbit House. If it's taken, book a safari tent. Either way, go.</strong></p>
-
-  </div>
-</details>
-
-    </div>
-</section>
-
-
-<!-- ---- 6. THE KRAAL BACKPACKERS ---- -->
-
-<section class="region-header-section" aria-label="THE KRAAL BACKPACKERS" id="the-kraal-backpackers" style="scroll-margin-top: 120px;">
-    <div class="container-wide-hostels">
-
-        <div class="hostel-card-header">
-        <h2 class="detail-h2">THE KRAAL BACKPACKERS</h2>
-        </div>
-
-        <div class="detail-p">
-
-            <p><strong>AREA:</strong> Mpande</p>
-
-            <p><strong>STREET ADDRESS:</strong> Mpande District, Tsweleni, Port St. Johns, 5120</p>
-
-            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="the-kraal-backpackers">FIND ON MAP ›</a></p>
-
-            <p><strong>PHONE:</strong> <a href="tel:+27828714134" class="blue-link">+27 82 871 4134</a></p>
-
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27828714134?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 82 871 4134</a> <em>(WhatsApp is the only reliable way to reach them — use it)</em></p>
-
-            <p><strong>EMAIL:</strong> <a href="mailto:info@thekraalbackpackers.co.za?subject=Contact from BackpackersBible.com" class="blue-link">info@thekraalbackpackers.co.za</a></p>
-
-            <p><strong>WEBSITE:</strong> <a href="https://thekraal.co.za" target="_blank" class="blue-link" rel="nofollow">thekraal.co.za</a></p>
-
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/TheKraalBackpackers" target="_blank" class="blue-link">Facebook</a></p>
-
-        </div>
-
-        <div class="detail-p">
-            <p><strong>ACCOMMODATION TYPE:</strong> Eco-backpackers and traditional homestay. Camping, dorm beds in traditional huts, private huts. Off-grid.</p>
-            <p><strong>PRICE RANGE:</strong> Budget. Camping from R100; Dorm (traditional hut) from R180; Private huts from R450.</p>
-
-<details>
-<summary>Read More</summary>
-  <div class="expanded-text">
-
-            <p><strong>GOOGLE RATING:</strong> ~4.6 / 5</p>
-            <p><strong>BOOKING.COM RATING:</strong> N/A</p>
-
-            <p><strong>VALUE FOR MONEY RATING: 5 / 5.</strong> R180 for a dorm bed in a traditional hut, 4.7/5 on Google, in one of the most remote and scenically extraordinary sections of the Wild Coast. The Kraal's vibe-meter in the PDF says "100% Primitive / 100% Tranquil" — which is not a typo, it is an entirely accurate description of what this property delivers and why guests return.</p>
-
-            <p><strong>VIBE-METER:</strong> 100% Primitive / 100% Tranquil. The PDF's own description, retained here because nothing else captures it as accurately. The Kraal is as close to living in a traditional Mpondo homestead as any tourist accommodation in South Africa offers. If you find this prospect uncomfortable, it is not the right property for you. If you find it compelling, it will be the most memorable accommodation of your trip.</p>
-
-            <p><strong>DECIBEL LEVEL: 1 / 5.</strong> Remote wild coast. Traditional huts. Off-grid. The ocean is audible from the property. Nothing else is.</p>
-
-            <p><strong>KEY AMENITIES:</strong> Traditional Xhosa/Mpondo homestead setting, camping, dorm huts, private huts, guided coastal walks, cultural activities and community interactions, fire cooking. No Wi-Fi. No mains power. Bring a torch, a power bank, and cash.</p>
-
-            <p><strong>NEARBY HIGHLIGHTS:</strong> The Wild Coast hiking trail between Mdumbi and Port St Johns (one of the finest multi-day coastal hikes in South Africa — the Kraal sits roughly in the middle of this stretch), remote beaches and river mouths, Mpondo community life.</p>
-
-            <p><strong>SOLO FEMALE FRIENDLINESS: 4 / 5.</strong> The community homestead setting creates a natural environment of collective care. The 4.7/5 rating sustained over years with no adverse safety reports is a strong signal. Remote location requires the standard Wild Coast forward planning and WhatsApp coordination with management before arrival.</p>
-
-            <p><strong>DIGITAL NOMAD FRIENDLINESS: 0 / 5.</strong> Deliberately and completely off-grid.</p>
-
-            <p><strong>SAFETY RATING: GREEN (within the property).</strong> The Mpando District requires the standard Wild Coast awareness for access roads and remote travel. The property itself, within the community homestead setting, is safe and well-regarded. Always WhatsApp ahead and confirm your arrival; do not attempt the access roads without current guidance from the property.</p>
-
-            <p><strong>MANAGEMENT STYLE:</strong> Community-integrated owner-management. The homestead character of the property and the traditional hut accommodation reflect a management philosophy built around the local Mpondo culture rather than around a standard hospitality model.</p>
-
-            <p><strong>EMPLOYMENT ETHICS: POSITIVE.</strong> Community-integrated operation in a remote area. Local employment, cultural exchange programme, direct community benefit. No adverse reports.</p>
-
-            <p><strong>THE BLURB:</strong> The Kraal has a Vibe-Meter of 100% Primitive and 100% Tranquil simultaneously — and unlike most hostel descriptions, this one is not exaggerating. It is a traditional Mpondo homestead on the Wild Coast where you sleep in a hut, cook over a fire, have no Wi-Fi, no mobile signal, and one of the highest Google ratings of any hostel in this section of the coast. The people who go here are not looking for a party or a tour programme. They are looking for what the Wild Coast actually is, before tourism smoothed the edges off it. The Kraal hasn't smoothed the edges. That is precisely the recommendation.</p>
-
-            <p><strong>FINAL VERDICT: For the traveller who wants the Wild Coast in its most unmediated form. Primitive, tranquil, and genuinely extraordinary. Contact by WhatsApp only — and do so before you attempt the road.</strong></p>
-
-  </div>
-</details>
-
-    </div>
-</section>
-
-
-<!-- ---- 7. MDUMBI BACKPACKERS ---- -->
-
-<section class="region-header-section" aria-label="MDUMBI BACKPACKERS" id="mdumbi-backpackers" style="scroll-margin-top: 120px;">
-    <div class="container-wide-hostels">
-
-        <div class="hostel-card-header">
-        <h2 class="detail-h2">MDUMBI BACKPACKERS</h2>
-    </div>
-
-        <div class="detail-p">
-
-            <p><strong>AREA:</strong> Mankosi</p>
-
-            <p><strong>STREET ADDRESS:</strong> Tshani Village, Mankosi A/A, Ngqeleni, 5100</p>
-
-            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="mdumbi-backpackers">FIND ON MAP ›</a></p>
-
-            <p><strong>PHONE:</strong> <a href="tel:+27834611834" class="blue-link">+27 83 461 1834</a></p>
-
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27834611834?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 83 461 1834</a></p>
-
-            <p><strong>EMAIL:</strong> <a href="mailto:mdumbi@mdumbi.co.za?subject=Contact from BackpackersBible.com" class="blue-link">mdumbi@mdumbi.co.za</a></p>
-
-            <p><strong>WEBSITE:</strong> <a href="https://mdumbi.co.za" target="_blank" class="blue-link" rel="nofollow">mdumbi.co.za</a></p>
-
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/MdumbiBackpackers" target="_blank" class="blue-link">Facebook</a></p>
-
-        </div>
-
-        <div class="detail-p">
-            <p><strong>ACCOMMODATION TYPE:</strong> Award-winning community-owned eco-hostel. Camping, dormitory beds, and private traditional huts. Beachfront on Mdumbi Point — a right-hand surf break directly in front of the property.</p>
-            <p><strong>PRICE RANGE:</strong> Budget. Camping from R150; Dorm beds from R220; Private traditional huts R550–R750.</p>
-
-<details>
-<summary>Read More</summary>
-  <div class="expanded-text">
-
-            <p><strong>GOOGLE RATING:</strong> ~4.7 / 5</p>
-            <p><strong>BOOKING.COM RATING:</strong> N/A
-
-            <p><strong>VALUE FOR MONEY RATING: 5 / 5.</strong> A Hostelworld rating of approximately 9.0/10 for a property with dorm beds at R220. Mdumbi has won multiple Responsible Tourism Awards and is regularly cited in international travel writing as one of the finest community-tourism operations in Africa. The surf break in front of the property is a right-hand point break that works on most swells. The sunsets from the point are, by consistent guest report, among the finest on the entire South African coast. The traditional huts at R550–R750 are an extraordinary find at this price in this setting.</p>
-
-            <p><strong>VIBE-METER:</strong> 40% Surf / 30% Community-Owned Eco Hostel / 20% Off-Grid Wild Coast / 10% End-of-the-Road Retreat. Mdumbi sits on a headland with a surf break on one side and a river mouth on the other, connected to the Tshani Village community whose members own and run it. The atmosphere is the product of this geography and this ownership: unhurried, warm, genuinely beautiful, and with a sense of collective purpose that pure-commercial operations cannot manufacture. The surfers come for the wave; the non-surfers come for the huts and the sunsets and the feeling of being somewhere that the world hasn't found yet — and then they stay for a week.</p>
-
-            <p><strong>DECIBEL LEVEL: 1 / 5.</strong> A community village on a headland. The surf. The river. The wind. Nothing else.</p>
-
-            <p><strong>KEY AMENITIES:</strong> Right-hand surf break directly in front of the property (board hire available), community guides for coastal hiking and river canoe trips, traditional huts with Indian Ocean views, communal fire and cooking area, cultural activities with Tshani Village, river mouth swimming, off-grid solar power, fresh local food cooked communally. No Wi-Fi. No mobile signal.</p>
-
-            <p><strong>NEARBY HIGHLIGHTS:</strong> Mdumbi Point surf break (in front of the property), the Wild Coast hiking trail north to Port St Johns and south toward Coffee Bay, Tshani Village cultural engagement, the Mngazana Mangrove Forest (the largest mangrove forest in South Africa, 30 minutes north — guided canoe trips available through the property).</p>
-
-            <p><strong>SOLO FEMALE FRIENDLINESS: 5 / 5.</strong> Mdumbi has an extraordinary solo female reputation — the community ownership model means the property is embedded in the village, and that collective care extends to guests. The consistent 9.0/10 Hostelworld rating, with no pattern of safety concerns in any reviewed platform, is the clearest evidence. Solo women who have travelled the Wild Coast broadly tend to cite Mdumbi specifically as the highlight. The physical isolation — which might seem to reduce safety — actually increases it here, because the community is the security infrastructure.</p>
-
-            <p><strong>DIGITAL NOMAD FRIENDLINESS: 0 / 5.</strong> Off-grid. No signal. The point is its absence.</p>
-
-            <p><strong>SAFETY RATING: GREEN.</strong> Community ownership and integration creates a security environment unlike anything available in a commercially managed property. No adverse safety reports of any kind across any reviewed platform. The access road requires a high-clearance vehicle in wet conditions — coordinate carefully with the property before arriving.</p>
-
-            <p><strong>MANAGEMENT STYLE:</strong> Community-owned and managed. The Tshani Village community holds ownership and employs community members throughout the operation. The management culture — visible in the quality of the Hostelworld rating and the depth and warmth of guest reviews — reflects an operation built on genuine pride of ownership rather than commercial obligation.</p>
-
-            <p><strong>EMPLOYMENT ETHICS: OUTSTANDING.</strong> Community ownership is not a branding arrangement at Mdumbi — the village owns the property and the community runs it. Multiple Responsible Tourism Awards, including recognition from the World Travel and Tourism Council, document the depth and integrity of this model. Every rand spent at Mdumbi stays in Tshani Village. This is as direct a form of ethical tourism spending as exists in South Africa.</p>
-
-            <p><strong>THE BLURB:</strong> Mdumbi has a 9.0/10 on Hostelworld. For context: the global Hostelworld average is approximately 8.3, and properties in the 9.0+ bracket are genuinely rare. It is a community-owned eco-hostel on a right-hand surf break with traditional huts and a river mouth and mangrove forests nearby, in a section of the Wild Coast that is as far from the tourist circuit as you can get while still having a roof over your head. The people who run it live here. The people who guide you on the river have paddled it since childhood. The sunsets from the point are the kind that people take out their phones for and then realise no photograph is going to work and put the phone away again. Go to Mdumbi. Stay longer than you planned. This is what the Wild Coast is for.</p>
-
-            <p><strong>FINAL VERDICT: ★ BackpackersBible.com's top-rated Wild Coast hostel. A Hostelworld 9.0/10, community-owned, beachfront surf break, extraordinary setting. One of the best backpacker properties in South Africa. Non-negotiable.</strong></p>
-
-  </div>
-</details>
-
-    </div>
-</section>
-
-
-<!-- ---- 8. VUKANI BACKPACKERS ---- -->
-
-<section class="region-header-section" aria-label="VUKANI BACKPACKERS" id="vukani-backpackers" style="scroll-margin-top: 120px;">
-    <div class="container-wide-hostels">
-
-        <div class="hostel-card-header">
-        <h2 class="detail-h2">VUKANI BACKPACKERS</h2>
-    </div>
-
-        <div class="detail-p">
-
-            <p><strong>AREA:</strong> Mankosi</p>
-
-            <p><strong>STREET ADDRESS:</strong> Tshani Village, Mankosi A/A, Ngqeleni, 5100</p>
-
-            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="vukani-backpackers">FIND ON MAP ›</a></p>
-
-            <p><strong>PHONE:</strong> <a href="tel:+27718576989" class="blue-link">+27 71 857 6989</a></p>
-
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27718576989?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 71 857 6989</a></p>
-
-            <p><strong>EMAIL:</strong> <a href="mailto:stay@vukanibackpackers.co.za?subject=Contact from BackpackersBible.com" class="blue-link">stay@vukanibackpackers.co.za</a></p>
-
-            <p><strong>WEBSITE:</strong> <a href="https://vukanibackpackers.co.za" target="_blank" class="blue-link" rel="nofollow">vukanibackpackers.co.za</a></p>
-
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/vukanibackpackers" target="_blank" class="blue-link">Facebook</a></p>
-
-        </div>
-
-        <div class="booking-btn-container">
-
-            <a href="https://www.hostelworld.com/pwa/hosteldetails.php/Vukani-Backpackers/Port-St-Johns/301185" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD</a>
-
-        </div>
-
-        <div class="detail-p">
-            <p><strong>ACCOMMODATION TYPE:</strong> Traditional cultural backpackers in Tshani Village, directly adjacent to Mdumbi. Camping, dorms, private rondavels (including ocean-view "Ocean Room" and driftwood "Driftwood Room"), self-catering unit (Larnie Room, sleeps 6).</p>
-            <p><strong>PRICE RANGE:</strong> Budget. Camping from R150; Dorms from R220; Private rondavels from R550; Self-catering Larnie Room from R950 (sleeps 6).</p>
-
-<details>
-<summary>Read More</summary>
-  <div class="expanded-text">
-
-            <p><strong>GOOGLE RATING:</strong> ~4.8 / 5</p>
-            <p><strong>BOOKING.COM RATING:</strong> N/A</p>
-
-            <p><strong>VALUE FOR MONEY RATING: 5 / 5.</strong> Joint-highest Google rating on this Wild Coast list (4.7/5, alongside The Kraal and Wild Lubanzi), with rondavels at R550. The Larnie Room self-catering unit at R950 sleeping six people (approximately R158 per person) represents exceptional per-person value for groups. No significant extras are included — but the location, the rating, and the price require nothing extra.</p>
-
-            <p><strong>VIBE-METER:</strong> 55% Traditional Xhosa Cultural Immersion / 30% Off-Grid Wild Coast / 15% Surf Access. Vukani sits in the same Tshani Village community as Mdumbi, 500 metres along the same coastline, and offers a slightly more intimate and village-integrated experience. "Vukani" means "Wake up!" in isiXhosa — and that spirit of purposeful engagement with the culture and landscape around it is evident in every review. Guests describe it not as a place to stay, but as a place to become temporarily part of.</p>
-
-            <p><strong>DECIBEL LEVEL: 1 / 5.</strong> Same village and coastline as Mdumbi. The ocean. The community. Complete quiet at night.</p>
-
-            <p><strong>KEY AMENITIES:</strong> Ocean-view rondavels, driftwood-construction private rooms (genuinely unique — guests consistently describe the Driftwood Room as extraordinary), self-catering Larnie Room for groups, traditional cooking over fire, cultural activities with Tshani Village, surf access (same break as Mdumbi), guided coastal walks and river trips, solar power, communal braai. No Wi-Fi. Bring cash and a power bank.</p>
-
-            <p><strong>NEARBY HIGHLIGHTS:</strong> Mdumbi surf break (500m), Tshani Village cultural engagement, Mngazana Mangrove Forest guided canoe trips, Wild Coast hiking trail.</p>
-
-            <p><strong>SOLO FEMALE FRIENDLINESS: 5 / 5.</strong> Same community-ownership environment as Mdumbi, same Tshani Village collective care culture. The 4.7/5 Google rating with no adverse safety reports in any platform reviewed is consistent with a property that takes genuine responsibility for its guests. The Larnie Room is a particularly good option for small groups of women travelling together — self-catering, private, good value.</p>
-
-            <p><strong>DIGITAL NOMAD FRIENDLINESS: 0 / 5.</strong> Off-grid, no signal. Correct.</p>
-
-            <p><strong>SAFETY RATING: GREEN.</strong> Same community-integrated security environment as Mdumbi. No adverse reports. Standard Wild Coast access road awareness applies.</p>
-
-            <p><strong>MANAGEMENT STYLE:</strong> Owner-managed, community-integrated. "Vukani" is named after its founding principle — engagement, waking up, participation. The management style reflects this: guests are encouraged to be involved, not passive.</p>
-
-            <p><strong>EMPLOYMENT ETHICS: POSITIVE.</strong> Community-integrated in Tshani Village, with the same direct employment and cultural engagement model as Mdumbi. The Driftwood Room's construction from locally sourced materials reflects an approach to sustainability that extends beyond energy systems.</p>
-
-            <p><strong>THE BLURB:</strong> Vukani is Mdumbi's neighbour and spiritual sibling — 500 metres along the Tshani Village coastline, with the same surf break, the same community ownership ethic, and the same 4.7/5 Google rating. The Driftwood Room is made of driftwood — literally, collected from the beach and assembled into a room — and guests describe it in terms usually reserved for boutique hotels. The Larnie Room sleeping six at R950 is one of the finest group-value deals on the entire Wild Coast. If Mdumbi is full, Vukani is not a consolation prize; it is an equally valid destination in its own right.</p>
-
-            <p><strong>FINAL VERDICT: Mdumbi's equally outstanding neighbour. Joint-highest rated on this list. The Driftwood Room is not to be missed. The Larnie Room is the best group deal on the Wild Coast.</strong></p>
-
-  </div>
-</details>
-
-    </div>
-</section>
-
-
-<!-- ---- 9. FREEDOM O'CLOCK BACKPACKERS RETREAT ---- -->
-
-<section class="region-header-section" aria-label="FREEDOM O'CLOCK BACKPACKERS RETREAT" id="freedom-o-clock" style="scroll-margin-top: 120px;">
-    <div class="container-wide-hostels">
-
-        <div class="hostel-card-header">
-        <h2 class="detail-h2">FREEDOM O'CLOCK BACKPACKERS RETREAT</h2>
-    </div>
-
-        <div class="detail-p">
-
-            <p><strong>AREA:</strong> Lutsheni</p>
-
-            <p><strong>STREET ADDRESS:</strong> Mngcibe Village, Mdumbi River Mouth, 5140</p>
-
-            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="freedom-o-clock">FIND ON MAP ›</a></p></p>
-
-            <p><strong>⚠ GPS WARNING:</strong> GPS frequently routes to the wrong side of the river at this location. Always follow the Mngcibe Village directions provided by the hosts. Contact them before attempting the road.</p>
-
-            <p><strong>PHONE:</strong> <a href="tel:+27766109723" class="blue-link">+27 76 610 9723</a> / <a href="tel:+27729487028" class="blue-link">+27 72 948 7028</a></p>
-
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27766109723?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 76 610 9723</a></p>
-
-            <p><strong>EMAIL:</strong> <a href="mailto:marleen@freedomoclock.co.za?subject=Contact from BackpackersBible.com" class="blue-link">marleen@freedomoclock.co.za</a></p>
-
-            <p><strong>WEBSITE:</strong> <a href="https://freedomoclock.co.za" target="_blank" class="blue-link" rel="nofollow">freedomoclock.co.za</a></p>
-
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/freedomoclockbackpackers" target="_blank" class="blue-link">Facebook</a></p>
-
-        </div>
-
-        <div class="detail-p">
-
-            <p><strong>ACCOMMODATION TYPE:</strong> Eco-minded family-run retreat. Camping, dorm/hut beds, private rooms (double and family). On the Mdumbi River mouth.</p>
-            <p><strong>PRICE RANGE:</strong> Mid-Range Budget. Camping from R150; Dorms/huts from R220; Private rooms R550–R750.</p>
-
-<details>
-<summary>Read More</summary>
-  <div class="expanded-text">
-
-            <p><strong>GOOGLE RATING:</strong> ~4.4 / 5</p>
-            <p><strong>BOOKING.COM RATING:</strong> N/A</p>
-
-            <p><strong>VALUE FOR MONEY RATING: 5 / 5.</strong> The highest Google rating on this entire Wild Coast list at 4.8/5, for a river-mouth eco-retreat with dorms at R220. Freedom O'Clock is run by Marleen — described consistently in reviews as one of the warmest and most attentive hosts on the Wild Coast — and the personal management style is the most cited factor in the exceptional rating. The location at the Mdumbi river mouth, adjacent to the Tshani Village cluster, is beautiful. Outstanding value.</p>
-
-            <p><strong>VIBE-METER:</strong> 50% Family-Run River Retreat / 30% Off-Grid Eco / 20% Wild Coast Community. Freedom O'Clock has a distinctly different character from its Tshani Village neighbours — where Mdumbi and Vukani are community-owned operations, Freedom O'Clock is a family-run retreat with a deeply personal hosting culture. The "Freedom O'Clock" philosophy — time here operates at a different pace than the world you came from — is felt in every review. Guests describe arriving stressed and leaving fundamentally changed in pace.</p>
-
-            <p><strong>DECIBEL LEVEL: 1 / 5.</strong> A river mouth on the Wild Coast. The river, the ocean, and nothing else.</p>
-
-            <p><strong>KEY AMENITIES:</strong> Mdumbi River mouth location (swimming, canoeing, bird watching), family-run personal hosting, communal meals on request, guided walks, fire cooking, off-grid solar, bring cash and supplies. The GPS warning is critical — follow only the host's directions.</p>
-
-            <p><strong>NEARBY HIGHLIGHTS:</strong> Mdumbi surf break (500m), Tshani Village and the Mdumbi/Vukani cluster (5 minutes), Mngazana Mangrove guided canoe trips, Wild Coast coastal trail.</p>
-
-            <p><strong>SOLO FEMALE FRIENDLINESS: 5 / 5.</strong> The highest Google rating on this list, a family-run personal hosting environment, and a river mouth location with the Tshani Village community on both sides. Multiple solo female reviewers specifically name Marleen by name and describe the hosting as the reason they felt completely at ease. This is the top solo female recommendation in the Mdumbi cluster.</p>
-
-            <p><strong>DIGITAL NOMAD FRIENDLINESS: 0 / 5.</strong> Off-grid. No signal. Same answer as every other Wild Coast property in this section.</p>
-
-            <p><strong>SAFETY RATING: GREEN.</strong> Community-integrated river mouth location. Excellent host attentiveness. No adverse reports. ⚠ The GPS warning is a practical safety note: following GPS to the wrong side of the river means either a long detour or attempting a river crossing in a hire car. Always use Marleen's arrival directions, not Google Maps navigation.</p>
-
-            <p><strong>MANAGEMENT STYLE:</strong> Family-run, personally managed by Marleen. The 4.8/5 Google rating is the most direct evidence of what this management style produces: guests feel looked after in a genuinely personal way rather than managed through a hospitality protocol.</p>
-
-            <p><strong>EMPLOYMENT ETHICS: POSITIVE.</strong> Small family operation with clear community integration. No adverse reports. The personal hosting model means the primary employment is the host family, with community involvement in guided activities.</p>
-
-            <p><strong>THE BLURB:</strong> Freedom O'Clock has the highest Google rating of any hostel in this Wild Coast section — 4.8/5 — and it is run by one person, Marleen, who by the consistent evidence of a large body of reviews is one of the most genuinely warm and attentive hosts on the South African backpacker circuit. The location, on the Mdumbi River mouth with the Tshani Village community around it and the Wild Coast stretching in both directions, is exactly what it sounds like. The GPS warning is real — follow Marleen's directions, not your phone. But once you're there, the 4.8/5 awaits.</p>
-
-            <p><strong>FINAL VERDICT: Highly-rated hostel. Family-run, personally hosted, river-mouth location. The top solo female recommendation in the Mdumbi cluster. Go. Follow the host's directions, not GPS.</strong></p>
-
-  </div>
-</details>
-
-    </div>
-</section>
-
-
-<!-- ---- 10. AMAPONDO BACKPACKERS ---- -->
-
-<section class="region-header-section" aria-label="AMAPONDO BACKPACKERS" id="amapondo-backpackers" style="scroll-margin-top: 120px;">
-    <div class="container-wide-hostels">
-
-        <div class="hostel-card-header">
-        <h2 class="detail-h2">AMAPONDO BACKPACKERS</h2>
-    </div>
-
-        <div class="detail-p">
-
-            <p><strong>AREA:</strong> Second Beach</p>
-
-            <p><strong>STREET ADDRESS:</strong> Erf 647, Second Beach Road, Port St Johns, 5120</p>
-
-            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="amapondo-backpackers">FIND ON MAP ›</a></p>
-
-            <p><strong>PHONE:</strong> <a href="tel:+27833153103" class="blue-link">+27 83 315 3103</a> / <a href="tel:+27812574504" class="blue-link">+27 81 257 4504</a></p>
-
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27833153103?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 83 315 3103</a></p>
-
-            <p><strong>EMAIL:</strong> <a href="mailto:info@amapondo.co.za?subject=Contact from BackpackersBible.com" class="blue-link">info@amapondo.co.za</a></p>
-
-            <p><strong>WEBSITE:</strong> <a href="https://amapondo.co.za" target="_blank" class="blue-link" rel="nofollow">amapondo.co.za</a></p>
-
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/amapondo.backpackers" target="_blank" class="blue-link">Facebook</a></p>
-
-        </div>
-
-        <div class="booking-btn-container">
-
-            <a href="https://www.booking.com/hotel/za/amapondo-backpackers-lodge.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
-
-        </div>
-
-        <div class="detail-p">
-            <p><strong>ACCOMMODATION TYPE:</strong> Jungle-style backpackers and self-catering lodge. Camping (walk-in tents only, no vehicle access to campsite), dormitories, double/twin rooms, self-catering cottages. Set on the hillside above Second Beach, PSJ.</p>
-            <p><strong>PRICE RANGE:</strong> Budget to Mid-Range. Camping from R150; Dorms R220–R250; Double/twin rooms from R650; Self-catering cottages R850–R1,200.</p>
-
-<details>
-<summary>Read More</summary>
-  <div class="expanded-text">
-
-            <p><strong>GOOGLE RATING:</strong> ~4.1 / 5</p>
-            <p><strong>BOOKING.COM RATING:</strong> ~8.3 / 10 ("Very Good")</p>
-
-            <p><strong>VALUE FOR MONEY RATING: 4 / 5.</strong> The Booking.com 8.1/10 for a jungle hillside property above Second Beach — one of the finest beaches in South Africa — at dorm prices represents solid value. The self-catering cottages at R850–R1,200 are the best value private room option in Port St Johns for their combination of setting, privacy, and kitchen facilities. The campsite's walk-in only policy (no vehicle access) keeps the environment peaceful, which is a deliberate quality of life decision that guests with tents will appreciate.</p>
-
-            <p><strong>VIBE-METER:</strong> 40% PSJ Jungle Social / 30% Wild Coast Adventurer / 30% Laid-Back End-of-the-Road. Port St Johns is the northern gateway to the Wild Coast's most remote interior, and Amapondo reflects the character of a town that has always attracted the independently minded and the thoroughly travelled. The jungle hillside setting — trees pressing in, Second Beach below, the Green Hills of PSJ rising behind — gives it a physical quality that the town's other properties don't match.</p>
-
-            <p><strong>DECIBEL LEVEL: 2 / 5.</strong> A hillside jungle property outside the Port St Johns town centre. Quieter than the town itself. The surrounding forest absorbs most ambient noise. Manageable.</p>
-
-            <p><strong>KEY AMENITIES:</strong> Jungle hillside setting above Second Beach, self-catering cottages, communal kitchen, bar, braai facilities, guided tours to local sites bookable through the property, secure parking, laundry. Port St Johns' services — ATM, shops, restaurants — are 10 minutes by car.</p>
-
-            <p><strong>NEARBY HIGHLIGHTS:</strong> Second Beach, PSJ (5 min walk — one of the finest beaches in South Africa, with the Drakensberg visible on clear days from the clifftop north of the beach), First Beach and the PSJ town (10 min drive), the Green Hills hiking trails, Silaka Nature Reserve (accessible coastal hiking, 20 min), the Mngazana Mangrove Forest (30 min south). <strong>⚠ Swimming note:</strong> Second Beach PSJ has a historically documented bull and Zambezi shark presence in the surf. Swim at First Beach rather than Second Beach. This is a consistent and well-documented safety advisory from local authorities.</p>
-
-            <p><strong>SOLO FEMALE FRIENDLINESS: 3 / 5.</strong> Amapondo's 8.1/10 Booking.com and the jungle hillside environment are positive indicators. Port St Johns itself requires standard urban Wild Coast awareness — it is a larger town than the rural village properties further south, with the associated variability in street environment. Arriving in daylight, using the hostel shuttle from the N2, and not walking in unfamiliar areas after dark are the standard precautions. Within the property: adequate.</p>
-
-            <p><strong>DIGITAL NOMAD FRIENDLINESS: 2 / 5.</strong> PSJ has better mobile data than the rural Wild Coast properties. Wi-Fi at the hostel is available. Not a co-working destination but functional for occasional use.</p>
-
-            <p><strong>SAFETY RATING: RED.</strong> The lodge is gated. However, Port St. Johns is a bustling town; guests should remain aware when moving between the lodge and town/beaches, especially after dark.
-Second Beach (2 mins away) is beautiful but is notorious for shark attacks. On weekends, 2nd Beach is a riot of public drunkeness, with law enforcement nowhere in sight. On two occassions (before it was gated, and before the present owners took over), the hostel was invaded by armed robbers, who held up the guests at gunpoint - on one of these occasions, the security guard was shot. Beware of visiting The Gap, as freak waves have claimed many lives over the years, with no
-warnings about this given to tourists.</p>
-
-            <p><strong>MANAGEMENT STYLE:</strong>  Professionally Chill. It’s run
-with a “Lekkerland” philosophy - everything is laid back, but the kitchen is surprisingly efficient and
-the staff are incredibly helpful with travel logistics (like the Mthatha shuttle).</p>
-
-            <p><strong>EMPLOYMENT ETHICS: POSITIVE.</strong> Local PSJ employment, long-tenured staff mentioned by name in reviews, no adverse reports.</p>
-
-            <p><strong>THE BLURB:</strong>  Nestled in a lush forest canopy overlooking the valley, the lodge feels like an upscale treehouse. The current owners have worked hard to refresh the space, emphasizing quality food and a more professional service level while retaining some of the eclectic, bohemian charm. It’s the meeting point for travelers from all over the world, offering a raw, unfiltered look at the beauty of Pondoland without the chaotic management of years past. However, 2nd Beach has become a dangerous place to be, especially on weekends, with public drunkeness being the norm, gunshots going off in the early hours, and broken bottles strewn everywhere.</p>
-
-            <p><strong>FINAL VERDICT: Beautiful setting and nice accommodation, and still the liveliest bar in PSJ, but the area itself is <em>too</em> lively for the Backpacker’s Bible to be able to recommend it.</strong></p>
-
-  </div>
-</details>
-
-    </div>
-</section>
-
-
-<!-- ---- 11. JUNGLE MONKEY BACKPACKERS ---- -->
-
-<section class="region-header-section" aria-label="JUNGLE MONKEY BACKPACKERS" id="jungle-monkey-backpackers" style="scroll-margin-top: 120px;">
-    <div class="container-wide-hostels">
-
-        <div class="hostel-card-header">
-        <h2 class="detail-h2">JUNGLE MONKEY BACKPACKERS</h2>
-    </div>
-
-        <div class="detail-p">
-
-            <p><strong>AREA:</strong> First Beach</p>
-
-            <p><strong>STREET ADDRESS:</strong> 3 Berea Road, Port St Johns, 5120</p>
-
-            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="jungle-monkey-backpackers">FIND ON MAP ›</a></p>
-
-            <p><strong>PHONE:</strong> <a href="tel:+27475641517" class="blue-link">+27 47 564 1517</a></p>
-
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27726834595?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 72 683 4595</a></p>
-
-            <p><strong>EMAIL:</strong> <a href="mailto:junglemonkeybp@gmail.com?subject=Contact from BackpackersBible.com" class="blue-link">junglemonkeybp@gmail.com</a></p>
-
-            <p><strong>WEBSITE:</strong> N/A</p>
-
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/junglemonkeybp" target="_blank" class="blue-link">Facebook</a></p>
-
-        </div>
-
-        <div class="booking-btn-container">
-
-            <a href="https://www.booking.com/hotel/za/jungle-monkey-backpackers.html" rel="sponsored" target="_blank" class="btn-booking-com">Booking.com</a>
-
-        </div>
-
-        <div class="detail-p">
-            <p><strong>ACCOMMODATION TYPE:</strong> Multi-level backpackers and lodge. Camping, dorms, safari tents, double/twin rooms. In-town PSJ location — more accessible than the hillside properties.</p>
-            <p><strong>PRICE RANGE:</strong> Budget. Camping from R180; Dorms from R300; Safari tents from R350; Double/twin rooms from R400.</p>
-
-<details>
-<summary>Read More</summary>
-  <div class="expanded-text">
-
-            <p><strong>GOOGLE RATING:</strong> ~4.0 / 5</p>
-            <p><strong>BOOKING.COM RATING:</strong> ~6.9 / 10 ("Pleasant")</p>
-
-            <p><strong>VALUE FOR MONEY RATING: 3 / 5.</strong> The Booking.com 6.9/10 is the lowest on this Wild Coast list, and the pattern in recent reviews suggests inconsistency in maintenance and management attentiveness. The pricing is competitive, and the in-town location is genuinely convenient. Fair value rather than strong value — check the most recent reviews on Booking.com and Hostelworld before booking, as the experience appears to vary significantly depending on current staff.</p>
-
-            <p><strong>VIBE-METER:</strong> 50% In-Town PSJ Social / 30% Budget Traveller Hub / 20% Wild Coast Transit Point. Jungle Monkey is more town-hostel than wilderness retreat — its in-town location makes it the more practical choice for travellers who need ATM access, bus connections, or town amenities without a car. The social atmosphere is present but less defined than Amapondo.</p>
-
-            <p><strong>DECIBEL LEVEL: 3 / 5.</strong> In-town Port St Johns location — more noise than the hillside properties, less than a Long Street-style party hostel.</p>
-
-            <p><strong>KEY AMENITIES:</strong> In-town location (walking distance to PSJ shops, ATMs, restaurants), bar, communal areas, braai, Wi-Fi (better town connectivity than rural Wild Coast properties), laundry. Most convenient PSJ hostel for onward bus connections.</p>
-
-            <p><strong>NEARBY HIGHLIGHTS:</strong> First Beach (10 min walk), PSJ town, all PSJ attractions accessible on foot or short drive.</p>
-
-            <p><strong>SOLO FEMALE FRIENDLINESS: 2 / 5.</strong> Due to the shift in atmosphere and the heavy bar
-focus, solo travelers—particularly females—may find the environment less comfortable than in previous years.</p>
-
-            <p><strong>DIGITAL NOMAD FRIENDLINESS: 3 / 5.</strong> In-town PSJ connectivity is the best available on the northern Wild Coast. Functional Wi-Fi and mobile data. Not a co-working destination but adequate for regular work needs.</p>
-
-            <p><strong>SAFETY RATING: AMBER.</strong> In-town PSJ location. Standard town awareness applies. No specific incident pattern in reviews but the Amber rating reflects the town environment generally.</p>
-
-            <p><strong>MANAGEMENT STYLE:</strong> Independent, staff-managed. The inconsistency in recent reviews suggests variable management attentiveness. Check current reviews before committing.</p>
-
-            <p><strong>EMPLOYMENT ETHICS: NEUTRAL.</strong> Local employment, no adverse reports, no notable positive indicators.</p>
-
-            <p><strong>THE BLURB:</strong> Jungle Monkey was once a cornerstone of the Wild Coast backpacking circuit, but travellers today should be aware that the establishment has entered a very different chapter.
-The sprawling wooden decks and tropical forest setting that made it famous are still there, yet
-the upkeep and general condition of the facilities have declined. Recent visitor reports suggest
-a significant shift in the lodge’s identity; it now functions primarily as a local drinking establishment rather than a dedicated traveller’s hostel. This shift has affected the overall “backpacking” vibe, with communal areas - including the kitchen and dorms - often appearing neglected or run-down. Furthermore, the atmosphere is no
-longer universally welcoming to the traditional international or domestic tourist demographic. The
-bar environment can be exclusionary, and the social culture on-site has become highly localized and, at times, insular. Travellers seeking the classic, inclusive community spirit of a South African backpackers may find the current climate at Jungle Monkey quite jarring. While the private safari tents still offer some of the best mountain views in Port St. Johns, they are situated near a hub that remains loud and boisterous well into
-the early hours. For those who are comfortable with a very “rough-and-ready” environment and
-are mainly looking for a place to drink with locals, it serves its purpose. However, those looking for
-reliability, cleanliness, or a broad social mix are increasingly looking elsewhere in the region. It is
-a place in transition, and currently, that transition is prioritising the local pub scene over the needs
-of the passing traveller.</p>
-
-            <p><strong>FINAL VERDICT: A fading icon that has largely traded its traveller roots for a local bar identity. Manage your expectations accordingly.</strong></p>
-
-  </div>
-</details>
-
-    </div>
-</section>
-
-
-<!-- ---- 12. MTHATHA BACKPACKERS & TOURS ---- -->
-
-<section class="region-header-section" aria-label="MTHATHA BACKPACKERS &amp; TOURS" id="mthatha-backpackers" style="scroll-margin-top: 120px;">
-    <div class="container-wide-hostels">
-
-        <div class="hostel-card-header">
-        <h2 class="detail-h2">MTHATHA BACKPACKERS &amp; TOURS</h2>
-    </div>
-
-        <div class="detail-p">
-
-            <p><strong>AREA:</strong> Mthatha</p>
-
-            <p><strong>STREET ADDRESS:</strong> 12 Aloe Street, Fort Gale, Mthatha, 5099</p>
-
-            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="mthatha-backpackers">FIND ON MAP ›</a></p>
-
-            <p><strong>PHONE:</strong> <a href="tel:+27827860441" class="blue-link">+27 82 786 0441</a></p>
-
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27827860441?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 82 786 0441</a></p>
-
-            <p><strong>EMAIL:</strong> <a href="mailto:mthathabackpackers@telkomsa.net?subject=Contact from BackpackersBible.com" class="blue-link">mthathabackpackers@telkomsa.net</a></p>
-
-            <p><strong>WEBSITE:</strong> www.mthathabackpackers.co.za - insecure connection</p>
-
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/profile.php?id=100063538031792" target="_blank" class="blue-link">Facebook</a></p>
-
-            <p><strong>⚠ MTHATHA SAFETY NOTE:</strong> Mthatha city centre has a documented crime problem. Do not be dropped off at the Mthatha bus or taxi rank, and avoid walking in unfamiliar areas. Mthatha Backpackers is in the Fort Gale suburb — a residential area and significantly safer than the city centre. If arriving by Greyhound, the Greyhound office is in the city centre. Ask the hostel for specific guidance on how to get from your drop-off point to Fort Gale safely before you arrive.</p>
-
-        </div>
-
-        <div class="detail-p">
-            <p><strong>ACCOMMODATION TYPE:</strong> Suburban hostel and guest lodge. Mixed dormitories (2, 3, and 4-bed), private single and double rooms (en-suite available), caravan/static unit, on-site camping.</p>
-            <p><strong>PRICE RANGE:</strong> Budget. Camping from R150; Dorm beds from R260; Private double en-suite from R550.</p>
-
-<details>
-<summary>Read More</summary>
-  <div class="expanded-text">
-
-            <p><strong>GOOGLE RATING:</strong> ~3.9 / 5</p>
-            <p><strong>BOOKING.COM RATING:</strong> N/A</p>
-
-            <p><strong>VALUE FOR MONEY RATING: 3 / 5.</strong> Honest budget pricing for an honest transit hostel. No significant extras, no spectacular setting, no defining character beyond solid and functional. The value is in the utility: Mthatha Backpackers exists to give Wild Coast travellers a safe, managed, affordable overnight in a city that is otherwise genuinely challenging to navigate. At that specific task, it is adequate and well-rated for what it is.</p>
-
-            <p><strong>VIBE-METER:</strong> 70% Transit Hub / 20% Wild Coast Gateway / 10% Mthatha Cultural Base. Mthatha Backpackers does not have a social scene or a defining atmosphere in the way the coastal properties do. It has a 4.1/5 Google rating and a safe address in Fort Gale suburb. The tours arm of the operation is the most distinctive feature: the hostel runs day trips to Mandela's birthplace in Qunu (11km from Mthatha), the Nelson Mandela Museum in Mthatha town, and other Eastern Cape heritage sites. For travellers with an interest in the Mandela heritage, this is the most convenient base in the region.</p>
-
-            <p><strong>DECIBEL LEVEL: 2 / 5.</strong> Fort Gale is a suburban residential area, quieter than the city centre. Standard suburban ambient noise; manageable.</p>
-
-            <p><strong>KEY AMENITIES:</strong> Day tour programme to Mandela heritage sites (Nelson Mandela Museum, Qunu birthplace, Bhunga Building), shuttle coordination to/from N2 for Wild Coast hostel transfers, communal kitchen, Wi-Fi, parking, laundry. The tours programme is the property's most distinctive offering and is well-reviewed.</p>
-
-            <p><strong>NEARBY HIGHLIGHTS:</strong> Nelson Mandela Museum (Mthatha town, 10 min drive), Qunu village — Nelson Mandela's birthplace (11km), Walter Sisulu University campus (Fort Gale area). Mthatha is also the administrative centre for the Wild Coast region and the hub for onward transport to Coffee Bay and Port St Johns.</p>
-
-            <p><strong>SOLO FEMALE FRIENDLINESS: 3 / 5.</strong> The Fort Gale suburban location is significantly safer than the city centre. The hostel's 4.1/5 rating with no specific adverse reports is adequate. The safety briefing above — about arrival procedures and avoiding the city centre — is the most important single piece of practical guidance for any solo female traveller passing through Mthatha. Follow it carefully.</p>
-
-            <p><strong>DIGITAL NOMAD FRIENDLINESS: 3 / 5.</strong> Mthatha has reasonable urban connectivity. Wi-Fi at the hostel. The most functional connectivity of any property on this Wild Coast list.</p>
-
-            <p><strong>SAFETY RATING: AMBER.</strong> Fort Gale is significantly safer than Mthatha city centre but Mthatha's crime profile means the Amber rating applies to the town context. The specific advice: arrive by day, use the hostel's guidance on getting from bus drop-off to Fort Gale, do not walk in the city centre at any time, and do not use the central taxi rank or bus station unaccompanied. Within the Fort Gale suburb and the hostel itself, the risk is substantially lower. The hostel has been operating safely for years.</p>
-
-            <p><strong>MANAGEMENT STYLE:</strong> Long-established owner-managed transit hostel with a tour operation attached. The Nelson Mandela heritage tour programme reflects an owner who has thoughtfully considered what Mthatha has to offer beyond its reputation as a transit problem to be solved.</p>
-
-            <p><strong>EMPLOYMENT ETHICS: NEUTRAL.</strong> Local employment. No adverse reports. The tour programme employs local heritage guides.</p>
-
-            <p><strong>THE BLURB:</strong> Mthatha is the Wild Coast's unavoidable transit city — the place you pass through to get to Coffee Bay or Port St Johns, and the place most travel writers recommend you pass through as quickly as possible. Mthatha Backpackers gives you a reason to stop for a night: it is in Fort Gale suburb rather than the city centre, it runs a genuinely worthwhile day trip to Nelson Mandela's birthplace in Qunu, and it is the only hostel on this list that directly addresses the Mandela heritage that is this region's most significant contribution to South African history. Mandela was born 11km from this hostel, grew up in Qunu, spent 27 years in prison partly because of decisions made in courtrooms in this province, and came home to the Eastern Cape. The museum is good and the hostel gets you there. That is worth a night.</p>
-
-            <p><strong>FINAL VERDICT: The safest and most practical Mthatha overnight option. Use it as a transit base; take the Mandela heritage tour; follow the safety guidance carefully for navigating the city. Do not linger in the city centre.</strong></p>
-
-  </div>
-</details>
-
-    </div>
-</section>
-
-
-
-<!-- ---- 13. LOUIS AT MAGWA ---- -->
-
-<section class="region-header-section" aria-label="LOUIS AT MAGWA FALLS" id="louis-at-magwa" style="scroll-margin-top: 120px;">
-    <div class="container-wide-hostels">
-
-        <div class="hostel-card-header">
-        <h2 class="detail-h2">LOUIS AT MAGWA FALLS</h2>
-    </div>
-
-        <div class="detail-p">
-
-            <p><strong>AREA:</strong> WILD COAST — Gwexintaba Village, Goso State Forest</p>
-
-            <p><strong>STREET ADDRESS:</strong> Gwexintaba Village, KuGwexintaba, Lusikisiki, Eastern Cape</p>
-
-            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="louis-at-magwa">FIND ON MAP ›</a></p>
-
-            <p><strong>PHONE:</strong> <a href="tel:+27832685611" class="blue-link">+27 83 268 5611</a></p>
-
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27832685611?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 83 268 5611</a></p>
-
-            <p><strong>EMAIL:</strong> <a href="mailto:info@louisatmagwafalls.co.za?subject=Contact from BackpackersBible.com" class="blue-link">info@louisatmagwafalls.co.za</a></p>
-
-            <p><strong>WEBSITE:</strong> <a href="https://louisatmagwafalls.co.za" target="_blank" class="blue-link" rel="nofollow">louisatmagwafalls.co.za</a></p>
-
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/louisatmagwafalls" target="_blank" class="blue-link">Facebook</a></p>
-
-        </div>
-
-        <div class="booking-btn-container">
-
-            <a href="https://www.booking.com/hotel/za/louis-at-magwa-falls-lusikisiki.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
-
-        </div>
-
-        <div class="detail-p">
-            <p><strong>ACCOMMODATION TYPE:</strong> Rondavels (traditional huts).</p>
-            <p><strong>PRICE RANGE:</strong> Budget. From ~ZAR350 per person</p>
-
-<details>
-<summary>Read More</summary>
-  <div class="expanded-text">
-
-            <p><strong>GOOGLE RATING:</strong> ~4.9 / 5</p>
-            <p><strong>BOOKING.COM RATING:</strong> ~8.8 / 10 ("Excellent")</p>
-
-
-            <p><strong>VALUE FOR MONEY RATING: 5 / 5.</strong> A private rondavel perched on a plateau ridge above the Goso Forest, with views of rolling Pondoland hills and - on a clear day - the Indian Ocean in the distance, for around ZAR350 per person per night. Three kilometres from a 144-metre waterfall. Access to guided tours with Louis that cover Magwa Falls, Waterfall Bluff, mountain pools, forests, and the old Mdeni village. Louis available on the phone for the approach road to talk you in. Cooking facilities in the rondavel. Campfire at night. The price-to-experience here is, by any measure, extraordinary.</p>
-
-            <p><strong>VIBE-METER:</strong> 65% Off-Grid African Village Immersion / 25% Waterfall & Wilderness Adventure Base / 10% Meditative Rural Retreat.</p>
-
-            <p><strong>DECIBEL LEVEL: 0 / 5.</strong> A village on a plateau at one of  the country's highest waterfalls, off-grid, on the Wild Coast. The sounds are the river, the village, and the birds. There is no bar noise, no generator hum (solar only), and no traffic. One of the most genuinely quiet sleep environments in this entire guide.</p>
-
-            <p><strong>KEY AMENITIES:</strong> Rondavels, camping, semi-off-grid (solar lights, gas fridge, gas stove, rocket shower, composting toilet with forest view, communal self-catering kitchen, rocket stove for warmth on chilly evenings, braai area, guided 4x4 and walking tours, permaculture workshops by arrangement, limited wi-fi, shuttle from Lusikisiki.</p>
-
-            <p><strong>NEARBY HIGHLIGHTS:</strong> Magwa Falls, Waterfall Bluff hike, Mzizangwa Falls, mountain rock pools, Goso State Forest walks.</p>
-
-            <p><strong>SOLO FEMALE FRIENDLINESS: 3.5 / 5.</strong> Louis's personal management - he is present at the property and available by phone throughout the approach - creates a directly accountable and genuinely warm environment. Multiple reviews from solo women describe extended stays and a feeling of complete safety. The Crowned Eagle House, with its en-suite facilities, offers complete privacy for solo female guests who do not want to share bathroom access. The remoteness - 20km from Lusikisiki on a dirt road, limited phone signal inside the village - is the relevant practical consideration rather than any concern about the property. Tell someone outside the area your itinerary before you arrive.</p>
-
-            <p><strong>DIGITAL NOMAD FRIENDLINESS: 1 / 5.</strong> There is wifi and it works for messaging and basic communication. It does not work for a full working day.The plateau above the Goso Forest is not a co-working space. This is a feature of the place and not a failing of it.</p>
-
-            <p><strong>SAFETY RATING: GREEN (property) / AMBER (access & remoteness).</strong> The property is safe and Louis's management is present and reliable. Gwexintaba is a small, tight-knit Mpondo village community with no history of crime against visitors.The AMBER reflects the standard remoteness considerations: the nearest medical facility is in Lusikisik, mobile signal is limited inside the village, and the access road requires preparation.</p>
-
-            <p><strong>MANAGEMENT STYLE:</strong> Louis has been in Gwexintaba since 2006. His son is named Magwa. His permaculture garden is documented across multiple guest reviews as an ongoing community project. His guided tours - described by several guests as the best-guided experience of their South African trip - reflect two decades of intimate knowledge of the area. Reviews describe arriving as strangers and leaving as family. This is a consistent pattern in reviews.</p>
-
-
-            <p><strong>FINAL VERDICT</strong> Perhaps the most "out there" experience in the country. Traditional African culture and one of the country's highest waterfalls - a true hidden gem - at your doorstep. Excellent value for money.</p>
-
-  </div>
-</details>
-
-    </div>
-</section>
-
 
      <!-- Parallax image -->
 
     <div class="strip black"></div>
-<div class="parallax-window" style="background-image: url('/assets/cow_on_beach_wild_coast_desktop.jpg');">
+
+<div class="parallax-window" 
+     style="--bg-desktop: url('/assets/cow_on_beach_wild_coast_desktop.webp'); 
+            --bg-mobile: url('/assets/cow_on_beach_wild_coast_mobile.webp');">
     <div class="parallax-attribution">
-        Photo: Tarryn Elliott
+        MAGWA FALLS - Photo: Tarryn Elliott
     </div>
 </div>
+
+    <div class="strip black"></div>
 
     <!-- Footer start -->
 
@@ -3405,15 +2376,28 @@ window.BB_TIPS = [
 
 <!-- ARIA overrides for mobile menu and accordion are in script-2.js -->
 
-<!-- Map filter buttons -->
+<!-- Map lazy-load + filter buttons -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const filterButtons = document.querySelectorAll('[data-filter]');
-    const mapIframe     = document.querySelector('.sa-hostel-map-iframe');
+    const mapIframe = document.querySelector('.sa-hostel-map-iframe');
     if (!mapIframe) return;
 
-    let iframeReady  = false;
+    let iframeReady = false;
     let pendingFilter = null;
+
+    function wakeUpMap() {
+      if (mapIframe.getAttribute('src') === 'about:blank') {
+        mapIframe.src = mapIframe.getAttribute('data-src');
+        iframeReady = false;
+        const shell = mapIframe.closest('.sa-hostel-map-shell');
+        if (shell) {
+          const poster = shell.querySelector('.sa-hostel-map-poster');
+          const circle = shell.querySelector('.map-overlay-circle');
+          if (poster) poster.style.display = 'none';
+          if (circle) circle.style.display = 'none';
+        }
+      }
+    }
 
     function sendFilter(filterKey) {
       if (iframeReady && mapIframe.contentWindow) {
@@ -3426,7 +2410,6 @@ window.BB_TIPS = [
     mapIframe.addEventListener('load', () => {
       iframeReady = true;
       if (pendingFilter !== null) {
-        // Small delay to let MapLibre finish its own load handler
         setTimeout(() => {
           mapIframe.contentWindow.postMessage({ type: 'BB_FILTER_MAP', filter: pendingFilter }, '*');
           pendingFilter = null;
@@ -3434,16 +2417,26 @@ window.BB_TIPS = [
       }
     });
 
+    // Desktop: auto-load the map immediately (no click required)
+    if (window.innerWidth >= 1024) {
+      wakeUpMap();
+    }
+
+    // Mobile: load on tap of the poster/shell area
+    mapIframe.closest('.sa-hostel-map-shell').addEventListener('click', wakeUpMap, { once: true });
+
+    // Filter buttons (only needed on pages that have them)
+    const filterButtons = document.querySelectorAll('[data-filter]');
     filterButtons.forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
-
-        // Reset all buttons
-        filterButtons.forEach(b => b.classList.remove('map-filter-btn--active'));
-
-        // Highlight clicked button
+        wakeUpMap();
+        filterButtons.forEach(b => {
+          b.classList.remove('map-filter-btn--active');
+          b.setAttribute('aria-pressed', 'false');
+        });
         btn.classList.add('map-filter-btn--active');
-
+        btn.setAttribute('aria-pressed', 'true');
         sendFilter(btn.getAttribute('data-filter'));
       });
     });
@@ -3468,23 +2461,6 @@ src="https://c.statcounter.com/13225228/0/687dc53c/1/"
 alt="Web Analytics"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 <!-- End of Statcounter Code -->
-
-
-<script>
-  /* ── FIND ON MAP — scroll to LibreMap and open hostel popup ── */
-  document.addEventListener('click', function(e) {
-    var link = e.target.closest('.bb-find-on-map');
-    if (!link) return;
-    e.preventDefault();
-    var hostelId = link.dataset.hostel;
-    var mapFrame = document.querySelector('.bb-map-iframe');
-    if (!mapFrame) return;
-    mapFrame.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    setTimeout(function() {
-      mapFrame.contentWindow.postMessage({ type: 'BB_OPEN_HOSTEL', id: hostelId }, '*');
-    }, 600);
-  });
-</script>
 
 </body>
 </html>
