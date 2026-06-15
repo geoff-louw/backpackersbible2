@@ -96,52 +96,6 @@
       width: 100%;
       height: 100%;
     }
-    #map-shield {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      z-index: 999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(0,0,0,0.08);
-    }
-    #map-shield span {
-      background: rgba(0,0,0,0.55);
-      color: #fff;
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-family: 'Century Gothic', sans-serif;
-      font-size: 13px;
-      pointer-events: none;
-    }
-    /* Only show the shield on touch devices */
-    @media (hover: hover) {
-      #map-shield { display: none; }
-    }
-
-.map-shield-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 15px;
-    }
-    
-    .overlay-circle {
-      background: #fff200;
-      color: #000;
-      padding: 15px;
-      border-radius: 50px;
-      text-align: center;
-      font-weight: bold;
-      max-width: 80%;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      font-family: 'Century Gothic', sans-serif;
-      font-weight: bold;
-      border: 2px solid #ffffff;
-    }
-
     /* Accessible visually-hidden utility (screen-reader only).
        Preferred over left:-9999px — avoids scroll side-effects. */
     .sr-only {
@@ -155,14 +109,6 @@
       white-space: nowrap;
       border: 0;
     }
-
-.map-intro-text {
-  display: block;
-  color: #fff;
-  font-size: 16px;
-  line-height: 1.4;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Helps readability over the map */
-}
 
   </style>
 
@@ -179,21 +125,6 @@
 </p>
 
 <main id="map-main" aria-label="South Africa backpacker hostel map">
-
-  <!-- Tap-to-interact overlay — prevents map swallowing scroll on mobile.
-       Hidden automatically on desktop (hover: hover media query above).
-       Dismissed by the user's first tap or keypress on mobile. -->
-  <div
-    id="map-shield"
-    role="button"
-    tabindex="0"
-    aria-label="Tap to interact with the hostel map"
-    aria-describedby="shield-msg"
-  >
-    <div class="map-shield-content">
-      <span id="shield-msg" class="map-intro-text">Tap to interact with map</span>
-    </div>
-  </div>
 
   <!-- Map canvas — MapLibre renders into this element via hostel-map.js -->
   <div
@@ -212,21 +143,6 @@
   </p>
 
 </main>
-
-<script>
-  // Dismiss the shield on first tap OR keyboard activation (Enter / Space)
-  (function () {
-    var shield = document.getElementById('map-shield');
-    function dismiss() { shield.remove(); }
-    shield.addEventListener('click', dismiss, { once: true });
-    shield.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        dismiss();
-      }
-    }, { once: true });
-  }());
-</script>
 
 <script>
   // Read config from URL parameters
