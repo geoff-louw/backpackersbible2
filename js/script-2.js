@@ -865,40 +865,32 @@ document.addEventListener('DOMContentLoaded', function () {
    ============================================================ */
 document.addEventListener("DOMContentLoaded", function() {
   const mapFrames = document.querySelectorAll('.sa-hostel-map-iframe');
-  
+
   mapFrames.forEach(mapFrame => {
-    const container = mapFrame.closest('.sa-hostel-map-shell');
-    const poster = container.querySelector('.sa-hostel-map-poster');
+    const container  = mapFrame.closest('.sa-hostel-map-shell');
+    const poster     = container.querySelector('.sa-hostel-map-poster');
     const overlayCircle = container.querySelector('.map-overlay-circle');
 
-    function wakeUpMap() {
+    function wakeUpMap(hideBadge) {
       if (mapFrame.getAttribute('src') === 'about:blank') {
-        // Inject the real URL to start downloading the heavy map data
         mapFrame.src = mapFrame.getAttribute('data-src');
-        // Hide the poster image and the yellow circle
+        // Always hide the poster — it's replaced by the live map
         if (poster) poster.style.display = 'none';
-        if (overlayCircle) overlayCircle.style.display = 'none';
+        // Only hide the yellow circle if the user triggered the load
+        // (on desktop it stays visible as an informational badge over the map)
+        if (hideBadge && overlayCircle) overlayCircle.style.display = 'none';
       }
     }
 
-    // 1. Desktop: Auto-load the map immediately
+    // 1. Desktop: auto-load immediately; keep the yellow circle visible
     if (window.innerWidth > 768) {
-      wakeUpMap();
-    } 
-    // 2. Mobile: Wait for the user to tap the poster or the circle
+      wakeUpMap(false);
+    }
+    // 2. Mobile: wait for tap; hide circle (it's CSS display:none anyway,
+    //    but belt-and-braces in case a tablet slips through)
     else {
       if (container) container.style.cursor = 'pointer';
-      
-      // Change the text in the yellow circle so it's obviously a button
-      if (overlayCircle) {
-        const textElement = overlayCircle.querySelector('p');
-        if (textElement) textElement.innerHTML = 'Tap to load<br>the interactive map';
-      }
-      
-      // Wake up when anywhere on the poster is tapped
-      if (container) {
-        container.addEventListener('click', wakeUpMap);
-      }
+      container.addEventListener('click', function() { wakeUpMap(true); }, { once: true });
     }
   });
 });
