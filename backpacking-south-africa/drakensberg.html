@@ -8,7 +8,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Backpacking Cederberg: The Coolest, Most Useful Guide Ever!</title>
+<title>Backpacking The Drakensberg: The Coolest, Most Useful Guide Ever!</title>
 
 <meta name="description" content="We tell you what the other sites won’t. Get direct contacts for all the hostels, real-vibe meters, and the most detailed safety warnings in South Africa.">
 
@@ -1178,44 +1178,35 @@
     </div>
 </div>
 
-<section class="sa-hostel-map-shell">
 
-  <!-- SEO + visual poster image -->
+<!-- ░░ HOSTEL MAP ░░ -->
+<section class="sa-hostel-map-shell" id="hostel-map">
+
+  <!-- Poster image: shows before user loads the map -->
   <picture class="sa-hostel-map-poster">
-    <source
-      media="(max-width: 768px)"
-      srcset="/assets/fallback_map_drakensberg_mobile.webp"
-    >
-
-    <img
-      src="/assets/fallback_map_drakensberg.webp"
-      alt="Map showing backpacker hostels in the Drakensberg"
-      width="1600"
-      height="620"
-      fetchpriority="high"
-      decoding="async"
-    >
+    <source media="(max-width: 767px)" srcset="/assets/fallback_map_drakensberg_mobile.webp">
+    <img src="/assets/fallback_map_drakensberg_mobile.webp" 
+         alt="Interactive hostel map of the Drakensberg — click to load"
+         loading="lazy">
   </picture>
 
-  <!-- Interactive map -->
-<iframe
-  src="/map.html?region=drakensberg&center=29.37,-29.35&zoom=9&pitch=75&bearing=330&mobile-center=29.37,-30.22&mobile-zoom=7"
-  width="100%"
-  height="620"
-  class="sa-hostel-map-iframe bb-map-iframe"
-  title="Interactive map of backpacker hostels in the Drakensberg"
-  aria-label="Interactive map of backpacker hostels in the Drakensberg"
-  loading="lazy"
-  referrerpolicy="no-referrer-when-downgrade"
-></iframe>
+  <!-- The map iframe — src is blank until user clicks -->
+  <iframe
+    class="sa-hostel-map-iframe bb-map-iframe"
+    title="Interactive hostel map of the Drakensberg"
+    src="about:blank"
+    data-src="/map.html?region=drakensberg&center=29.37,-29.35&zoom=9&pitch=75&bearing=330&mobile-center=29.37,-30.22&mobile-zoom=7"
+    loading="lazy"
+    allowfullscreen>
+  </iframe>
 
-<div class="map-overlay-circle" 
-     role="note" 
-     aria-label="Map information note">
-  <p>We list ALL the hostels in South Africa! Click the icons for info.</p>
-</div>
+  <!-- Yellow circle: desktop-only info note; mobile: not shown (CSS) -->
+  <div class="map-overlay-circle" aria-hidden="true">
+    We list ALL the hostels<br>in the country!<br>Click the icons for info.
+  </div>
 
 </section>
+<!-- ░░ END HOSTEL MAP ░░ -->
 
      <!-- Tour guide initial -->
 
@@ -1304,9 +1295,9 @@
 <div class="yellow-menu-backdrop"></div>
 
 <nav id="quick-jump-menu" aria-label="Quick section jump menu">
-    <a href="#faq">About</a>
-    <a href="#activities">Activities</a>
-    <a href="#hostels">Hostels</a>
+    <a href="/backpacking-south-africa/drakensberg#faq">About</a>
+    <a href="/backpacking-south-africa/drakensberg#activities">Activities</a>
+    <a href="/south-africa-hostel-directory/drakensberg">Hostels</a>
 </nav>
 
 <div id="page-title-bar" aria-hidden="true">The Drakensberg</div>
@@ -1512,15 +1503,20 @@
   </picture>
 </div>
 
+
      <!-- Parallax image -->
 
     <div class="strip black"></div>
-<div class="parallax-window" style="background-image: url('/assets/backpacking_drakensberg-amphitheatre_view.webp');">
+
+<div class="parallax-window" 
+     style="--bg-desktop: url('/assets/backpacking_drakensberg-amphitheatre_view.webp'); 
+            --bg-mobile: url('/assets/backpacking_drakensberg-amphitheatre_view_mobile.webp');">
     <div class="parallax-attribution" style="z-index: 1; position: absolute;">
         THE AMPHITHEATRE Photo: <a href="https://commons.wikimedia.org/w/index/" target="_blank">Wikimedia Commons</a>
     </div>
 </div>
     <div class="strip black"></div>
+
 
 <!-- ░░ KALAHARI GAME ░░ -->
 <div class="kalahari-game-wrap" role="region" aria-label="Kalahari survival game">
@@ -1915,642 +1911,18 @@ THE DRAKENSBERG
   </nav>
 </section>
 
-
      <!-- Parallax image -->
 
     <div class="strip black"></div>
-<div class="parallax-window" style="background-image: url('/assets/backpacking_drakensberg-san_rock_art.webp');">
+
+<div class="parallax-window" 
+     style="--bg-desktop: url('/assets/backpacking_drakensberg-san_rock_art.webp'); 
+            --bg-mobile: url('/assets/backpacking_drakensberg-san_rock_art_mobile.webp');">
     <div class="parallax-attribution">
         Photo: <a href="https://commons.wikimedia.org/w/index" target="_blank">Wikimedia Commons</a> / -CC -BY -SA-3.0
     </div>
 </div>
-    <div class="strip black"></div>
 
-
-     <!-- Section 3: Hostel Directory -->
-
-
-<span id="hostel-list" style="display:none;" aria-hidden="true"></span>
-<section class="hostel-list-section text-section--after-parallax" id="list-container">
-
-     <!-- Spacer -->
-
-    <div class="container-wide">
-
-
-    <h2 class="area-hero-title area-hero-title--section-gap" id="hostels">Drakensberg Backpackers Hostels</h2>
-
-
-<!-- Drakensberg Map -->
-
-    <img src="../assets/drakensberg_map.webp"
-         alt="Map of the Drakensberg showing the SouthernBerg, Central Berg and Northern Berg, as well as the locations of Tugela Falls, The Amphitheatre and Sani Pass"
-     class="map-3d-image">
-
-
-    <h4 class="sub-heading-desktop">Hostels listed on Booking.com and Hostelworld</h4>
-
-        <div class="booking-btn-container">
-            <a href="https://www.booking.com/hostels/region/za/drakensberg.en-gb.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
-            <a href="https://www.hostelworld.com/hostels/africa/south-africa/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD</a>
-        </div>
-
-
-    <h3 class="section-heading-desktop" id="hostels">All Hostels</h3>
-
-<p class="intro-p">Full contact details are included in case you want to book direct, plus useful info such as Safety Ratings and Value For Money, Solo Female Friendliness, and Digital Nomad scorecards.</p>
-
-    <p class="intro-p">Every listing below is independently researched and unsponsored. We review them all the same way - <br><strong>the hostels do not pay us for advertising.</strong></p>
-
-<p class="intro-p">Did we miss a hostel? Email us at <span class="contact-link-multi"></span> and we'll add it.</p>
-
-
-        <div class="hostel-grid">
-
-            <div class="hostel-col">
-
-                <h2>SOUTHERN BERG</h2>
-                <ul>
-                    <li><a href="#khotso-lodge">KHOTSO LODGE &amp; HORSE TRAILS (Underberg)</a></li>
-
-                    <li><a href="#sani-lodge-backpackers">SANI LODGE BACKPACKERS (Himeville)</a></li>
-
-                </ul>
-
-                <h2>CENTRAL BERG</h2>
-                <ul>
-                    <li><a href="#mountain-base-backpackers">MOUNTAIN BASE BACKPACKERS (Champagne Valley)</a></li>
-
-                </ul>
-            </div>
-
-            <div class="hostel-col">
-                <h2>NORTHERN BERG</h2>
-                <ul>
-                    <li><a href="#berg-backpackers">BERG BACKPACKERS (Winterton)</a></li>
-                    <li><a href="#amphitheatre-backpackers">AMPHITHEATRE BACKPACKERS LODGE (Bergville)</a></li>
-
-                </ul>
-
-                <h2>FREE STATE (CLOSEST TO TUGELA FALLS HIKE)</h2>
-                <ul>
-                    <li><a href="#maluti-backpackers">MALUTI BACKPACKERS (Phuthaditjhaba) ★</a></li>
-                    <li><a href="#karma-backpackers">KARMA BACKPACKERS (Kestell)</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <p class="intro-p" style="margin-top: 30px;"><strong>A note on distances to the Tugela Falls trailhead:</strong> The Sentinel Car Park — start of the Tugela Falls / Amphitheatre hike — is accessed from the Free State side of the mountains via Phuthaditjhaba. It is not accessible directly from the KwaZulu-Natal side. Distances from each hostel to the Sentinel Car Park are noted in each listing.</p>
-
-    </div>
-</section>
-
-
-<!-- ---- 1. KHOTSO LODGE & HORSE TRAILS ---- -->
-
-<section class="region-header-section" aria-label="KHOTSO LODGE &amp; HORSE TRAILS" id="khotso-lodge" style="scroll-margin-top: 120px;">
-    <div class="container-wide-hostels">
-
-        <div class="hostel-card-header">
-        <h2 class="detail-h2">KHOTSO LODGE &amp; HORSE TRAILS</h2>
-    </div>
-
-        <div class="detail-p">
-            <p><strong>AREA:</strong> SOUTHERN BERG — Underberg</p>
-
-            <p><strong>STREET ADDRESS:</strong> Drakensberg Gardens Road, Underberg, 3257</p>
-
-            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="khotso-lodge">FIND ON MAP ›</a></p>
-
-            <p><strong>PHONE:</strong> <a href="tel:+27824125540" class="blue-link">+27 82 412 5540</a></p>
-
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27824125540?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 82 412 5540</a></p>
-
-            <p><strong>EMAIL:</strong> <a href="mailto:info@khotso.co.za?subject=Contact from BackpackersBible.com" class="blue-link">info@khotso.co.za</a></p>
-
-            <p><strong>WEBSITE:</strong> <a href="https://khotso.co.za" target="_blank" class="blue-link" rel="nofollow">khotso.co.za</a></p>
-
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/TeamKhotso" target="_blank" class="blue-link">Facebook</a></p>
-
-
-            <p><strong>DISTANCE TO SENTINEL CAR PARK (Tugela Falls trailhead):</strong> ~175km / approximately 2.5 hours. Khotso is a Southern Berg base — Sani Pass and the Southern Berg hiking network are the primary draw, not the Tugela Falls hike.</p>
-        </div>
-
-        <div class="detail-p">
-            <p><strong>ACCOMMODATION TYPE:</strong> Adventure Farm with Backpackers Lodge, Rondavels, and a large self-catering Log Cabin. Camping available.</p>
-            <p><strong>PRICE RANGE:</strong> Budget to Mid-Range. Camping from R190 per person; Backpacker dorms from R360 per person; Private double/twin (shared bath) from R1,100 per room; En-suite rooms from R1,300; Self-catering rondavels from R1,600 (sleeps 2).</p>
-
-<details>
-<summary>Read More</summary>
-  <div class="expanded-text">
-
-            <p><strong>GOOGLE RATING:</strong> ~4.6 / 5</p>
-            <p><strong>BOOKING.COM RATING:</strong> N/A</p>
-
-            <p><strong>VALUE FOR MONEY RATING: 5 / 5.</strong> Khotso is exceptional value by any measure — not just for the price, but for the sheer depth of what is included. The horse trails through the Drakensberg foothills are Khotso's signature offering and represent one of the finest equestrian experiences in South Africa: multi-day trails into the mountains with Basotho guide ponies, overnight stays at remote campsites, and a perspective on the Southern Berg landscape that no hiking trail can replicate. Day rides run from approximately R600 per person; multi-day trail packages from R1,800 per person per day all-inclusive. On top of this, the farm setting itself — trout dams, indigenous forest walks, birdlife, and views of the Drakensberg escarpment — means you can spend a full day without spending a cent beyond your accommodation. One of the genuinely outstanding-value destinations in the entire Drakensberg.</p>
-
-            <p><strong>VIBE-METER:</strong> 50% Adventure Farm Retreat / 30% Horseback Explorer / 20% Hiking Base. Khotso is not a social party hostel and makes no attempt to be one. The guest community that gathers here is united by a love of horses, mountains, and genuine outdoor experience. The atmosphere is warm, purposeful, and unhurried — conversations at dinner tend to be about tomorrow's trail rather than last night's bar. One of the most distinctive hostel experiences in South Africa.</p>
-
-            <p><strong>DECIBEL LEVEL: 1 / 5.</strong> A working farm in the Drakensberg foothills. The loudest sounds are horses in the early morning and, occasionally, rain on a corrugated iron roof. One of the quietest sleep environments on the entire backpacker circuit.</p>
-
-            <p><strong>KEY AMENITIES:</strong> Multi-day and day horse trails into the Drakensberg (Khotso's defining feature), trout fishing in the farm dams, mountain hiking directly from the property, birdwatching, swimming dam, braai facilities, self-catering kitchen, fire pits, stunning escarpment views, Sani Pass 4x4 tour arrangements (Underberg operators are 20 minutes away), communal lounge with fireplace.</p>
-
-            <p><strong>NEARBY HIGHLIGHTS:</strong> Sani Pass 4x4 tours from Underberg (20 minutes), Drakensberg Gardens Golf Club, Bushman's Nek Border Post into Lesotho (45 minutes — the gentler, less dramatic alternative to Sani Pass, accessible by ordinary vehicle), Himeville Nature Reserve, Vergelegen Wetland, excellent trout fishing rivers throughout the Southern Berg.</p>
-
-            <p><strong>SOLO FEMALE FRIENDLINESS: 4 / 5.</strong> The farm setting and warm management create an inherently safe, community-feel environment. The horse trail activities attract a strong female clientele — multiple reviews from solo women describe feeling genuinely welcomed and at ease. Accommodation units are spread across the farm rather than concentrated in a single building; private rondavels offer complete privacy. The absence of a bar scene and the purposeful outdoor focus make this one of the more comfortable Drakensberg options for solo women travellers.</p>
-
-            <p><strong>DIGITAL NOMAD FRIENDLINESS: 1 / 5.</strong> This is not a work destination and should not be treated as one. Wi-Fi is available but connectivity in the Southern Berg foothills is patchy. The value of Khotso is in disconnecting completely, which it does with great conviction.</p>
-
-            <p><strong>SAFETY RATING: GREEN.</strong> A managed farm property in a rural area with very low crime risk. The Underberg area is one of the safest rural environments in KwaZulu-Natal. The horse trails are led by experienced local guides; safety standards on the trails are well-regarded in reviews.</p>
-
-            <p><strong>MANAGEMENT STYLE:</strong> Owner-managed with a long personal history of horse trail operation in the Southern Berg. The equestrian expertise and the quality of the trail programme reflect decades of accumulated knowledge. Management responsiveness in reviews is consistently praised.</p>
-
-            <p><strong>EMPLOYMENT ETHICS: POSITIVE.</strong> Khotso operates a model that directly employs and supports the Basotho mountain community — the guides on the horse trails are local Basotho men with deep knowledge of the terrain, and the programme is built around their skills rather than importing external expertise. This is ethical employment in the most direct sense: the people with the knowledge get the work and the income.</p>
-
-            <p><strong>THE BLURB:</strong> Khotso means "peace" in Sesotho, and the name is accurate. This is one of those South African backpacker experiences that doesn't fit neatly into any category — it's part farm stay, part adventure operation, part mountain retreat — but what it delivers consistently is a depth of Southern Berg experience that you simply cannot get from a standard dorm bed. The horse trails are the headline, and they genuinely deserve the billing: moving through Drakensberg foothills on a mountain pony, with a Basotho guide who has ridden these valleys his whole life, is a different order of experience from anything available to the standard self-drive tourist. Book the multi-day trail if you can. If not, even a single day ride from the farm will change how you understand this landscape.</p>
-
-            <p><strong>FINAL VERDICT: The best adventure farm experience in the Southern Drakensberg. Essential for horse riders; highly recommended for anyone who wants a genuinely immersive Southern Berg base. One of the best-value, most distinctive hostels in this guide.</strong></p>
-
-  </div>
-</details>
-
-    </div>
-</section>
-
-     <!-- Backpackers tour guide -->
-
-<div id="tip3"></div>
-
-
-<!-- ---- 2. SANI LODGE BACKPACKERS ---- -->
-
-
-<section class="region-header-section" aria-label="SANI LODGE BACKPACKERS" id="sani-lodge-backpackers" style="scroll-margin-top: 120px;">
-    <div class="container-wide-hostels">
-
-        <div class="hostel-card-header">
-        <h2 class="detail-h2">SANI LODGE BACKPACKERS</h2>
-    </div>
-
-        <div class="detail-p">
-            <p><strong>AREA:</strong> SOUTHERN BERG</p>
-
-            <p><strong>STREET ADDRESS:</strong> 10.5km along the Sani Pass Road, Mkhomazana Wilderness Area, Himeville, 3257</p>
-
-            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="sani-lodge-backpackers">FIND ON MAP ›</a></p>
-
-            <p><strong>PHONE:</strong> <a href="tel:+27839873071" class="blue-link">+27 83 987 3071</a></p>
-
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27839873071?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 83 987 3071</a></p>
-
-            <p><strong>EMAIL:</strong> <a href="mailto:info@sanilodge.co.za?subject=Contact from BackpackersBible.com" class="blue-link">info@sanilodge.co.za</a></p>
-
-            <p><strong>WEBSITE:</strong> <a href="https://sanilodge.co.za" target="_blank" class="blue-link" rel="nofollow">sanilodge.co.za</a></p>
-
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/sanilodgeandcottages" target="_blank" class="blue-link">Facebook</a></p>
-
-            <p><strong>DISTANCE TO SENTINEL CAR PARK (Tugela Falls trailhead):</strong> ~165km / approximately 2.5 hours. Sani Lodge is a Southern Berg base — the Sani Pass is the primary draw.</p>
-
-        </div>
-
-        <div class="detail-p">
-            <p><strong>ACCOMMODATION TYPE:</strong> Fair Trade Tourism Certified eco-lodge. Backpacker dorms, private rooms, rondavels (en-suite), and self-catering cottages. Set in indigenous riverine bush 10.5km along the Sani Pass road — mountain and river views from most units.</p>
-            <p><strong>PRICE RANGE:</strong> Budget to Mid-Range. Backpacker dorms from R350–R400 per person; Private double/twin (shared bath) from R950 per room; Standard rondavels (en-suite) from R1,350; Self-catering cottages from R2,000 per night (sleeps 4).</p>
-
-<details>
-<summary>Read More</summary>
-  <div class="expanded-text">
-
-            <p><strong>GOOGLE RATING:</strong> ~4.4 / 5</p>
-            <p><strong>BOOKING.COM RATING:</strong> N/A</p>
-
-            <p><strong>VALUE FOR MONEY RATING: 5 / 5.</strong> Sani Lodge's Fair Trade Tourism certification is not marketing — it reflects a genuine, audited commitment to ethical business practices that directly benefits the surrounding community. The location itself is extraordinary value: 10.5km up the Sani Pass road, with the mountains pressing in on both sides and the Mkhomazana River running past the property. The rondavels and cottages offer a quality of mountain setting that comparable properties charge significantly more for. The guided Sani Pass hike (walking the pass rather than driving it — a completely different and largely unknown experience) is bookable through the lodge. Excellent value at every price point.</p>
-
-            <p><strong>VIBE-METER:</strong> 40% Eco Wilderness Retreat / 35% Sani Pass Adventure Base / 25% Serious Hiking Base. Sani Lodge is the most ethically grounded hostel in the Drakensberg, and this is felt in the atmosphere — guests are here because they care about the mountains, the community, and the experience, rather than because it's the most famous name or the most socially active venue. The vibe is purposeful, warm, and genuinely connected to the landscape it sits in.</p>
-
-            <p><strong>DECIBEL LEVEL: 1 / 5.</strong> You are 10.5km up a mountain pass road. The river runs past the property. The Drakensberg is behind you. This is one of the quietest sleep environments in South Africa.</p>
-
-            <p><strong>KEY AMENITIES:</strong> Fair Trade Tourism certified (independently audited — not self-declared), guided Sani Pass hiking and 4x4 tours booked through the lodge, Mkhomazana River swimming and trout fishing, indigenous garden with mountain views, braai facilities, self-catering kitchen, birdwatching (bearded vulture/lammergeyer territory), guided Southern Berg day hikes, community cultural visits to nearby Basotho villages, communal fireplace lounge, free parking.</p>
-
-            <p><strong>NEARBY HIGHLIGHTS:</strong> Sani Pass (starting 10.5km from the lodge — the most convenient base for the pass in the entire Southern Berg), Himeville Nature Reserve (30 minutes), Khotso Lodge horse trails (30 minutes), Cobham Nature Reserve and its hiking trails (45 minutes), Bushman's Nek border post into Lesotho (1 hour).</p>
-
-            <p><strong>SOLO FEMALE FRIENDLINESS: 5 / 5.</strong> The Fair Trade certification includes specific standards around staff training, guest safety, and inclusive practice. The lodge's remote location — counterintuitively — makes it one of the safer environments in the Drakensberg: the road in is one track, the community is known, and the management is genuinely attentive. Multiple solo female reviewers specifically describe it as the highlight of their South Africa trip. The river valley setting and the quality of the rondavels provide privacy and comfort that a standard dorm cannot. One of our top solo female recommendations in the entire Drakensberg.</p>
-
-            <p><strong>DIGITAL NOMAD FRIENDLINESS: 1 / 5.</strong> Not a work destination. There is a reason you came to the Sani Pass road. It is not to answer emails.</p>
-
-            <p><strong>SAFETY RATING: GREEN.</strong> The Himeville and Underberg area is among the most rural and lowest-crime environments in KwaZulu-Natal. The lodge's position on the Sani Pass access road means that the only traffic is guests and locals who know each other. Fair Trade Tourism certification includes community safety standards. No adverse reports of any kind.</p>
-
-            <p><strong>MANAGEMENT STYLE:</strong> Owner-managed with a deep personal commitment to Fair Trade principles. The certification — which requires independent annual audits across environmental, employment, and community standards — is the most concrete evidence of management values available for any hostel in this guide. Management responses to online reviews are prompt and thoughtful.</p>
-
-            <p><strong>EMPLOYMENT ETHICS: OUTSTANDING.</strong> Fair Trade Tourism certification is the gold standard for ethical hospitality employment in South Africa. It requires living wages (not minimum wage), safe working conditions, equal opportunity hiring, community benefit programmes, and independent verification. Sani Lodge is one of a very small number of backpacker-category properties in South Africa to hold this certification. Staff are drawn from the surrounding Basotho and Zulu communities and include individuals with long-term tenure. The community cultural visit programme returns income directly to village households. This is not box-ticking; it is a business built around the principle that the people who live in these mountains should benefit from travellers coming to see them.</p>
-
-            <p><strong>THE BLURB:</strong> Sani Lodge sits 10.5km up the Sani Pass access road in a river valley between mountains, and it is the most ethically serious hostel in the Drakensberg. Fair Trade Tourism certified, community-embedded, and set in a landscape that is quietly extraordinary — the bearded vultures ride the thermals above the property in the morning, the Mkhomazana River runs cold and clear past the rondavels, and the Sani Pass is visible from the terrace. The guided walking ascent of Sani Pass — which almost nobody knows you can do on foot — starts from the lodge's front gate. This is also the base from which to arrange a stay at the Sani Mountain Lodge at the top, where you can drink a beer at the highest pub in Africa and look back down the pass at the valley you walked up. If you are serious about the Southern Berg and you want to feel good about where your money goes, Sani Lodge is the answer.</p>
-
-            <p><strong>FINAL VERDICT: The finest ethically-run hostel in the Drakensberg, and one of the most beautifully located. The definitive Southern Berg base for the Sani Pass, Fair Trade credentials, and genuine wilderness immersion. Highly recommended without reservation.</strong></p>
-
-  </div>
-</details>
-
-    </div>
-</section>
-
-
-<!-- ---- 3. MOUNTAIN BASE BACKPACKERS ---- -->
-
-<section class="region-header-section" aria-label="MOUNTAIN BASE BACKPACKERS" id="mountain-base-backpackers" style="scroll-margin-top: 120px;">
-    <div class="container-wide-hostels">
-
-        <div class="hostel-card-header">
-        <h2 class="detail-h2">MOUNTAIN BASE BACKPACKERS</h2>
-    </div>
-
-        <div class="detail-p">
-            <p><strong>AREA:</strong> CENTRAL BERG</p>
-
-            <p><strong>STREET ADDRESS:</strong> R600 Cathkin Road, Champagne Valley, Central Drakensberg (adjacent to Dragon Peaks Resort)</p>
-
-            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="mountain-base-backpackers">FIND ON MAP ›</a></p>
-
-            <p><strong>PHONE:</strong> <a href="tel:+27364681031" class="blue-link">+27 36 468 1031</a></p>
-
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27814798195?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 81 479 8195</a></p>
-
-            <p><strong>EMAIL:</strong> <a href="mailto:info@mountainbase.co.za?subject=Contact from BackpackersBible.com" class="blue-link">info@mountainbase.co.za</a></p>
-
-            <p><strong>WEBSITE:</strong> <a href="https://mountainbase.co.za" target="_blank" class="blue-link" rel="nofollow">mountainbase.co.za</a></p>
-
-            <p><strong>DISTANCE TO SENTINEL CAR PARK (Tugela Falls trailhead):</strong> ~120km / approximately 1.5 hours. Central Berg location — Cathedral Peak and Monk's Cowl hiking are the primary draw.</p>
-        </div>
-
-        <div class="detail-p">
-            <p><strong>ACCOMMODATION TYPE:</strong> Adventure backpackers with dorms, private cabins, and en-suite rooms. Formerly part of an airfield operation; revamped as a dedicated backpacker and adventure base in the Champagne Valley.</p>
-            <p><strong>PRICE RANGE:</strong> Very Budget-Friendly. Dorms from R165 (low season) to R220 (high season) per person; Private cabins (shared bath) from R225–R300 per person; En-suite rooms from R295–R400 per person.</p>
-
-<details>
-<summary>Read More</summary>
-  <div class="expanded-text">
-
-            <p><strong>GOOGLE RATING:</strong> ~3.1 / 5</p>
-            <p><strong>BOOKING.COM RATING:</strong>N/A</p>
-
-            <p><strong>VALUE FOR MONEY RATING: 4 / 5.</strong> The lowest dorm prices of any Drakensberg hostel on this list, in the Central Berg's most activity-rich valley. The Champagne Valley / Cathkin Park area has the highest concentration of outdoor activities per square kilometre in the Drakensberg — zip-lining, quad biking, golf, horse riding, white-water tubing, and direct access to Monk's Cowl and Cathedral Peak trails are all within a short drive. At these prices, Mountain Base is an outstanding budget base for the Central Berg.</p>
-
-            <p><strong>VIBE-METER:</strong> 55% Budget Adventure Base / 30% Central Berg Hiking Hub / 15% Groups &amp; Sports Tours. Mountain Base draws a younger, more active crowd than the Southern Berg properties — it has the energy of a place where people arrive in the morning having planned the day's activity and leave in the afternoon having done it. Not a social party hostel in the Long Street sense, but reliably active and sociable.</p>
-
-            <p><strong>DECIBEL LEVEL: 2 / 5.</strong> The Champagne Valley is a valley, not a suburb. Road noise from the R600 is minimal. The property is large and spread out. Occasional group noise from sports tours; otherwise peaceful.</p>
-
-            <p><strong>KEY AMENITIES:</strong> Direct access to Champagne Valley activity corridor (zip-lining, quad biking, horse riding, white-water tubing, golf — all bookable through the property), hiking access to Monk's Cowl Nature Reserve (30 minutes), Cathedral Peak hotel trails (45 minutes), braai facilities, self-catering kitchen, swimming, large outdoor areas, secure parking, group facilities for sports tours.</p>
-
-            <p><strong>NEARBY HIGHLIGHTS:</strong> Monk's Cowl Nature Reserve and hiking (30 minutes), Cathedral Peak Hotel (45 minutes — day visitors welcome, excellent pool and bar), Champagne Castle summit (3,377m — one of the highest peaks in the Drakensberg, serious full-day hike), Didima San Art Centre at Cathedral Peak (45 minutes — the best rock art interpretive facility in the Drakensberg), Giant's Castle lammergeyer feeding station (1 hour in winter).</p>
-
-            <p><strong>SOLO FEMALE FRIENDLINESS: 3 / 5.</strong> An active, outdoor-focused hostel with a good community atmosphere. The activity programme creates natural social groupings that are comfortable for solo travellers. Standard security; no specific female-focused facilities noted. Good for solo women who are confident in an activity-focused backpacker environment.</p>
-
-            <p><strong>DIGITAL NOMAD FRIENDLINESS: 2 / 5.</strong> Wi-Fi available. The Champagne Valley is not a connectivity hub, and that is the point of being here.</p>
-
-            <p><strong>SAFETY RATING: GREEN.</strong> The Cathkin Park / Champagne Valley area is a safe, tourism-focused rural environment. The property is managed and fenced. No adverse safety reports.</p>
-
-            <p><strong>MANAGEMENT STYLE:</strong> Independent, staff-managed. The revamp from the old airfield operation suggests active reinvestment in the property. Review responses are present and professional.</p>
-
-            <p><strong>EMPLOYMENT ETHICS: NEUTRAL.</strong> No adverse reports. Local employment apparent from staff interactions in reviews. No Workaway listings found.</p>
-
-            <p><strong>THE BLURB:</strong> Mountain Base is the budget backpacker's best entry point into the Central Drakensberg — the lowest dorm prices on the list, in the valley that has the most to offer beyond the mountain itself. The Champagne Valley activity corridor running past the front gate covers everything from zip-lining to white-water tubing to golf, and the hiking access to Monk's Cowl and Cathedral Peak is genuinely excellent. It is not the most polished property in this guide, and it does not need to be. It is clean, affordable, well-located, and surrounded by the finest Central Berg landscape in the country. The lammergeyer vultures circle the ridge above the valley most mornings. Bring binoculars.</p>
-
-            <p><strong>FINAL VERDICT: The best budget option in the Central Berg. Outstanding value for hikers and activity-seekers targeting the Champagne Valley and Cathedral Peak area.</strong></p>
-
-  </div>
-</details>
-
-    </div>
-</section>
-
-
-<!-- ---- 4. BERG BACKPACKERS ---- -->
-
-<section class="region-header-section" aria-label="BERG BACKPACKERS" id="berg-backpackers" style="scroll-margin-top: 120px;">
-    <div class="container-wide-hostels">
-
-        <div class="hostel-card-header">
-        <h2 class="detail-h2">BERG BACKPACKERS</h2>
-    </div>
-
-        <div class="detail-p">
-
-            <p><strong>AREA:</strong> NORTHERN BERG — Winterton</p>
-
-            <p><strong>STREET ADDRESS:</strong> Glen Gray Farm, R600, Winterton, 3340</p>
-
-            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="berg-backpackers">FIND ON MAP ›</a></p>
-
-            <p><strong>PHONE:</strong> <a href="tel:+27824003724" class="blue-link">+27 82 400 3724</a></p>
-
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27824003724?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 82 400 3724</a></p>
-
-            <p><strong>EMAIL:</strong> <a href="mailto:info@bergbackpackers.co.za?subject=Contact from BackpackersBible.com" class="blue-link">info@bergbackpackers.co.za</a></p>
-
-            <p><strong>WEBSITE:</strong> <a href="https://www.drakensberg-hikes.co.za" target="_blank" class="blue-link" rel="nofollow">drakensberg-hikes.co.za</a></p>
-
-            <p><strong>DISTANCE TO SENTINEL CAR PARK (Tugela Falls trailhead):</strong> ~90km / approximately 1.5 hours via the R74. Better positioned for the hike than most Central Berg properties, though Maluti Backpackers in Phuthaditjhaba remains the closest and most convenient base.</p>
-        </div>
-
-        <div class="booking-btn-container">
-
-            <a href="https://www.booking.com/hotel/za/berg-backpackers.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
-
-        </div>
-
-        <div class="detail-p">
-            <p><strong>ACCOMMODATION TYPE:</strong> Farm-stay backpackers. Private rooms only — no dormitories. Small, intimate property on a working Drakensberg farm.</p>
-            <p><strong>PRICE RANGE:</strong> Budget. Private double/twin (shared bath) from R500 per room; Family rooms (private bath) from R900 per room.</p>
-
-<details>
-<summary>Read More</summary>
-  <div class="expanded-text">
-
-            <p><strong>VALUE FOR MONEY RATING: 4 / 5.</strong> Private rooms only at dorm-adjacent prices — at R500 for a double room, Berg Backpackers offers exceptional per-person value for couples or friends travelling together. The farm setting provides a level of quiet and space that no dorm hostel can match. No significant extras included, but the price point means they are not necessary.</p>
-
-            <p><strong>VIBE-METER:</strong> 50% Quiet Farm Retreat / 30% Hiking Base / 20% Small Group Explorer. Berg Backpackers is a small, intimate property that draws independent travellers who want a peaceful base rather than a social hostel. The farm atmosphere — cows in the adjacent fields, mountain views across the valley, no bar scene — suits the self-directed hiker perfectly.</p>
-
-            <p><strong>DECIBEL LEVEL: 1 / 5.</strong> A working farm outside Winterton. The quietest property in the Central Berg section of this list.</p>
-
-            <p><strong>KEY AMENITIES:</strong> Farm setting with escarpment views, private room accommodation only (a genuine differentiator at this price), braai facilities, self-catering kitchen, hiking information and local trail maps, Drakensberg Hikes website integration (the owner is connected to the local hiking community and is a useful source of current trail conditions), parking.</p>
-
-            <p><strong>NEARBY HIGHLIGHTS:</strong> The R74 to the Northern Berg and the Sentinel Car Park (90km), Spioenkop Dam Nature Reserve (40 minutes — significant Anglo-Boer War battlefield and good birding), Winterton Museum (local Zulu and settler history), access to both Central and Northern Berg hiking areas.</p>
-
-            <p><strong>SOLO FEMALE FRIENDLINESS: 4 / 5.</strong> A small, quiet farm property with private rooms only — no mixed dorms, no bar scene, and an inherently safe rural environment. The intimate scale of the property means you know who else is staying. Good for solo women who prefer a guesthouse character over a hostel character.</p>
-
-            <p><strong>DIGITAL NOMAD FRIENDLINESS: 2 / 5.</strong> Quiet enough to work; connectivity is limited in the Winterton farming area.</p>
-
-            <p><strong>SAFETY RATING: GREEN.</strong> Rural Winterton farming area. Safe, quiet, no adverse reports.</p>
-
-            <p><strong>MANAGEMENT STYLE:</strong> Small owner-managed farm property. The connection to the Drakensberg Hikes platform suggests an owner who is actively engaged with the hiking community and keeps current on trail conditions — useful practical knowledge for guests.</p>
-
-            <p><strong>EMPLOYMENT ETHICS: NEUTRAL.</strong> Small local operation. No adverse reports.</p>
-
-            <p><strong>THE BLURB:</strong> Berg Backpackers is the Drakensberg's quiet option for those who want a private room at backpacker prices in a genuine farm setting. It is not trying to be a social hub, and that is its strength. The views of the escarpment from the property are excellent, the owner knows the hiking network thoroughly, and the R74 north toward the Sentinel Car Park is within a reasonable morning's drive. A good choice for couples or pairs targeting both the Central and Northern Berg without wanting to pay guesthouse prices for the privilege of a room to themselves.</p>
-
-            <p><strong>FINAL VERDICT: The best-value private room option in the Central Berg. Ideal for couples and pairs who want farm quiet, mountain access, and no dorm compromise.</strong></p>
-
-  </div>
-</details>
-
-    </div>
-</section>
-
-<!-- ---- 5. AMPHITHEATRE BACKPACKERS LODGE ---- -->
-
-<section class="region-header-section" aria-label="AMPHITHEATRE BACKPACKERS LODGE" id="amphitheatre-backpackers" style="scroll-margin-top: 120px;">
-    <div class="container-wide-hostels">
-
-        <div class="hostel-card-header">
-        <h2 class="detail-h2">AMPHITHEATRE BACKPACKERS LODGE</h2>
-        </div>
-        
-<div class="detail-p">
-
-            <p><strong>AREA:</strong> NORTHERN BERG — Bergville</p>
-
-            <p><strong>STREET ADDRESS:</strong> R74, Northern Drakensberg, Bergville, 3350</p>
-
-            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="amphitheatre-backpackers">FIND ON MAP ›</a></p>
-
-            <p><strong>PHONE:</strong> <a href="tel:+27828559767" class="blue-link">+27 82 855 9767</a></p>
-
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27828559767?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 82 855 9767</a></p>
-
-            <p><strong>EMAIL:</strong> <a href="mailto:bookings@amphibackpackers.co.za?subject=Contact from BackpackersBible.com" class="blue-link" rel="nofollow">bookings@amphibackpackers.co.za</a></p>
-
-            <p><strong>WEBSITE:</strong> <a href="https://amphibackpackers.com" target="_blank" class="blue-link">amphibackpackers.com</a></p>
-
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/AmphitheatreBackpackersLodge" target="_blank" class="blue-link">Facebook</a></p>
-
-            <p><strong>DISTANCE TO SENTINEL CAR PARK (Tugela Falls trailhead):</strong> <strong>~160km / approximately 2.5 hours each way.</strong> The Sentinel Car Park is accessed from the Free State side of the mountains via Phuthaditjhaba. From Amphitheatre Backpackers, the road route goes back through Bergville, north to Harrismith, and west through Phuthaditjhaba — there is no direct road across the mountain. This means a 320km round trip on the day of the hike, on top of the 6–8 hour hike itself. Factor this carefully into your planning.</p>
-
-        </div>
-
-        <div class="booking-btn-container">
-
-            <a href="https://www.booking.com/hotel/za/amphitheatre-backpackers-lodge.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
-
-            <a href="https://www.hostelworld.com/hostels/p/316894/amphitheatre-backpackers-lodge/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD</a>
-
-        </div>
-
-        <div class="detail-p">
-            <p><strong>ACCOMMODATION TYPE:</strong> Full-service adventure hostel with dormitories, private rooms (en-suite), safari tents, and camping. Pool, bar, restaurant.</p>
-            <p><strong>PRICE RANGE:</strong> Mid-Range Budget. Camping from R135 per person; Dorms from R295 per person; Private double en-suite from R820–R1,080 per room.</p>
-
-<details>
-<summary>Read More</summary>
-  <div class="expanded-text">
-
-            <p><strong>GOOGLE RATING:</strong> ~4.1 / 5</p>
-            <p><strong>BOOKING.COM RATING:</strong> ~6.3 / 10 ("Pleasant")</p>
-            <p><strong>HOSTELWORLD RATING:</strong> ~9.3 / 10 ("Superb")</p>
-
-            <p><strong>VALUE FOR MONEY RATING: 2 / 5.</strong> The Booking.com score of 6.3/10 — significantly below the average for this guide — reflects a consistent pattern in recent reviews: guests report that the tour and activity packages sold through the hostel are aggressively and repeatedly promoted from the moment of arrival, that the pricing of in-house tours is substantially above what comparable activities cost when booked independently, and that the overall atmosphere prioritises commercial transactions over guest experience. Several reviewers note that attempts to decline tours or ask questions about pricing were met with persistence rather than goodwill. At the price point, and given these consistent reports, the value for money is below what equivalent alternatives in the region offer.</p>
-
-            <p><strong>VIBE-METER:</strong> 50% Commercially Driven Activity Hostel / 30% Social Party Atmosphere / 20% Northern Berg Base. Amphitheatre has a reputation as a lively, social property — the bar and pool area are active, and the hostel draws a party-inclined crowd alongside activity-focused travellers. The social energy is real. The commercial pressure attached to it is also real, and guests should arrive with clear expectations about both.</p>
-
-            <p><strong>DECIBEL LEVEL: 4 / 5.</strong> An active bar, a pool, and a property designed around social and commercial activity. Not a quiet retreat. Evenings here are lively; this is a feature for some guests and a dealbreaker for others.</p>
-
-            <p><strong>KEY AMENITIES:</strong> Swimming pool, bar and restaurant, tour desk (see note below), camping, safari tents, secure parking, Baz Bus stop (one of the very few Drakensberg Baz Bus stops — a genuine advantage for backpackers without a car).</p>
-
-            <p><strong>IMPORTANT NOTE ON TOURS AND GUIDES:</strong> BackpackersBible.com recommends that all guests planning the Tugela Falls hike arrange a qualified, independent guide before arrival — regardless of any advice or offers received at any accommodation. The guides we recommend are listed on our <a href="/backpacking-south-africa/drakensberg#activities" class="blue-link">Drakensberg activities page</a>. Booking your guide independently ensures you are working with a qualified, properly insured professional whose primary loyalty is to your safety, not to a commercial arrangement with your accommodation.</p>
-
-            <p><strong>NEARBY HIGHLIGHTS:</strong> The Royal Natal National Park and Tugela Gorge walks are within a reasonable drive. The Amphitheatre viewpoint (the view of the escarpment face from the valley floor — free, spectacular, no hiking required) is accessible from the R74 near the hostel. Cathedral Peak area is approximately 60km south.</p>
-
-            <p><strong>SOLO FEMALE FRIENDLINESS: 3 / 5.</strong> The active bar and party atmosphere make this a less straightforward recommendation for solo women than the quieter Southern Berg properties. The property has standard security and a staffed reception. The social atmosphere can be a positive for solo travellers who want to meet people quickly; it requires the same situational awareness as any active bar environment after dark.</p>
-
-            <p><strong>DIGITAL NOMAD FRIENDLINESS: 2 / 5.</strong> Wi-Fi available. The hostel's social character makes focused daytime work difficult. The Northern Berg area has limited connectivity.</p>
-
-            <p><strong>SAFETY RATING: AMBER.</strong> The Northern Berg / Bergville area requires the standard rural KwaZulu-Natal awareness. The hostel itself is adequately secured. The Amber rating reflects the commercial pressure described in multiple reviews — specifically, the pattern of guests being guided toward high-margin in-house tour packages rather than receiving independent advice. This is not a physical safety concern but it is a financial one, and it is relevant to guests making decisions about guide hire for the Tugela Falls hike.</p>
-
-            <p><strong>MANAGEMENT STYLE:</strong> Commercially managed, owner-driven revenue model with emphasis on in-house activity sales. The property is well-maintained physically. The management culture, as reflected in reviews, prioritises commercial performance over the kind of guest-first approach visible at Khotso, Sani Lodge, and Maluti.</p>
-
-            <p><strong>EMPLOYMENT ETHICS: NEUTRAL.</strong> Standard local employment. No specific adverse or positive indicators identified beyond the general review pattern.</p>
-
-            <p><strong>THE BLURB:</strong> Amphitheatre Backpackers is the best-known Northern Berg hostel name. The social atmosphere is lively, the setting in the Northern Berg foothills is good, the view of the Amphithatre fantastic, and the pool and bar work well for an active crowd. The consistent pattern in recent reviews — guests feeling commercially pressured around tour bookings from arrival — is documented, and guests should arrive knowing this and having arranged their own guide and activities independently. The 160km distance from the Sentinel Car Park is the other thing nobody tells you in advance: if the Tugela Falls hike is your primary reason for being in the Northern Berg, Maluti Backpackers in Phuthaditjhaba puts you 25km from the trailhead rather than 160km.</p>
-
-            <p><strong>FINAL VERDICT: The Northern Berg's most social hostel. Arrive with your guide booked independently, your activity budget decided, and your expectations calibrated. For the Tugela Falls hike specifically, Maluti Backpackers is the more practical base.</strong></p>
-
-  </div>
-</details>
-
-    </div>
-</section>
-
-
-<!-- ---- 6. KARMA BACKPACKERS ---- -->
-
-<section class="region-header-section" aria-label="KARMA BACKPACKERS" id="karma-backpackers" style="scroll-margin-top: 120px;">
-    <div class="container-wide-hostels">
-
-        <div class="hostel-card-header">
-        <h2 class="detail-h2">KARMA BACKPACKERS</h2>
-    </div>
-
-        <div class="detail-p">
-
-            <p><strong>AREA:</strong> Maluti Mountains</p>
-
-            <p><strong>STREET ADDRESS:</strong> 2 Piet Retief Street, Kestell, Free State, 9860</p>
-
-            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="karma-backpackers">FIND ON MAP ›</a></p>
-
-            <p><strong>PHONE / WHATSAPP:</strong> <a href="tel:+27834423973" class="blue-link">+27 83 442 3973</a></p>
-
-            <p><strong>EMAIL:</strong> <a href="mailto:kestellkarma@gmail.com?subject=Contact from BackpackersBible.com" class="blue-link">kestellkarma@gmail.com</a></p>
-
-            <p><strong>WEBSITE:</strong> <a href="https://www.karmalodge.co.za" target="_blank" class="blue-link" rel="nofollow">karmalodge.co.za</a></p>
-
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/karmabackpackers/" target="_blank" class="blue-link">Facebook</a></p>
-
-        </div>
-
-        <div class="booking-btn-container">
-
-            <a href="https://www.booking.com/hotel/za/karma-backpackers.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
-
-            <a href="https://www.hostelworld.com/hostels/p/27273/karma-backpackers/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD</a>
-        </div>
-
-        <div class="detail-p">
-            <p><strong>ACCOMMODATION TYPE:</strong> Small private guesthouse-style backpackers in the Northern Berg. Mixed dorm, private rooms</p>
-            <p><strong>PRICE RANGE:</strong> Budget to mid-range. Dorms from ~R250, Rooms from ~R550.</p>
-
-<details>
-<summary>Read More</summary>
-  <div class="expanded-text">
-
-            <p><strong>GOOGLE RATING:</strong> ~4.4 / 5</p>
-            <p><strong>BOOKING.COM RATING:</strong> ~8.5 / 10 ("Very Good")</p>
-            <p><strong>HOSTELWORLD RATING:</strong> ~10/ 10 ("Superb")</p>
-
-            <p><strong>VALUE FOR MONEY RATING: 4 / 5.</strong> Standard Northern Berg pricing. Free coffee, jam and vegetables from the hostel's garden (when available / in season).</p>
-
-            <p><strong>VIBE-METER:</strong> 100% Quiet Small-town Retreat / 0% Party. The property presents as a small, quiet guesthouse-style accommodation aimed at hikers visiting the Amphitheatre area. The owners are elderly people who do not like noise.</p>
-
-            <p><strong>DECIBEL LEVEL: 2 / 5.</strong> Small, quiet property in a rural Free State setting.</p>
-
-            <p><strong>KEY AMENITIES:</strong> Standard backpacker facilities. Northern Berg location.</p>
-
-            <p><strong>NEARBY HIGHLIGHTS:</strong> Royal Natal National Park and the Tugela Gorge walks. The Sentinel Car Park trailhead is approximately 60km away — better than Amphitheatre Backpackers but still a meaningful early morning drive before a full day's hiking.</p>
-
-            <p><strong>IMPORTANT NOTE ON GUIDES:</strong> As with all Drakensberg accommodation, BackpackersBible.com recommends arranging your Tugela Falls guide independently before arrival. See the <a href="/backpacking-south-africa/drakensberg#activities" class="blue-link">Drakensberg activities section</a> for our recommended guides. Your guide's qualifications and safety equipment should be confirmed directly with them, not through any third party.</p>
-
-            <p><strong>SOLO FEMALE FRIENDLINESS: 2 / 5.</strong> Small property in a rural setting.</p>
-
-            <p><strong>DIGITAL NOMAD FRIENDLINESS: 1 / 5.</strong> Rural Free State. Not a work environment.</p>
-
-            <p><strong>SAFETY RATING: AMBER.</strong> There have been some incidents of crime in Kestell and burglary of the property. Check whether they still leave their door unlocked at night.</p>
-
-            <p><strong>THE BLURB:</strong> Karma occupies a middle ground in the Northern Berg — closer to the Sentinel Car Park than Amphitheatre Backpackers (60km versus 160km), smaller and quieter in character. For the Tugela Falls hike specifically, it is a more practical base than Amphitheatre if you are already committed to the Northern Berg side of the mountains. The clear recommendation for most hikers, however, remains Maluti Backpackers in Phuthaditjhaba — 25km from the trailhead, on the correct side of the mountain, with the Witsieshoek shuttle accessible from there if you do not have a 4x4.</p>
-
-            <p><strong>FINAL VERDICT: A Free State option at roughly the midpoint between Amphitheatre and the trailhead. Adequate for the area, although there is little or nothing to do in the town of Kestell itself. The Backpacker's Bible experience is that the hostel's reputation for friendliness is more nuanced than reviews from passing travellers would suggest.</strong></p>
-
-  </div>
-</details>
-
-    </div>
-</section>
-
-
-<!-- ---- 7. MALUTI BACKPACKERS ---- -->
-
-<section class="region-header-section" aria-label="MALUTI BACKPACKERS ★" id="maluti-backpackers" style="scroll-margin-top: 120px;">
-    <div class="container-wide-hostels">
-
-        <div class="hostel-card-header">
-        <h2 class="detail-h2">MALUTI BACKPACKERS ★</h2>
-    </div>
-
-        <div class="detail-p">
-
-            <p><strong>AREA:</strong> Phuthaditjhaba</strong></p>
-
-            <p><strong>STREET ADDRESS:</strong> 3232 Nteo Street, Phuthaditjhaba-A, Phuthaditjhaba, 9866, Free State</p>
-
-            <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="maluti-backpackers">FIND ON MAP ›</a></p>
-
-            <p><strong>PHONE:</strong> <a href="tel:+27761934444" class="blue-link">+27 76 193 4444</a></p>
-
-            <p><strong>PHONE / WHATSAPP:</strong> <a href="https://wa.me/27761934444?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 76 193 4444</a></p>
-
-            <p><strong>EMAIL:</strong> <a href="mailto:bookings@malutibackpackers.co.za?subject=Contact from BackpackersBible.com" class="blue-link">bookings@malutibackpackers.co.za</a></p>
-
-            <p><strong>WEBSITE:</strong> N/A</p>
-
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/MalutiBackpackers/" target="_blank" class="blue-link">Facebook</a></p>
-
-            <p><strong>DISTANCE TO SENTINEL CAR PARK (Tugela Falls trailhead):</strong> <strong>~25km / approximately 30 minutes. The closest accommodation of any kind to the start of the Tugela Falls hike.</strong></p>
-
-            <p><strong>DISTANCE TO GOLDEN GATE HIGHLANDS NATIONAL PARK:</strong> ~29km / approximately 30 minutes. Maluti is also the most convenient base for Golden Gate — see our note below.</p>
-
-        </div>
-
-        <div class="booking-btn-container">
-
-            <a href="https://www.booking.com/hotel/za/maluti-backpackers-phuthaditjhaba1.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
-            
-        </div>
-
-        <div class="detail-p">
-            <p><strong>ACCOMMODATION TYPE:</strong> Small, clean guesthouse-style backpackers — more B&amp;B in character than a conventional party hostel, which suits the purpose of the location entirely. Private rooms (most with en-suite), self-catering facilities. On-site minimarket. Free shuttle to the Witsieshoek area (confirm availability when booking).</p>
-            <p><strong>PRICE RANGE:</strong> Budget. Rooms from approximately R850 per room per night.</p>
-
-<details>
-<summary>Read More</summary>
-  <div class="expanded-text">
-
-            <p><strong>GOOGLE RATING:</strong> ~3.9 / 5</p>
-            <p><strong>BOOKING.COM RATING:</strong> ~5.6 / 10 ("Fair")</p>
-
-            <p><strong>VALUE FOR MONEY RATING: 4 / 5.</strong> The lower platform ratings require honest context. Maluti is not a polished tourist hostel — it is a clean, functional, affordable base in Phuthaditjhaba, a QwaQwa township that most tourists pass through at speed without stopping. Some negative reviews reflect cultural discomfort with the town environment rather than any failing of the property itself; others reflect straightforward infrastructure issues (load shedding, basic facilities) that are characteristic of the area. What Maluti offers in return is the single most important thing for anyone doing the Tugela Falls hike: proximity. At 25km from the Sentinel Car Park — compared to 60km from Karma, 90km from Berg Backpackers, 120km from Mountain Base, and 160km from Amphitheatre — Maluti allows you to start the hike at dawn without a punishing predawn drive. On a hike where early starts are essential for weather and lightning safety, this is not a minor advantage. It is potentially a lifesaving one.</p>
-
-            <p><strong>VIBE-METER:</strong> 70% Practical Hiking Base / 20% Cultural Immersion (Phuthaditjhaba / QwaQwa township context) / 10% Budget Traveller Stopover. Maluti does not pretend to offer the social atmosphere of a party hostel or the wilderness romance of Sani Lodge. It offers a clean bed, a hot shower, a minimarket, and 25km between you and the start of the most significant hike in the Drakensberg. For the traveller whose primary purpose is the Tugela Falls hike or Golden Gate, this is exactly the right trade.</p>
-
-            <p><strong>DECIBEL LEVEL: 2 / 5.</strong> An urban township environment — there is ambient town noise, which is different from mountain silence but perfectly manageable. Not a party hostel; the noise is external rather than internal.</p>
-
-            <p><strong>KEY AMENITIES:</strong> Free shuttle service to the Witsieshoek Mountain Lodge area (confirm when booking — essential if you do not have a 4x4 for the Sentinel Car Park access road), on-site minimarket, free Wi-Fi, self-catering kitchen, mountain views toward the Maluti range, proximity to the Basotho Cultural Village (15 minutes — an excellent cultural add-on that provides context for the Basotho communities you will encounter on the Lesotho plateau above the chain ladders), secure parking.</p>
-
-            <p><strong>NEARBY HIGHLIGHTS:</strong></p>
-
-            <p><strong>Tugela Falls / Sentinel Peak hike (25km, 30 minutes):</strong> The primary reason to stay here. The closest backpacker accommodation to the trailhead in South Africa.</p>
-
-            <p><strong>Golden Gate Highlands National Park (29km, 30 minutes):</strong> One of South Africa's most underrated national parks, and a genuinely outstanding add-on to the Tugela Falls hike. Golden Gate's sandstone cliffs catch the afternoon light in shades of amber, orange, and red that give the park its name. The Wodehouse Peak Trail (10km, 4.6/5 on AllTrails) gives panoramic views of both the Golden Gate landscape and back toward the Drakensberg escarpment; the Brandwag Buttress walk is shorter and equally beautiful; the guided Cathedral Cave Trail (book ahead through SANParks) visits a spectacular rock arch with a chain ladder — considerably less alarming than the Tugela chain ladders, with a waterfall pool at the top. Entry approximately R252 per person per day (international). If you are staying at Maluti for the Tugela hike, staying an extra day for Golden Gate adds one of the finest national park experiences in the Free State at minimal additional cost and almost zero additional driving. It is a hidden gem, and Maluti is the obvious base for both.</p>
-
-            <p><strong>Basotho Cultural Village (15 minutes):</strong> A living museum of Basotho culture — traditional architecture across five historical periods, craft demonstrations, and guides who explain the culture and history of the people whose plateau you will be walking on when you climb to the top of the Amphitheatre. Worth two to three hours before your hike day.</p>
-
-            <p><strong>Witsieshoek Mountain Lodge (20 minutes):</strong> The lodge that runs the shuttle to the Sentinel Car Park. Even if you are not staying there, coordinate your shuttle booking with them the day before your hike.</p>
-
-            <p><strong>SOLO FEMALE FRIENDLINESS: 3 / 5.</strong> A township environment requires standard urban awareness — the same approach you would apply in any South African town. Maluti itself is a managed, secure guesthouse property. The main practical note for solo women is that Phuthaditjhaba is not a tourist town, and navigating it for the first time after dark requires care. Arrive in daylight and orientate yourself. The on-site minimarket means you don't need to leave the property in the evening.</p>
-
-            <p><strong>DIGITAL NOMAD FRIENDLINESS: 2 / 5.</strong> Free Wi-Fi available. Phuthaditjhaba has reasonable mobile connectivity. Not a work destination, but functional for a night or two.</p>
-
-            <p><strong>SAFETY RATING: AMBER.</strong> Phuthaditjhaba is a busy QwaQwa township with the associated urban environment. The Amber rating reflects the town context rather than any specific incident at Maluti itself — the property is managed and secure. Standard South African urban precautions apply: keep your car locked and valuables out of sight, don't walk unfamiliar streets after dark, and ask the property staff for current local guidance on arrival. This is not a uniquely risky environment; it is a township, and townships require the same awareness as any South African urban area. The guests who report uncomfortable experiences at Maluti are almost always responding to the town rather than to the property.</p>
-
-            <p><strong>MANAGEMENT STYLE:</strong> Small owner-managed guesthouse. The proprietors understand that their guests are primarily there for the Tugela Falls hike and organise accordingly — shuttle coordination, early breakfast options, and local knowledge about current road and weather conditions on the Sentinel access road are all part of what the property offers.</p>
-
-            <p><strong>EMPLOYMENT ETHICS: POSITIVE.</strong> A locally-owned and locally-staffed property in a township community, with money staying in the community rather than flowing to outside operators. Supporting Maluti directly supports Phuthaditjhaba's small business economy. No adverse employment reports.</p>
-
-            <p><strong>THE BLURB:</strong> Here is the thing that nobody tells you when they point you toward the Northern Berg hostels for the Tugela Falls hike: the hike starts on the other side of the mountain. The Sentinel Car Park is in the Free State, accessed via Phuthaditjhaba, and from the KwaZulu-Natal hostels the road route goes back around the mountain range — 160km from Amphitheatre, 60km from Karma. Maluti Backpackers is 25km from the trailhead. On a hike that requires a dawn start to be off the escarpment before the afternoon electrical storms, this difference is not trivial. It is the difference between leaving your accommodation at 4am versus 6am — and on this hike specifically, that hour could be the difference between a safe summit and a summit in a thunderstorm with an iron ladder under your hands. Maluti is basic. It is clean. It has a minimarket. The staff will help you sort your shuttle. It is 30 minutes from the start of the finest hike in South Africa. And it is 30 minutes from Golden Gate Highlands National Park, which is one of the great undiscovered parks in the country. Stay an extra day. Do both.</p>
-
-            <p><strong>FINAL VERDICT: ★ BackpackersBible.com's recommended base for the Tugela Falls hike. The closest accommodation to the Sentinel Car Park trailhead; also the best base for Golden Gate Highlands National Park. Practical, honest, and community-supporting. The platform ratings do not capture what matters most here: the proximity.</strong></p>
-
-  </div>
-</details>
-
-    </div>
-</section>
-
-     <!-- Parallax image -->
-<section class="desktop-only">
-    <div class="strip black"></div>
-<div class="parallax-window" style="background-image: url('/assets/backpacking_drakensberg-sani_pass.webp');">
-    <div class="parallax-attribution">
-        Photo: <a href="https://commons.wikimedia.org/" target="_blank">Wikimedia Commons</a>
-    </div>
-</section>
 
     <!-- Footer start -->
 
@@ -2820,16 +2192,28 @@ window.BB_TIPS = [
 
 <!-- ARIA overrides for mobile menu and accordion are in script-2.js -->
 
-
-<!-- Map filter buttons -->
+<!-- Map lazy-load + filter buttons -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const filterButtons = document.querySelectorAll('[data-filter]');
-    const mapIframe     = document.querySelector('.sa-hostel-map-iframe');
+    const mapIframe = document.querySelector('.sa-hostel-map-iframe');
     if (!mapIframe) return;
 
-    let iframeReady  = false;
+    let iframeReady = false;
     let pendingFilter = null;
+
+    function wakeUpMap() {
+      if (mapIframe.getAttribute('src') === 'about:blank') {
+        mapIframe.src = mapIframe.getAttribute('data-src');
+        iframeReady = false;
+        const shell = mapIframe.closest('.sa-hostel-map-shell');
+        if (shell) {
+          const poster = shell.querySelector('.sa-hostel-map-poster');
+          const circle = shell.querySelector('.map-overlay-circle');
+          if (poster) poster.style.display = 'none';
+          if (circle) circle.style.display = 'none';
+        }
+      }
+    }
 
     function sendFilter(filterKey) {
       if (iframeReady && mapIframe.contentWindow) {
@@ -2842,7 +2226,6 @@ window.BB_TIPS = [
     mapIframe.addEventListener('load', () => {
       iframeReady = true;
       if (pendingFilter !== null) {
-        // Small delay to let MapLibre finish its own load handler
         setTimeout(() => {
           mapIframe.contentWindow.postMessage({ type: 'BB_FILTER_MAP', filter: pendingFilter }, '*');
           pendingFilter = null;
@@ -2850,16 +2233,26 @@ window.BB_TIPS = [
       }
     });
 
+    // Desktop: auto-load the map immediately (no click required)
+    if (window.innerWidth >= 1024) {
+      wakeUpMap();
+    }
+
+    // Mobile: load on tap of the poster/shell area
+    mapIframe.closest('.sa-hostel-map-shell').addEventListener('click', wakeUpMap, { once: true });
+
+    // Filter buttons (only needed on pages that have them)
+    const filterButtons = document.querySelectorAll('[data-filter]');
     filterButtons.forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
-
-        // Reset all buttons
-        filterButtons.forEach(b => b.classList.remove('map-filter-btn--active'));
-
-        // Highlight clicked button
+        wakeUpMap();
+        filterButtons.forEach(b => {
+          b.classList.remove('map-filter-btn--active');
+          b.setAttribute('aria-pressed', 'false');
+        });
         btn.classList.add('map-filter-btn--active');
-
+        btn.setAttribute('aria-pressed', 'true');
         sendFilter(btn.getAttribute('data-filter'));
       });
     });
