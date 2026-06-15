@@ -3167,28 +3167,14 @@ window.BB_TIPS = [
 <!-- ARIA overrides for mobile menu and accordion are in script-2.js -->
 
 
-<!-- Map lazy-load + filter buttons -->
+<!-- Map filter buttons + postMessage -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const mapIframe = document.querySelector('.sa-hostel-map-iframe');
     if (!mapIframe) return;
 
-    let iframeReady = false;
+    let iframeReady  = false;
     let pendingFilter = null;
-
-    function wakeUpMap() {
-      if (mapIframe.getAttribute('src') === 'about:blank') {
-        mapIframe.src = mapIframe.getAttribute('data-src');
-        iframeReady = false;
-        const shell = mapIframe.closest('.sa-hostel-map-shell');
-        if (shell) {
-          const poster = shell.querySelector('.sa-hostel-map-poster');
-          const circle = shell.querySelector('.map-overlay-circle');
-          if (poster) poster.style.display = 'none';
-          if (circle) circle.style.display = 'none';
-        }
-      }
-    }
 
     function sendFilter(filterKey) {
       if (iframeReady && mapIframe.contentWindow) {
@@ -3208,20 +3194,11 @@ window.BB_TIPS = [
       }
     });
 
-    // Desktop: auto-load the map immediately (no click required)
-    if (window.innerWidth >= 1024) {
-      wakeUpMap();
-    }
-
-    // Mobile: load on tap of the poster/shell area
-    mapIframe.closest('.sa-hostel-map-shell').addEventListener('click', wakeUpMap, { once: true });
-
-    // Filter buttons (only needed on pages that have them)
+    // Filter buttons
     const filterButtons = document.querySelectorAll('[data-filter]');
     filterButtons.forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
-        wakeUpMap();
         filterButtons.forEach(b => {
           b.classList.remove('map-filter-btn--active');
           b.setAttribute('aria-pressed', 'false');
