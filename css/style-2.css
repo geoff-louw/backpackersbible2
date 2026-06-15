@@ -3372,6 +3372,11 @@ img.bb-marker-icon {
   height: 100%;
 }
 
+.sa-hostel-map-poster {
+  z-index: 3; /* Must sit above the iframe (z-index: 2) so taps reach it */
+  cursor: pointer;
+}
+
 .sa-hostel-map-poster img {
   object-fit: cover;
   display: block;
@@ -3865,13 +3870,16 @@ img.bb-marker-icon {
         width: 110px;
         height: 110px;
         font-size: 11px;
-        top: 50px;
-        right: 5px;
-        padding: 20px 10px 10px 10px;
-display: none !important;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        padding: 10px;
+        pointer-events: auto; /* Tappable on mobile — it's the load CTA */
+        z-index: 10; /* Above the poster (z-index: 3) */
+        cursor: pointer;
     }
 
-    /* When the map container becomes active on mobile, fade out the yellow circle */
+    /* After the map loads, fade the circle out */
     .map-container.map-active .map-overlay-circle {
         opacity: 0;
         visibility: hidden;
