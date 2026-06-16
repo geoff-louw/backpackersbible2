@@ -3372,11 +3372,6 @@ img.bb-marker-icon {
   height: 100%;
 }
 
-.sa-hostel-map-poster {
-  z-index: 3; /* Must sit above the iframe (z-index: 2) so taps reach it */
-  cursor: pointer;
-}
-
 .sa-hostel-map-poster img {
   object-fit: cover;
   display: block;
@@ -3841,11 +3836,11 @@ img.bb-marker-icon {
 
 .map-overlay-circle {
     position: absolute;
-    top: 60px;
-    right: 70px;
+    top: 60px; /* Adjust distance from top */
+    right: 70px; /* Adjust distance from right edge */
     width: 170px;
     height: 170px;
-    background-color: #fff200;
+    background-color: #fff200; /* Matches your site's yellow theme */
     color: #000;
     border-radius: 50%;
     display: flex;
@@ -3858,28 +3853,25 @@ img.bb-marker-icon {
     padding: 15px;
     box-sizing: border-box;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.9);
-    z-index: 10;
-    pointer-events: none; /* Desktop: click through to the map */
+    z-index: 10; /* Ensures it sits above the map */
+    pointer-events: none; /* CRITICAL: Lets users click "through" the circle onto the map */
     border: 3px solid #fff;
-    transition: opacity 0.25s ease, visibility 0.25s ease;
+    transition: opacity 0.25s ease, visibility 0.25s ease; /* Smooth fadeout */
 }
 
 /* --- Mobile Responsiveness & Behaviour --- */
 @media (max-width: 767px) {
     .map-overlay-circle {
-        width: 130px;
-        height: 130px;
-        font-size: 12px;
-        padding: 15px;
-        top: 50%;
-        left: 50%;
-        right: auto;
-        transform: translate(-50%, -50%);
-        pointer-events: auto; /* Mobile: tapping the circle loads the map */
-        cursor: pointer;
+        width: 110px;
+        height: 110px;
+        font-size: 11px;
+        top: 50px;
+        right: 5px;
+        padding: 20px 10px 10px 10px;
+display: none !important;
     }
 
-    /* After the map loads, fade the circle out */
+    /* When the map container becomes active on mobile, fade out the yellow circle */
     .map-container.map-active .map-overlay-circle {
         opacity: 0;
         visibility: hidden;
@@ -4548,4 +4540,61 @@ img.bb-marker-icon {
   .kalahari-game-wrap {
     display: block; /* Only visible on desktop */
   }
+}
+
+
+/* ============================================================
+   38. BREADCRUMB
+   Sits between the site header and <main>. Uses schema.org
+   BreadcrumbList markup inline via itemscope/itemprop.
+   ============================================================ */
+
+.breadcrumb {
+  background-color: var(--color-red-dark);
+  padding: 7px 16px;
+}
+
+.breadcrumb__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
+  font-family: var(--font-primary);
+  font-size: 12px;
+}
+
+.breadcrumb__item {
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* Chevron separator — inserted before every item except the first */
+.breadcrumb__item + .breadcrumb__item::before {
+  content: '›';
+  margin: 0 6px;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 14px;
+  line-height: 1;
+}
+
+.breadcrumb__link {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.breadcrumb__link:hover,
+.breadcrumb__link:focus {
+  color: var(--color-yellow);
+  text-decoration: underline;
+}
+
+/* Current page — no link, slightly brighter so it reads as the destination */
+.breadcrumb__item--current {
+  color: var(--color-yellow);
+  font-weight: bold;
 }
