@@ -42,6 +42,7 @@
    35. Sitemap styles
    36. Compass styles
    37. KALAHARI GAME — DESKTOP ONLY
+   38. my maps itinerary pages
    ============================================================ */
 
 
@@ -4548,4 +4549,31 @@ img.bb-marker-icon {
   .kalahari-game-wrap {
     display: block; /* Only visible on desktop */
   }
+}
+
+
+/* ============================================================
+   38. My Maps Itinerary page load on click
+   ============================================================ */
+
+
+.map-placeholder {
+    position: relative;
+}
+
+.map-placeholder picture,
+.map-placeholder img {
+    display: block;
+    width: 100%;
+}
+
+.load-map-btn {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
 }
