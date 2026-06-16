@@ -452,6 +452,83 @@
 
 </section>
 
+
+
+
+
+
+
+<!-- Map Libre start -->
+
+<div class="header-spacer" aria-hidden="true"></div>
+
+<main id="main-content">
+
+<!-- Map description -->
+<div class="map-description">
+  <span class="map-description__label">Backpacking South Africa:</span>
+  <span class="map-description__text">Use our interactive 3D map to find all the backpackers hostels on Route 62, with their full contact details and comprehensive reviews.</span>
+</div>
+
+  <!-- Map filter buttons -->
+
+<div class="map-filter-bar">
+    <div class="map-filter-bar__scroll">
+        <div class="map-filter-bar__row" role="toolbar" aria-label="Filter hostels by category">
+
+            <a href="#" class="map-filter-btn map-filter-btn--active" style="background-color: #ffd400; color: #000000;" data-filter="all" aria-pressed="true"  aria-label="Show all hostels">★ All Hostels</a>
+            <a href="#" class="map-filter-btn" style="background-color: #b01c22;"                       data-filter="is_best_overall"  aria-pressed="false" aria-label="Filter: Best Overall">Top Picks</a>
+            <a href="#" class="map-filter-btn" style="background-color: #9b1268;"                       data-filter="is_party"         aria-pressed="false" aria-label="Filter: Best Parties">Best Parties</a>
+            <a href="#" class="map-filter-btn" style="background-color: #5a2d9c;"                       data-filter="is_value"         aria-pressed="false" aria-label="Filter: Best Value">Best Value</a>
+            <a href="#" class="map-filter-btn" style="background-color: #0d7a8a;"                       data-filter="is_chill"         aria-pressed="false" aria-label="Filter: Chill Vibes">Chill Vibes</a>
+            <a href="#" class="map-filter-btn" style="background-color: #ffc107; color: #000000;"       data-filter="is_solo_women"    aria-pressed="false" aria-label="Filter: Best for Solo Women">Best for Solo Women</a>
+            <a href="#" class="map-filter-btn" style="background-color: #1a6e32;"                       data-filter="is_digital_nomad" aria-pressed="false" aria-label="Filter: Digital Nomads">Digital Nomads</a>
+            <a href="#" class="map-filter-btn" style="background-color: #b85400;"                       data-filter="is_surfer"        aria-pressed="false" aria-label="Filter: Surfers">Surfers</a>
+            <a href="#" class="map-filter-btn" style="background-color: #0f7a5a;"                       data-filter="is_safety"        aria-pressed="false" aria-label="Filter: Safest">Safest</a>
+            <a href="#" class="map-filter-btn" style="background-color: #0047d4;"                       data-filter="is_amenities"     aria-pressed="false" aria-label="Filter: Best Amenities">Best Amenities</a>
+            <a href="#" class="map-filter-btn" style="background-color: #5c3a1e;"                       data-filter="is_ethical"       aria-pressed="false" aria-label="Filter: Most Ethical">Most Ethical</a>
+            <a href="#" class="map-filter-btn" style="background-color: #7a0026;"                       data-filter="is_adventure"     aria-pressed="false" aria-label="Filter: Adventure">Adventure</a>
+            <a href="#" class="map-filter-btn" style="background-color: #2d5a1b;"                       data-filter="is_nature"        aria-pressed="false" aria-label="Filter: Best for Nature">Best for Nature</a>
+            <a href="#" class="map-filter-btn" style="background-color: #8a4a00;"                       data-filter="is_cultural"      aria-pressed="false" aria-label="Filter: Best African Culture">Best African Culture</a>
+            <a href="#" class="map-filter-btn" style="background-color: #1a3a6b;"                       data-filter="is_cheapest"      aria-pressed="false" aria-label="Filter: Cheapest">Cheapest</a>
+            <a href="#" class="map-filter-btn" style="background-color: #3d2b6b;"                       data-filter="is_camping"       aria-pressed="false" aria-label="Filter: Camping">Camping</a>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- ░░ HOSTEL MAP ░░ -->
+<section class="sa-hostel-map-shell" id="hostel-map">
+
+  <!-- Poster image: shows before user loads the map -->
+  <picture class="sa-hostel-map-poster">
+    <source media="(max-width: 767px)" srcset="/assets/fallback_map_route-62_mobile.webp">
+    <img src="/assets/fallback_map_route-62.webp" 
+         alt="Interactive hostel map of Route 62 — tap to load"
+         loading="eager"
+         fetchpriority="high"
+         decoding="async">
+  </picture>
+
+  <!-- The map iframe — src is blank until user clicks -->
+  <iframe
+    class="sa-hostel-map-iframe bb-map-iframe"
+    title="Interactive hostel map of Route 62"
+    src="about:blank"
+    data-src="/map.html?region=route-62&center=22.5,-34.0&zoom=8&pitch=45&bearing=0&mobile-center=20.16,-34.87&mobile-zoom=7"
+    loading="lazy"
+    allowfullscreen>
+  </iframe>
+
+  <!-- Yellow circle: desktop-only info note; mobile: not shown (CSS) -->
+  <div class="map-overlay-circle" aria-hidden="true">
+    We list ALL the hostels<br>in the country!<br>Click the icons for info.
+  </div>
+
+</section>
+<!-- ░░ END HOSTEL MAP ░░ -->
+
      <!-- Tour guide initial -->
 
 <div id="ma">
@@ -1865,15 +1942,28 @@ window.BB_TIPS = [
 
 <!-- ARIA overrides for mobile menu and accordion are in script-2.js -->
 
-<!-- Map filter buttons -->
+<!-- Map lazy-load + filter buttons -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const filterButtons = document.querySelectorAll('[data-filter]');
-    const mapIframe     = document.querySelector('.sa-hostel-map-iframe');
+    const mapIframe = document.querySelector('.sa-hostel-map-iframe');
     if (!mapIframe) return;
 
-    let iframeReady  = false;
+    let iframeReady = false;
     let pendingFilter = null;
+
+    function wakeUpMap() {
+      if (mapIframe.getAttribute('src') === 'about:blank') {
+        mapIframe.src = mapIframe.getAttribute('data-src');
+        iframeReady = false;
+        const shell = mapIframe.closest('.sa-hostel-map-shell');
+        if (shell) {
+          const poster = shell.querySelector('.sa-hostel-map-poster');
+          const circle = shell.querySelector('.map-overlay-circle');
+          if (poster) poster.style.display = 'none';
+          if (circle) circle.style.display = 'none';
+        }
+      }
+    }
 
     function sendFilter(filterKey) {
       if (iframeReady && mapIframe.contentWindow) {
@@ -1886,7 +1976,6 @@ window.BB_TIPS = [
     mapIframe.addEventListener('load', () => {
       iframeReady = true;
       if (pendingFilter !== null) {
-        // Small delay to let MapLibre finish its own load handler
         setTimeout(() => {
           mapIframe.contentWindow.postMessage({ type: 'BB_FILTER_MAP', filter: pendingFilter }, '*');
           pendingFilter = null;
@@ -1894,22 +1983,31 @@ window.BB_TIPS = [
       }
     });
 
+    // Desktop: auto-load the map immediately (no click required)
+    if (window.innerWidth >= 1024) {
+      wakeUpMap();
+    }
+
+    // Mobile: load on tap of the poster/shell area
+    mapIframe.closest('.sa-hostel-map-shell').addEventListener('click', wakeUpMap, { once: true });
+
+    // Filter buttons (only needed on pages that have them)
+    const filterButtons = document.querySelectorAll('[data-filter]');
     filterButtons.forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
-
-        // Reset all buttons
-        filterButtons.forEach(b => b.classList.remove('map-filter-btn--active'));
-
-        // Highlight clicked button
+        wakeUpMap();
+        filterButtons.forEach(b => {
+          b.classList.remove('map-filter-btn--active');
+          b.setAttribute('aria-pressed', 'false');
+        });
         btn.classList.add('map-filter-btn--active');
-
+        btn.setAttribute('aria-pressed', 'true');
         sendFilter(btn.getAttribute('data-filter'));
       });
     });
   });
 </script>
-
 
 <!-- Default Statcounter code for Backpackers Bible
 https://www.backpackersbible.com/ -->

@@ -414,44 +414,37 @@
     </div>
 </div>
 
-<section class="sa-hostel-map-shell">
 
-  <!-- SEO + visual poster image -->
+<!-- ░░ HOSTEL MAP ░░ -->
+<section class="sa-hostel-map-shell" id="hostel-map">
+
+  <!-- Poster image: shows before user loads the map -->
   <picture class="sa-hostel-map-poster">
-    <source
-      media="(max-width: 768px)"
-      srcset="/assets/fallback_map_north-coast_mobile.webp"
-    >
-
-    <img
-      src="/assets/fallback_map_north-coast.webp"
-      alt="Map showing backpacker hostels on the KwaZulu-Natal North Coast"
-      width="1600"
-      height="620"
-      fetchpriority="high"
-      decoding="async"
-    >
+    <source media="(max-width: 767px)" srcset="/assets/fallback_map_north-coast_mobile.webp">
+    <img src="/assets/fallback_map_north-coast.webp" 
+         alt="Interactive hostel map of the KwaZulu-Natal North Coast — tap to load"
+         loading="eager"
+         fetchpriority="high"
+         decoding="async">
   </picture>
 
-  <!-- Interactive map -->
-<iframe
-  src="/map.html?region=north-coast&center=31.18,-29.58&zoom=10&pitch=80&bearing=40&mobile-center=31.19,-29.89&mobile-zoom=7"
-  width="100%"
-  height="620"
-  class="sa-hostel-map-iframe bb-map-iframe"
-  title="Interactive map of backpacker hostels on the KwaZulu-Natal North Coast"
-  aria-label="Interactive map of backpacker hostels on the KwaZulu-Natal North Coast"
-  loading="lazy"
-  referrerpolicy="no-referrer-when-downgrade"
-></iframe>
+  <!-- The map iframe — src is blank until user clicks -->
+  <iframe
+    class="sa-hostel-map-iframe bb-map-iframe"
+    title="Interactive hostel map of the KwaZulu-Natal North Coast"
+    src="about:blank"
+    data-src="/map.html?region=north-coast&center=31.18,-29.58&zoom=10&pitch=80&bearing=40&mobile-center=31.19,-29.89&mobile-zoom=7"
+    loading="lazy"
+    allowfullscreen>
+  </iframe>
 
-<div class="map-overlay-circle" 
-     role="note" 
-     aria-label="Map information note">
-  <p>We list ALL the hostels in South Africa! Click the icons for info.</p>
-</div>
+  <!-- Yellow circle: desktop-only info note; mobile: not shown (CSS) -->
+  <div class="map-overlay-circle" aria-hidden="true">
+    We list ALL the hostels<br>in the country!<br>Click the icons for info.
+  </div>
 
 </section>
+<!-- ░░ END HOSTEL MAP ░░ -->
 
 
      <!-- Tour guide initial -->
@@ -1397,15 +1390,28 @@ window.BB_TIPS = [
 
 <!-- ARIA overrides for mobile menu and accordion are in script-2.js -->
 
-<!-- Map filter buttons -->
+<!-- Map lazy-load + filter buttons -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const filterButtons = document.querySelectorAll('[data-filter]');
-    const mapIframe     = document.querySelector('.sa-hostel-map-iframe');
+    const mapIframe = document.querySelector('.sa-hostel-map-iframe');
     if (!mapIframe) return;
 
-    let iframeReady  = false;
+    let iframeReady = false;
     let pendingFilter = null;
+
+    function wakeUpMap() {
+      if (mapIframe.getAttribute('src') === 'about:blank') {
+        mapIframe.src = mapIframe.getAttribute('data-src');
+        iframeReady = false;
+        const shell = mapIframe.closest('.sa-hostel-map-shell');
+        if (shell) {
+          const poster = shell.querySelector('.sa-hostel-map-poster');
+          const circle = shell.querySelector('.map-overlay-circle');
+          if (poster) poster.style.display = 'none';
+          if (circle) circle.style.display = 'none';
+        }
+      }
+    }
 
     function sendFilter(filterKey) {
       if (iframeReady && mapIframe.contentWindow) {
@@ -1418,7 +1424,6 @@ window.BB_TIPS = [
     mapIframe.addEventListener('load', () => {
       iframeReady = true;
       if (pendingFilter !== null) {
-        // Small delay to let MapLibre finish its own load handler
         setTimeout(() => {
           mapIframe.contentWindow.postMessage({ type: 'BB_FILTER_MAP', filter: pendingFilter }, '*');
           pendingFilter = null;
@@ -1426,22 +1431,31 @@ window.BB_TIPS = [
       }
     });
 
+    // Desktop: auto-load the map immediately (no click required)
+    if (window.innerWidth >= 1024) {
+      wakeUpMap();
+    }
+
+    // Mobile: load on tap of the poster/shell area
+    mapIframe.closest('.sa-hostel-map-shell').addEventListener('click', wakeUpMap, { once: true });
+
+    // Filter buttons (only needed on pages that have them)
+    const filterButtons = document.querySelectorAll('[data-filter]');
     filterButtons.forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
-
-        // Reset all buttons
-        filterButtons.forEach(b => b.classList.remove('map-filter-btn--active'));
-
-        // Highlight clicked button
+        wakeUpMap();
+        filterButtons.forEach(b => {
+          b.classList.remove('map-filter-btn--active');
+          b.setAttribute('aria-pressed', 'false');
+        });
         btn.classList.add('map-filter-btn--active');
-
+        btn.setAttribute('aria-pressed', 'true');
         sendFilter(btn.getAttribute('data-filter'));
       });
     });
   });
 </script>
-
 
 <!-- Default Statcounter code for Backpackers Bible
 https://www.backpackersbible.com/ -->
