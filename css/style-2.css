@@ -4545,13 +4545,12 @@ display: none !important;
 
 /* ============================================================
    38. BREADCRUMB
-   Sits between the site header and <main>. Uses schema.org
-   BreadcrumbList markup inline via itemscope/itemprop.
+   Sits at the top of the fixed site header, above the nav bar.
+   Uses .blue-link for the linked items (site convention).
    ============================================================ */
 
 .breadcrumb {
-  background-color: var(--color-red-dark);
-  padding: 7px 16px;
+  padding: 4px 16px;
 }
 
 .breadcrumb__list {
@@ -4561,40 +4560,24 @@ display: none !important;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0;
   font-family: var(--font-primary);
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .breadcrumb__item {
   display: flex;
   align-items: center;
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(255, 255, 255, 0.7);
 }
 
-/* Chevron separator — inserted before every item except the first */
+/* Chevron separator between items */
 .breadcrumb__item + .breadcrumb__item::before {
   content: '›';
-  margin: 0 6px;
+  margin: 0 5px;
   color: rgba(255, 255, 255, 0.4);
-  font-size: 14px;
-  line-height: 1;
 }
 
-.breadcrumb__link {
-  color: rgba(255, 255, 255, 0.75);
-  text-decoration: none;
-  transition: color 0.15s ease;
-}
-
-.breadcrumb__link:hover,
-.breadcrumb__link:focus {
-  color: var(--color-yellow);
-  text-decoration: underline;
-}
-
-/* Current page — no link, slightly brighter so it reads as the destination */
-.breadcrumb__item--current {
-  color: var(--color-yellow);
-  font-weight: bold;
+/* Current page — plain text, no link */
+.breadcrumb__item--current span {
+  color: rgba(255, 255, 255, 0.9);
 }
