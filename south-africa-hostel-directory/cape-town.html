@@ -419,9 +419,11 @@
   <!-- Poster image: shows before user loads the map -->
   <picture class="sa-hostel-map-poster">
     <source media="(max-width: 767px)" srcset="/assets/fallback_map_cape-town_mobile.webp">
-    <img src="/assets/fallback_map_cape-town.webp" 
-         alt="Interactive hostel map of Cape Town — click to load"
-         loading="lazy">
+    <img src="/assets/fallback_map_cape-town.webp"
+         alt="Interactive hostel map of Cape Town — tap to load"
+         loading="eager"
+         fetchpriority="high"
+         decoding="async">
   </picture>
 
   <!-- The map iframe — src is blank until user clicks -->
@@ -560,8 +562,8 @@
     <h4 class="sub-heading-desktop">Hostels listed on Booking.com and Hostelworld</h4>
 
         <div class="booking-btn-container">
-            <a href="https://www.booking.com/hostels/city/za/cape-town-za.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
-            <a href="https://www.hostelworld.com/hostels/africa/south-africa/cape-town/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD</a>
+            <a href="https://www.booking.com/hostels/city/za/cape-town-za.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span><span class="sr-only"> (opens in a new tab)</span></a>
+            <a href="https://www.hostelworld.com/hostels/africa/south-africa/cape-town/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD<span class="sr-only"> (opens in a new tab)</span></a>
         </div>
 
     <h3 class="section-heading-desktop" id="hostels">All Hostels</h3>
@@ -655,20 +657,20 @@
 
             <p><strong>PHONE:</strong> <a href="tel:+27105900210" class="blue-link">+27 10 590 0210</a></p>
 
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27604884746?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 60 488 4746</a></p>
+            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27604884746?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 60 488 4746<span class="sr-only"> (opens in a new tab)</span></a></p>
 
             <p><strong>EMAIL:</strong> <a href="mailto:stay@curiocity.africa?subject=Contact%20from%20BackpackersBible.com" class="blue-link">stay@curiocity.africa</a></p>
 
-            <p><strong>WEBSITE:</strong> <a href="https://curiocity.africa/curiocity-kloof-street/" target="_blank" class="blue-link" rel="nofollow">curiocity.africa</a></p>
+            <p><strong>WEBSITE:</strong> <a href="https://curiocity.africa/curiocity-kloof-street/" target="_blank" class="blue-link" rel="nofollow">curiocity.africa<span class="sr-only"> (opens in a new tab)</span></a></p>
 
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/curiocityafrica/" target="_blank" class="blue-link">Facebook</a> | <a href="https://www.instagram.com/curiocity.africa/" target="_blank" class="blue-link">Instagram</a></p>
+            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/curiocityafrica/" target="_blank" class="blue-link">Facebook<span class="sr-only"> (opens in a new tab)</span></a> | <a href="https://www.instagram.com/curiocity.africa/" target="_blank" class="blue-link">Instagram<span class="sr-only"> (opens in a new tab)</span></a></p>
 
         </div>
 <div class="booking-btn-container">
 
-            <a href="https://www.booking.com/hotel/za/112-kloof-street-apartments.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
+            <a href="https://www.booking.com/hotel/za/112-kloof-street-apartments.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span><span class="sr-only"> (opens in a new tab)</span></a>
 
-            <a href="https://www.hostelworld.com/hostels/p/327937/curiocity-kloof-street/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD</a>
+            <a href="https://www.hostelworld.com/hostels/p/327937/curiocity-kloof-street/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD<span class="sr-only"> (opens in a new tab)</span></a>
 
         </div>
 
@@ -736,19 +738,19 @@
             <p><a href="#map" class="bb-find-on-map blue-link" data-hostel="long-street-backpackers">Find on map ›</a></p>
             <p><strong>PHONE:</strong> <a href="tel:+27214230615" class="blue-link">+27 21 423 0615</a></p>
 
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27214230615?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 21 423 0615</a></p>
+            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27214230615?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 21 423 0615<span class="sr-only"> (opens in a new tab)</span></a></p>
 
             <p><strong>EMAIL:</strong> <a href="mailto:  reservations@longstreetbackpackers.co.za?subject=Contact%20from%20BackpackersBible.com" class="blue-link">reservations@longstreetbackpackers.co.za</a></p>
 
-            <p><strong>WEBSITE:</strong> <a href="https://www.longstreetbackpackers.co.za" target="_blank" class="blue-link" rel="nofollow">longstreetbackpackers.co.za</a></p>
+            <p><strong>WEBSITE:</strong> <a href="https://www.longstreetbackpackers.co.za" target="_blank" class="blue-link" rel="nofollow">longstreetbackpackers.co.za<span class="sr-only"> (opens in a new tab)</span></a></p>
 
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/longstreetbackpackers" target="_blank" class="blue-link">Facebook</a></p>
+            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/longstreetbackpackers" target="_blank" class="blue-link">Facebook<span class="sr-only"> (opens in a new tab)</span></a></p>
 
         </div>
 <div class="booking-btn-container">
-            <a href="https://www.booking.com/hotel/za/longstreet-backpackers.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
+            <a href="https://www.booking.com/hotel/za/longstreet-backpackers.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span><span class="sr-only"> (opens in a new tab)</span></a>
 
-            <a href="https://www.hostelworld.com/hostels/p/1220/long-street-backpackers/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD</a>
+            <a href="https://www.hostelworld.com/hostels/p/1220/long-street-backpackers/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD<span class="sr-only"> (opens in a new tab)</span></a>
         </div>
 
         <div class="detail-p">
@@ -810,18 +812,18 @@
 
             <p><strong>PHONE:</strong> <a href="tel:+27214238721" class="blue-link">+27 21 423 8721</a></p>
 
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/+27714592602?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 71 459 2602</a></p>
+            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/+27714592602?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 71 459 2602<span class="sr-only"> (opens in a new tab)</span></a></p>
 
             <p><strong>EMAIL:</strong> <a href="mailto:  info@ashanti.co.za?subject=Contact%20from%20BackpackersBible.com" class="blue-link">info@ashanti.co.za</a></p>
 
-            <p><strong>WEBSITE:</strong> <a href="https://www.ashanti.co.za" target="_blank" class="blue-link" rel="nofollow">ashanti.co.za</a></p>
+            <p><strong>WEBSITE:</strong> <a href="https://www.ashanti.co.za" target="_blank" class="blue-link" rel="nofollow">ashanti.co.za<span class="sr-only"> (opens in a new tab)</span></a></p>
 
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/AshantiLodgeAndTravel" target="_blank" class="blue-link">Facebook</a></p>
+            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/AshantiLodgeAndTravel" target="_blank" class="blue-link">Facebook<span class="sr-only"> (opens in a new tab)</span></a></p>
         </div>
 <div class="booking-btn-container">
-            <a href="https://www.booking.com/hotel/za/ashanti-lodge-gardens.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
+            <a href="https://www.booking.com/hotel/za/ashanti-lodge-gardens.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span><span class="sr-only"> (opens in a new tab)</span></a>
 
-            <a href="https://www.hostelworld.com/hostels/p/978/ashanti-lodge-gardens/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD</a>
+            <a href="https://www.hostelworld.com/hostels/p/978/ashanti-lodge-gardens/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD<span class="sr-only"> (opens in a new tab)</span></a>
         </div>
 
         <div class="detail-p">
@@ -883,18 +885,18 @@
 
             <p><strong>PHONE:</strong> <a href="tel:+27214220565" class="blue-link">+27 21 422 0565</a></p>
 
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27766012289?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 76 601 2289</a></p>
+            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27766012289?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 76 601 2289<span class="sr-only"> (opens in a new tab)</span></a></p>
 
             <p><strong>EMAIL:</strong> <a href="mailto:  info@urbanhivebackpackers.co.za?subject=Contact%20from%20BackpackersBible.com" class="blue-link">info@urbanhivebackpackers.co.za</a></p>
 
-            <p><strong>WEBSITE:</strong> <a href="https://www.urbanhive.co.za" target="_blank" class="blue-link" rel="nofollow">urbanhive.co.za</a></p>
+            <p><strong>WEBSITE:</strong> <a href="https://www.urbanhive.co.za" target="_blank" class="blue-link" rel="nofollow">urbanhive.co.za<span class="sr-only"> (opens in a new tab)</span></a></p>
 
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/UrbanHiveBackpackers" target="_blank" class="blue-link">Facebook</a></p>
+            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/UrbanHiveBackpackers" target="_blank" class="blue-link">Facebook<span class="sr-only"> (opens in a new tab)</span></a></p>
 
         </div>
 <div class="booking-btn-container">
-            <a href="https://www.booking.com/hotel/za/urban-hive-backpackers.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
-            <a href="https://www.hostelworld.com/hostels/p/282233/urban-hive-backpackers/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD</a>
+            <a href="https://www.booking.com/hotel/za/urban-hive-backpackers.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span><span class="sr-only"> (opens in a new tab)</span></a>
+            <a href="https://www.hostelworld.com/hostels/p/282233/urban-hive-backpackers/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD<span class="sr-only"> (opens in a new tab)</span></a>
         </div>
 
         <div class="detail-p">
@@ -959,15 +961,15 @@
 
             <p><strong>EMAIL:</strong> <a href="mailto:contact@villaviva.capetown?subject=Contact%20from%20BackpackersBible.com" class="blue-link">contact@villaviva.capetown</a></p>
 
-            <p><strong>WEBSITE:</strong> <a href="https://www.villaviva-capetown.com" target="_blank" class="blue-link" rel="nofollow">villaviva-capetown.com</a></p>
+            <p><strong>WEBSITE:</strong> <a href="https://www.villaviva-capetown.com" target="_blank" class="blue-link" rel="nofollow">villaviva-capetown.com<span class="sr-only"> (opens in a new tab)</span></a></p>
 
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/villavivacapetown" target="_blank" class="blue-link">Facebook</a></p>
+            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/villavivacapetown" target="_blank" class="blue-link">Facebook<span class="sr-only"> (opens in a new tab)</span></a></p>
 
         </div>
 <div class="booking-btn-container">
-            <a href="https://www.booking.com/hotel/za/the-backpack-africa-travel-centre.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
+            <a href="https://www.booking.com/hotel/za/the-backpack-africa-travel-centre.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span><span class="sr-only"> (opens in a new tab)</span></a>
 
-            <a href="https://www.hostelworld.com/hostels/p/984/villa-viva-cape-town/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD</a>
+            <a href="https://www.hostelworld.com/hostels/p/984/villa-viva-cape-town/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD<span class="sr-only"> (opens in a new tab)</span></a>
         </div>
 
         <div class="detail-p">
@@ -1033,7 +1035,7 @@
 
             <p><strong>EMAIL:</strong> <a href="mailto:  info@stagshead.co.za?subject=Contact%20from%20BackpackersBible.com" class="blue-link">info@stagshead.co.za</a></p>
 
-            <p><strong>WEBSITE:</strong> <a href="https://www.stagshead.co.za" target="_blank" class="blue-link" rel="nofollow">stagshead.co.za</a></p>
+            <p><strong>WEBSITE:</strong> <a href="https://www.stagshead.co.za" target="_blank" class="blue-link" rel="nofollow">stagshead.co.za<span class="sr-only"> (opens in a new tab)</span></a></p>
         </div>
 
         <div class="detail-p">
@@ -1099,16 +1101,16 @@
 
             <p><strong>EMAIL:</strong> <a href="mailto:  hello@91loop.co.za?subject=Contact%20from%20BackpackersBible.com" class="blue-link">hello@91loop.co.za</a></p>
 
-            <p><strong>WEBSITE:</strong> <a href="https://www.91loop.co.za" target="_blank" class="blue-link" rel="nofollow">91loop.co.za</a></p>
+            <p><strong>WEBSITE:</strong> <a href="https://www.91loop.co.za" target="_blank" class="blue-link" rel="nofollow">91loop.co.za<span class="sr-only"> (opens in a new tab)</span></a></p>
 
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/91loop/" target="_blank" class="blue-link">Facebook</a></p>
+            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/91loop/" target="_blank" class="blue-link">Facebook<span class="sr-only"> (opens in a new tab)</span></a></p>
 
         </div>
 <div class="booking-btn-container">
 
-            <a href="https://www.booking.com/hotel/za/91-loop.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
+            <a href="https://www.booking.com/hotel/za/91-loop.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span><span class="sr-only"> (opens in a new tab)</span></a>
 
-            <a href="https://www.hostelworld.com/hostels/p/100300/91-loop/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD</a>
+            <a href="https://www.hostelworld.com/hostels/p/100300/91-loop/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD<span class="sr-only"> (opens in a new tab)</span></a>
 
         </div>
 
@@ -1171,13 +1173,13 @@
 
             <p><strong>PHONE:</strong> <a href="tel:+27214224848" class="blue-link">+27 21 422 4848</a></p>
 
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27214224848?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 21 422 4848</a></p>
+            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27214224848?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 21 422 4848<span class="sr-only"> (opens in a new tab)</span></a></p>
 
             <p><strong>EMAIL:</strong> <a href="mailto:info@forty8backpackers.com?subject=Contact%20from%20BackpackersBible.com" class="blue-link">info@forty8backpackers.com</a></p>
 
-            <p><strong>WEBSITE:</strong> <a href="https://www.forty8backpackers.co.za" target="_blank" class="blue-link" rel="nofollow">forty8backpackers.co.za</a></p>
+            <p><strong>WEBSITE:</strong> <a href="https://www.forty8backpackers.co.za" target="_blank" class="blue-link" rel="nofollow">forty8backpackers.co.za<span class="sr-only"> (opens in a new tab)</span></a></p>
 
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/www.forty8bacpackers.co.za" target="_blank" class="blue-link">Facebook</a></p>
+            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/www.forty8bacpackers.co.za" target="_blank" class="blue-link">Facebook<span class="sr-only"> (opens in a new tab)</span></a></p>
 
 
         </div>
@@ -1246,7 +1248,7 @@
 
             <p><strong>WEBSITE:</strong> N/A</p>
 
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/twooceansbp" target="_blank" class="blue-link">Facebook</a></p>
+            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/twooceansbp" target="_blank" class="blue-link">Facebook<span class="sr-only"> (opens in a new tab)</span></a></p>
 
         </div>
 
@@ -1308,20 +1310,20 @@
 
             <p><strong>PHONE:</strong> <a href="tel:+27214221265" class="blue-link">+27 21 422 1265</a></p>
 
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27766017041?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 76 601 7041</a></p>
+            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27766017041?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 76 601 7041<span class="sr-only"> (opens in a new tab)</span></a></p>
 
             <p><strong>EMAIL:</strong> <a href="mailto:zebracrossingbackpacker@gmail.com?subject=Contact%20from%20BackpackersBible.com" class="blue-link">zebracrossingbackpacker@gmail.com</a></p>
 
-            <p><strong>WEBSITE:</strong> <a href="https://www.zebracrossingbp.com" target="_blank" class="blue-link" rel="nofollow">zebracrossingbp.com</a></p>
+            <p><strong>WEBSITE:</strong> <a href="https://www.zebracrossingbp.com" target="_blank" class="blue-link" rel="nofollow">zebracrossingbp.com<span class="sr-only"> (opens in a new tab)</span></a></p>
 
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/zebracrossingbackpackers" target="_blank" class="blue-link">Facebook</a></p>
+            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/zebracrossingbackpackers" target="_blank" class="blue-link">Facebook<span class="sr-only"> (opens in a new tab)</span></a></p>
 
         </div>
 <div class="booking-btn-container">
 
-            <a href="https://www.booking.com/hotel/za/zebra-crossing-backpacker.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
+            <a href="https://www.booking.com/hotel/za/zebra-crossing-backpacker.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span><span class="sr-only"> (opens in a new tab)</span></a>
 
-            <a href="https://www.hostelworld.com/hostels/p/13430/zebra-crossing/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD</a>
+            <a href="https://www.hostelworld.com/hostels/p/13430/zebra-crossing/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD<span class="sr-only"> (opens in a new tab)</span></a>
 
         </div>
 
@@ -1456,19 +1458,19 @@
 
             <p><strong>PHONE:</strong> <a href="tel:+27214334310" class="blue-link">+27 21 433 4310</a></p>
 
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27663524511?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 66 352 4511</a></p>
+            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27663524511?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 66 352 4511<span class="sr-only"> (opens in a new tab)</span></a></p>
 
             <p><strong>EMAIL:</strong> <a href="mailto:greenpoint@curiocity.africa?subject=Contact%20from%20BackpackersBible.com" class="blue-link">greenpoint@curiocity.africa</a></p>
 
-            <p><strong>WEBSITE:</strong> <a href="curiocity.africa" target="_blank" class="blue-link" rel="nofollow">curiocity.africa</a></p>
+            <p><strong>WEBSITE:</strong> <a href="curiocity.africa" target="_blank" class="blue-link" rel="nofollow">curiocity.africa<span class="sr-only"> (opens in a new tab)</span></a></p>
 
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/curiocityafrica/" target="_blank" class="blue-link">Facebook</a></p>
+            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/curiocityafrica/" target="_blank" class="blue-link">Facebook<span class="sr-only"> (opens in a new tab)</span></a></p>
         </div>
 <div class="booking-btn-container">
 
-            <a href="https://www.booking.com/hotel/za/curiocity-cape-town.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
+            <a href="https://www.booking.com/hotel/za/curiocity-cape-town.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span><span class="sr-only"> (opens in a new tab)</span></a>
 
-            <a href="https://www.hostelworld.com/hostels/p/302857/curiocity-green-point/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD</a>
+            <a href="https://www.hostelworld.com/hostels/p/302857/curiocity-green-point/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD<span class="sr-only"> (opens in a new tab)</span></a>
 
         </div>
 
@@ -1531,20 +1533,20 @@
 
             <p><strong>PHONE:</strong> <a href="tel:+27214340688" class="blue-link">+27 21 434 0688</a></p>
 
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27724942197?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 72 494 2197</a></p>
+            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27724942197?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 72 494 2197<span class="sr-only"> (opens in a new tab)</span></a></p>
 
             <p><strong>EMAIL:</strong> <a href="mailto:info@bigbackpackers.com?subject=Contact%20from%20BackpackersBible.com" class="blue-link">info@bigbackpackers.com</a></p>
 
-            <p><strong>WEBSITE:</strong> <a href="https://www.bigbackpackers.com" target="_blank" class="blue-link" rel="nofollow">bigbackpackers.com</a></p>
+            <p><strong>WEBSITE:</strong> <a href="https://www.bigbackpackers.com" target="_blank" class="blue-link" rel="nofollow">bigbackpackers.com<span class="sr-only"> (opens in a new tab)</span></a></p>
 
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/bigbackpackers" target="_blank" class="blue-link">Facebook</a></p>
+            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/bigbackpackers" target="_blank" class="blue-link">Facebook<span class="sr-only"> (opens in a new tab)</span></a></p>
 
         </div>
 <div class="booking-btn-container">
 
-            <a href="https://www.booking.com/hotel/za/the-b-i-g-backpackers.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
+            <a href="https://www.booking.com/hotel/za/the-b-i-g-backpackers.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span><span class="sr-only"> (opens in a new tab)</span></a>
 
-            <a href="https://www.hostelworld.com/hostels/p/59426/the-big/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD</a>
+            <a href="https://www.hostelworld.com/hostels/p/59426/the-big/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD<span class="sr-only"> (opens in a new tab)</span></a>
         </div>
 
         <div class="detail-p">
@@ -1610,16 +1612,16 @@
 
             <p><strong>EMAIL:</strong> <a href="mailto:big.blue@mweb.co.za?subject=Contact%20from%20BackpackersBible.com" class="blue-link">big.blue@mweb.co.za</a></p>
 
-            <p><strong>WEBSITE:</strong> <a href="https://www.bigblue.za.net" target="_blank" class="blue-link" rel="nofollow">bigblue.za.net</a></p>
+            <p><strong>WEBSITE:</strong> <a href="https://www.bigblue.za.net" target="_blank" class="blue-link" rel="nofollow">bigblue.za.net<span class="sr-only"> (opens in a new tab)</span></a></p>
 
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/bigbluebackpackers" target="_blank" class="blue-link">Facebook</a></p>
+            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/bigbluebackpackers" target="_blank" class="blue-link">Facebook<span class="sr-only"> (opens in a new tab)</span></a></p>
 
         </div>
 <div class="booking-btn-container">
 
-            <a href="https://www.booking.com/hotel/za/big-blue-backpackers-lodge.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
+            <a href="https://www.booking.com/hotel/za/big-blue-backpackers-lodge.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span><span class="sr-only"> (opens in a new tab)</span></a>
 
-            <a href="https://www.hostelworld.com/hostels/p/1239/big-blue-backpackers/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD</a>
+            <a href="https://www.hostelworld.com/hostels/p/1239/big-blue-backpackers/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD<span class="sr-only"> (opens in a new tab)</span></a>
 
         </div>
 
@@ -1682,13 +1684,13 @@
 
             <p><strong>PHONE:</strong> <a href="tel:+27214331663" class="blue-link">+27 21 433 1663</a></p>
 
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/+27768126006?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 76 812 6006</a></p>
+            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/+27768126006?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 76 812 6006<span class="sr-only"> (opens in a new tab)</span></a></p>
 
             <p><strong>EMAIL:</strong> <a href="mailto:info@atlanticpoint.co.za?subject=Contact%20from%20BackpackersBible.com" class="blue-link">info@atlanticpoint.co.za</a></p>
 
-            <p><strong>WEBSITE:</strong> <a href="https://www.atlanticpoint.co.za" target="_blank" class="blue-link" rel="nofollow">atlanticpoint.co.za</a></p>
+            <p><strong>WEBSITE:</strong> <a href="https://www.atlanticpoint.co.za" target="_blank" class="blue-link" rel="nofollow">atlanticpoint.co.za<span class="sr-only"> (opens in a new tab)</span></a></p>
 
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/atlanticpoint" target="_blank" class="blue-link">Facebook</a></p>
+            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/atlanticpoint" target="_blank" class="blue-link">Facebook<span class="sr-only"> (opens in a new tab)</span></a></p>
 
         </div>
 
@@ -1751,20 +1753,20 @@
 
             <p><strong>PHONE:</strong> <a href="tel:+27214393902" class="blue-link">+27 21 439 3902</a> | <a href="tel:+27732173428" class="blue-link">+27 73 217 3428</a></p>
 
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/+27732173428?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 73 217 3428</a></p>
+            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/+27732173428?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 73 217 3428<span class="sr-only"> (opens in a new tab)</span></a></p>
 
             <p><strong>EMAIL:</strong> <a href="mailto:info@houseonthehillct.co.za?subject=Contact%20from%20BackpackersBible.com" class="blue-link">info@houseonthehillct.co.za</a></p>
 
-            <p><strong>WEBSITE:</strong> <a href="https://www.houseonthehillct.co.za" target="_blank" class="blue-link" rel="nofollow">houseonthehillct.co.za</a></p>
+            <p><strong>WEBSITE:</strong> <a href="https://www.houseonthehillct.co.za" target="_blank" class="blue-link" rel="nofollow">houseonthehillct.co.za<span class="sr-only"> (opens in a new tab)</span></a></p>
 
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/houseonthehillcapetown" target="_blank" class="blue-link">Facebook</a></p>
+            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/houseonthehillcapetown" target="_blank" class="blue-link">Facebook<span class="sr-only"> (opens in a new tab)</span></a></p>
 
         </div>
 <div class="booking-btn-container">
 
-            <a href="https://www.booking.com/hotel/za/house-on-the-hill.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
+            <a href="https://www.booking.com/hotel/za/house-on-the-hill.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span><span class="sr-only"> (opens in a new tab)</span></a>
 
-            <a href="https://www.hostelworld.com/hostels/p/328833/house-on-the-hill/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD</a>
+            <a href="https://www.hostelworld.com/hostels/p/328833/house-on-the-hill/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD<span class="sr-only"> (opens in a new tab)</span></a>
 
         </div>
 
@@ -1831,16 +1833,16 @@
 
             <p><strong>EMAIL:</strong> <a href="mailto:reservations@neverathomehostels.com?subject=Contact%20from%20BackpackersBible.com" class="blue-link">reservations@neverathomehostels.com</a></p>
 
-            <p><strong>WEBSITE:</strong> <a href="https://www.neverathomeworld.com" target="_blank" class="blue-link" rel="nofollow">neverathomeworld.com</a></p>
+            <p><strong>WEBSITE:</strong> <a href="https://www.neverathomeworld.com" target="_blank" class="blue-link" rel="nofollow">neverathomeworld.com<span class="sr-only"> (opens in a new tab)</span></a></p>
 
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/neverathomeGP" target="_blank" class="blue-link">Facebook</a></p>
+            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/neverathomeGP" target="_blank" class="blue-link">Facebook<span class="sr-only"> (opens in a new tab)</span></a></p>
 
         </div>
 <div class="booking-btn-container">
 
-            <a href="https://www.booking.com/hotel/za/never-home.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
+            <a href="https://www.booking.com/hotel/za/never-home.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span><span class="sr-only"> (opens in a new tab)</span></a>
 
-            <a href="https://www.hostelworld.com/hostels/p/90106/never-at-home-green-point/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD</a>
+            <a href="https://www.hostelworld.com/hostels/p/90106/never-at-home-green-point/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD<span class="sr-only"> (opens in a new tab)</span></a>
 
         </div>
 
@@ -1903,20 +1905,20 @@
 
             <p><strong>PHONE:</strong> <a href="tel:+27214346535" class="blue-link">+27 21 434 6535</a> / <a href="tel:+27212018901" class="blue-link">+27 21 201 8901</a></p>
 
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27646108479?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 64 610 8479</a></p>
+            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27646108479?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 64 610 8479<span class="sr-only"> (opens in a new tab)</span></a></p>
 
             <p><strong>EMAIL:</strong> <a href="mailto:info@sunflowerstop.co.za?subject=Contact%20from%20BackpackersBible.com" class="blue-link">info@sunflowerstop.co.za</a></p>
 
-            <p><strong>WEBSITE:</strong> <a href="https://www.sunflowerstop.co.za" target="_blank" class="blue-link" rel="nofollow">sunflowerstop.co.za</a></p>
+            <p><strong>WEBSITE:</strong> <a href="https://www.sunflowerstop.co.za" target="_blank" class="blue-link" rel="nofollow">sunflowerstop.co.za<span class="sr-only"> (opens in a new tab)</span></a></p>
 
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/ASunflowerStop" target="_blank" class="blue-link">Facebook</a></p>
+            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/ASunflowerStop" target="_blank" class="blue-link">Facebook<span class="sr-only"> (opens in a new tab)</span></a></p>
 
         </div>
 <div class="booking-btn-container">
 
-            <a href="https://www.booking.com/hotel/za/a-sunflower-stop.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
+            <a href="https://www.booking.com/hotel/za/a-sunflower-stop.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span><span class="sr-only"> (opens in a new tab)</span></a>
 
-            <a href="https://www.hostelworld.com/hostels/p/1733/a-sunflower-stop/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD</a>
+            <a href="https://www.hostelworld.com/hostels/p/1733/a-sunflower-stop/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD<span class="sr-only"> (opens in a new tab)</span></a>
 
         </div>
 
@@ -1979,20 +1981,20 @@
 
             <p><strong>PHONE:</strong> <a href="tel:+27879407474" class="blue-link">+27 87 940 7474</a></p>
 
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27822394951?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 82 239 4951</a></p>
+            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27822394951?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 82 239 4951<span class="sr-only"> (opens in a new tab)</span></a></p>
 
             <p><strong>EMAIL:</strong> <a href="mailto:gomojo@themojohotel.com?subject=Contact%20from%20BackpackersBible.com" class="blue-link">gomojo@themojohotel.com</a></p>
 
-            <p><strong>WEBSITE:</strong> <a href="https://www.themojohotel.com" target="_blank" class="blue-link" rel="nofollow">themojohotel.com</a></p>
+            <p><strong>WEBSITE:</strong> <a href="https://www.themojohotel.com" target="_blank" class="blue-link" rel="nofollow">themojohotel.com<span class="sr-only"> (opens in a new tab)</span></a></p>
 
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/mojohotel" target="_blank" class="blue-link">Facebook</a></p>
+            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/mojohotel" target="_blank" class="blue-link">Facebook<span class="sr-only"> (opens in a new tab)</span></a></p>
 
         </div>
 <div class="booking-btn-container">
 
-            <a href="https://www.booking.com/hotel/za/mojo-hotel.en-gb.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
+            <a href="https://www.booking.com/hotel/za/mojo-hotel.en-gb.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span><span class="sr-only"> (opens in a new tab)</span></a>
 
-            <a href="https://www.hostelworld.com/hostels/p/263570/mojo-hostel-and-market/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD</a>
+            <a href="https://www.hostelworld.com/hostels/p/263570/mojo-hostel-and-market/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD<span class="sr-only"> (opens in a new tab)</span></a>
 
         </div>
 
@@ -2060,20 +2062,20 @@
 
             <p><strong>PHONE:</strong> <a href="tel:+27214486359" class="blue-link">+27 21 448 6359</a></p>
 
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/+27214486359?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 21 448 6359</a></p>
+            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/+27214486359?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 21 448 6359<span class="sr-only"> (opens in a new tab)</span></a></p>
 
             <p><strong>EMAIL:</strong> <a href="mailto:stay@greenelephant.co.za?subject=Contact%20from%20BackpackersBible.com" class="blue-link">stay@greenelephant.co.za</a></p>
 
-            <p><strong>WEBSITE:</strong> <a href="https://www.greenelephant.co.za" target="_blank" class="blue-link" rel="nofollow">greenelephant.co.za</a></p>
+            <p><strong>WEBSITE:</strong> <a href="https://www.greenelephant.co.za" target="_blank" class="blue-link" rel="nofollow">greenelephant.co.za<span class="sr-only"> (opens in a new tab)</span></a></p>
 
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/greenelephantbackpackers" target="_blank" class="blue-link">Facebook</a></p>
+            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/greenelephantbackpackers" target="_blank" class="blue-link">Facebook<span class="sr-only"> (opens in a new tab)</span></a></p>
 
         </div>
 <div class="booking-btn-container">
 
-            <a href="https://www.booking.com/hotel/za/green-elephant-backpackers.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
+            <a href="https://www.booking.com/hotel/za/green-elephant-backpackers.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span><span class="sr-only"> (opens in a new tab)</span></a>
 
-            <a href="https://www.hostelworld.com/hostels/p/977/green-elephant/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD</a>
+            <a href="https://www.hostelworld.com/hostels/p/977/green-elephant/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD<span class="sr-only"> (opens in a new tab)</span></a>
 
         </div>
 
@@ -2137,11 +2139,11 @@
 
             <p><strong>PHONE:</strong> <a href="tel:+27214479225" class="blue-link">+27 21 447 9225</a></p>
 
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27768057984?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 76 805 7984</a></p>
+            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27768057984?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 76 805 7984<span class="sr-only"> (opens in a new tab)</span></a></p>
 
             <p><strong>EMAIL:</strong> <a href="mailto:info@africanheartbackpackers.com?subject=Contact%20from%20BackpackersBible.com" class="blue-link">info@africanheartbackpackers.com</a></p>
 
-            <p><strong>WEBSITE:</strong> <a href="https://www.africanheartbackpackers.com" target="_blank" class="blue-link" rel="nofollow">africanheartbackpackers.com</a></p>
+            <p><strong>WEBSITE:</strong> <a href="https://www.africanheartbackpackers.com" target="_blank" class="blue-link" rel="nofollow">africanheartbackpackers.com<span class="sr-only"> (opens in a new tab)</span></a></p>
 
         </div>
 
@@ -2207,9 +2209,9 @@
 
             <p><strong>EMAIL:</strong> <a href="mailto:info@bohemianlofts.com?subject=Contact%20from%20BackpackersBible.com" class="blue-link">info@bohemianlofts.com</a></p>
 
-            <p><strong>WEBSITE:</strong> <a href="https://www.bohemianlofts.com" target="_blank" class="blue-link" rel="nofollow">bohemianlofts.com</a></p>
+            <p><strong>WEBSITE:</strong> <a href="https://www.bohemianlofts.com" target="_blank" class="blue-link" rel="nofollow">bohemianlofts.com<span class="sr-only"> (opens in a new tab)</span></a></p>
 
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/bohemianlofts" target="_blank" class="blue-link">Facebook</a></p>
+            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/bohemianlofts" target="_blank" class="blue-link">Facebook<span class="sr-only"> (opens in a new tab)</span></a></p>
 
         </div>
 
@@ -2271,18 +2273,18 @@
 
             <p><strong>PHONE:</strong> <a href="tel:+27214480526" class="blue-link">+27 21 448 0526</a></p>
 
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27825150407?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 82 515 0407</a></p>
+            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27825150407?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 82 515 0407<span class="sr-only"> (opens in a new tab)</span></a></p>
 
             <p><strong>EMAIL:</strong> <a href="mailto:info@riverlodge.co.za?subject=Contact%20from%20BackpackersBible.com" class="blue-link">info@riverlodge.co.za</a></p>
 
-            <p><strong>WEBSITE:</strong> <a href="https://www.riverlodge.co.za" target="_blank" class="blue-link" rel="nofollow">riverlodge.co.za</a></p>
+            <p><strong>WEBSITE:</strong> <a href="https://www.riverlodge.co.za" target="_blank" class="blue-link" rel="nofollow">riverlodge.co.za<span class="sr-only"> (opens in a new tab)</span></a></p>
 
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/Riverlodgebackpackers" target="_blank" class="blue-link">Facebook</a></p>
+            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/Riverlodgebackpackers" target="_blank" class="blue-link">Facebook<span class="sr-only"> (opens in a new tab)</span></a></p>
 
         </div>
 <div class="booking-btn-container">
 
-            <a href="https://www.hostelworld.com/hostels/p/5661/riverlodge-backpackers/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD</a>
+            <a href="https://www.hostelworld.com/hostels/p/5661/riverlodge-backpackers/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD<span class="sr-only"> (opens in a new tab)</span></a>
 
         </div>
 
@@ -2345,18 +2347,18 @@
 
             <p><strong>PHONE:</strong> <a href="tel:+27214479165" class="blue-link">+27 21 447 9165</a> / <a href="tel:+27214479177" class="blue-link">+27 21 447 9177</a></p>
 
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27827442504?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 82 744 2504</a></p>
+            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27827442504?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 82 744 2504<span class="sr-only"> (opens in a new tab)</span></a></p>
 
             <p><strong>EMAIL:</strong> <a href="mailto:bookings@lighthousefarm.co.za?subject=Contact%20from%20BackpackersBible.com" class="blue-link">bookings@lighthousefarm.co.za</a></p>
 
-            <p><strong>WEBSITE:</strong> <a href="https://www.lighthousefarm.co.za" target="_blank" class="blue-link" rel="nofollow">lighthousefarm.co.za</a></p>
+            <p><strong>WEBSITE:</strong> <a href="https://www.lighthousefarm.co.za" target="_blank" class="blue-link" rel="nofollow">lighthousefarm.co.za<span class="sr-only"> (opens in a new tab)</span></a></p>
 
         </div>
 <div class="booking-btn-container">
 
-            <a href="https://www.booking.com/hotel/za/lighthouse-farm-backpackers.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
+            <a href="https://www.booking.com/hotel/za/lighthouse-farm-backpackers.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span><span class="sr-only"> (opens in a new tab)</span></a>
 
-            <a href="https://www.hostelworld.com/hostels/p/994/light-house-lodge/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD</a>
+            <a href="https://www.hostelworld.com/hostels/p/994/light-house-lodge/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD<span class="sr-only"> (opens in a new tab)</span></a>
 
         </div>
 
@@ -2424,20 +2426,20 @@
 
             <p><strong>PHONE:</strong> <a href="tel:+27792679472" class="blue-link">+27 79 267 9472</a></p>
 
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27792679472?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 79 267 9472</a></p>
+            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27792679472?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 79 267 9472<span class="sr-only"> (opens in a new tab)</span></a></p>
 
             <p><strong>EMAIL:</strong> <a href="mailto:bookings@dunelodge.co.za?subject=Contact%20from%20BackpackersBible.com" class="blue-link">bookings@dunelodge.co.za</a></p>
 
-            <p><strong>WEBSITE:</strong> <a href="https://www.dunelodge.co.za" target="_blank" class="blue-link" rel="nofollow">dunelodge.co.za</a></p>
+            <p><strong>WEBSITE:</strong> <a href="https://www.dunelodge.co.za" target="_blank" class="blue-link" rel="nofollow">dunelodge.co.za<span class="sr-only"> (opens in a new tab)</span></a></p>
 
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/dunelodgehoutbay" target="_blank" class="blue-link">Facebook</a></p>
+            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/dunelodgehoutbay" target="_blank" class="blue-link">Facebook<span class="sr-only"> (opens in a new tab)</span></a></p>
 
         </div>
 <div class="booking-btn-container">
 
-            <a href="https://www.booking.com/hotel/za/hout-bay-backpackers-hout-bay.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
+            <a href="https://www.booking.com/hotel/za/hout-bay-backpackers-hout-bay.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span><span class="sr-only"> (opens in a new tab)</span></a>
 
-            <a href="https://www.hostelworld.com/hostels/p/317980/dune-lodge/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD</a>
+            <a href="https://www.hostelworld.com/hostels/p/317980/dune-lodge/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD<span class="sr-only"> (opens in a new tab)</span></a>
 
         </div>
 
@@ -2505,20 +2507,20 @@
 
             <p><strong>PHONE:</strong> <a href="tel:+27664377801" class="blue-link">+27 66 437 7801</a></p>
 
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27664377801?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 66 437 7801</a></p>
+            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27664377801?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 66 437 7801<span class="sr-only"> (opens in a new tab)</span></a></p>
 
             <p><strong>EMAIL:</strong> <a href="mailto:info@saltycrax.com?subject=Contact%20from%20BackpackersBible.com" class="blue-link">info@saltycrax.com</a></p>
 
-            <p><strong>WEBSITE:</strong> <a href="https://saltycrax.com" target="_blank" class="blue-link" rel="nofollow">saltycrax.com</a></p>
+            <p><strong>WEBSITE:</strong> <a href="https://saltycrax.com" target="_blank" class="blue-link" rel="nofollow">saltycrax.com<span class="sr-only"> (opens in a new tab)</span></a></p>
 
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/SaltyCraxBackpackers" target="_blank" class="blue-link">Facebook</a></p>
+            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/SaltyCraxBackpackers" target="_blank" class="blue-link">Facebook<span class="sr-only"> (opens in a new tab)</span></a></p>
 
         </div>
 <div class="booking-btn-container">
 
-            <a href="https://www.booking.com/hotel/za/saltycrax-backpackers.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
+            <a href="https://www.booking.com/hotel/za/saltycrax-backpackers.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span><span class="sr-only"> (opens in a new tab)</span></a>
 
-            <a href="https://www.hostelworld.com/hostels/p/13924/saltycrax-backpackers-and-surflodge/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD</a>
+            <a href="https://www.hostelworld.com/hostels/p/13924/saltycrax-backpackers-and-surflodge/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD<span class="sr-only"> (opens in a new tab)</span></a>
 
         </div>
 
@@ -2586,20 +2588,20 @@
 
             <p><strong>PHONE:</strong> <a href="tel:+27217881771" class="blue-link">+27 21 788 1771</a></p>
 
-            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27768057984?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 76 805 7984 </a></p>
+            <p><strong>WHATSAPP:</strong> <a href="https://wa.me/27768057984?text=Contact%20from%20BackpackersBible.com." target="_blank" class="blue-link">+27 76 805 7984 <span class="sr-only"> (opens in a new tab)</span></a></p>
 
             <p><strong>EMAIL:</strong> <a href="mailto:info@africansoulsurfer.co.za?subject=Contact%20from%20BackpackersBible.com" class="blue-link">info@africansoulsurfer.co.za</a></p>
 
-            <p><strong>WEBSITE:</strong> <a href="https://www.africansoulsurfer.co.za" target="_blank" class="blue-link" rel="nofollow">africansoulsurfer.co.za</a></p>
+            <p><strong>WEBSITE:</strong> <a href="https://www.africansoulsurfer.co.za" target="_blank" class="blue-link" rel="nofollow">africansoulsurfer.co.za<span class="sr-only"> (opens in a new tab)</span></a></p>
 
-            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/africansoulsurfer" target="_blank" class="blue-link">Facebook</a></p>
+            <p><strong>SOCIAL:</strong> <a href="https://www.facebook.com/africansoulsurfer" target="_blank" class="blue-link">Facebook<span class="sr-only"> (opens in a new tab)</span></a></p>
 
         </div>
 <div class="booking-btn-container">
 
-            <a href="https://www.booking.com/hotel/za/african-soul-surfer.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
+            <a href="https://www.booking.com/hotel/za/african-soul-surfer.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span><span class="sr-only"> (opens in a new tab)</span></a>
 
-            <a href="https://www.hostelworld.com/hostels/p/299441/african-soul-surfer/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD</a>
+            <a href="https://www.hostelworld.com/hostels/p/299441/african-soul-surfer/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD<span class="sr-only"> (opens in a new tab)</span></a>
 
         </div>
 
@@ -2712,7 +2714,7 @@
             <span id="whatsapp-share">SHARE <span class="sr-only">(opens in a new tab)</span></span>
             <a href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://backpackersbible.com" target="_blank">
                 <img src="/assets/whatsapp_icon_round.png" alt="WhatsApp icon" class="footer-share__icon" aria-describedby="whatsapp-share">
-            </a>
+            <span class="sr-only"> (opens in a new tab)</span></a>
         </div>
 
     </section>
@@ -3006,7 +3008,7 @@ href="https://statcounter.com/" target="_blank"><img
 class="statcounter"
 src="https://c.statcounter.com/13225228/0/687dc53c/1/"
 alt="Web Analytics"
-referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+referrerPolicy="no-referrer-when-downgrade"><span class="sr-only"> (opens in a new tab)</span></a></div></noscript>
 <!-- End of Statcounter Code -->
 
 <script>
