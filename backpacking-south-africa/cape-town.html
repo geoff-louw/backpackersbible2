@@ -790,18 +790,22 @@
 <span id="map" aria-hidden="true"></span>
 <section id="map-visual" class="map-section-visual text-section--after-parallax">
 
-<div class="region-map">
-        <iframe 
-            src="https://www.google.com/maps/d/embed?mid=1R_on2i5wJ1MvbnHDLZKgdNgrsvwm4vtu&ehbc=2E312F"
-            width="100%" height="570"  allowfullscreen="" loading="lazy">
-        </iframe>
-    </div>
+    <div class="map-placeholder"
+         data-map-src="https://www.google.com/maps/d/embed?mid=1R_on2i5wJ1MvbnHDLZKgdNgrsvwm4vtu&ehbc=2E312F">
 
-<div class="map-fallback" style="display:none;">
         <picture>
-            <source media="(max-width: 767px)" srcset="/assets/fallback_map_cape-town_activities_mobile.webp">
-            <img src="/assets/fallback_map_cape-town_activities.webp" alt="Map unavailable offline">
+            <source media="(max-width: 767px)"
+                    srcset="/assets/fallback_map_cape-town_activities_mobile.webp">
+
+            <img src="/assets/fallback_map_cape-town_activities.webp"
+                 alt="Things To Do in Cape Town interactive map"
+                 loading="lazy">
         </picture>
+
+        <button class="load-map-btn">
+            Open Interactive Map
+        </button>
+
     </div>
 
 </section>
