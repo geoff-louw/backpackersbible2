@@ -778,22 +778,25 @@
 <span id="map" aria-hidden="true"></span>
 <section id="map-visual" class="map-section-visual text-section--after-parallax">
 
-<div class="region-map">
-        <iframe 
-            src="https://www.google.com/maps/d/embed?mid=1xlLXgh8JEXFp2gPM06NTgV6a3eq2k4Y&ehbc=2E312F"
-            width="100%" height="570"  allowfullscreen="" loading="lazy">
-        </iframe>
-    </div>
+    <div class="map-placeholder"
+         data-map-src="https://www.google.com/maps/d/embed?mid=1xlLXgh8JEXFp2gPM06NTgV6a3eq2k4Y&ehbc=2E312F">
 
-<div class="map-fallback" style="display:none;">
         <picture>
-            <source media="(max-width: 767px)" srcset="/assets/fallback_map_garden-route_activities_mobile.jpg">
-            <img src=/assets/fallback_map_garden-route_activities.jpg" alt="Map unavailable offline">
+            <source media="(max-width: 767px)"
+                    srcset="/assets/fallback_map_garden-route_activities_mobile.webp">
+
+            <img src="/assets/fallback_map_garden-route_activities.webp"
+                 alt="Things To Do on the Garden Route interactive map"
+                 loading="lazy">
         </picture>
+
+        <button class="load-map-btn">
+            Open Interactive Map
+        </button>
+
     </div>
 
 </section>
-
 
     <h3 class="section-heading-desktop">1. The Adventures (High Adrenaline)</h3>
 
