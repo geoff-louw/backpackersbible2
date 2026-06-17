@@ -1512,6 +1512,32 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
   });
 </script>
 
+<!-- Load my maps on click -->
+
+<script>
+document.addEventListener('click', function (e) {
+
+    if (!e.target.classList.contains('load-map-btn')) {
+        return;
+    }
+
+    const container = e.target.closest('.map-placeholder');
+    const src = container.dataset.mapSrc;
+
+    container.innerHTML = `
+        <iframe
+            src="${src}"
+            width="100%"
+            height="570"
+            style="border:0; display:block;"
+            allowfullscreen
+            loading="lazy">
+        </iframe>
+    `;
+
+});
+</script>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
