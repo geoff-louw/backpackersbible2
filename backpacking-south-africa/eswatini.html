@@ -840,8 +840,10 @@
 
 <p class="section-cta__label"><strong>SEE OUR</strong></p>
 <div class="section-cta">
-    <a href="/south-africa-hostel-directory/cape-town" class="download-btn">Hostel Directory</a>
+    <a href="/south-africa-hostel-directory/eswatini" class="download-btn">Eswatini Hostel Directory</a>
 </div>
+
+</section>
 
      <!-- Compass -->
 
@@ -1228,6 +1230,22 @@ window.BB_TIPS = [
         sendFilter(btn.getAttribute('data-filter'));
       });
     });
+  });
+</script>
+
+<script>
+  /* ── FIND ON MAP — scroll to LibreMap and open hostel popup ── */
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('.bb-find-on-map');
+    if (!link) return;
+    e.preventDefault();
+    var hostelId = link.dataset.hostel;
+    var mapFrame = document.querySelector('.bb-map-iframe');
+    if (!mapFrame) return;
+    mapFrame.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(function() {
+      mapFrame.contentWindow.postMessage({ type: 'BB_OPEN_HOSTEL', id: hostelId }, '*');
+    }, 600);
   });
 </script>
 
