@@ -2647,6 +2647,64 @@
 
 <section>
 
+     <!-- Compass -->
+
+<section class="area-hero-container text-section--after-parallax" id="compass-nav" aria-labelledby="compass-heading">
+  <h2 class="area-hero-title" id="compass-heading">Where Do You Want To Go Next?</h2>
+
+  <nav class="compass-container" aria-label="Regional travel compass">
+    
+    <div class="compass-wrapper-unified" aria-hidden="true"></div>
+
+<div class="pill-center-label" aria-label="Current Region: South Africa" role="text">
+CAPE TOWN
+</div>
+
+    <div class="pill north">
+      <a href="/backpacking-south-africa/west-coast" aria-label="Cape West Coast, North">Cape West Coast</a>
+    </div>
+
+    <div class="pill north-east">
+      <a href="/backpacking-south-africa/cederberg" aria-label="Cederberg, North East">Cederberg</a> &amp; 
+      <a href="/backpacking-south-africa/winelands" aria-label="Cape Winelands, North East">Cape Winelands</a>
+    </div>
+    
+    <div class="pill east">
+      <a href="/backpacking-south-africa/route-62" aria-label="Route 62, East">Route 62</a> &amp; 
+      <a href="/backpacking-south-africa/overberg" aria-label="Overberg, East">Overberg</a>
+    </div>
+
+    <div class="pill pill-ocean-blue south-east" aria-hidden="true">
+      <span>Atlantic Ocean</span>
+    </div>
+
+    <div class="pill pill-ocean-blue south" aria-hidden="true">
+      <span>Atlantic Ocean</span>
+    </div>
+
+    <div class="pill pill-ocean-blue south-west" aria-hidden="true">
+      <span>Atlantic Ocean</span>
+    </div>
+
+    <div class="pill pill-ocean-blue west" aria-hidden="true">
+      <span>Atlantic Ocean</span>
+    </div>
+
+    <div class="pill pill-ocean-blue north-west" aria-hidden="true">
+      <span>Atlantic Ocean</span>
+    </div>
+
+<div class="pill extra-itineraries">
+      <a href="/backpacking-south-africa-tours/" aria-label="View South Africa Itineraries">South Africa Itineraries</a>
+    </div>
+    
+    <div class="pill extra-advice">
+      <a href="/backpacking-south-africa-advice/" aria-label="Read Backpacking Advice">Backpacking Advice</a>
+    </div>
+    
+  </nav>
+</section>
+
      <!-- Parallax image -->
 
     <div class="strip black"></div>
@@ -2990,6 +3048,48 @@ window.BB_TIPS = [
   });
 </script>
 
+<script>
+  /* ── FIND ON MAP — scroll to LibreMap and open hostel popup ── */
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('.bb-find-on-map');
+    if (!link) return;
+    e.preventDefault();
+    var hostelId = link.dataset.hostel;
+    var mapFrame = document.querySelector('.bb-map-iframe');
+    if (!mapFrame) return;
+    mapFrame.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(function() {
+      mapFrame.contentWindow.postMessage({ type: 'BB_OPEN_HOSTEL', id: hostelId }, '*');
+    }, 600);
+  });
+</script>
+
+<!-- Load my maps on click -->
+
+<script>
+document.addEventListener('click', function (e) {
+
+    if (!e.target.classList.contains('load-map-btn')) {
+        return;
+    }
+
+    const container = e.target.closest('.map-placeholder');
+    const src = container.dataset.mapSrc;
+
+    container.innerHTML = `
+        <iframe
+            src="${src}"
+            width="100%"
+            height="570"
+            style="border:0; display:block;"
+            allowfullscreen
+            loading="lazy">
+        </iframe>
+    `;
+
+});
+</script>
+
 <!-- Default Statcounter code for Backpackers Bible
 https://www.backpackersbible.com/ -->
 <script type="text/javascript">
@@ -3007,22 +3107,6 @@ src="https://c.statcounter.com/13225228/0/687dc53c/1/"
 alt="Web Analytics"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 <!-- End of Statcounter Code -->
-
-<script>
-  /* ── FIND ON MAP — scroll to LibreMap and open hostel popup ── */
-  document.addEventListener('click', function(e) {
-    var link = e.target.closest('.bb-find-on-map');
-    if (!link) return;
-    e.preventDefault();
-    var hostelId = link.dataset.hostel;
-    var mapFrame = document.querySelector('.bb-map-iframe');
-    if (!mapFrame) return;
-    mapFrame.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    setTimeout(function() {
-      mapFrame.contentWindow.postMessage({ type: 'BB_OPEN_HOSTEL', id: hostelId }, '*');
-    }, 600);
-  });
-</script>
 
 </body>
 </html>
