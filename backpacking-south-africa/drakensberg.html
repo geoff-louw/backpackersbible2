@@ -1539,26 +1539,6 @@ window.BB_TIPS = [
   });
 </script>
 
-
-<!-- Default Statcounter code for Backpackers Bible
-https://www.backpackersbible.com/ -->
-<script type="text/javascript">
-var sc_project=13225228; 
-var sc_invisible=1; 
-var sc_security="687dc53c"; 
-</script>
-<script type="text/javascript"
-src="https://www.statcounter.com/counter/counter.js"
-async></script>
-<noscript><div class="statcounter"><a title="Web Analytics"
-href="https://statcounter.com/" target="_blank"><img
-class="statcounter"
-src="https://c.statcounter.com/13225228/0/687dc53c/1/"
-alt="Web Analytics"
-referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
-<!-- End of Statcounter Code -->
-
-
 <script>
   /* ── FIND ON MAP — scroll to LibreMap and open hostel popup ── */
   document.addEventListener('click', function(e) {
@@ -1573,6 +1553,32 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
       mapFrame.contentWindow.postMessage({ type: 'BB_OPEN_HOSTEL', id: hostelId }, '*');
     }, 600);
   });
+</script>
+
+<!-- Load my maps on click -->
+
+<script>
+document.addEventListener('click', function (e) {
+
+    if (!e.target.classList.contains('load-map-btn')) {
+        return;
+    }
+
+    const container = e.target.closest('.map-placeholder');
+    const src = container.dataset.mapSrc;
+
+    container.innerHTML = `
+        <iframe
+            src="${src}"
+            width="100%"
+            height="570"
+            style="border:0; display:block;"
+            allowfullscreen
+            loading="lazy">
+        </iframe>
+    `;
+
+});
 </script>
 
 <!-- Schema -->
@@ -2338,6 +2344,25 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
   ]
 }
 </script>
+
+
+<!-- Default Statcounter code for Backpackers Bible
+https://www.backpackersbible.com/ -->
+<script type="text/javascript">
+var sc_project=13225228; 
+var sc_invisible=1; 
+var sc_security="687dc53c"; 
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js"
+async></script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="https://c.statcounter.com/13225228/0/687dc53c/1/"
+alt="Web Analytics"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
 
 </body>
 </html>
