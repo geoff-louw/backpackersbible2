@@ -3868,6 +3868,14 @@ img.bb-marker-icon {
     pointer-events: none; /* Desktop: click through to the map */
     border: 3px solid #fff;
     transition: opacity 0.25s ease, visibility 0.25s ease;
+    /* Forces the circle onto its own GPU compositing layer. Some
+       browsers paint a WebGL <canvas> inside a same-origin iframe in a
+       layer that ignores a sibling's z-index/isolation; promoting this
+       element the same way (translateZ/will-change) makes the browser
+       composite it as a GPU layer too, which is what actually fixes the
+       "circle shows, then gets covered once the map loads" symptom. */
+    transform: translateZ(0);
+    will-change: transform;
 }
 
 /* --- Mobile Responsiveness & Behaviour --- */
