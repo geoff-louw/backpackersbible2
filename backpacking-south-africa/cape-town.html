@@ -24,7 +24,7 @@
 <link
   rel="preload"
   as="image"
-  href="/assets/cape-town-backpacking-cartouche.webp"
+  href="/assets/fallback_map_cape-town.webp"
   media="(min-width: 769px)"
   fetchpriority="high"
 >
@@ -33,7 +33,7 @@
 <link
   rel="preload"
   as="image"
-  href="/assets/cape-town-backpacking-cartouche_mobile.webp"
+  href="/assets/fallback_map_cape-town_mobile.webp"
   media="(max-width: 768px)"
   fetchpriority="high"
 >
@@ -415,6 +415,16 @@
 
 <!-- ░░ HOSTEL MAP ░░ -->
 <section class="sa-hostel-map-shell" id="hostel-map">
+
+  <!-- Poster image: shows before user loads the map -->
+  <picture class="sa-hostel-map-poster">
+    <source media="(max-width: 767px)" srcset="/assets/fallback_map_cape-town_mobile.webp">
+    <img src="/assets/fallback_map_cape-town.webp" 
+         alt="Interactive hostel map of Cape Town — tap to load"
+         loading="eager"
+         fetchpriority="high"
+         decoding="async">
+  </picture>
 
   <!-- The map iframe — src is blank until user clicks -->
   <iframe
