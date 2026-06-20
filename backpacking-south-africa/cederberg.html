@@ -445,15 +445,27 @@
 
 
 <!-- ░░ BUILD YOUR OWN ITINERARY ░░ -->
+<!--
+  Geoff: drop this block in immediately AFTER the closing </section> of
+  sa-hostel-map-shell, and BEFORE whatever section currently follows it
+  (the Mama Africa tour-guide widget on most pages). It's self-contained:
+  the styles below + the button are the only things that cost anything on
+  first paint — itinerary-builder.js only loads once clicked, and injects
+  its own <style> tag for the panel itself, so there is only ONE extra
+  network request total when a person opens the builder, not two.
 
+  Region/start values below ('cederberg') need to match the page's own
+  BB_MAP_CONFIG region — copy from the data-src param already on this page's
+  map iframe.
+-->
 <style>
   .bb-it-intro {
-    background: #000;
+    background: #33689e;
     padding: 22px 20px 30px;
     text-align: center;
   }
   .bb-it-intro h2 {
-    color: #FFD700;
+    color: #fff32a;
     font-family: 'Century Gothic', sans-serif;
     font-size: 14pt;
     font-weight: bold;
@@ -468,6 +480,9 @@
     line-height: 1.5;
     max-width: 640px;
     margin: 0 auto 20px;
+  }
+  @media (min-width: 1100px) {
+    .bb-it-intro p { white-space: nowrap; max-width: none; }
   }
   .bb-it-cta {
     display: inline-flex;
@@ -543,7 +558,6 @@
 })();
 </script>
 <!-- ░░ END BUILD YOUR OWN ITINERARY ░░ -->
-
 
 
      <!-- Tour guide initial -->
