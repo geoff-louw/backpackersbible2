@@ -25,7 +25,7 @@
 <link
   rel="preload"
   as="image"
-  href="/assets/fallback_map_garden-route.webp"
+  href="/assets/backpacking-garden-route-cartouche.webp"
   media="(min-width: 769px)"
   fetchpriority="high"
 >
@@ -34,7 +34,7 @@
 <link
   rel="preload"
   as="image"
-  href="/assets/fallback_map_garden-route_mobile.webp"
+  href="/assets/backpacking-garden-route-cartouche_mobile.webp"
   media="(max-width: 768px)"
   fetchpriority="high"
 >
@@ -417,14 +417,6 @@
 
 <!-- ░░ HOSTEL MAP ░░ -->
 <section class="sa-hostel-map-shell" id="hostel-map">
-
-  <!-- Poster image: shows before user loads the map -->
-  <picture class="sa-hostel-map-poster">
-    <source media="(max-width: 767px)" srcset="/assets/fallback_map_garden-route_mobile.webp">
-    <img src="/assets/fallback_map_garden-route.webp" 
-         alt="Interactive hostel map of the Garden Route — click to load"
-         loading="lazy">
-  </picture>
 
   <!-- The map iframe — src is blank until user clicks -->
   <iframe

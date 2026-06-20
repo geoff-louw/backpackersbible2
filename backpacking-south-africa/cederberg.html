@@ -23,7 +23,7 @@
 <link
   rel="preload"
   as="image"
-  href="/assets/fallback_map_cederberg.webp"
+  href="/assets/backpacking_cederberg_cartouche.webp"
   media="(min-width: 769px)"
   fetchpriority="high"
 >
@@ -32,7 +32,7 @@
 <link
   rel="preload"
   as="image"
-  href="/assets/fallback_map_cederberg_mobile.webp"
+  href="/assets/backpacking_cederberg_cartouche_mobile.webp"
   media="(max-width: 768px)"
   fetchpriority="high"
 >
@@ -415,16 +415,6 @@
 <!-- ░░ HOSTEL MAP ░░ -->
 <section class="sa-hostel-map-shell" id="hostel-map">
 
-  <!-- Poster image: shows before user loads the map -->
-  <picture class="sa-hostel-map-poster">
-    <source media="(max-width: 767px)" srcset="/assets/fallback_map_cederberg_mobile.webp">
-    <img src="/assets/fallback_map_cederberg.webp" 
-         alt="Interactive hostel map of the Cederberg — tap to load"
-         loading="eager"
-         fetchpriority="high"
-         decoding="async">
-  </picture>
-
   <!-- The map iframe — src is blank until user clicks -->
   <iframe
     class="sa-hostel-map-iframe bb-map-iframe"
@@ -445,19 +435,7 @@
 
 
 <!-- ░░ BUILD YOUR OWN ITINERARY ░░ -->
-<!--
-  Geoff: drop this block in immediately AFTER the closing </section> of
-  sa-hostel-map-shell, and BEFORE whatever section currently follows it
-  (the Mama Africa tour-guide widget on most pages). It's self-contained:
-  the styles below + the button are the only things that cost anything on
-  first paint — itinerary-builder.js only loads once clicked, and injects
-  its own <style> tag for the panel itself, so there is only ONE extra
-  network request total when a person opens the builder, not two.
 
-  Region/start values below ('cederberg') need to match the page's own
-  BB_MAP_CONFIG region — copy from the data-src param already on this page's
-  map iframe.
--->
 <style>
   .bb-it-intro {
     background: #33689e;

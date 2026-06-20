@@ -25,7 +25,7 @@
 <link
   rel="preload"
   as="image"
-  href="/assets/fallback_map_wild-coast.webp"
+  href="/assets/backpacking-wild-coast-cartouche.webp"
   media="(min-width: 769px)"
   fetchpriority="high"
 >
@@ -34,7 +34,7 @@
 <link
   rel="preload"
   as="image"
-  href="/assets/fallback_map_wild-coast_mobile.webp"
+  href="/assets/backpacking-wild-coast-cartouche_mobile.webp"
   media="(max-width: 768px)"
   fetchpriority="high"
 >
@@ -417,14 +417,6 @@
 
 <!-- ░░ HOSTEL MAP ░░ -->
 <section class="sa-hostel-map-shell" id="hostel-map">
-
-  <!-- Poster image: shows before user loads the map -->
-  <picture class="sa-hostel-map-poster">
-    <source media="(max-width: 767px)" srcset="/assets/fallback_map_wild-coast_mobile.webp">
-    <img src="/assets/fallback_map_wild-coast.webp" 
-         alt="Interactive hostel map of the Wild Coast — click to load"
-         loading="lazy">
-  </picture>
 
   <!-- The map iframe — src is blank until user clicks -->
   <iframe
