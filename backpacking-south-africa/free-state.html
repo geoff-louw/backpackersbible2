@@ -417,6 +417,16 @@
 <!-- ░░ HOSTEL MAP ░░ -->
 <section class="sa-hostel-map-shell" id="hostel-map">
 
+  <!-- Poster image: shows before user loads the map -->
+  <picture class="sa-hostel-map-poster">
+    <source media="(max-width: 767px)" srcset="/assets/fallback_map_free-state_mobile.webp">
+    <img src="/assets/fallback_map_free-state.webp" 
+         alt="Interactive hostel map of Free State Province — tap to load"
+         loading="eager"
+         fetchpriority="high"
+         decoding="async">
+  </picture>
+
   <!-- The map iframe — src is blank until user clicks -->
   <iframe
     class="sa-hostel-map-iframe bb-map-iframe"
