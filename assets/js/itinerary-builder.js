@@ -293,8 +293,15 @@
   // zig-zagging across the country and roughly matches the real
   // backpacker trail without needing a hand-curated adjacency table.
   // ───────────────────────────────────────────────────────────────────────
-  function sequenceRoute(startKey, selectedKeys, regionsData) {
-    const remaining = new Set(selectedKeys.filter(k => k !== startKey));
+  function sequenceRoute(startKey, selectedKeys, regionsData, endKey) {
+    // endKey === null/undefined/startKey → round trip: visit everything,
+    // then add a final leg back to the start. A different endKey → open
+    // jaw: that region is pinned as the last stop rather than just being
+    // nearest-neighboured in like any other selection, so the route
+    // actually finishes there instead of possibly passing through it
+    // midway and ending somewhere else.
+    const isOpenJaw = endKey && endKey !== startKey;
+    const remaining = new Set(selectedKeys.filter(k => k !== startKey && k !== endKey));
     const route = [startKey];
     let current = startKey;
     while (remaining.size) {
@@ -311,17 +318,35 @@
       remaining.delete(nearest);
       current = nearest;
     }
+
+    if (isOpenJaw) {
+      // Pinned final stop — only add it if it isn't already the last
+      // region visited (e.g. it was also ticked as a "visit" region and
+      // happened to end up last anyway through nearest-neighbour order).
+      if (route[route.length - 1] !== endKey) route.push(endKey);
+    } else if (route.length > 1) {
+      // Round trip: head back to the start for the flight home, unless
+      // we're already there for some reason.
+      route.push(startKey);
+    }
+
     return route;
   }
 
   // Suggest 2 hostels per region matching the trip's budget tier, pulled
   // straight from hostels.json's existing is_* tags rather than inventing
   // a ranking system.
-  function suggestHostelsForRegion(regionKey, hostelsGeoJSON, style) {
+  function suggestHostelsForRegion(regionKey, hostelsGeoJSON, style, ultraBudget) {
     const inRegion = hostelsGeoJSON.features.filter(f => f.properties.region === regionKey);
     if (!inRegion.length) return [];
     let pool = inRegion;
-    if (style === 'frugal') {
+    if (ultraBudget) {
+      // Strict — camping or nothing, no falling back to a regular dorm
+      // suggestion if the region happens to have no camping hostels.
+      // hasNoCamping() (used by computeTrip) is what surfaces that gap
+      // to the person; this function just returns an empty list here.
+      return inRegion.filter(f => f.properties.is_camping).slice(0, 2).map(f => f.properties);
+    } else if (style === 'frugal') {
       const camping = inRegion.filter(f => f.properties.is_camping || f.properties.is_cheapest);
       if (camping.length) pool = camping;
     } else if (style === 'flash') {
@@ -332,19 +357,44 @@
     return sorted.slice(0, 2).map(f => f.properties);
   }
 
+  // Regions (from a route) that have zero camping-tagged hostels — used
+  // to warn an ultra-budget traveller before they're surprised on the day.
+  function regionsWithNoCamping(route, hostelsGeoJSON) {
+    return route.filter(key => {
+      const inRegion = hostelsGeoJSON.features.filter(f => f.properties.region === key);
+      return inRegion.length > 0 && !inRegion.some(f => f.properties.is_camping);
+    });
+  }
+
   // ───────────────────────────────────────────────────────────────────────
   // FULL TRIP COST AGGREGATOR
   // ───────────────────────────────────────────────────────────────────────
   function computeTrip(answers, regionsData, hostelsGeoJSON) {
-    const { startKey, selectedRegions, totalDays, style, accomType, transportPref, travelDate, groupSize, flights, vibeStage: vibeStageInput } = answers;
+    const { startKey, endKey, selectedRegions, totalDays, style, accomType, ultraBudget, transportPref, travelDate, groupSize, flights, vibeStage: vibeStageInput } = answers;
     const peak = isPeakSeason(travelDate);
-    const route = sequenceRoute(startKey, selectedRegions, regionsData);
-    const nStops = route.length;
+    const fullRoute = sequenceRoute(startKey, selectedRegions, regionsData, endKey);
+
+    // A round trip's fullRoute ends with startKey again (e.g.
+    // [cape-town, garden-route, wild-coast, cape-town]) purely so the
+    // final leg back to the airport gets costed — but that repeated stop
+    // doesn't need its own nights, so day-splitting works off the stops
+    // BEFORE that final return leg. Open-jaw trips have no such repeat,
+    // so nightsRoute is the same as fullRoute there.
+    const isRoundTrip = fullRoute.length > 1 && fullRoute[fullRoute.length - 1] === startKey && fullRoute[fullRoute.length - 2] !== startKey;
+    const nightsRoute = isRoundTrip ? fullRoute.slice(0, -1) : fullRoute;
+
+    const nStops = nightsRoute.length;
     // Guard against more stops than days — cap stops to totalDays so each
     // gets at least 1 night, rather than showing a negative "extraDays".
-    const usableRoute = nStops > totalDays ? route.slice(0, Math.max(1, totalDays)) : route;
-    const daysPerStop = Math.max(1, Math.floor(totalDays / usableRoute.length));
-    const extraDays = Math.max(0, totalDays - daysPerStop * usableRoute.length);
+    const usableNightsRoute = nStops > totalDays ? nightsRoute.slice(0, Math.max(1, totalDays)) : nightsRoute;
+    const daysPerStop = Math.max(1, Math.floor(totalDays / usableNightsRoute.length));
+    const extraDays = Math.max(0, totalDays - daysPerStop * usableNightsRoute.length);
+
+    // The route actually travelled/costed picks back up the final return
+    // leg (if any) after the capped nights route — dropped stops (from
+    // the too-many-regions guard) apply to nightsRoute only; the return
+    // leg home always survives the cap since it's not an extra "stop".
+    const usableRoute = isRoundTrip ? [...usableNightsRoute, startKey] : usableNightsRoute;
 
     // ── Accommodation ──
     // privateRoom is priced per person assuming 2 people sharing a double
@@ -480,7 +530,10 @@
     return {
       route: usableRoute, daysPerStop, extraDays, peak,
       tooManyStops: nStops > totalDays,
-      droppedStops: nStops > totalDays ? route.slice(usableRoute.length) : [],
+      droppedStops: nStops > totalDays ? nightsRoute.slice(usableNightsRoute.length) : [],
+      isRoundTrip,
+      ultraBudget: !!ultraBudget,
+      noCampingRegions: ultraBudget ? regionsWithNoCamping(usableNightsRoute, hostelsGeoJSON) : [],
       accomKey, accomRate, accomTotal,
       foodRate, foodTotal,
       vibeStage, drinksRate, drinksTotal,
@@ -801,10 +854,12 @@
     const state = {
       step: 1,
       startKey: currentRegion,
+      endKey: null,
       selectedRegions: [],
       totalDays: 14,
       style: 'mid',
       accomType: null,
+      ultraBudget: false,
       transportPref: null,
       vibeStage: null,
       travelDate: '',
@@ -942,11 +997,26 @@
           ).join('')}</div>`
         : `<p class="bb-it-hint">No regions selected yet — click the coloured areas on the map above to add them.</p>`;
 
+      const endOptionsHTML = [
+        `<option value="" ${!state.endKey ? 'selected' : ''}>Same as starting point (round trip)</option>`,
+        `<optgroup label="Main international airports">`,
+        ...airportKeys.map(k => `<option value="${k}" ${state.endKey === k ? 'selected' : ''}>${regionsData[k].name}</option>`),
+        `</optgroup>`,
+        `<optgroup label="All other regions">`,
+        ...otherKeys.map(k => `<option value="${k}" ${state.endKey === k ? 'selected' : ''}>${regionsData[k].name}</option>`),
+        `</optgroup>`
+      ].join('');
+
       panelShell(`
         <div class="bb-it-field">
           <label for="bb-it-start">Where are you starting from?</label>
           <select id="bb-it-start">${optionsHTML}</select>
           <span class="bb-it-hint">Defaults to the region of the page you're on now — change it if you're flying in elsewhere.</span>
+        </div>
+        <div class="bb-it-field">
+          <label for="bb-it-end">Where do you need to end up?</label>
+          <select id="bb-it-end">${endOptionsHTML}</select>
+          <span class="bb-it-hint">Most people fly home from where they started — but if you're flying out from somewhere else (e.g. in at Cape Town, out from Johannesburg), pick it here.</span>
         </div>
         <div class="bb-it-field">
           <label>Which other regions do you want to visit?</label>
@@ -963,6 +1033,10 @@
         state.startKey = e.target.value;
         state.selectedRegions = state.selectedRegions.filter(k => k !== state.startKey);
         enterSelectMode();
+        renderStep();
+      });
+      document.getElementById('bb-it-end').addEventListener('change', (e) => {
+        state.endKey = e.target.value || null;
         renderStep();
       });
       mount.querySelectorAll('[data-remove-region]').forEach(btn => {
@@ -1073,6 +1147,13 @@
           <div class="bb-it-choice-row">${html}</div>
           <span class="bb-it-hint">Not every hostel offers camping — we'll only suggest camping-friendly hostels for regions where it's available.</span>
         </div>
+        <div class="bb-it-field" ${state.accomType === 'camping' ? '' : 'style="opacity:0.5;"'}>
+          <label class="bb-it-choice" style="display:flex;align-items:flex-start;gap:8px;cursor:pointer;">
+            <input type="checkbox" id="bb-it-ultra-budget" ${state.ultraBudget ? 'checked' : ''} ${state.accomType === 'camping' ? '' : 'disabled'} style="margin-top:3px;">
+            <span><strong>Ultra-budget — camp absolutely everywhere I can</strong><br>
+            <span class="bb-it-hint">Some regions have very few (or no) hostels with camping — Kruger and Mpumalanga have none at all, and Cape Town only has one. With this on, we'll flag those gaps instead of quietly switching you to a dorm.</span></span>
+          </label>
+        </div>
         <div class="bb-it-nav">
           <button class="bb-it-btn secondary" id="bb-it-back">← Back</button>
           <button class="bb-it-btn primary" id="bb-it-next">Next: how will you get around? →</button>
@@ -1081,8 +1162,11 @@
 
       mount.querySelectorAll('input[name="bb-it-accom"]').forEach(r => r.addEventListener('change', e => {
         state.accomType = e.target.value;
+        if (state.accomType !== 'camping') state.ultraBudget = false;
         renderStep3();
       }));
+      const ultraBudgetCb = document.getElementById('bb-it-ultra-budget');
+      if (ultraBudgetCb) ultraBudgetCb.addEventListener('change', e => { state.ultraBudget = e.target.checked; });
       document.getElementById('bb-it-back').addEventListener('click', () => { state.step = 2; renderStep(); });
       document.getElementById('bb-it-next').addEventListener('click', () => { state.step = 4; renderStep(); });
     }
@@ -1177,10 +1261,12 @@
     function renderStep6() {
       const answers = {
         startKey: state.startKey,
+        endKey: state.endKey,
         selectedRegions: state.selectedRegions,
         totalDays: state.totalDays,
         style: state.style,
         accomType: state.accomType,
+        ultraBudget: state.ultraBudget,
         transportPref: state.transportPref,
         vibeStage: state.vibeStage,
         travelDate: state.travelDate,
@@ -1205,22 +1291,30 @@
       }
 
       const routeHTML = trip.route.map((key, i) => {
-        const extra = i < trip.extraDays ? 1 : 0;
-        const days = trip.daysPerStop + extra;
-        const suggestions = suggestHostelsForRegion(key, hostelsGeoJSON, state.style);
+        const isReturnLeg = trip.isRoundTrip && i === trip.route.length - 1;
+        const suggestions = isReturnLeg ? [] : suggestHostelsForRegion(key, hostelsGeoJSON, state.style, state.ultraBudget);
         const suggestionsHTML = suggestions.length
           ? suggestions.map(h => `<div class="bb-it-hostel-suggestion">→ <a href="${h.anchor || '#'}">${h.name}</a></div>`).join('')
           : '';
         const legHTML = i < trip.legs.length
           ? `<div class="bb-it-leg">Then: ${trip.legs[i].chosen.mode} to ${trip.legs[i+1] ? regionName(trip.route[i+1]) : ''} (~${trip.legs[i].km}km) — ${money(trip.legs[i].chosen.price)}${trip.legs[i].chosen.mode.includes('Self-drive') ? ' fuel' : ''}</div>`
           : '';
+
+        const daysLabel = isReturnLeg
+          ? `<span class="bb-it-route-stop-days">— fly home from here</span>`
+          : (() => {
+              const extra = i < trip.extraDays ? 1 : 0;
+              const days = trip.daysPerStop + extra;
+              return `<span class="bb-it-route-stop-days">— ${days} night${days !== 1 ? 's' : ''}</span>`;
+            })();
+
         return `
           <li class="bb-it-route-stop" style="display:block;">
             <div style="display:flex;gap:12px;align-items:flex-start;">
               <span class="bb-it-route-num">${i + 1}</span>
               <div>
-                <span class="bb-it-route-stop-name">${regionName(key)}</span>
-                <span class="bb-it-route-stop-days">— ${days} night${days !== 1 ? 's' : ''}</span>
+                <span class="bb-it-route-stop-name">${regionName(key)}${isReturnLeg ? ' (back where you started)' : ''}</span>
+                ${daysLabel}
                 ${suggestionsHTML}
               </div>
             </div>
@@ -1239,13 +1333,19 @@
       const flightTotal = trip.flightLegs.reduce((s,f)=>s+f.price,0);
       const legsOnlyTotal = trip.transportTotal - flightTotal - trip.carRentalTotal;
 
+      const keptStopsCount = trip.isRoundTrip ? trip.route.length - 1 : trip.route.length;
       const tooManyHTML = trip.tooManyStops
-        ? `<div class="bb-it-map-hint">You picked more regions than you have days for at roughly a night each. We've kept the first ${trip.route.length} stops on your route and left out ${trip.droppedStops.map(k => regionName(k)).join(', ')} — add more days or remove a region to fit them in.</div>`
+        ? `<div class="bb-it-map-hint">You picked more regions than you have days for at roughly a night each. We've kept the first ${keptStopsCount} stops on your route and left out ${trip.droppedStops.map(k => regionName(k)).join(', ')} — add more days or remove a region to fit them in.</div>`
+        : '';
+
+      const noCampingHTML = trip.noCampingRegions.length
+        ? `<div class="bb-it-map-hint">Heads up: ${trip.noCampingRegions.map(k => regionName(k)).join(', ')} ${trip.noCampingRegions.length === 1 ? "doesn't have" : "don't have"} any hostels with camping. You'll need a dorm bed there even on ultra-budget — that's not included in the camping-only total below for those nights.</div>`
         : '';
 
       panelShell(`
         <div class="bb-it-results">
           ${tooManyHTML}
+          ${noCampingHTML}
           <div class="bb-it-total-card">
             <div>
               <div class="bb-it-total-figure">${zar(trip.grandTotal)} <span class="bb-it-eur">(${eur(trip.grandTotal)})</span></div>
