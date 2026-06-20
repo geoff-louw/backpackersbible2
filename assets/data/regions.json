@@ -1643,7 +1643,7 @@
     "bearing": 0,
     "color": "#0097A7",
     "lineColor": "#0097A7",
-    "fillOpacity": 0.08,
+    "fillOpacity": 0.38,
     "geom": "Polygon",
     "polygon": [
       [
