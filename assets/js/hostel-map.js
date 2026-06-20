@@ -121,6 +121,11 @@
     .bb-popup-btn:hover { opacity:0.88; }
     .bb-btn-booking { background:#003580; }
     .bb-btn-hostelworld { background:#f37022; }
+    .bb-region-tags { display:flex;flex-wrap:wrap;gap:5px;margin:6px 0; }
+    .bb-region-tag {
+      background:${BRAND_YELLOW};color:#333;font-weight:bold;font-size:10px;
+      padding:3px 8px;border-radius:10px;line-height:1.3;white-space:nowrap;
+    }
     #bb-map-toggle:hover { background:#fff9d6; }
     #bb-map:focus { outline:3px solid ${BRAND_YELLOW};outline-offset:2px; }
   `;
@@ -183,6 +188,24 @@
         ${wa}${em}${web}${ratings}<hr>
         <div class="bb-popup-info">${h.info||''}${more}</div>
         ${btns}
+      </div>`;
+  }
+
+  function buildRegionPopup(r) {
+    const tags = (r.bestFor || []).map(t => `<span class="bb-region-tag">${t}</span>`).join('');
+    const tagsHTML = tags
+      ? `<div class="bb-region-tags">${tags}</div>`
+      : `<p class="bb-popup-info">No "best for" info yet for this region.</p>`;
+    const more = r.url
+      ? `<a href="${r.url}" class="bb-popup-more" onclick="window.top.location.href='${r.url}';event.preventDefault();" aria-label="More info about ${r.name}">More info ›</a>`
+      : '';
+    return `
+      <div class="bb-popup" role="region" aria-label="${r.name} region information">
+        <h3>${r.name}</h3>
+        <div class="bb-popup-field"><b>Best for:</b></div>
+        ${tagsHTML}
+        <hr>
+        <div class="bb-popup-info">${more}</div>
       </div>`;
   }
 
@@ -329,9 +352,13 @@
         }
 
         // ── REGION OVERLAYS ──────────────────────────────────────────────────
-        const regionsToShow = REGION==='national' ? Object.keys(regions) : [REGION];
+        // drawnRegions tracks which region polygons currently exist as map
+        // layers, so BB_SELECT_MODE can add the ones missing on a single-
+        // region page without re-creating any that already exist.
+        const drawnRegions = new Set();
 
-        regionsToShow.forEach(key => {
+        function drawRegionPolygon(key, withLabel) {
+          if (drawnRegions.has(key)) return;
           const r = regions[key];
           if (!r || !r.polygon || r.polygon.length < 2) return;
 
@@ -362,7 +389,7 @@
               paint:{ 'line-color':lineColor, 'line-width':2, 'line-opacity':0.8 } });
           }
 
-          if (REGION==='national' && !isLine) {
+          if (withLabel && !isLine) {
             const pts = r.polygon;
             const cx  = pts.reduce((s,p)=>s+p[0],0)/pts.length;
             const cy  = pts.reduce((s,p)=>s+p[1],0)/pts.length;
@@ -377,14 +404,137 @@
             });
           }
 
-          if (REGION==='national') {
-            const hitLayer = isLine ? `region-hit-${key}` : `region-fill-${key}`;
-            map.on('click',      hitLayer, (e) => { 
-              e.clickHandled = true; 
-              if (r.url) window.top.location.href = r.url; 
+          const hitLayer = isLine ? `region-hit-${key}` : `region-fill-${key}`;
+          map.on('mouseenter', hitLayer, () => { map.getCanvas().style.cursor='pointer'; });
+          map.on('mouseleave', hitLayer, () => { map.getCanvas().style.cursor=''; });
+
+          // Single click router per region — behaviour (popup vs. toggle
+          // selection vs. navigate) is decided at click-time by checking
+          // selectModeActive, so we never have to add/remove listeners
+          // when entering/exiting select mode.
+          map.on('click', hitLayer, (e) => {
+            // A hostel pin sitting inside this region's fill area should
+            // win the click for ordinary browsing — query for one under
+            // the same point and bail out here if found, rather than
+            // relying on handler registration order (which doesn't
+            // reliably control which layer's click handler "wins" in
+            // MapLibre). Skip this check during select mode, since then
+            // the person is deliberately picking regions, not hostels —
+            // pins are mostly hidden zoomed-out anyway, but this avoids
+            // an awkward dead spot if one happens to sit under the click.
+            if (!selectModeActive) {
+              const hostelLayers = ['unclustered-point', 'unclustered-point-best'].filter(id => map.getLayer(id));
+              if (hostelLayers.length) {
+                const hit = map.queryRenderedFeatures(e.point, { layers: hostelLayers });
+                if (hit.length) return;
+              }
+            }
+
+            e.clickHandled = true;
+            if (selectModeActive) {
+              toggleRegionSelection(key);
+            } else if (REGION === 'national') {
+              // National view: show a "best for…" popup with a link to the
+              // region page, instead of navigating straight there — this
+              // also resolves the click-priority issue above, since the
+              // polygon no longer competes with hostel pins for the
+              // immediate navigation.
+              showRegionPopup(key, r, e.lngLat);
+            } else if (r.url) {
+              window.top.location.href = r.url;
+            }
+          });
+
+          drawnRegions.add(key);
+        }
+
+        const regionsToShow = REGION==='national' ? Object.keys(regions) : [REGION];
+        regionsToShow.forEach(key => drawRegionPolygon(key, REGION==='national'));
+
+        // ── ITINERARY BUILDER SELECT MODE ───────────────────────────────────
+        // Lets the parent page's itinerary builder turn region polygons into
+        // a multi-select control. Off by default; only active between a
+        // BB_SELECT_MODE {active:true} message and the matching {active:false}.
+        let selectModeActive = false;
+        let currentSelectKey = null; // person's chosen starting point while select mode is active
+        const selectedRegionKeys = new Set();
+
+        function regionPaint(key, state) {
+          // state: 'current' | 'selected' | 'default'
+          const r = regions[key];
+          if (!r || r.geom === 'LineString') return;
+          const fillLayer = `region-fill-${key}`;
+          const lineLayer = `region-line-${key}`;
+          if (!map.getLayer(fillLayer)) return;
+          if (state === 'current') {
+            map.setPaintProperty(fillLayer, 'fill-opacity', 0.45);
+            map.setPaintProperty(lineLayer, 'line-width', 3);
+          } else if (state === 'selected') {
+            map.setPaintProperty(fillLayer, 'fill-opacity', 0.55);
+            map.setPaintProperty(lineLayer, 'line-width', 4);
+          } else {
+            map.setPaintProperty(fillLayer, 'fill-opacity', r.fillOpacity !== undefined ? r.fillOpacity : 0.25);
+            map.setPaintProperty(lineLayer, 'line-width', 2);
+          }
+        }
+
+        function toggleRegionSelection(key) {
+          if (key === currentSelectKey) return; // current/starting region can't be deselected here
+          if (selectedRegionKeys.has(key)) {
+            selectedRegionKeys.delete(key);
+            regionPaint(key, 'default');
+          } else {
+            selectedRegionKeys.add(key);
+            regionPaint(key, 'selected');
+          }
+          window.top.postMessage({
+            type: 'BB_REGION_TOGGLED',
+            key,
+            selected: Array.from(selectedRegionKeys)
+          }, '*');
+        }
+
+        window.addEventListener('message', (e) => {
+          if (!e.data || e.data.type !== 'BB_SELECT_MODE') return;
+          selectModeActive = !!e.data.active;
+
+          if (selectModeActive) {
+            // Draw every region polygon (not just the current page's one)
+            // so there's something to click everywhere on the map.
+            Object.keys(regions).forEach(key => drawRegionPolygon(key, true));
+
+            // "current" comes from the parent's itinerary builder (the
+            // person's chosen starting point in its dropdown), which can
+            // differ from this iframe's own page region — e.g. someone on
+            // the Cederberg page switches their starting point to Cape
+            // Town in the builder. Fall back to this page's own REGION
+            // only if the parent didn't specify one.
+            currentSelectKey = e.data.current || REGION;
+
+            selectedRegionKeys.clear();
+            (e.data.selected || []).forEach(k => selectedRegionKeys.add(k));
+            Object.keys(regions).forEach(key => {
+              if (key === currentSelectKey) regionPaint(key, 'current');
+              else if (selectedRegionKeys.has(key)) regionPaint(key, 'selected');
+              else regionPaint(key, 'default');
             });
-            map.on('mouseenter', hitLayer, () => { map.getCanvas().style.cursor='pointer'; });
-            map.on('mouseleave', hitLayer, () => { map.getCanvas().style.cursor=''; });
+
+            if (!isMobile) map.easeTo({ zoom: Math.min(map.getZoom(), 5), pitch: 0, bearing: 0, duration: 600 });
+          } else {
+            // Revert to plain navigate-mode visuals. Regions that belong on
+            // this page (regionsToShow) go back to their normal opacity;
+            // any extra regions drawn purely for select mode are hidden
+            // again so the map looks exactly as it did before the builder
+            // was opened (left drawn as GL layers — cheap — just invisible).
+            Object.keys(regions).forEach(key => {
+              if (regionsToShow.includes(key)) {
+                regionPaint(key, 'default');
+              } else if (map.getLayer(`region-fill-${key}`)) {
+                map.setPaintProperty(`region-fill-${key}`, 'fill-opacity', 0);
+                map.setPaintProperty(`region-line-${key}`, 'line-width', 0);
+              }
+            });
+            selectedRegionKeys.clear();
           }
         });
 
@@ -403,6 +553,10 @@
             if (el) el.classList.remove('bb-fade-in');
             setTimeout(() => { if(activePopup) activePopup.remove(); open(); }, 400);
           } else { open(); }
+        }
+
+        function showRegionPopup(key, r, lngLat) {
+          showPopup([lngLat.lng, lngLat.lat], buildRegionPopup(r));
         }
 
         map.on('click', (e) => {
@@ -458,49 +612,22 @@
         });
 
         if (REGION === 'national') {
-          // ── CLUSTERED VIEW (national page only) ──────────────────────────
+          // ── INDIVIDUAL PINS (national page) ──────────────────────────────
+          // Previously clustered at low zoom; Geoff wants every hostel
+          // shown individually even on the national view, so clustering is
+          // switched off here. GL circle layers (not DOM markers) are kept
+          // for performance with 200+ points nationally.
           map.addSource('hostels-clustered', {
             type: 'geojson',
-            data: { type: 'FeatureCollection', features: features },
-            cluster: true,
-            clusterMaxZoom: 7,
-            clusterRadius: 50
+            data: { type: 'FeatureCollection', features: features }
           });
 
-          // Cluster circles
-          map.addLayer({
-            id: 'clusters',
-            type: 'circle',
-            source: 'hostels-clustered',
-            filter: ['has', 'point_count'],
-            paint: {
-              'circle-color': '#ffd400',
-              'circle-radius': ['step', ['get','point_count'], 18, 5, 24, 20, 30],
-              'circle-stroke-width': 2,
-              'circle-stroke-color': '#ffffff'
-            }
-          });
-
-          // Cluster count labels
-          map.addLayer({
-            id: 'cluster-count',
-            type: 'symbol',
-            source: 'hostels-clustered',
-            filter: ['has', 'point_count'],
-            layout: {
-              'text-field': '{point_count_abbreviated}',
-              'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'],
-              'text-size': 12
-            },
-            paint: { 'text-color': '#333333' }
-          });
-
-          // Individual unclustered points — standard
+          // Individual points — standard
           map.addLayer({
             id: 'unclustered-point',
             type: 'circle',
             source: 'hostels-clustered',
-            filter: ['all', ['!', ['has', 'point_count']], ['!=', ['get', 'is_best_overall'], true]],
+            filter: ['!=', ['get', 'is_best_overall'], true],
             paint: {
               'circle-color': '#ffd400',
               'circle-radius': 7,
@@ -509,12 +636,12 @@
             }
           });
 
-          // Best overall unclustered points — larger gold circle with red stroke
+          // Best overall points — larger gold circle with red stroke
           map.addLayer({
             id: 'unclustered-point-best',
             type: 'circle',
             source: 'hostels-clustered',
-            filter: ['all', ['!', ['has', 'point_count']], ['==', ['get', 'is_best_overall'], true]],
+            filter: ['==', ['get', 'is_best_overall'], true],
             paint: {
               'circle-color': '#ffd400',
               'circle-radius': 10,
@@ -523,32 +650,27 @@
             }
           });
 
-          // Click cluster → zoom in
-          map.on('click', 'clusters', (e) => {
-            e.clickHandled = true;
-            const id = e.features[0].properties.cluster_id;
-            map.getSource('hostels-clustered').getClusterExpansionZoom(id, (err, zoom) => {
-              if (err) return;
-              map.easeTo({ center: e.features[0].geometry.coordinates, zoom });
-            });
-          });
-
-          // Click individual point → show popup
+          // Click individual point → show popup. Region polygon handlers
+          // (see drawRegionPolygon above) check for a hostel pin under the
+          // same click and yield to it, which is what actually gives pins
+          // priority — MapLibre does not otherwise prioritise one layer's
+          // click handler over another's based on paint order. During
+          // select mode (itinerary builder choosing regions), pins yield
+          // back so the region underneath can still be toggled.
           map.on('click', 'unclustered-point', (e) => {
+            if (selectModeActive) return;
             e.clickHandled = true;
             const h = e.features[0].properties;
             const coords = e.features[0].geometry.coordinates.slice();
-            
+
             // Fixes coordinate wrapping if users spin the map globe sideways
             while (Math.abs(e.lngLat.lng - coords[0]) > 180) {
               coords[0] += e.lngLat.lng > coords[0] ? 360 : -360;
             }
-            
+
             showPopup(coords, buildPopup(h));
           });
 
-          map.on('mouseenter', 'clusters',               () => { map.getCanvas().style.cursor = 'pointer'; });
-          map.on('mouseleave', 'clusters',               () => { map.getCanvas().style.cursor = ''; });
           map.on('mouseenter', 'unclustered-point',      () => { map.getCanvas().style.cursor = 'pointer'; });
           map.on('mouseleave', 'unclustered-point',      () => { map.getCanvas().style.cursor = ''; });
           map.on('mouseenter', 'unclustered-point-best', () => { map.getCanvas().style.cursor = 'pointer'; });
@@ -556,6 +678,7 @@
 
           // Click best-overall point → show popup
           map.on('click', 'unclustered-point-best', (e) => {
+            if (selectModeActive) return;
             e.clickHandled = true;
             const h = e.features[0].properties;
             const coords = e.features[0].geometry.coordinates.slice();
