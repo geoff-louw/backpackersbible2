@@ -463,32 +463,6 @@
     const css = document.createElement('style');
     css.id = 'bb-itinerary-styles';
     css.textContent = `
-      .bb-it-cta-wrap {
-        text-align: center;
-        margin: 28px 0 36px;
-      }
-      .bb-it-cta {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        background: ${BRAND_RED};
-        color: #fff;
-        font-family: ${FONT_STACK};
-        font-weight: bold;
-        font-size: 16px;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        border: none;
-        border-radius: 6px;
-        padding: 14px 28px;
-        cursor: pointer;
-        box-shadow: 0 3px 0 #8e1519, 0 6px 14px rgba(0,0,0,0.18);
-        transition: transform 0.15s ease, box-shadow 0.15s ease;
-      }
-      .bb-it-cta:hover { transform: translateY(-2px); box-shadow: 0 5px 0 #8e1519, 0 10px 18px rgba(0,0,0,0.22); }
-      .bb-it-cta:active { transform: translateY(0); box-shadow: 0 2px 0 #8e1519, 0 4px 10px rgba(0,0,0,0.18); }
-      .bb-it-cta .bb-it-stamp { font-size: 20px; line-height: 1; }
-
       .bb-itinerary-panel {
         font-family: ${FONT_STACK};
         color: #2b2b2b;
