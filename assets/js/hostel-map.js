@@ -104,6 +104,15 @@
     }
     .bb-marker:hover .bb-marker-label,
     .bb-marker:focus-within .bb-marker-label { opacity:1;pointer-events:auto; }
+    .bb-route-stage {
+      width:26px;height:26px;border-radius:50%;
+      background:${BRAND_RED};color:#fff;border:2px solid #fff;
+      display:flex;align-items:center;justify-content:center;
+      font-family:'Century Gothic',sans-serif;font-size:13px;font-weight:bold;
+      cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.4);
+    }
+    .bb-route-stage:hover,
+    .bb-route-stage:focus { outline:3px solid ${BRAND_YELLOW};outline-offset:1px; }
     .maplibregl-popup { opacity:0;transition:opacity 0.4s ease-in-out;pointer-events:none; }
     .maplibregl-popup.bb-fade-in { opacity:1;pointer-events:auto; }
     .bb-popup { width:220px;font-family:'Century Gothic',sans-serif;font-size:11px;color:#333;overflow-wrap:break-word;word-break:break-word;box-sizing:border-box; }
@@ -585,6 +594,93 @@
             map.flyTo({ center: coords, zoom: Math.max(map.getZoom(), 14), duration: 800 });
             setTimeout(() => showPopup(coords, html), 850);
           }
+        });
+
+        // ── ITINERARY ROUTE LINE ─────────────────────────────────────────
+        // Drawn on request from the itinerary builder once it has a
+        // computed trip: a red dashed line through the chosen regions,
+        // with a small numbered stage marker at the midpoint of each leg.
+        // Clicking a stage marker shows "Day X — A to B" plus the chosen
+        // transport mode, mirroring the builder's own route list.
+        let routeStageMarkers = [];
+
+        function clearRoute() {
+          routeStageMarkers.forEach(m => m.remove());
+          routeStageMarkers = [];
+          if (map.getLayer('bb-route-line')) map.removeLayer('bb-route-line');
+          if (map.getLayer('bb-route-line-casing')) map.removeLayer('bb-route-line-casing');
+          if (map.getSource('bb-route')) map.removeSource('bb-route');
+        }
+
+        function drawRoute(legs) {
+          clearRoute();
+          if (!legs || !legs.length) return;
+
+          const coordinates = [];
+          legs.forEach((leg, i) => {
+            if (!leg.fromCoords || !leg.toCoords) return;
+            if (i === 0) coordinates.push(leg.fromCoords);
+            coordinates.push(leg.toCoords);
+          });
+          if (coordinates.length < 2) return;
+
+          map.addSource('bb-route', {
+            type: 'geojson',
+            data: { type: 'Feature', geometry: { type: 'LineString', coordinates }, properties: {} }
+          });
+          // White casing underneath so the dashed red line stays visible
+          // over both light and dark map basemap areas.
+          map.addLayer({
+            id: 'bb-route-line-casing', type: 'line', source: 'bb-route',
+            paint: { 'line-color': '#ffffff', 'line-width': 6, 'line-opacity': 0.9 }
+          });
+          map.addLayer({
+            id: 'bb-route-line', type: 'line', source: 'bb-route',
+            paint: { 'line-color': '#bc1d23', 'line-width': 3.5, 'line-dasharray': [2, 1.5] }
+          });
+
+          legs.forEach((leg, i) => {
+            if (!leg.fromCoords || !leg.toCoords) return;
+            const mid = [(leg.fromCoords[0] + leg.toCoords[0]) / 2, (leg.fromCoords[1] + leg.toCoords[1]) / 2];
+
+            const el = document.createElement('div');
+            el.className = 'bb-route-stage';
+            el.setAttribute('role', 'button');
+            el.setAttribute('tabindex', '0');
+            el.textContent = String(i + 1);
+            const label = `Day ${leg.departDay} — ${leg.fromName} to ${leg.toName}`;
+            el.setAttribute('aria-label', `${label}. Click for travel details.`);
+
+            const html = `
+              <div class="bb-popup" role="region" aria-label="${label}">
+                <h3>Day ${leg.departDay}</h3>
+                <div class="bb-popup-field">${leg.fromName} → ${leg.toName}</div>
+                <div class="bb-popup-field"><b>By:</b> ${leg.modeLabel || ''}</div>
+                <div class="bb-popup-field"><b>Distance:</b> ~${leg.km}km</div>
+              </div>`;
+
+            const openStagePopup = ev => { if (ev) ev.stopPropagation(); showPopup(mid, html); };
+            el.addEventListener('click', openStagePopup);
+            el.addEventListener('keydown', ev => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); openStagePopup(ev); } });
+
+            const marker = new maplibregl.Marker({ element: el, anchor: 'center' }).setLngLat(mid).addTo(map);
+            routeStageMarkers.push(marker);
+          });
+
+          // Frame the whole route so the person can see it all at once.
+          try {
+            const bounds = coordinates.reduce(
+              (b, c) => b.extend(c),
+              new maplibregl.LngLatBounds(coordinates[0], coordinates[0])
+            );
+            map.fitBounds(bounds, { padding: 60, duration: 800, maxZoom: 7 });
+          } catch (err) { /* non-fatal — line still drawn even if framing fails */ }
+        }
+
+        window.addEventListener('message', (e) => {
+          if (!e.data) return;
+          if (e.data.type === 'BB_DRAW_ROUTE') drawRoute(e.data.legs);
+          else if (e.data.type === 'BB_CLEAR_ROUTE') clearRoute();
         });
 
         // ── HOSTEL PINS (all pages, including national) ──────────────────

@@ -427,6 +427,19 @@
       legs.push({
         from: regionsData[fromKey] ? regionsData[fromKey].name : fromKey,
         to: regionsData[toKey] ? regionsData[toKey].name : toKey,
+        fromKey, toKey,
+        fromCoords: a || null,
+        toCoords: b || null,
+        // Day this leg is travelled on, i.e. the last day spent at the
+        // "from" stop before moving on — used for "Day X: A to B" labels
+        // on the map route line. Stop i gets daysPerStop nights (+1 extra
+        // for the first `extraDays` stops), so this leg departs on the
+        // day count accumulated through stop i, inclusive.
+        departDay: (() => {
+          let d = 0;
+          for (let s = 0; s <= i; s++) d += daysPerStop + (s < extraDays ? 1 : 0);
+          return d;
+        })(),
         km: Math.round(km),
         options,
         chosen
@@ -888,10 +901,17 @@
 
     function closePanel() {
       exitSelectMode();
+      clearRouteFromMap();
       mount.innerHTML = '';
       mount.style.display = 'none';
       const openBtn = document.getElementById('bb-it-open-btn');
       if (openBtn) { openBtn.style.display = ''; openBtn.focus(); }
+    }
+
+    function clearRouteFromMap() {
+      if (mapFrame && mapFrame.contentWindow) {
+        mapFrame.contentWindow.postMessage({ type: 'BB_CLEAR_ROUTE' }, '*');
+      }
     }
 
     // ── STEP 1: Starting point + regions to visit ──────────────────────
@@ -1169,6 +1189,21 @@
       };
       const trip = computeTrip(answers, regionsData, hostelsGeoJSON);
 
+      // Draw the route on the map: a dashed line through the chosen
+      // regions with a numbered, clickable stage marker per leg showing
+      // "Day X — A to B" and the chosen transport mode.
+      if (mapFrame && mapFrame.contentWindow) {
+        const routeLegs = trip.legs
+          .filter(l => l.fromCoords && l.toCoords)
+          .map(l => ({
+            fromCoords: l.fromCoords, toCoords: l.toCoords,
+            fromName: l.from, toName: l.to,
+            departDay: l.departDay, km: l.km,
+            modeLabel: l.chosen.mode
+          }));
+        mapFrame.contentWindow.postMessage({ type: 'BB_DRAW_ROUTE', legs: routeLegs }, '*');
+      }
+
       const routeHTML = trip.route.map((key, i) => {
         const extra = i < trip.extraDays ? 1 : 0;
         const days = trip.daysPerStop + extra;
@@ -1246,6 +1281,7 @@
       document.getElementById('bb-it-back').addEventListener('click', () => { state.step = state.style === 'flash' ? 5 : 4; renderStep(); });
       document.getElementById('bb-it-restart').addEventListener('click', () => {
         state.step = 1; state.selectedRegions = []; state.flights = [];
+        clearRouteFromMap();
         enterSelectMode();
         renderStep();
       });
