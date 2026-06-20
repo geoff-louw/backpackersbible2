@@ -411,25 +411,12 @@
           // Single click router per region — behaviour (popup vs. toggle
           // selection vs. navigate) is decided at click-time by checking
           // selectModeActive, so we never have to add/remove listeners
-          // when entering/exiting select mode.
+          // when entering/exiting select mode. Hostel pins are DOM
+          // markers (maplibregl.Marker) that call stopPropagation() on
+          // click, so a pin sitting inside this region's fill area
+          // already never lets this canvas click handler fire at all —
+          // no extra guard needed here.
           map.on('click', hitLayer, (e) => {
-            // A hostel pin sitting inside this region's fill area should
-            // win the click for ordinary browsing — query for one under
-            // the same point and bail out here if found, rather than
-            // relying on handler registration order (which doesn't
-            // reliably control which layer's click handler "wins" in
-            // MapLibre). Skip this check during select mode, since then
-            // the person is deliberately picking regions, not hostels —
-            // pins are mostly hidden zoomed-out anyway, but this avoids
-            // an awkward dead spot if one happens to sit under the click.
-            if (!selectModeActive) {
-              const hostelLayers = ['unclustered-point', 'unclustered-point-best'].filter(id => map.getLayer(id));
-              if (hostelLayers.length) {
-                const hit = map.queryRenderedFeatures(e.point, { layers: hostelLayers });
-                if (hit.length) return;
-              }
-            }
-
             e.clickHandled = true;
             if (selectModeActive) {
               toggleRegionSelection(key);
@@ -570,25 +557,14 @@
 
         // ── FILTER STATE ─────────────────────────────────────────────────
         let activeFilter = 'all';
-        const allMarkers = []; // populated below for regional pages
+        const allMarkers = []; // populated below — every page, national included
 
         function applyFilter(filterKey) {
           activeFilter = filterKey;
-          const filtered = filterKey === 'all'
-            ? features
-            : features.filter(f => f.properties[filterKey] === true);
-
-          if (REGION === 'national') {
-            map.getSource('hostels-clustered').setData({
-              type: 'FeatureCollection',
-              features: filtered
-            });
-          } else {
-            allMarkers.forEach(({ marker, feature }) => {
-              const show = filterKey === 'all' || feature.properties[filterKey] === true;
-              marker.getElement().style.display = show ? '' : 'none';
-            });
-          }
+          allMarkers.forEach(({ marker, feature }) => {
+            const show = filterKey === 'all' || feature.properties[filterKey] === true;
+            marker.getElement().style.display = show ? '' : 'none';
+          });
         }
 
         // Listen for postMessage filter instructions from parent page
@@ -611,124 +587,65 @@
           }
         });
 
-        if (REGION === 'national') {
-          // ── INDIVIDUAL PINS (national page) ──────────────────────────────
-          // Previously clustered at low zoom; Geoff wants every hostel
-          // shown individually even on the national view, so clustering is
-          // switched off here. GL circle layers (not DOM markers) are kept
-          // for performance with 200+ points nationally.
-          map.addSource('hostels-clustered', {
-            type: 'geojson',
-            data: { type: 'FeatureCollection', features: features }
-          });
+        // ── HOSTEL PINS (all pages, including national) ──────────────────
+        // Same SVG pin markers everywhere — DOM-based maplibregl.Marker
+        // elements, not GL circle layers. This used to be split into a
+        // GL-circle path for the national page (for perf with 200+ points)
+        // and a DOM-marker path for regional pages, but Geoff wants the
+        // same real hostel-pin SVG icon used everywhere, so it's now one
+        // path. DOM markers naturally call stopPropagation() on click,
+        // which is what actually stops a region polygon underneath a pin
+        // from also firing — simpler and more reliable than querying for
+        // a pin under the click point from the polygon's own handler.
+        features.forEach(feature => {
+          const h      = feature.properties;
+          const coords = feature.geometry.coordinates;
+          const html   = buildPopup(h);
 
-          // Individual points — standard
-          map.addLayer({
-            id: 'unclustered-point',
-            type: 'circle',
-            source: 'hostels-clustered',
-            filter: ['!=', ['get', 'is_best_overall'], true],
-            paint: {
-              'circle-color': '#ffd400',
-              'circle-radius': 7,
-              'circle-stroke-width': 2,
-              'circle-stroke-color': '#ffffff'
-            }
-          });
+          const container = document.createElement('div');
+          container.className = 'bb-marker';
+          container.setAttribute('role','button');
+          container.setAttribute('tabindex','0');
+          container.setAttribute('aria-label',`${h.name} — click for details`);
 
-          // Best overall points — larger gold circle with red stroke
-          map.addLayer({
-            id: 'unclustered-point-best',
-            type: 'circle',
-            source: 'hostels-clustered',
-            filter: ['==', ['get', 'is_best_overall'], true],
-            paint: {
-              'circle-color': '#ffd400',
-              'circle-radius': 10,
-              'circle-stroke-width': 3,
-              'circle-stroke-color': '#bc1d23'
-            }
-          });
+          const icon = document.createElement('img');
+          icon.src   = h.is_best_overall ? '/assets/icons/hostel-pin-best.svg' : '/assets/icons/hostel-pin.svg';
+          icon.className = 'bb-marker-icon';
+          icon.alt   = '';
+          icon.setAttribute('aria-hidden','true');
+          icon.width = 32; icon.height = 32;
+          icon.onerror = function() {
+            this.style.cssText='width:18px;height:18px;border-radius:50%;background:#bc1d23;border:2px solid #fff;flex-shrink:0;display:block;';
+            this.src='';
+          };
+          container.appendChild(icon);
 
-          // Click individual point → show popup. Region polygon handlers
-          // (see drawRegionPolygon above) check for a hostel pin under the
-          // same click and yield to it, which is what actually gives pins
-          // priority — MapLibre does not otherwise prioritise one layer's
-          // click handler over another's based on paint order. During
-          // select mode (itinerary builder choosing regions), pins yield
-          // back so the region underneath can still be toggled.
-          map.on('click', 'unclustered-point', (e) => {
+          // National view has 200+ pins on screen at once — name labels
+          // for every one would be visual noise until zoomed in, so they
+          // only show on hover/focus (same CSS as regional pages) rather
+          // than changing behaviour here; regional pages have few enough
+          // pins that this was already the right call.
+          const label = document.createElement('div');
+          label.className  = 'bb-marker-label';
+          label.textContent = h.name;
+          label.setAttribute('aria-hidden','true');
+          container.appendChild(label);
+
+          // During select mode (itinerary builder choosing regions), pins
+          // yield entirely — no stopPropagation, no popup — so a click on
+          // a pin sitting inside a region still reaches that region's
+          // polygon handler underneath and toggles its selection.
+          const openPopup = e => {
             if (selectModeActive) return;
-            e.clickHandled = true;
-            const h = e.features[0].properties;
-            const coords = e.features[0].geometry.coordinates.slice();
+            if(e) e.stopPropagation();
+            showPopup(coords,html);
+          };
+          container.addEventListener('click', openPopup);
+          container.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' '){e.preventDefault();openPopup(e);} });
 
-            // Fixes coordinate wrapping if users spin the map globe sideways
-            while (Math.abs(e.lngLat.lng - coords[0]) > 180) {
-              coords[0] += e.lngLat.lng > coords[0] ? 360 : -360;
-            }
-
-            showPopup(coords, buildPopup(h));
-          });
-
-          map.on('mouseenter', 'unclustered-point',      () => { map.getCanvas().style.cursor = 'pointer'; });
-          map.on('mouseleave', 'unclustered-point',      () => { map.getCanvas().style.cursor = ''; });
-          map.on('mouseenter', 'unclustered-point-best', () => { map.getCanvas().style.cursor = 'pointer'; });
-          map.on('mouseleave', 'unclustered-point-best', () => { map.getCanvas().style.cursor = ''; });
-
-          // Click best-overall point → show popup
-          map.on('click', 'unclustered-point-best', (e) => {
-            if (selectModeActive) return;
-            e.clickHandled = true;
-            const h = e.features[0].properties;
-            const coords = e.features[0].geometry.coordinates.slice();
-            while (Math.abs(e.lngLat.lng - coords[0]) > 180) {
-              coords[0] += e.lngLat.lng > coords[0] ? 360 : -360;
-            }
-            showPopup(coords, buildPopup(h));
-          });
-
-        } else {
-          // ── INDIVIDUAL MARKERS (regional pages) ──────────────────────────
-
-          features.forEach(feature => {
-            const h      = feature.properties;
-            const coords = feature.geometry.coordinates;
-            const html   = buildPopup(h);
-
-            const container = document.createElement('div');
-            container.className = 'bb-marker';
-            container.setAttribute('role','button');
-            container.setAttribute('tabindex','0');
-            container.setAttribute('aria-label',`${h.name} — click for details`);
-
-            const icon = document.createElement('img');
-            icon.src   = h.is_best_overall ? '/assets/icons/hostel-pin-best.svg' : '/assets/icons/hostel-pin.svg';
-            icon.className = 'bb-marker-icon';
-            icon.alt   = '';
-            icon.setAttribute('aria-hidden','true');
-            icon.width = 32; icon.height = 32;
-            icon.onerror = function() {
-              this.style.cssText='width:18px;height:18px;border-radius:50%;background:#bc1d23;border:2px solid #fff;flex-shrink:0;display:block;';
-              this.src='';
-            };
-            container.appendChild(icon);
-
-            const label = document.createElement('div');
-            label.className  = 'bb-marker-label';
-            label.textContent = h.name;
-            label.setAttribute('aria-hidden','true');
-            container.appendChild(label);
-
-            const openPopup = e => { if(e) e.stopPropagation(); showPopup(coords,html); };
-            container.addEventListener('click', openPopup);
-            container.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' '){e.preventDefault();openPopup();} });
-
-            const marker = new maplibregl.Marker({ element:container, anchor:'left' }).setLngLat(coords).addTo(map);
-            allMarkers.push({ marker, feature });
-          }); // end features.forEach
-
-        } // end else (regional markers)
+          const marker = new maplibregl.Marker({ element:container, anchor:'left' }).setLngLat(coords).addTo(map);
+          allMarkers.push({ marker, feature });
+        }); // end features.forEach
 
       }); // end map.on('load')
 

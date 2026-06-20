@@ -54,11 +54,33 @@
       privateRoom:  { label: 'Double private room (pp)',  price: 350 } // 700/room ÷ 2 people
     },
 
-    // ── Food & drink (per person, per day) ─────────────────────────────
+    // ── Food (per person, per day) — drinks are now a separate line item,
+    // calculated from the "what's the vibe?" slider below.
     food: {
-      frugal:   { label: 'Frugal — self-cater, no bar tabs',                         price: 75 },
-      mid:      { label: 'Mixed — mostly self-cater, occasional treat',              price: 200 },
-      flash:    { label: 'Flashpacker — restaurants, takeaways, bar most nights',    price: 500 }
+      frugal:   { label: 'Frugal — self-cater',                           price: 75 },
+      mid:      { label: 'Mixed — mostly self-cater, occasional treat',   price: 200 },
+      flash:    { label: 'Flashpacker — restaurants & takeaways',         price: 500 }
+    },
+
+    // ── Drinks (per person, per day) — driven by the "what's the vibe?"
+    // slider (0-4: Chill → Mostly chill → Balanced → Mostly party →
+    // Let's party). Average hostel bar prices, June 2026: beer/wine R50,
+    // soft drink R22, shooter R30. "Let's party" = 6 beers/wine + 4
+    // shooters + 4 soft drinks per day; "Chill" = no drinks. The 2
+    // in-between stages are a straight linear split between those two.
+    drinks: {
+      prices: { beerOrWine: 50, softDrink: 22, shooter: 30 },
+      partyDayTotal: 6 * 50 + 4 * 30 + 4 * 22, // 508
+      stages: [
+        { label: 'Chill — no drinks' },
+        { label: 'Mostly chill' },
+        { label: 'Balanced' },
+        { label: 'Mostly party' },
+        { label: "Let's party" }
+      ],
+      priceForStage(stage) {
+        return Math.round((stage / 4) * this.partyDayTotal);
+      }
     },
 
     // ── Tours (one-off prices, ZAR, June 2026) ─────────────────────────
@@ -314,7 +336,7 @@
   // FULL TRIP COST AGGREGATOR
   // ───────────────────────────────────────────────────────────────────────
   function computeTrip(answers, regionsData, hostelsGeoJSON) {
-    const { startKey, selectedRegions, totalDays, style, accomType, transportPref, travelDate, groupSize, flights } = answers;
+    const { startKey, selectedRegions, totalDays, style, accomType, transportPref, travelDate, groupSize, flights, vibeStage: vibeStageInput } = answers;
     const peak = isPeakSeason(travelDate);
     const route = sequenceRoute(startKey, selectedRegions, regionsData);
     const nStops = route.length;
@@ -347,6 +369,11 @@
     // ── Food ──
     const foodRate = COST_MODEL.food[style].price;
     const foodTotal = foodRate * totalDays;
+
+    // ── Drinks (vibe slider, 0-4) ──
+    const vibeStage = Math.max(0, Math.min(4, vibeStageInput !== null && vibeStageInput !== undefined ? vibeStageInput : 2));
+    const drinksRate = COST_MODEL.drinks.priceForStage(vibeStage);
+    const drinksTotal = drinksRate * totalDays;
 
     // ── Tours ──
     let toursTotal = 0;
@@ -435,7 +462,7 @@
       transportTotal += flightLegs.reduce((s, f) => s + f.price, 0);
     }
 
-    const grandTotal = accomTotal + foodTotal + toursTotal + transportTotal;
+    const grandTotal = accomTotal + foodTotal + drinksTotal + toursTotal + transportTotal;
 
     return {
       route: usableRoute, daysPerStop, extraDays, peak,
@@ -443,6 +470,7 @@
       droppedStops: nStops > totalDays ? route.slice(usableRoute.length) : [],
       accomKey, accomRate, accomTotal,
       foodRate, foodTotal,
+      vibeStage, drinksRate, drinksTotal,
       toursTotal,
       legs, transportTotal,
       carRentalTotal,
@@ -495,6 +523,7 @@
         font-size: 22px;
         margin: 0;
         color: ${BRAND_RED};
+        white-space: nowrap;
       }
       .bb-it-close {
         background: none;
@@ -575,6 +604,26 @@
       .bb-it-choice input { margin-right: 8px; }
       .bb-it-choice.is-checked { border-color: ${BRAND_RED}; background: #fff6f6; }
       .bb-it-choice strong { display: block; margin-bottom: 3px; }
+
+      .bb-it-vibe-row {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        max-width: 480px;
+      }
+      .bb-it-vibe-row input[type="range"] {
+        flex: 1;
+        accent-color: ${BRAND_RED};
+        height: 6px;
+      }
+      .bb-it-vibe-end {
+        font-size: 12px;
+        font-weight: bold;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+        color: #555;
+        white-space: nowrap;
+      }
       .bb-it-choice span.price { color: ${BRAND_RED}; font-weight: bold; }
 
       .bb-it-map-hint {
@@ -744,6 +793,7 @@
       style: 'mid',
       accomType: null,
       transportPref: null,
+      vibeStage: null,
       travelDate: '',
       groupSize: 2,
       wantsFlights: false,
@@ -801,6 +851,13 @@
 
     function regionName(key) {
       return regionsData && regionsData[key] ? regionsData[key].name : key;
+    }
+
+    function vibeReadout(stage) {
+      const s = COST_MODEL.drinks.stages[stage];
+      const price = COST_MODEL.drinks.priceForStage(stage);
+      if (stage === 0) return `${s.label} — no extra drinks cost.`;
+      return `${s.label} — about ${zar(price)}/day on drinks (${eur(price)}/day).`;
     }
 
     const TOTAL_STEPS = 6;
@@ -934,6 +991,15 @@
           <legend>Overall travel style</legend>
           <div class="bb-it-choice-row">${styleHTML}</div>
         </div>
+        <div class="bb-it-field">
+          <label for="bb-it-vibe">What's the vibe?</label>
+          <div class="bb-it-vibe-row">
+            <span class="bb-it-vibe-end">Chill</span>
+            <input type="range" id="bb-it-vibe" min="0" max="4" step="1" value="${state.vibeStage !== null ? state.vibeStage : 2}" aria-describedby="bb-it-vibe-readout">
+            <span class="bb-it-vibe-end">Let's party</span>
+          </div>
+          <span class="bb-it-hint" id="bb-it-vibe-readout">${vibeReadout(state.vibeStage !== null ? state.vibeStage : 2)}</span>
+        </div>
         <div class="bb-it-nav">
           <button class="bb-it-btn secondary" id="bb-it-back">← Back</button>
           <button class="bb-it-btn primary" id="bb-it-next">Next: accommodation →</button>
@@ -943,6 +1009,10 @@
       document.getElementById('bb-it-days').addEventListener('input', e => { state.totalDays = parseInt(e.target.value, 10) || 14; });
       document.getElementById('bb-it-date').addEventListener('input', e => { state.travelDate = e.target.value; });
       document.getElementById('bb-it-group').addEventListener('input', e => { state.groupSize = parseInt(e.target.value, 10) || 1; });
+      document.getElementById('bb-it-vibe').addEventListener('input', e => {
+        state.vibeStage = parseInt(e.target.value, 10);
+        document.getElementById('bb-it-vibe-readout').textContent = vibeReadout(state.vibeStage);
+      });
       mount.querySelectorAll('input[name="bb-it-style"]').forEach(r => r.addEventListener('change', e => {
         state.style = e.target.value;
         if (!state.accomType) {
@@ -950,6 +1020,9 @@
         }
         if (!state.transportPref) {
           state.transportPref = state.style === 'frugal' ? 'taxi' : state.style === 'flash' ? 'bus' : 'bus';
+        }
+        if (state.vibeStage === null) {
+          state.vibeStage = state.style === 'frugal' ? 0 : state.style === 'flash' ? 4 : 2;
         }
         renderStep2();
       }));
@@ -1089,6 +1162,7 @@
         style: state.style,
         accomType: state.accomType,
         transportPref: state.transportPref,
+        vibeStage: state.vibeStage,
         travelDate: state.travelDate,
         groupSize: state.groupSize,
         flights: state.style === 'flash' ? state.flights : []
@@ -1147,7 +1221,8 @@
           <h3 style="color:${BRAND_RED};margin:0 0 10px;">Cost breakdown</h3>
           <div class="bb-it-breakdown">
             <div class="bb-it-breakdown-row"><span>Accommodation (${COST_MODEL.accommodation[trip.accomKey].label}, ${state.totalDays} nights)</span><strong>${money(trip.accomTotal)}</strong></div>
-            <div class="bb-it-breakdown-row"><span>Food & drink (${COST_MODEL.food[state.style].label})</span><strong>${money(trip.foodTotal)}</strong></div>
+            <div class="bb-it-breakdown-row"><span>Food (${COST_MODEL.food[state.style].label})</span><strong>${money(trip.foodTotal)}</strong></div>
+            <div class="bb-it-breakdown-row"><span>Drinks (${COST_MODEL.drinks.stages[trip.vibeStage].label})</span><strong>${money(trip.drinksTotal)}</strong></div>
             <div class="bb-it-breakdown-row"><span>Tours & activities</span><strong>${money(trip.toursTotal)}</strong></div>
             <div class="bb-it-breakdown-row"><span>Transport between stops</span><strong>${money(legsOnlyTotal)}</strong></div>
             ${carRentalHTML}
