@@ -225,18 +225,21 @@
         if (e.key==='-') map.zoomOut();
       });
 
+      const TERRAIN_REGIONS = ['cape-town', 'drakensberg'];
+      const hasTerrain = TERRAIN_REGIONS.includes(REGION);
+
       let is3D = true;
       document.getElementById('bb-map-toggle').addEventListener('click', function() {
         is3D = !is3D;
         if (is3D) {
           map.easeTo({ pitch:PITCH, bearing:BEARING, duration:800 });
-          map.setTerrain({ source:'terrain-src', exaggeration:1.15 });
+          if (hasTerrain) map.setTerrain({ source:'terrain-src', exaggeration:1.15 });
           this.textContent = 'Switch to 2D';
           this.setAttribute('aria-pressed','true');
           this.setAttribute('aria-label','Switch map to 2D flat view');
         } else {
           map.easeTo({ pitch:0, bearing:0, duration:800 });
-          map.setTerrain(null);
+          if (hasTerrain) map.setTerrain(null);
           this.textContent = 'Switch to 3D';
           this.setAttribute('aria-pressed','false');
           this.setAttribute('aria-label','Switch map to 3D view');
@@ -315,28 +318,14 @@
 
       map.on('load', () => {
 
-        map.addSource('terrain-src', {
-          type: 'raster-dem',
-          url: `https://api.maptiler.com/tiles/terrain-rgb/tiles.json?key=${MAPTILER_KEY}`,
-          tileSize: 256
-        });
-        map.setTerrain({ source:'terrain-src', exaggeration:1.15 });
-
-        const sources = map.getStyle().sources;
-        const vecSrc  = Object.keys(sources).find(k => sources[k].type==='vector');
-        if (vecSrc) {
-          try {
-            map.addLayer({
-              id:'bb-3d-buildings', source:vecSrc, 'source-layer':'building',
-              type:'fill-extrusion', minzoom:12,
-              paint:{
-                'fill-extrusion-color':['interpolate',['linear'],['get','render_height'],0,'#c8b89a',50,'#a89070',100,'#7a6a5a'],
-                'fill-extrusion-height':['coalesce',['get','render_height'],['get','height'],5],
-                'fill-extrusion-base':['coalesce',['get','render_min_height'],['get','min_height'],0],
-                'fill-extrusion-opacity':0.85
-              }
-            });
-          } catch(e) { console.warn('3D buildings:',e.message); }
+        // 3D terrain — only loaded for regions where elevation adds real value
+        if (hasTerrain) {
+          map.addSource('terrain-src', {
+            type: 'raster-dem',
+            url: `https://api.maptiler.com/tiles/terrain-rgb/tiles.json?key=${MAPTILER_KEY}`,
+            tileSize: 256
+          });
+          map.setTerrain({ source:'terrain-src', exaggeration:1.15 });
         }
 
         // ── REGION OVERLAYS ──────────────────────────────────────────────────
@@ -452,6 +441,19 @@
         window.addEventListener('message', (e) => {
           if (e.data && e.data.type === 'BB_FILTER_MAP') {
             applyFilter(e.data.filter);
+          }
+        });
+
+        // Listen for postMessage to open a specific hostel popup by ID
+        // Sent by "FIND ON MAP" links in the parent regional page
+        window.addEventListener('message', (e) => {
+          if (e.data && e.data.type === 'BB_OPEN_HOSTEL') {
+            const target = allMarkers.find(({ feature }) => feature.properties.id === e.data.id);
+            if (!target) return;
+            const coords = target.feature.geometry.coordinates;
+            const html   = buildPopup(target.feature.properties);
+            map.flyTo({ center: coords, zoom: Math.max(map.getZoom(), 14), duration: 800 });
+            setTimeout(() => showPopup(coords, html), 850);
           }
         });
 
