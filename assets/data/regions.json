@@ -11,7 +11,7 @@
     "bearing": 0,
     "color": "#0288D1",
     "lineColor": "#0288D1",
-    "fillOpacity": 0.3,
+    "fillOpacity": 0.34,
     "geom": "Polygon",
     "polygon": [
       [
@@ -70,6 +70,9 @@
         18.15216,
         -33.33053
       ]
+    ],
+    "bestFor": [
+      "Beaches"
     ]
   },
   "overberg": {
@@ -84,7 +87,7 @@
     "bearing": 0,
     "color": "#9C27B0",
     "lineColor": "#9C27B0",
-    "fillOpacity": 0.3,
+    "fillOpacity": 0.35,
     "geom": "Polygon",
     "polygon": [
       [
@@ -147,6 +150,12 @@
         19.05853,
         -34.32983
       ]
+    ],
+    "bestFor": [
+      "Scenery",
+      "Beaches",
+      "Whale-watching",
+      "Adventure activities"
     ]
   },
   "sunshine-coast": {
@@ -161,7 +170,7 @@
     "bearing": 0,
     "color": "#FFD600",
     "lineColor": "#FFD600",
-    "fillOpacity": 0.3,
+    "fillOpacity": 0.35,
     "geom": "Polygon",
     "polygon": [
       [
@@ -224,6 +233,11 @@
         24.15894,
         -34.1209
       ]
+    ],
+    "bestFor": [
+      "Beaches",
+      "Parties",
+      "Wildlife"
     ]
   },
   "wild-coast": {
@@ -238,7 +252,7 @@
     "bearing": 0,
     "color": "#FF5252",
     "lineColor": "#FF5252",
-    "fillOpacity": 0.3,
+    "fillOpacity": 0.37,
     "geom": "Polygon",
     "polygon": [
       [
@@ -273,6 +287,12 @@
         27.82974,
         -32.87843
       ]
+    ],
+    "bestFor": [
+      "African culture",
+      "Scenery",
+      "Beaches",
+      "Parties"
     ]
   },
   "south-coast": {
@@ -287,7 +307,7 @@
     "bearing": 0,
     "color": "#0288D1",
     "lineColor": "#0288D1",
-    "fillOpacity": 0.3,
+    "fillOpacity": 0.32,
     "geom": "Polygon",
     "polygon": [
       [
@@ -318,6 +338,11 @@
         30.0531,
         -30.99174
       ]
+    ],
+    "bestFor": [
+      "Beaches",
+      "Parties",
+      "Adventure activities"
     ]
   },
   "north-coast": {
@@ -332,7 +357,7 @@
     "bearing": 0,
     "color": "#C2185B",
     "lineColor": "#C2185B",
-    "fillOpacity": 0.3,
+    "fillOpacity": 0.31,
     "geom": "Polygon",
     "polygon": [
       [
@@ -355,6 +380,10 @@
         30.95398,
         -29.65942
       ]
+    ],
+    "bestFor": [
+      "Beaches",
+      "Parties"
     ]
   },
   "zululand": {
@@ -369,7 +398,7 @@
     "bearing": 0,
     "color": "#FBC02D",
     "lineColor": "#FBC02D",
-    "fillOpacity": 0.3,
+    "fillOpacity": 0.38,
     "geom": "Polygon",
     "polygon": [
       [
@@ -416,6 +445,11 @@
         31.57264,
         -29.24703
       ]
+    ],
+    "bestFor": [
+      "African wildlife",
+      "African culture",
+      "Scenery"
     ]
   },
   "kruger": {
@@ -430,7 +464,7 @@
     "bearing": 0,
     "color": "#C2185B",
     "lineColor": "#C2185B",
-    "fillOpacity": 0.3,
+    "fillOpacity": 0.34,
     "geom": "Polygon",
     "polygon": [
       [
@@ -473,6 +507,10 @@
         31.96083,
         -25.42709
       ]
+    ],
+    "bestFor": [
+      "Wildlife",
+      "Scenery"
     ]
   },
   "cederberg": {
@@ -487,33 +525,36 @@
     "bearing": 0,
     "color": "#F57C00",
     "lineColor": "#F57C00",
-    "fillOpacity": 0.3,
+    "fillOpacity": 0.39,
     "geom": "Polygon",
     "polygon": [
       [
-        19.06405,
-        -31.8895
+        18.94592,
+        -31.91953
       ],
       [
-        18.6027,
-        -31.9734
+        18.4845,
+        -32.00342
       ],
       [
-        18.7730,
-        -32.50752
+        18.65479,
+        -32.53755
       ],
       [
-        19.1849,
-        -32.8634
+        19.06677,
+        -32.89343
       ],
       [
-        19.5638,
-        -32.7803
+        19.4458,
+        -32.81036
       ],
       [
-        19.0623,
-        -31.89029
+        18.94592,
+        -31.91953
       ]
+    ],
+    "bestFor": [
+      "Scenery"
     ]
   },
   "northern-cape": {
@@ -528,7 +569,7 @@
     "bearing": 0,
     "color": "#E65100",
     "lineColor": "#E65100",
-    "fillOpacity": 0.3,
+    "fillOpacity": 0.49,
     "geom": "Polygon",
     "polygon": [
       [
@@ -559,6 +600,10 @@
         16.89697,
         -28.1495
       ]
+    ],
+    "bestFor": [
+      "Scenery",
+      "Khoisan culture"
     ]
   },
   "eastern-cape-interior": {
@@ -573,7 +618,7 @@
     "bearing": 0,
     "color": "#3949AB",
     "lineColor": "#3949AB",
-    "fillOpacity": 0.3,
+    "fillOpacity": 0.42,
     "geom": "Polygon",
     "polygon": [
       [
@@ -728,6 +773,10 @@
         30.0531,
         -30.99174
       ]
+    ],
+    "bestFor": [
+      "Scenery",
+      "Parties"
     ]
   },
   "karoo": {
@@ -789,6 +838,9 @@
         18.82934,
         -31.9286
       ]
+    ],
+    "bestFor": [
+      "Scenery"
     ]
   },
   "midlands": {
@@ -803,7 +855,7 @@
     "bearing": 0,
     "color": "#0F9D58",
     "lineColor": "#0F9D58",
-    "fillOpacity": 0.3,
+    "fillOpacity": 0.28,
     "geom": "Polygon",
     "polygon": [
       [
@@ -834,6 +886,10 @@
         30.13687,
         -30.24483
       ]
+    ],
+    "bestFor": [
+      "Scenery",
+      "Adventure activities"
     ]
   },
   "eswatini": {
@@ -848,7 +904,7 @@
     "bearing": 0,
     "color": "#A52714",
     "lineColor": "#A52714",
-    "fillOpacity": 0.3,
+    "fillOpacity": 0.7,
     "geom": "Polygon",
     "polygon": [
       [
@@ -1011,6 +1067,11 @@
         31.9783,
         -27.31217
       ]
+    ],
+    "bestFor": [
+      "African culture",
+      "Wildlife",
+      "Scenery"
     ]
   },
   "lesotho": {
@@ -1025,7 +1086,7 @@
     "bearing": 0,
     "color": "#9C27B0",
     "lineColor": "#9C27B0",
-    "fillOpacity": 0.3,
+    "fillOpacity": 0.61,
     "geom": "Polygon",
     "polygon": [
       [
@@ -1488,6 +1549,11 @@
         27.0101,
         -29.65092
       ]
+    ],
+    "bestFor": [
+      "Scenery",
+      "African culture",
+      "Adventure activities"
     ]
   },
   "garden-route": {
@@ -1557,6 +1623,12 @@
         20.83398,
         -33.88202
       ]
+    ],
+    "bestFor": [
+      "Scenery",
+      "Beaches",
+      "Adventure activities",
+      "Parties"
     ]
   },
   "drakensberg": {
@@ -1571,7 +1643,7 @@
     "bearing": 0,
     "color": "#0097A7",
     "lineColor": "#0097A7",
-    "fillOpacity": 0.3,
+    "fillOpacity": 0.08,
     "geom": "Polygon",
     "polygon": [
       [
@@ -1678,6 +1750,12 @@
         28.14182,
         -30.7138
       ]
+    ],
+    "bestFor": [
+      "Scenery",
+      "Culture",
+      "Parties",
+      "Adventure activities"
     ]
   },
   "winelands": {
@@ -1692,7 +1770,7 @@
     "bearing": 0,
     "color": "#7CB342",
     "lineColor": "#7CB342",
-    "fillOpacity": 0.3,
+    "fillOpacity": 0.34,
     "geom": "Polygon",
     "polygon": [
       [
@@ -1759,6 +1837,11 @@
         18.54218,
         -33.74033
       ]
+    ],
+    "bestFor": [
+      "Scenery",
+      "Culture",
+      "Parties"
     ]
   },
   "route-62": {
@@ -2592,6 +2675,9 @@
         25.57274,
         -33.9187
       ]
+    ],
+    "bestFor": [
+      "Scenery"
     ]
   },
   "cape-town": {
@@ -2647,7 +2733,10 @@
     ],
     "zoom": 7,
     "pitch": 30,
-    "bearing": 0
+    "bearing": 0,
+    "bestFor": [
+      "Scenery"
+    ]
   },
   "mpumalanga": {
     "name": "Mpumalanga",
@@ -2658,7 +2747,13 @@
     ],
     "zoom": 7,
     "pitch": 35,
-    "bearing": 0
+    "bearing": 0,
+    "bestFor": [
+      "Wildlife",
+      "Scenery",
+      "Adventure activities",
+      "Parties"
+    ]
   },
   "limpopo": {
     "name": "Limpopo",
@@ -2669,7 +2764,12 @@
     ],
     "zoom": 7,
     "pitch": 30,
-    "bearing": 0
+    "bearing": 0,
+    "bestFor": [
+      "Wildlife",
+      "Scenery",
+      "African culture"
+    ]
   },
   "north-west": {
     "name": "North West",
@@ -2680,6 +2780,11 @@
     ],
     "zoom": 7,
     "pitch": 30,
-    "bearing": 0
+    "bearing": 0,
+    "bestFor": [
+      "Wildlife",
+      "Culture",
+      "Scenery"
+    ]
   }
 }
