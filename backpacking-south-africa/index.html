@@ -411,46 +411,36 @@
     </div>
 </div>
 
-<section class="sa-hostel-map-shell">
+<!-- ░░ HOSTEL MAP ░░ -->
+<section class="sa-hostel-map-shell" id="hostel-map">
 
-  <!-- SEO + visual poster image -->
+  <!-- Poster image: shows before user loads the map -->
   <picture class="sa-hostel-map-poster">
-    <source
-      media="(max-width: 768px)"
-      srcset="/assets/fallback_map_national_mobile.webp"
-    >
-
-    <img
-      src="/assets/fallback_map_national.webp"
-      alt="Map showing backpacker hostels across South Africa"
-      width="1600"
-      height="590"
-      fetchpriority="high"
-      decoding="async"
-    >
+    <source media="(max-width: 767px)" srcset="/assets/fallback_map_national_mobile.webp">
+    <img src="/assets/fallback_map_national.webp" 
+         alt="Interactive hostel map of South Africa — tap to load"
+         loading="eager"
+         fetchpriority="high"
+         decoding="async">
   </picture>
 
-  <!-- Interactive map -->
+  <!-- The map iframe — src is blank until user clicks -->
   <iframe
-    src="/map.html?region=national&center=23.68,-29.92&zoom=5&mobile-center=23.00,-35.40&mobile-zoom=4"
-    width="100%"
-    height="620"
-    class="sa-hostel-map-iframe"
-    title="Interactive map of backpacker hostels across South Africa"
-    aria-label="Interactive map of backpacker hostels across South Africa"
+    class="sa-hostel-map-iframe bb-map-iframe"
+    title="Interactive hostel map of South Africa"
+    src="about:blank"
+    data-src="/map.html?region=national&center=23.68,-29.92&zoom=5&mobile-center=23.00,-35.40&mobile-zoom=4"
     loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade"
-  ></iframe>
+    allowfullscreen>
+  </iframe>
 
-<div class="map-overlay-circle" 
-     role="note" 
-     aria-label="Map information note">
-  <p>We list ALL the hostels in South Africa! Click the icons for info.</p>
-</div>
+  <!-- Yellow circle: desktop-only info note; mobile: not shown (CSS) -->
+  <div class="map-overlay-circle" aria-hidden="true">
+    We list ALL the hostels<br>in the country!<br>Click the icons for info.
+  </div>
 
 </section>
-
-    <div class="strip black"></div>
+<!-- ░░ END HOSTEL MAP ░░ -->
 
 
      <!-- Horizontal regional menu -->
