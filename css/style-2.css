@@ -3356,11 +3356,16 @@ img.bb-marker-icon {
   width: 100%;
   height: 590px;
   overflow: hidden;
+  isolation: isolate; /* own stacking context — keeps .map-overlay-circle
+                          reliably above the WebGL map iframe; some
+                          browsers paint GPU-accelerated iframe content in
+                          a layer that ignores a sibling's z-index unless
+                          the shared ancestor isolates its own stack */
 }
 
 @media (max-width: 768px) {
   .sa-hostel-map-shell {
-    height: 310px;
+    height: 390px;
   }
 }
 
@@ -3859,7 +3864,7 @@ img.bb-marker-icon {
     padding: 15px;
     box-sizing: border-box;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.9);
-    z-index: 10;
+    z-index: 50;
     pointer-events: none; /* Desktop: click through to the map */
     border: 3px solid #fff;
     transition: opacity 0.25s ease, visibility 0.25s ease;
