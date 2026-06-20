@@ -14,24 +14,6 @@
 <link rel="canonical" href="https://www.backpackersbible.com/backpacking-south-africa-tours/">
 
 <!-- Preloads -->
-
-<!-- Desktop -->
-<link
-  rel="preload"
-  as="image"
-  href="/assets/tour_of_south_africa.webp"
-  media="(min-width: 769px)"
-  fetchpriority="high"
->
-
-<!-- Mobile -->
-<link
-  rel="preload"
-  as="image"
-  href="/assets/tour_of_south_africa_mobile.webp"
-  media="(max-width: 768px)"
-  fetchpriority="high"
->
  
 <link rel="preload" href="/fonts/CenturyGothic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/CenturyGothic-Bold.woff2" as="font" type="font/woff2" crossorigin>
@@ -411,16 +393,6 @@
 
 <!-- ░░ HOSTEL MAP ░░ -->
 <section class="sa-hostel-map-shell" id="hostel-map">
-
-  <!-- Poster image: shows before user loads the map -->
-  <picture class="sa-hostel-map-poster">
-    <source media="(max-width: 767px)" srcset="/assets/fallback_map_national_mobile.webp">
-    <img src="/assets/fallback_map_national.webp"
-         alt="Interactive hostel map of South Africa — tap to load"
-         loading="eager"
-         fetchpriority="high"
-         decoding="async">
-  </picture>
 
   <!-- The map iframe — src is blank until user clicks -->
   <iframe
