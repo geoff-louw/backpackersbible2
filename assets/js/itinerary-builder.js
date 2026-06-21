@@ -28,6 +28,7 @@
   // ───────────────────────────────────────────────────────────────────────
   const BRAND_RED    = '#bc1d23';
   const BRAND_YELLOW = '#FFD700';
+  const GOLD         = '#c9961f'; // deeper, more golden yellow — used for circles (step dots, route numbers) so they read distinctly against the brand-yellow panel background
   const BLUE_LINK    = '#0000e0';
   const FONT_STACK   = "'Century Gothic', 'CenturyGothic', AppleGothic, sans-serif";
 
@@ -560,21 +561,13 @@
       .bb-itinerary-panel {
         font-family: ${FONT_STACK};
         color: #000;
-        background: #fdf400;
+        background: ${BRAND_YELLOW};
         border: 2px solid ${BRAND_RED};
         border-radius: 0;
         padding: 32px 36px;
         margin: 0 0 36px;
         position: relative;
         overflow: hidden;
-      }
-      .bb-itinerary-panel::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background-image:
-          repeating-linear-gradient(135deg, rgba(0,0,0,0.035) 0 2px, transparent 2px 14px);
-        pointer-events: none;
       }
       .bb-it-header {
         display: flex;
@@ -593,12 +586,12 @@
         white-space: nowrap;
       }
       .bb-it-close {
-        background: #fff;
-        border: 2px solid #000;
+        background: ${BRAND_RED};
+        border: none;
         border-radius: 0;
         font-size: 22px;
         line-height: 1;
-        color: #000;
+        color: #fff;
         cursor: pointer;
         width: 36px;
         height: 36px;
@@ -610,7 +603,7 @@
         right: 0;
         z-index: 2;
       }
-      .bb-it-close:hover { background: ${BRAND_RED}; color: #fff; border-color: ${BRAND_RED}; }
+      .bb-it-close:hover { background: #9c1318; }
 
       .bb-it-inline-remove {
         background: none;
@@ -639,9 +632,9 @@
         color: #000;
         display: flex; align-items: center; justify-content: center;
         font-size: 13px; font-weight: bold;
-        border: 2px solid #000;
+        border: 2px solid ${BRAND_RED};
       }
-      .bb-it-step-dot.is-active { background: #000; border-color: #000; color: #fdf400; }
+      .bb-it-step-dot.is-active { background: ${GOLD}; border-color: ${GOLD}; color: #fff; }
       .bb-it-step-dot.is-done { background: ${BRAND_RED}; border-color: ${BRAND_RED}; color: #fff; }
 
       .bb-it-field { margin-bottom: 20px; position: relative; z-index: 1; }
@@ -661,7 +654,7 @@
         font-family: ${FONT_STACK};
         font-size: 15px;
         padding: 10px 12px;
-        border: 2px solid #000;
+        border: 2px solid ${BRAND_RED};
         border-radius: 0;
         width: 100%;
         max-width: 360px;
@@ -678,7 +671,7 @@
         gap: 10px;
       }
       .bb-it-choice {
-        border: 2px solid #000;
+        border: 2px solid ${BRAND_RED};
         border-radius: 0;
         padding: 12px 16px;
         cursor: pointer;
@@ -718,7 +711,7 @@
 
       .bb-it-map-hint {
         background: #fff;
-        border: 2px solid #000;
+        border: 2px solid ${BRAND_RED};
         border-radius: 0;
         padding: 12px 16px;
         font-size: 14px;
@@ -763,11 +756,11 @@
         padding: 11px 22px;
         border-radius: 0;
         cursor: pointer;
-        border: 2px solid #000;
+        border: 2px solid ${BRAND_RED};
       }
       .bb-it-btn.primary { background: ${BRAND_RED}; color: #fff; border-color: ${BRAND_RED}; }
       .bb-it-btn.primary:hover { background: #9c1318; }
-      .bb-it-btn.secondary { background: #fff; color: ${BRAND_RED}; }
+      .bb-it-btn.secondary { background: #fff; color: ${BRAND_RED}; border-color: ${BRAND_RED}; }
       .bb-it-btn.secondary:hover { background: #f2f2f2; }
       .bb-it-btn:disabled { opacity: 0.45; cursor: not-allowed; }
 
@@ -776,7 +769,7 @@
         background: ${BRAND_RED};
         color: #fff;
         border-radius: 0;
-        border: 2px solid #000;
+        border: 2px solid ${BRAND_RED};
         padding: 20px 24px;
         margin-bottom: 22px;
         display: flex;
@@ -809,8 +802,8 @@
         align-items: flex-start;
       }
       .bb-it-route-num {
-        background: ${BRAND_YELLOW};
-        color: #2b2b2b;
+        background: ${GOLD};
+        color: #fff;
         font-weight: bold;
         border-radius: 50%;
         width: 26px; height: 26px;
@@ -874,6 +867,12 @@
     if (!mount) return;
 
     injectStyles();
+
+    // The tour guide character (#ma, driven by tourguide.js) can sit
+    // invisible-but-clickable over parts of the page. While the wizard
+    // is open it must be fully suspended — see closePanel() for the
+    // matching resume() call.
+    if (window.BB_TourGuide) window.BB_TourGuide.suspend();
 
     let regionsData = null;
     let hostelsGeoJSON = null;
@@ -987,6 +986,7 @@
       clearRouteFromMap();
       mount.innerHTML = '';
       mount.style.display = 'none';
+      if (window.BB_TourGuide) window.BB_TourGuide.resume();
       const openBtn = document.getElementById('bb-it-open-btn');
       if (openBtn) { openBtn.style.display = ''; openBtn.focus(); }
     }
