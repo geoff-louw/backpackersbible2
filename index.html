@@ -499,6 +499,18 @@ Build your own itinerary
 </script>
 <!-- ░░ END BUILD YOUR OWN ITINERARY ░░ -->
 
+     <!-- Tour guide initial -->
+
+<div id="ma">
+    <img id="ma-img" src="/assets/_god_6.png" alt="">
+    <div id="ma-bubble">
+        <div id="t-out"></div>
+        <div id="t-in"></div>
+        <p id="ma-text">Welcome to our guide to backpacking South Africa!</p>
+        <a id="ma-link" href="/">Discover more</a>
+    </div>
+</div>
+
      <!-- Quick jump menu -->
 
 <div class="yellow-menu-backdrop"></div>
@@ -524,6 +536,10 @@ Build your own itinerary
         <p class="intro-p">This is the trip you'll talk about for the rest of your life. The one you'll describe to your children one day. The one that happened before the mortgage and the Monday morning commute. Let's make it count.</p>
 
 </section>
+
+     <!-- Backpacking guide -->
+
+<div id="tip2"></div>
 
      <!-- Cartouche -->
 
@@ -810,6 +826,10 @@ Table Mountain cable car (return) — ~€13–€16
 </div>
 
     <div class="strip black"></div>
+
+     <!-- Backpacking guide -->
+
+<div id="tip1"></div>
 
      <!-- Spacer -->
 
@@ -1384,6 +1404,27 @@ Table Mountain cable car (return) — ~€13–€16
 </div>
 
      <!-- Backpacking Guide -->
+
+<!-- Tour guide popup styles are in style-2.css section 25 -->
+
+<script>
+/* Page-specific tour guide tips — read by tourguide.js */
+window.BB_TIPS = [
+    { trigger: 'tip2', side: 'right', mobileSide: 'left',
+      img:  '/assets/_god_5.png',
+      text: 'Where are the best places to go? What will it cost? How do I get there? Answers on my Itineraries page.',
+      href: '/backpacking-south-africa-tours/' },
+    { trigger: 'tip1', side: 'left',
+      img:  '/assets/_god_3.png',
+      text: 'Worried about lions roaming the streets? See my comprehensive Safety guide.',
+      href: '/backpacking-south-africa-advice/#safety' },
+    { trigger: 'tip3', side: 'left', mobileSide: 'right',
+      img:  '/assets/_god_4.png',
+      text: 'Mine is the only guide that lists all the hostels! Download my OFFLINE APP to find the next hostel while on the road.',
+      href: '/#download-pwa' }
+];
+</script>
+<script src="/js/tourguide.js" defer></script>
 
 
      <!-- PWA: offline download & install. File list in /pwa-files.json -->
