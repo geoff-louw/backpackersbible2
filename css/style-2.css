@@ -41,8 +41,8 @@
    34. Dictionary Definition
    35. Sitemap styles
    36. Compass styles
-   37. KALAHARI GAME — DESKTOP ONLY
-   38. my maps itinerary pages
+   37. Kalahari Game - Desktop Only
+   38. My Maps Itinerary Pages
    ============================================================ */
 
 
@@ -3154,6 +3154,14 @@ footer {
         margin-bottom: 5px;
         margin-left: 0;
         margin-right: 0;
+    }
+}
+
+/* Hide on mobile */
+
+@media (max-width: 600px) {
+    #ma {
+        display: none !important;
     }
 }
 
