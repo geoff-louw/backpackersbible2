@@ -448,7 +448,7 @@
     if (state==='start') {
       drawHUD();
       drawOverlay([
-        {t:'CAN YOU SURVIVE THE KALAHARI?', bold:true},
+        {t:'RHINO AHEAD!', bold:true},
         {t: isMobile ? 'Tap top to shoot high · bottom to shoot flat' : 'Click to shoot · hold ↑ for high arc'},
         {t:'Tap to play'},
       ], 26);
