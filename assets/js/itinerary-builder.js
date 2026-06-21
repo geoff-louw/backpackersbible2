@@ -623,7 +623,8 @@
         font-family: ${FONT_STACK};
         color: #000;
         background: ${BRAND_YELLOW};
-        border: 2px solid ${BRAND_RED};
+        border: none;
+        border-bottom: 3px solid #000;
         border-radius: 0;
         padding: 32px 36px;
         margin: 0 0 36px;
@@ -695,7 +696,7 @@
         font-size: 13px; font-weight: bold;
         border: 2px solid ${BRAND_RED};
       }
-      .bb-it-step-dot.is-active { background: ${GOLD}; border-color: ${GOLD}; color: #fff; }
+      .bb-it-step-dot.is-active { background: ${BRAND_RED}; border-color: ${BRAND_RED}; color: #fff; }
       .bb-it-step-dot.is-done { background: ${BRAND_RED}; border-color: ${BRAND_RED}; color: #fff; }
 
       .bb-it-field { margin-bottom: 20px; position: relative; z-index: 1; }
@@ -707,7 +708,7 @@
         color: #000;
         padding: 0;
       }
-      .bb-it-field .bb-it-hint { font-weight: normal; color: #333; font-size: 13px; display: block; margin-top: 2px; }
+      .bb-it-field .bb-it-hint { font-weight: normal; color: #000; font-size: 13px; display: block; margin-top: 2px; }
 
       .bb-it-field select,
       .bb-it-field input[type="number"],
@@ -728,25 +729,26 @@
 
       .bb-it-choice-row {
         display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
+        flex-direction: column;
+        gap: 14px;
       }
       .bb-it-choice {
-        border: 2px solid ${BRAND_RED};
+        border: none;
         border-radius: 0;
-        padding: 12px 16px;
+        padding: 4px 0;
         cursor: pointer;
-        background: #fff;
+        background: none;
         color: #000;
         font-size: 14px;
         line-height: 1.4;
-        flex: 1 1 220px;
-        min-width: 180px;
-        transition: border-color 0.15s, background 0.15s;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        transition: color 0.15s;
       }
-      .bb-it-choice:hover { border-color: ${BRAND_RED}; }
-      .bb-it-choice input { margin-right: 8px; }
-      .bb-it-choice.is-checked { border-color: ${BRAND_RED}; background: #fff0f0; border-width: 3px; }
+      .bb-it-choice:hover { color: ${BRAND_RED}; }
+      .bb-it-choice input { margin: 3px 0 0; flex-shrink: 0; }
+      .bb-it-choice.is-checked strong { color: ${BRAND_RED}; }
       .bb-it-choice strong { display: block; margin-bottom: 3px; }
 
       .bb-it-vibe-row {
@@ -765,7 +767,7 @@
         font-weight: bold;
         letter-spacing: 0.03em;
         text-transform: uppercase;
-        color: #555;
+        color: #000;
         white-space: nowrap;
       }
       .bb-it-choice span.price { color: ${BRAND_RED}; font-weight: bold; }
@@ -819,12 +821,15 @@
         padding: 11px 22px;
         border-radius: 0;
         cursor: pointer;
-        border: 2px solid ${BRAND_RED};
+        border: none;
+        background: ${BRAND_RED};
+        color: #fff;
       }
-      .bb-it-btn.primary { background: ${BRAND_RED}; color: #fff; border-color: ${BRAND_RED}; }
-      .bb-it-btn.primary:hover { background: #9c1318; }
-      .bb-it-btn.secondary { background: #fff; color: ${BRAND_RED}; border-color: ${BRAND_RED}; }
-      .bb-it-btn.secondary:hover { background: #f2f2f2; }
+      .bb-it-btn:hover { background: #f7d6d8; color: ${BRAND_RED}; }
+      .bb-it-btn.primary { background: ${BRAND_RED}; color: #fff; }
+      .bb-it-btn.primary:hover { background: #f7d6d8; color: ${BRAND_RED}; }
+      .bb-it-btn.secondary { background: ${BRAND_RED}; color: #fff; }
+      .bb-it-btn.secondary:hover { background: #f7d6d8; color: ${BRAND_RED}; }
       .bb-it-btn:disabled { opacity: 0.45; cursor: not-allowed; }
 
       .bb-it-results { position: relative; z-index: 1; }
@@ -841,31 +846,31 @@
         justify-content: space-between;
         align-items: center;
       }
-      .bb-it-total-card .bb-it-total-figure { font-size: 30px; font-weight: bold; line-height: 1.1; }
-      .bb-it-total-card .bb-it-eur { font-size: 16px; opacity: 0.85; font-weight: normal; }
-      .bb-it-total-card .bb-it-perday { font-size: 14px; opacity: 0.9; }
+      .bb-it-total-card .bb-it-total-figure { font-size: 30px; font-weight: bold; line-height: 1.1; color: #fff; }
+      .bb-it-total-card .bb-it-eur { font-size: 16px; font-weight: normal; color: #fff; }
+      .bb-it-total-card .bb-it-perday { font-size: 14px; color: #fff; }
 
       .bb-it-breakdown { margin-bottom: 22px; }
       .bb-it-breakdown-row {
         display: flex;
         justify-content: space-between;
         padding: 10px 0;
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid ${BRAND_RED};
         font-size: 15px;
       }
       .bb-it-breakdown-row strong { color: ${BRAND_RED}; }
-      .bb-it-eur { color: #777; font-size: 0.85em; }
+      .bb-it-eur { color: #000; font-size: 0.85em; }
 
       .bb-it-route-list { list-style: none; margin: 0 0 18px; padding: 0; }
       .bb-it-route-stop {
         display: flex;
         gap: 12px;
         padding: 10px 0;
-        border-bottom: 1px dashed #ddd;
+        border-bottom: 1px dashed ${BRAND_RED};
         align-items: flex-start;
       }
       .bb-it-route-num {
-        background: ${GOLD};
+        background: ${BRAND_RED};
         color: #fff;
         font-weight: bold;
         border-radius: 50%;
@@ -875,10 +880,10 @@
         flex-shrink: 0;
       }
       .bb-it-route-stop-name { font-weight: bold; }
-      .bb-it-route-stop-days { color: #666; font-size: 13px; }
+      .bb-it-route-stop-days { color: #000; font-size: 13px; }
       .bb-it-leg {
         font-size: 13px;
-        color: #555;
+        color: #000;
         margin: 4px 0 0 38px;
         padding: 6px 10px;
         background: #f7f7f7;
@@ -895,8 +900,8 @@
 
       .bb-it-disclaimer {
         font-size: 12.5px;
-        color: #777;
-        border-top: 1px solid #eee;
+        color: #000;
+        border-top: 1px solid ${BRAND_RED};
         padding-top: 14px;
         margin-top: 18px;
         line-height: 1.5;
@@ -906,14 +911,13 @@
         text-align: center;
         padding: 40px 0;
         font-size: 15px;
-        color: #777;
+        color: #000;
       }
 
       @media (max-width: 600px) {
         .bb-itinerary-panel { padding: 24px 20px; }
         .bb-it-header { padding-right: 44px; }
         .bb-it-header h2 { font-size: 22px; }
-        .bb-it-choice { flex: 1 1 100%; }
         .bb-it-total-card { flex-direction: column; align-items: flex-start; }
       }
     `;
