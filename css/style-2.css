@@ -43,6 +43,7 @@
    36. Compass styles
    37. Kalahari Game - Desktop Only
    38. My Maps Itinerary Pages
+   39. Itinerary Builder
    ============================================================ */
 
 
@@ -4598,3 +4599,52 @@ img.bb-marker-icon {
     font-size: 1rem;
     cursor: pointer;
 }
+
+/* ==========================================================================
+   39. ITINERARY BUILDER   ========================================================================== */
+
+
+  .bb-it-intro {
+    background: #33689e;
+    padding: 22px 20px 30px;
+    text-align: center;
+  }
+  .bb-it-intro h2 {
+    color: #fff32a;
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 14pt;
+    font-weight: bold;
+    margin: 0 0 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .bb-it-intro p {
+    color: #fff;
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    max-width: 640px;
+    margin: 0 auto 20px;
+  }
+  @media (min-width: 1100px) {
+    .bb-it-intro p { white-space: nowrap; max-width: none; }
+  }
+  .bb-it-cta {
+    display: inline-block;
+    background: #bc1d23;
+    color: #fff;
+    font-family: 'Century Gothic', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 0;
+    padding: 14px 28px;
+    cursor: pointer;
+  }
+  .bb-it-cta:hover { background: #f7d6d8; color: #bc1d23; }
+  @media (max-width: 600px) {
+    .bb-it-intro { padding: 18px 16px 24px; }
+    .bb-it-cta { width: 100%; max-width: 320px; }
+  }
