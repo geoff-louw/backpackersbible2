@@ -4673,7 +4673,9 @@ img.bb-marker-icon {
     align-items: center;
     gap: 12px;
     padding: 14px;
+    border-radius: 10px;
     background: #fdf400;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .quick-fact:hover {
@@ -4727,4 +4729,42 @@ img.bb-marker-icon {
     .quick-fact-content p {
         font-size: 13.5px;
     }
+}
+
+/* =========================
+   Desktop layout fix
+   ========================= */
+
+@media (min-width: 769px) {
+
+    /* Make last two items centre under the grid */
+    .quick-fact:nth-child(7) {
+        grid-column: 2 / 3; /* centre column */
+    }
+
+    .quick-fact:nth-child(8) {
+        grid-column: 2 / 3; /* also centre column */
+    }
+
+    /* Optional: tighten spacing so centring looks intentional */
+    .quick-fact:nth-child(7),
+    .quick-fact:nth-child(8) {
+        justify-self: center;
+        width: 100%;
+        max-width: 320px; /* keeps them visually balanced */
+    }
+}
+
+
+/* =========================
+   Read More spacing fix
+   ========================= */
+
+details {
+    margin-top: 28px; /* increases space above Read More */
+}
+
+/* optional nicer spacing inside summary */
+details summary {
+    cursor: pointer;
 }
