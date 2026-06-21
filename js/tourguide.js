@@ -29,6 +29,12 @@
 
     var m, img, txt, lnk, tout, tin;
 
+    var MOBILE_BREAKPOINT = 600;
+
+    function isMobileViewport() {
+        return window.innerWidth <= MOBILE_BREAKPOINT;
+    }
+
     function init() {
         m    = document.getElementById('ma');
         img  = document.getElementById('ma-img');
@@ -37,6 +43,13 @@
         tout = document.getElementById('t-out');
         tin  = document.getElementById('t-in');
         if (!m || !window.BB_TIPS || !window.BB_TIPS.length) return;
+
+        /* Tour guide is hidden on mobile via CSS (perf + UX —
+           cramped on small screens). Don't bother wiring up the
+           scroll listener at all on mobile; there's nothing to
+           show and no point doing layout reads on every scroll. */
+        if (isMobileViewport()) return;
+
         window.addEventListener('scroll', onScroll, { passive: true });
         onScroll(); /* run once on load */
     }
@@ -51,7 +64,7 @@
     }
 
     function onScroll() {
-        var isMobile = window.innerWidth <= 600;
+        var isMobile = isMobileViewport();
         var tips = window.BB_TIPS;
         var matched = false;
 
