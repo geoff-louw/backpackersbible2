@@ -4731,30 +4731,6 @@ img.bb-marker-icon {
     }
 }
 
-/* =========================
-   Desktop layout fix
-   ========================= */
-
-@media (min-width: 769px) {
-
-    /* Make last two items centre under the grid */
-    .quick-fact:nth-child(7) {
-        grid-column: 2 / 3; /* centre column */
-    }
-
-    .quick-fact:nth-child(8) {
-        grid-column: 2 / 3; /* also centre column */
-    }
-
-    /* Optional: tighten spacing so centring looks intentional */
-    .quick-fact:nth-child(7),
-    .quick-fact:nth-child(8) {
-        justify-self: center;
-        width: 100%;
-        max-width: 320px; /* keeps them visually balanced */
-    }
-}
-
 
 /* =========================
    Read More spacing fix
