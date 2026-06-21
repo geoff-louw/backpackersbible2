@@ -559,11 +559,11 @@
     css.textContent = `
       .bb-itinerary-panel {
         font-family: ${FONT_STACK};
-        color: #2b2b2b;
-        background: #fffdf6;
-        border: 2px solid ${BRAND_YELLOW};
-        border-radius: 10px;
-        padding: 28px;
+        color: #000;
+        background: #fdf400;
+        border: 2px solid ${BRAND_RED};
+        border-radius: 0;
+        padding: 32px 36px;
         margin: 0 0 36px;
         position: relative;
         overflow: hidden;
@@ -573,34 +573,56 @@
         position: absolute;
         inset: 0;
         background-image:
-          repeating-linear-gradient(135deg, rgba(188,29,35,0.035) 0 2px, transparent 2px 14px);
+          repeating-linear-gradient(135deg, rgba(0,0,0,0.035) 0 2px, transparent 2px 14px);
         pointer-events: none;
       }
       .bb-it-header {
         display: flex;
-        align-items: baseline;
+        align-items: flex-start;
         justify-content: space-between;
         gap: 12px;
         margin-bottom: 18px;
+        padding-right: 36px;
         position: relative;
         z-index: 1;
       }
       .bb-it-header h2 {
-        font-size: 22px;
+        font-size: 28px;
         margin: 0;
-        color: ${BRAND_RED};
+        color: #000;
         white-space: nowrap;
       }
       .bb-it-close {
-        background: none;
-        border: none;
+        background: #fff;
+        border: 2px solid #000;
+        border-radius: 0;
         font-size: 22px;
         line-height: 1;
-        color: #999;
+        color: #000;
         cursor: pointer;
-        padding: 4px 8px;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 2;
       }
-      .bb-it-close:hover { color: ${BRAND_RED}; }
+      .bb-it-close:hover { background: ${BRAND_RED}; color: #fff; border-color: ${BRAND_RED}; }
+
+      .bb-it-inline-remove {
+        background: none;
+        border: none;
+        font-size: 16px;
+        line-height: 1;
+        color: #000;
+        cursor: pointer;
+        vertical-align: middle;
+        padding: 0 4px;
+      }
+      .bb-it-inline-remove:hover { color: ${BRAND_RED}; }
 
       .bb-it-steps {
         display: flex;
@@ -613,13 +635,13 @@
       .bb-it-step-dot {
         width: 28px; height: 28px;
         border-radius: 50%;
-        background: #eee;
-        color: #888;
+        background: #fff;
+        color: #000;
         display: flex; align-items: center; justify-content: center;
         font-size: 13px; font-weight: bold;
-        border: 2px solid #ddd;
+        border: 2px solid #000;
       }
-      .bb-it-step-dot.is-active { background: ${BRAND_YELLOW}; border-color: ${BRAND_RED}; color: #2b2b2b; }
+      .bb-it-step-dot.is-active { background: #000; border-color: #000; color: #fdf400; }
       .bb-it-step-dot.is-done { background: ${BRAND_RED}; border-color: ${BRAND_RED}; color: #fff; }
 
       .bb-it-field { margin-bottom: 20px; position: relative; z-index: 1; }
@@ -627,11 +649,11 @@
         display: block;
         font-weight: bold;
         margin-bottom: 8px;
-        font-size: 15px;
-        color: #2b2b2b;
+        font-size: 16px;
+        color: #000;
         padding: 0;
       }
-      .bb-it-field .bb-it-hint { font-weight: normal; color: #666; font-size: 13px; display: block; margin-top: 2px; }
+      .bb-it-field .bb-it-hint { font-weight: normal; color: #333; font-size: 13px; display: block; margin-top: 2px; }
 
       .bb-it-field select,
       .bb-it-field input[type="number"],
@@ -639,12 +661,13 @@
         font-family: ${FONT_STACK};
         font-size: 15px;
         padding: 10px 12px;
-        border: 2px solid #ddd;
-        border-radius: 6px;
+        border: 2px solid #000;
+        border-radius: 0;
         width: 100%;
         max-width: 360px;
         box-sizing: border-box;
         background: #fff;
+        color: #000;
       }
       .bb-it-field select:focus,
       .bb-it-field input:focus { outline: 3px solid ${BRAND_YELLOW}; outline-offset: 1px; border-color: ${BRAND_RED}; }
@@ -655,20 +678,21 @@
         gap: 10px;
       }
       .bb-it-choice {
-        border: 2px solid #ddd;
-        border-radius: 8px;
+        border: 2px solid #000;
+        border-radius: 0;
         padding: 12px 16px;
         cursor: pointer;
         background: #fff;
+        color: #000;
         font-size: 14px;
         line-height: 1.4;
         flex: 1 1 220px;
         min-width: 180px;
         transition: border-color 0.15s, background 0.15s;
       }
-      .bb-it-choice:hover { border-color: ${BRAND_YELLOW}; }
+      .bb-it-choice:hover { border-color: ${BRAND_RED}; }
       .bb-it-choice input { margin-right: 8px; }
-      .bb-it-choice.is-checked { border-color: ${BRAND_RED}; background: #fff6f6; }
+      .bb-it-choice.is-checked { border-color: ${BRAND_RED}; background: #fff0f0; border-width: 3px; }
       .bb-it-choice strong { display: block; margin-bottom: 3px; }
 
       .bb-it-vibe-row {
@@ -693,12 +717,13 @@
       .bb-it-choice span.price { color: ${BRAND_RED}; font-weight: bold; }
 
       .bb-it-map-hint {
-        background: #fffbe0;
-        border: 1px dashed ${BRAND_YELLOW};
-        border-radius: 8px;
+        background: #fff;
+        border: 2px solid #000;
+        border-radius: 0;
         padding: 12px 16px;
         font-size: 14px;
         margin-bottom: 14px;
+        color: #000;
         position: relative;
         z-index: 1;
       }
@@ -736,21 +761,22 @@
         font-weight: bold;
         font-size: 14px;
         padding: 11px 22px;
-        border-radius: 6px;
+        border-radius: 0;
         cursor: pointer;
-        border: 2px solid ${BRAND_RED};
+        border: 2px solid #000;
       }
-      .bb-it-btn.primary { background: ${BRAND_RED}; color: #fff; }
+      .bb-it-btn.primary { background: ${BRAND_RED}; color: #fff; border-color: ${BRAND_RED}; }
       .bb-it-btn.primary:hover { background: #9c1318; }
       .bb-it-btn.secondary { background: #fff; color: ${BRAND_RED}; }
-      .bb-it-btn.secondary:hover { background: #fff6f6; }
+      .bb-it-btn.secondary:hover { background: #f2f2f2; }
       .bb-it-btn:disabled { opacity: 0.45; cursor: not-allowed; }
 
       .bb-it-results { position: relative; z-index: 1; }
       .bb-it-total-card {
         background: ${BRAND_RED};
         color: #fff;
-        border-radius: 10px;
+        border-radius: 0;
+        border: 2px solid #000;
         padding: 20px 24px;
         margin-bottom: 22px;
         display: flex;
@@ -828,7 +854,9 @@
       }
 
       @media (max-width: 600px) {
-        .bb-itinerary-panel { padding: 18px; border-radius: 0; margin-left: -16px; margin-right: -16px; }
+        .bb-itinerary-panel { padding: 24px 20px; }
+        .bb-it-header { padding-right: 44px; }
+        .bb-it-header h2 { font-size: 22px; }
         .bb-it-choice { flex: 1 1 100%; }
         .bb-it-total-card { flex-direction: column; align-items: flex-start; }
       }
@@ -1219,7 +1247,7 @@
       const flightRows = state.flights.map((f, i) => `
         <div class="bb-it-leg" style="display:block;margin:6px 0;">
           ${AIRPORTS[f[0]] ? AIRPORTS[f[0]].name : f[0]} → ${AIRPORTS[f[1]] ? AIRPORTS[f[1]].name : f[1]}
-          <button type="button" data-remove-flight="${i}" class="bb-it-close" style="font-size:16px;vertical-align:middle;" aria-label="Remove this flight">&times;</button>
+          <button type="button" data-remove-flight="${i}" class="bb-it-inline-remove" aria-label="Remove this flight">&times;</button>
         </div>`).join('');
 
       panelShell(`
@@ -1353,7 +1381,7 @@
             </div>
           </div>
 
-          <h3 style="color:${BRAND_RED};margin:0 0 10px;">Cost breakdown</h3>
+          <h3 style="color:${BRAND_RED};margin:0 0 10px;font-size:20px;">Cost breakdown</h3>
           <div class="bb-it-breakdown">
             <div class="bb-it-breakdown-row"><span>Accommodation (${COST_MODEL.accommodation[trip.accomKey].label}, ${state.totalDays} nights)</span><strong>${money(trip.accomTotal)}</strong></div>
             <div class="bb-it-breakdown-row"><span>Food (${COST_MODEL.food[state.style].label})</span><strong>${money(trip.foodTotal)}</strong></div>
@@ -1364,7 +1392,7 @@
             ${flightHTML}
           </div>
 
-          <h3 style="color:${BRAND_RED};margin:0 0 10px;">Suggested route</h3>
+          <h3 style="color:${BRAND_RED};margin:0 0 10px;font-size:20px;">Suggested route</h3>
           <ul class="bb-it-route-list">${routeHTML}</ul>
 
           <div class="bb-it-disclaimer">
