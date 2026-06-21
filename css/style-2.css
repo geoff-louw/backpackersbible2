@@ -3092,6 +3092,24 @@ footer {
     pointer-events: auto;
 }
 
+/* #ma itself has pointer-events:none above so it never blocks clicks
+   over the empty space in its box — but #ma-img and #ma-bubble each
+   set pointer-events:auto so the character/bubble link stay clickable
+   when visible. That child-level "auto" silently overrides any
+   pointer-events:none the parent #ma gets in JS (tourguide.js's
+   hideMa()/suspend()), since pointer-events isn't blocked by a parent
+   the way visibility is — a child's explicit value always wins. This
+   means #ma could be "hidden" (pointer-events:none, opacity:0) while
+   #ma-img and #ma-bubble stayed fully clickable underneath, silently
+   intercepting clicks meant for whatever was visually underneath them
+   (e.g. the itinerary builder's buttons). tourguide.js's hideMa() and
+   suspend() both add the .ma-suspended class to #ma to actually shut
+   these children off too. */
+#ma.ma-suspended #ma-img,
+#ma.ma-suspended #ma-bubble {
+    pointer-events: none;
+}
+
 #ma-bubble p {
     margin: 0;
     font-family: sans-serif;
