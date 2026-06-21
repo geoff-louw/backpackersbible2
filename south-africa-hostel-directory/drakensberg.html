@@ -469,6 +469,13 @@ Build your own itinerary
     mount.style.display = '';
     mount.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
+    /* The map iframe only loads on direct tap on mobile (to protect
+       performance/data usage) — but the wizard's first step needs the
+       live map to be loaded so the user can click regions on it. Wake
+       it up here too, so opening the wizard works regardless of
+       whether the user happened to tap the map shell first. */
+    if (window.BB_WakeUpMap) window.BB_WakeUpMap();
+
     /* The tour guide character can sit invisible-but-clickable over
        parts of the page. Suspend it the instant the wizard is asked
        to open — BB_ITINERARY_INIT() suspends it again once loaded,
@@ -478,7 +485,7 @@ Build your own itinerary
     if (loaded) {
       // Already loaded once this page-view — just re-show it.
       if (window.BB_ITINERARY_INIT) {
-        window.BB_ITINERARY_INIT({ mount: mount, mapFrame: mapFrame, currentRegion: 'cederberg' });
+        window.BB_ITINERARY_INIT({ mount: mount, mapFrame: mapFrame, currentRegion: 'drakensberg' });
       }
       return;
     }
@@ -489,7 +496,7 @@ Build your own itinerary
     var script = document.createElement('script');
     script.src = '/assets/js/itinerary-builder.js';
     script.onload = function () {
-      window.BB_ITINERARY_INIT({ mount: mount, mapFrame: mapFrame, currentRegion: 'cederberg' });
+      window.BB_ITINERARY_INIT({ mount: mount, mapFrame: mapFrame, currentRegion: 'drakensberg' });
     };
     script.onerror = function () {
       mount.innerHTML = '<p style="text-align:center;padding:30px 0;">Sorry — the itinerary builder couldn\'t load. Please check your connection and try again.</p>';
@@ -1379,11 +1386,11 @@ THE DRAKENSBERG
 window.BB_TIPS = [
     { trigger: 'tip2', side: 'right', mobileSide: 'left',
       img:  '/assets/_god_3.png',
-      text: 'You’ve reached the Roof of South Africa, explorer! These peaks are massive, but I've got you covered. This is the ONLY guide that lists every single hostel in the country. Use the interactive map at the top of this page - or the list below - to find your mountain basecamp and book your bed before you head into the clouds!',
+      text: 'You’ve reached the Roof of South Africa, explorer! These peaks are massive, but I’ve got you covered. This is the ONLY guide that lists every single hostel in the country. Use the interactive map at the top of this page - or the list below - to find your mountain basecamp and book your bed before you head into the clouds!',
       href: '/backpacking-south-africa-advice/' },
     { trigger: 'tip1', side: 'left',
       img:  '/assets/_god_9.png',
-      text: 'The Drakensberg is beautiful, but it can be unpredictable! Before you start your summit mission, make sure you check my Advice section for mountain safety tips. Don't go up there unprepared!',
+      text: 'The Drakensberg is beautiful, but it can be unpredictable! Before you start your summit mission, make sure you check my Advice section for mountain safety tips. Don’t go up there unprepared!',
       href: '/backpacking-south-africa-tours/' },
     { trigger: 'tip3', side: 'left', mobileSide: 'right',
       img:  '/assets/_god_5.png',
@@ -1567,12 +1574,12 @@ window.BB_TIPS = [
         const shell = mapIframe.closest('.sa-hostel-map-shell');
         if (shell) {
           const poster = shell.querySelector('.sa-hostel-map-poster');
-          const circle = shell.querySelector('.map-overlay-circle');
           if (poster) poster.style.display = 'none';
-          if (circle) circle.style.display = 'none';
+          shell.classList.add('bb-map-loaded');
         }
       }
     }
+    window.BB_WakeUpMap = wakeUpMap;
 
     function sendFilter(filterKey) {
       if (iframeReady && mapIframe.contentWindow) {
