@@ -465,6 +465,13 @@ Build your own itinerary
     mount.style.display = '';
     mount.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
+    /* The map iframe only loads on direct tap on mobile (to protect
+       performance/data usage) — but the wizard's first step needs the
+       live map to be loaded so the user can click regions on it. Wake
+       it up here too, so opening the wizard works regardless of
+       whether the user happened to tap the map shell first. */
+    if (window.BB_WakeUpMap) window.BB_WakeUpMap();
+
     /* The tour guide character can sit invisible-but-clickable over
        parts of the page. Suspend it the instant the wizard is asked
        to open — BB_ITINERARY_INIT() suspends it again once loaded,
@@ -474,7 +481,10 @@ Build your own itinerary
     if (loaded) {
       // Already loaded once this page-view — just re-show it.
       if (window.BB_ITINERARY_INIT) {
-        window.BB_ITINERARY_INIT({ mount: mount, mapFrame: mapFrame, currentRegion: 'cederberg' });
+        // This is the national homepage, not a single region — no
+        // sensible "current region" to default to (previously
+        // hardcoded to 'cederberg', a copy-paste leftover).
+        window.BB_ITINERARY_INIT({ mount: mount, mapFrame: mapFrame, currentRegion: null });
       }
       return;
     }
@@ -485,7 +495,7 @@ Build your own itinerary
     var script = document.createElement('script');
     script.src = '/assets/js/itinerary-builder.js';
     script.onload = function () {
-      window.BB_ITINERARY_INIT({ mount: mount, mapFrame: mapFrame, currentRegion: 'cederberg' });
+      window.BB_ITINERARY_INIT({ mount: mount, mapFrame: mapFrame, currentRegion: null });
     };
     script.onerror = function () {
       mount.innerHTML = '<p style="text-align:center;padding:30px 0;">Sorry — the itinerary builder couldn\'t load. Please check your connection and try again.</p>';
@@ -2690,12 +2700,34 @@ Ascend the escarpment, Blyde River Canyon, God's Window. Final drive across the 
         const shell = mapIframe.closest('.sa-hostel-map-shell');
         if (shell) {
           const poster = shell.querySelector('.sa-hostel-map-poster');
-          const circle = shell.querySelector('.map-overlay-circle');
           if (poster) poster.style.display = 'none';
-          if (circle) circle.style.display = 'none';
+          // Mobile: fades .map-overlay-circle out via CSS (see
+          // style-2.css section 33) once the map has actually started
+          // loading — the circle has pointer-events:auto on mobile so
+          // it can be tapped to load the map, and needs to get out of
+          // the way afterwards or it permanently blocks taps to the
+          // map underneath it. Harmless no-op on desktop, where the
+          // circle isn't tap-to-load and the matching CSS rule only
+          // exists inside the mobile media query.
+          shell.classList.add('bb-map-loaded');
+          // NOTE: the yellow info circle (.map-overlay-circle) is not
+          // hidden directly here on desktop. It used to be hidden in
+          // this same call — which on desktop ran immediately on page
+          // load (see below), hiding the circle before it was ever
+          // visible. It's a desktop-only overlay (restricted via CSS)
+          // that's meant to sit on top of the live map, so on desktop
+          // it persists once the map has loaded rather than
+          // disappearing with the poster.
         }
       }
     }
+
+    // Exposed so other components (e.g. the "Build your own itinerary"
+    // button) can wake the map up themselves on mobile, where it would
+    // otherwise only load on a direct tap of the map shell — meaning the
+    // itinerary wizard's region-click step silently didn't work if the
+    // map hadn't been woken up first.
+    window.BB_WakeUpMap = wakeUpMap;
 
     function sendFilter(filterKey) {
       if (iframeReady && mapIframe.contentWindow) {
