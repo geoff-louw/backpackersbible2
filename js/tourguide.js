@@ -31,8 +31,16 @@
 
     var MOBILE_BREAKPOINT = 600;
 
+    var suspended = false;
+
     function isMobileViewport() {
         return window.innerWidth <= MOBILE_BREAKPOINT;
+    }
+
+    function hideMa() {
+        m.style.opacity = '0';
+        m.style.pointerEvents = 'none';
+        m.classList.add('ma-suspended');
     }
 
     function init() {
@@ -64,6 +72,10 @@
     }
 
     function onScroll() {
+        /* Suspended (e.g. itinerary builder is open) — stay hidden
+           and don't bother recalculating anything until resumed. */
+        if (suspended) return;
+
         var isMobile = isMobileViewport();
         var tips = window.BB_TIPS;
         var matched = false;
@@ -77,16 +89,17 @@
         }
 
         if (!matched) {
-            m.style.opacity = '0';
-            m.style.pointerEvents = 'none';
+            hideMa();
         }
     }
 
     function updateMa(tip, isMobile) {
+        if (suspended) return;
         var side = (isMobile && tip.mobileSide) ? tip.mobileSide : tip.side;
 
         m.style.opacity = '1';
         m.style.pointerEvents = 'auto';
+        m.classList.remove('ma-suspended');
         img.src = tip.img;
         txt.innerHTML = tip.text;
         lnk.href = tip.href;
@@ -115,5 +128,25 @@
     } else {
         init();
     }
+
+    /* ------------------------------------------------------------
+       PUBLIC API — for other components (e.g. itinerary-builder.js)
+       that open an overlay and need the tour guide fully out of
+       the way: invisible AND unclickable, regardless of its
+       internal "matched tip" state.
+
+       window.BB_TourGuide.suspend()  — hide and stop reacting to scroll
+       window.BB_TourGuide.resume()   — re-enable and re-evaluate
+       ------------------------------------------------------------ */
+    window.BB_TourGuide = {
+        suspend: function () {
+            suspended = true;
+            if (m) hideMa();
+        },
+        resume: function () {
+            suspended = false;
+            if (m && !isMobileViewport()) onScroll();
+        }
+    };
 
 }());
