@@ -3902,8 +3902,15 @@ img.bb-marker-icon {
         cursor: pointer;
     }
 
-    /* After the map loads, fade the circle out */
-    .map-container.map-active .map-overlay-circle {
+    /* After the map loads, fade the circle out. NOTE: previously
+       targeted ".map-container.map-active", classes that don't exist
+       anywhere in the page markup — this rule never matched, so on
+       mobile the circle (pointer-events: auto here) stayed sitting on
+       top of the map forever after being tapped once, blocking taps to
+       the map underneath it. ".sa-hostel-map-shell.bb-map-loaded" is
+       the real shell class, with "bb-map-loaded" added by JS once the
+       map iframe actually starts loading. */
+    .sa-hostel-map-shell.bb-map-loaded .map-overlay-circle {
         opacity: 0;
         visibility: hidden;
     }
