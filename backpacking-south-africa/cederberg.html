@@ -446,6 +446,53 @@
 
 <!-- ░░ BUILD YOUR OWN ITINERARY ░░ -->
 
+<style>
+  .bb-it-intro {
+    background: #33689e;
+    padding: 22px 20px 30px;
+    text-align: center;
+  }
+  .bb-it-intro h2 {
+    color: #fff32a;
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 14pt;
+    font-weight: bold;
+    margin: 0 0 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .bb-it-intro p {
+    color: #fff;
+    font-family: 'Century Gothic', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    max-width: 640px;
+    margin: 0 auto 20px;
+  }
+  @media (min-width: 1100px) {
+    .bb-it-intro p { white-space: nowrap; max-width: none; }
+  }
+  .bb-it-cta {
+    display: inline-block;
+    background: #bc1d23;
+    color: #fff;
+    font-family: 'Century Gothic', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 0;
+    padding: 14px 28px;
+    cursor: pointer;
+  }
+  .bb-it-cta:hover { background: #f7d6d8; color: #bc1d23; }
+  @media (max-width: 600px) {
+    .bb-it-intro { padding: 18px 16px 24px; }
+    .bb-it-cta { width: 100%; max-width: 320px; }
+  }
+</style>
+
 <div class="bb-it-intro">
   <h2>Where To Go, What To See and How Much It'll Cost</h2>
   <p>Use our wizard to plan your trip, based on what <strong>you</strong> want to see and do, and your budget. Costs calculated according to 2026 prices.</p>
@@ -468,6 +515,13 @@ Build your own itinerary
     openBtn.setAttribute('aria-expanded', 'true');
     mount.style.display = '';
     mount.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    /* The map iframe only loads on direct tap on mobile (to protect
+       performance/data usage) — but the wizard's first step needs the
+       live map to be loaded so the user can click regions on it. Wake
+       it up here too, so opening the wizard works regardless of
+       whether the user happened to tap the map shell first. */
+    if (window.BB_WakeUpMap) window.BB_WakeUpMap();
 
     /* The tour guide character can sit invisible-but-clickable over
        parts of the page. Suspend it the instant the wizard is asked
@@ -1202,12 +1256,33 @@ window.BB_TIPS = [
         const shell = mapIframe.closest('.sa-hostel-map-shell');
         if (shell) {
           const poster = shell.querySelector('.sa-hostel-map-poster');
-          const circle = shell.querySelector('.map-overlay-circle');
           if (poster) poster.style.display = 'none';
-          if (circle) circle.style.display = 'none';
+          // Mobile: fades .map-overlay-circle out via CSS (see
+          // style-2.css section 33) once the map has actually started
+          // loading — the circle has pointer-events:auto on mobile so
+          // it can be tapped to load the map, and needs to get out of
+          // the way afterwards or it permanently blocks taps to the
+          // map underneath it. Harmless no-op on desktop, where the
+          // circle isn't tap-to-load and the matching CSS rule only
+          // exists inside the mobile media query.
+          shell.classList.add('bb-map-loaded');
+          // NOTE: the yellow info circle (.map-overlay-circle) is not
+          // hidden directly here on desktop. It used to be hidden in
+          // this same call — which on desktop ran immediately on page
+          // load (see below), hiding the circle before it was ever
+          // visible. It's a desktop-only overlay (restricted via CSS)
+          // that's meant to sit on top of the live map, so on desktop
+          // it persists once the map has loaded rather than
+          // disappearing with the poster.
         }
       }
     }
+    // Exposed so other components (e.g. the "Build your own itinerary"
+    // button) can wake the map up themselves on mobile, where it would
+    // otherwise only load on a direct tap of the map shell — meaning the
+    // itinerary wizard's region-click step silently didn't work if the
+    // map hadn't been woken up first.
+    window.BB_WakeUpMap = wakeUpMap;
 
     function sendFilter(filterKey) {
       if (iframeReady && mapIframe.contentWindow) {
