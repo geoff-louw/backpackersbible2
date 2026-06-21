@@ -473,9 +473,7 @@
     .bb-it-intro p { white-space: nowrap; max-width: none; }
   }
   .bb-it-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
+    display: inline-block;
     background: #bc1d23;
     color: #fff;
     font-family: 'Century Gothic', sans-serif;
@@ -484,16 +482,14 @@
     letter-spacing: 0.02em;
     text-transform: uppercase;
     border: none;
+    border-radius: 0;
     padding: 14px 28px;
     cursor: pointer;
-
   }
-  .bb-it-cta:hover { transform: translateY(0px); }
-  .bb-it-cta:active { transform: translateY(0); box-shadow: 0 2px 0 #8e1519, 0 4px 10px rgba(0,0,0,0.35); }
-  .bb-it-cta .bb-it-stamp { font-size: 20px; line-height: 1; }
+  .bb-it-cta:hover { background: #f7d6d8; color: #bc1d23; }
   @media (max-width: 600px) {
     .bb-it-intro { padding: 18px 16px 24px; }
-    .bb-it-cta { width: 100%; max-width: 320px; justify-content: center; }
+    .bb-it-cta { width: 100%; max-width: 320px; }
   }
 </style>
 
@@ -519,6 +515,12 @@ Build your own itinerary
     openBtn.setAttribute('aria-expanded', 'true');
     mount.style.display = '';
     mount.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    /* The tour guide character can sit invisible-but-clickable over
+       parts of the page. Suspend it the instant the wizard is asked
+       to open — BB_ITINERARY_INIT() suspends it again once loaded,
+       but this covers the gap while the script itself is loading. */
+    if (window.BB_TourGuide) window.BB_TourGuide.suspend();
 
     if (loaded) {
       // Already loaded once this page-view — just re-show it.
