@@ -199,6 +199,28 @@
   function roadKm(a, b) { return haversineKm(a, b) * ROAD_FACTOR; }
 
   // ───────────────────────────────────────────────────────────────────────
+  // TRAVEL TIME — how many calendar days a leg actually consumes.
+  // Self-drive and minibus taxi are capped by realistic daytime driving
+  // (stopping overnight rather than driving through the night); mainline
+  // bus services (Intercape/Greyhound) routinely run overnight on the
+  // long routes, e.g. Cape Town–Johannesburg, so they cover more km per
+  // calendar day. Without this, a long leg (most often the final return
+  // leg of a round trip — e.g. Kruger back to Cape Town, ~1,700km by
+  // road) was being treated as taking zero days, silently inflating how
+  // many nights the trip actually has time for.
+  // ───────────────────────────────────────────────────────────────────────
+  const DAILY_TRAVEL_KM = {
+    'Minibus taxi': 450,                          // daytime only, rank-to-rank changeovers
+    'Mainline bus (Intercape/Greyhound)': 900,     // long-haul routes run overnight
+    'Baz Bus (hop-on-hop-off)': 450,               // daytime hop-on-hop-off, same as taxi pace
+    'Self-drive (small rental car)': 500           // honest daytime driving max, SA roads
+  };
+  function travelDaysForLeg(km, mode) {
+    const perDay = DAILY_TRAVEL_KM[mode] || 500;
+    return Math.max(1, Math.ceil(km / perDay));
+  }
+
+  // ───────────────────────────────────────────────────────────────────────
   // SEASON DETECTION — "peak" = mid-Dec to mid-Jan (SA summer holidays),
   // plus the Easter week and the July school holidays, when mainline bus,
   // flight and accommodation demand (and prices) spike.
@@ -388,14 +410,77 @@
     // Guard against more stops than days — cap stops to totalDays so each
     // gets at least 1 night, rather than showing a negative "extraDays".
     const usableNightsRoute = nStops > totalDays ? nightsRoute.slice(0, Math.max(1, totalDays)) : nightsRoute;
-    const daysPerStop = Math.max(1, Math.floor(totalDays / usableNightsRoute.length));
-    const extraDays = Math.max(0, totalDays - daysPerStop * usableNightsRoute.length);
 
     // The route actually travelled/costed picks back up the final return
     // leg (if any) after the capped nights route — dropped stops (from
     // the too-many-regions guard) apply to nightsRoute only; the return
     // leg home always survives the cap since it's not an extra "stop".
     const usableRoute = isRoundTrip ? [...usableNightsRoute, startKey] : usableNightsRoute;
+
+    // ── Transport mode/distance per leg (computed early — travel time
+    //    has to be known BEFORE we can work out how many days are left
+    //    over for nights at stops; see "Travel days" note below) ──
+    // Person picks ONE primary mode in Step 4 (transportPref: 'taxi' |
+    // 'bus' | 'drive') and we apply it across every leg, rather than
+    // silently picking whatever's cheapest — that was hiding self-drive
+    // and bus options the person actually wanted. Baz Bus still overrides
+    // on its own corridor since it's a backpacker-specific option people
+    // expect to see there regardless of general preference, and very
+    // short hops always fall back to taxi since renting/busing 5km
+    // between two spots in the same town isn't realistic.
+    const modeMap = {
+      taxi:  'Minibus taxi',
+      bus:   'Mainline bus (Intercape/Greyhound)',
+      drive: 'Self-drive (small rental car)'
+    };
+    const preferredMode = modeMap[transportPref] || modeMap.bus;
+
+    const legBasics = [];
+    for (let i = 0; i < usableRoute.length - 1; i++) {
+      const fromKey = usableRoute[i], toKey = usableRoute[i + 1];
+      const a = regionsData[fromKey] && regionsData[fromKey].center;
+      const b = regionsData[toKey] && regionsData[toKey].center;
+      const km = a && b ? roadKm(a, b) : 300; // fallback if a centre is missing
+      const options = legOptions(fromKey, toKey, km, peak, regionsData);
+
+      let chosen;
+      const bazOption = options.find(o => o.mode === 'Baz Bus (hop-on-hop-off)');
+      if (bazOption && transportPref !== 'drive') {
+        // Baz Bus is a natural fit for this corridor unless the person
+        // specifically wants to self-drive (in which case respect that).
+        chosen = bazOption;
+      } else if (km < 15) {
+        // Too short for a bus booking or a rental car to make sense.
+        chosen = options.find(o => o.mode === 'Minibus taxi') || options[0];
+      } else {
+        chosen = options.find(o => o.mode === preferredMode) || options[0];
+      }
+
+      legBasics.push({ fromKey, toKey, fromCoords: a || null, toCoords: b || null, km, options, chosen });
+    }
+
+    // ── Travel days ──
+    // Each leg eats into the trip's calendar according to how far it is
+    // and how fast the chosen mode realistically covers ground (see
+    // travelDaysForLeg). This matters most for the final return leg of a
+    // round trip — e.g. Kruger back to Cape Town is ~1,700 road km — which
+    // previously consumed zero days, silently overstating how many nights
+    // the trip actually has time for. Legs under ~150km (a short hop
+    // between neighbouring regions) are treated as same-day with the
+    // next stop's first night, rather than burning a whole day on a
+    // half-day drive.
+    const travelDaysPerLeg = legBasics.map(l => l.km < 150 ? 0 : travelDaysForLeg(l.km, l.chosen.mode));
+    const totalTravelDays = travelDaysPerLeg.reduce((s, d) => s + d, 0);
+
+    // Days left over for actually staying somewhere, after travel days
+    // are taken out. Always leave at least 1 night per stop even if
+    // travel days would otherwise eat the whole trip — the headline
+    // "tooManyStops"-style warning below covers telling the person their
+    // trip is too short for what they've asked for.
+    const nightsAvailable = Math.max(usableNightsRoute.length, totalDays - totalTravelDays);
+    const daysPerStop = Math.max(1, Math.floor(nightsAvailable / usableNightsRoute.length));
+    const extraDays = Math.max(0, nightsAvailable - daysPerStop * usableNightsRoute.length);
+    const tripTooShortForTravel = totalTravelDays > 0 && (totalDays - totalTravelDays) < usableNightsRoute.length;
 
     // ── Accommodation ──
     // privateRoom is priced per person assuming 2 people sharing a double
@@ -415,7 +500,16 @@
       // already correct as-is (an odd traveller out is a real-world edge
       // case the headline figure doesn't need to model exactly).
     }
-    const accomTotal = accomRate * totalDays;
+    // Nights actually spent at a stop pay the full accommodation rate.
+    // Travel days are charged a flat, much lower "on the road" rate —
+    // a basic overnight guesthouse/rest stop, or nothing at all if the
+    // chosen mode is an overnight bus (the bus seat IS the bed that
+    // night). This is deliberately approximate but far closer to reality
+    // than either charging full hostel rate or charging nothing.
+    const onRoadNightRate = preferredMode === 'Mainline bus (Intercape/Greyhound)'
+      ? 0
+      : Math.round(COST_MODEL.accommodation.dorm.price * 0.6);
+    const accomTotal = accomRate * nightsAvailable + onRoadNightRate * totalTravelDays;
 
     // ── Food ──
     const foodRate = COST_MODEL.food[style].price;
@@ -438,64 +532,30 @@
       toursTotal = COST_MODEL.tours.average * tourTiers.flash.toursPerWeek * weeks;
     }
 
-    // ── Transport between stops ──
-    // Person picks ONE primary mode in Step 4 (transportPref: 'taxi' |
-    // 'bus' | 'drive') and we apply it across every leg, rather than
-    // silently picking whatever's cheapest — that was hiding self-drive
-    // and bus options the person actually wanted. Baz Bus still overrides
-    // on its own corridor since it's a backpacker-specific option people
-    // expect to see there regardless of general preference, and very
-    // short hops always fall back to taxi since renting/busing 5km
-    // between two spots in the same town isn't realistic.
-    const modeMap = {
-      taxi:  'Minibus taxi',
-      bus:   'Mainline bus (Intercape/Greyhound)',
-      drive: 'Self-drive (small rental car)'
-    };
-    const preferredMode = modeMap[transportPref] || modeMap.bus;
-
-    const legs = [];
-    for (let i = 0; i < usableRoute.length - 1; i++) {
-      const fromKey = usableRoute[i], toKey = usableRoute[i + 1];
-      const a = regionsData[fromKey] && regionsData[fromKey].center;
-      const b = regionsData[toKey] && regionsData[toKey].center;
-      const km = a && b ? roadKm(a, b) : 300; // fallback if a centre is missing
-      const options = legOptions(fromKey, toKey, km, peak, regionsData);
-
-      let chosen;
-      const bazOption = options.find(o => o.mode === 'Baz Bus (hop-on-hop-off)');
-      if (bazOption && transportPref !== 'drive') {
-        // Baz Bus is a natural fit for this corridor unless the person
-        // specifically wants to self-drive (in which case respect that).
-        chosen = bazOption;
-      } else if (km < 15) {
-        // Too short for a bus booking or a rental car to make sense.
-        chosen = options.find(o => o.mode === 'Minibus taxi') || options[0];
-      } else {
-        chosen = options.find(o => o.mode === preferredMode) || options[0];
-      }
-
-      legs.push({
-        from: regionsData[fromKey] ? regionsData[fromKey].name : fromKey,
-        to: regionsData[toKey] ? regionsData[toKey].name : toKey,
-        fromKey, toKey,
-        fromCoords: a || null,
-        toCoords: b || null,
-        // Day this leg is travelled on, i.e. the last day spent at the
-        // "from" stop before moving on — used for "Day X: A to B" labels
-        // on the map route line. Stop i gets daysPerStop nights (+1 extra
-        // for the first `extraDays` stops), so this leg departs on the
-        // day count accumulated through stop i, inclusive.
-        departDay: (() => {
-          let d = 0;
-          for (let s = 0; s <= i; s++) d += daysPerStop + (s < extraDays ? 1 : 0);
-          return d;
-        })(),
-        km: Math.round(km),
-        options,
-        chosen
-      });
-    }
+    // ── Transport between stops — assign departDay now that
+    //    daysPerStop/extraDays are known, and build the final legs[]
+    //    the rest of the app (map line, route list, etc.) expects ──
+    const legs = legBasics.map((l, i) => ({
+      from: regionsData[l.fromKey] ? regionsData[l.fromKey].name : l.fromKey,
+      to: regionsData[l.toKey] ? regionsData[l.toKey].name : l.toKey,
+      fromKey: l.fromKey, toKey: l.toKey,
+      fromCoords: l.fromCoords,
+      toCoords: l.toCoords,
+      // Day this leg is travelled on, i.e. the last day spent at the
+      // "from" stop before moving on — used for "Day X: A to B" labels
+      // on the map route line. Stop i gets daysPerStop nights (+1 extra
+      // for the first `extraDays` stops), so this leg departs on the
+      // day count accumulated through stop i, inclusive.
+      departDay: (() => {
+        let d = 0;
+        for (let s = 0; s <= i; s++) d += daysPerStop + (s < extraDays ? 1 : 0);
+        return d;
+      })(),
+      km: Math.round(l.km),
+      options: l.options,
+      chosen: l.chosen,
+      travelDays: travelDaysPerLeg[i]
+    }));
     let transportTotal = legs.reduce((sum, l) => sum + l.chosen.price, 0);
 
     // If self-drive was chosen for any leg, the rental is realistically
@@ -530,6 +590,7 @@
 
     return {
       route: usableRoute, daysPerStop, extraDays, peak,
+      totalTravelDays, nightsAvailable, tripTooShortForTravel,
       tooManyStops: nStops > totalDays,
       droppedStops: nStops > totalDays ? nightsRoute.slice(usableNightsRoute.length) : [],
       isRoundTrip,
@@ -745,6 +806,8 @@
       .bb-it-nav {
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
         margin-top: 24px;
         position: relative;
         z-index: 1;
@@ -1325,7 +1388,7 @@
           ? suggestions.map(h => `<div class="bb-it-hostel-suggestion">→ <a href="${h.anchor || '#'}">${h.name}</a></div>`).join('')
           : '';
         const legHTML = i < trip.legs.length
-          ? `<div class="bb-it-leg">Then: ${trip.legs[i].chosen.mode} to ${trip.legs[i+1] ? regionName(trip.route[i+1]) : ''} (~${trip.legs[i].km}km) — ${money(trip.legs[i].chosen.price)}${trip.legs[i].chosen.mode.includes('Self-drive') ? ' fuel' : ''}</div>`
+          ? `<div class="bb-it-leg">Then: ${trip.legs[i].chosen.mode} to ${trip.legs[i+1] ? regionName(trip.route[i+1]) : ''} (~${trip.legs[i].km}km${trip.legs[i].travelDays > 0 ? `, ~${trip.legs[i].travelDays} day${trip.legs[i].travelDays !== 1 ? 's' : ''} travelling` : ''}) — ${money(trip.legs[i].chosen.price)}${trip.legs[i].chosen.mode.includes('Self-drive') ? ' fuel' : ''}</div>`
           : '';
 
         const daysLabel = isReturnLeg
@@ -1366,6 +1429,10 @@
         ? `<div class="bb-it-map-hint">You picked more regions than you have days for at roughly a night each. We've kept the first ${keptStopsCount} stops on your route and left out ${trip.droppedStops.map(k => regionName(k)).join(', ')} — add more days or remove a region to fit them in.</div>`
         : '';
 
+      const travelDaysHTML = trip.totalTravelDays > 0
+        ? `<div class="bb-it-map-hint">${trip.totalTravelDays} of your ${state.totalDays} days ${trip.totalTravelDays === 1 ? 'is' : 'are'} spent travelling between regions (including the drive/bus back to ${regionName(trip.route[0])} at the end) rather than at a stop — that's already factored into the nights below.${trip.tripTooShortForTravel ? ' Your trip is quite tight on time for this route — consider adding a few more days, dropping a region, or choosing a faster transport mode.' : ''}</div>`
+        : '';
+
       const noCampingHTML = trip.noCampingRegions.length
         ? `<div class="bb-it-map-hint">Heads up: ${trip.noCampingRegions.map(k => regionName(k)).join(', ')} ${trip.noCampingRegions.length === 1 ? "doesn't have" : "don't have"} any hostels with camping. You'll need a dorm bed there even on ultra-budget — that's not included in the camping-only total below for those nights.</div>`
         : '';
@@ -1373,6 +1440,7 @@
       panelShell(`
         <div class="bb-it-results">
           ${tooManyHTML}
+          ${travelDaysHTML}
           ${noCampingHTML}
           <div class="bb-it-total-card">
             <div>
@@ -1383,7 +1451,7 @@
 
           <h3 style="color:${BRAND_RED};margin:0 0 10px;font-size:20px;">Cost breakdown</h3>
           <div class="bb-it-breakdown">
-            <div class="bb-it-breakdown-row"><span>Accommodation (${COST_MODEL.accommodation[trip.accomKey].label}, ${state.totalDays} nights)</span><strong>${money(trip.accomTotal)}</strong></div>
+            <div class="bb-it-breakdown-row"><span>Accommodation (${COST_MODEL.accommodation[trip.accomKey].label}, ${trip.nightsAvailable} night${trip.nightsAvailable !== 1 ? 's' : ''}${trip.totalTravelDays > 0 ? ` + ${trip.totalTravelDays} on the road` : ''})</span><strong>${money(trip.accomTotal)}</strong></div>
             <div class="bb-it-breakdown-row"><span>Food (${COST_MODEL.food[state.style].label})</span><strong>${money(trip.foodTotal)}</strong></div>
             <div class="bb-it-breakdown-row"><span>Drinks (${COST_MODEL.drinks.stages[trip.vibeStage].label})</span><strong>${money(trip.drinksTotal)}</strong></div>
             <div class="bb-it-breakdown-row"><span>Tours & activities</span><strong>${money(trip.toursTotal)}</strong></div>
@@ -1401,6 +1469,7 @@
 
           <div class="bb-it-nav">
             <button class="bb-it-btn secondary" id="bb-it-back">← Adjust answers</button>
+            <a class="bb-it-btn secondary" id="bb-it-email" href="#" style="text-decoration:none;display:inline-flex;align-items:center;">✉ Email me this itinerary</a>
             <button class="bb-it-btn secondary" id="bb-it-restart">Start over</button>
           </div>
         </div>
@@ -1412,6 +1481,57 @@
         clearRouteFromMap();
         enterSelectMode();
         renderStep();
+      });
+
+      // ── Email me this itinerary ──
+      // A plain mailto: link rather than a backend mail service — zero
+      // server dependency, works everywhere, and the person reviews/edits
+      // the message in their own mail client before sending. mailto: URLs
+      // have an inconsistent practical length ceiling across mail
+      // clients — well-behaved browser+webmail combos are fine up to
+      // ~2,000 characters, but some report much stricter limits — so
+      // the body is kept to a compact plain-text summary (no per-leg
+      // transport detail, which is already visible on the page above)
+      // and checked against a conservative threshold before sending.
+      document.getElementById('bb-it-email').addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const lines = [];
+        lines.push(`My Backpackers Bible itinerary — ${state.totalDays} days, ${zar(trip.grandTotal)} (${eur(trip.grandTotal)}) total, ~${zar(trip.perDay)}/day pp`);
+        lines.push('');
+        lines.push('ROUTE:');
+        trip.route.forEach((key, i) => {
+          const isReturnLeg = trip.isRoundTrip && i === trip.route.length - 1;
+          if (isReturnLeg) {
+            lines.push(`${i + 1}. ${regionName(key)} — back where you started`);
+          } else {
+            const extra = i < trip.extraDays ? 1 : 0;
+            const nights = trip.daysPerStop + extra;
+            lines.push(`${i + 1}. ${regionName(key)} (${nights} night${nights !== 1 ? 's' : ''})`);
+          }
+        });
+        if (trip.totalTravelDays > 0) {
+          lines.push(`(${trip.totalTravelDays} day${trip.totalTravelDays !== 1 ? 's' : ''} of travel between stops, included above)`);
+        }
+        lines.push('');
+        lines.push('COST BREAKDOWN:');
+        lines.push(`Accommodation: ${zar(trip.accomTotal)} | Food: ${zar(trip.foodTotal)} | Drinks: ${zar(trip.drinksTotal)}`);
+        lines.push(`Tours: ${zar(trip.toursTotal)} | Transport: ${zar(legsOnlyTotal)}${trip.carRentalTotal > 0 ? ` | Car rental: ${zar(trip.carRentalTotal)}` : ''}${flightTotal > 0 ? ` | Flights: ${zar(flightTotal)}` : ''}`);
+        lines.push('');
+        lines.push('See the full breakdown at backpackersbible.com — prices researched June 2026, real fares vary by operator and date.');
+
+        const body = lines.join('\n');
+        const subject = `My ${state.totalDays}-day South Africa backpacking itinerary`;
+        const mailto = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+        // Conservative length guard — some mail clients (older Outlook
+        // desktop especially) choke on long mailto: links. Fail
+        // gracefully rather than silently producing a dead link.
+        if (mailto.length > 1500) {
+          alert("This itinerary is a bit long to email directly — try screenshotting this page instead, or removing a few stops to shorten it.");
+          return;
+        }
+        window.location.href = mailto;
       });
     }
 
