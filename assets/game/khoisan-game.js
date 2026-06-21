@@ -456,7 +456,7 @@
     if (state==='dead') {
       drawHUD();
       drawOverlay([
-        {t:'The Kalahari claimed you.', bold:true},
+        {t:'Better luck next hunt!', bold:true},
         {t:'Score: '+score+'   Best: '+hiScore},
         {t:'Tap to try again'},
       ]);
