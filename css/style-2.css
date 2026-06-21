@@ -4611,8 +4611,8 @@ img.bb-marker-icon {
    39. ITINERARY BUILDER   ========================================================================== */
 
 
-  .bb-it-intro {
-    background: #33689e;
+.bb-it-intro {
+    background: #1d479c;
     padding: 22px 20px 30px;
     text-align: center;
   }
