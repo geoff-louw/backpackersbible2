@@ -563,7 +563,23 @@
 
     /* ============================================================
        11. JUMP MENU — ACTIVE CARD CENTRING
+       Deferred until after first paint so it never competes with
+       LCP. Initial positioning is instant (no visible scroll-jank
+       on load); smooth scrolling is kept for the in-page scroll-spy
+       behaviour as the user scrolls between sections.
        ============================================================ */
+
+    function deferToIdle(fn) {
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(fn, { timeout: 2000 });
+        } else {
+            /* Safari fallback: wait a frame so paint has happened,
+               then a short timeout to stay off the critical path. */
+            requestAnimationFrame(function () {
+                setTimeout(fn, 200);
+            });
+        }
+    }
 
     onReady(function () {
         var container = el('top-jump');
@@ -572,7 +588,7 @@
         var cards = Array.from(container.querySelectorAll('a.jump-card'));
         if (!cards.length) return;
 
-        function centerActiveCard(link) {
+        function centerActiveCard(link, instant) {
             cards.forEach(function (c) { c.classList.remove('jump-card--active'); });
             link.classList.add('jump-card--active');
 
@@ -581,32 +597,32 @@
             var containerWidth = container.offsetWidth;
             var scrollPos      = linkOffset - (containerWidth / 2) + (linkWidth / 2);
 
-            container.scrollTo({ left: scrollPos, behavior: 'smooth' });
+            container.scrollTo({ left: scrollPos, behavior: instant ? 'auto' : 'smooth' });
         }
 
-        function checkUrlAndCenter() {
+        function checkUrlAndCenter(instant) {
             var filename = window.location.pathname.split('/').pop() || 'index.html';
             var activeLink = cards.find(function (link) {
                 return link.getAttribute('href').endsWith(filename);
             });
             if (activeLink) {
-                centerActiveCard(activeLink);
+                centerActiveCard(activeLink, instant);
             } else {
                 container.scrollLeft = 0;
             }
         }
 
-        checkUrlAndCenter();
+        function initScrollSpy() {
+            var targets = cards.map(function (link) {
+                var hash = link.href.indexOf('#');
+                if (hash !== -1) {
+                    return el(link.href.substring(hash + 1));
+                }
+                return null;
+            }).filter(Boolean);
 
-        var targets = cards.map(function (link) {
-            var hash = link.href.indexOf('#');
-            if (hash !== -1) {
-                return el(link.href.substring(hash + 1));
-            }
-            return null;
-        }).filter(Boolean);
+            if (!targets.length) return;
 
-        if (targets.length) {
             var observer = new IntersectionObserver(function (entries) {
                 entries.forEach(function (entry) {
                     if (entry.isIntersecting) {
@@ -614,7 +630,7 @@
                             return l.href.includes('#' + entry.target.id);
                         });
                         if (activeLink && !activeLink.classList.contains('jump-card--active')) {
-                            centerActiveCard(activeLink);
+                            centerActiveCard(activeLink, false);
                         }
                     }
                 });
@@ -622,6 +638,14 @@
 
             targets.forEach(function (t) { observer.observe(t); });
         }
+
+        /* Everything below touches layout (offsetLeft/offsetWidth)
+           or starts a scroll animation. None of it is needed for
+           first paint, so it's pushed off the critical path. */
+        deferToIdle(function () {
+            checkUrlAndCenter(true);
+            initScrollSpy();
+        });
     });
 
 
