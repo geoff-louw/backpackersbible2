@@ -438,6 +438,62 @@
 </section>
 <!-- ░░ END HOSTEL MAP ░░ -->
 
+<!-- ░░ BUILD YOUR OWN ITINERARY ░░ -->
+
+<div class="bb-it-intro">
+  <h2>Where To Go, What To See and How Much It'll Cost</h2>
+  <p>Use our wizard to plan your trip, based on what <strong>you</strong> want to see and do, and your budget. Costs calculated according to 2026 prices.</p>
+  <button type="button" class="bb-it-cta" id="bb-it-open-btn" aria-expanded="false" aria-controls="bb-itinerary-mount">
+Build your own itinerary
+  </button>
+</div>
+
+<div id="bb-itinerary-mount" style="display:none;"></div>
+
+<script>
+(function () {
+  var openBtn   = document.getElementById('bb-it-open-btn');
+  var mount     = document.getElementById('bb-itinerary-mount');
+  var mapFrame  = document.querySelector('.bb-map-iframe');
+  var loaded    = false;
+
+  openBtn.addEventListener('click', function () {
+    openBtn.style.display = 'none';
+    openBtn.setAttribute('aria-expanded', 'true');
+    mount.style.display = '';
+    mount.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    /* The tour guide character can sit invisible-but-clickable over
+       parts of the page. Suspend it the instant the wizard is asked
+       to open — BB_ITINERARY_INIT() suspends it again once loaded,
+       but this covers the gap while the script itself is loading. */
+    if (window.BB_TourGuide) window.BB_TourGuide.suspend();
+
+    if (loaded) {
+      // Already loaded once this page-view — just re-show it.
+      if (window.BB_ITINERARY_INIT) {
+        window.BB_ITINERARY_INIT({ mount: mount, mapFrame: mapFrame, currentRegion: 'cederberg' });
+      }
+      return;
+    }
+    loaded = true;
+
+    mount.innerHTML = '<div style="text-align:center;padding:30px 0;font-family:\'Century Gothic\',sans-serif;color:#777;">Loading the itinerary builder…</div>';
+
+    var script = document.createElement('script');
+    script.src = '/assets/js/itinerary-builder.js';
+    script.onload = function () {
+      window.BB_ITINERARY_INIT({ mount: mount, mapFrame: mapFrame, currentRegion: 'cederberg' });
+    };
+    script.onerror = function () {
+      mount.innerHTML = '<p style="text-align:center;padding:30px 0;">Sorry — the itinerary builder couldn\'t load. Please check your connection and try again.</p>';
+    };
+    document.head.appendChild(script);
+  });
+})();
+</script>
+<!-- ░░ END BUILD YOUR OWN ITINERARY ░░ -->
+
      <!-- Tour guide initial -->
 
 <div id="ma">
