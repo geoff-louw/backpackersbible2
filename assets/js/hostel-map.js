@@ -428,7 +428,7 @@
           map.on('click', hitLayer, (e) => {
             e.clickHandled = true;
             if (selectModeActive) {
-              toggleRegionSelection(key);
+              toggleRegionSelection(key, e.lngLat);
             } else if (REGION === 'national') {
               // National view: show a "best for…" popup with a link to the
               // region page, instead of navigating straight there — this
@@ -458,23 +458,72 @@
         function regionPaint(key, state) {
           // state: 'current' | 'selected' | 'default'
           const r = regions[key];
-          if (!r || r.geom === 'LineString') return;
-          const fillLayer = `region-fill-${key}`;
+          if (!r) return;
           const lineLayer = `region-line-${key}`;
+          const isLine = r.geom === 'LineString';
+          const fillLayer = `region-fill-${key}`;
+
+          if (!map.getLayer(lineLayer)) return;
+
+          if (isLine) {
+            // No fill to work with (it's a road corridor, not an area) —
+            // the only way to mark it as current/selected is the line
+            // itself: colour it opaque red and make it thicker, the same
+            // visual language as the fill regions below.
+            if (state === 'current') {
+              map.setPaintProperty(lineLayer, 'line-color', BRAND_RED);
+              map.setPaintProperty(lineLayer, 'line-width', 6);
+              map.setPaintProperty(lineLayer, 'line-opacity', 1);
+            } else if (state === 'selected') {
+              map.setPaintProperty(lineLayer, 'line-color', BRAND_RED);
+              map.setPaintProperty(lineLayer, 'line-width', 5);
+              map.setPaintProperty(lineLayer, 'line-opacity', 0.85);
+            } else {
+              map.setPaintProperty(lineLayer, 'line-color', r.lineColor || r.color || BRAND_RED);
+              map.setPaintProperty(lineLayer, 'line-width', 4);
+              map.setPaintProperty(lineLayer, 'line-opacity', 0.85);
+            }
+            return;
+          }
+
           if (!map.getLayer(fillLayer)) return;
+
           if (state === 'current') {
-            map.setPaintProperty(fillLayer, 'fill-opacity', 0.45);
+            // Opaque red override, independent of the region's own colour
+            // — previously this just raised fill-opacity on whatever
+            // colour the region already had (e.g. the Karoo's own gold),
+            // which looked like "the starting region is gold" purely by
+            // coincidence of which region happened to be selected. An
+            // explicit colour override means the starting region always
+            // reads the same way regardless of its normal map colour.
+            map.setPaintProperty(fillLayer, 'fill-color', BRAND_RED);
+            map.setPaintProperty(fillLayer, 'fill-opacity', 0.55);
+            map.setPaintProperty(lineLayer, 'line-color', BRAND_RED);
             map.setPaintProperty(lineLayer, 'line-width', 3);
           } else if (state === 'selected') {
+            map.setPaintProperty(fillLayer, 'fill-color', r.color || BRAND_RED);
             map.setPaintProperty(fillLayer, 'fill-opacity', 0.55);
+            map.setPaintProperty(lineLayer, 'line-color', r.lineColor || r.color || BRAND_RED);
             map.setPaintProperty(lineLayer, 'line-width', 4);
           } else {
+            map.setPaintProperty(fillLayer, 'fill-color', r.color || BRAND_RED);
             map.setPaintProperty(fillLayer, 'fill-opacity', r.fillOpacity !== undefined ? r.fillOpacity : 0.25);
+            map.setPaintProperty(lineLayer, 'line-color', r.lineColor || r.color || BRAND_RED);
             map.setPaintProperty(lineLayer, 'line-width', 2);
           }
         }
 
-        function toggleRegionSelection(key) {
+        function toggleRegionSelection(key, lngLat) {
+          // Show the "best for…" popup on every click here too — not just
+          // in plain national navigate-mode — so someone unfamiliar with
+          // South Africa's regions can see what a region actually offers
+          // at the same moment they're deciding whether to add it to
+          // their trip. Runs regardless of whether this click is adding
+          // or removing the region, matching the existing toggle
+          // behaviour exactly (one click does both things at once).
+          const r = regions[key];
+          if (r && lngLat) showRegionPopup(key, r, lngLat);
+
           if (key === currentSelectKey) return; // current/starting region can't be deselected here
           if (selectedRegionKeys.has(key)) {
             selectedRegionKeys.delete(key);
