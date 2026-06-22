@@ -1115,7 +1115,7 @@
         </div>
         <div class="bb-it-field">
           <label>Which other regions do you want to visit?</label>
-          <div class="bb-it-map-hint">👆 Click the coloured regions on the map above to add or remove them from your trip. Your starting region is shown in gold.</div>
+          <div class="bb-it-map-hint">👆 Click a coloured region on the map above to add it to your trip — a pop-up will also show you what it's best for (beaches, parties, hiking and more). Click it again to remove it. Your starting region is highlighted on the map.</div>
           ${tagsHTML}
         </div>
         <div class="bb-it-nav">
@@ -1469,6 +1469,10 @@
 
           <div class="bb-it-disclaimer">
             All prices researched June 2026 and are realistic averages, not live fares — actual prices vary by operator, booking date and demand. Mainline bus and flight prices especially can swing well above or below these figures depending on how far ahead you book. Baz Bus currently only operates Cape Town ↔ Gqeberha (Garden Route) daily — it is not yet running its old nationwide network. Use this as a planning guide, then check exact prices closer to your travel dates.
+          </div>
+
+          <div class="bb-it-map-hint" style="text-align:center;">
+            Not sure this is the trip for you? <a href="/backpacking-south-africa-tours/" style="color:${BRAND_RED};font-weight:bold;">See our pre-built suggested itineraries →</a>
           </div>
 
           <div class="bb-it-nav">
