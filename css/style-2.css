@@ -4688,8 +4688,10 @@ img.bb-marker-icon {
 
 .quick-fact {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 12px;
+    text-align: center;
+    gap: 10px;
     padding: 14px;
     border-radius: 10px;
     background: #fdf400;
@@ -4702,9 +4704,9 @@ img.bb-marker-icon {
 }
 
 .quick-fact-icon img {
-    width: 50px;
-    height: 50px;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .quick-fact-content h4 {
