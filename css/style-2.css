@@ -4669,7 +4669,7 @@ img.bb-marker-icon {
     padding: 14px 28px;
     cursor: pointer;
   }
-  .bb-it-cta:hover { color: #f7d6d8; }
+  .bb-it-cta:hover { background: #f7d6d8; color: #bc1d23; }
   @media (max-width: 600px) {
     .bb-it-intro { padding: 18px 16px 24px; }
     .bb-it-cta { width: 100%; max-width: 320px; }
