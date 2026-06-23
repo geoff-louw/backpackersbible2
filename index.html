@@ -1751,6 +1751,7 @@ window.BB_TIPS = [
   });
 </script>
 
+<!-- Schema -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1761,7 +1762,7 @@ window.BB_TIPS = [
       "@id": "https://www.backpackersbible.com/#website",
       "url": "https://www.backpackersbible.com",
       "name": "The Backpacker's Bible",
-      "description": "A comprehensive guide to backpacking South Africa, featuring regional travel guides, hostel reviews, transport information, safety advice and budget travel resources.",
+      "description": "A comprehensive guide to backpacking South Africa, featuring regional travel guides, hostel reviews, transport information, safety advice, interactive maps and itinerary planning tools.",
       "publisher": {
         "@id": "https://www.backpackersbible.com/#organization"
       },
@@ -1797,6 +1798,45 @@ window.BB_TIPS = [
         "Backpacker Hostels",
         "South African Tourism"
       ]
+    },
+
+    {
+      "@type": "WebApplication",
+      "@id": "https://www.backpackersbible.com/#travel-planner",
+      "name": "South Africa Interactive Backpacker Map & Itinerary Builder",
+      "url": "https://www.backpackersbible.com/",
+      "applicationCategory": "TravelApplication",
+      "applicationSubCategory": "Trip Planning",
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires JavaScript and HTML5 support",
+      "isAccessibleForFree": true,
+      "inLanguage": "en-ZA",
+      "creator": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://www.backpackersbible.com/#website"
+      },
+      "description": "Interactive travel-planning tools for backpacking South Africa, including a searchable hostel map, hostel comparison system, destination discovery tools, travel route planning and a custom itinerary builder.",
+      "featureList": [
+        "Interactive map of backpacker hostels across South Africa",
+        "Hostel filtering by solo travel suitability",
+        "Hostel filtering by digital nomad friendliness",
+        "Hostel filtering by safety rating",
+        "Hostel filtering by value for money",
+        "Hostel filtering by party atmosphere",
+        "Hostel filtering by surfing, nature and adventure travel interests",
+        "Custom backpacking itinerary builder",
+        "Trip budget estimation",
+        "Travel route planning",
+        "Hostel reviews and contact information",
+        "Mobile-friendly travel planning"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "ZAR"
+      }
     }
 
   ]
