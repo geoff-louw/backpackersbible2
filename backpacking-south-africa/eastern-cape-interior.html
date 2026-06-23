@@ -1246,7 +1246,7 @@ window.BB_TIPS = [
       href: '/backpacking-south-africa-tours/' },
     { trigger: 'tip3', side: 'left', mobileSide: 'right',
       img:  '/assets/_god_3.png',
-      text: 'A good hostel in these parts is a quiet kind of treasure — book it through these links when you find one. Costs you nothing extra, keeps this old guru's beard well-fed. ',
+      text: 'A good hostel in these parts is a quiet kind of treasure — book it through these links when you find one. Costs you nothing extra, keeps this old guru’s beard well-fed. ',
       href: '/misc/affiliate-links-disclosure' }
 ];
 </script>
@@ -1477,6 +1477,22 @@ window.BB_TIPS = [
   });
 </script>
 
+<script>
+  /* ── FIND ON MAP — scroll to LibreMap and open hostel popup ── */
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('.bb-find-on-map');
+    if (!link) return;
+    e.preventDefault();
+    var hostelId = link.dataset.hostel;
+    var mapFrame = document.querySelector('.bb-map-iframe');
+    if (!mapFrame) return;
+    mapFrame.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(function() {
+      mapFrame.contentWindow.postMessage({ type: 'BB_OPEN_HOSTEL', id: hostelId }, '*');
+    }, 600);
+  });
+</script>
+
 <!-- Default Statcounter code for Backpackers Bible
 https://www.backpackersbible.com/ -->
 <script type="text/javascript">
@@ -1494,23 +1510,6 @@ src="https://c.statcounter.com/13225228/0/687dc53c/1/"
 alt="Web Analytics"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 <!-- End of Statcounter Code -->
-
-
-<script>
-  /* ── FIND ON MAP — scroll to LibreMap and open hostel popup ── */
-  document.addEventListener('click', function(e) {
-    var link = e.target.closest('.bb-find-on-map');
-    if (!link) return;
-    e.preventDefault();
-    var hostelId = link.dataset.hostel;
-    var mapFrame = document.querySelector('.bb-map-iframe');
-    if (!mapFrame) return;
-    mapFrame.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    setTimeout(function() {
-      mapFrame.contentWindow.postMessage({ type: 'BB_OPEN_HOSTEL', id: hostelId }, '*');
-    }, 600);
-  });
-</script>
 
 </body>
 </html>
