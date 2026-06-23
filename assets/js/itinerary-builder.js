@@ -922,6 +922,42 @@
         .bb-it-header { padding-right: 44px; }
         .bb-it-header h2 { font-size: 22px; }
         .bb-it-total-card { flex-direction: column; align-items: flex-start; }
+
+        /* ── SPLIT-SCREEN MODE (mobile, Step 1 only) ──
+           Step 1 needs the map and the wizard on screen at the same
+           time. Toggled by updateSplitScreen() adding/removing
+           .bb-split-active on <body> as the step changes. Reverts to
+           normal document flow for every other step, since they don't
+           need the map visible and locking half the screen to it the
+           whole time would waste exactly the space this is meant to
+           free up. */
+        body.bb-split-active {
+          overflow: hidden;
+        }
+        body.bb-split-active .sa-hostel-map-shell {
+          position: fixed !important;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 50vh !important;
+          z-index: 9000;
+        }
+        body.bb-split-active #bb-itinerary-mount {
+          position: fixed;
+          top: 50vh;
+          left: 0;
+          width: 100%;
+          height: 50vh;
+          z-index: 9001;
+          overflow-y: auto;
+          background: #fff;
+          margin: 0;
+        }
+        body.bb-split-active #bb-itinerary-mount .bb-itinerary-panel {
+          margin: 0;
+          min-height: 100%;
+          box-sizing: border-box;
+        }
       }
     `;
     document.head.appendChild(css);
@@ -1054,13 +1090,11 @@
 
       // Move focus to the step heading on every render so screen reader
       // and keyboard users get a clear signal the content just changed
-      // (a wizard silently swapping all its content via innerHTML, with
-      // focus left wherever it was — often the body — otherwise leaves
-      // AT users with no indication anything happened and no easy way
-      // to find the new step). Skipped on the very first render, since
+      // — a wizard silently swapping all its content via innerHTML, with
+      // focus left wherever it was, otherwise leaves AT users with no
+      // indication anything happened. Skipped on the first render since
       // the panel doesn't exist yet for focus to have been "in" it —
-      // BB_ITINERARY_INIT's caller is responsible for that initial
-      // focus move instead (e.g. right after the panel first opens).
+      // the caller (BB_ITINERARY_INIT) handles that initial focus move.
       if (!isFirstRender) {
         const heading = document.getElementById('bb-it-heading');
         if (heading) heading.focus();
@@ -1072,6 +1106,7 @@
       clearRouteFromMap();
       mount.innerHTML = '';
       mount.style.display = 'none';
+      document.body.classList.remove('bb-split-active');
       if (window.BB_TourGuide) window.BB_TourGuide.resume();
       document.removeEventListener('keydown', handleEscapeKey);
       const openBtn = document.getElementById('bb-it-open-btn');
@@ -1140,7 +1175,7 @@
         </div>
         <div class="bb-it-field">
           <strong id="bb-it-regions-heading">Which other regions do you want to visit?</strong>
-          <div class="bb-it-map-hint" id="bb-it-map-instructions">👆 Click the coloured regions on the map above to add or remove them from your trip. Your starting region is shown in gold.</div>
+          <div class="bb-it-map-hint" id="bb-it-map-instructions">👆 Click a coloured region on the map above to add it to your trip — a pop-up will also show you what it's best for (beaches, parties, hiking and more). Click it again to remove it. Your starting region is highlighted on the map.</div>
           ${tagsHTML}
           <details class="bb-it-region-fallback" ${state.regionListOpen ? 'open' : ''}>
             <summary>Can't use the map? Pick regions from this list instead</summary>
@@ -1598,8 +1633,27 @@
       });
     }
 
+    function isMobileViewport() {
+      return window.innerWidth <= 600;
+    }
+
+    // Step 1 needs the map and the wizard visible at the same time (the
+    // person is clicking regions on the map while reading the wizard's
+    // instructions/tag list) — on mobile, normal document flow puts
+    // those two things far apart on the page, so the only way to see
+    // both without constant scrolling is to pin them: map in the top
+    // half of the screen, wizard in the bottom half. Steps 2-6 don't
+    // need the map on screen at all, so they get the full viewport back
+    // — locking half the screen to an unused map for the whole wizard
+    // would waste exactly the space this is trying to protect.
+    function updateSplitScreen() {
+      const shouldSplit = isMobileViewport() && state.step === 1;
+      document.body.classList.toggle('bb-split-active', shouldSplit);
+    }
+
     function renderStep() {
       if (!dataReady) { loadData(); return; }
+      updateSplitScreen();
       if (state.step === 1) renderStep1();
       else if (state.step === 2) renderStep2();
       else if (state.step === 3) renderStep3();
@@ -1608,14 +1662,15 @@
       else renderStep6();
     }
 
+    window.addEventListener('resize', updateSplitScreen, { passive: true });
+
     mount.style.display = '';
     renderStep();
 
     // Move focus into the panel now that it exists — without this, a
     // keyboard/screen-reader user who just activated "Build your own
-    // itinerary" has focus left on that button (which has just been
-    // hidden) or, worse, reset to the body, with no indication the
-    // wizard actually opened or where to go next.
+    // itinerary" has focus left on that button (now hidden) or reset to
+    // the body, with no indication the wizard actually opened.
     const heading = document.getElementById('bb-it-heading');
     if (heading) heading.focus();
   };
