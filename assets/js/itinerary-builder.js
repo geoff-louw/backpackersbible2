@@ -623,8 +623,7 @@
         font-family: ${FONT_STACK};
         color: #000;
         background: ${BRAND_YELLOW};
-        border: none;
-        border-bottom: 3px solid #000;
+        border: 2px solid ${BRAND_RED};
         border-radius: 0;
         padding: 32px 36px;
         margin: 0 0 36px;
@@ -696,13 +695,10 @@
         font-size: 13px; font-weight: bold;
         border: 2px solid ${BRAND_RED};
       }
-      .bb-it-step-dot.is-active { background: ${BRAND_RED}; border-color: ${BRAND_RED}; color: #fff; }
+      .bb-it-step-dot.is-active { background: ${GOLD}; border-color: ${GOLD}; color: #fff; }
       .bb-it-step-dot.is-done { background: ${BRAND_RED}; border-color: ${BRAND_RED}; color: #fff; }
 
       .bb-it-field { margin-bottom: 20px; position: relative; z-index: 1; }
-      fieldset.bb-it-field { border: none; padding: 0; margin: 0 0 20px; min-width: 0; }
-      .bb-it-region-fallback { margin-top: 10px; }
-      .bb-it-region-fallback summary { cursor: pointer; font-weight: bold; }
       .bb-it-field label, .bb-it-field legend {
         display: block;
         font-weight: bold;
@@ -711,7 +707,7 @@
         color: #000;
         padding: 0;
       }
-      .bb-it-field .bb-it-hint { font-weight: normal; color: #000; font-size: 13px; display: block; margin-top: 2px; }
+      .bb-it-field .bb-it-hint { font-weight: normal; color: #333; font-size: 13px; display: block; margin-top: 2px; }
 
       .bb-it-field select,
       .bb-it-field input[type="number"],
@@ -732,26 +728,25 @@
 
       .bb-it-choice-row {
         display: flex;
-        flex-direction: column;
-        gap: 14px;
+        flex-wrap: wrap;
+        gap: 10px;
       }
       .bb-it-choice {
-        border: none;
+        border: 2px solid ${BRAND_RED};
         border-radius: 0;
-        padding: 4px 0;
+        padding: 12px 16px;
         cursor: pointer;
-        background: none;
+        background: #fff;
         color: #000;
         font-size: 14px;
         line-height: 1.4;
-        display: flex;
-        align-items: flex-start;
-        gap: 10px;
-        transition: color 0.15s;
+        flex: 1 1 220px;
+        min-width: 180px;
+        transition: border-color 0.15s, background 0.15s;
       }
-      .bb-it-choice:hover { color: ${BRAND_RED}; }
-      .bb-it-choice input { margin: 3px 0 0; flex-shrink: 0; }
-      .bb-it-choice.is-checked strong { color: ${BRAND_RED}; }
+      .bb-it-choice:hover { border-color: ${BRAND_RED}; }
+      .bb-it-choice input { margin-right: 8px; }
+      .bb-it-choice.is-checked { border-color: ${BRAND_RED}; background: #fff0f0; border-width: 3px; }
       .bb-it-choice strong { display: block; margin-bottom: 3px; }
 
       .bb-it-vibe-row {
@@ -770,7 +765,7 @@
         font-weight: bold;
         letter-spacing: 0.03em;
         text-transform: uppercase;
-        color: #000;
+        color: #555;
         white-space: nowrap;
       }
       .bb-it-choice span.price { color: ${BRAND_RED}; font-weight: bold; }
@@ -824,15 +819,12 @@
         padding: 11px 22px;
         border-radius: 0;
         cursor: pointer;
-        border: none;
-        background: ${BRAND_RED};
-        color: #fff;
+        border: 2px solid ${BRAND_RED};
       }
-      .bb-it-btn:hover { background: #f7d6d8; color: ${BRAND_RED}; }
-      .bb-it-btn.primary { background: ${BRAND_RED}; color: #fff; }
-      .bb-it-btn.primary:hover { background: #f7d6d8; color: ${BRAND_RED}; }
-      .bb-it-btn.secondary { background: ${BRAND_RED}; color: #fff; }
-      .bb-it-btn.secondary:hover { background: #f7d6d8; color: ${BRAND_RED}; }
+      .bb-it-btn.primary { background: ${BRAND_RED}; color: #fff; border-color: ${BRAND_RED}; }
+      .bb-it-btn.primary:hover { background: #9c1318; }
+      .bb-it-btn.secondary { background: #fff; color: ${BRAND_RED}; border-color: ${BRAND_RED}; }
+      .bb-it-btn.secondary:hover { background: #f2f2f2; }
       .bb-it-btn:disabled { opacity: 0.45; cursor: not-allowed; }
 
       .bb-it-results { position: relative; z-index: 1; }
@@ -849,31 +841,31 @@
         justify-content: space-between;
         align-items: center;
       }
-      .bb-it-total-card .bb-it-total-figure { font-size: 30px; font-weight: bold; line-height: 1.1; color: #fff; }
-      .bb-it-total-card .bb-it-eur { font-size: 16px; font-weight: normal; color: #fff; }
-      .bb-it-total-card .bb-it-perday { font-size: 14px; color: #fff; }
+      .bb-it-total-card .bb-it-total-figure { font-size: 30px; font-weight: bold; line-height: 1.1; }
+      .bb-it-total-card .bb-it-eur { font-size: 16px; opacity: 0.85; font-weight: normal; }
+      .bb-it-total-card .bb-it-perday { font-size: 14px; opacity: 0.9; }
 
       .bb-it-breakdown { margin-bottom: 22px; }
       .bb-it-breakdown-row {
         display: flex;
         justify-content: space-between;
         padding: 10px 0;
-        border-bottom: 1px solid ${BRAND_RED};
+        border-bottom: 1px solid #eee;
         font-size: 15px;
       }
       .bb-it-breakdown-row strong { color: ${BRAND_RED}; }
-      .bb-it-eur { color: #000; font-size: 0.85em; }
+      .bb-it-eur { color: #777; font-size: 0.85em; }
 
       .bb-it-route-list { list-style: none; margin: 0 0 18px; padding: 0; }
       .bb-it-route-stop {
         display: flex;
         gap: 12px;
         padding: 10px 0;
-        border-bottom: 1px dashed ${BRAND_RED};
+        border-bottom: 1px dashed #ddd;
         align-items: flex-start;
       }
       .bb-it-route-num {
-        background: ${BRAND_RED};
+        background: ${GOLD};
         color: #fff;
         font-weight: bold;
         border-radius: 50%;
@@ -883,10 +875,10 @@
         flex-shrink: 0;
       }
       .bb-it-route-stop-name { font-weight: bold; }
-      .bb-it-route-stop-days { color: #000; font-size: 13px; }
+      .bb-it-route-stop-days { color: #666; font-size: 13px; }
       .bb-it-leg {
         font-size: 13px;
-        color: #000;
+        color: #555;
         margin: 4px 0 0 38px;
         padding: 6px 10px;
         background: #f7f7f7;
@@ -903,8 +895,8 @@
 
       .bb-it-disclaimer {
         font-size: 12.5px;
-        color: #000;
-        border-top: 1px solid ${BRAND_RED};
+        color: #777;
+        border-top: 1px solid #eee;
         padding-top: 14px;
         margin-top: 18px;
         line-height: 1.5;
@@ -914,50 +906,15 @@
         text-align: center;
         padding: 40px 0;
         font-size: 15px;
-        color: #000;
+        color: #777;
       }
 
       @media (max-width: 600px) {
         .bb-itinerary-panel { padding: 24px 20px; }
         .bb-it-header { padding-right: 44px; }
         .bb-it-header h2 { font-size: 22px; }
+        .bb-it-choice { flex: 1 1 100%; }
         .bb-it-total-card { flex-direction: column; align-items: flex-start; }
-
-        /* ── SPLIT-SCREEN MODE (mobile, Step 1 only) ──
-           Step 1 needs the map and the wizard on screen at the same
-           time. Toggled by updateSplitScreen() adding/removing
-           .bb-split-active on <body> as the step changes. Reverts to
-           normal document flow for every other step, since they don't
-           need the map visible and locking half the screen to it the
-           whole time would waste exactly the space this is meant to
-           free up. */
-        body.bb-split-active {
-          overflow: hidden;
-        }
-        body.bb-split-active .sa-hostel-map-shell {
-          position: fixed !important;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 50vh !important;
-          z-index: 9000;
-        }
-        body.bb-split-active #bb-itinerary-mount {
-          position: fixed;
-          top: 50vh;
-          left: 0;
-          width: 100%;
-          height: 50vh;
-          z-index: 9001;
-          overflow-y: auto;
-          background: #fff;
-          margin: 0;
-        }
-        body.bb-split-active #bb-itinerary-mount .bb-itinerary-panel {
-          margin: 0;
-          min-height: 100%;
-          box-sizing: border-box;
-        }
       }
     `;
     document.head.appendChild(css);
@@ -998,8 +955,7 @@
       travelDate: '',
       groupSize: 2,
       wantsFlights: false,
-      flights: [],
-      regionListOpen: false
+      flights: []
     };
 
     function renderLoading() {
@@ -1025,18 +981,52 @@
       });
     }
 
+    let mapReady = false;
+    window.addEventListener('message', (e) => {
+      if (e.data && e.data.type === 'BB_MAP_READY') mapReady = true;
+    });
+
     function enterSelectMode() {
       if (!mapFrame) return;
       const send = () => mapFrame.contentWindow.postMessage(
         { type: 'BB_SELECT_MODE', active: true, selected: state.selectedRegions, current: state.startKey }, '*'
       );
-      // Map iframe may still be the poster facade (data-src not yet
-      // swapped to src) — wake it if needed, same pattern as Find on map.
+
+      // Make sure the real map is actually loading (not just sitting as
+      // the about:blank poster facade).
       if (mapFrame.getAttribute('src') !== mapFrame.getAttribute('data-src')) {
         mapFrame.src = mapFrame.getAttribute('data-src');
-        mapFrame.addEventListener('load', send, { once: true });
-      } else {
+      }
+
+      // hostel-map.js posts BB_MAP_READY itself once MapLibre's own
+      // load event fires and its message listeners are registered.
+      // Checking the iframe's src or document.readyState from out here
+      // can't tell us that — the iframe's document can finish loading
+      // well before MapLibre has finished initialising inside it, and
+      // that gap is exactly what let BB_SELECT_MODE go out before
+      // anything inside the iframe existed to receive it (more likely
+      // on slower/throttled connections, where MapLibre takes longer
+      // to spin up). If we've already seen the ready signal, send
+      // immediately; otherwise ask (covers the common case where the
+      // map finished loading well before this listener even existed —
+      // e.g. desktop auto-loads the map on page load, typically before
+      // anyone clicks "Build your own itinerary") and wait for the
+      // reply, falling back to the original broadcast too in case it
+      // arrives instead.
+      if (mapReady) {
         send();
+      } else {
+        const onReady = (e) => {
+          if (e.data && e.data.type === 'BB_MAP_READY') {
+            window.removeEventListener('message', onReady);
+            mapReady = true;
+            send();
+          }
+        };
+        window.addEventListener('message', onReady);
+        if (mapFrame.contentWindow) {
+          mapFrame.contentWindow.postMessage({ type: 'BB_MAP_READY_CHECK' }, '*');
+        }
       }
     }
 
@@ -1075,11 +1065,10 @@
     }
 
     function panelShell(innerHTML) {
-      const isFirstRender = !mount.querySelector('.bb-itinerary-panel');
       mount.innerHTML = `
         <div class="bb-itinerary-panel" role="region" aria-label="Itinerary builder">
           <div class="bb-it-header">
-            <h2 tabindex="-1" id="bb-it-heading">Build your own itinerary — step ${state.step} of ${TOTAL_STEPS}</h2>
+            <h2>Build your own itinerary</h2>
             <button class="bb-it-close" aria-label="Close itinerary builder" id="bb-it-close-btn">&times;</button>
           </div>
           ${stepDots()}
@@ -1087,18 +1076,6 @@
         </div>`;
       const closeBtn = document.getElementById('bb-it-close-btn');
       if (closeBtn) closeBtn.addEventListener('click', closePanel);
-
-      // Move focus to the step heading on every render so screen reader
-      // and keyboard users get a clear signal the content just changed
-      // — a wizard silently swapping all its content via innerHTML, with
-      // focus left wherever it was, otherwise leaves AT users with no
-      // indication anything happened. Skipped on the first render since
-      // the panel doesn't exist yet for focus to have been "in" it —
-      // the caller (BB_ITINERARY_INIT) handles that initial focus move.
-      if (!isFirstRender) {
-        const heading = document.getElementById('bb-it-heading');
-        if (heading) heading.focus();
-      }
     }
 
     function closePanel() {
@@ -1106,17 +1083,10 @@
       clearRouteFromMap();
       mount.innerHTML = '';
       mount.style.display = 'none';
-      document.body.classList.remove('bb-split-active');
       if (window.BB_TourGuide) window.BB_TourGuide.resume();
-      document.removeEventListener('keydown', handleEscapeKey);
       const openBtn = document.getElementById('bb-it-open-btn');
       if (openBtn) { openBtn.style.display = ''; openBtn.focus(); }
     }
-
-    function handleEscapeKey(e) {
-      if (e.key === 'Escape') closePanel();
-    }
-    document.addEventListener('keydown', handleEscapeKey);
 
     function clearRouteFromMap() {
       if (mapFrame && mapFrame.contentWindow) {
@@ -1165,33 +1135,22 @@
       panelShell(`
         <div class="bb-it-field">
           <label for="bb-it-start">Where are you starting from?</label>
-          <select id="bb-it-start" aria-describedby="bb-it-start-hint">${optionsHTML}</select>
-          <span class="bb-it-hint" id="bb-it-start-hint">Defaults to the region of the page you're on now — change it if you're flying in elsewhere.</span>
+          <select id="bb-it-start">${optionsHTML}</select>
+          <span class="bb-it-hint">Defaults to the region of the page you're on now — change it if you're flying in elsewhere.</span>
         </div>
         <div class="bb-it-field">
           <label for="bb-it-end">Where do you need to end up?</label>
-          <select id="bb-it-end" aria-describedby="bb-it-end-hint">${endOptionsHTML}</select>
-          <span class="bb-it-hint" id="bb-it-end-hint">Most people fly home from where they started — but if you're flying out from somewhere else (e.g. in at Cape Town, out from Johannesburg), pick it here.</span>
+          <select id="bb-it-end">${endOptionsHTML}</select>
+          <span class="bb-it-hint">Most people fly home from where they started — but if you're flying out from somewhere else (e.g. in at Cape Town, out from Johannesburg), pick it here.</span>
         </div>
         <div class="bb-it-field">
-          <strong id="bb-it-regions-heading">Which other regions do you want to visit?</strong>
-          <div class="bb-it-map-hint" id="bb-it-map-instructions">👆 Click a coloured region on the map above to add it to your trip — a pop-up will also show you what it's best for (beaches, parties, hiking and more). Click it again to remove it. Your starting region is highlighted on the map.</div>
+          <label>Which other regions do you want to visit?</label>
+          <div class="bb-it-map-hint">👆 Click the coloured regions on the map above to add or remove them from your trip. Your starting region is shown in gold.</div>
           ${tagsHTML}
-          <details class="bb-it-region-fallback" ${state.regionListOpen ? 'open' : ''}>
-            <summary>Can't use the map? Pick regions from this list instead</summary>
-            <div class="bb-it-choice-row" style="margin-top:10px;" role="group" aria-label="Regions to visit">
-              ${otherKeys.map(k => `
-                <label class="bb-it-choice">
-                  <input type="checkbox" data-region-checkbox="${k}" ${state.selectedRegions.includes(k) ? 'checked' : ''}>
-                  ${regionsData[k].name}
-                </label>`).join('')}
-            </div>
-          </details>
         </div>
         <div class="bb-it-nav">
           <span></span>
-          <button class="bb-it-btn primary" id="bb-it-next" ${state.selectedRegions.length ? '' : 'disabled aria-describedby="bb-it-next-hint"'}>Next: trip length & style →</button>
-          ${state.selectedRegions.length ? '' : '<span class="bb-it-hint" id="bb-it-next-hint" style="display:block;text-align:right;">Select at least one region above to continue.</span>'}
+          <button class="bb-it-btn primary" id="bb-it-next" ${state.selectedRegions.length ? '' : 'disabled'}>Next: trip length & style →</button>
         </div>
       `);
 
@@ -1215,24 +1174,6 @@
           renderStep();
         });
       });
-      mount.querySelectorAll('[data-region-checkbox]').forEach(cb => {
-        cb.addEventListener('change', (e) => {
-          const key = cb.getAttribute('data-region-checkbox');
-          if (e.target.checked) {
-            if (!state.selectedRegions.includes(key)) state.selectedRegions.push(key);
-          } else {
-            state.selectedRegions = state.selectedRegions.filter(k => k !== key);
-          }
-          // Keep the map's own highlighting in sync, in case the person
-          // switches between using the map and this list mid-step.
-          if (mapFrame && mapFrame.contentWindow) {
-            mapFrame.contentWindow.postMessage({ type: 'BB_SELECT_MODE', active: true, selected: state.selectedRegions, current: state.startKey }, '*');
-          }
-          renderStep();
-        });
-      });
-      const regionDetails = mount.querySelector('details');
-      if (regionDetails) regionDetails.addEventListener('toggle', () => { state.regionListOpen = regionDetails.open; });
       const nextBtn = document.getElementById('bb-it-next');
       if (nextBtn) nextBtn.addEventListener('click', () => { state.step = 2; renderStep(); });
     }
@@ -1253,28 +1194,27 @@
       panelShell(`
         <div class="bb-it-field">
           <label for="bb-it-days">How many days is your trip?</label>
-          <input type="number" id="bb-it-days" min="3" max="120" value="${state.totalDays}" aria-describedby="bb-it-days-hint">
-          <span class="bb-it-hint" id="bb-it-days-hint">Between 3 and 120 days.</span>
+          <input type="number" id="bb-it-days" min="3" max="120" value="${state.totalDays}">
         </div>
         <div class="bb-it-field">
           <label for="bb-it-date">Roughly when are you travelling?</label>
-          <input type="date" id="bb-it-date" value="${state.travelDate}" aria-describedby="bb-it-date-hint">
-          <span class="bb-it-hint" id="bb-it-date-hint">This lets us check whether you'll be travelling over peak season (mid-Dec–mid-Jan, Easter, July school holidays), since mainline bus and flight prices roughly double then.</span>
+          <input type="date" id="bb-it-date" value="${state.travelDate}">
+          <span class="bb-it-hint">This lets us check whether you'll be travelling over peak season (mid-Dec–mid-Jan, Easter, July school holidays), since mainline bus and flight prices roughly double then.</span>
         </div>
         <div class="bb-it-field">
           <label for="bb-it-group">How many people are travelling together?</label>
-          <input type="number" id="bb-it-group" min="1" max="12" value="${state.groupSize}" aria-describedby="bb-it-group-hint">
-          <span class="bb-it-hint" id="bb-it-group-hint">Used to split self-drive rental costs, and to work out private room rates if you're sharing.</span>
+          <input type="number" id="bb-it-group" min="1" max="12" value="${state.groupSize}">
+          <span class="bb-it-hint">Used to split self-drive rental costs, and to work out private room rates if you're sharing.</span>
         </div>
-        <fieldset class="bb-it-field">
+        <div class="bb-it-field">
           <legend>Overall travel style</legend>
           <div class="bb-it-choice-row">${styleHTML}</div>
-        </fieldset>
+        </div>
         <div class="bb-it-field">
           <label for="bb-it-vibe">What's the vibe?</label>
           <div class="bb-it-vibe-row">
             <span class="bb-it-vibe-end">Chill</span>
-            <input type="range" id="bb-it-vibe" min="0" max="4" step="1" value="${state.vibeStage !== null ? state.vibeStage : 2}" aria-label="Vibe, from chill to let's party" aria-describedby="bb-it-vibe-readout">
+            <input type="range" id="bb-it-vibe" min="0" max="4" step="1" value="${state.vibeStage !== null ? state.vibeStage : 2}" aria-describedby="bb-it-vibe-readout">
             <span class="bb-it-vibe-end">Let's party</span>
           </div>
           <span class="bb-it-hint" id="bb-it-vibe-readout">${vibeReadout(state.vibeStage !== null ? state.vibeStage : 2)}</span>
@@ -1327,11 +1267,11 @@
         </label>`).join('');
 
       panelShell(`
-        <fieldset class="bb-it-field">
+        <div class="bb-it-field">
           <legend>Where will you mostly be sleeping?</legend>
           <div class="bb-it-choice-row">${html}</div>
           <span class="bb-it-hint">Not every hostel offers camping — we'll only suggest camping-friendly hostels for regions where it's available.</span>
-        </fieldset>
+        </div>
         <div class="bb-it-field" ${state.accomType === 'camping' ? '' : 'style="opacity:0.5;"'}>
           <label class="bb-it-choice" style="display:flex;align-items:flex-start;gap:8px;cursor:pointer;">
             <input type="checkbox" id="bb-it-ultra-budget" ${state.ultraBudget ? 'checked' : ''} ${state.accomType === 'camping' ? '' : 'disabled'} style="margin-top:3px;">
@@ -1370,11 +1310,11 @@
         </label>`).join('');
 
       panelShell(`
-        <fieldset class="bb-it-field">
+        <div class="bb-it-field">
           <legend>How do you want to get between regions?</legend>
           <span class="bb-it-hint">We'll use this for every leg of your trip where it makes sense — e.g. very short hops always use a taxi regardless of what you pick here, and Baz Bus is offered automatically on the Cape Town–Gqeberha corridor unless you've chosen self-drive.</span>
           <div class="bb-it-choice-row" style="margin-top:10px;">${html}</div>
-        </fieldset>
+        </div>
         <div class="bb-it-nav">
           <button class="bb-it-btn secondary" id="bb-it-back">← Back</button>
           <button class="bb-it-btn primary" id="bb-it-next">Next: review your trip →</button>
@@ -1409,11 +1349,11 @@
 
       panelShell(`
         <div class="bb-it-field">
-          <strong>Any internal flights?</strong>
+          <legend>Any internal flights?</legend>
           <span class="bb-it-hint">Optional — only worth it for flashpackers covering big distances quickly. Off-peak vs peak pricing is applied automatically from your travel date.</span>
           <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
-            <select id="bb-it-flight-from" aria-label="Flight departure airport" style="max-width:220px;"><option value="">From…</option>${airportOptions}</select>
-            <select id="bb-it-flight-to" aria-label="Flight destination airport" style="max-width:220px;"><option value="">To…</option>${airportOptions}</select>
+            <select id="bb-it-flight-from" style="max-width:220px;"><option value="">From…</option>${airportOptions}</select>
+            <select id="bb-it-flight-to" style="max-width:220px;"><option value="">To…</option>${airportOptions}</select>
             <button class="bb-it-btn secondary" id="bb-it-add-flight" type="button">+ Add flight</button>
           </div>
           ${flightRows}
@@ -1561,13 +1501,9 @@
             All prices researched June 2026 and are realistic averages, not live fares — actual prices vary by operator, booking date and demand. Mainline bus and flight prices especially can swing well above or below these figures depending on how far ahead you book. Baz Bus currently only operates Cape Town ↔ Gqeberha (Garden Route) daily — it is not yet running its old nationwide network. Use this as a planning guide, then check exact prices closer to your travel dates.
           </div>
 
-          <div class="bb-it-map-hint" style="text-align:center;">
-            Not sure this is the trip for you? <a href="/backpacking-south-africa-tours/" style="color:${BRAND_RED};font-weight:bold;">See our pre-built suggested itineraries →</a>
-          </div>
-
           <div class="bb-it-nav">
             <button class="bb-it-btn secondary" id="bb-it-back">← Adjust answers</button>
-            <a class="bb-it-btn secondary" id="bb-it-email" href="#" aria-label="Email me this itinerary" style="text-decoration:none;display:inline-flex;align-items:center;">✉ Email me this itinerary</a>
+            <a class="bb-it-btn secondary" id="bb-it-email" href="#" style="text-decoration:none;display:inline-flex;align-items:center;">✉ Email me this itinerary</a>
             <button class="bb-it-btn secondary" id="bb-it-restart">Start over</button>
           </div>
         </div>
@@ -1633,27 +1569,8 @@
       });
     }
 
-    function isMobileViewport() {
-      return window.innerWidth <= 600;
-    }
-
-    // Step 1 needs the map and the wizard visible at the same time (the
-    // person is clicking regions on the map while reading the wizard's
-    // instructions/tag list) — on mobile, normal document flow puts
-    // those two things far apart on the page, so the only way to see
-    // both without constant scrolling is to pin them: map in the top
-    // half of the screen, wizard in the bottom half. Steps 2-6 don't
-    // need the map on screen at all, so they get the full viewport back
-    // — locking half the screen to an unused map for the whole wizard
-    // would waste exactly the space this is trying to protect.
-    function updateSplitScreen() {
-      const shouldSplit = isMobileViewport() && state.step === 1;
-      document.body.classList.toggle('bb-split-active', shouldSplit);
-    }
-
     function renderStep() {
       if (!dataReady) { loadData(); return; }
-      updateSplitScreen();
       if (state.step === 1) renderStep1();
       else if (state.step === 2) renderStep2();
       else if (state.step === 3) renderStep3();
@@ -1662,17 +1579,8 @@
       else renderStep6();
     }
 
-    window.addEventListener('resize', updateSplitScreen, { passive: true });
-
     mount.style.display = '';
     renderStep();
-
-    // Move focus into the panel now that it exists — without this, a
-    // keyboard/screen-reader user who just activated "Build your own
-    // itinerary" has focus left on that button (now hidden) or reset to
-    // the body, with no indication the wizard actually opened.
-    const heading = document.getElementById('bb-it-heading');
-    if (heading) heading.focus();
   };
 
 })();
