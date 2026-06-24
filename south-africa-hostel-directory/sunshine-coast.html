@@ -382,33 +382,40 @@
 <main id="main-content">
 
 <!-- Map description -->
-<div class="map-description">
-  <span class="map-description__label">Backpacking South Africa:</span>
-  <span class="map-description__text">Use our interactive 3D map to find all the backpackers hostels on the Sunshine Coast, with their full contact details and comprehensive reviews.</span>
+<div class="map-description" id="hostel-map-description">
+  <span class="map-description__text">The easiest way to choose your Sunshine Coast hostel. Use our unique 3D map to filter surf-vibe and beach backpackers by safety, setups, and value.</span>
 </div>
 
   <!-- Map filter buttons -->
+
+<h2 class="sr-only">
+    Search Sunshine Coast Backpacker Hostels
+</h2>
+
+<p class="sr-only">
+    Filter backpackers hostels by digital nomad suitability, solo female traveller friendliness, safety, surfing, camping, value for money, party atmosphere, african culture experiences, adventure activities and nature experiences.
+</p>
 
 <div class="map-filter-bar">
     <div class="map-filter-bar__scroll">
         <div class="map-filter-bar__row" role="toolbar" aria-label="Filter hostels by category">
 
-            <a href="#" class="map-filter-btn map-filter-btn--active" style="background-color: #ffd400; color: #000000;" data-filter="all" aria-pressed="true"  aria-label="Show all hostels">★ All Hostels</a>
-            <a href="#" class="map-filter-btn" style="background-color: #b01c22;"                       data-filter="is_best_overall"  aria-pressed="false" aria-label="Filter: Best Overall">Top Picks</a>
-            <a href="#" class="map-filter-btn" style="background-color: #9b1268;"                       data-filter="is_party"         aria-pressed="false" aria-label="Filter: Best Parties">Best Parties</a>
-            <a href="#" class="map-filter-btn" style="background-color: #5a2d9c;"                       data-filter="is_value"         aria-pressed="false" aria-label="Filter: Best Value">Best Value</a>
-            <a href="#" class="map-filter-btn" style="background-color: #0d7a8a;"                       data-filter="is_chill"         aria-pressed="false" aria-label="Filter: Chill Vibes">Chill Vibes</a>
-            <a href="#" class="map-filter-btn" style="background-color: #ffc107; color: #000000;"       data-filter="is_solo_women"    aria-pressed="false" aria-label="Filter: Best for Solo Women">Best for Solo Women</a>
-            <a href="#" class="map-filter-btn" style="background-color: #1a6e32;"                       data-filter="is_digital_nomad" aria-pressed="false" aria-label="Filter: Digital Nomads">Digital Nomads</a>
-            <a href="#" class="map-filter-btn" style="background-color: #b85400;"                       data-filter="is_surfer"        aria-pressed="false" aria-label="Filter: Surfers">Surfers</a>
-            <a href="#" class="map-filter-btn" style="background-color: #0f7a5a;"                       data-filter="is_safety"        aria-pressed="false" aria-label="Filter: Safest">Safest</a>
-            <a href="#" class="map-filter-btn" style="background-color: #0047d4;"                       data-filter="is_amenities"     aria-pressed="false" aria-label="Filter: Best Amenities">Best Amenities</a>
-            <a href="#" class="map-filter-btn" style="background-color: #5c3a1e;"                       data-filter="is_ethical"       aria-pressed="false" aria-label="Filter: Most Ethical">Most Ethical</a>
-            <a href="#" class="map-filter-btn" style="background-color: #7a0026;"                       data-filter="is_adventure"     aria-pressed="false" aria-label="Filter: Adventure">Adventure</a>
-            <a href="#" class="map-filter-btn" style="background-color: #2d5a1b;"                       data-filter="is_nature"        aria-pressed="false" aria-label="Filter: Best for Nature">Best for Nature</a>
-            <a href="#" class="map-filter-btn" style="background-color: #8a4a00;"                       data-filter="is_cultural"      aria-pressed="false" aria-label="Filter: Best African Culture">Best African Culture</a>
-            <a href="#" class="map-filter-btn" style="background-color: #1a3a6b;"                       data-filter="is_cheapest"      aria-pressed="false" aria-label="Filter: Cheapest">Cheapest</a>
-            <a href="#" class="map-filter-btn" style="background-color: #3d2b6b;"                       data-filter="is_camping"       aria-pressed="false" aria-label="Filter: Camping">Camping</a>
+            <a href="#" class="map-filter-btn map-filter-btn--active" style="background-color: #ffd400; color: #000000;" data-filter="all" aria-pressed="true"  aria-label="Show all backpackers hostels on South Africa's Sunshine Coast">★ All Hostels</a>
+            <a href="#" class="map-filter-btn" style="background-color: #b01c22;"                       data-filter="is_best_overall"  aria-pressed="false" aria-label="Show popular backpackers hostels">Top Picks</a>
+            <a href="#" class="map-filter-btn" style="background-color: #ffd400; color: #000000;"       data-filter="is_solo_women"    aria-pressed="false" aria-label="Show backpackers hostels which are best for Solo Women">Best for Solo Women</a>
+            <a href="#" class="map-filter-btn" style="background-color: #ffd400; color: #000000;"                       data-filter="is_party"         aria-pressed="false" aria-label="Show backpackers hostels which have the best parties">Best Parties</a>
+            <a href="#" class="map-filter-btn" style="background-color: #ffd400; color: #000000;"                       data-filter="is_value"         aria-pressed="false" aria-label="Show backpackers hostels which deliver the best value">Best Value</a>
+            <a href="#" class="map-filter-btn" style="background-color: #ffd400; color: #000000;"                       data-filter="is_chill"         aria-pressed="false" aria-label="Show backpackers hostels with chill vibes">Chill Vibes</a>
+            <a href="#" class="map-filter-btn" style="background-color: #ffd400; color: #000000;"                       data-filter="is_digital_nomad" aria-pressed="false" aria-label="Show backpackers hostels which are best for Digital Nomads">Digital Nomads</a>
+            <a href="#" class="map-filter-btn" style="background-color: #ffd400; color: #000000;"                       data-filter="is_surfer"        aria-pressed="false" aria-label="Show backpackers hostels which are best for surfers">Surfers</a>
+            <a href="#" class="map-filter-btn" style="background-color: #ffd400; color: #000000;"                       data-filter="is_safety"        aria-pressed="false" aria-label="Show backpackers hostels which are safest">Safest</a>
+            <a href="#" class="map-filter-btn" style="background-color: #ffd400; color: #000000;"                       data-filter="is_amenities"     aria-pressed="false" aria-label="Show backpackers hostels which have the best amenities">Best Amenities</a>
+            <a href="#" class="map-filter-btn" style="background-color: #ffd400; color: #000000;"                       data-filter="is_ethical"       aria-pressed="false" aria-label="Show the most ethical backpackers hostels">Most Ethical</a>
+            <a href="#" class="map-filter-btn" style="background-color: #ffd400; color: #000000;"                       data-filter="is_adventure"     aria-pressed="false" aria-label="Show backpackers hostels with the best adventure activities">Adventure</a>
+            <a href="#" class="map-filter-btn" style="background-color: #ffd400; color: #000000;"                       data-filter="is_nature"        aria-pressed="false" aria-label="Show backpackers hostels in the best locations for nature and African wildlife">Best for Nature</a>
+            <a href="#" class="map-filter-btn" style="background-color: #ffd400; color: #000000;"                       data-filter="is_cultural"      aria-pressed="false" aria-label="Show backpackers hostels with the best access to African culture">Best African Culture</a>
+            <a href="#" class="map-filter-btn" style="background-color: #ffd400; color: #000000;"                       data-filter="is_cheapest"      aria-pressed="false" aria-label="Show the backpackers hostels with the lowest rates">Cheapest</a>
+            <a href="#" class="map-filter-btn" style="background-color: #ffd400; color: #000000;"                       data-filter="is_camping"       aria-pressed="false" aria-label="Show backpackers hostels which offer camping as an accommodation option">Camping</a>
 
         </div>
     </div>
@@ -416,13 +423,13 @@
 
 
 <!-- ░░ HOSTEL MAP ░░ -->
-<section class="sa-hostel-map-shell" id="hostel-map">
+<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description">
 
   <!-- Poster image: shows before user loads the map -->
   <picture class="sa-hostel-map-poster">
     <source media="(max-width: 767px)" srcset="/assets/fallback_map_sunshine-coast_mobile.webp">
     <img src="/assets/fallback_map_sunshine-coast.webp" 
-         alt="Interactive hostel map of the Sunshine Coast — tap to load"
+         alt="Interactive backpacker hostel map of South Africa's Sunshine Coast showing hostels that can be filtered by travel style, safety, digital nomad suitability, surfing, camping and budget travel preferences."
          loading="eager"
          fetchpriority="high"
          decoding="async">
@@ -440,7 +447,7 @@
 
   <!-- Yellow circle: desktop-only info note; mobile: not shown (CSS) -->
   <div class="map-overlay-circle" aria-hidden="true">
-    We list ALL the hostels<br>in the country!<br>Click the icons for info.
+    We list ALL the hostels<br>on the Sunshine Coast!<br>Click the icons for info.
   </div>
 
 </section>
