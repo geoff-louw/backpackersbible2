@@ -382,9 +382,8 @@
 <main id="main-content">
 
 <!-- Map description -->
-<div class="map-description">
-  <span class="map-description__label">Backpacking South Africa:</span>
-  <span class="map-description__text">Use our interactive 3D map to find all the backpackers hostels in Cape Town, with their full contact details and comprehensive reviews.</span>
+<div class="map-description" id="hostel-map-description">
+  <span class="map-description__text">Our interactive map makes choosing the right hostel easy. Compare every backpackers hostel in Limpopo Province and filter by party atmosphere, solo female friendliness, digital nomad suitability, safety, value for money and more to quickly find the hostel that best matches your travel style.</span>
 </div>
 
   <!-- Map filter buttons -->
@@ -424,7 +423,7 @@
 
 
 <!-- ░░ HOSTEL MAP ░░ -->
-<section class="sa-hostel-map-shell" id="hostel-map">
+<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description">
 
   <!-- Poster image: shows before user loads the map -->
   <picture class="sa-hostel-map-poster">
