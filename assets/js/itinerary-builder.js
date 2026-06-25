@@ -1028,20 +1028,10 @@
         { type: 'BB_SELECT_MODE', active: true, selected: state.selectedRegions, current: state.startKey }, '*'
       );
 
-      // Make sure the real map is actually loading (not just sitting as
-      // the about:blank poster facade).
       if (mapFrame.getAttribute('src') !== mapFrame.getAttribute('data-src')) {
         mapFrame.src = mapFrame.getAttribute('data-src');
       }
 
-      // hostel-map.js posts BB_MAP_READY once MapLibre's own load event
-      // fires and its message listeners are registered — that's the
-      // only reliable signal, since the iframe's document can finish
-      // loading well before MapLibre has finished initialising inside
-      // it. If we've already seen the signal, send immediately;
-      // otherwise ask (covers the case where the map finished loading
-      // before this listener even existed, e.g. desktop auto-load) and
-      // wait for the reply.
       if (mapReady) {
         send();
       } else {
@@ -1107,10 +1097,6 @@
       const closeBtn = document.getElementById('bb-it-close-btn');
       if (closeBtn) closeBtn.addEventListener('click', closePanel);
 
-      // Move focus to the step heading on every render so screen reader
-      // and keyboard users get a clear signal the content just changed.
-      // Skipped on first render — the caller (BB_ITINERARY_INIT) handles
-      // that initial focus move instead.
       if (!isFirstRender) {
         const heading = document.getElementById('bb-it-heading');
         if (heading) heading.focus();
