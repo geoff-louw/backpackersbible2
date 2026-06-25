@@ -349,6 +349,26 @@
       });
 
       map.on('load', () => {
+        // Tell the parent page this map is fully initialised — without
+        // this, the parent's itinerary builder waits forever for a
+        // ready signal that never arrives, and as a result never sends
+        // BB_SELECT_MODE at all. That left selectModeActive permanently
+        // false here, so every region click fell through to the
+        // popup-only branch below instead of toggling the region into
+        // the trip — popups appeared, but nothing was ever added.
+        window.top.postMessage({ type: 'BB_MAP_READY' }, '*');
+        const mapIsReady = true;
+        window.addEventListener('message', (e) => {
+          // The parent may ask "are you ready?" rather than rely on the
+          // one-off broadcast above — covers the case where this map
+          // finished loading before the parent's own listener for
+          // BB_MAP_READY even existed yet (e.g. the map auto-loads on
+          // page load, typically before anyone opens the itinerary
+          // builder and that script first runs).
+          if (e.data && e.data.type === 'BB_MAP_READY_CHECK' && mapIsReady) {
+            window.top.postMessage({ type: 'BB_MAP_READY' }, '*');
+          }
+        });
 
         // 3D terrain — only loaded for regions where elevation adds real value
         if (hasTerrain) {
