@@ -703,6 +703,11 @@
       fieldset.bb-it-field { border: none; padding: 0; margin: 0 0 20px; min-width: 0; }
       .bb-it-region-fallback { margin-top: 10px; }
       .bb-it-region-fallback summary { cursor: pointer; font-weight: bold; }
+      .bb-it-region-fallback .bb-it-choice-row {
+        max-width: 380px;
+        margin-left: 12px;
+        align-items: flex-start;
+      }
       .bb-it-field label, .bb-it-field legend {
         display: block;
         font-weight: bold;
