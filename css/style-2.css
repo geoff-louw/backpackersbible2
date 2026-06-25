@@ -346,7 +346,6 @@ body {
 .site-header__logo {
     width: 80px;
     height: 80px;
-    background-color: var(--color-white);
     display: block;
 }
 
@@ -2844,7 +2843,6 @@ footer {
 .footer-logo {
     width: 100px;
     height: 100px;
-    background-color: var(--color-yellow); /* visible if logo is transparent */
     margin-bottom: 15px;
 }
 
