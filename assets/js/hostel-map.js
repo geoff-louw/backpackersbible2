@@ -104,6 +104,27 @@
     }
     .bb-marker:hover .bb-marker-label,
     .bb-marker:focus-within .bb-marker-label { opacity:1;pointer-events:auto; }
+    .bb-region-marker {
+      display:none;align-items:center;cursor:pointer;gap:8px;
+      filter:drop-shadow(0 3px 4px rgba(0,0,0,0.3));
+    }
+    .bb-region-marker.is-visible { display:flex; }
+    .bb-region-marker-dot {
+      width:22px;height:22px;border-radius:50%;flex-shrink:0;
+      background:${BRAND_RED};border:3px solid #fff;box-sizing:border-box;
+      transition:background 0.15s,border-color 0.15s;
+    }
+    .bb-region-marker.is-selected .bb-region-marker-dot,
+    .bb-region-marker.is-current .bb-region-marker-dot { background:${BRAND_RED}; }
+    .bb-region-marker:not(.is-selected):not(.is-current) .bb-region-marker-dot { background:#666; }
+    .bb-region-marker-label {
+      background:#fff;padding:2px 8px;border-radius:4px;
+      border:1px solid ${BRAND_YELLOW};font-family:'Century Gothic',sans-serif;
+      font-size:11px;font-weight:bold;color:#333;white-space:nowrap;
+      box-shadow:2px 2px 5px rgba(0,0,0,0.1);
+    }
+    .bb-region-marker:hover .bb-region-marker-dot,
+    .bb-region-marker:focus-visible .bb-region-marker-dot { outline:3px solid ${BRAND_YELLOW};outline-offset:1px; }
     .bb-route-stage {
       width:26px;height:26px;border-radius:50%;
       background:${BRAND_RED};color:#fff;border:2px solid #fff;
@@ -475,6 +496,13 @@
         let currentSelectKey = null; // person's chosen starting point while select mode is active
         const selectedRegionKeys = new Set();
 
+        // DOM circle markers for regions with no polygon (e.g. Cape Town,
+        // Johannesburg, Tshwane/Pretoria, Durban) — these can't be drawn
+        // as clickable map areas, so during select mode they get a small
+        // clickable dot at their centre point instead, wired into the
+        // same toggleRegionSelection()/regionPaint() flow as polygons.
+        const regionMarkers = {};
+
         function regionPaint(key, state) {
           // state: 'current' | 'selected' | 'default'
           const r = regions[key];
@@ -483,7 +511,17 @@
           const isLine = r.geom === 'LineString';
           const fillLayer = `region-fill-${key}`;
 
-          if (!map.getLayer(lineLayer)) return;
+          if (!map.getLayer(lineLayer)) {
+            // No polygon layer for this region at all — if it has a
+            // centre-point marker instead, style that the same way
+            // (red dot = current/selected, grey = unselected).
+            const m = regionMarkers[key];
+            if (m) {
+              m.el.classList.toggle('is-current', state === 'current');
+              m.el.classList.toggle('is-selected', state === 'selected');
+            }
+            return;
+          }
 
           if (isLine) {
             // No fill to work with (it's a road corridor, not an area) —
@@ -559,9 +597,57 @@
           }, '*');
         }
 
+        // Build one centre-point marker for every region that has no
+        // polygon to click — created once up front (hidden via
+        // .is-visible) rather than on each select-mode toggle, same
+        // lazy-but-reusable approach as drawRegionPolygon's drawnRegions
+        // guard above.
+        Object.keys(regions).forEach(key => {
+          const r = regions[key];
+          if (!r || (r.polygon && r.polygon.length >= 2) || !r.center) return;
+
+          const container = document.createElement('div');
+          container.className = 'bb-region-marker';
+          container.setAttribute('role', 'button');
+          container.setAttribute('tabindex', '0');
+          container.setAttribute('aria-label', `${r.name} — click to select for your itinerary`);
+
+          const dot = document.createElement('div');
+          dot.className = 'bb-region-marker-dot';
+          container.appendChild(dot);
+
+          const label = document.createElement('div');
+          label.className = 'bb-region-marker-label';
+          label.textContent = r.name;
+          container.appendChild(label);
+
+          const onActivate = (e) => {
+            if (!selectModeActive) {
+              // Outside select mode this behaves like any other region
+              // marker on the national page: a "best for…" popup with a
+              // link through to the page, not a select toggle.
+              if (REGION === 'national') showRegionPopup(key, r, { lng: r.center[0], lat: r.center[1] });
+              else if (r.url) window.top.location.href = r.url;
+              return;
+            }
+            e.stopPropagation();
+            toggleRegionSelection(key, { lng: r.center[0], lat: r.center[1] });
+          };
+          container.addEventListener('click', onActivate);
+          container.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onActivate(e); } });
+
+          const marker = new maplibregl.Marker({ element: container, anchor: 'left' })
+            .setLngLat(r.center)
+            .addTo(map);
+
+          regionMarkers[key] = { marker, el: container };
+        });
+
         window.addEventListener('message', (e) => {
           if (!e.data || e.data.type !== 'BB_SELECT_MODE') return;
           selectModeActive = !!e.data.active;
+
+          Object.values(regionMarkers).forEach(m => m.el.classList.toggle('is-visible', selectModeActive));
 
           if (selectModeActive) {
             // Draw every region polygon (not just the current page's one)

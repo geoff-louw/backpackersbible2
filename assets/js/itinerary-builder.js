@@ -356,28 +356,85 @@
     return route;
   }
 
-  // Suggest 2 hostels per region matching the trip's budget tier, pulled
-  // straight from hostels.json's existing is_* tags rather than inventing
-  // a ranking system.
-  function suggestHostelsForRegion(regionKey, hostelsGeoJSON, style, ultraBudget) {
+  // Narrow `pool` to hostels matching the given is_* flag, but only if
+  // that leaves at least one result — an empty niche pool in a region
+  // (e.g. no surfer-tagged hostel in Cederberg) should never wipe out
+  // the suggestions entirely, just fail to narrow them further.
+  function narrowIfPossible(pool, flagKey) {
+    const narrowed = pool.filter(f => f.properties[flagKey]);
+    return narrowed.length ? narrowed : pool;
+  }
+
+  // Suggest 2 hostels per region matching the trip's budget tier, travel
+  // style and "what's the vibe?" slider, pulled straight from
+  // hostels.json's existing is_* tags rather than inventing a ranking
+  // system.
+  //
+  // `profile` (optional): { soloWoman, surfer, digitalNomad, vibeStage }
+  //   - soloWoman/surfer/digitalNomad narrow toward is_solo_women /
+  //     is_surfer / is_digital_nomad hostels where the region has any.
+  //   - vibeStage (0-4, from the "what's the vibe?" slider) leans the
+  //     picks toward is_chill (0), is_party (4), or a mix of both for
+  //     the three in-between stages — same graceful fallback if a
+  //     region has neither tag.
+  function suggestHostelsForRegion(regionKey, hostelsGeoJSON, style, ultraBudget, profile) {
     const inRegion = hostelsGeoJSON.features.filter(f => f.properties.region === regionKey);
     if (!inRegion.length) return [];
-    let pool = inRegion;
+
     if (ultraBudget) {
       // Strict — camping or nothing, no falling back to a regular dorm
       // suggestion if the region happens to have no camping hostels.
       // hasNoCamping() (used by computeTrip) is what surfaces that gap
       // to the person; this function just returns an empty list here.
       return inRegion.filter(f => f.properties.is_camping).slice(0, 2).map(f => f.properties);
-    } else if (style === 'frugal') {
+    }
+
+    let pool = inRegion;
+    if (style === 'frugal') {
       const camping = inRegion.filter(f => f.properties.is_camping || f.properties.is_cheapest);
       if (camping.length) pool = camping;
     } else if (style === 'flash') {
       const nicer = inRegion.filter(f => f.properties.is_best_overall || f.properties.is_amenities);
       if (nicer.length) pool = nicer;
     }
+
+    const p = profile || {};
+
+    // ── Traveller-profile narrowing ──
+    if (p.soloWoman) pool = narrowIfPossible(pool, 'is_solo_women');
+    if (p.surfer) pool = narrowIfPossible(pool, 'is_surfer');
+    if (p.digitalNomad) pool = narrowIfPossible(pool, 'is_digital_nomad');
+
+    // ── "What's the vibe?" slider (0 = Chill … 4 = Let's party) ──
+    const vibeStage = p.vibeStage;
+    if (vibeStage === 0) {
+      pool = narrowIfPossible(pool, 'is_chill');
+    } else if (vibeStage === 4) {
+      pool = narrowIfPossible(pool, 'is_party');
+    } else if (vibeStage === 1 || vibeStage === 2 || vibeStage === 3) {
+      // In-between stages: blend party- and chill-tagged hostels rather
+      // than picking one or the other. Falls back to the wider pool for
+      // whichever side has no match in this region.
+      const partyPool = pool.filter(f => f.properties.is_party);
+      const chillPool = pool.filter(f => f.properties.is_chill);
+      if (partyPool.length || chillPool.length) {
+        pool = [...partyPool, ...chillPool];
+      }
+      // else: leave pool as-is (no party or chill tagged hostel here).
+    }
+
     const sorted = [...pool].sort((a, b) => (b.properties.is_best_overall ? 1 : 0) - (a.properties.is_best_overall ? 1 : 0));
-    return sorted.slice(0, 2).map(f => f.properties);
+
+    // De-duplicate (the vibe blend above can combine two overlapping
+    // filtered arrays) before slicing to the final 2 suggestions.
+    const seen = new Set();
+    const deduped = sorted.filter(f => {
+      if (seen.has(f.properties.id)) return false;
+      seen.add(f.properties.id);
+      return true;
+    });
+
+    return deduped.slice(0, 2).map(f => f.properties);
   }
 
   // Regions (from a route) that have zero camping-tagged hostels — used
@@ -758,6 +815,7 @@
       .bb-it-choice input { margin: 3px 0 0; flex-shrink: 0; }
       .bb-it-choice.is-checked strong { color: ${BRAND_RED}; }
       .bb-it-choice strong { display: block; margin-bottom: 3px; }
+      .bb-it-best-for { font-weight: normal; color: #333; font-size: 13px; }
 
       .bb-it-vibe-row {
         display: flex;
@@ -994,6 +1052,9 @@
       vibeStage: null,
       travelDate: '',
       groupSize: 2,
+      soloWoman: false,
+      surfer: false,
+      digitalNomad: false,
       wantsFlights: false,
       flights: [],
       regionListOpen: false
@@ -1069,6 +1130,15 @@
       return regionsData && regionsData[key] ? regionsData[key].name : key;
     }
 
+    // Plain-text "best for" summary for a region, e.g. "Beaches, Parties,
+    // Wildlife" — shown next to region names in the map-free fallback
+    // list so someone who's never been to South Africa has some idea
+    // what each region actually offers.
+    function bestForLabel(key) {
+      const bf = regionsData && regionsData[key] && regionsData[key].bestFor;
+      return bf && bf.length ? bf.join(', ') : '';
+    }
+
     function vibeReadout(stage) {
       const s = COST_MODEL.drinks.stages[stage];
       const price = COST_MODEL.drinks.priceForStage(stage);
@@ -1137,6 +1207,15 @@
       const airportKeys = ['cape-town', 'johannesburg', 'durban'];
       const otherKeys = allKeys.filter(k => !airportKeys.includes(k)).sort((a, b) => regionsData[a].name.localeCompare(regionsData[b].name));
 
+      // The "Can't use the map?" fallback checklist is for picking
+      // regions to VISIT, not for picking a start/end airport — so,
+      // unlike the dropdowns above, it should list every region
+      // including Cape Town, Johannesburg and Durban. This also matters
+      // because those three (plus Tshwane/Pretoria) have no polygon in
+      // regions.json, so they can never be clicked on the map itself —
+      // this list is the only way to add them as a stop.
+      const visitKeys = [...allKeys].sort((a, b) => regionsData[a].name.localeCompare(regionsData[b].name));
+
       // If there's no current-page region to default to (e.g. the
       // national homepage), fall back to Cape Town rather than leaving
       // state.startKey out of sync with whatever the <select> shows.
@@ -1187,10 +1266,10 @@
           <details class="bb-it-region-fallback" ${state.regionListOpen ? 'open' : ''}>
             <summary>Can't use the map? Pick regions from this list instead</summary>
             <div class="bb-it-choice-row" style="margin-top:10px;" role="group" aria-label="Regions to visit">
-              ${otherKeys.map(k => `
+              ${visitKeys.map(k => `
                 <label class="bb-it-choice">
                   <input type="checkbox" data-region-checkbox="${k}" ${state.selectedRegions.includes(k) ? 'checked' : ''}>
-                  ${regionsData[k].name}
+                  <span>${regionsData[k].name}${bestForLabel(k) ? ` <span class="bb-it-best-for">— best for ${bestForLabel(k)}</span>` : ''}</span>
                 </label>`).join('')}
             </div>
           </details>
@@ -1270,6 +1349,26 @@
           <input type="number" id="bb-it-group" min="1" max="12" value="${state.groupSize}">
           <span class="bb-it-hint">Used to split self-drive rental costs, and to work out private room rates if you're sharing.</span>
         </div>
+        ${state.groupSize === 1 ? `
+        <div class="bb-it-field">
+          <label class="bb-it-choice">
+            <input type="checkbox" id="bb-it-solo-woman" ${state.soloWoman ? 'checked' : ''}>
+            <span>Are you a solo woman traveller?<br>
+            <span class="bb-it-hint">If so, we'll prioritise hostels that come up as "best for solo women" in your accommodation suggestions.</span></span>
+          </label>
+        </div>` : ''}
+        <div class="bb-it-field">
+          <label class="bb-it-choice" style="margin-bottom:8px;">
+            <input type="checkbox" id="bb-it-surfer" ${state.surfer ? 'checked' : ''}>
+            <span>Are you a surfer?<br>
+            <span class="bb-it-hint">We'll prioritise hostels known for being surfer-friendly.</span></span>
+          </label>
+          <label class="bb-it-choice">
+            <input type="checkbox" id="bb-it-digital-nomad" ${state.digitalNomad ? 'checked' : ''}>
+            <span>Are you a digital nomad?<br>
+            <span class="bb-it-hint">We'll prioritise hostels with good wifi and workspaces for remote working.</span></span>
+          </label>
+        </div>
         <fieldset class="bb-it-field">
           <legend>Overall travel style</legend>
           <div class="bb-it-choice-row">${styleHTML}</div>
@@ -1282,6 +1381,7 @@
             <span class="bb-it-vibe-end">Let's party</span>
           </div>
           <span class="bb-it-hint" id="bb-it-vibe-readout">${vibeReadout(state.vibeStage !== null ? state.vibeStage : 2)}</span>
+          <span class="bb-it-hint">This also shapes the hostels we suggest — party-leaning picks at one end, quieter ones at the other.</span>
         </div>
         <div class="bb-it-nav">
           <button class="bb-it-btn secondary" id="bb-it-back">← Back</button>
@@ -1291,7 +1391,18 @@
 
       document.getElementById('bb-it-days').addEventListener('input', e => { state.totalDays = parseInt(e.target.value, 10) || 14; });
       document.getElementById('bb-it-date').addEventListener('input', e => { state.travelDate = e.target.value; });
-      document.getElementById('bb-it-group').addEventListener('input', e => { state.groupSize = parseInt(e.target.value, 10) || 1; });
+      document.getElementById('bb-it-group').addEventListener('input', e => {
+        state.groupSize = parseInt(e.target.value, 10) || 1;
+      });
+      document.getElementById('bb-it-group').addEventListener('change', e => {
+        const isSolo = state.groupSize === 1;
+        if (!isSolo) state.soloWoman = false;
+        renderStep2(); // only re-renders once the field is committed (blur/Enter), not on every keystroke, so typing "1" then "2" doesn't steal focus mid-edit
+      });
+      const soloWomanCb = document.getElementById('bb-it-solo-woman');
+      if (soloWomanCb) soloWomanCb.addEventListener('change', e => { state.soloWoman = e.target.checked; });
+      document.getElementById('bb-it-surfer').addEventListener('change', e => { state.surfer = e.target.checked; });
+      document.getElementById('bb-it-digital-nomad').addEventListener('change', e => { state.digitalNomad = e.target.checked; });
       document.getElementById('bb-it-vibe').addEventListener('input', e => {
         state.vibeStage = parseInt(e.target.value, 10);
         document.getElementById('bb-it-vibe-readout').textContent = vibeReadout(state.vibeStage);
@@ -1481,7 +1592,12 @@
 
       const routeHTML = trip.route.map((key, i) => {
         const isReturnLeg = trip.isRoundTrip && i === trip.route.length - 1;
-        const suggestions = isReturnLeg ? [] : suggestHostelsForRegion(key, hostelsGeoJSON, state.style, state.ultraBudget);
+        const suggestions = isReturnLeg ? [] : suggestHostelsForRegion(key, hostelsGeoJSON, state.style, state.ultraBudget, {
+          soloWoman: state.groupSize === 1 && state.soloWoman,
+          surfer: state.surfer,
+          digitalNomad: state.digitalNomad,
+          vibeStage: state.vibeStage !== null ? state.vibeStage : 2
+        });
         const suggestionsHTML = suggestions.length
           ? suggestions.map(h => `<div class="bb-it-hostel-suggestion">→ <a href="${h.anchor || '#'}">${h.name}</a></div>`).join('')
           : '';
