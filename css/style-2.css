@@ -45,6 +45,7 @@
    38. My Maps Itinerary Pages
    39. Itinerary Builder
    40. Home Page Quick Facts
+   41. Hostel Directory Button
    ============================================================ */
 
 
@@ -4761,4 +4762,60 @@ details {
 /* optional nicer spacing inside summary */
 details summary {
     cursor: pointer;
+}
+
+
+
+/* ============================================================
+   41. Hostel Directory Button
+   ============================================================ */
+
+.hostel-dir-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 52px;
+    padding: 0 26px;
+
+    background: #bc1d23;
+    color: #ffffff;
+
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1;
+
+    text-decoration: none;
+    white-space: nowrap;
+
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    transition:
+        background-color .2s ease,
+        transform .15s ease;
+}
+
+.hostel-dir-btn:hover {
+    background: #a0181d;
+    text-decoration: none;
+}
+
+.hostel-dir-btn:active {
+    transform: translateY(1px);
+}
+
+.hostel-dir-btn:focus-visible {
+    outline: 3px solid var(--color-yellow-bright);
+    outline-offset: 3px;
+}
+
+@media (max-width:1100px) {
+    .hostel-dir-btn {
+        min-height: 52px;
+        padding: 0 22px;
+        font-size: 0.95rem;
+    }
 }
