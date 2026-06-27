@@ -649,6 +649,17 @@
 
           Object.values(regionMarkers).forEach(m => m.el.classList.toggle('is-visible', selectModeActive));
 
+          // Hostel pins already let clicks pass through to the region
+          // polygon underneath while select mode is active (see
+          // openPopup's selectModeActive guard below), but they were
+          // still visible on top, cluttering the polygons the itinerary
+          // builder actually wants tapped. Hide them outright here, then
+          // restore via applyFilter (not a blanket show-all) so leaving
+          // select mode doesn't undo whatever filter was active before
+          // the builder was opened.
+          allMarkers.forEach(({ marker }) => { marker.getElement().style.display = selectModeActive ? 'none' : ''; });
+          if (!selectModeActive) applyFilter(activeFilter);
+
           if (selectModeActive) {
             // Draw every region polygon (not just the current page's one)
             // so there's something to click everywhere on the map.

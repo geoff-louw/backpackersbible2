@@ -478,17 +478,20 @@
     //    has to be known BEFORE we can work out how many days are left
     //    over for nights at stops; see "Travel days" note below) ──
     // Person picks ONE primary mode in Step 4 (transportPref: 'taxi' |
-    // 'bus' | 'drive') and we apply it across every leg, rather than
-    // silently picking whatever's cheapest — that was hiding self-drive
-    // and bus options the person actually wanted. Baz Bus still overrides
-    // on its own corridor since it's a backpacker-specific option people
-    // expect to see there regardless of general preference, and very
-    // short hops always fall back to taxi since renting/busing 5km
-    // between two spots in the same town isn't realistic.
+    // 'bus' | 'drive' | 'bazbus') and we apply it across every leg, rather
+    // than silently picking whatever's cheapest — that was hiding self-drive
+    // and bus options the person actually wanted. Baz Bus is notably pricier
+    // than mainline bus (roughly 2-6x on the same distance), so it's only
+    // ever chosen when picked explicitly here — it used to override every
+    // Garden Route leg automatically regardless of preference, which could
+    // quietly inflate the trip cost for someone who'd picked mainline bus
+    // for budget reasons. Very short hops always fall back to taxi since
+    // renting/busing 5km between two spots in the same town isn't realistic.
     const modeMap = {
-      taxi:  'Minibus taxi',
-      bus:   'Mainline bus (Intercape/Greyhound)',
-      drive: 'Self-drive (small rental car)'
+      taxi:   'Minibus taxi',
+      bus:    'Mainline bus (Intercape/Greyhound)',
+      drive:  'Self-drive (small rental car)',
+      bazbus: 'Baz Bus (hop-on-hop-off)'
     };
     const preferredMode = modeMap[transportPref] || modeMap.bus;
 
@@ -501,16 +504,18 @@
       const options = legOptions(fromKey, toKey, km, peak, regionsData);
 
       let chosen;
-      const bazOption = options.find(o => o.mode === 'Baz Bus (hop-on-hop-off)');
-      if (bazOption && transportPref !== 'drive') {
-        // Baz Bus is a natural fit for this corridor unless the person
-        // specifically wants to self-drive (in which case respect that).
-        chosen = bazOption;
-      } else if (km < 15) {
+      if (km < 15) {
         // Too short for a bus booking or a rental car to make sense.
         chosen = options.find(o => o.mode === 'Minibus taxi') || options[0];
       } else {
-        chosen = options.find(o => o.mode === preferredMode) || options[0];
+        // Falls back to mainline bus if Baz Bus was chosen but this
+        // particular leg falls outside its corridor (it only runs
+        // Cape Town ↔ Gqeberha) — rather than silently picking whatever
+        // option happens to be cheapest, which could surprise the
+        // person with a mode they didn't ask for.
+        chosen = options.find(o => o.mode === preferredMode)
+          || options.find(o => o.mode === 'Mainline bus (Intercape/Greyhound)')
+          || options[0];
       }
 
       legBasics.push({ fromKey, toKey, fromCoords: a || null, toCoords: b || null, km, options, chosen });
@@ -758,12 +763,13 @@
 
       .bb-it-field { margin-bottom: 20px; position: relative; z-index: 1; }
       fieldset.bb-it-field { border: none; padding: 0; margin: 0 0 20px; min-width: 0; }
-      .bb-it-region-fallback { margin-top: 10px; }
+      .bb-it-region-fallback { margin-top: 10px; text-align: left; }
       .bb-it-region-fallback summary { cursor: pointer; font-weight: bold; }
       .bb-it-region-fallback .bb-it-choice-row {
         max-width: 380px;
         margin-left: 12px;
         align-items: flex-start;
+        text-align: left;
       }
       .bb-it-field label, .bb-it-field legend {
         display: block;
@@ -809,8 +815,10 @@
         display: flex;
         align-items: flex-start;
         gap: 10px;
+        text-align: left;
         transition: color 0.15s;
       }
+      .bb-it-choice span { text-align: left; }
       .bb-it-choice:hover { color: ${BRAND_RED}; }
       .bb-it-choice input { margin: 3px 0 0; flex-shrink: 0; }
       .bb-it-choice.is-checked strong { color: ${BRAND_RED}; }
@@ -1474,9 +1482,10 @@
     // ── STEP 4: Transport preference ─────────────────────────────────────
     function renderStep4() {
       const prefs = [
-        { key: 'taxi',  label: 'Minibus taxi', desc: 'Cheapest, most flexible — best for short hops, can feel slow over long distances' },
-        { key: 'bus',   label: 'Mainline bus', desc: 'Intercape / Greyhound — comfortable, predictable, needs booking ahead' },
-        { key: 'drive', label: 'Self-drive', desc: 'Small rental car — most freedom, costs more, splits well between a group' }
+        { key: 'taxi',   label: 'Minibus taxi', desc: 'Cheapest, most flexible — best for short hops, can feel slow over long distances' },
+        { key: 'bus',    label: 'Mainline bus', desc: 'Intercape / Greyhound — comfortable, predictable, needs booking ahead' },
+        { key: 'drive',  label: 'Self-drive', desc: 'Small rental car — most freedom, costs more, splits well between a group' },
+        { key: 'bazbus', label: 'Baz Bus', desc: 'Hop-on-hop-off backpacker bus — more expensive than mainline bus, and currently only runs Cape Town ↔ Gqeberha (Garden Route), once a day rather than every day. Legs outside that corridor will use mainline bus instead.' }
       ];
       const html = prefs.map(p => `
         <label class="bb-it-choice ${state.transportPref === p.key ? 'is-checked' : ''}">
@@ -1487,7 +1496,7 @@
       panelShell(`
         <fieldset class="bb-it-field">
           <legend>How do you want to get between regions?</legend>
-          <span class="bb-it-hint">We'll use this for every leg of your trip where it makes sense — e.g. very short hops always use a taxi regardless of what you pick here, and Baz Bus is offered automatically on the Cape Town–Gqeberha corridor unless you've chosen self-drive.</span>
+          <span class="bb-it-hint">We'll use this for every leg of your trip where it makes sense — e.g. very short hops always use a taxi regardless of what you pick here.</span>
           <div class="bb-it-choice-row" style="margin-top:10px;">${html}</div>
         </fieldset>
         <div class="bb-it-nav">
