@@ -7464,46 +7464,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.85505,
-          -33.93885
-        ]
-      },
-      "properties": {
-        "region": "winelands",
-        "id": "stumble-inn",
-        "name": "STUMBLE INN BACKPACKERS",
-        "address": "12 Market Street, Stellenbosch Central, Stellenbosch, 7600",
-        "phone": "+27218874049",
-        "whatsapp": "+27768057984",
-        "email": "info@stumble-inn.co.za",
-        "website": "stumble-inn.co.za",
-        "info": "The oldest and most characterful backpacker in the Winelands. In a town of wine estates and tourist infrastructure, it remains resolutely, enjoyably itself. Do the Easy Rider tour.",
-        "anchor": "/south-africa-hostel-directory/winelands#stumble-inn",
-        "googleRating": "4.0 / 5",
-        "hwRating": "7.8 / 10",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/999/stumble-inn-backpackers-lodge/",
-        "is_best_overall": false,
-        "is_value": true,
-        "is_party": false,
-        "is_chill": false,
-        "is_solo_women": false,
-        "is_digital_nomad": false,
-        "is_surfer": false,
-        "is_safety": true,
-        "is_amenities": false,
-        "is_ethical": false,
-        "is_adventure": false,
-        "is_nature": false,
-        "is_cultural": true,
-        "is_cheapest": false,
-        "is_camping": true
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           19.1098,
           -33.91117
         ]
