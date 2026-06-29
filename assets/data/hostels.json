@@ -7032,46 +7032,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          28.33727,
-          -32.70203
-        ]
-      },
-      "properties": {
-        "region": "wild-coast",
-        "id": "in-the-green-backpackers",
-        "name": "IN THE GREEN BACKPACKERS",
-        "address": "198 Tanglewood Road, Morgan Bay, 5292",
-        "phone": "+27769813322",
-        "whatsapp": "+27769813322",
-        "email": "info@inthegreenbackpackers.co.za",
-        "website": "inthegreenbackpackers.co.za",
-        "info": "The Wild Coast's finest quiet option. Exceptional value, beautiful setting, and genuine peace. Best for independent travellers who want the coast without the crowd.",
-        "anchor": "/south-africa-hostel-directory/wild-coast#in-the-green-backpackers",
-        "googleRating": "4.4 / 5",
-        "bookingRating": "7.6 / 10",
-        "booking": "https://www.booking.com/hotel/za/in-the-green-backpackers-morgans-bay.html",
-        "is_best_overall": false,
-        "is_value": true,
-        "is_party": false,
-        "is_chill": false,
-        "is_solo_women": true,
-        "is_digital_nomad": false,
-        "is_surfer": false,
-        "is_safety": true,
-        "is_amenities": false,
-        "is_ethical": true,
-        "is_adventure": false,
-        "is_nature": false,
-        "is_cultural": false,
-        "is_cheapest": false,
-        "is_camping": true
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           29.14688,
           -31.9888
         ]
