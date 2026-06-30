@@ -90,48 +90,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.41215,
-          -33.93345
-        ]
-      },
-      "properties": {
-        "region": "cape-town",
-        "id": "ashanti-lodge-gardens",
-        "name": "ASHANTI LODGE GARDENS",
-        "address": "11 Hof Street, Gardens, Cape Town, 8001",
-        "phone": "+27214238721",
-        "whatsapp": "+27714592602",
-        "email": "info@ashanti.co.za",
-        "website": "ashanti.co.za",
-        "info": "One of Cape Town's most established backpacker lodges, set in a beautiful Victorian house in the leafy Gardens neighbourhood.",
-        "anchor": "/south-africa-hostel-directory/cape-town#ashanti-lodge-gardens",
-        "googleRating": "4.4 / 5",
-        "bookingRating": "8.1 / 10",
-        "hwRating": "8.9 / 10",
-        "booking": "https://www.booking.com/hotel/za/ashanti-lodge-gardens.en-gb.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/978/ashanti-lodge-gardens/",
-        "is_best_overall": false,
-        "is_value": true,
-        "is_party": false,
-        "is_chill": true,
-        "is_solo_women": true,
-        "is_digital_nomad": true,
-        "is_surfer": false,
-        "is_safety": true,
-        "is_amenities": false,
-        "is_ethical": true,
-        "is_adventure": false,
-        "is_nature": false,
-        "is_cultural": false,
-        "is_cheapest": false,
-        "is_camping": true
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           18.41541,
           -33.92565
         ]
@@ -210,43 +168,7 @@
         "is_camping": false
       }
     },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.41916,
-          -33.93003
-        ]
-      },
-      "properties": {
-        "region": "cape-town",
-        "id": "anzac-backpackers",
-        "name": "STAGS HEAD INN",
-        "address": "71 Hope Street, Gardens, Cape Town, 8001",
-        "phone": "+27214651325",
-        "email": "info@stagshead.co.za",
-        "website": "stagshead.co.za",
-        "info": "A characterful inn in the heart of Gardens, well-located for the City Bowl and Kloof Street.",
-        "anchor": "/south-africa-hostel-directory/cape-town#anzac-backpackers",
-        "googleRating": "4.2 / 5",
-        "is_best_overall": false,
-        "is_value": false,
-        "is_party": false,
-        "is_chill": false,
-        "is_solo_women": false,
-        "is_digital_nomad": false,
-        "is_surfer": false,
-        "is_safety": false,
-        "is_amenities": false,
-        "is_ethical": false,
-        "is_adventure": false,
-        "is_nature": false,
-        "is_cultural": false,
-        "is_cheapest": true,
-        "is_camping": false
-      }
-    },
+
     {
       "type": "Feature",
       "geometry": {
@@ -321,44 +243,6 @@
         "is_digital_nomad": true,
         "is_surfer": false,
         "is_safety": true,
-        "is_amenities": false,
-        "is_ethical": false,
-        "is_adventure": false,
-        "is_nature": false,
-        "is_cultural": false,
-        "is_cheapest": false,
-        "is_camping": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.4205,
-          -33.92169
-        ]
-      },
-      "properties": {
-        "region": "cape-town",
-        "id": "forty-eight-backpackers",
-        "name": "FORTY 8 BACKPACKERS",
-        "address": "48 Hout Street, Cape Town City Centre, 8000",
-        "phone": "+27214224848",
-        "whatsapp": "+27214224848",
-        "email": "info@forty8backpackers.co.za",
-        "website": "forty8backpackers.co.za",
-        "info": "Solid budget option near District Six. Best for independent travellers who don't need a hostel community to have a good time.",
-        "anchor": "/south-africa-hostel-directory/cape-town#forty-eight-backpackers",
-        "googleRating": "3.6 / 5",
-        "is_best_overall": false,
-        "is_value": false,
-        "is_party": false,
-        "is_chill": false,
-        "is_solo_women": false,
-        "is_digital_nomad": false,
-        "is_surfer": false,
-        "is_safety": false,
         "is_amenities": false,
         "is_ethical": false,
         "is_adventure": false,
@@ -556,85 +440,6 @@
         "is_digital_nomad": false,
         "is_surfer": false,
         "is_safety": false,
-        "is_amenities": false,
-        "is_ethical": false,
-        "is_adventure": false,
-        "is_nature": false,
-        "is_cultural": false,
-        "is_cheapest": false,
-        "is_camping": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.41165,
-          -33.90959
-        ]
-      },
-      "properties": {
-        "region": "cape-town",
-        "id": "atlantic-point-backpackers",
-        "name": "ATLANTIC POINT BACKPACKERS",
-        "address": "2 Cavalcade Rd, Green Point, Cape Town, 8005",
-        "phone": "+27214331663",
-        "whatsapp": "+27768126006",
-        "email": "info@atlanticpoint.co.za",
-        "website": "atlanticpoint.co.za",
-        "info": "A dependable, quiet budget base for the Atlantic Seaboard explorer.",
-        "anchor": "/south-africa-hostel-directory/cape-town#atlantic-point-backpackers",
-        "googleRating": "4.2 / 5",
-        "is_best_overall": false,
-        "is_value": false,
-        "is_party": false,
-        "is_chill": false,
-        "is_solo_women": false,
-        "is_digital_nomad": false,
-        "is_surfer": false,
-        "is_safety": true,
-        "is_amenities": false,
-        "is_ethical": false,
-        "is_adventure": false,
-        "is_nature": false,
-        "is_cultural": false,
-        "is_cheapest": false,
-        "is_camping": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          18.41067,
-          -33.90889
-        ]
-      },
-      "properties": {
-        "region": "cape-town",
-        "id": "house-on-the-hill",
-        "name": "HOUSE ON THE HILL",
-        "address": "5 Norman Rd, Green Point, Cape Town, 8005",
-        "phone": "+27214393902",
-        "whatsapp": "+27732173428",
-        "email": "info@houseonthehillct.co.za",
-        "website": "houseonthehillct.co.za",
-        "info": "The best quiet option in the Atlantic Seaboard area. Highly recommended for those prioritising peace, views, and Signal Hill hiking.",
-        "anchor": "/south-africa-hostel-directory/cape-town#house-on-the-hill",
-        "googleRating": "4.4 / 5",
-        "bookingRating": "8.4 / 10",
-        "booking": "https://www.booking.com/hotel/za/house-on-the-hill.html",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/328833/house-on-the-hill/",
-        "is_best_overall": false,
-        "is_value": false,
-        "is_party": false,
-        "is_chill": false,
-        "is_solo_women": true,
-        "is_digital_nomad": true,
-        "is_surfer": false,
-        "is_safety": true,
         "is_amenities": false,
         "is_ethical": false,
         "is_adventure": false,
