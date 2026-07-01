@@ -46,6 +46,7 @@
    39. Itinerary Builder
    40. Home Page Quick Facts
    41. Hostel Directory Button
+   42. Booking Links Heading
    ============================================================ */
 
 
@@ -4809,4 +4810,15 @@ details summary {
         padding: 0 30px;
         font-size: 1rem;
     }
+}
+
+
+/* ============================================================
+   42. BOOKING LINKS HEADING
+   ============================================================ */
+
+.booking-links-heading {
+    text-align: center;
+    font-weight: 600;
+    margin: 0 0 0.75rem;
 }
