@@ -24,7 +24,8 @@
 (function () {
   'use strict';
 
-  const MAPTILER_KEY = 'EQ5JVo2nFxFOEjgxpA7x';
+  const ESRI_KEY     = 'AAPTamFHVrEf9zxt8n1GPoheQBg..bZv3-QfiJifUiQeQyM3pXO47eztKbb95jfxtBtNJzl319gr4-Qv_NmXKOOXFf8ChUYYi4lQviyIz1wk3Rpa69Pb2iltlAFf1MU5_iDbiqXIeRP7sUB3raC3mivce3axukBeoiuKssKI2rvflMzNf5GK47nOPgPlwsKPoEPYZZlLUCxOBw3k9nZFYiHkv57Dm7SRYAlRm612dJDve7isWPk6eJ77s5fU1wtpNRtsaTzRbbT4lgsEsG2ElAT1_TZLPnMqZ';
+  const MAPTILER_KEY = 'EQ5JVo2nFxFOEjgxpA7x'; // terrain only (Cape Town / Drakensberg)
   const HOSTELS_URL  = '/assets/data/hostels.json';
   const REGIONS_URL  = '/assets/data/regions.json';
   const BRAND_YELLOW = '#FFD700';
@@ -256,9 +257,43 @@
         }</ul>`;
       }
 
+      // Build the Esri style as a Blob URL instead of an inline object.
+      // When MapLibre receives an inline style object, `load` fires
+      // near-synchronously — before the render loop has started — so
+      // DOM markers and GeoJSON layers added in the load callback are
+      // invisible until the next user interaction forces a repaint.
+      // Passing a URL (even a local blob URL) makes MapLibre go through
+      // its normal async init cycle, so the render loop is running by
+      // the time `load` fires and everything draws immediately.
+      const _esriStyle = {
+        version: 8,
+        glyphs: 'https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf',
+        sources: {
+          'esri-satellite': {
+            type: 'raster',
+            tiles: [`https://ibasemaps-api.arcgis.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}?token=${ESRI_KEY}`],
+            tileSize: 256,
+            attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
+            maxzoom: 19
+          },
+          'esri-labels': {
+            type: 'raster',
+            tiles: [`https://ibasemaps-api.arcgis.com/arcgis/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}?token=${ESRI_KEY}`],
+            tileSize: 256,
+            maxzoom: 19
+          }
+        },
+        layers: [
+          { id: 'esri-satellite-layer', type: 'raster', source: 'esri-satellite' },
+          { id: 'esri-labels-layer',    type: 'raster', source: 'esri-labels' }
+        ]
+      };
+      const _styleBlob = new Blob([JSON.stringify(_esriStyle)], { type: 'application/json' });
+      const _styleUrl  = URL.createObjectURL(_styleBlob);
+
       const map = new maplibregl.Map({
         container: 'bb-map',
-        style: `https://api.maptiler.com/maps/hybrid/style.json?key=${MAPTILER_KEY}`,
+        style: _styleUrl,
         center: CENTER, zoom: ZOOM, pitch: PITCH, bearing: BEARING, antialias: true
       });
 
@@ -370,6 +405,9 @@
       });
 
       map.on('load', () => {
+        URL.revokeObjectURL(_styleUrl); // blob served its purpose; free the memory
+        map.resize();
+
         // Tell the parent page this map is fully initialised — without
         // this, the parent's itinerary builder waits forever for a
         // ready signal that never arrives, and as a result never sends
@@ -908,6 +946,12 @@
           const marker = new maplibregl.Marker({ element:container, anchor:'left' }).setLngLat(coords).addTo(map);
           allMarkers.push({ marker, feature });
         }); // end features.forEach
+
+        // Inline style loads near-synchronously so MapLibre may not
+        // schedule a render frame after all markers/layers are added.
+        // triggerRepaint() ensures everything is visible without needing
+        // a click or pan to force the first draw.
+        map.triggerRepaint();
 
       }); // end map.on('load')
 
