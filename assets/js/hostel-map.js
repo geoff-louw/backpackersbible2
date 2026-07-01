@@ -24,7 +24,8 @@
 (function () {
   'use strict';
 
-  const MAPTILER_KEY = 'EQ5JVo2nFxFOEjgxpA7x';
+  const ESRI_KEY     = 'AAPTamFHVrEf9zxt8n1GPoheQBg..bZv3-QfiJifUiQeQyM3pXO47eztKbb95jfxtBtNJzl319gr4-Qv_NmXKOOXFf8ChUYYi4lQviyIz1wk3Rpa69Pb2iltlAFf1MU5_iDbiqXIeRP7sUB3raC3mivce3axukBeoiuKssKI2rvflMzNf5GK47nOPgPlwsKPoEPYZZlLUCxOBw3k9nZFYiHkv57Dm7SRYAlRm612dJDve7isWPk6eJ77s5fU1wtpNRtsaTzRbbT4lgsEsG2ElAT1_TZLPnMqZ';
+  const MAPTILER_KEY = 'EQ5JVo2nFxFOEjgxpA7x'; // terrain only (Cape Town / Drakensberg)
   const HOSTELS_URL  = '/assets/data/hostels.json';
   const REGIONS_URL  = '/assets/data/regions.json';
   const BRAND_YELLOW = '#FFD700';
@@ -258,7 +259,30 @@
 
       const map = new maplibregl.Map({
         container: 'bb-map',
-        style: `https://api.maptiler.com/maps/hybrid/style.json?key=${MAPTILER_KEY}`,
+        style: {
+          version: 8,
+          // Glyphs needed for region label symbol layers (drawRegionPolygon)
+          glyphs: 'https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf',
+          sources: {
+            'esri-satellite': {
+              type: 'raster',
+              tiles: [`https://ibasemaps-api.arcgis.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}?token=${ESRI_KEY}`],
+              tileSize: 256,
+              attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
+              maxzoom: 19
+            },
+            'esri-labels': {
+              type: 'raster',
+              tiles: [`https://ibasemaps-api.arcgis.com/arcgis/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}?token=${ESRI_KEY}`],
+              tileSize: 256,
+              maxzoom: 19
+            }
+          },
+          layers: [
+            { id: 'esri-satellite-layer', type: 'raster', source: 'esri-satellite' },
+            { id: 'esri-labels-layer',    type: 'raster', source: 'esri-labels' }
+          ]
+        },
         center: CENTER, zoom: ZOOM, pitch: PITCH, bearing: BEARING, antialias: true
       });
 
