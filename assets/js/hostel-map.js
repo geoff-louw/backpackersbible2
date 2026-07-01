@@ -394,6 +394,8 @@
       });
 
       map.on('load', () => {
+        map.resize(); // inline style loads near-synchronously — force correct container dimensions
+
         // Tell the parent page this map is fully initialised — without
         // this, the parent's itinerary builder waits forever for a
         // ready signal that never arrives, and as a result never sends
@@ -932,6 +934,12 @@
           const marker = new maplibregl.Marker({ element:container, anchor:'left' }).setLngLat(coords).addTo(map);
           allMarkers.push({ marker, feature });
         }); // end features.forEach
+
+        // Inline style loads near-synchronously so MapLibre may not
+        // schedule a render frame after all markers/layers are added.
+        // triggerRepaint() ensures everything is visible without needing
+        // a click or pan to force the first draw.
+        map.triggerRepaint();
 
       }); // end map.on('load')
 
