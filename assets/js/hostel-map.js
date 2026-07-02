@@ -378,9 +378,9 @@
       map.on('load', () => {
         map.resize();
 
-        // Inject Esri satellite beneath all OpenFreeMap vector layers.
-        // OFM fill/background layers are zeroed out so imagery shows
-        // through; road lines and symbol labels are kept as-is.
+        // Inject Esri satellite between OFM's fill layers and its road/label
+        // layers. Background and fills sit below satellite (hidden behind it);
+        // road lines and place-name symbols sit above (fully visible).
         map.addSource('esri-satellite', {
           type: 'raster',
           tiles: [`https://ibasemaps-api.arcgis.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}?token=${ESRI_KEY}`],
@@ -388,19 +388,13 @@
           attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
           maxzoom: 19
         });
-        const _firstOFMLayer = map.getStyle().layers[0].id;
-        map.addLayer({ id: 'esri-satellite-layer', type: 'raster', source: 'esri-satellite' }, _firstOFMLayer);
-
-        // Zero out fill and background layers so satellite shows through.
-        // Road lines and place-name symbols are left intact.
-        map.getStyle().layers.forEach(layer => {
-          if (layer.type === 'fill') {
-            map.setPaintProperty(layer.id, 'fill-opacity', 0);
-          }
-          if (layer.type === 'background') {
-            map.setPaintProperty(layer.id, 'background-opacity', 0);
-          }
-        });
+        const _firstLineOrSymbol = map.getStyle().layers.find(
+          l => l.type === 'line' || l.type === 'symbol'
+        );
+        map.addLayer(
+          { id: 'esri-satellite-layer', type: 'raster', source: 'esri-satellite' },
+          _firstLineOrSymbol ? _firstLineOrSymbol.id : undefined
+        );
 
         // Tell the parent page this map is fully initialised — without
         // this, the parent's itinerary builder waits forever for a
