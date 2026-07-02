@@ -396,6 +396,16 @@
           _firstLineOrSymbol ? _firstLineOrSymbol.id : undefined
         );
 
+        // OFM liberty places water fills after some line layers, so they
+        // land above satellite in the stack. Zero all fills and background
+        // regardless of position — satellite + roads + labels is all we want.
+        map.getStyle().layers.forEach(layer => {
+          try {
+            if (layer.type === 'fill')       map.setPaintProperty(layer.id, 'fill-opacity', 0);
+            if (layer.type === 'background') map.setPaintProperty(layer.id, 'background-opacity', 0);
+          } catch(e) {}
+        });
+
         // Tell the parent page this map is fully initialised — without
         // this, the parent's itinerary builder waits forever for a
         // ready signal that never arrives, and as a result never sends
