@@ -391,7 +391,7 @@
 
         map.addSource('esri-labels', {
           type: 'raster',
-          tiles: [`https://ibasemaps-api.arcgis.com/arcgis/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}?token=${ESRI_KEY}`],
+          tiles: ['https://services.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}'],
           tileSize: 256,
           maxzoom: 19
         });
