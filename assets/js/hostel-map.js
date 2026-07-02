@@ -406,6 +406,16 @@
           } catch(e) {}
         });
 
+        // Hide dotted/dashed boundary lines (admin regions, country borders)
+        // while keeping solid road lines intact.
+        map.getStyle().layers.forEach(layer => {
+          try {
+            if (layer.type === 'line' && layer.paint && layer.paint['line-dasharray']) {
+              map.setPaintProperty(layer.id, 'line-opacity', 0);
+            }
+          } catch(e) {}
+        });
+
         // Tell the parent page this map is fully initialised — without
         // this, the parent's itinerary builder waits forever for a
         // ready signal that never arrives, and as a result never sends
