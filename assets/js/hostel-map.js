@@ -257,43 +257,13 @@
         }</ul>`;
       }
 
-      // Build the Esri style as a Blob URL instead of an inline object.
-      // When MapLibre receives an inline style object, `load` fires
-      // near-synchronously — before the render loop has started — so
-      // DOM markers and GeoJSON layers added in the load callback are
-      // invisible until the next user interaction forces a repaint.
-      // Passing a URL (even a local blob URL) makes MapLibre go through
-      // its normal async init cycle, so the render loop is running by
-      // the time `load` fires and everything draws immediately.
-      const _esriStyle = {
-        version: 8,
-        glyphs: 'https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf',
-        sources: {
-          'esri-satellite': {
-            type: 'raster',
-            tiles: [`https://ibasemaps-api.arcgis.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}?token=${ESRI_KEY}`],
-            tileSize: 256,
-            attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
-            maxzoom: 19
-          },
-          'esri-labels': {
-            type: 'raster',
-            tiles: [`https://ibasemaps-api.arcgis.com/arcgis/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}?token=${ESRI_KEY}`],
-            tileSize: 256,
-            maxzoom: 19
-          }
-        },
-        layers: [
-          { id: 'esri-satellite-layer', type: 'raster', source: 'esri-satellite' },
-          { id: 'esri-labels-layer',    type: 'raster', source: 'esri-labels' }
-        ]
-      };
-      const _styleBlob = new Blob([JSON.stringify(_esriStyle)], { type: 'application/json' });
-      const _styleUrl  = URL.createObjectURL(_styleBlob);
-
+      // A real network fetch (even from local CDN) ensures the browser
+      // completes at least one layout pass before `load` fires, so
+      // map.project() has correct canvas dimensions when markers are added.
+      // Esri sources and layers are added dynamically inside map.on('load').
       const map = new maplibregl.Map({
         container: 'bb-map',
-        style: _styleUrl,
+        style: '/assets/map-style.json',
         center: CENTER, zoom: ZOOM, pitch: PITCH, bearing: BEARING, antialias: true
       });
 
@@ -405,8 +375,27 @@
       });
 
       map.on('load', () => {
-        URL.revokeObjectURL(_styleUrl); // blob served its purpose; free the memory
         map.resize();
+
+        // Add Esri satellite base and label overlay — sources are injected
+        // here rather than in the style file so the API key stays out of
+        // a static asset and Esri tile URLs stay in version-controlled JS.
+        map.addSource('esri-satellite', {
+          type: 'raster',
+          tiles: [`https://ibasemaps-api.arcgis.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}?token=${ESRI_KEY}`],
+          tileSize: 256,
+          attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
+          maxzoom: 19
+        });
+        map.addLayer({ id: 'esri-satellite-layer', type: 'raster', source: 'esri-satellite' });
+
+        map.addSource('esri-labels', {
+          type: 'raster',
+          tiles: [`https://ibasemaps-api.arcgis.com/arcgis/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}?token=${ESRI_KEY}`],
+          tileSize: 256,
+          maxzoom: 19
+        });
+        map.addLayer({ id: 'esri-labels-layer', type: 'raster', source: 'esri-labels' });
 
         // Tell the parent page this map is fully initialised — without
         // this, the parent's itinerary builder waits forever for a
