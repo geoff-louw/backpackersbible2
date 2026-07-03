@@ -68,7 +68,7 @@
         "hwRating": "8.8 / 10",
         "booking": "https://www.booking.com/hotel/za/longstreet-backpackers.en-gb.html",
         "hostelworld": "https://www.hostelworld.com/hostels/p/1220/long-street-backpackers/",
-        "is_best_overall": false,
+        "is_best_overall": true,
         "is_value": true,
         "is_party": true,
         "is_chill": false,
