@@ -401,8 +401,9 @@
         // regardless of position — satellite + roads + labels is all we want.
         map.getStyle().layers.forEach(layer => {
           try {
-            if (layer.type === 'fill')       map.setPaintProperty(layer.id, 'fill-opacity', 0);
-            if (layer.type === 'background') map.setPaintProperty(layer.id, 'background-opacity', 0);
+            if (layer.type === 'fill')            map.setPaintProperty(layer.id, 'fill-opacity', 0);
+            if (layer.type === 'background')      map.setPaintProperty(layer.id, 'background-opacity', 0);
+            if (layer.type === 'fill-extrusion')  map.setPaintProperty(layer.id, 'fill-extrusion-opacity', 0);
           } catch(e) {}
         });
 
