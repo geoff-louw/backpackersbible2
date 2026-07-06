@@ -1,4 +1,4 @@
-const CACHE_NAME = 'backpackers-bible-v2';
+const CACHE_NAME = 'backpackers-bible-v3';
 
 // The essential files that get cached immediately when the page loads.
 const INITIAL_CACHE = [
