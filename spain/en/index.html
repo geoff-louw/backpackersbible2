@@ -13,6 +13,8 @@
 
   <meta name="description" content="Direct hostel contacts, honest regional guides, and real budget advice for backpacking Spain. No affiliate fluff — built for backpackers, by backpackers.">
 
+  <meta name="robots" content="noindex, nofollow">
+
   <meta name="author" content="The Backpacker's Bible">
 
   <link rel="canonical" href="https://www.backpackersbible.com/spain/en/">
@@ -367,10 +369,13 @@
 
 <main id="main-content">
 
-<!-- ░░ HOSTEL MAP — Google My Maps  ░░ -->
-
+<!-- ░░ HOSTEL MAP — Google My Maps placeholder ░░ -->
+<!-- Temporary embed while the MapLibre filter map + itinerary builder are being rebuilt for Spain.
+     Reuses the existing .sa-hostel-map-shell / .sa-hostel-map-iframe CSS hooks purely so this
+     inherits the exact same dimensions the old map+filters+wizard stack occupied — swap the class
+     names later if you want to rename them once the real Spain map work starts. -->
 <div class="map-description" id="hostel-map-description">
-  <span class="map-description__text">Interactive map of all the backpacker hostels in Spain.</span>
+  <span class="map-description__text">The easiest way to choose the right hostel. Our unique 3D interactive map lets you filter Spanish backpacker hostels by vibe, safety, setups, and value.</span>
 </div>
 
 <section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description">
@@ -415,11 +420,11 @@
 
     <h1 class="area-hero-title" id="faq">Backpacking Spain</h1>
 
-        <p class="intro-p">Right. Let's be honest with you before we start: backpacking Spain is not a two-week package holiday spent face-down on a sun lounger in Benidorm. Yes, you can absolutely do that here too — but Spain is also a country where you can watch the sun rise over a 1,000-year-old Moorish palace, run through a medieval city ahead of half a tonne of angry bull, hike a month-long pilgrimage route across an entire kingdom, and dance in a square at 4am with a crowd of total strangers who have decided, collectively and without discussion, that nobody is going home tonight. It is one of the most rewarding, most affordable, and most sociable backpacking destinations in Europe — and this site exists to help you make the most of every single day of it.</p>
+        <p class="intro-p">Most people picture Spain before they've ever set foot in it — sangria, siestas, a beach towel reserved with a paperback at 7am. Some of that is real. Most of it is the tourist-brochure version of a country that's actually stranger, older, and considerably more fun than the postcards let on. This is a country where an entire city runs from live bulls once a year for sport, where a flamenco dancer can silence a packed bar with a single stamp of a heel, and where you can be hiking a snow-capped mountain range in the morning and swimming in the Mediterranean by evening. Forget the sun lounger — this is Spain built for people who want a genuinely big adventure, not just a week off.</p>
 
-        <p class="intro-p">For backpackers coming from the UK and the rest of Western Europe, Spain is close enough to feel familiar and different enough to feel like a genuine adventure. The pace of life runs later and slower — dinner at 10pm, siestas, clubs that don't fill up until 2am. The regions barely resemble each other: Galicia in the green, rainy northwest looks and tastes more like Ireland than the Spain of the postcards, while Andalusia in the south is all whitewashed villages, flamenco, and Moorish architecture. Catalonia has its own language and its own identity. The Basque Country has the best food in the country, possibly in Europe, and a language nobody can quite explain the origin of. You could spend a year here and still not have seen it all.</p>
+        <p class="intro-p">If you're coming from the UK or anywhere else in Western Europe, Spain will feel closer than it is — close enough that the flight barely counts as travel, different enough that within a day you'll wonder how somewhere this near ever felt this foreign. Life runs on a different clock here: lunch stretches past 2pm, dinner doesn't start until 10, and the streets are still full of families and pensioners at midnight. Head to Galicia in the rain-soaked northwest and it barely resembles the Spain of the brochures — all green hills, seafood, and Celtic folk music. Head south to Andalusia and you're somewhere that feels half Spanish, half Moroccan, whitewashed hill towns and horseshoe arches wherever you look.</p>
 
-        <p class="intro-p">And then there's the cost. Spain is one of the cheapest countries in Western Europe to backpack — cheaper than France, Germany, or the Netherlands, and often cheaper than home. A menú del día (a full three-course lunch with a drink, a Spanish institution) can cost less than a sandwich meal-deal back in the UK. This is the trip where your money goes further than you expect and your memories last a lot longer than your bank statement suggests they should.</p>
+        <p class="intro-p">And then there's what it costs, which is the part most first-timers can't quite believe. A proper three-course lunch with wine — the menú del día, a genuine Spanish institution — will often set you back less than a meal deal at a UK service station. Dorm beds, intercity buses, and a round of beers are all priced like it's still a decade ago. Whatever adventure you had in mind, Spain will let you have a bigger one for less than you budgeted.</p>
 
 </section>
 
@@ -490,19 +495,64 @@
 
     <div class="quick-fact">
         <div class="quick-fact-icon" aria-hidden="true">
-            <img src="/assets/icon-best-time-to-visit.webp" alt="Best time to visit icon" width="100" height="100" loading="lazy" decoding="async" fetchpriority="low">
+            <img src="/assets/sun.webp" alt="Sun icon" width="100" height="100" loading="lazy" decoding="async" fetchpriority="low">
         </div>
         <div class="quick-fact-content">
-            <strong>Best Time To Visit:</strong><br> May, June and September for warm weather without the peak-season crowds and heat of July and August.
+            <strong>Sunniest Month:</strong> July
         </div>
     </div>
 
     <div class="quick-fact">
         <div class="quick-fact-icon" aria-hidden="true">
-            <img src="/assets/icon-best-for.webp" alt="Best for icon" width="100" height="100" loading="lazy" decoding="async" fetchpriority="low">
+            <img src="/assets/value.webp" alt="Money value icon" width="100" height="100" loading="lazy" decoding="async" fetchpriority="low">
         </div>
         <div class="quick-fact-content">
-            <strong>Best For:</strong> Nightlife, architecture, beaches, hiking the Camino, cheap and excellent food, and a genuinely sociable hostel scene.
+            <strong>Best Value:</strong> May
+        </div>
+    </div>
+
+    <div class="quick-fact">
+        <div class="quick-fact-icon" aria-hidden="true">
+            <img src="/assets/hiking.webp" alt="Hiking boots icon" width="100" height="100" loading="lazy" decoding="async" fetchpriority="low">
+        </div>
+        <div class="quick-fact-content">
+            <strong>Best Hiking:</strong> September
+        </div>
+    </div>
+
+    <div class="quick-fact">
+        <div class="quick-fact-icon" aria-hidden="true">
+            <img src="/assets/safari.webp" alt="Festival icon" width="100" height="100" loading="lazy" decoding="async" fetchpriority="low">
+        </div>
+        <div class="quick-fact-content">
+            <strong>Best For Festivals:</strong> July (San Fermín and peak fiesta season)
+        </div>
+    </div>
+
+    <div class="quick-fact">
+        <div class="quick-fact-icon" aria-hidden="true">
+            <img src="/assets/whale.webp" alt="Beach icon" width="100" height="100" loading="lazy" decoding="async" fetchpriority="low">
+        </div>
+        <div class="quick-fact-content">
+            <strong>Best Beach Weather:</strong> August
+        </div>
+    </div>
+
+    <div class="quick-fact">
+        <div class="quick-fact-icon" aria-hidden="true">
+            <img src="/assets/surf.webp" alt="Surfing icon" width="100" height="100" loading="lazy" decoding="async" fetchpriority="low">
+        </div>
+        <div class="quick-fact-content">
+            <strong>Best Surf:</strong> October
+        </div>
+    </div>
+
+    <div class="quick-fact">
+        <div class="quick-fact-icon" aria-hidden="true">
+            <img src="/assets/cape-town.webp" alt="City skyline icon" width="100" height="100" loading="lazy" decoding="async" fetchpriority="low">
+        </div>
+        <div class="quick-fact-content">
+            <strong>Most Popular:</strong> Barcelona
         </div>
     </div>
 
@@ -521,12 +571,6 @@
         </div>
         <div class="quick-fact-content">
             <strong>Most Underrated:</strong> Galicia, Asturias, and the Basque Country — Green Spain gets a fraction of the tourists the south does, for no good reason.
-        </div>
-    </div>
-
-    <div class="quick-fact">
-        <div class="quick-fact-content">
-            <strong>Most Popular:</strong> Barcelona
         </div>
     </div>
 
@@ -891,7 +935,7 @@
 
     <h2 class="area-hero-title" id="hostels">Backpacker Hostels Directory</h2>
 
-<p class="intro-p">We're building the same guide for Spain that we built for South Africa: every hostel, with full contact details, plus Safety Ratings, Value For Money, Solo Female Friendliness, and Digital Nomad scorecards. That build comes last — for now, use the map above to see what we've found so far.</p>
+<p class="intro-p">We're the only guide that lists all the hostels, with their full contact details, in case you want to book direct, plus useful info such as Safety Ratings and Value For Money, Solo Female Friendliness, and Digital Nomad scorecards.</p>
 
 <p class="section-cta__label"><strong>SEE OUR</strong></p>
 <div class="section-cta">
@@ -912,15 +956,14 @@
     </div>
 </section>
 
-     <!-- Top Picks — not yet built. We haven't rated or shortlisted any Spain hostels yet
-          (that comes last, per your build order), so rather than invent placeholder hostel
-          names here, this section just points to the directory instead. Replace with real
-          hostel-card articles once the ratings work is done — see the Cape Town/SA page's
-          "Top Picks" markup for the exact card structure to reuse. -->
+     <!-- Top Picks — heading/copy match the SA page, but the actual hostel-card grid isn't
+          built yet since no Spain hostels have been rated/shortlisted (that comes last, per
+          your build order). Add real hostel-card articles here once that work is done — see
+          the Cape Town/SA page's "Top Picks" markup for the exact card structure to reuse. -->
 
     <h2 class="area-hero-title">Top Picks</h2>
 
-<p class="intro-p">Coming soon — we haven't rated Spain's hostels yet. Check back once the directory is built, or browse what's on the map above in the meantime.</p>
+<p class="intro-p">Some of our favourite hostels.</p>
 
 </section>
 
