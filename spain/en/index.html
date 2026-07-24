@@ -369,14 +369,7 @@
 
 <main id="main-content">
 
-<!-- ░░ HOSTEL MAP — Google My Maps placeholder ░░ -->
-<!-- Temporary embed while the MapLibre filter map + itinerary builder are being rebuilt for Spain.
-     Reuses the existing .sa-hostel-map-shell / .sa-hostel-map-iframe CSS hooks purely so this
-     inherits the exact same dimensions the old map+filters+wizard stack occupied — swap the class
-     names later if you want to rename them once the real Spain map work starts. -->
-<div class="map-description" id="hostel-map-description">
-  <span class="map-description__text">The easiest way to choose the right hostel. Our unique 3D interactive map lets you filter Spanish backpacker hostels by vibe, safety, setups, and value.</span>
-</div>
+<!-- ░░ HOSTEL MAP ░░ -->
 
 <section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description">
   <iframe
@@ -657,8 +650,8 @@
 <style>
   .jump-card-img--placeholder{
     display:block;
-    width:100%;
-    height:100%;
+    width:150px;
+    height:150px;
     background-color:#000000;
   }
 
@@ -724,33 +717,10 @@
      <!-- Parallax image -->
 
 <div class="parallax-window"
-     style="--bg-desktop: url('/assets/south_africa_backpacking-cape_town.webp');
-            --bg-mobile: url('/assets/south_africa_backpacking-cape_town_mobile.webp');">
+     style="--bg-desktop: url('/spain/assets/images/backpacking-spain.webp');
+            --bg-mobile: url('/spain/assets/images/backpacking-spain_mobile.webp');">
 </div>
 
-
-<!-- ░░ GAME ░░ (leave as-is for now — to become a "Running of the Bulls" game later,
-     where the player jumps or somersaults over an ever-increasing stream of charging bulls,
-     including a boss bull. Placeholder script/markup unchanged in the meantime.) -->
-<div class="kalahari-game-wrap" role="region" aria-label="Kalahari survival game">
-  <canvas
-    id="kalahari-game"
-    role="application"
-    aria-label="Kalahari game — tap or click to shoot arrows at eland. Survive as long as possible."
-    tabindex="0"
-    style="display:block;width:100%;height:200px;cursor:pointer;touch-action:manipulation;border-radius:4px;"
-  ></canvas>
-</div>
-
-<script>
-  if (window.innerWidth >= 1024) {
-    var s = document.createElement('script');
-    s.src = '/assets/game/khoisan-game.js';
-    document.body.appendChild(s);
-  }
-</script>
-
-<!-- ░░ END GAME ░░ -->
 
 <section id="content-section-3" class="text-section--after-parallax" aria-labelledby="activities">
     <div class="container-wide">
@@ -815,7 +785,6 @@
          height="800">
   </picture>
 </div>
-<!-- Placeholder cartoon — swap for Spain artwork when ready -->
 
 </section>
 
@@ -913,16 +882,15 @@
         </div>
 
 </section>
-<!-- Photos above are the SA site's placeholder images for now, per your instruction — only the
-     links, titles, and prices have been changed to real Spain tours/tickets. Swap the background-image
-     urls for Spain photography whenever you're ready. -->
 
      <!-- Regions Map placeholder -->
 
-<span id="map" aria-hidden="true"></span>
-<section class="hero-section">
-    <div class="jump-card-img--placeholder" style="height:420px;" role="img" aria-label="Map showing the backpacking regions of Spain — placeholder until the real map graphic is ready"></div>
-</section>
+     <!-- Parallax image -->
+
+<div class="parallax-window"
+     style="--bg-desktop: url('/spain/assets/images/spain-coastal-city.webp');
+            --bg-mobile: url('/spain/assets/images/spain-coastal-city_mobile.webp');">
+</div>
 
      <!-- Section 3: Hostel Directory -->
 
@@ -1048,8 +1016,8 @@
      <!-- Parallax image -->
 
 <div class="parallax-window"
-     style="--bg-desktop: url('/assets/backpacking_garden_route-wilderness_beach.webp');
-            --bg-mobile: url('/assets/backpacking_garden_route-wilderness_beach_mobile.webp');">
+     style="--bg-desktop: url('/spain/assets/images/spain-ornamental-bridge.webp');
+            --bg-mobile: url('/spain/assets/images/spain-ornamental-bridge_mobile.webp');">
 </div>
 
     <!-- Footer start -->
