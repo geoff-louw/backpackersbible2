@@ -906,23 +906,22 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     }
 
-    // 1. Desktop: auto-load immediately; keep the yellow circle visible
-    if (window.innerWidth > 768) {
-      wakeUpMap(false);
+    // Desktop and mobile now both wait for a click/tap on the poster,
+    // the yellow circle, or anywhere on the shell before loading the
+    // live map. (Desktop used to auto-load immediately; that caused
+    // a trackpad scroll-trap on Mac laptops — the eagerly-loaded map
+    // would capture two-finger scroll before the user meant to
+    // interact with it.)
+    if (poster) {
+      poster.style.cursor = 'pointer';
+      poster.addEventListener('click', function() { wakeUpMap(true); }, { once: true });
     }
-    // 2. Mobile: tap the poster OR the yellow circle to load the map
-    else {
-      if (poster) {
-        poster.style.cursor = 'pointer';
-        poster.addEventListener('click', function() { wakeUpMap(true); }, { once: true });
-      }
-      if (overlayCircle) {
-        overlayCircle.addEventListener('click', function() { wakeUpMap(true); }, { once: true });
-      }
-      // Fallback: tap anywhere on the shell
-      if (container) {
-        container.addEventListener('click', function() { wakeUpMap(true); }, { once: true });
-      }
+    if (overlayCircle) {
+      overlayCircle.addEventListener('click', function() { wakeUpMap(true); }, { once: true });
+    }
+    // Fallback: tap anywhere on the shell
+    if (container) {
+      container.addEventListener('click', function() { wakeUpMap(true); }, { once: true });
     }
   });
 });
