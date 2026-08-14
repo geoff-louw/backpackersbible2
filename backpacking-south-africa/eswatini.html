@@ -1377,10 +1377,10 @@ window.BB_TIPS = [
       }
     });
 
-    // Desktop: auto-load the map immediately (no click required)
-    if (window.innerWidth >= 1024) {
-      wakeUpMap();
-    }
+    // Desktop now waits for a click, same as mobile — the map used to
+    // auto-load here, but that caused a trackpad scroll-trap on Mac
+    // laptops. The click-to-load listener a few lines below already
+    // covers both desktop and mobile.
 
     // Mobile: load on tap of the poster/shell area
     mapIframe.closest('.sa-hostel-map-shell').addEventListener('click', wakeUpMap, { once: true });
