@@ -268,6 +268,38 @@
         center: CENTER, zoom: ZOOM, pitch: PITCH, bearing: BEARING, antialias: true
       });
 
+      // TRACKPAD SCROLL-TRAP FIX
+      // Without this, ANY wheel event over the map — including a Mac
+      // trackpad's plain two-finger scroll — gets captured by MapLibre's
+      // scroll-zoom handler and page-scroll never happens (the classic
+      // "stuck on the map" bug). We don't want to lose real mouse-wheel
+      // zoom (it's the fastest way to fly around), so instead of disabling
+      // scroll-zoom outright, we intercept each wheel event in the capture
+      // phase — before it ever reaches MapLibre's own listener on the
+      // canvas — and only let genuine mouse-wheel-shaped events through.
+      //
+      // Heuristic (not perfect, but covers the real-world cases):
+      //   - Firefox reports physical wheels as deltaMode 1 (line-based).
+      //   - A real wheel spin is a small number of big, fixed-size notches
+      //     (deltaY in large integer steps) with no sideways drift.
+      //   - A trackpad scroll is a stream of small, smooth, often
+      //     fractional deltaY values, usually with some deltaX drift from
+      //     finger movement.
+      // Anything ambiguous is treated as trackpad — i.e. it defaults to
+      // "let the page scroll" rather than risk trapping the user. This
+      // does mean a Magic Mouse or a Windows precision trackpad will also
+      // scroll the page rather than zoom the map; the on-screen +/−
+      // buttons and Cmd/Ctrl+scroll (still zooms in both cases) remain
+      // available either way.
+      wrap.addEventListener('wheel', function (e) {
+        const isRealWheelNotch =
+          e.deltaMode === 1 ||                                   // Firefox line mode
+          (e.deltaX === 0 && Number.isInteger(e.deltaY) && Math.abs(e.deltaY) >= 40);
+        if (!isRealWheelNotch) {
+          e.stopPropagation(); // never reaches MapLibre's handler; page scrolls as normal
+        }
+      }, { capture: true, passive: true });
+
       map.on('error', e => { if (e.error && (e.error.status===0 || !navigator.onLine)) showOffline(); });
 
       map.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), 'top-right');
@@ -401,9 +433,8 @@
         // regardless of position — satellite + roads + labels is all we want.
         map.getStyle().layers.forEach(layer => {
           try {
-            if (layer.type === 'fill')            map.setPaintProperty(layer.id, 'fill-opacity', 0);
-            if (layer.type === 'background')      map.setPaintProperty(layer.id, 'background-opacity', 0);
-            if (layer.type === 'fill-extrusion')  map.setPaintProperty(layer.id, 'fill-extrusion-opacity', 0);
+            if (layer.type === 'fill')       map.setPaintProperty(layer.id, 'fill-opacity', 0);
+            if (layer.type === 'background') map.setPaintProperty(layer.id, 'background-opacity', 0);
           } catch(e) {}
         });
 
