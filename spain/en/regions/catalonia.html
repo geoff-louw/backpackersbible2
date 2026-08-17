@@ -685,7 +685,62 @@
     height:100%;
     background-color:#000000;
   }
+
+  /* Country switcher — new component, not yet in style-2.css.
+     Reuses .site-header__location-badge for base look, just adds
+     dropdown-specific bits on top. Move into style-2.css whenever convenient. */
+  .country-switcher{ position:relative; display:inline-block; }
+  .country-switcher__trigger{
+    display:inline-flex; align-items:center; gap:4px;
+    font-family:inherit; cursor:pointer; border:none;
+  }
+  .country-switcher__chevron{ width:14px; height:14px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .country-switcher__menu{
+    display:none;
+    position:absolute; top:100%; left:0; margin-top:6px;
+    min-width:160px; z-index:50;
+    background:#ffffff; color:#670000;
+    border:2px solid #670000; border-radius:6px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.2);
+    overflow:hidden;
+  }
+  .country-switcher__menu.is-open{ display:block; }
+  .country-switcher__menu a{
+    display:block; padding:10px 14px;
+    font-family:inherit; text-decoration:none; color:#670000;
+  }
+  .country-switcher__menu a:hover,
+  .country-switcher__menu a:focus{ background:#fdf400; }
+  .country-switcher__menu a[aria-current="page"]{ font-weight:bold; background:#f5f5f5; }
 </style>
+
+<script>
+(function(){
+  var trigger = document.getElementById('country-switcher-trigger');
+  var menu    = document.getElementById('country-switcher-menu');
+  if (!trigger || !menu) return;
+
+  function closeMenu(){
+    menu.classList.remove('is-open');
+    trigger.setAttribute('aria-expanded', 'false');
+  }
+  function openMenu(){
+    menu.classList.add('is-open');
+    trigger.setAttribute('aria-expanded', 'true');
+  }
+
+  trigger.addEventListener('click', function(e){
+    e.stopPropagation();
+    if (menu.classList.contains('is-open')) closeMenu(); else openMenu();
+  });
+  document.addEventListener('click', function(e){
+    if (!menu.contains(e.target) && e.target !== trigger) closeMenu();
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') closeMenu();
+  });
+})();
+</script>
 
     <div class="site-header__strip site-header__strip--black"  aria-hidden="true"></div>
 
