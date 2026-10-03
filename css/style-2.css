@@ -4830,11 +4830,11 @@ details summary {
    43. TABLE CENTRE
    ============================================================ */
 
-
 table.centered-table {
-  width: min(100%, 550px); /* Take 100% width on small screens, max 550px on desktop */
-  margin-left: auto;       /* Centers the table block */
+  width: min(100%, 550px); /* Centers nicely on desktop, fits mobile screens */
+  margin-left: auto;       /* Horizontally centers the table block */
   margin-right: auto;
+  margin-bottom: 2rem;     /* Adds generous spacing before the next paragraph */
   text-align: left;        /* Keeps inner text ragged & left-aligned */
   border-collapse: collapse;
 }
@@ -4842,5 +4842,5 @@ table.centered-table {
 table.centered-table th,
 table.centered-table td {
   text-align: left;
-  padding: 8px 12px;       /* Slightly tighter padding so long prices fit comfortably */
+  padding: 8px 12px;       /* Tighter padding for mobile safety */
 }
