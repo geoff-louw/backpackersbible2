@@ -91,6 +91,9 @@
                             </svg>
                         </button>
                         <div class="country-switcher__menu" id="country-switcher-menu" role="menu" aria-label="Switch country guide">
+                            <!-- "Home" and "South Africa" both point at "/" for now since the SA guide
+                                 IS the site homepage until you swap the front page over — update these
+                                 once Home becomes its own separate landing page. -->
                             <a href="/" role="menuitem">Home</a>
                             <a href="/" role="menuitem">South Africa</a>
                             <a href="/spain/en/" role="menuitem" aria-current="page">Spain</a>
@@ -151,41 +154,6 @@
 
             <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
 
-                <div class="site-nav__item">
-
-                    <button class="site-nav__mega-trigger site-nav__mega-trigger--downloads"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                            aria-controls="mega-downloads">
-                        ★ <strong>Free Offline Guides</strong>
-                    </button>
-
-                    <div class="site-nav__mega-menu site-nav__mega-menu--downloads" id="mega-downloads" role="menu" aria-label="Free offline guides">
-
-                        <div class="site-nav__mega-col">
-                            <h3 class="site-nav__mega-heading">PDF Hostel Guide</h3>
-                            <p class="site-nav__mega-desc">A compact interactive PDF with a clickable map and the contact details of every backpacking hostel in Spain. No wifi needed — just save it to your phone and go.</p>
-                            <a href="/spain/en/pdf/spain-backpackpacking-guide.pdf"
-                               class="site-nav__mega-btn"
-                               target="_blank">
-                                Download PDF <span class="sr-only">(opens in a new tab)</span>
-                            </a>
-                            <p class="site-nav__mega-spec">(Interactive PDF — coming soon)</p>
-                        </div>
-
-                        <div class="site-nav__mega-col">
-                            <h3 class="site-nav__mega-heading">Full Backpackers Bible App</h3>
-                            <p class="site-nav__mega-desc">The complete guide — maps, regions, advice, tours, and hostel reviews — installed as an app icon on your home screen. Works fully offline, even deep in the Pyrenees.</p>
-                            <a href="/spain/en/#download-pwa" class="site-nav__mega-btn">
-                                Get the App →
-                            </a>
-                            <p class="site-nav__mega-spec">(Progressive Web App — free)</p>
-                        </div>
-
-                    </div>
-
-                </div>
-
                 <a href="/spain/en/" class="site-nav__link">Home</a>
 
                 <div class="site-nav__item">
@@ -231,13 +199,15 @@
                             <h3 class="site-nav__mega-heading">City Guides</h3>
                             <a href="/spain/en/regions/barcelona" role="menuitem">Barcelona</a>
                             <a href="/spain/en/regions/toledo" role="menuitem">Toledo</a>
-                            <a href="/spain/en/regions/seville" role="menuitem" aria-current="page">Seville</a>
+                            <a href="/spain/en/regions/seville" role="menuitem">Seville</a>
                         </div>
 
                     </div>
 
                 </div>
 
+
+                <!-- Mega menu item: Advice -->
 
                 <div class="site-nav__item">
 
@@ -286,6 +256,8 @@
 
                 </div>
 
+
+                <!-- Mega menu item: Tours -->
 
                 <div class="site-nav__item">
 
@@ -355,10 +327,6 @@
 <div class="header-spacer" aria-hidden="true"></div>
 
 <main id="main-content">
-
-<div class="map-description" id="hostel-map-description">
-  <span class="map-description__text">The easiest way to choose your Seville hostel. Filter stays on our unique 3D map by digital nomad setups, party vibe, female safety, and value.</span>
-</div>
 
 <section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description">
   <iframe
@@ -968,27 +936,57 @@
             --bg-mobile: url('/spain/assets/images/backpacking_seville_gardens_mobile.webp');">
 </div>
 
-<section class="hostel-list-section text-section--after-parallax" id="list-container">
+     <!-- Section 3: Hostel Directory -->
+
+<section class="hostel-list-section" id="list-container">
 
     <div class="container-wide">
 
-    <h2 class="area-hero-title area-hero-title--section-gap" id="hostels">Seville Hostel Directory</h2>
+    <h2 class="area-hero-title" id="hostels">Budget Accommodation In Seville</h2>
 
-    <h4 class="sub-heading-desktop">Hostels listed on Booking.com and Hostelworld</h4>
+    <h3 class="sub-heading-desktop">Hostels listed on Booking.com and Hostelworld</h3>
 
         <div class="booking-btn-container">
-            <a href="https://www.booking.com/hostels/city/es/seville.html" target="_blank" class="btn-booking-com" rel="sponsored">Booking<span>.com</span></a>
-            <a href="https://www.hostelworld.com/hostels/spain/seville/" target="_blank" class="btn-hostelworld-com" rel="sponsored">HOSTELWORLD</a>
+            <a href="https://www.booking.com/region/es/navarre.html" target="_blank" class="btn-booking-com">Booking<span>.com</span></a>
+            <a href="https://www.hostelworld.com/hostels/europe/spain/seville/" target="_blank" class="btn-hostelworld-com">HOSTELWORLD</a>
         </div>
 
-    <h3 class="section-heading-desktop">All Hostels</h3>
+<h3 class="section-heading-desktop">Understanding Budget Accommodation In Spain</h3>
 
-<p class="intro-p">We're the only guide that lists all the hostels, with their full contact details, in case you want to book direct, plus useful info such as Safety Ratings and Value For Money, Solo Female Friendliness, and Digital Nomad scorecards.</p>
+<p class="intro-p">There is one important linguistic trap for backpackers in Spain: a <strong>hostel</strong> and a <strong>hostal</strong> are not the same thing.</p>
 
-<p class="section-cta__label"><strong>SEE OUR</strong></p>
-<div class="section-cta">
-    <a href="/spain/en/hostels/seville" class="hostel-dir-btn">Seville Hostel Directory</a>
-</div>
+<p class="intro-p"><strong>Hostels — the backpacker option</strong><br> If you're coming from the UK or elsewhere in Europe, this is probably what you mean when you say "hostel". Dormitory beds, shared facilities, common areas and a social atmosphere are the usual features. Many have female-only dorms, kitchens, lockers, private rooms and organised activities, and some are deliberately geared towards nightlife and meeting other travellers.</p>
+
+<p class="intro-p">You will see both <em>hostel</em> and <em>albergue</em> used in Spain. An albergue is particularly common terminology for dormitory-style accommodation, including the hostels used by pilgrims on the Camino de Santiago. However, names and regulations vary between regions, so don't assume that every place calling itself an albergue will have exactly the same facilities.</p>
+
+<p class="intro-p"><strong>Hostales — traditional Spanish guesthouses</strong><br> This is the one that catches backpackers out. A <em>hostal</em> is traditionally a small, simple hotel or guesthouse, usually offering <strong>private rooms</strong> rather than dormitory beds. It is not the Spanish equivalent of a British backpacker hostel.</p>
+
+<p class="intro-p">Hostales can be excellent budget accommodation, particularly if you're travelling as a couple or simply want a quiet night away from a dorm. Facilities vary: some have private bathrooms and quite a few hotel-like services, while others are much more basic.</p>
+
+<p class="intro-p"><strong>Pensiones</strong><br> A <em>pensión</em> is another traditional form of simple, budget accommodation. They generally offer private rooms with fewer services than a conventional hotel. Some are extremely basic; others can be comfortable, characterful and very good value.</p>
+
+<p class="intro-p"><strong>REAJ youth hostels</strong><br> Spain also has a network of more than 300 official youth hostels operated through <strong>REAJ</strong> (<em>Red Española de Albergues Juveniles</em>). These range from city hostels to accommodation in coastal and mountain areas, and can have rooms for individuals, couples, families and groups. They tend to be more institutional than independent backpacker hostels, and are widely used by school groups, students, families and other travellers.</p>
+
+<p class="intro-p">There is <strong>no age limit</strong> for staying in REAJ hostels, but a REAJ Hosteller Card is required. The card offers access to the network and may provide discounts on travel and other services. Check the current card requirements and fees before booking.</p>
+
+<p class="intro-p"><strong>Student residences</strong><br> Some university residences open their doors to visitors outside the academic year, particularly during the summer. These can offer private or twin rooms and shared facilities, and are worth checking if you're travelling during the university holidays.</p>
+
+<p class="intro-p"><strong>Multi hostels — a last-minute alternative</strong><br> A relatively new type of budget accommodation, sometimes described as a <em>multi hostel</em>, is appearing in busy cities such as Madrid and Barcelona. These are often apartment-style premises fitted with rows of bunk beds, with access controlled by digital keypads or codes rather than a conventional reception desk.</p>
+
+<p class="intro-p">They are generally designed to provide a simple, low-cost place to sleep, rather than the social experience of a traditional backpacker hostel. There may be no staff permanently on site, no communal activities and limited shared facilities. Customer service and check-in are often handled digitally.</p>
+
+<p class="intro-p">These places may be worth considering during peak season, when conventional hostels are full or prices have soared. However, check exactly what you're booking: look carefully at recent reviews, security arrangements, bathroom and kitchen facilities, check-in instructions and what happens if you arrive late or have a problem. A cheap bed is less of a bargain if you can't get into the building or there is nobody available to help.</p>
+
+<p class="intro-p"><strong>Tourist apartments</strong><br> Apartments can make sense for two or more backpackers travelling together, particularly if you are staying for several nights. Having a kitchen means you can prepare some of your own meals instead of eating out every day. Rules governing tourist apartments vary between regions.</p>
+
+<p class="intro-p"><strong>Rural accommodation and campsites</strong><br> Away from the cities, Spain has a huge range of rural accommodation, from farmhouses and country cottages to small rural hotels and guesthouses. Campsites are also widely available, particularly along the coast and in the mountains.</p>
+
+<p class="intro-p"><strong>The important distinction:</strong> if you want the classic backpacker experience — dorm beds, other independent travellers, a common room and the possibility of meeting people — look for a <strong>hostel</strong> or suitable <strong>albergue</strong>. If you search for a <strong>hostal</strong>, you are normally looking for a cheap private guesthouse instead. And if you're struggling to find a bed during peak season, a multi hostel may offer another option, provided you're comfortable with a more basic, self-service setup.</p>
+
+
+     <!-- Spacer -->
+
+<div class="hostel-grid-spacer"></div>
 
     </div>
 </section>
@@ -1064,12 +1062,6 @@ SEVILLE
 
         <p class="disclosure-text">Thank you. Safe travels, and may you have a fantastic holiday! <img src="/assets/heart.png" alt="" aria-hidden="true"></p>
 
-        <div class="affiliate-disclosure__cta">
-            <img src="/assets/hand-phone__backpacking_map_small2.png" alt="Backpacking guide on mobile phone">
-            <a href="/spain/en/pdf/spain-backpackpacking-guide.pdf" target="_blank" class="download-btn-yellow" aria-describedby="pdf-info">DOWNLOAD THE FREE OFFLINE GUIDE <span class="sr-only">(opens in a new tab)</span></a>
-            <p class="file-specs" id="pdf-info">(Interactive PDF — coming soon)</p>
-        </div>
-
     </section>
 
     <div class="f-strip black"></div>
@@ -1100,7 +1092,7 @@ SEVILLE
 
         <div class="footer-share">
             <span id="whatsapp-share">SHARE <span class="sr-only">(opens in a new tab)</span></span>
-            <a href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://backpackersbible.com/spain/en/regions/seville" target="_blank">
+            <a href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://backpackersbible.com/spain/en/regions/extremadura" target="_blank">
                 <img src="/assets/whatsapp_icon_round.png" alt="WhatsApp icon" class="footer-share__icon" aria-describedby="whatsapp-share">
             </a>
         </div>
