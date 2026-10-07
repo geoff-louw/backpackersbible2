@@ -384,41 +384,10 @@
   <span class="map-description__text">The easiest way to choose the right hostel. Our unique 3D interactive map lets you filter South African backpackers by vibe, safety, setups, and value.</span>
 </div>
 
-<!-- ░░ HOSTEL MAP ░░ -->
-<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description">
-
-  <!-- Poster image: shows before user loads the map -->
-  <picture class="sa-hostel-map-poster">
-    <source media="(max-width: 767px)" srcset="/assets/fallback_map_national_mobile.webp">
-    <img src="/assets/fallback_map_national.webp" 
-         alt="Interactive backpacker hostel map of South Africa showing hostels that can be filtered by travel style, safety, digital nomad suitability, surfing, camping and budget travel preferences."
-         loading="eager"
-         fetchpriority="high"
-         decoding="async">
-  </picture>
-
-  <!-- The map iframe — src is blank until user clicks -->
-  <iframe
-    class="sa-hostel-map-iframe bb-map-iframe"
-    title="Interactive hostel map of South Africa"
-    src="about:blank"
-    data-src="/map.html?region=national&center=23.68,-29.92&zoom=5&mobile-center=23.00,-35.40&mobile-zoom=4"
-    loading="lazy"
-    allowfullscreen>
-  </iframe>
-
-  <!-- Yellow circle: desktop-only info note; mobile: not shown (CSS) -->
-  <div class="map-overlay-circle" aria-hidden="true">
-    We list ALL the hostels<br>in the country!<br>Click the icons for info.
-  </div>
-
-</section>
-<!-- ░░ END HOSTEL MAP ░░ -->
-
   <!-- Map filter buttons -->
 
 <h2 class="sr-only">
-    Hostel Finder
+    Search South Africa Backpacker Hostels
 </h2>
 
 <p class="sr-only">
@@ -449,6 +418,37 @@
         </div>
     </div>
 </div>
+
+<!-- ░░ HOSTEL MAP ░░ -->
+<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description">
+
+  <!-- Poster image: shows before user loads the map -->
+  <picture class="sa-hostel-map-poster">
+    <source media="(max-width: 767px)" srcset="/assets/fallback_map_national_mobile.webp">
+    <img src="/assets/fallback_map_national.webp" 
+         alt="Interactive backpacker hostel map of South Africa showing hostels that can be filtered by travel style, safety, digital nomad suitability, surfing, camping and budget travel preferences."
+         loading="eager"
+         fetchpriority="high"
+         decoding="async">
+  </picture>
+
+  <!-- The map iframe — src is blank until user clicks -->
+  <iframe
+    class="sa-hostel-map-iframe bb-map-iframe"
+    title="Interactive hostel map of South Africa"
+    src="about:blank"
+    data-src="/map.html?region=national&center=23.68,-29.92&zoom=5&mobile-center=23.00,-35.40&mobile-zoom=4"
+    loading="lazy"
+    allowfullscreen>
+  </iframe>
+
+  <!-- Yellow circle: desktop-only info note; mobile: not shown (CSS) -->
+  <div class="map-overlay-circle" aria-hidden="true">
+    We list ALL the hostels<br>in the country!<br>Click the icons for info.
+  </div>
+
+</section>
+<!-- ░░ END HOSTEL MAP ░░ -->
 
 <!-- ░░ BUILD YOUR OWN ITINERARY ░░ -->
 
@@ -1237,6 +1237,18 @@ Table Mountain cable car (return) — ~€13–€16
             <a href="https://www.hostelworld.com/hostels/africa/south-africa/cape-town/" target="_blank" class="btn-hostelworld-com">HOSTELWORLD</a>
         </div>
 
+    <h3 class="section-heading-desktop" id="hostels">All Hostels</h3>
+
+<p class="intro-p">Full contact details are included in case you want to book direct, plus useful info such as Safety Ratings and Value For Money, Solo Female Friendliness, and Digital Nomad scorecards.</p>
+
+<p class="section-cta__label"><strong>SEE OUR</strong></p>
+<div class="section-cta">
+    <a href="/south-africa-hostel-directory/limpopo" class="hostel-dir-btn">Limpopo Hostel Directory</a>
+</div>
+
+<h3 class="sub-heading-desktop">Why Hostels Are Called "Backpackers" in South Africa</h3>
+
+<p class="intro-p">If you are looking for hostels in South Africa, you will notice locals almost exclusively refer to them as <strong>"backpackers"</strong> (a contraction of "backpacker hostels"). If you ask for a "hostel", you'll get mystified, almost horrified reactions. There is a historical reason for this distinction. Under apartheid, the word "hostel" carried a very specific meaning: high-density, single-sex housing blocks built by industrial, mining, and manufacturing companies to house Black migrant labourers under strict influx control laws. Because of that heavy legacy, South Africans naturally adopted the term "backpackers" to describe modern, communal budget travel lodges, avoiding the word "hostel" altogether. So when asking locals for directions or searching for budget accommodation on your tour of South Africa, just ask for the nearest <em>backpackers</em>!</p>
 
      <!-- Spacer -->
 
@@ -1469,6 +1481,7 @@ Table Mountain cable car (return) — ~€13–€16
             <a href="/404.html">404</a>
             <a href="/misc/about-backpackers-bible">About Us</a>
             <a href="/map.html">Map</a>
+            <a href="/spain/en/.html">Backpacking Spain</a>
         </nav>
 
         <div class="footer-share">
