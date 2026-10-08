@@ -170,10 +170,11 @@
   const mlScript   = document.createElement('script');
   mlScript.src     = 'https://unpkg.com/maplibre-gl@4.1.3/dist/maplibre-gl.js';
   mlScript.onload  = initMap;
-  mlScript.onerror = showOffline;
+  mlScript.onerror = () => showOffline('MapLibre script failed to load');
   document.head.appendChild(mlScript);
 
-  function showOffline() {
+  function showOffline(reason) {
+    console.warn('BB map: showing fallback image. Reason:', reason && reason.message ? reason.message : reason || 'unknown');
     const m = document.getElementById('bb-map');
     const o = document.getElementById('bb-map-offline');
     if (m) m.style.display = 'none';
@@ -262,11 +263,39 @@
       // label overlay, which bakes text into pixel tiles at north-up and
       // goes upside-down when the bearing changes). Esri satellite imagery
       // is injected as a raster layer beneath all OFM layers in map.on('load').
-      const map = new maplibregl.Map({
+      // TOUCH SCROLL-TRAP FIX (phones/tablets)
+      // With cooperativeGestures on, ONE finger scrolls the page as normal and
+      // only TWO fingers move/zoom the map; a short hint appears if someone
+      // tries to drag with one finger. Desktop mouse behaviour is unchanged.
+      const isTouchDevice = isMobile || window.matchMedia('(pointer: coarse)').matches;
+
+      const mapOptions = {
         container: 'bb-map',
         style: 'https://tiles.openfreemap.org/styles/liberty',
-        center: CENTER, zoom: ZOOM, pitch: PITCH, bearing: BEARING, antialias: true
-      });
+        center: CENTER, zoom: ZOOM, pitch: PITCH, bearing: BEARING,
+        cooperativeGestures: isTouchDevice,
+        locale: {
+          'CooperativeGesturesHandler.MobileHelpText': 'Use 2 fingers to move the map, pinch to zoom'
+        }
+      };
+
+      // Old GPUs/drivers often refuse a WebGL context that asks for
+      // antialiasing. Try with it first (best quality), then without it,
+      // before giving up and showing the static fallback image.
+      let map;
+      try {
+        map = new maplibregl.Map(Object.assign({}, mapOptions, { antialias: true }));
+      } catch (errAA) {
+        console.warn('BB map: WebGL with antialias failed, retrying without it.', errAA);
+        const mapEl = document.getElementById('bb-map');
+        if (mapEl) mapEl.innerHTML = '';
+        try {
+          map = new maplibregl.Map(Object.assign({}, mapOptions, { antialias: false }));
+        } catch (errNoAA) {
+          showOffline(errNoAA);
+          return;
+        }
+      }
 
       // TRACKPAD SCROLL-TRAP FIX
       // Without this, ANY wheel event over the map — including a Mac
@@ -300,7 +329,15 @@
         }
       }, { capture: true, passive: true });
 
-      map.on('error', e => { if (e.error && (e.error.status===0 || !navigator.onLine)) showOffline(); });
+      // Only fall back if the map never managed to load AND the browser is
+      // genuinely offline. A single failed tile (status 0) on a slow or flaky
+      // connection must not replace a working map with the fallback image.
+      let mapHasLoaded = false;
+      map.on('load', () => { mapHasLoaded = true; });
+      map.on('error', e => {
+        if (!mapHasLoaded && !navigator.onLine) showOffline('browser offline');
+        else console.warn('BB map: non-fatal map error', e && e.error);
+      });
 
       map.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), 'top-right');
       map.addControl(new maplibregl.FullscreenControl(), 'top-right');
@@ -995,7 +1032,7 @@
 
       }); // end map.on('load')
 
-    }).catch(err => { console.error('BB map error:',err); showOffline(); });
+    }).catch(err => { console.error('BB map error:',err); showOffline(err); });
   }
 
 })();
