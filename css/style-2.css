@@ -4944,61 +4944,47 @@ table.centered-table td {
    ============================================================ */
 
 
-/* Option 1 & 2 Base Styles */
-.pronunciation-bar {
-  display: inline-flex;
+/* Pronunciation Block Container */
+.pronunciation-block {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
-  margin: 6px 0 18px 0;
-  font-size: 0.875rem;
+  gap: 4px;
+  margin-top: 8px;
+  margin-bottom: 32px; /* Generous gap before following paragraph */
+  width: max-content;
 }
 
-.phonetic {
-  color: #555555;
-}
-
-.phonetic em {
-  font-style: normal;
-  font-weight: bold;
-  color: #111111;
-}
-
-.audio-btn,
-.audio-btn-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: #bc1d23;
-  color: #ffffff;
-  border: none;
-  border-radius: 16px;
-  padding: 4px 12px;
-  font-size: 0.8rem;
+/* Line 1: Phonetic text */
+.phonetic-text {
+  font-size: 1.05rem;
   font-weight: 600;
+  font-style: italic;
+  color: #222222;
+  letter-spacing: 0.2px;
+}
+
+/* Line 2: Black icon with transparent background */
+.audio-icon-btn {
+  background: transparent;
+  border: none;
+  padding: 6px; /* Increases touch/click area without adding visible background */
+  margin: 0;
   cursor: pointer;
-}
-
-.audio-btn:hover,
-.audio-btn-pill:hover {
-  background: #961318;
-}
-
-/* Option 3 Icon-Only Styles */
-.audio-icon-only {
+  color: #000000;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  background: #f4f4f4;
-  color: #bc1d23;
-  border: 1px solid #ccc;
   border-radius: 50%;
-  cursor: pointer;
-  margin-top: 4px;
+  transition: transform 0.15s ease, opacity 0.15s ease;
 }
 
-.audio-icon-only:hover {
-  background: #bc1d23;
-  color: #ffffff;
+.audio-icon-btn:hover,
+.audio-icon-btn:focus-visible {
+  opacity: 0.7;
+  outline: none;
+}
+
+.audio-icon-btn:active {
+  transform: scale(0.92);
 }
