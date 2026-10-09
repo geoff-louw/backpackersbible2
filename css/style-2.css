@@ -4844,3 +4844,93 @@ table.centered-table td {
   text-align: left;
   padding: 8px 12px;       /* Tighter padding for mobile safety */
 }
+
+
+/* ============================================================
+   44. ITINERARY HUB TILES
+   Used on /spain/en/itineraries/. Square image tiles in a
+   3-column grid (2 columns on phones), grouped under
+   .section-heading-desktop headings.
+   ============================================================ */
+
+/* Wrapper for a section heading and its intro text above a grid */
+.itinerary-section {
+    max-width: 1100px;
+    margin: 0 auto 10px;
+    padding: 0 var(--space-sm);
+}
+
+/* "See all ..." link under a section intro */
+.itinerary-section__all {
+    margin: -6px 0 var(--space-sm);
+}
+
+.itinerary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 1100px;
+    margin: 0 auto 36px;
+    padding: 0 var(--space-sm);
+}
+
+.itinerary-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-white);
+    border: 1px solid #dddddd;
+    border-bottom: 4px solid var(--color-red);
+    color: var(--color-grey-dark);
+    text-decoration: none;
+}
+
+.itinerary-card:hover {
+    text-decoration: none;
+}
+
+.itinerary-card:hover,
+.itinerary-card:focus-visible {
+    outline: 3px solid #005F8A;
+    outline-offset: -3px;
+}
+
+/* Square crop whatever the source image proportions */
+.itinerary-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+/* Length and transport strip */
+.itinerary-card__meta {
+    background-color: #670000;
+    color: var(--color-yellow);
+    font-size: var(--text-xs);
+    padding: 6px 10px;
+}
+
+.itinerary-card h3 {
+    margin: 10px 10px 4px;
+    font-size: var(--text-base);
+    line-height: 1.25;
+    color: #670000;
+}
+
+.itinerary-card p {
+    margin: 0 10px 12px;
+    font-size: var(--text-xs);
+    line-height: 1.4;
+}
+
+/* Phones: two tiles per row */
+@media (max-width: 599px) {
+    .itinerary-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .itinerary-card h3 {
+        font-size: var(--text-sm);
+    }
+}
