@@ -13,7 +13,7 @@
    8.  Smooth scroll for anchor links
    9.  Gallery scrollers
    10. Lightbox
-   11. Jump menu — active card centring
+   11. Jump menu — active card centring and hover photos
    12. Map visibility (online/offline)
    13. Cookie consent banner
    14. Read More / Read Less toggle
@@ -562,7 +562,7 @@
 
 
     /* ============================================================
-       11. JUMP MENU — ACTIVE CARD CENTRING
+       11. JUMP MENU — ACTIVE CARD CENTRING AND HOVER PHOTOS
        Deferred until after first paint so it never competes with
        LCP. Initial positioning is instant (no visible scroll-jank
        on load); smooth scrolling is kept for the in-page scroll-spy
@@ -646,6 +646,77 @@
             checkUrlAndCenter(true);
             initScrollSpy();
         });
+    });
+
+
+    /* ------------------------------------------------------------
+       11b. Jump menu — hover photos (desktop only)
+       Each .jump-card may carry data-photo="...". On hover or
+       keyboard focus the photo is fetched and fades in over the
+       map image. Touch devices, coarse pointers and Save-Data
+       connections never download any of them. A missing file is
+       ignored silently (no broken-image icon).
+       ------------------------------------------------------------ */
+    onReady(function () {
+        if (!window.matchMedia ||
+            !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+        if (navigator.connection && navigator.connection.saveData) return;
+
+        var strip = el('top-jump');
+        if (!strip) return;
+
+        function loadPhoto(card) {
+            if (card.getAttribute('data-photo-state')) return;
+            var src = card.getAttribute('data-photo');
+            if (!src) return;
+            card.setAttribute('data-photo-state', 'loading');
+
+            var photo = new Image();
+            photo.className = 'jump-card-photo';
+            photo.alt = '';
+            photo.setAttribute('aria-hidden', 'true');
+            photo.decoding = 'async';
+
+            photo.onload = function () {
+                var base = card.querySelector('.jump-card-img');
+                if (base) { base.after(photo); } else { card.appendChild(photo); }
+                void photo.offsetWidth; /* commit opacity:0 so the fade runs */
+                photo.classList.add('jump-card-photo--ready');
+                card.setAttribute('data-photo-state', 'loaded');
+            };
+            photo.onerror = function () {
+                card.setAttribute('data-photo-state', 'missing');
+            };
+            photo.src = src;
+        }
+
+        function cardFromEvent(e) {
+            return e.target && e.target.closest ? e.target.closest('a.jump-card') : null;
+        }
+
+        var restQueued = false;
+        function preloadRest() {
+            if (restQueued) return;
+            restQueued = true;
+            deferToIdle(function () {
+                var pending = Array.from(strip.querySelectorAll('a.jump-card[data-photo]'));
+                (function next() {
+                    var card = pending.shift();
+                    if (!card) return;
+                    loadPhoto(card);
+                    setTimeout(next, 150); /* trickle, don't burst */
+                })();
+            });
+        }
+
+        function onEnter(e) {
+            var card = cardFromEvent(e);
+            if (card) loadPhoto(card);
+            preloadRest();
+        }
+
+        strip.addEventListener('mouseover', onEnter, { passive: true });
+        strip.addEventListener('focusin',   onEnter);
     });
 
 
@@ -906,22 +977,23 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     }
 
-    // Desktop and mobile now both wait for a click/tap on the poster,
-    // the yellow circle, or anywhere on the shell before loading the
-    // live map. (Desktop used to auto-load immediately; that caused
-    // a trackpad scroll-trap on Mac laptops — the eagerly-loaded map
-    // would capture two-finger scroll before the user meant to
-    // interact with it.)
-    if (poster) {
-      poster.style.cursor = 'pointer';
-      poster.addEventListener('click', function() { wakeUpMap(true); }, { once: true });
+    // 1. Desktop: auto-load immediately; keep the yellow circle visible
+    if (window.innerWidth > 768) {
+      wakeUpMap(false);
     }
-    if (overlayCircle) {
-      overlayCircle.addEventListener('click', function() { wakeUpMap(true); }, { once: true });
-    }
-    // Fallback: tap anywhere on the shell
-    if (container) {
-      container.addEventListener('click', function() { wakeUpMap(true); }, { once: true });
+    // 2. Mobile: tap the poster OR the yellow circle to load the map
+    else {
+      if (poster) {
+        poster.style.cursor = 'pointer';
+        poster.addEventListener('click', function() { wakeUpMap(true); }, { once: true });
+      }
+      if (overlayCircle) {
+        overlayCircle.addEventListener('click', function() { wakeUpMap(true); }, { once: true });
+      }
+      // Fallback: tap anywhere on the shell
+      if (container) {
+        container.addEventListener('click', function() { wakeUpMap(true); }, { once: true });
+      }
     }
   });
 });
