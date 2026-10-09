@@ -48,6 +48,8 @@
    41. Hostel Directory Button
    42. Booking Links Heading
    43. Table centre
+   44. ITINERARY HUB TILES
+   45. PLACE NAME PRONUNCIATIONS
    ============================================================ */
 
 
@@ -4933,4 +4935,70 @@ table.centered-table td {
     .itinerary-card h3 {
         font-size: var(--text-sm);
     }
+}
+
+
+
+/* ============================================================
+   45. PLACE NAME PRONUNCIATIONS
+   ============================================================ */
+
+
+/* Option 1 & 2 Base Styles */
+.pronunciation-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 0 18px 0;
+  font-size: 0.875rem;
+}
+
+.phonetic {
+  color: #555555;
+}
+
+.phonetic em {
+  font-style: normal;
+  font-weight: bold;
+  color: #111111;
+}
+
+.audio-btn,
+.audio-btn-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #bc1d23;
+  color: #ffffff;
+  border: none;
+  border-radius: 16px;
+  padding: 4px 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.audio-btn:hover,
+.audio-btn-pill:hover {
+  background: #961318;
+}
+
+/* Option 3 Icon-Only Styles */
+.audio-icon-only {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: #f4f4f4;
+  color: #bc1d23;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.audio-icon-only:hover {
+  background: #bc1d23;
+  color: #ffffff;
 }
