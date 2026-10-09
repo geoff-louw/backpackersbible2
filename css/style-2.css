@@ -1178,6 +1178,40 @@ main {
     outline-offset: -5px;
 }
 
+/* Hover photo — injected by script-2.js (section 11) on desktop only.
+   Sits over the map image, under the label overlay. Fades in on
+   hover / keyboard focus. Opacity-only, so no layout or paint cost. */
+.jump-card-photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+}
+
+.jump-card--active .jump-card-photo {
+    outline: 5px solid #ff0000;
+    outline-offset: -5px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .jump-card:hover .jump-card-photo--ready,
+    .jump-card:focus-visible .jump-card-photo--ready {
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .jump-card-photo {
+        transition: none;
+    }
+}
+
 .jump-card-overlay {
     position: absolute;
     bottom: 0;
@@ -4987,4 +5021,10 @@ table.centered-table td {
 
 .audio-icon-btn:active {
   transform: scale(0.92);
+}
+
+
+.pronunciation-block .phonetic {
+  font-style: normal;
+  font-family: inherit;
 }
