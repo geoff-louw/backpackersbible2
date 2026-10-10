@@ -29,8 +29,9 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 8px;
+  width: calc(100% - 32px);   /* keeps a 16px margin either side on narrow screens */
   max-width: 420px;
-  margin: 8px auto 0;
+  margin: 12px auto 0;
 }
 #bull-run .br-pad button {
   padding: 16px 4px;
