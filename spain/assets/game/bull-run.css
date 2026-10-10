@@ -1,7 +1,12 @@
 /* Run with the Bulls - styles. Everything is scoped to #bull-run so it can't leak into the page. */
 #bull-run {
+  display: block;
+  width: 100%;
   max-width: 900px;
   margin: 24px auto;
+  align-self: center;     /* stays centred inside flex-column parents */
+  justify-self: center;   /* ...and inside grid parents */
+  float: none;
   font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
   color: #000;
   box-sizing: border-box;
