@@ -1,7 +1,7 @@
 /*
   Run with the Bulls - Backpackers Bible
-  Usage on any page (see game-test.html for the full snippet with the descriptive text):
-    <div id="bull-run"> ...fallback image + short description... </div>
+  Usage on any page (see game-test.html for the full snippet):
+    <div id="bull-run"> ...poster image (fallback for visitors without JavaScript)... </div>
     <link rel="stylesheet" href="/spain/assets/game/bull-run.css">
     <script src="/spain/assets/game/bull-run.js" defer></script>
   Anything you put inside #bull-run stays on the page; the game is added above it.
@@ -70,7 +70,10 @@ const BG_SPEED_FACTOR = 1.0;        // 1 = scrolls at ground speed; lower for a 
 
 const SCROLL_START = 230, SCROLL_MAX = 330;   // px/s ground speed, ramps up over RAMP_METRES
 const RAMP_METRES = 150;
-const PAIR_FROM_METRES = 8;                    // pairs of bulls (need a somersault) can appear after this distance
+/* Opening sequence: two single bulls, then the first pair (needs a somersault). After that it is random. */
+const OPENING = ['single', 'single', 'pair'];
+const OPENING_START = 1.2;                     // seconds before the first bull appears
+const OPENING_GAPS = [1.9, 2.0];               // seconds between the opening bulls
 const BULL_EXTRA = 170;                        // bulls run this much faster than the ground (px/s)
 const PX_PER_METRE = 60;
 
@@ -129,7 +132,7 @@ else window.addEventListener('resize', fit);
 let state = 'loading';      // loading | ready | playing | over
 let paused = false;         // game is running but halted (focus lost / scrolled out of view)
 let distance = 0, bgOffset = 0, best = 0, overT = 0;
-let player, bulls, spawnT, bufJump, bufRoll, showHB = false;
+let player, bulls, spawnT, spawnCount = 0, bufJump, bufRoll, showHB = false;
 try { best = parseInt(localStorage.getItem('bullrun-best') || '0', 10) || 0; } catch (e) {}
 
 const liveEl = ui.querySelector('.br-live');
@@ -148,7 +151,7 @@ function reset() {
   player = { x: HOME_X, h: 0, vy: 0, vx: 0, mode: 'run', modeT: 0, animT: 0 };
   bulls = [];
   distance = 0; bgOffset = 0;
-  spawnT = 1.6; bufJump = 0; bufRoll = 0;
+  spawnT = OPENING_START; spawnCount = 0; bufJump = 0; bufRoll = 0;
 }
 function startGame() { reset(); paused = false; state = 'playing'; announce('Game started. Bulls are charging. Jump single bulls and somersault over pairs.'); }
 
@@ -233,10 +236,14 @@ if ('IntersectionObserver' in window) {
 /* ================= UPDATE ================= */
 function spawnBulls() {
   const m = metres();
-  const pair = m > PAIR_FROM_METRES && Math.random() < Math.min(0.45, 0.25 + (m - PAIR_FROM_METRES) / 300);
+  const pair = spawnCount < OPENING.length
+    ? OPENING[spawnCount] === 'pair'
+    : Math.random() < Math.min(0.5, 0.3 + m / 400);
+  spawnCount++;
   const x = W + 60, pitch = 320;
   bulls.push({ x, t: rand(0, 1) });
   if (pair) bulls.push({ x: x + pitch, t: rand(0, 1) });
+  if (spawnCount <= OPENING_GAPS.length) { spawnT = OPENING_GAPS[spawnCount - 1]; return; }
   const diff = Math.min(1, m / RAMP_METRES);
   spawnT = Math.max(1.65, rand(2.0, 3.0) - diff * 0.5) + (pair ? 0.8 : 0);
 }
@@ -396,8 +403,10 @@ function draw() {
   }
   if (state === 'playing' && paused) {
     ctx.fillStyle = 'rgba(255,255,255,0.7)'; ctx.fillRect(0, 0, W, H);
-    text('PAUSED', W / 2, 170, 48, '#000');
-    btn('CLICK OR TAP TO CARRY ON', 250);
+    ctx.fillStyle = '#000';
+    ctx.fillRect(W / 2 - 290, 90, 580, 150);
+    text('PAUSED', W / 2, 160, 48, '#fff');
+    text('CLICK OR TAP TO CARRY ON', W / 2, 210, 18, '#fff');
   }
   if (state === 'over') {
     ctx.fillStyle = 'rgba(255,255,255,0.65)'; ctx.fillRect(0, 0, W, H);
