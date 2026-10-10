@@ -29,7 +29,7 @@ root.innerHTML =
     '<button type="button" data-k="jump">JUMP</button>' +
     '<button type="button" data-k="roll">SOMERSAULT</button>' +
   '</div>' +
-  '<div class="br-hint">&larr; &rarr; move &nbsp;|&nbsp; Space / &uarr; jump &nbsp;|&nbsp; &darr; somersault (clears two bulls)</div>';
+  '<div class="br-hint">&larr;&#xFE0E; &rarr;&#xFE0E; move &nbsp;|&nbsp; Space / &uarr;&#xFE0E; jump &nbsp;|&nbsp; &darr;&#xFE0E; somersault (clears two bulls)</div>';
 
 /* ================= CONFIG (all tunable) ================= */
 const W = 900, H = 500;
@@ -40,6 +40,7 @@ const BG_SPEED_FACTOR = 1.0;        // 1 = scrolls at ground speed; lower for a 
 
 const SCROLL_START = 230, SCROLL_MAX = 330;   // px/s ground speed, ramps up over RAMP_METRES
 const RAMP_METRES = 150;
+const PAIR_FROM_METRES = 8;                    // pairs of bulls (need a somersault) can appear after this distance
 const BULL_EXTRA = 170;                        // bulls run this much faster than the ground (px/s)
 const PX_PER_METRE = 60;
 
@@ -182,7 +183,7 @@ if ('IntersectionObserver' in window) {
 /* ================= UPDATE ================= */
 function spawnBulls() {
   const m = metres();
-  const pair = m > 30 && Math.random() < Math.min(0.45, 0.15 + (m - 30) / 300);
+  const pair = m > PAIR_FROM_METRES && Math.random() < Math.min(0.45, 0.25 + (m - PAIR_FROM_METRES) / 300);
   const x = W + 60, pitch = 320;
   bulls.push({ x, t: rand(0, 1) });
   if (pair) bulls.push({ x: x + pitch, t: rand(0, 1) });
@@ -335,9 +336,11 @@ function draw() {
   }
 
   if (state === 'ready') {
-    text('RUN WITH THE BULLS', W / 2, 120, 40, '#000');
-    text('Spain, 7 a.m. Try to keep your trousers.', W / 2, 152, 16, '#000');
-    btn('CLICK OR TAP TO RUN', 230);
+    ctx.fillStyle = '#000';
+    ctx.fillRect(W / 2 - 290, 60, 580, 180);
+    text('RUN WITH THE BULLS', W / 2, 125, 40, '#fff');
+    text('Spain, 7 a.m. Try to keep your trousers.', W / 2, 158, 16, '#fff');
+    text('CLICK OR TAP TO RUN', W / 2, 210, 18, '#fff');
   }
   if (state === 'playing' && paused) {
     ctx.fillStyle = 'rgba(255,255,255,0.7)'; ctx.fillRect(0, 0, W, H);
