@@ -17,6 +17,8 @@
   cursor: pointer;
 }
 #bull-run .br-canvas:focus, #bull-run .br-canvas:focus-visible { outline: none; }
+/* Visible focus ring for keyboard users only (the script adds .br-kb when focus arrives by keyboard) */
+#bull-run.br-kb .br-canvas:focus { outline: 3px solid #000; outline-offset: 3px; }
 #bull-run .br-pad { display: flex; gap: 8px; margin-top: 8px; }
 #bull-run .br-pad button {
   flex: 1;
@@ -37,3 +39,12 @@
 /* Touch buttons only on touch screens; hint line only where there is a keyboard */
 @media (hover: hover) and (pointer: fine) { #bull-run .br-pad { display: none; } }
 @media (hover: none) { #bull-run .br-hint { display: none; } }
+
+/* Text for search engines and for visitors without JavaScript */
+#bull-run .br-fallback { display: block; width: 100%; height: auto; }
+#bull-run .br-about { font-size: 16px; line-height: 1.5; margin: 12px 0 0; color: #000; }
+/* Spoken announcements: invisible on screen, read by screen readers */
+#bull-run .br-live {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}

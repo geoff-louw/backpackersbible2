@@ -1,9 +1,10 @@
 /*
   Run with the Bulls - Backpackers Bible
-  Usage on any page:
-    <div id="bull-run"></div>
+  Usage on any page (see game-test.html for the full snippet with the descriptive text):
+    <div id="bull-run"> ...fallback image + short description... </div>
     <link rel="stylesheet" href="/spain/assets/game/bull-run.css">
     <script src="/spain/assets/game/bull-run.js" defer></script>
+  Anything you put inside #bull-run stays on the page; the game is added above it.
   Images are loaded from the img/ folder next to this script, so the page's depth doesn't matter.
 */
 (function () {
@@ -20,16 +21,45 @@ const root = document.getElementById('bull-run');
 if (!root || root.dataset.ready) return;
 root.dataset.ready = '1';
 
-root.innerHTML =
-  '<canvas class="br-canvas" width="900" height="500" tabindex="0" ' +
-  'aria-label="Run with the Bulls game. Click to play. Arrow keys move, space jumps, down arrow does a somersault."></canvas>' +
+const GAME_NAME = 'Run with the Bulls';
+const GAME_ABOUT = 'Run with the Bulls is a free arcade game from Backpackers Bible. Dash along a Spanish street as bulls charge towards you: jump single bulls, somersault over pairs and see how far you can run. It works on phones and computers, with no download or sign-up.';
+
+root.querySelectorAll('.br-fallback').forEach(n => n.remove());   // the static poster is only for visitors without JavaScript
+const ui = document.createElement('div');
+ui.className = 'br-ui';
+ui.innerHTML =
+  '<canvas class="br-canvas" width="900" height="500" tabindex="0" role="application" aria-roledescription="game" ' +
+  'aria-label="Run with the Bulls, an optional visual arcade game. Press Space or click to start. Left and right arrows move, Space or up arrow jumps, down arrow does a somersault, Escape pauses."></canvas>' +
   '<div class="br-pad">' +
     '<button type="button" data-k="left" aria-label="Move back">&#9664;</button>' +
     '<button type="button" data-k="right" aria-label="Move forward">&#9654;</button>' +
     '<button type="button" data-k="jump">JUMP</button>' +
     '<button type="button" data-k="roll">SOMERSAULT</button>' +
   '</div>' +
-  '<div class="br-hint">&larr;&#xFE0E; &rarr;&#xFE0E; move &nbsp;|&nbsp; Space / &uarr;&#xFE0E; jump &nbsp;|&nbsp; &darr;&#xFE0E; somersault (clears two bulls)</div>';
+  '<div class="br-hint">&larr;&#xFE0E; &rarr;&#xFE0E; move &nbsp;|&nbsp; Space / &uarr;&#xFE0E; jump &nbsp;|&nbsp; &darr;&#xFE0E; somersault (clears two bulls) &nbsp;|&nbsp; Esc pause</div>' +
+  '<div class="br-live" role="status" aria-live="polite"></div>';
+root.insertBefore(ui, root.firstChild);
+
+/* Structured data so search engines know what this is (descriptive only; no ratings are claimed) */
+if (!document.getElementById('bull-run-jsonld')) {
+  const ld = document.createElement('script');
+  ld.type = 'application/ld+json';
+  ld.id = 'bull-run-jsonld';
+  ld.textContent = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'VideoGame',
+    name: GAME_NAME,
+    description: GAME_ABOUT,
+    genre: ['Arcade', 'Endless runner'],
+    gamePlatform: 'Web browser',
+    playMode: 'SinglePlayer',
+    isAccessibleForFree: true,
+    inLanguage: 'en-GB',
+    image: new URL('poster.webp', IMG_BASE).href,
+    publisher: { '@type': 'Organization', name: 'Backpackers Bible', url: 'https://backpackersbible.com' }
+  });
+  document.head.appendChild(ld);
+}
 
 /* ================= CONFIG (all tunable) ================= */
 const W = 900, H = 500;
@@ -102,6 +132,12 @@ let distance = 0, bgOffset = 0, best = 0, overT = 0;
 let player, bulls, spawnT, bufJump, bufRoll, showHB = false;
 try { best = parseInt(localStorage.getItem('bullrun-best') || '0', 10) || 0; } catch (e) {}
 
+const liveEl = ui.querySelector('.br-live');
+function announce(msg) {            // spoken by screen readers; invisible on screen
+  liveEl.textContent = '';
+  setTimeout(() => { liveEl.textContent = msg; }, 60);
+}
+
 const keys = { left: false, right: false };
 const rand = (a, b) => a + Math.random() * (b - a);
 const metres = () => Math.floor(distance / PX_PER_METRE);
@@ -114,7 +150,7 @@ function reset() {
   distance = 0; bgOffset = 0;
   spawnT = 1.6; bufJump = 0; bufRoll = 0;
 }
-function startGame() { reset(); paused = false; state = 'playing'; }
+function startGame() { reset(); paused = false; state = 'playing'; announce('Game started. Bulls are charging. Jump single bulls and somersault over pairs.'); }
 
 /* ================= INPUT ================= */
 function doJump() {
@@ -130,7 +166,7 @@ function doRoll() {
   } else bufRoll = BUFFER;
 }
 function action(fn) {
-  if (paused) { paused = false; return; }
+  if (paused) { paused = false; announce('Carrying on.'); return; }
   if (state === 'ready' || state === 'over') {
     if (state === 'over' && overT < 0.5) return;
     startGame(); return;
@@ -139,7 +175,7 @@ function action(fn) {
 }
 
 /* Keys only act while the game has focus, so the page still scrolls normally everywhere else */
-root.addEventListener('keydown', e => {
+ui.addEventListener('keydown', e => {
   const k = e.key;
   if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', ' '].includes(k)) e.preventDefault();
   if (e.repeat) return;
@@ -147,6 +183,7 @@ root.addEventListener('keydown', e => {
   else if (k === 'ArrowRight' || k === 'd' || k === 'D') keys.right = true;
   else if (k === ' ' || k === 'ArrowUp' || k === 'w' || k === 'W') action(doJump);
   else if (k === 'ArrowDown' || k === 's' || k === 'S') action(doRoll);
+  else if (k === 'Escape' || k === 'p' || k === 'P') togglePause();
   else if (k === 'h' || k === 'H') showHB = !showHB;
 });
 window.addEventListener('keyup', e => {
@@ -154,6 +191,13 @@ window.addEventListener('keyup', e => {
   if (k === 'ArrowLeft' || k === 'a' || k === 'A') keys.left = false;
   else if (k === 'ArrowRight' || k === 'd' || k === 'D') keys.right = false;
 });
+
+/* Focus ring only for keyboard users, so mouse and touch players never see an outline */
+let kbd = false;
+document.addEventListener('keydown', () => { kbd = true; }, true);
+document.addEventListener('pointerdown', () => { kbd = false; root.classList.remove('br-kb'); }, true);
+cvs.addEventListener('focus', () => root.classList.toggle('br-kb', kbd));
+cvs.addEventListener('blur', () => root.classList.remove('br-kb'));
 
 cvs.addEventListener('pointerdown', () => {
   cvs.focus({ preventScroll: true });
@@ -173,8 +217,14 @@ root.querySelectorAll('.br-pad button').forEach(b => {
 });
 
 /* Pause when the player clicks away, switches tab, or scrolls the game out of view */
-function pauseIfPlaying() { if (state === 'playing') { paused = true; keys.left = keys.right = false; } }
-root.addEventListener('focusout', e => { if (!root.contains(e.relatedTarget)) pauseIfPlaying(); });
+function pauseIfPlaying() {
+  if (state === 'playing' && !paused) { paused = true; keys.left = keys.right = false; announce('Paused. Press Space or click to carry on.'); }
+}
+function togglePause() {
+  if (state !== 'playing') return;
+  if (paused) { paused = false; announce('Carrying on.'); } else pauseIfPlaying();
+}
+ui.addEventListener('focusout', e => { if (!ui.contains(e.relatedTarget)) pauseIfPlaying(); });
 document.addEventListener('visibilitychange', () => { if (document.hidden) pauseIfPlaying(); });
 if ('IntersectionObserver' in window) {
   new IntersectionObserver(es => { if (!es[0].isIntersecting) pauseIfPlaying(); }, { threshold: 0.3 }).observe(cvs);
@@ -235,7 +285,9 @@ function update(dt) {
     if (gx < bx + BULL_HB.w && gx + GURU_HB.w > bx && gy < by + BULL_HB.h && gy + GURU_HB.h > by) {
       state = 'over'; overT = 0;
       const m = metres();
-      if (m > best) { best = m; try { localStorage.setItem('bullrun-best', String(best)); } catch (e) {} }
+      const isBest = m > best;
+      if (isBest) { best = m; try { localStorage.setItem('bullrun-best', String(best)); } catch (e) {} }
+      announce('Gored after ' + m + ' metres. ' + (isBest ? 'New best. ' : 'Your best is ' + best + ' metres. ') + 'Press Space or click to try again.');
       return;
     }
   }
@@ -367,7 +419,7 @@ function loop(ts) {
 
 fit();
 reset();
-loadAll().then(() => { state = 'ready'; });
+loadAll().then(() => { state = 'ready'; announce('Run with the Bulls is ready. Press Space or click to start. Escape pauses.'); });
 requestAnimationFrame(ts => { last = ts; requestAnimationFrame(loop); });
 }
 
