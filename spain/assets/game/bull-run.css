@@ -24,16 +24,22 @@
 #bull-run .br-canvas:focus, #bull-run .br-canvas:focus-visible { outline: none; }
 /* Visible focus ring for keyboard users only (the script adds .br-kb when focus arrives by keyboard) */
 #bull-run.br-kb .br-canvas:focus { outline: 3px solid #000; outline-offset: 3px; }
-#bull-run .br-pad { display: flex; gap: 8px; margin-top: 8px; }
+/* Touch controls: two rows, centred under the game (move buttons on top, jump and somersault below) */
+#bull-run .br-pad {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  max-width: 420px;
+  margin: 8px auto 0;
+}
 #bull-run .br-pad button {
-  flex: 1;
   padding: 16px 4px;
   font: inherit;
   font-weight: bold;
   font-size: 15px;
   color: #000;
   background: #FFD700;
-  border: 2px solid #670000;
+  border: 2px solid #000;
   border-radius: 8px;
   user-select: none;
   -webkit-user-select: none;
