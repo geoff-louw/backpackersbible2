@@ -1,0 +1,41 @@
+/* Run with the Bulls - styles. Everything is scoped to #bull-run so it can't leak into the page. */
+#bull-run {
+  max-width: 900px;
+  margin: 24px auto;
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+  color: #670000;
+  box-sizing: border-box;
+}
+#bull-run .br-canvas {
+  display: block;
+  width: 100%;
+  aspect-ratio: 900 / 500;
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 6px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
+#bull-run .br-canvas:focus { outline: none; }
+#bull-run .br-canvas:focus-visible { outline: 3px solid #005F8A; outline-offset: 2px; }
+#bull-run .br-pad { display: flex; gap: 8px; margin-top: 8px; }
+#bull-run .br-pad button {
+  flex: 1;
+  padding: 16px 4px;
+  font: inherit;
+  font-weight: bold;
+  font-size: 15px;
+  color: #670000;
+  background: #FFD700;
+  border: 2px solid #670000;
+  border-radius: 8px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+#bull-run .br-pad button:active { background: #fdf400; }
+#bull-run .br-hint { text-align: center; font-size: 13px; margin-top: 6px; color: #005F8A; }
+/* Touch buttons only on touch screens; hint line only where there is a keyboard */
+@media (hover: hover) and (pointer: fine) { #bull-run .br-pad { display: none; } }
+@media (hover: none) { #bull-run .br-hint { display: none; } }
