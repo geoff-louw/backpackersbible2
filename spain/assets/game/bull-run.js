@@ -293,18 +293,24 @@ function text(str, x, y, size, color, align) {
 
 function drawHB(x, y, w, h, c) { ctx.strokeStyle = c; ctx.lineWidth = 2; ctx.strokeRect(x, y, w, h); }
 
-function btn(label, y) {
+function btn(label, y, dark) {
   const w = 420, h = 48, x = W / 2 - w / 2;
+  if (dark) {                       /* white text on a plain black rectangle */
+    ctx.fillStyle = '#000';
+    ctx.fillRect(x, y - 32, w, h);
+    text(label, W / 2, y, 18, '#fff');
+    return;
+  }
   ctx.fillStyle = '#FFD700'; ctx.strokeStyle = '#670000'; ctx.lineWidth = 3;
   ctx.beginPath();
   if (ctx.roundRect) ctx.roundRect(x, y - 32, w, h, 10); else ctx.rect(x, y - 32, w, h);
   ctx.fill(); ctx.stroke();
-  text(label, W / 2, y, 18, '#670000');
+  text(label, W / 2, y, 18, '#000');
 }
 
 function draw() {
   drawBackground();
-  if (state === 'loading') { text('Loading…', W / 2, H / 2, 28, '#670000'); return; }
+  if (state === 'loading') { text('Loading…', W / 2, H / 2, 28, '#000'); return; }
 
   /* shadows */
   shadow(player.x + GURU_SIZE / 2, Math.max(0.35, 1 - player.h / 320));
@@ -324,25 +330,25 @@ function draw() {
 
   /* HUD */
   if (state !== 'ready') {
-    text(metres() + ' m', W - 20, 40, 28, '#670000', 'right');
-    text('Best ' + best + ' m', W - 20, 66, 15, '#005F8A', 'right');
+    text(metres() + ' m', W - 20, 40, 28, '#000', 'right');
+    text('Best ' + best + ' m', W - 20, 66, 15, '#000', 'right');
   }
 
   if (state === 'ready') {
-    text('RUN WITH THE BULLS', W / 2, 120, 40, '#670000');
-    text('Spain, 7 a.m. Try to keep your trousers.', W / 2, 152, 16, '#005F8A');
+    text('RUN WITH THE BULLS', W / 2, 120, 40, '#000');
+    text('Spain, 7 a.m. Try to keep your trousers.', W / 2, 152, 16, '#000');
     btn('CLICK OR TAP TO RUN', 230);
   }
   if (state === 'playing' && paused) {
     ctx.fillStyle = 'rgba(255,255,255,0.7)'; ctx.fillRect(0, 0, W, H);
-    text('PAUSED', W / 2, 170, 48, '#670000');
+    text('PAUSED', W / 2, 170, 48, '#000');
     btn('CLICK OR TAP TO CARRY ON', 250);
   }
   if (state === 'over') {
     ctx.fillStyle = 'rgba(255,255,255,0.65)'; ctx.fillRect(0, 0, W, H);
-    text('GORED!', W / 2, 150, 54, '#bc1d23');
-    text(metres() + ' m' + (metres() >= best && best > 0 ? '  (new best!)' : '   |   best ' + best + ' m'), W / 2, 190, 22, '#670000');
-    btn('CLICK OR TAP TO TRY AGAIN', 250);
+    text('GORED!', W / 2, 150, 54, '#000');
+    text(metres() + ' m' + (metres() >= best && best > 0 ? '  (new best!)' : '   |   best ' + best + ' m'), W / 2, 190, 22, '#000');
+    btn('CLICK OR TAP TO TRY AGAIN', 250, true);
   }
 }
 
