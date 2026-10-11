@@ -4644,6 +4644,9 @@ img.bb-marker-icon {
 
 .map-placeholder {
     position: relative;
+    width: 100%; /* parent .map-section-visual is a flex row, so without this the
+                    box shrinks to its content and the iframe falls back to the
+                    default 300px width */
 }
 
 .map-placeholder picture,
@@ -5028,3 +5031,133 @@ table.centered-table td {
   font-style: normal;
   font-family: inherit;
 }
+
+/* ============================================================
+   46. PLACES MAP (things-to-do maps — MapLibre loads on click)
+   Used by /assets/bb-places-map.js. Poster image first, live
+   map opens at exactly the poster's size.
+   ============================================================ */
+
+.bb-places-map {
+    width: 100%;
+    margin: 0 0 var(--space-section-gap);
+    line-height: 1.5;
+}
+
+.bb-places-map__stage {
+    position: relative;
+    width: 100%;
+    background: var(--color-grey-light);
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.bb-places-map__poster,
+.bb-places-map__poster img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.bb-places-map__btn {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    min-height: 48px;
+    padding: 0.9rem 1.6rem;
+    background: var(--color-red);
+    color: var(--color-white);
+    border: 3px solid var(--color-white);
+    border-radius: 0;
+    font-family: var(--font-primary);
+    font-size: var(--text-base);
+    font-weight: bold;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+}
+
+.bb-places-map__btn:hover { background: var(--color-red-dark); }
+
+.bb-places-map__btn:focus-visible,
+.bb-places-map__skip:focus-visible,
+.bb-pin:focus-visible {
+    outline: 3px solid var(--color-black);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 6px var(--color-yellow);
+}
+
+.bb-places-map__btn[disabled] { cursor: progress; opacity: 0.9; }
+
+/* Live state: canvas fills the stage, which keeps the poster's aspect ratio */
+.bb-places-map__stage.is-live { min-height: 320px; }
+
+.bb-places-map__canvas {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.bb-places-map__canvas[hidden] { display: none; }
+
+.bb-places-map__stage.is-ready .bb-places-map__poster,
+.bb-places-map__stage.is-ready .bb-places-map__btn { display: none; }
+
+/* Keyboard users: jump past the map to the text version */
+.bb-places-map__skip {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 3;
+    background: var(--color-white);
+    color: var(--color-black);
+    padding: 8px 14px;
+    font-weight: bold;
+}
+
+.bb-places-map__skip:focus { left: 0; }
+
+/* Numbered pins — number + aria-label carry the meaning, not colour */
+.bb-pin {
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border-radius: 50%;
+    border: 2px solid var(--color-white);
+    background: var(--color-red);
+    color: var(--color-white);
+    font-family: var(--font-primary);
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
+}
+
+.bb-pin:hover { background: var(--color-red-dark); }
+
+.bb-places-map .maplibregl-popup-content {
+    font-family: var(--font-primary);
+    font-size: var(--text-sm);
+    line-height: 1.4;
+    color: var(--color-black);
+    padding: 14px 16px 12px;
+}
+
+.bb-places-map .maplibregl-popup-close-button {
+    width: 36px;
+    height: 36px;
+    font-size: 24px;
+    color: var(--color-black);
+}
+
+.bb-pop__title { display: block; font-size: var(--text-base); }
+.bb-pop__cat   { display: block; margin-bottom: 6px; color: var(--color-grey-dark); }
+.bb-pop__text  { margin: 0 0 8px; }
+.bb-pop__link  { color: var(--color-red); font-weight: bold; }
+
+.bb-places-map__list { margin: 1rem 0 0; padding-left: 1.4rem; text-align: left; }
+.bb-places-map__list li { margin-bottom: 0.9rem; }
+.bb-places-map__meta { display: block; font-size: var(--text-xs); color: var(--color-grey-dark); }
