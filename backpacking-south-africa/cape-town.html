@@ -1653,23 +1653,28 @@ window.BB_TIPS = [
 <script>
 document.addEventListener('click', function (e) {
 
-    if (!e.target.classList.contains('load-map-btn')) {
-        return;
-    }
+    var btn = e.target.closest('.load-map-btn');
+    if (!btn) { return; }
 
-    const container = e.target.closest('.map-placeholder');
-    const src = container.dataset.mapSrc;
+    var container = btn.closest('.map-placeholder');
+    if (!container) { return; }
 
-    container.innerHTML = `
-        <iframe
-            src="${src}"
-            width="100%"
-            height="570"
-            style="border:0; display:block;"
-            allowfullscreen
-            loading="lazy">
-        </iframe>
-    `;
+    /* Lock the box to the size of the fallback image so the map opens at
+       exactly the same size (falls back to 570px if it cannot be measured) */
+    var h = container.offsetHeight || 570;
+    var img = container.querySelector('img');
+    var label = (img && img.alt) ? img.alt : 'Interactive map';
+
+    var frame = document.createElement('iframe');
+    frame.src = container.dataset.mapSrc;
+    frame.title = label;
+    frame.setAttribute('allowfullscreen', '');
+    frame.style.cssText = 'border:0; display:block; width:100%; height:100%;';
+
+    container.style.height = h + 'px';
+    container.innerHTML = '';
+    container.appendChild(frame);
+    frame.focus();   /* keeps keyboard focus on the map after the button disappears */
 
 });
 </script>
