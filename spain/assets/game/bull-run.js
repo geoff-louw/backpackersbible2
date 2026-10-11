@@ -1,5 +1,5 @@
 /*
-  Run with the Bulls - Backpackers Bible
+  The Running of the Guru - Backpackers Bible
   Usage on any page (see game-test.html for the full snippet):
     <div id="bull-run"> ...poster image (fallback for visitors without JavaScript)... </div>
     <link rel="stylesheet" href="/spain/assets/game/bull-run.css">
@@ -21,15 +21,15 @@ const root = document.getElementById('bull-run');
 if (!root || root.dataset.ready) return;
 root.dataset.ready = '1';
 
-const GAME_NAME = 'Run with the Bulls';
-const GAME_ABOUT = 'Run with the Bulls is a free arcade game from Backpackers Bible. Dash along a Spanish street as bulls charge towards you: jump single bulls, somersault over pairs and see how far you can run. It works on phones and computers, with no download or sign-up.';
+const GAME_NAME = 'The Running of the Guru';
+const GAME_ABOUT = 'The Running of the Guru is a free arcade game from Backpackers Bible. Dash along a Spanish street as bulls charge towards you: jump single bulls, somersault over pairs, dodge Don Quixote and Sancho Panza and see how far you can run. It works on phones and computers, with no download or sign-up.';
 
 root.querySelectorAll('.br-fallback').forEach(n => n.remove());   // the static poster is only for visitors without JavaScript
 const ui = document.createElement('div');
 ui.className = 'br-ui';
 ui.innerHTML =
   '<canvas class="br-canvas" width="900" height="500" tabindex="0" role="application" aria-roledescription="game" ' +
-  'aria-label="Run with the Bulls, an optional visual arcade game. Press Space or click to start. Left and right arrows move, Space or up arrow jumps, down arrow does a somersault, Escape pauses."></canvas>' +
+  'aria-label="The Running of the Guru, an optional visual arcade game. Press Space or click to start. Left and right arrows move, Space or up arrow jumps, down arrow does a somersault, Escape pauses."></canvas>' +
   '<div class="br-pad">' +
     '<button type="button" data-k="left" aria-label="Move back">&#9664;</button>' +
     '<button type="button" data-k="right" aria-label="Move forward">&#9654;</button>' +
@@ -92,8 +92,18 @@ const GURU_SIZE = 200, BULL_W = 277;
 const GURU_HB = { x: 72, y: 40, w: 56, h: 140 };
 const BULL_HB = { x: 25, y: 70, w: 180, h: 105 };
 
+/* Boss: Don Quixote (somersault over him) then Sancho Panza right behind (jump over him) */
+const BOSS_EVERY = [4, 6];          // a boss turns up after this many ordinary bull events (random in range), once the opening is over
+const BOSS_GAP_SECONDS = 2.2;       // Sancho arrives this long after Don Quixote
+const BOSS_COOLDOWN = 4.3;          // seconds before the next event after a boss
+const BOSS_W = 429, BOSS_FOOT = 331;                      // frame width; y of the hooves/ground line inside the frame
+const QUIXOTE_HB = [ { x: 100, y: 195, w: 250, h: 136 },  // horse
+                     { x: 190, y: 100, w: 95,  h: 95  } ]; // rider (too tall to jump, so he needs a somersault; the lance is left out)
+const SANCHO_HB  = [ { x: 112, y: 228, w: 188, h: 103 },  // donkey
+                     { x: 165, y: 160, w: 75,  h: 68  } ]; // rider
+
 /* Animation speeds */
-const RUN_FPS = 9, BULL_FPS = 12;
+const RUN_FPS = 9, BULL_FPS = 12, BOSS_FPS = 10;
 
 /* ================= ASSETS ================= */
 const NAMES = {
@@ -101,7 +111,9 @@ const NAMES = {
   run:   ['guru-running-1', 'guru-running-2', 'guru-running-3'],
   jump:  ['guru-jumping-1', 'guru-jumping-2', 'guru-jumping-3'],
   roll:  ['guru-somersault-1', 'guru-somersault-2', 'guru-somersault-3', 'guru-somersault-4', 'guru-somersault-5'],
-  bull:  ['bull-1', 'bull-2', 'bull-3', 'bull-4']
+  bull:  ['bull-1', 'bull-2', 'bull-3', 'bull-4'],
+  quixote: ['don_quixote-1', 'don_quixote-2', 'don_quixote-3', 'don_quixote-4'],
+  sancho:  ['sancho-panza-1', 'sancho-panza-2', 'sancho-panza-3', 'sancho-panza-4']
 };
 const IMG = {};
 function loadImg(src) {
@@ -132,7 +144,7 @@ else window.addEventListener('resize', fit);
 let state = 'loading';      // loading | ready | playing | over
 let paused = false;         // game is running but halted (focus lost / scrolled out of view)
 let distance = 0, bgOffset = 0, best = 0, overT = 0;
-let player, bulls, spawnT, spawnCount = 0, bufJump, bufRoll, showHB = false;
+let player, bulls, spawnT, spawnCount = 0, sinceBoss = 0, bossAt = 5, bufJump, bufRoll, showHB = false;
 try { best = parseInt(localStorage.getItem('bullrun-best') || '0', 10) || 0; } catch (e) {}
 
 const liveEl = ui.querySelector('.br-live');
@@ -143,6 +155,7 @@ function announce(msg) {            // spoken by screen readers; invisible on sc
 
 const keys = { left: false, right: false };
 const rand = (a, b) => a + Math.random() * (b - a);
+const randInt = (a, b) => Math.floor(rand(a, b + 1));
 const metres = () => Math.floor(distance / PX_PER_METRE);
 const scrollSpeed = () => SCROLL_START + (SCROLL_MAX - SCROLL_START) * Math.min(1, distance / PX_PER_METRE / RAMP_METRES);
 const bullSpeed = () => scrollSpeed() + BULL_EXTRA;
@@ -151,7 +164,7 @@ function reset() {
   player = { x: HOME_X, h: 0, vy: 0, vx: 0, mode: 'run', modeT: 0, animT: 0 };
   bulls = [];
   distance = 0; bgOffset = 0;
-  spawnT = OPENING_START; spawnCount = 0; bufJump = 0; bufRoll = 0;
+  spawnT = OPENING_START; spawnCount = 0; sinceBoss = 0; bossAt = randInt(BOSS_EVERY[0], BOSS_EVERY[1]); bufJump = 0; bufRoll = 0;
 }
 function startGame() { reset(); paused = false; state = 'playing'; announce('Game started. Bulls are charging. Jump single bulls and somersault over pairs.'); }
 
@@ -233,16 +246,34 @@ if ('IntersectionObserver' in window) {
   new IntersectionObserver(es => { if (!es[0].isIntersecting) pauseIfPlaying(); }, { threshold: 0.3 }).observe(cvs);
 }
 
+/* Hitboxes of an obstacle, in screen coordinates */
+function hitboxes(b) {
+  if (b.type === 'bull') return [{ x: b.x + BULL_HB.x, y: GROUND - BULL_FOOT + BULL_HB.y, w: BULL_HB.w, h: BULL_HB.h }];
+  const y0 = GROUND - BOSS_FOOT;
+  return (b.type === 'quixote' ? QUIXOTE_HB : SANCHO_HB).map(r => ({ x: b.x + r.x, y: y0 + r.y, w: r.w, h: r.h }));
+}
+
 /* ================= UPDATE ================= */
+function spawnBoss() {
+  const x = W + 60;
+  bulls.push({ type: 'quixote', x, t: 0, w: BOSS_W });
+  bulls.push({ type: 'sancho', x: x + bullSpeed() * BOSS_GAP_SECONDS, t: rand(0, 1), w: BOSS_W });
+  sinceBoss = 0; bossAt = randInt(BOSS_EVERY[0], BOSS_EVERY[1]);
+  spawnT = BOSS_COOLDOWN;
+  announce('Don Quixote and Sancho Panza are charging. Somersault over Don Quixote, then jump over Sancho Panza.');
+}
+
 function spawnBulls() {
+  if (spawnCount >= OPENING.length && sinceBoss >= bossAt) { spawnCount++; spawnBoss(); return; }
+  if (spawnCount >= OPENING.length) sinceBoss++;
   const m = metres();
   const pair = spawnCount < OPENING.length
     ? OPENING[spawnCount] === 'pair'
     : Math.random() < Math.min(0.5, 0.3 + m / 400);
   spawnCount++;
   const x = W + 60, pitch = 320;
-  bulls.push({ x, t: rand(0, 1) });
-  if (pair) bulls.push({ x: x + pitch, t: rand(0, 1) });
+  bulls.push({ type: 'bull', x, t: rand(0, 1), w: BULL_W });
+  if (pair) bulls.push({ type: 'bull', x: x + pitch, t: rand(0, 1), w: BULL_W });
   if (spawnCount <= OPENING_GAPS.length) { spawnT = OPENING_GAPS[spawnCount - 1]; return; }
   const diff = Math.min(1, m / RAMP_METRES);
   spawnT = Math.max(1.65, rand(2.0, 3.0) - diff * 0.5) + (pair ? 0.8 : 0);
@@ -283,18 +314,18 @@ function update(dt) {
   spawnT -= dt;
   if (spawnT <= 0) spawnBulls();
   for (const b of bulls) { b.x -= bs * dt; b.t += dt * (bs / 450); }
-  bulls = bulls.filter(b => b.x > -BULL_W - 40);
+  bulls = bulls.filter(b => b.x > -b.w - 40);
 
   /* collisions */
   const gx = player.x + GURU_HB.x, gy = GROUND - player.h - GURU_FOOT + GURU_HB.y;
   for (const b of bulls) {
-    const bx = b.x + BULL_HB.x, by = GROUND - BULL_FOOT + BULL_HB.y;
-    if (gx < bx + BULL_HB.w && gx + GURU_HB.w > bx && gy < by + BULL_HB.h && gy + GURU_HB.h > by) {
+    if (!hitboxes(b).some(r => gx < r.x + r.w && gx + GURU_HB.w > r.x && gy < r.y + r.h && gy + GURU_HB.h > r.y)) continue;
+    {
       state = 'over'; overT = 0;
       const m = metres();
       const isBest = m > best;
       if (isBest) { best = m; try { localStorage.setItem('bullrun-best', String(best)); } catch (e) {} }
-      announce('Gored after ' + m + ' metres. ' + (isBest ? 'New best. ' : 'Your best is ' + best + ' metres. ') + 'Press Space or click to try again.');
+      announce('Ouch! You ran ' + m + ' metres. ' + (isBest ? 'New best. ' : 'Your best is ' + best + ' metres. ') + 'Press Space or click to try again.');
       return;
     }
   }
@@ -374,13 +405,13 @@ function draw() {
 
   /* shadows */
   shadow(player.x + GURU_SIZE / 2, Math.max(0.35, 1 - player.h / 320));
-  for (const b of bulls) shadow(b.x + BULL_W / 2, 1.5);
+  for (const b of bulls) if (b.type === 'bull') shadow(b.x + BULL_W / 2, 1.5);   // the boss artwork has its own ground line
 
-  /* bulls */
+  /* bulls and bosses */
   for (const b of bulls) {
-    const f = IMG.bull[Math.floor(b.t * BULL_FPS) % 4];
-    ctx.drawImage(f, b.x, GROUND - BULL_FOOT);
-    if (showHB) drawHB(b.x + BULL_HB.x, GROUND - BULL_FOOT + BULL_HB.y, BULL_HB.w, BULL_HB.h, '#bc1d23');
+    if (b.type === 'bull') ctx.drawImage(IMG.bull[Math.floor(b.t * BULL_FPS) % 4], b.x, GROUND - BULL_FOOT);
+    else ctx.drawImage(IMG[b.type][Math.floor(b.t * BOSS_FPS) % 4], b.x, GROUND - BOSS_FOOT);
+    if (showHB) hitboxes(b).forEach(r => drawHB(r.x, r.y, r.w, r.h, '#bc1d23'));
   }
 
   /* guru */
@@ -396,8 +427,8 @@ function draw() {
 
   if (state === 'ready') {
     ctx.fillStyle = '#000';
-    ctx.fillRect(W / 2 - 290, 60, 580, 180);
-    text('RUN WITH THE BULLS', W / 2, 125, 40, '#fff');
+    ctx.fillRect(W / 2 - 330, 60, 660, 180);
+    text('THE RUNNING OF THE GURU', W / 2, 125, 40, '#fff');
     text('Spain, 7 a.m. Try to keep your trousers.', W / 2, 158, 16, '#fff');
     text('CLICK OR TAP TO RUN', W / 2, 210, 18, '#fff');
   }
@@ -410,7 +441,7 @@ function draw() {
   }
   if (state === 'over') {
     ctx.fillStyle = 'rgba(255,255,255,0.65)'; ctx.fillRect(0, 0, W, H);
-    text('GORED!', W / 2, 150, 54, '#000');
+    text('OUCH!', W / 2, 150, 54, '#000');
     text(metres() + ' m' + (metres() >= best && best > 0 ? '  (new best!)' : '   |   best ' + best + ' m'), W / 2, 190, 22, '#000');
     btn('CLICK OR TAP TO TRY AGAIN', 250, true);
   }
@@ -428,7 +459,7 @@ function loop(ts) {
 
 fit();
 reset();
-loadAll().then(() => { state = 'ready'; announce('Run with the Bulls is ready. Press Space or click to start. Escape pauses.'); });
+loadAll().then(() => { state = 'ready'; announce('The Running of the Guru is ready. Press Space or click to start. Escape pauses.'); });
 requestAnimationFrame(ts => { last = ts; requestAnimationFrame(loop); });
 }
 
