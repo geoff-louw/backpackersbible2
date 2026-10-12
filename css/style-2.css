@@ -5039,42 +5039,59 @@ table.centered-table td {
    ============================================================ */
 
 
-/* Regional Attractions Map Styling */
 .bb-attractions-map-shell {
   position: relative;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  height: 550px; /* Desktop height */
+  height: 550px;
   background: #111;
+  overflow: hidden;
 }
 
-.bb-attractions-map-shell picture,
-.bb-attractions-map-shell img {
+/* Poster image layers cleanly on top until loaded */
+.bb-attractions-map-shell .sa-hostel-map-poster {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: block;
+}
+
+.bb-attractions-map-shell .sa-hostel-map-poster img,
+.bb-attractions-map-shell .sa-hostel-map-poster picture {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
 
-.bb-attractions-iframe {
-  border: 0;
-  display: block;
+/* Map canvas target sits behind the poster with defined dimensions */
+.bb-map-canvas-target {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  z-index: 1;
 }
 
-/* Mobile Square Aspect Ratio Rule */
+/* Once loaded, hide the poster */
+.bb-attractions-map-shell.bb-map-loaded .sa-hostel-map-poster {
+  display: none;
+}
+
+/* Mobile Square Aspect Ratio */
 @media (max-width: 768px) {
   .bb-attractions-map-shell {
     width: 100vw;
-    height: 100vw; /* Forces a perfect square matching device screen width */
+    height: 100vw;
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
   }
 }
 
-/* Two-finger interaction blocker notification banner */
 .map-touch-instruction {
   position: absolute;
   bottom: 15px;
@@ -5090,15 +5107,13 @@ table.centered-table td {
   opacity: 0;
   transition: opacity 0.3s ease;
   z-index: 10;
-  text-align: center;
   white-space: nowrap;
 }
 
-/* Show instruction on mobile when interacting with 1 finger */
 .bb-attractions-map-shell.touched-once .map-touch-instruction {
   opacity: 1;
 }
 
 .bb-attractions-map-shell.bb-map-loaded .map-touch-instruction {
-  display: none; /* Hide permanently after map is fully active */
+  display: none;
 }
