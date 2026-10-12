@@ -1006,8 +1006,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 /* ==========================================================================
    ATTRACTIONS MAP CONTROLLER (script-2.js)
-   - MapLibre GL Direct DOM Rendering with Loading Spinner
-   - Smart Tag Parsing & Descriptive Name Fallbacks
+   - MapLibre GL Direct DOM Rendering with Overlay Spinner
+   - Rich GeoJSON Property Parsing (Websites, Wikipedia, Wikidata, Descriptions)
    - Overpass API GeoJSON Fetcher with Auto-Failover Mirrors
    ========================================================================== */
 
@@ -1034,7 +1034,7 @@ function initAttractionsMap() {
   if (!loadBtn || !mapContainer) return;
 
   loadBtn.addEventListener('click', async () => {
-    // 1. Hide poster and show loading indicator
+    // 1. Hide poster image
     if (posterWrap) {
       posterWrap.style.display = 'none';
     }
@@ -1044,17 +1044,26 @@ function initAttractionsMap() {
       mapContainer.style.width = '100%';
     }
 
-    mapContainer.innerHTML = `
-      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; background: #f8f9fa; color: #333; font-family: sans-serif;">
-        <div style="width: 40px; height: 40px; border: 4px solid #e0e0e0; border-top: 4px solid #e74c3c; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 12px;"></div>
-        <p style="font-size: 14px; font-weight: 600; margin: 0;">Loading map & attractions...</p>
-      </div>
-      <style>@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }</style>
-    `;
+    // 2. Show smooth loading overlay inside shell container
+    let spinnerOverlay = mapShell.querySelector('.map-loading-overlay');
+    if (!spinnerOverlay) {
+      spinnerOverlay = document.createElement('div');
+      spinnerOverlay.className = 'map-loading-overlay';
+      spinnerOverlay.style.cssText = 'position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(255,255,255,0.92); display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:10; font-family:sans-serif;';
+      spinnerOverlay.innerHTML = `
+        <div style="width: 42px; height: 42px; border: 4px solid #e0e0e0; border-top: 4px solid #e74c3c; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 12px;"></div>
+        <p style="font-size: 14px; font-weight: 600; color: #222; margin: 0;">Loading map & attractions data...</p>
+        <style>@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }</style>
+      `;
+      mapShell.style.position = 'relative';
+      mapShell.appendChild(spinnerOverlay);
+    } else {
+      spinnerOverlay.style.display = 'flex';
+    }
 
     if (typeof maplibregl === 'undefined') {
       console.error('[Attractions Map] Fatal: maplibregl is not defined.');
-      mapContainer.innerHTML = `<div style="padding: 20px; text-align: center; color: #d9534f; font-weight:bold;">Map library failed to load. Check console.</div>`;
+      spinnerOverlay.innerHTML = `<p style="color: #d9534f; font-weight: bold;">Map library failed to load. Check console.</p>`;
       return;
     }
 
@@ -1066,58 +1075,68 @@ function initAttractionsMap() {
     const zoom = parseFloat(zoomAttr);
 
     try {
-      // Clear container contents before initializing MapLibre canvas
-      mapContainer.innerHTML = '';
-
-      globalMapInstance = new maplibregl.Map({
-        container: 'direct-map-container',
-        style: {
-          version: 8,
-          sources: {
-            'raster-tiles': {
-              type: 'raster',
-              tiles: [
-                'https://a.tile.openstreetmap.org/{z}/{x}/{y}.png',
-                'https://b.tile.openstreetmap.org/{z}/{x}/{y}.png',
-                'https://c.tile.openstreetmap.org/{z}/{x}/{y}.png'
-              ],
-              tileSize: 256,
-              attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            }
+      // 3. Initialize MapLibre GL instance if not already present
+      if (!globalMapInstance) {
+        globalMapInstance = new maplibregl.Map({
+          container: 'direct-map-container',
+          style: {
+            version: 8,
+            sources: {
+              'raster-tiles': {
+                type: 'raster',
+                tiles: [
+                  'https://a.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                  'https://b.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                  'https://c.tile.openstreetmap.org/{z}/{x}/{y}.png'
+                ],
+                tileSize: 256,
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              }
+            },
+            layers: [
+              {
+                id: 'simple-tiles',
+                type: 'raster',
+                source: 'raster-tiles',
+                minzoom: 0,
+                maxzoom: 19
+              }
+            ]
           },
-          layers: [
-            {
-              id: 'simple-tiles',
-              type: 'raster',
-              source: 'raster-tiles',
-              minzoom: 0,
-              maxzoom: 19
-            }
-          ]
-        },
-        center: [lng, lat],
-        zoom: zoom,
-        cooperativeGestures: true
-      });
+          center: [lng, lat],
+          zoom: zoom,
+          cooperativeGestures: true
+        });
 
-      globalMapInstance.addControl(new maplibregl.NavigationControl(), 'top-right');
+        globalMapInstance.addControl(new maplibregl.NavigationControl(), 'top-right');
+        setupMapPopups(globalMapInstance);
+      } else {
+        globalMapInstance.setCenter([lng, lat]);
+        globalMapInstance.setZoom(zoom);
+      }
 
       setTimeout(() => {
         if (globalMapInstance) globalMapInstance.resize();
       }, 100);
 
+      // 4. Fetch and plot attractions data
       globalMapInstance.on('load', async () => {
         globalMapInstance.resize();
         if (bboxAttr) {
-          await loadAttractionsData(globalMapInstance, bboxAttr);
+          await loadAttractionsData(globalMapInstance, bboxAttr, spinnerOverlay);
         }
       });
 
-      setupMapPopups(globalMapInstance);
+      // If map is already loaded (re-triggering)
+      if (globalMapInstance.loaded() && bboxAttr) {
+        await loadAttractionsData(globalMapInstance, bboxAttr, spinnerOverlay);
+      }
 
     } catch (err) {
       console.error('[Attractions Map] Initialization error:', err);
-      mapContainer.innerHTML = `<div style="padding: 20px; text-align: center; color: #d9534f; font-weight:bold;">Error: ${err.message}</div>`;
+      if (spinnerOverlay) {
+        spinnerOverlay.innerHTML = `<p style="color: #d9534f; font-weight: bold;">Error loading map: ${err.message}</p>`;
+      }
     }
   });
 }
@@ -1188,6 +1207,7 @@ function overpassToGeoJSON(overpassJson) {
     .map(node => {
       const tags = node.tags || {};
       
+      // Robust Name Extraction
       let name = tags.name || tags['name:es'] || tags['name:en'] || tags.operator;
       if (!name) {
         if (tags.historic) name = helperCapitalize(tags.historic);
@@ -1197,12 +1217,19 @@ function overpassToGeoJSON(overpassJson) {
         else if (tags.leisure) name = helperCapitalize(tags.leisure);
         else name = 'Point of Interest';
       }
-      
+
       let category = 'attraction';
       if (tags.tourism === 'museum') category = 'museum';
       else if (tags.tourism === 'viewpoint') category = 'viewpoint';
       else if (tags.historic) category = 'historic';
       else if (tags.leisure) category = 'leisure';
+
+      // Rich Metadata Extraction
+      const website = tags.website || tags['contact:website'] || '';
+      const wikipedia = tags.wikipedia || '';
+      const wikidata = tags.wikidata || '';
+      const description = tags.description || tags['description:es'] || tags['description:en'] || '';
+      const phone = tags.phone || tags['contact:phone'] || '';
 
       return {
         type: 'Feature',
@@ -1214,8 +1241,11 @@ function overpassToGeoJSON(overpassJson) {
           id: node.id,
           name: name,
           category: category,
-          website: tags.website || tags['contact:website'] || '',
-          wikipedia: tags.wikipedia || ''
+          website: website,
+          wikipedia: wikipedia,
+          wikidata: wikidata,
+          description: description,
+          phone: phone
         }
       };
     });
@@ -1223,7 +1253,7 @@ function overpassToGeoJSON(overpassJson) {
   return { type: 'FeatureCollection', features };
 }
 
-async function loadAttractionsData(map, bboxStr) {
+async function loadAttractionsData(map, bboxStr, spinnerOverlay) {
   try {
     const rawData = await fetchOverpassDataWithFallback(bboxStr);
     const geojson = overpassToGeoJSON(rawData);
@@ -1258,8 +1288,17 @@ async function loadAttractionsData(map, bboxStr) {
         }
       });
     }
+
+    // Hide spinner once loaded successfully
+    if (spinnerOverlay) {
+      spinnerOverlay.style.display = 'none';
+    }
+
   } catch (error) {
     console.error('[Attractions Map] Error loading pins:', error);
+    if (spinnerOverlay) {
+      spinnerOverlay.innerHTML = `<p style="color: #d9534f; font-weight: bold; text-align: center; padding: 20px;">Could not load attractions. Please check your connection and refresh.</p>`;
+    }
   }
 }
 
@@ -1267,7 +1306,7 @@ function setupMapPopups(map) {
   const popup = new maplibregl.Popup({
     closeButton: true,
     closeOnClick: false,
-    maxWidth: '280px'
+    maxWidth: '300px'
   });
 
   map.on('mouseenter', 'attractions-pins', () => {
@@ -1285,16 +1324,29 @@ function setupMapPopups(map) {
     const coords = feature.geometry.coordinates.slice();
     const props = feature.properties;
 
-    let popupHtml = `<div class="bb-map-popup">
+    let popupHtml = `<div class="bb-map-popup" style="font-family:sans-serif; padding:4px;">
       <h3 style="margin:0 0 6px; font-size:15px; font-weight:bold; color:#111;">${props.name}</h3>`;
 
+    if (props.description) {
+      popupHtml += `<p style="margin:4px 0; font-size:13px; color:#441; line-height:1.4;">${props.description}</p>`;
+    }
+
+    if (props.phone) {
+      popupHtml += `<p style="margin:4px 0; font-size:13px; color:#555;"><strong>Phone:</strong> <a href="tel:${props.phone}" style="color:#0066cc;">${props.phone}</a></p>`;
+    }
+
     if (props.website) {
-      popupHtml += `<p style="margin:4px 0;"><a href="${props.website}" target="_blank" rel="noopener" style="color:#0066cc; text-decoration:underline;">Official Website</a></p>`;
+      let displayUrl = props.website.replace(/^https?:\/\/(www\.)?/, '').split('/')[0];
+      popupHtml += `<p style="margin:6px 0 2px; font-size:13px;"><a href="${props.website}" target="_blank" rel="noopener" style="color:#0066cc; text-decoration:underline; font-weight:600;">Official Website &rarr;</a></p>`;
     }
 
     if (props.wikipedia) {
-      const wikiUrl = `https://en.wikipedia.org/wiki/${encodeURIComponent(props.wikipedia)}`;
-      popupHtml += `<p style="margin:4px 0;"><a href="${wikiUrl}" target="_blank" rel="noopener" style="color:#0066cc; text-decoration:underline;">Wikipedia Article</a></p>`;
+      let wikiTitle = props.wikipedia.includes(':') ? props.wikipedia.split(':')[1] : props.wikipedia;
+      let wikiUrl = `https://en.wikipedia.org/wiki/${encodeURIComponent(wikiTitle)}`;
+      popupHtml += `<p style="margin:4px 0 2px; font-size:13px;"><a href="${wikiUrl}" target="_blank" rel="noopener" style="color:#0066cc; text-decoration:underline; font-weight:600;">Wikipedia Article &rarr;</a></p>`;
+    } else if (props.wikidata) {
+      let wikidataUrl = `https://www.wikidata.org/wiki/${encodeURIComponent(props.wikidata)}`;
+      popupHtml += `<p style="margin:4px 0 2px; font-size:13px;"><a href="${wikidataUrl}" target="_blank" rel="noopener" style="color:#0066cc; text-decoration:underline; font-weight:600;">Wikidata Record &rarr;</a></p>`;
     }
 
     popupHtml += `</div>`;
