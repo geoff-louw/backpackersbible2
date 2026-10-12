@@ -1008,23 +1008,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const shell = document.querySelector('.bb-attractions-map-shell');
   if (!shell) return;
 
-  const poster = shell.querySelector('.sa-hostel-map-poster');
-  const mapContainer = document.getElementById('direct-map-container');
   const regionName = shell.getAttribute('data-region') || 'Madrid';
   const center = shell.getAttribute('data-center').split(',').map(Number);
   const zoom = parseFloat(shell.getAttribute('data-zoom')) || 10;
 
   let initialized = false;
+  let mapInstance = null;
 
   function loadDirectMap() {
     if (initialized) return;
     initialized = true;
 
-    if (poster) poster.style.display = 'none';
-    mapContainer.style.display = 'block';
     shell.classList.add('bb-map-loaded');
 
-    // Load MapLibre CSS & JS dynamically if not already present
     if (!window.maplibregl) {
       const link = document.createElement('link');
       link.rel = 'stylesheet';
@@ -1041,7 +1037,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function initMapLibre() {
-    const map = new maplibregl.Map({
+    mapInstance = new maplibregl.Map({
       container: 'direct-map-container',
       style: 'https://demotiles.maplibre.org/style.json',
       center: center,
@@ -1051,9 +1047,14 @@ document.addEventListener('DOMContentLoaded', () => {
       dragPan: true
     });
 
-    map.boxZoom.enable();
-    map.scrollZoom.enable();
-    if (map.touchZoomRotate) map.touchZoomRotate.enable();
+    mapInstance.boxZoom.enable();
+    mapInstance.scrollZoom.enable();
+    if (mapInstance.touchZoomRotate) mapInstance.touchZoomRotate.enable();
+
+    // Resize map once rendered to ensure correct canvas bounds
+    setTimeout(() => {
+      if (mapInstance) mapInstance.resize();
+    }, 100);
 
     const overpassQuery = `
       [out:json][timeout:25];
@@ -1084,13 +1085,13 @@ document.addEventListener('DOMContentLoaded', () => {
         };
       }).filter(Boolean);
 
-      map.on('load', () => {
-        map.addSource('attractions', {
+      mapInstance.on('load', () => {
+        mapInstance.addSource('attractions', {
           type: 'geojson',
           data: { type: 'FeatureCollection', features: features }
         });
 
-        map.addLayer({
+        mapInstance.addLayer({
           id: 'attractions-pins',
           type: 'circle',
           source: 'attractions',
@@ -1102,26 +1103,25 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
 
-        map.on('click', 'attractions-pins', (e) => {
+        mapInstance.on('click', 'attractions-pins', (e) => {
           new maplibregl.Popup()
             .setLngLat(e.features[0].geometry.coordinates)
             .setHTML(`<div style="color:#000; font-family:'Century Gothic',sans-serif; padding:5px;"><strong>${e.features[0].properties.title}</strong><br><span style="font-size:11px; color:#555;">Backpacker Attraction</span></div>`)
-            .addTo(map);
+            .addTo(mapInstance);
         });
 
-        map.on('mouseenter', 'attractions-pins', () => map.getCanvas().style.cursor = 'pointer');
-        map.on('mouseleave', 'attractions-pins', () => map.getCanvas().style.cursor = '');
+        mapInstance.on('mouseenter', 'attractions-pins', () => mapInstance.getCanvas().style.cursor = 'pointer');
+        mapInstance.on('mouseleave', 'attractions-pins', () => mapInstance.getCanvas().style.cursor = '');
 
         if (features.length > 0) {
           const bounds = features.reduce((b, f) => b.extend(f.geometry.coordinates), new maplibregl.LngLatBounds(features[0].geometry.coordinates, features[0].geometry.coordinates));
-          map.fitBounds(bounds, { padding: 60, maxZoom: 13 });
+          mapInstance.fitBounds(bounds, { padding: 60, maxZoom: 13 });
         }
       });
     })
     .catch(err => console.error('Overpass fetch error:', err));
   }
 
-  // Auto-load on desktop, tap-to-load on mobile
   if (window.innerWidth >= 1024) {
     loadDirectMap();
   } else {
