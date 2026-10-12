@@ -5038,11 +5038,13 @@ table.centered-table td {
    map opens at exactly the poster's size.
    ============================================================ */
 
+/* ░░ REGIONAL ATTRACTIONS MAP STYLES ░░ */
+
 .bb-attractions-map-shell {
   position: relative;
   width: 100%;
   max-width: 1200px;
-  margin: 70px auto 0 auto; /* Added 70px space above the map */
+  margin: 70px auto 0 auto;
   height: 550px;
   background: #111;
   overflow: hidden;
@@ -5109,7 +5111,7 @@ table.centered-table td {
   display: none;
 }
 
-/* Mobile Square Aspect Ratio Rule */
+/* Mobile Square Aspect Ratio Rule & Overlap Fixes */
 @media (max-width: 768px) {
   .bb-attractions-map-shell {
     width: 100vw;
@@ -5117,6 +5119,11 @@ table.centered-table td {
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
     margin-top: 70px;
+  }
+
+  /* Hide the yellow info circle on mobile to prevent overlapping the action button */
+  .bb-attractions-map-shell .map-overlay-circle {
+    display: none !important;
   }
 }
 
@@ -5155,7 +5162,7 @@ table.centered-table td {
   margin-top: 15px;
   margin-bottom: 30px;
   padding: 0 20px;
-  text-align: center; /* Centered alignment */
+  text-align: center;
   font-family: 'Century Gothic', sans-serif;
   font-size: 15px;
   line-height: 1.5;
