@@ -1010,7 +1010,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const center = shell.getAttribute('data-center').split(',').map(Number);
   const zoom = parseFloat(shell.getAttribute('data-zoom')) || 10;
-  const bbox = shell.getAttribute('data-bbox'); // e.g. "40.20,-4.20,40.70,-3.40"
+  const bbox = shell.getAttribute('data-bbox');
 
   let initialized = false;
   let mapInstance = null;
@@ -1072,7 +1072,6 @@ document.addEventListener('DOMContentLoaded', () => {
       shell.classList.add('bb-map-loaded');
       mapInstance.resize();
 
-      // Use explicit bbox attribute if provided, otherwise fallback to a default coordinate window
       const coords = bbox ? bbox.split(',') : [39.5, -4.5, 41.5, -3.0];
       const [s, w, n, e] = coords;
 
@@ -1097,10 +1096,32 @@ document.addEventListener('DOMContentLoaded', () => {
           const lat = el.lat || (el.center && el.center.lat);
           const lon = el.lon || (el.center && el.center.lon);
           if (!lat || !lon) return null;
+
+          const tags = el.tags || {};
+          let category = 'attraction';
+          if (tags.historic) category = 'historic';
+          else if (tags.museum) category = 'museum';
+          else if (tags.leisure === 'park' || tags.leisure === 'nature_reserve') category = 'park';
+          else if (tags.viewpoint) category = 'viewpoint';
+
+          // Parse Wikimedia Commons image if available
+          let imageUrl = null;
+          if (tags.wikimedia_commons) {
+            let filename = tags.wikimedia_commons.replace(/^File:/i, '').trim();
+            imageUrl = `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(filename)}?width=300`;
+          } else if (tags.image) {
+            imageUrl = tags.image;
+          }
+
           return {
             type: 'Feature',
             geometry: { type: 'Point', coordinates: [lon, lat] },
-            properties: { title: el.tags.name || "Tourist Attraction" }
+            properties: { 
+              title: tags.name || "Tourist Attraction",
+              category: category,
+              image: imageUrl,
+              website: tags.website || tags['contact:website'] || null
+            }
           };
         }).filter(Boolean);
 
@@ -1109,22 +1130,50 @@ document.addEventListener('DOMContentLoaded', () => {
           data: { type: 'FeatureCollection', features: features }
         });
 
+        // Color-code pins by category using MapLibre expressions
         mapInstance.addLayer({
           id: 'attractions-pins',
           type: 'circle',
           source: 'attractions',
           paint: {
-            'circle-radius': 7,
-            'circle-color': '#ffd400',
+            'circle-radius': 8,
+            'circle-color': [
+              'match',
+              ['get', 'category'],
+              'historic', '#b01c22',  // Red for historic/monuments
+              'museum', '#ff9800',    // Orange for museums
+              'park', '#4caf50',      // Green for parks & nature
+              'viewpoint', '#00bcd4', // Cyan for viewpoints
+              '#ffd400'               // Default yellow for general attractions
+            ],
             'circle-stroke-width': 2,
-            'circle-stroke-color': '#b01c22'
+            'circle-stroke-color': '#000000'
           }
         });
 
+        // Rich popup content with optional image and website link
         mapInstance.on('click', 'attractions-pins', (e) => {
-          new maplibregl.Popup()
-            .setLngLat(e.features[0].geometry.coordinates)
-            .setHTML(`<div style="color:#000; font-family:'Century Gothic',sans-serif; padding:5px;"><strong>${e.features[0].properties.title}</strong><br><span style="font-size:11px; color:#555;">Backpacker Attraction</span></div>`)
+          const props = e.features[0].properties;
+          const coords = e.features[0].geometry.coordinates.slice();
+
+          let htmlContent = `<div style="color:#000; font-family:'Century Gothic',sans-serif; max-width:200px; padding:4px;">`;
+          
+          if (props.image) {
+            htmlContent += `<img src="${props.image}" alt="${props.title}" style="width:100%; height:120px; object-fit:cover; border-radius:4px; margin-bottom:6px;" onerror="this.style.display='none'">`;
+          }
+
+          htmlContent += `<strong style="font-size:13px; display:block; margin-bottom:2px;">${props.title}</strong>`;
+          htmlContent += `<span style="font-size:11px; color:#666; text-transform:uppercase; display:block; margin-bottom:4px;">${props.category}</span>`;
+
+          if (props.website) {
+            htmlContent += `<a href="${props.website}" target="_blank" style="font-size:11px; color:#b01c22; text-decoration:underline;">Visit Website &rarr;</a>`;
+          }
+
+          htmlContent += `</div>`;
+
+          new maplibregl.Popup({ maxWidth: '240px' })
+            .setLngLat(coords)
+            .setHTML(htmlContent)
             .addTo(mapInstance);
         });
 
@@ -1135,7 +1184,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Bind click event to the button and poster area
   const loadBtn = shell.querySelector('.bb-load-attractions-btn');
   if (loadBtn) {
     loadBtn.addEventListener('click', loadDirectMap);
@@ -1146,7 +1194,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Touch warning hint for single-finger scroll trap prevention
   shell.addEventListener('touchstart', (e) => {
     if (!initialized && e.touches.length === 1) {
       shell.classList.add('touched-once');
