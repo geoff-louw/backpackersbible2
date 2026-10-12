@@ -1019,8 +1019,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (initialized) return;
     initialized = true;
 
-    shell.classList.add('bb-map-loaded');
-
     if (!window.maplibregl) {
       const link = document.createElement('link');
       link.rel = 'stylesheet';
@@ -1051,8 +1049,9 @@ document.addEventListener('DOMContentLoaded', () => {
     mapInstance.scrollZoom.enable();
     if (mapInstance.touchZoomRotate) mapInstance.touchZoomRotate.enable();
 
+    // Only hide poster and show map AFTER the map tiles/style are fully loaded
     mapInstance.on('load', () => {
-      // Force canvas resize to fix green placeholder/rendering glitches
+      shell.classList.add('bb-map-loaded');
       mapInstance.resize();
 
       const overpassQuery = `
