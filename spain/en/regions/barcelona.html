@@ -760,18 +760,28 @@
 
 <h2 class="sr-only">Search Madrid Attractions and Tours</h2>
 
-<section class="sa-hostel-map-shell bb-attractions-map-shell" id="attractions-map" data-region="Madrid" data-center="-3.7038,40.4168" data-zoom="10" aria-describedby="attractions-map-description">
+<section class="sa-hostel-map-shell bb-attractions-map-shell" id="attractions-map" 
+         data-region="Madrid" 
+         data-center="-3.7038,40.4168" 
+         data-zoom="10" 
+         data-bbox="40.20,-4.20,40.70,-3.40" 
+         aria-describedby="attractions-map-description">
 
-  <!-- Poster image (using Cape Town fallback assets as requested) -->
-  <picture class="sa-hostel-map-poster">
-    <source media="(max-width: 767px)" srcset="/assets/fallback_map_cape-town_mobile.webp">
-    <img src="/assets/fallback_map_cape-town.webp" 
-         alt="Interactive tourist attraction and tour map for Madrid showing things to do for backpackers."
-         loading="lazy"
-         decoding="async">
-  </picture>
+  <!-- Poster image wrapper with click-to-load button -->
+  <div class="bb-map-poster-wrap">
+    <picture class="sa-hostel-map-poster">
+      <source media="(max-width: 767px)" srcset="/assets/fallback_map_cape-town_mobile.webp">
+      <img src="/assets/fallback_map_cape-town.webp" 
+           alt="Interactive tourist attraction and tour map for Madrid showing things to do for backpackers."
+           loading="lazy"
+           decoding="async">
+    </picture>
+    <button type="button" class="load-map-btn bb-load-attractions-btn">
+      Open Interactive Map
+    </button>
+  </div>
 
-  <!-- Direct map container (sits underneath the poster) -->
+  <!-- Direct map container (sits underneath) -->
   <div id="direct-map-container"></div>
 
   <!-- Touch instruction overlay -->
