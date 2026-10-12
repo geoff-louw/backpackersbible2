@@ -1006,7 +1006,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 /* ==========================================================================
    ATTRACTIONS MAP CONTROLLER (script-2.js)
-   - MapLibre GL Direct DOM Rendering with Safety & Diagnostics
+   - MapLibre GL Direct DOM Rendering with Loading Spinner
+   - Smart Tag Parsing & Descriptive Name Fallbacks
    - Overpass API GeoJSON Fetcher with Auto-Failover Mirrors
    ========================================================================== */
 
@@ -1033,22 +1034,28 @@ function initAttractionsMap() {
   if (!loadBtn || !mapContainer) return;
 
   loadBtn.addEventListener('click', async () => {
-    // 1. Hide poster
+    // 1. Hide poster and show loading indicator
     if (posterWrap) {
       posterWrap.style.display = 'none';
     }
 
-    // 2. Verify MapLibre is loaded
-    if (typeof maplibregl === 'undefined') {
-      console.error('[Attractions Map] Fatal: maplibregl is not defined. Ensure MapLibre CDN script is loaded in your HTML head.');
-      mapContainer.innerHTML = `<div style="padding: 20px; text-align: center; color: #d9534f; font-weight:bold;">Map library failed to load. Check browser console (F12).</div>`;
-      return;
-    }
-
-    // 3. Ensure container has dimensions
     if (mapContainer.clientHeight === 0) {
       mapContainer.style.height = '450px';
       mapContainer.style.width = '100%';
+    }
+
+    mapContainer.innerHTML = `
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; background: #f8f9fa; color: #333; font-family: sans-serif;">
+        <div style="width: 40px; height: 40px; border: 4px solid #e0e0e0; border-top: 4px solid #e74c3c; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 12px;"></div>
+        <p style="font-size: 14px; font-weight: 600; margin: 0;">Loading map & attractions...</p>
+      </div>
+      <style>@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }</style>
+    `;
+
+    if (typeof maplibregl === 'undefined') {
+      console.error('[Attractions Map] Fatal: maplibregl is not defined.');
+      mapContainer.innerHTML = `<div style="padding: 20px; text-align: center; color: #d9534f; font-weight:bold;">Map library failed to load. Check console.</div>`;
+      return;
     }
 
     const centerAttr = mapShell.getAttribute('data-center') || '0,0';
@@ -1059,6 +1066,9 @@ function initAttractionsMap() {
     const zoom = parseFloat(zoomAttr);
 
     try {
+      // Clear container contents before initializing MapLibre canvas
+      mapContainer.innerHTML = '';
+
       globalMapInstance = new maplibregl.Map({
         container: 'direct-map-container',
         style: {
@@ -1106,7 +1116,7 @@ function initAttractionsMap() {
       setupMapPopups(globalMapInstance);
 
     } catch (err) {
-      console.error('[Attractions Map] MapLibre initialization error:', err);
+      console.error('[Attractions Map] Initialization error:', err);
       mapContainer.innerHTML = `<div style="padding: 20px; text-align: center; color: #d9534f; font-weight:bold;">Error: ${err.message}</div>`;
     }
   });
@@ -1149,8 +1159,8 @@ function fetchOverpassDataWithFallback(bboxStr) {
 
       clearTimeout(timeoutId);
 
-      const contentType = response.headers.get('content-type') || '';
-      if (response.ok && contentType.includes('application/json')) {
+      const contentType = response.headers.get('content-type'] || '';
+      if (response.ok && response.headers.get('content-type')?.includes('application/json')) {
         return await response.json();
       } else {
         console.warn(`[Overpass] ${endpoint} returned error ${response.status}. Trying next mirror...`);
@@ -1163,6 +1173,11 @@ function fetchOverpassDataWithFallback(bboxStr) {
   })();
 }
 
+function helperCapitalize(str) {
+  if (!str) return '';
+  return str.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+}
+
 function overpassToGeoJSON(overpassJson) {
   if (!overpassJson || !overpassJson.elements) {
     return { type: 'FeatureCollection', features: [] };
@@ -1172,7 +1187,17 @@ function overpassToGeoJSON(overpassJson) {
     .filter(el => el.type === 'node' && el.lat && el.lon)
     .map(node => {
       const tags = node.tags || {};
-      const name = tags.name || tags['name:en'] || 'Attraction';
+      
+      // Intelligent Name Fallback Chain
+      let name = tags.name || tags['name:es'] || tags['name:en'] || tags.operator;
+      if (!name) {
+        if (tags.historic) name = helperCapitalize(tags.historic);
+        else if (tags.tourism === 'museum') name = 'Museum';
+        else if (tags.tourism === 'viewpoint') name = 'Viewpoint';
+        else if (tags.tourism) name = helperCapitalize(tags.tourism);
+        else if (tags.leisure) name = helperCapitalize(tags.leisure);
+        else name = 'Point of Interest';
+      }
       
       let category = 'attraction';
       if (tags.tourism === 'museum') category = 'museum';
