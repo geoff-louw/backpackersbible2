@@ -59,11 +59,11 @@
 <a class="skip-link" href="#site-nav">Skip to navigation</a>
 <a class="skip-link" href="#site-search">Skip to search</a>
 
+<!-- Header start -->
+
 <header id="site-header" aria-label="Site header">
 
-
     <div class="site-header__bar">
-
 
         <div class="site-header__branding">
 
@@ -75,35 +75,21 @@
                      height="80">
             </a>
 
-
             <div class="site-header__brand-text">
-
 
                 <div class="site-header__brand-row">
 
                     <span class="site-header__brand-name">BackpackersBible.com</span>
 
-                    <div class="country-switcher">
-                        <button class="country-switcher__trigger site-header__location-badge"
-                                id="country-switcher-trigger"
-                                type="button"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                                aria-controls="country-switcher-menu">
-                            Spain
-                            <svg class="country-switcher__chevron" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true">
-                                <path d="M6 9l6 6 6-6"/>
-                            </svg>
-                        </button>
-                        <div class="country-switcher__menu" id="country-switcher-menu" role="menu" aria-label="Switch country guide">
-                            <!-- "Home" and "South Africa" both point at "/" for now since the SA guide
-                                 IS the site homepage until you swap the front page over — update these
-                                 once Home becomes its own separate landing page. -->
-                            <a href="/" role="menuitem">Home</a>
-                            <a href="/" role="menuitem">South Africa</a>
-                            <a href="/spain/en/" role="menuitem" aria-current="page">Spain</a>
-                        </div>
-                    </div>
+                    <!-- BREADCRUMB — change the <ol> items per page type.
+                         Last item = current page: plain text, aria-current="page", no link. -->
+                    <nav class="site-header__breadcrumb" aria-label="Breadcrumb">
+                        <ol>
+                            <li><a href="/spain/en/">Spain</a></li>
+                            <li><a href="/spain/en/regions/">Regions</a></li>
+                            <li aria-current="page">Cantabria</li>
+                        </ol>
+                    </nav>
 
                 </div>
 
@@ -125,11 +111,8 @@
                 <span class="site-header__nav-toggle-bar" aria-hidden="true"></span>
             </button>
 
-
             <div class="site-header__search" id="site-search" role="search">
-
                 <div class="site-header__search-bar">
-
                     <input  class="site-header__search-input"
                             id="site-search-input"
                             type="search"
@@ -139,92 +122,147 @@
                             aria-autocomplete="list"
                             aria-controls="site-search-results"
                             aria-expanded="false">
-
                     <span class="site-header__search-icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true">
                             <circle cx="11" cy="11" r="7"/>
                             <line x1="16.5" y1="16.5" x2="22" y2="22"/>
                         </svg>
                     </span>
-
                 </div>
-
                 <div class="site-header__search-results"
                      id="site-search-results"
                      role="listbox"
                      aria-live="polite"
                      aria-label="Search results"></div>
-
             </div>
 
             <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
 
-                <a href="/spain/en/" class="site-nav__link">Home</a>
-
-                <div class="site-nav__item">
-
-                    <button class="site-nav__mega-trigger"
-                            aria-haspopup="menu"
-                            aria-expanded="false"
-                            aria-controls="mega-regions">
-                        Backpacking Spain
-                    </button>
-
-                    <div class="site-nav__mega-menu" id="mega-regions" role="menu" aria-label="Backpacking Spain regions">
-
-                        <div class="site-nav__mega-col">
-                            <h3 class="site-nav__mega-heading">All Regions</h3>
-                            <a href="/spain/en/regions/" role="menuitem">Regions Map / Full Hostel Directory</a>
-                            <h3 class="site-nav__mega-heading">Popular</h3>
-                            <a href="/spain/en/regions/catalonia" role="menuitem">Catalonia</a>
-                            <a href="/spain/en/regions/madrid" role="menuitem">Madrid</a>
-                            <a href="/spain/en/regions/andalusia" role="menuitem">Andalusia</a>
-                            <a href="/spain/en/regions/valencia" role="menuitem">Valencia</a>
-                            <a href="/spain/en/regions/basque-country" role="menuitem">Basque Country</a>
-                            <a href="/spain/en/regions/balearic-islands" role="menuitem">Balearic Islands</a>
-                            <a href="/spain/en/regions/canary-islands" role="menuitem">Canary Islands</a>
-                        </div>
-
-                        <div class="site-nav__mega-col">
-                            <h3 class="site-nav__mega-heading">Central Spain</h3>
-                            <a href="/spain/en/regions/castile-and-leon" role="menuitem">Castile and León</a>
-                            <a href="/spain/en/regions/castilla-la-mancha" role="menuitem">Castilla-La Mancha</a>
-                            <a href="/spain/en/regions/aragon" role="menuitem">Aragón</a>
-                            <a href="/spain/en/regions/extremadura" role="menuitem">Extremadura</a>
-                            <a href="/spain/en/regions/navarre" role="menuitem">Navarre</a>
-                            <a href="/spain/en/regions/la-rioja" role="menuitem">La Rioja</a>
-                            <a href="/spain/en/regions/murcia" role="menuitem">Murcia</a>
-                        </div>
-
-                        <div class="site-nav__mega-col">
-                            <h3 class="site-nav__mega-heading">Green Spain (The North Coast)</h3>
-                            <a href="/spain/en/regions/galicia" role="menuitem">Galicia</a>
-                            <a href="/spain/en/regions/asturias" role="menuitem">Asturias</a>
-                            <a href="/spain/en/regions/cantabria" role="menuitem">Cantabria</a>
-                            <h3 class="site-nav__mega-heading">City Guides</h3>
-                            <a href="/spain/en/regions/barcelona" role="menuitem">Barcelona</a>
-                            <a href="/spain/en/regions/toledo" role="menuitem">Toledo</a>
-                            <a href="/spain/en/regions/seville" role="menuitem">Seville</a>
-                        </div>
-
+                <!-- Home dropdown -->
+                <div class="site-nav__item site-nav__item--dropdown">
+                    <button class="site-nav__mega-trigger" aria-haspopup="menu" aria-expanded="false" aria-controls="mega-home">Home</button>
+                    <div class="site-nav__mega-menu site-nav__mega-menu--dropdown" id="mega-home" role="menu" aria-label="Choose a guide">
+                        <!-- "Home" and "South Africa" both point at "/" for now because the SA guide IS the
+                             homepage until the front page is swapped over. Update both when that happens. -->
+                        <a href="/" role="menuitem">Home</a>
+                        <a href="/" role="menuitem">South Africa</a>
+                        <a href="/spain/en/" role="menuitem" aria-current="page">Spain</a>
                     </div>
-
                 </div>
 
-
-                <!-- Mega menu item: Advice -->
-
+                <!-- Regions / City Guides -->
                 <div class="site-nav__item">
+                    <button class="site-nav__mega-trigger" aria-haspopup="menu" aria-expanded="false" aria-controls="mega-regions">Regions/City Guides</button>
+                    <div class="site-nav__mega-menu site-nav__mega-menu--4col" id="mega-regions" role="menu" aria-label="Regions and city guides">
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">Start Here</h3>
+                            <a href="/spain/en/" role="menuitem">Spain Overview</a>
+                            <a href="/spain/en/regions/" role="menuitem">Regions Map</a>
+                            <h3 class="site-nav__mega-heading">Central Spain</h3>
+                            <a href="/spain/en/regions/madrid" role="menuitem">Madrid</a>
+                            <a href="/spain/en/regions/castile-and-leon" role="menuitem">Castile &amp; León</a>
+                            <a href="/spain/en/regions/castilla-la-mancha" role="menuitem">Castilla-La Mancha</a>
+                            <a href="/spain/en/regions/toledo" role="menuitem">Toledo</a>
+                            <a href="/spain/en/regions/aragon" role="menuitem">Aragón</a>
+                            <a href="/spain/en/regions/zaragoza" role="menuitem">Zaragoza</a>
+                            <a href="/spain/en/regions/pyrenees" role="menuitem">Pyrenees</a>
+                        </div>
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">Catalonia &amp; the East</h3>
+                            <a href="/spain/en/regions/catalonia" role="menuitem">Catalonia</a>
+                            <a href="/spain/en/regions/barcelona" role="menuitem">Barcelona</a>
+                            <a href="/spain/en/regions/costa-brava" role="menuitem">Costa Brava</a>
+                            <a href="/spain/en/regions/valencia" role="menuitem">Valencia</a>
+                            <a href="/spain/en/regions/valencia-city" role="menuitem">Valencia City</a>
+                            <a href="/spain/en/regions/costa-blanca" role="menuitem">Costa Blanca</a>
+                            <a href="/spain/en/regions/murcia" role="menuitem">Murcia</a>
+                            <a href="/spain/en/regions/balearic-islands" role="menuitem">Balearic Islands</a>
+                            <a href="/spain/en/regions/ibiza" role="menuitem">Ibiza</a>
+                        </div>
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">Andalusia &amp; the South</h3>
+                            <a href="/spain/en/regions/andalusia" role="menuitem">Andalusia</a>
+                            <a href="/spain/en/regions/seville" role="menuitem">Seville</a>
+                            <a href="/spain/en/regions/granada" role="menuitem">Granada</a>
+                            <a href="/spain/en/regions/malaga" role="menuitem">Malaga</a>
+                            <a href="/spain/en/regions/costa-del-sol" role="menuitem">Costa del Sol</a>
+                            <a href="/spain/en/regions/extremadura" role="menuitem">Extremadura</a>
+                            <a href="/spain/en/regions/canary-islands" role="menuitem">Canary Islands</a>
+                            <a href="/spain/en/regions/cueta-melilla" role="menuitem">Ceuta &amp; Melilla</a>
+                        </div>
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">Green Spain &amp; the North</h3>
+                            <a href="/spain/en/regions/galicia" role="menuitem">Galicia</a>
+                            <a href="/spain/en/regions/camino-de-santiago" role="menuitem">Camino de Santiago</a>
+                            <a href="/spain/en/regions/asturias" role="menuitem">Asturias</a>
+                            <a href="/spain/en/regions/cantabria" role="menuitem">Cantabria</a>
+                            <a href="/spain/en/regions/basque-country" role="menuitem">Basque Country</a>
+                            <a href="/spain/en/regions/bilbao" role="menuitem">Bilbao</a>
+                            <a href="/spain/en/regions/navarre" role="menuitem">Navarre</a>
+                            <a href="/spain/en/regions/pamplona" role="menuitem">Pamplona</a>
+                            <a href="/spain/en/regions/la-rioja" role="menuitem">La Rioja</a>
+                        </div>
+                    </div>
+                </div>
 
-                    <button class="site-nav__mega-trigger"
-                            aria-haspopup="menu"
-                            aria-expanded="false"
-                            aria-controls="mega-advice">
-                        Advice
-                    </button>
+                <!-- Hostels (hostel pages not built yet: /spain/en/hostels/<region>) -->
+                <div class="site-nav__item">
+                    <button class="site-nav__mega-trigger" aria-haspopup="menu" aria-expanded="false" aria-controls="mega-hostels">Hostels</button>
+                    <div class="site-nav__mega-menu site-nav__mega-menu--4col" id="mega-hostels" role="menu" aria-label="Hostels by region and city">
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">Start Here</h3>
+                            <a href="/spain/en/hostels/" role="menuitem">Full Hostel Directory</a>
+                            <h3 class="site-nav__mega-heading">Central Spain</h3>
+                            <a href="/spain/en/hostels/madrid" role="menuitem">Madrid</a>
+                            <a href="/spain/en/hostels/castile-and-leon" role="menuitem">Castile &amp; León</a>
+                            <a href="/spain/en/hostels/castilla-la-mancha" role="menuitem">Castilla-La Mancha</a>
+                            <a href="/spain/en/hostels/toledo" role="menuitem">Toledo</a>
+                            <a href="/spain/en/hostels/aragon" role="menuitem">Aragón</a>
+                            <a href="/spain/en/hostels/zaragoza" role="menuitem">Zaragoza</a>
+                            <a href="/spain/en/hostels/pyrenees" role="menuitem">Pyrenees</a>
+                        </div>
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">Catalonia &amp; the East</h3>
+                            <a href="/spain/en/hostels/catalonia" role="menuitem">Catalonia</a>
+                            <a href="/spain/en/hostels/barcelona" role="menuitem">Barcelona</a>
+                            <a href="/spain/en/hostels/costa-brava" role="menuitem">Costa Brava</a>
+                            <a href="/spain/en/hostels/valencia" role="menuitem">Valencia</a>
+                            <a href="/spain/en/hostels/valencia-city" role="menuitem">Valencia City</a>
+                            <a href="/spain/en/hostels/costa-blanca" role="menuitem">Costa Blanca</a>
+                            <a href="/spain/en/hostels/murcia" role="menuitem">Murcia</a>
+                            <a href="/spain/en/hostels/balearic-islands" role="menuitem">Balearic Islands</a>
+                            <a href="/spain/en/hostels/ibiza" role="menuitem">Ibiza</a>
+                        </div>
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">Andalusia &amp; the South</h3>
+                            <a href="/spain/en/hostels/andalusia" role="menuitem">Andalusia</a>
+                            <a href="/spain/en/hostels/seville" role="menuitem">Seville</a>
+                            <a href="/spain/en/hostels/granada" role="menuitem">Granada</a>
+                            <a href="/spain/en/hostels/malaga" role="menuitem">Malaga</a>
+                            <a href="/spain/en/hostels/costa-del-sol" role="menuitem">Costa del Sol</a>
+                            <a href="/spain/en/hostels/extremadura" role="menuitem">Extremadura</a>
+                            <a href="/spain/en/hostels/canary-islands" role="menuitem">Canary Islands</a>
+                            <a href="/spain/en/hostels/cueta-melilla" role="menuitem">Ceuta &amp; Melilla</a>
+                        </div>
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">Green Spain &amp; the North</h3>
+                            <a href="/spain/en/hostels/galicia" role="menuitem">Galicia</a>
+                            <a href="/spain/en/hostels/camino-de-santiago" role="menuitem">Camino de Santiago</a>
+                            <a href="/spain/en/hostels/asturias" role="menuitem">Asturias</a>
+                            <a href="/spain/en/hostels/cantabria" role="menuitem">Cantabria</a>
+                            <a href="/spain/en/hostels/basque-country" role="menuitem">Basque Country</a>
+                            <a href="/spain/en/hostels/bilbao" role="menuitem">Bilbao</a>
+                            <a href="/spain/en/hostels/navarre" role="menuitem">Navarre</a>
+                            <a href="/spain/en/hostels/pamplona" role="menuitem">Pamplona</a>
+                            <a href="/spain/en/hostels/la-rioja" role="menuitem">La Rioja</a>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Advice -->
+                <div class="site-nav__item">
+                    <button class="site-nav__mega-trigger" aria-haspopup="menu" aria-expanded="false" aria-controls="mega-advice">Advice</button>
                     <div class="site-nav__mega-menu" id="mega-advice" role="menu" aria-label="Advice sections">
-
                         <div class="site-nav__mega-col">
                             <h3 class="site-nav__mega-heading">Preparation</h3>
                             <a href="/spain/en/advice/#checklists" role="menuitem">Preflight Checklist</a>
@@ -235,7 +273,6 @@
                             <a href="/spain/en/advice/#drinking" role="menuitem">Drinking &amp; Nightlife Laws</a>
                             <a href="/spain/en/advice/#apps" role="menuitem">Useful Apps</a>
                         </div>
-
                         <div class="site-nav__mega-col">
                             <h3 class="site-nav__mega-heading">In-Country</h3>
                             <a href="/spain/en/advice/in-country#emergencies" role="menuitem">Emergencies</a>
@@ -246,7 +283,6 @@
                             <a href="/spain/en/advice/in-country#games" role="menuitem">Fun &amp; Games</a>
                             <a href="/spain/en/advice/in-country#onward-travel" role="menuitem">Onward Travel</a>
                         </div>
-
                         <div class="site-nav__mega-col">
                             <h3 class="site-nav__mega-heading">Specific Interests</h3>
                             <a href="/spain/en/advice/specifics#festivals" role="menuitem">Fiestas &amp; Festivals</a>
@@ -256,63 +292,79 @@
                             <a href="/spain/en/advice/specifics#cycling" role="menuitem">Cycle Touring</a>
                             <a href="/spain/en/advice/specifics#language-schools" role="menuitem">Language Schools</a>
                         </div>
-
                     </div>
-
                 </div>
 
-
-                <!-- Mega menu item: Tours -->
-
+                <!-- Itineraries -->
                 <div class="site-nav__item">
-
-                    <button class="site-nav__mega-trigger"
-                            aria-haspopup="menu"
-                            aria-expanded="false"
-                            aria-controls="mega-tours">
-                        Tours
-                    </button>
-
-                    <div class="site-nav__mega-menu" id="mega-tours" role="menu" aria-label="Tours and itineraries">
-
+                    <button class="site-nav__mega-trigger" aria-haspopup="menu" aria-expanded="false" aria-controls="mega-itineraries">Itineraries</button>
+                    <div class="site-nav__mega-menu site-nav__mega-menu--4col site-nav__mega-menu--dense" id="mega-itineraries" role="menu" aria-label="Itineraries">
                         <div class="site-nav__mega-col">
-                            <h3 class="site-nav__mega-heading">Self-Drive — Short Stay</h3>
-                            <a href="/spain/en/itineraries/#catalonia-coast" role="menuitem">One Week: Barcelona &amp; The Catalan Coast</a>
-                            <a href="/spain/en/itineraries/#madrid-andalusia-loop" role="menuitem">Two Weeks: Madrid to Andalusia Loop</a>
-                            <a href="/spain/en/itineraries/#camino-highlights" role="menuitem">Two Weeks: Camino de Santiago Highlights</a>
+                            <a href="/spain/en/itineraries/" role="menuitem">All Itineraries</a>
+                            <h3 class="site-nav__mega-heading"><a href="/spain/en/itineraries/short-stays/" role="menuitem">Short Stays</a></h3>
+                            <a href="/spain/en/itineraries/short-stays/#barcelona-5-days" role="menuitem">5 Days: Barcelona City Stay</a>
+                            <a href="/spain/en/itineraries/short-stays/#madrid-5-days" role="menuitem">5 Days: Madrid Without the Tourist Tax</a>
+                            <a href="/spain/en/itineraries/short-stays/#andalusia-classic" role="menuitem">7 Days: Andalusia Classic</a>
+                            <a href="/spain/en/itineraries/short-stays/#big-four" role="menuitem">10 Days: The Big Four</a>
+                            <h3 class="site-nav__mega-heading"><a href="/spain/en/itineraries/budget/" role="menuitem">Budget</a></h3>
+                            <a href="/spain/en/itineraries/budget/#shoestring" role="menuitem">2 Weeks: The Shoestring Tour</a>
+                            <a href="/spain/en/itineraries/budget/#flashpacker" role="menuitem">2 Weeks: The Flashpacker's Spain</a>
+                            <a href="/spain/en/itineraries/budget/#four-friends" role="menuitem">10 Days: Four Friends and a Fiat</a>
+                            <h3 class="site-nav__mega-heading"><a href="/spain/en/itineraries/road-trips/" role="menuitem">Road Trips</a></h3>
+                            <a href="/spain/en/itineraries/road-trips/#green-spain" role="menuitem">2 Weeks: Green Spain Road Trip</a>
+                            <a href="/spain/en/itineraries/road-trips/#campervan" role="menuitem">3 Weeks: Campervan Spain</a>
+                            <a href="/spain/en/itineraries/road-trips/#espana-vaciada" role="menuitem">2 Weeks: La España Vaciada</a>
                         </div>
-
                         <div class="site-nav__mega-col">
-                            <h3 class="site-nav__mega-heading">Self-Drive — Medium Stay</h3>
-                            <a href="/spain/en/itineraries/#backpackers-spain" role="menuitem">Three Weeks: The Backpacker's Spain</a>
-                            <a href="/spain/en/itineraries/#green-spain" role="menuitem">Three Weeks: Green Spain &amp; The North Coast</a>
-                            <h3 class="site-nav__mega-heading">Self-Drive — Long Stay</h3>
-                            <a href="/spain/en/itineraries/#grand-tour" role="menuitem">One Month: The Grand Tour of Spain</a>
-                            <a href="/spain/en/itineraries/#full-camino" role="menuitem">5–6 Weeks: The Full Camino Francés</a>
+                            <h3 class="site-nav__mega-heading"><a href="/spain/en/itineraries/off-the-beaten-track/" role="menuitem">Off the Beaten Track</a></h3>
+                            <a href="/spain/en/itineraries/off-the-beaten-track/#feve-slow-train" role="menuitem">10 Days: The Slow Train Along the Green Coast</a>
+                            <a href="/spain/en/itineraries/off-the-beaten-track/#salamanca-to-the-sea" role="menuitem">2 Weeks: Salamanca to the Sea</a>
+                            <a href="/spain/en/itineraries/off-the-beaten-track/#morocco-from-tarifa" role="menuitem">Morocco Add-On from Tarifa</a>
+                            <h3 class="site-nav__mega-heading"><a href="/spain/en/itineraries/active/" role="menuitem">Active</a></h3>
+                            <a href="/spain/en/itineraries/active/#surf-kitesurf" role="menuitem">10 Days: Surf and Kitesurf</a>
+                            <a href="/spain/en/itineraries/active/#mountains" role="menuitem">2 Weeks: Pyrenees, Picos and Sierra Nevada</a>
+                            <a href="/spain/en/itineraries/active/#ski" role="menuitem">1 Week: Sierra Nevada Ski</a>
+                            <a href="/spain/en/itineraries/active/#balearics" role="menuitem">10 Days: Island Hop, Balearics</a>
+                            <h3 class="site-nav__mega-heading"><a href="/spain/en/itineraries/accessible/" role="menuitem">Accessible Spain</a></h3>
+                            <a href="/spain/en/itineraries/accessible/#step-free" role="menuitem">Step-Free Spain: Wheelchair-Friendly Cities</a>
+                            <a href="/spain/en/itineraries/accessible/#blind-low-vision" role="menuitem">Blind and Low-Vision Spain</a>
+                            <a href="/spain/en/itineraries/accessible/#deaf-hard-of-hearing" role="menuitem">Deaf and Hard-of-Hearing Spain</a>
+                            <a href="/spain/en/itineraries/accessible/#sensory-friendly" role="menuitem">Quiet Spain: Autism and Sensory-Friendly</a>
+                            <a href="/spain/en/itineraries/accessible/#low-energy" role="menuitem">Slow Spain: Low-Energy and Chronic Illness</a>
                         </div>
-
                         <div class="site-nav__mega-col">
-                            <h3 class="site-nav__mega-heading">Tours &amp; Day Trips</h3>
-                            <a href="/spain/en/regions/catalonia#tours" role="menuitem">Catalonia</a>
-                            <a href="/spain/en/regions/madrid#tours" role="menuitem">Madrid</a>
-                            <a href="/spain/en/regions/andalusia#tours" role="menuitem">Andalusia</a>
-                            <a href="/spain/en/regions/valencia#tours" role="menuitem">Valencia</a>
-                            <a href="/spain/en/regions/basque-country#tours" role="menuitem">Basque Country</a>
-                            <a href="/spain/en/regions/balearic-islands#tours" role="menuitem">Balearic Islands</a>
-                            <a href="/spain/en/regions/canary-islands#tours" role="menuitem">Canary Islands</a>
-                            <a href="/spain/en/regions/galicia#tours" role="menuitem">Galicia</a>
-                            <a href="/spain/en/regions/barcelona#tours" role="menuitem">Barcelona</a>
-                            <a href="/spain/en/regions/toledo#tours" role="menuitem">Toledo</a>
-                            <a href="/spain/en/regions/seville#tours" role="menuitem">Seville</a>
+                            <h3 class="site-nav__mega-heading"><a href="/spain/en/itineraries/themed/" role="menuitem">Themed</a></h3>
+                            <a href="/spain/en/itineraries/themed/#art-10-days" role="menuitem">10 Days: Picasso, Dalí and Goya</a>
+                            <a href="/spain/en/itineraries/themed/#art-trail" role="menuitem">3 Weeks: The Art Trail</a>
+                            <a href="/spain/en/itineraries/themed/#film-locations" role="menuitem">Film and TV Locations</a>
+                            <a href="/spain/en/itineraries/themed/#flamenco-trail" role="menuitem">The Flamenco Trail</a>
+                            <a href="/spain/en/itineraries/themed/#moorish-roman" role="menuitem">Moorish and Roman Trails</a>
+                            <a href="/spain/en/itineraries/themed/#fiesta-trail" role="menuitem">3 Weeks: The Fiesta Trail</a>
+                            <a href="/spain/en/itineraries/themed/#festival-summer" role="menuitem">Festival Summer</a>
+                            <a href="/spain/en/itineraries/themed/#party-tour" role="menuitem">2 Weeks: The Party Hostel Tour</a>
+                            <h3 class="site-nav__mega-heading"><a href="/spain/en/itineraries/lgbtq/" role="menuitem">LGBTQ+</a></h3>
+                            <a href="/spain/en/itineraries/lgbtq/#madrid-pride" role="menuitem">5 Days: Madrid Pride</a>
+                            <a href="/spain/en/itineraries/lgbtq/#barcelona-sitges-valencia" role="menuitem">10 Days: Barcelona, Sitges and Valencia</a>
+                            <a href="/spain/en/itineraries/lgbtq/#maspalomas-canaries" role="menuitem">1 Week: Maspalomas and the Canaries in Winter</a>
                         </div>
-
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading"><a href="/spain/en/itineraries/long-stays/" role="menuitem">Long Stays</a></h3>
+                            <a href="/spain/en/itineraries/long-stays/#immersion" role="menuitem">1 Month: Spanish Immersion</a>
+                            <a href="/spain/en/itineraries/long-stays/#digital-nomad" role="menuitem">1 Month: Digital Nomad Slow Travel</a>
+                            <a href="/spain/en/itineraries/long-stays/#eating-drinking" role="menuitem">2 Weeks: Eating and Drinking Tour</a>
+                            <a href="/spain/en/itineraries/long-stays/#camino-and-beyond" role="menuitem">3 Weeks: Camino &amp; Beyond</a>
+                            <a href="/spain/en/itineraries/long-stays/#la-vuelta" role="menuitem">3 Months: La Vuelta, the Grand Tour</a>
+                            <h3 class="site-nav__mega-heading"><a href="/spain/en/itineraries/camino/" role="menuitem">The Camino</a></h3>
+                            <a href="/spain/en/itineraries/camino/frances/" role="menuitem">Camino Francés: Sarria to Santiago</a>
+                            <a href="/spain/en/itineraries/camino/ingles/" role="menuitem">Camino Inglés: Ferrol to Santiago</a>
+                            <a href="/spain/en/itineraries/camino/portugues/" role="menuitem">Camino Portugués: Tui to Santiago</a>
+                        </div>
                     </div>
-
                 </div>
 
-    <a href="/misc/about-backpacking" class="site-nav__link">About Backpacking</a>
+                <a href="/misc/about-backpacking" class="site-nav__link">About Backpacking</a>
 
-    <a href="/misc/backpacking-resources" class="site-nav__link">Resources</a>
+                <a href="/misc/backpacking-resources" class="site-nav__link">Resources</a>
 
             </nav>
 
@@ -325,9 +377,7 @@
     <div class="site-header__strip site-header__strip--blue"   aria-hidden="true"></div>
     <div class="site-header__strip site-header__strip--green"  aria-hidden="true"></div>
 
-
 </header>
-
 
 <div class="header-spacer" aria-hidden="true"></div>
 
@@ -679,64 +729,6 @@
 </div>
 
 </section>
-
-<style>
-
-  /* Country switcher — new component, not yet in style-2.css.
-     Reuses .site-header__location-badge for base look, just adds
-     dropdown-specific bits on top. Move into style-2.css whenever convenient. */
-  .country-switcher{ position:relative; display:inline-block; }
-  .country-switcher__trigger{
-    display:inline-flex; align-items:center; gap:4px;
-    font-family:inherit; cursor:pointer; border:none;
-  }
-  .country-switcher__chevron{ width:14px; height:14px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-  .country-switcher__menu{
-    display:none;
-    position:absolute; top:100%; left:0; margin-top:6px;
-    min-width:160px; z-index:50;
-    background:#ffffff; color:#670000;
-    border:2px solid #670000; border-radius:6px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.2);
-    overflow:hidden;
-  }
-  .country-switcher__menu.is-open{ display:block; }
-  .country-switcher__menu a{
-    display:block; padding:10px 14px;
-    font-family:inherit; text-decoration:none; color:#670000;
-  }
-  .country-switcher__menu a:hover,
-  .country-switcher__menu a:focus{ background:#fdf400; }
-  .country-switcher__menu a[aria-current="page"]{ font-weight:bold; background:#f5f5f5; }
-</style>
-
-<script>
-(function(){
-  var trigger = document.getElementById('country-switcher-trigger');
-  var menu    = document.getElementById('country-switcher-menu');
-  if (!trigger || !menu) return;
-
-  function closeMenu(){
-    menu.classList.remove('is-open');
-    trigger.setAttribute('aria-expanded', 'false');
-  }
-  function openMenu(){
-    menu.classList.add('is-open');
-    trigger.setAttribute('aria-expanded', 'true');
-  }
-
-  trigger.addEventListener('click', function(e){
-    e.stopPropagation();
-    if (menu.classList.contains('is-open')) closeMenu(); else openMenu();
-  });
-  document.addEventListener('click', function(e){
-    if (!menu.contains(e.target) && e.target !== trigger) closeMenu();
-  });
-  document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape') closeMenu();
-  });
-})();
-</script>
 
      <!-- Parallax image -->
 
@@ -1208,7 +1200,7 @@ window.BB_TIPS = [
 <script src="/js/pwa.js" defer></script>
 
 
-     <!-- Mobile menu -->
+    <!-- Mobile menu -->
 
 <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu" hidden>
 
@@ -1234,41 +1226,110 @@ window.BB_TIPS = [
         <div id="mobile-menu-search-results" class="mobile-menu__search-results" role="listbox" aria-live="polite" aria-label="Search results"></div>
     </div>
 
-    <a href="/spain/en/">Home</a>
+    <button class="accordion" aria-expanded="false" aria-controls="panel-home">HOME</button>
 
-    <button class="accordion" aria-expanded="false" aria-controls="panel-regions">BACKPACKING SPAIN</button>
+    <div class="panel" id="panel-home" role="region" aria-label="Choose a guide">
+        <a href="/">Home</a>
+        <a href="/">South Africa</a>
+        <a href="/spain/en/" aria-current="page">Spain</a>
+    </div>
 
-    <div class="panel" id="panel-regions" role="region" aria-label="Backpacking Spain regions">
-        <a href="/spain/en/regions/">Regions Map / Full Hostel Directory</a>
-        <a href="/spain/en/regions/catalonia">Catalonia</a>
-        <a href="/spain/en/regions/barcelona">Barcelona</a>
+    <button class="accordion" aria-expanded="false" aria-controls="panel-regions">REGIONS/CITY GUIDES</button>
+
+    <div class="panel" id="panel-regions" role="region" aria-label="Regions and city guides">
+        <h3>Start Here</h3>
+        <a href="/spain/en/">Spain Overview</a>
+        <a href="/spain/en/regions/">Regions Map</a>
+        <h3>Central Spain</h3>
         <a href="/spain/en/regions/madrid">Madrid</a>
-        <a href="/spain/en/regions/andalusia">Andalusia</a>
-        <a href="/spain/en/regions/seville">Seville</a>
-        <a href="/spain/en/regions/valencia">Valencia</a>
-        <a href="/spain/en/regions/basque-country">Basque Country</a>
-        <a href="/spain/en/regions/balearic-islands">Balearic Islands</a>
-        <a href="/spain/en/regions/canary-islands">Canary Islands</a>
-        <a href="/spain/en/regions/castile-and-leon">Castile and León</a>
+        <a href="/spain/en/regions/castile-and-leon">Castile &amp; León</a>
         <a href="/spain/en/regions/castilla-la-mancha">Castilla-La Mancha</a>
         <a href="/spain/en/regions/toledo">Toledo</a>
         <a href="/spain/en/regions/aragon">Aragón</a>
-        <a href="/spain/en/regions/extremadura">Extremadura</a>
-        <a href="/spain/en/regions/navarre">Navarre</a>
-        <a href="/spain/en/regions/la-rioja">La Rioja</a>
+        <a href="/spain/en/regions/zaragoza">Zaragoza</a>
+        <a href="/spain/en/regions/pyrenees">Pyrenees</a>
+        <h3>Catalonia &amp; the East</h3>
+        <a href="/spain/en/regions/catalonia">Catalonia</a>
+        <a href="/spain/en/regions/barcelona">Barcelona</a>
+        <a href="/spain/en/regions/costa-brava">Costa Brava</a>
+        <a href="/spain/en/regions/valencia">Valencia</a>
+        <a href="/spain/en/regions/valencia-city">Valencia City</a>
+        <a href="/spain/en/regions/costa-blanca">Costa Blanca</a>
         <a href="/spain/en/regions/murcia">Murcia</a>
+        <a href="/spain/en/regions/balearic-islands">Balearic Islands</a>
+        <a href="/spain/en/regions/ibiza">Ibiza</a>
+        <h3>Andalusia &amp; the South</h3>
+        <a href="/spain/en/regions/andalusia">Andalusia</a>
+        <a href="/spain/en/regions/seville">Seville</a>
+        <a href="/spain/en/regions/granada">Granada</a>
+        <a href="/spain/en/regions/malaga">Malaga</a>
+        <a href="/spain/en/regions/costa-del-sol">Costa del Sol</a>
+        <a href="/spain/en/regions/extremadura">Extremadura</a>
+        <a href="/spain/en/regions/canary-islands">Canary Islands</a>
+        <a href="/spain/en/regions/cueta-melilla">Ceuta &amp; Melilla</a>
+        <h3>Green Spain &amp; the North</h3>
         <a href="/spain/en/regions/galicia">Galicia</a>
+        <a href="/spain/en/regions/camino-de-santiago">Camino de Santiago</a>
         <a href="/spain/en/regions/asturias">Asturias</a>
-        <a href="/spain/en/regions/cantabria" aria-current="page">Cantabria</a>
+        <a href="/spain/en/regions/cantabria">Cantabria</a>
+        <a href="/spain/en/regions/basque-country">Basque Country</a>
+        <a href="/spain/en/regions/bilbao">Bilbao</a>
+        <a href="/spain/en/regions/navarre">Navarre</a>
+        <a href="/spain/en/regions/pamplona">Pamplona</a>
+        <a href="/spain/en/regions/la-rioja">La Rioja</a>
+    </div>
+
+    <button class="accordion" aria-expanded="false" aria-controls="panel-hostels">HOSTELS</button>
+
+    <div class="panel" id="panel-hostels" role="region" aria-label="Hostels by region and city">
+        <h3>Start Here</h3>
+        <a href="/spain/en/hostels/">Full Hostel Directory</a>
+        <h3>Central Spain</h3>
+        <a href="/spain/en/hostels/madrid">Madrid</a>
+        <a href="/spain/en/hostels/castile-and-leon">Castile &amp; León</a>
+        <a href="/spain/en/hostels/castilla-la-mancha">Castilla-La Mancha</a>
+        <a href="/spain/en/hostels/toledo">Toledo</a>
+        <a href="/spain/en/hostels/aragon">Aragón</a>
+        <a href="/spain/en/hostels/zaragoza">Zaragoza</a>
+        <a href="/spain/en/hostels/pyrenees">Pyrenees</a>
+        <h3>Catalonia &amp; the East</h3>
+        <a href="/spain/en/hostels/catalonia">Catalonia</a>
+        <a href="/spain/en/hostels/barcelona">Barcelona</a>
+        <a href="/spain/en/hostels/costa-brava">Costa Brava</a>
+        <a href="/spain/en/hostels/valencia">Valencia</a>
+        <a href="/spain/en/hostels/valencia-city">Valencia City</a>
+        <a href="/spain/en/hostels/costa-blanca">Costa Blanca</a>
+        <a href="/spain/en/hostels/murcia">Murcia</a>
+        <a href="/spain/en/hostels/balearic-islands">Balearic Islands</a>
+        <a href="/spain/en/hostels/ibiza">Ibiza</a>
+        <h3>Andalusia &amp; the South</h3>
+        <a href="/spain/en/hostels/andalusia">Andalusia</a>
+        <a href="/spain/en/hostels/seville">Seville</a>
+        <a href="/spain/en/hostels/granada">Granada</a>
+        <a href="/spain/en/hostels/malaga">Malaga</a>
+        <a href="/spain/en/hostels/costa-del-sol">Costa del Sol</a>
+        <a href="/spain/en/hostels/extremadura">Extremadura</a>
+        <a href="/spain/en/hostels/canary-islands">Canary Islands</a>
+        <a href="/spain/en/hostels/cueta-melilla">Ceuta &amp; Melilla</a>
+        <h3>Green Spain &amp; the North</h3>
+        <a href="/spain/en/hostels/galicia">Galicia</a>
+        <a href="/spain/en/hostels/camino-de-santiago">Camino de Santiago</a>
+        <a href="/spain/en/hostels/asturias">Asturias</a>
+        <a href="/spain/en/hostels/cantabria">Cantabria</a>
+        <a href="/spain/en/hostels/basque-country">Basque Country</a>
+        <a href="/spain/en/hostels/bilbao">Bilbao</a>
+        <a href="/spain/en/hostels/navarre">Navarre</a>
+        <a href="/spain/en/hostels/pamplona">Pamplona</a>
+        <a href="/spain/en/hostels/la-rioja">La Rioja</a>
     </div>
 
     <button class="accordion" aria-expanded="false" aria-controls="panel-advice">ADVICE</button>
 
     <div class="panel" id="panel-advice" role="region" aria-label="Advice sections">
         <h3>Preparation</h3>
-        <a href="/spain/en/advice/#checklists">Preflight Checklists</a>
+        <a href="/spain/en/advice/#checklists">Preflight Checklist</a>
         <a href="/spain/en/advice/#safety">Staying Safe &amp; Travelling Well</a>
-        <a href="/spain/en/advice/#money">Money</a>
+        <a href="/spain/en/advice/#money">Money &amp; Budgeting</a>
         <a href="/spain/en/advice/#medical">Medical</a>
         <a href="/spain/en/advice/#embassies">Embassies</a>
         <a href="/spain/en/advice/#drinking">Drinking &amp; Nightlife Laws</a>
@@ -1290,30 +1351,61 @@ window.BB_TIPS = [
         <a href="/spain/en/advice/specifics#language-schools">Language Schools</a>
     </div>
 
-    <button class="accordion" aria-expanded="false" aria-controls="panel-tours">TOURS</button>
+    <button class="accordion" aria-expanded="false" aria-controls="panel-itineraries">ITINERARIES</button>
 
-    <div class="panel" id="panel-tours" role="region" aria-label="Tours and itineraries">
-        <h3>Self-Drive — Short Stay</h3>
-        <a href="/spain/en/itineraries/#catalonia-coast">1 Week: Barcelona &amp; The Catalan Coast</a>
-        <a href="/spain/en/itineraries/#madrid-andalusia-loop">2 Weeks: Madrid to Andalusia Loop</a>
-        <a href="/spain/en/itineraries/#camino-highlights">2 Weeks: Camino de Santiago Highlights</a>
-        <h3>Self-Drive — Medium/Long Stay</h3>
-        <a href="/spain/en/itineraries/#backpackers-spain">3 Weeks: The Backpacker's Spain</a>
-        <a href="/spain/en/itineraries/#green-spain">3 Weeks: Green Spain &amp; The North Coast</a>
-        <a href="/spain/en/itineraries/#grand-tour">1 Month: The Grand Tour of Spain</a>
-        <a href="/spain/en/itineraries/#full-camino">5–6 Weeks: The Full Camino Francés</a>
-        <h3>Tours &amp; Day Trips</h3>
-        <a href="/spain/en/regions/catalonia#tours">Catalonia</a>
-        <a href="/spain/en/regions/barcelona#tours">Barcelona</a>
-        <a href="/spain/en/regions/madrid#tours">Madrid</a>
-        <a href="/spain/en/regions/andalusia#tours">Andalusia</a>
-        <a href="/spain/en/regions/seville#tours">Seville</a>
-        <a href="/spain/en/regions/valencia#tours">Valencia</a>
-        <a href="/spain/en/regions/basque-country#tours">Basque Country</a>
-        <a href="/spain/en/regions/balearic-islands#tours">Balearic Islands</a>
-        <a href="/spain/en/regions/canary-islands#tours">Canary Islands</a>
-        <a href="/spain/en/regions/galicia#tours">Galicia</a>
-        <a href="/spain/en/regions/toledo#tours">Toledo</a>
+    <div class="panel" id="panel-itineraries" role="region" aria-label="Itineraries">
+        <a href="/spain/en/itineraries/">All Itineraries</a>
+        <h3><a href="/spain/en/itineraries/short-stays/">Short Stays</a></h3>
+        <a href="/spain/en/itineraries/short-stays/#barcelona-5-days">5 Days: Barcelona City Stay</a>
+        <a href="/spain/en/itineraries/short-stays/#madrid-5-days">5 Days: Madrid Without the Tourist Tax</a>
+        <a href="/spain/en/itineraries/short-stays/#andalusia-classic">7 Days: Andalusia Classic</a>
+        <a href="/spain/en/itineraries/short-stays/#big-four">10 Days: The Big Four</a>
+        <h3><a href="/spain/en/itineraries/budget/">Budget</a></h3>
+        <a href="/spain/en/itineraries/budget/#shoestring">2 Weeks: The Shoestring Tour</a>
+        <a href="/spain/en/itineraries/budget/#flashpacker">2 Weeks: The Flashpacker's Spain</a>
+        <a href="/spain/en/itineraries/budget/#four-friends">10 Days: Four Friends and a Fiat</a>
+        <h3><a href="/spain/en/itineraries/road-trips/">Road Trips</a></h3>
+        <a href="/spain/en/itineraries/road-trips/#green-spain">2 Weeks: Green Spain Road Trip</a>
+        <a href="/spain/en/itineraries/road-trips/#campervan">3 Weeks: Campervan Spain</a>
+        <a href="/spain/en/itineraries/road-trips/#espana-vaciada">2 Weeks: La España Vaciada</a>
+        <h3><a href="/spain/en/itineraries/off-the-beaten-track/">Off the Beaten Track</a></h3>
+        <a href="/spain/en/itineraries/off-the-beaten-track/#feve-slow-train">10 Days: The Slow Train Along the Green Coast</a>
+        <a href="/spain/en/itineraries/off-the-beaten-track/#salamanca-to-the-sea">2 Weeks: Salamanca to the Sea</a>
+        <a href="/spain/en/itineraries/off-the-beaten-track/#morocco-from-tarifa">Morocco Add-On from Tarifa</a>
+        <h3><a href="/spain/en/itineraries/active/">Active</a></h3>
+        <a href="/spain/en/itineraries/active/#surf-kitesurf">10 Days: Surf and Kitesurf</a>
+        <a href="/spain/en/itineraries/active/#mountains">2 Weeks: Pyrenees, Picos and Sierra Nevada</a>
+        <a href="/spain/en/itineraries/active/#ski">1 Week: Sierra Nevada Ski</a>
+        <a href="/spain/en/itineraries/active/#balearics">10 Days: Island Hop, Balearics</a>
+        <h3><a href="/spain/en/itineraries/accessible/">Accessible Spain</a></h3>
+        <a href="/spain/en/itineraries/accessible/#step-free">Step-Free Spain: Wheelchair-Friendly Cities</a>
+        <a href="/spain/en/itineraries/accessible/#blind-low-vision">Blind and Low-Vision Spain</a>
+        <a href="/spain/en/itineraries/accessible/#deaf-hard-of-hearing">Deaf and Hard-of-Hearing Spain</a>
+        <a href="/spain/en/itineraries/accessible/#sensory-friendly">Quiet Spain: Autism and Sensory-Friendly</a>
+        <a href="/spain/en/itineraries/accessible/#low-energy">Slow Spain: Low-Energy and Chronic Illness</a>
+        <h3><a href="/spain/en/itineraries/themed/">Themed</a></h3>
+        <a href="/spain/en/itineraries/themed/#art-10-days">10 Days: Picasso, Dalí and Goya</a>
+        <a href="/spain/en/itineraries/themed/#art-trail">3 Weeks: The Art Trail</a>
+        <a href="/spain/en/itineraries/themed/#film-locations">Film and TV Locations</a>
+        <a href="/spain/en/itineraries/themed/#flamenco-trail">The Flamenco Trail</a>
+        <a href="/spain/en/itineraries/themed/#moorish-roman">Moorish and Roman Trails</a>
+        <a href="/spain/en/itineraries/themed/#fiesta-trail">3 Weeks: The Fiesta Trail</a>
+        <a href="/spain/en/itineraries/themed/#festival-summer">Festival Summer</a>
+        <a href="/spain/en/itineraries/themed/#party-tour">2 Weeks: The Party Hostel Tour</a>
+        <h3><a href="/spain/en/itineraries/lgbtq/">LGBTQ+</a></h3>
+        <a href="/spain/en/itineraries/lgbtq/#madrid-pride">5 Days: Madrid Pride</a>
+        <a href="/spain/en/itineraries/lgbtq/#barcelona-sitges-valencia">10 Days: Barcelona, Sitges and Valencia</a>
+        <a href="/spain/en/itineraries/lgbtq/#maspalomas-canaries">1 Week: Maspalomas and the Canaries in Winter</a>
+        <h3><a href="/spain/en/itineraries/long-stays/">Long Stays</a></h3>
+        <a href="/spain/en/itineraries/long-stays/#immersion">1 Month: Spanish Immersion</a>
+        <a href="/spain/en/itineraries/long-stays/#digital-nomad">1 Month: Digital Nomad Slow Travel</a>
+        <a href="/spain/en/itineraries/long-stays/#eating-drinking">2 Weeks: Eating and Drinking Tour</a>
+        <a href="/spain/en/itineraries/long-stays/#camino-and-beyond">3 Weeks: Camino &amp; Beyond</a>
+        <a href="/spain/en/itineraries/long-stays/#la-vuelta">3 Months: La Vuelta, the Grand Tour</a>
+        <h3><a href="/spain/en/itineraries/camino/">The Camino</a></h3>
+        <a href="/spain/en/itineraries/camino/frances/">Camino Francés: Sarria to Santiago</a>
+        <a href="/spain/en/itineraries/camino/ingles/">Camino Inglés: Ferrol to Santiago</a>
+        <a href="/spain/en/itineraries/camino/portugues/">Camino Portugués: Tui to Santiago</a>
     </div>
 
     <a href="/misc/about-backpacking">About Backpacking</a>
@@ -1334,7 +1426,7 @@ window.BB_TIPS = [
     </div>
 
     <a class="mobile-menu__share"
-       href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://backpackersbible.com/spain/en/regions/cantabria"
+       href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://backpackersbible.com/spain/en/regions/camino-de-santiago"
        target="_blank"
        rel="noopener noreferrer">
         <img src="/assets/whatsapp_icon_round.png" alt="Share on WhatsApp" width="45" height="45">
@@ -1342,7 +1434,6 @@ window.BB_TIPS = [
     </a>
 
 </div>
-
 
 <script src="/js/script-2.js" defer></script>
 
