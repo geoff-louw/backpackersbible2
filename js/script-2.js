@@ -1008,7 +1008,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const shell = document.querySelector('.bb-attractions-map-shell');
   if (!shell) return;
 
-  const regionName = shell.getAttribute('data-region') || 'Madrid';
   const center = shell.getAttribute('data-center').split(',').map(Number);
   const zoom = parseFloat(shell.getAttribute('data-zoom')) || 10;
 
@@ -1035,7 +1034,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function initMapLibre() {
-    // Self-contained raster style using reliable open OSM tiles
     mapInstance = new maplibregl.Map({
       container: 'direct-map-container',
       style: {
@@ -1069,19 +1067,24 @@ document.addEventListener('DOMContentLoaded', () => {
     mapInstance.scrollZoom.enable();
     if (mapInstance.touchZoomRotate) mapInstance.touchZoomRotate.enable();
 
-    // Hide poster only when map tiles have successfully loaded
     mapInstance.on('load', () => {
       shell.classList.add('bb-map-loaded');
       mapInstance.resize();
 
+      // Get bounding box coordinates from current map bounds (south, west, north, east)
+      const bounds = mapInstance.getBounds();
+      const s = bounds.getSouth();
+      const w = bounds.getWest();
+      const n = bounds.getNorth();
+      const e = bounds.getEast();
+
+      // Query Overpass API using the visible bounding box
       const overpassQuery = `
         [out:json][timeout:25];
-        area["name"="${regionName}"][admin_level=4]->.searchArea;
         (
-          node["tourism"~"attraction|viewpoint|information"](area.searchArea);
-          way["tourism"~"attraction|viewpoint"](area.searchArea);
-          node["historic"~"monument|castle|ruins"](area.searchArea);
-          node["leisure"~"park|nature_reserve"](area.searchArea);
+          node["tourism"~"attraction|viewpoint|information|museum"](${s},${w},${n},${e});
+          node["historic"~"monument|castle|ruins|archaeological_site"](${s},${w},${n},${e});
+          node["leisure"~"park|nature_reserve"](${s},${w},${n},${e});
         );
         out center;
       `;
@@ -1099,7 +1102,10 @@ document.addEventListener('DOMContentLoaded', () => {
           return {
             type: 'Feature',
             geometry: { type: 'Point', coordinates: [lon, lat] },
-            properties: { title: el.tags.name || "Backpacker Attraction" }
+            properties: { 
+              title: el.tags.name || "Tourist Attraction",
+              type: el.tags.tourism || el.tags.historic || el.tags.leisure || "attraction"
+            }
           };
         }).filter(Boolean);
 
@@ -1108,6 +1114,7 @@ document.addEventListener('DOMContentLoaded', () => {
           data: { type: 'FeatureCollection', features: features }
         });
 
+        // Add yellow circle markers with red borders matching your brand palette
         mapInstance.addLayer({
           id: 'attractions-pins',
           type: 'circle',
@@ -1129,11 +1136,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         mapInstance.on('mouseenter', 'attractions-pins', () => mapInstance.getCanvas().style.cursor = 'pointer');
         mapInstance.on('mouseleave', 'attractions-pins', () => mapInstance.getCanvas().style.cursor = '');
-
-        if (features.length > 0) {
-          const bounds = features.reduce((b, f) => b.extend(f.geometry.coordinates), new maplibregl.LngLatBounds(features[0].geometry.coordinates, features[0].geometry.coordinates));
-          mapInstance.fitBounds(bounds, { padding: 60, maxZoom: 13 });
-        }
       })
       .catch(err => console.error('Overpass fetch error:', err));
     });
