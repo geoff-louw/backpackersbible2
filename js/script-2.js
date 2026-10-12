@@ -1006,9 +1006,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 /* ==========================================================================
    ATTRACTIONS MAP CONTROLLER (script-2.js)
-   - MapLibre GL Direct DOM Rendering
+   - Fixed MapLibre GL Raster Tile Configuration
+   - Automatic Container Resize & Fallback Error Display
    - Overpass API GeoJSON Fetcher with Auto-Failover Mirrors
-   - Touch Overlay Controls & Popup Handlers
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -1043,7 +1043,13 @@ function initAttractionsMap() {
       posterWrap.style.display = 'none';
     }
 
-    // 2. Extract map metadata from dataset attributes
+    // 2. Ensure container has an explicit height if CSS hasn't set one yet
+    if (mapContainer.clientHeight === 0) {
+      mapContainer.style.height = '450px';
+      mapContainer.style.width = '100%';
+    }
+
+    // 3. Extract map metadata from dataset attributes
     const centerAttr = mapShell.getAttribute('data-center') || '0,0';
     const zoomAttr = mapShell.getAttribute('data-zoom') || '10';
     const bboxAttr = mapShell.getAttribute('data-bbox');
@@ -1051,47 +1057,62 @@ function initAttractionsMap() {
     const [lng, lat] = centerAttr.split(',').map(Number);
     const zoom = parseFloat(zoomAttr);
 
-    // 3. Instantiate MapLibre GL Map
-    globalMapInstance = new maplibregl.Map({
-      container: 'direct-map-container',
-      style: {
-        version: 8,
-        sources: {
-          'osm-tiles': {
-            type: 'raster',
-            tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
-            tileSize: 256,
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          }
+    try {
+      // 4. Instantiate MapLibre GL Map with standard OSM Style configuration
+      globalMapInstance = new maplibregl.Map({
+        container: 'direct-map-container',
+        style: {
+          version: 8,
+          sources: {
+            'raster-tiles': {
+              type: 'raster',
+              tiles: [
+                'https://a.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                'https://b.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                'https://c.tile.openstreetmap.org/{z}/{x}/{y}.png'
+              ],
+              tileSize: 256,
+              attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }
+          },
+          layers: [
+            {
+              id: 'simple-tiles',
+              type: 'raster',
+              source: 'raster-tiles',
+              minzoom: 0,
+              maxzoom: 19
+            }
+          ]
         },
-        layers: [
-          {
-            id: 'osm-tiles-layer',
-            type: 'raster',
-            source: 'osm-tiles',
-            minzoom: 0,
-            maxzoom: 19
-          }
-        ]
-      },
-      center: [lng, lat],
-      zoom: zoom,
-      cooperativeGestures: true // Requires two-finger pan / ctrl+scroll
-    });
+        center: [lng, lat],
+        zoom: zoom,
+        cooperativeGestures: true
+      });
 
-    // Add navigation controls (zoom in/out)
-    globalMapInstance.addControl(new maplibregl.NavigationControl(), 'top-right');
+      // Add navigation controls (zoom in/out)
+      globalMapInstance.addControl(new maplibregl.NavigationControl(), 'top-right');
 
-    // 4. Fetch points of interest when map style loads
-    globalMapInstance.on('load', async () => {
-      if (bboxAttr) {
-        await loadAttractionsData(globalMapInstance, bboxAttr);
-      }
-      globalMapInstance.resize();
-    });
+      // Force recalculation of container bounds right after render
+      setTimeout(() => {
+        if (globalMapInstance) globalMapInstance.resize();
+      }, 100);
 
-    // 5. Setup popup interactions on pin click
-    setupMapPopups(globalMapInstance);
+      // 5. Fetch points of interest when map style loads
+      globalMapInstance.on('load', async () => {
+        globalMapInstance.resize();
+        if (bboxAttr) {
+          await loadAttractionsData(globalMapInstance, bboxAttr);
+        }
+      });
+
+      // Setup popup interactions on pin click
+      setupMapPopups(globalMapInstance);
+
+    } catch (err) {
+      console.error('[Attractions Map] Failed to initialize MapLibre:', err);
+      mapContainer.innerHTML = `<div style="padding: 20px; text-align: center; color: #333;">Unable to load map tile layer. Please refresh and try again.</div>`;
+    }
   });
 }
 
