@@ -1019,6 +1019,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (initialized) return;
     initialized = true;
 
+    // Show loading indicator
+    let loader = shell.querySelector('.bb-map-loader');
+    if (!loader) {
+      loader = document.createElement('div');
+      loader.className = 'bb-map-loader';
+      loader.innerHTML = '<div style="color:#ffd400; font-family:\'Century Gothic\',sans-serif; font-weight:bold; font-size:14px; background:rgba(0,0,0,0.8); padding:12px 24px; border-radius:4px; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:8;">Loading local attractions & tours...</div>';
+      shell.appendChild(loader);
+    }
+
     if (!window.maplibregl) {
       const link = document.createElement('link');
       link.rel = 'stylesheet';
@@ -1078,9 +1087,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const overpassQuery = `
         [out:json][timeout:25];
         (
-          node["tourism"~"attraction|viewpoint|information|museum"](${s},${w},${n},${e});
+          node["tourism"~"attraction|viewpoint|museum"](${s},${w},${n},${e});
           way["tourism"~"attraction|viewpoint"](${s},${w},${n},${e});
-          node["historic"~"monument|castle|ruins|archaeological_site"](${s},${w},${n},${e});
+          node["historic"~"monument|castle|ruins"](${s},${w},${n},${e});
           node["leisure"~"park|nature_reserve"](${s},${w},${n},${e});
         );
         out center;
@@ -1092,19 +1101,26 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       .then(res => res.json())
       .then(data => {
+        // Remove loader element once data arrives
+        const loader = shell.querySelector('.bb-map-loader');
+        if (loader) loader.remove();
+
         const features = data.elements.map(el => {
           const lat = el.lat || (el.center && el.center.lat);
           const lon = el.lon || (el.center && el.center.lon);
           if (!lat || !lon) return null;
 
           const tags = el.tags || {};
+          
+          // Skip items without a name to keep pins clean and relevant
+          if (!tags.name) return null;
+
           let category = 'attraction';
-          if (tags.historic) category = 'historic';
+          if (tags.historic) category = 'historic monument';
           else if (tags.museum) category = 'museum';
-          else if (tags.leisure === 'park' || tags.leisure === 'nature_reserve') category = 'park';
+          else if (tags.leisure === 'park' || tags.leisure === 'nature_reserve') category = 'park & nature';
           else if (tags.viewpoint) category = 'viewpoint';
 
-          // Parse Wikimedia Commons image if available
           let imageUrl = null;
           if (tags.wikimedia_commons) {
             let filename = tags.wikimedia_commons.replace(/^File:/i, '').trim();
@@ -1113,14 +1129,22 @@ document.addEventListener('DOMContentLoaded', () => {
             imageUrl = tags.image;
           }
 
+          let wikiLink = null;
+          if (tags.wikipedia) {
+            const parts = tags.wikipedia.split(':');
+            if (parts.length === 2) {
+              wikiLink = `https://${parts[0]}.wikipedia.org/wiki/${encodeURIComponent(parts[1].replace(/ /g, '_'))}`;
+            }
+          }
+
           return {
             type: 'Feature',
             geometry: { type: 'Point', coordinates: [lon, lat] },
             properties: { 
-              title: tags.name || "Tourist Attraction",
+              title: tags.name,
               category: category,
               image: imageUrl,
-              website: tags.website || tags['contact:website'] || null
+              website: tags.website || tags['contact:website'] || wikiLink
             }
           };
         }).filter(Boolean);
@@ -1130,7 +1154,6 @@ document.addEventListener('DOMContentLoaded', () => {
           data: { type: 'FeatureCollection', features: features }
         });
 
-        // Color-code pins by category using MapLibre expressions
         mapInstance.addLayer({
           id: 'attractions-pins',
           type: 'circle',
@@ -1140,33 +1163,32 @@ document.addEventListener('DOMContentLoaded', () => {
             'circle-color': [
               'match',
               ['get', 'category'],
-              'historic', '#b01c22',  // Red for historic/monuments
-              'museum', '#ff9800',    // Orange for museums
-              'park', '#4caf50',      // Green for parks & nature
-              'viewpoint', '#00bcd4', // Cyan for viewpoints
-              '#ffd400'               // Default yellow for general attractions
+              'historic monument', '#b01c22',
+              'museum', '#ff9800',
+              'park & nature', '#4caf50',
+              'viewpoint', '#00bcd4',
+              '#ffd400'
             ],
             'circle-stroke-width': 2,
             'circle-stroke-color': '#000000'
           }
         });
 
-        // Rich popup content with optional image and website link
         mapInstance.on('click', 'attractions-pins', (e) => {
           const props = e.features[0].properties;
           const coords = e.features[0].geometry.coordinates.slice();
 
-          let htmlContent = `<div style="color:#000; font-family:'Century Gothic',sans-serif; max-width:200px; padding:4px;">`;
+          let htmlContent = `<div style="color:#000; font-family:'Century Gothic',sans-serif; max-width:210px; padding:4px;">`;
           
-          if (props.image) {
-            htmlContent += `<img src="${props.image}" alt="${props.title}" style="width:100%; height:120px; object-fit:cover; border-radius:4px; margin-bottom:6px;" onerror="this.style.display='none'">`;
+          if (props.image && props.image !== 'null') {
+            htmlContent += `<img src="${props.image}" alt="${props.title}" style="width:100%; height:110px; object-fit:cover; border-radius:4px; margin-bottom:6px;" onerror="this.style.display='none'">`;
           }
 
-          htmlContent += `<strong style="font-size:13px; display:block; margin-bottom:2px;">${props.title}</strong>`;
-          htmlContent += `<span style="font-size:11px; color:#666; text-transform:uppercase; display:block; margin-bottom:4px;">${props.category}</span>`;
+          htmlContent += `<strong style="font-size:13px; display:block; margin-bottom:2px; line-height:1.2;">${props.title}</strong>`;
+          htmlContent += `<span style="font-size:10px; color:#777; text-transform:uppercase; display:block; margin-bottom:6px; font-weight:bold;">${props.category}</span>`;
 
-          if (props.website) {
-            htmlContent += `<a href="${props.website}" target="_blank" style="font-size:11px; color:#b01c22; text-decoration:underline;">Visit Website &rarr;</a>`;
+          if (props.website && props.website !== 'null') {
+            htmlContent += `<a href="${props.website}" target="_blank" style="font-size:11px; color:#b01c22; text-decoration:underline; font-weight:bold;">More Info / Website &rarr;</a>`;
           }
 
           htmlContent += `</div>`;
@@ -1180,7 +1202,11 @@ document.addEventListener('DOMContentLoaded', () => {
         mapInstance.on('mouseenter', 'attractions-pins', () => mapInstance.getCanvas().style.cursor = 'pointer');
         mapInstance.on('mouseleave', 'attractions-pins', () => mapInstance.getCanvas().style.cursor = '');
       })
-      .catch(err => console.error('Overpass fetch error:', err));
+      .catch(err => {
+        console.error('Overpass fetch error:', err);
+        const loader = shell.querySelector('.bb-map-loader');
+        if (loader) loader.innerHTML = '<div style="color:#fff; background:#b01c22; padding:10px;">Failed to load attractions. Please refresh.</div>';
+      });
     });
   }
 
