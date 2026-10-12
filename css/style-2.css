@@ -5047,6 +5047,8 @@ table.centered-table td {
   height: 550px;
   background: #111;
   overflow: hidden;
+
+  margin-top: 3em;
 }
 
 /* Poster wrapper & button layering */
@@ -5146,3 +5148,12 @@ table.centered-table td {
 .bb-attractions-map-shell.bb-map-loaded .map-touch-instruction {
   display: none;
 }
+
+
+
+
+/* Add vertical spacing above the regional attractions map */
+.map-description {
+  margin-top: 3em; /* Adjust this value if you want more or less space */
+}
+
