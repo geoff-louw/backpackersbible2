@@ -5038,7 +5038,7 @@ table.centered-table td {
    map opens at exactly the poster's size.
    ============================================================ */
 
-
+/* Regional Attractions Map Shell */
 .bb-attractions-map-shell {
   position: relative;
   width: 100%;
@@ -5049,14 +5049,14 @@ table.centered-table td {
   overflow: hidden;
 }
 
-/* Poster image layers cleanly on top until loaded */
+/* Poster image overlay */
 .bb-attractions-map-shell .sa-hostel-map-poster {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 2;
+  z-index: 5;
   display: block;
 }
 
@@ -5067,8 +5067,8 @@ table.centered-table td {
   object-fit: cover;
 }
 
-/* Map canvas target sits behind the poster with defined dimensions */
-.bb-map-canvas-target {
+/* Direct Map Container Sizing */
+#direct-map-container {
   position: absolute;
   top: 0;
   left: 0;
@@ -5077,12 +5077,12 @@ table.centered-table td {
   z-index: 1;
 }
 
-/* Once loaded, hide the poster */
+/* Hide poster once loaded */
 .bb-attractions-map-shell.bb-map-loaded .sa-hostel-map-poster {
   display: none;
 }
 
-/* Mobile Square Aspect Ratio */
+/* Mobile Square Aspect Ratio Rule */
 @media (max-width: 768px) {
   .bb-attractions-map-shell {
     width: 100vw;
@@ -5092,6 +5092,7 @@ table.centered-table td {
   }
 }
 
+/* Touch Instruction Notification Banner */
 .map-touch-instruction {
   position: absolute;
   bottom: 15px;
