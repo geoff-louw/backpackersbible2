@@ -77,18 +77,22 @@
 
             <div class="site-header__brand-text">
 
-                <span class="site-header__brand-name">BackpackersBible.com</span>
+                <div class="site-header__brand-row">
+
+                    <span class="site-header__brand-name">BackpackersBible.com</span>
+
+                    <!-- BREADCRUMB — change the <ol> items per page type.
+                         Last item = current page: plain text, aria-current="page", no link. -->
+                    <nav class="site-header__breadcrumb" aria-label="Breadcrumb">
+                        <ol>
+                            <li><a href="/spain/en/">Spain</a></li>
+                            <li aria-current="page">The Camino</li>
+                        </ol>
+                    </nav>
+
+                </div>
 
                 <span class="site-header__payoff">The World In Your Pocket</span>
-
-                <!-- BREADCRUMB — change the <ol> items per page type.
-                     Last item = current page: plain text, aria-current="page", no link. -->
-                <nav class="site-header__breadcrumb" aria-label="Breadcrumb">
-                    <ol>
-                        <li><a href="/spain/en/">Spain</a></li>
-                        <li aria-current="page">Galicia</li>
-                    </ol>
-                </nav>
 
             </div>
 
@@ -200,7 +204,7 @@
                     </div>
                 </div>
 
-                <!-- Hostels (URLs under /spain/en/hostels/ are PLACEHOLDERS — confirm the real pattern) -->
+                <!-- Hostels (hostel pages not built yet: /spain/en/hostels/<region>) -->
                 <div class="site-nav__item">
                     <button class="site-nav__mega-trigger" aria-haspopup="menu" aria-expanded="false" aria-controls="mega-hostels">Hostels</button>
                     <div class="site-nav__mega-menu site-nav__mega-menu--4col" id="mega-hostels" role="menu" aria-label="Hostels by region and city">
