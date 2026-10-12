@@ -1006,9 +1006,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 /* ==========================================================================
    ATTRACTIONS MAP CONTROLLER (script-2.js)
-   - MapLibre GL Direct DOM Rendering with Overlay Spinner
-   - Curated High-Value Tourist POI Filtering
-   - Dynamic Category Badges & Rich Metadata Popups
+   - Optimized Fast Overpass Query (Prevents 504 Timeouts)
+   - Smooth Overlay Loading Spinner & Reliable Failover Mirrors
+   - Clear Tourist Subtitles & Rich Metadata Popups
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -1050,7 +1050,7 @@ function initAttractionsMap() {
       spinnerOverlay.style.cssText = 'position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(255,255,255,0.92); display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:10; font-family:sans-serif;';
       spinnerOverlay.innerHTML = `
         <div style="width: 42px; height: 42px; border: 4px solid #e0e0e0; border-top: 4px solid #e74c3c; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 12px;"></div>
-        <p style="font-size: 14px; font-weight: 600; color: #222; margin: 0;">Loading top attractions & tours...</p>
+        <p style="font-size: 14px; font-weight: 600; color: #222; margin: 0;">Loading attractions & tours...</p>
         <style>@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }</style>
       `;
       mapShell.style.position = 'relative';
@@ -1137,17 +1137,13 @@ function initAttractionsMap() {
 }
 
 /**
- * Refined Overpass QL Query targeting high-value tourist sites and heritage locations
+ * Streamlined Overpass Query designed for fast response and high reliability
  */
 function buildOverpassQuery(bboxStr) {
-  return `[out:json][timeout:25];
+  return `[out:json][timeout:20];
 (
-  node["tourism"="museum"](${bboxStr});
-  node["tourism"="attraction"]["wikipedia"](${bboxStr});
-  node["tourism"="attraction"]["name"](${bboxStr});
-  node["historic"~"castle|monument|archaeological_site|ruins"]["name"](${bboxStr});
-  node["amenity"="place_of_worship"]["building"="cathedral"](${bboxStr});
-  node["leisure"~"park|nature_reserve"]["name"](${bboxStr});
+  node["tourism"~"attraction|museum|viewpoint|gallery|theme_park"](${bboxStr});
+  node["historic"~"castle|monument|ruins|archaeological_site"](${bboxStr});
 );
 out body;
 >;
@@ -1168,7 +1164,7 @@ function fetchOverpassDataWithFallback(bboxStr) {
 
     try {
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 20000);
+      const timeoutId = setTimeout(() => controller.abort(), 18000);
 
       const response = await fetch(endpoint, {
         method: 'POST',
@@ -1199,11 +1195,9 @@ function getAttractionSubtitle(tags) {
   if (tags.historic === 'monument') return 'Historic Monument';
   if (tags.historic === 'ruins') return 'Historical Ruins';
   if (tags.historic === 'archaeological_site') return 'Archaeological Site';
-  if (tags.building === 'cathedral' || tags.amenity === 'place_of_worship') return 'Cathedral & Church';
   if (tags.tourism === 'viewpoint') return 'Scenic Viewpoint';
-  if (tags.leisure === 'nature_reserve') return 'Nature Reserve';
-  if (tags.leisure === 'park') return 'Public Park';
-  if (tags.tourism === 'attraction') return 'Top Tourist Attraction';
+  if (tags.tourism === 'theme_park') return 'Theme Park';
+  if (tags.tourism === 'attraction') return 'Tourist Attraction';
   return 'Point of Interest';
 }
 
@@ -1221,9 +1215,8 @@ function overpassToGeoJSON(overpassJson) {
       
       let category = 'attraction';
       if (tags.tourism === 'museum') category = 'museum';
-      else if (tags.tourism === 'viewpoint' || subtitle.includes('Viewpoint')) category = 'viewpoint';
-      else if (tags.historic || subtitle.includes('Castle') || subtitle.includes('Monument') || subtitle.includes('Ruins')) category = 'historic';
-      else if (tags.leisure || subtitle.includes('Park')) category = 'leisure';
+      else if (tags.tourism === 'viewpoint') category = 'viewpoint';
+      else if (tags.historic) category = 'historic';
 
       return {
         type: 'Feature',
@@ -1252,7 +1245,7 @@ async function loadAttractionsData(map, bboxStr, spinnerOverlay) {
     const rawData = await fetchOverpassDataWithFallback(bboxStr);
     const geojson = overpassToGeoJSON(rawData);
 
-    console.log(`[Attractions Map] Plotted ${geojson.features.length} curated pins on map.`);
+    console.log(`[Attractions Map] Plotted ${geojson.features.length} pins on map.`);
 
     if (map.getSource('attractions-source')) {
       map.getSource('attractions-source').setData(geojson);
@@ -1274,7 +1267,6 @@ async function loadAttractionsData(map, bboxStr, spinnerOverlay) {
             'museum', '#e67e22',
             'viewpoint', '#2ecc71',
             'historic', '#8e44ad',
-            'leisure', '#3498db',
             '#e74c3c'
           ],
           'circle-stroke-width': 2,
