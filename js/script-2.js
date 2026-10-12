@@ -1004,47 +1004,55 @@ document.addEventListener("DOMContentLoaded", function() {
    19. THINGS TO DO MAP
    ============================================================ */
 
+/* ==========================================================================
+   ATTRACTIONS MAP CONTROLLER (script-2.js)
+   - MapLibre GL Direct DOM Rendering
+   - Overpass API GeoJSON Fetcher with Auto-Failover Mirrors
+   - Touch Overlay Controls & Popup Handlers
+   ========================================================================== */
+
 document.addEventListener('DOMContentLoaded', () => {
-  const shell = document.querySelector('.bb-attractions-map-shell');
-  if (!shell) return;
+  initAttractionsMap();
+});
 
-  const center = shell.getAttribute('data-center').split(',').map(Number);
-  const zoom = parseFloat(shell.getAttribute('data-zoom')) || 10;
-  const bbox = shell.getAttribute('data-bbox');
+// List of public Overpass API endpoints for fallback mirror rotation
+const OVERPASS_ENDPOINTS = [
+  'https://overpass.kumi.systems/api/interpreter',
+  'https://overpass.private.coffee/api/interpreter',
+  'https://overpass-api.de/api/interpreter'
+];
 
-  let initialized = false;
-  let mapInstance = null;
+let globalMapInstance = null;
 
-  function loadDirectMap() {
-    if (initialized) return;
-    initialized = true;
+/**
+ * Initializes poster click handlers and sets up MapLibre instance
+ */
+function initAttractionsMap() {
+  const mapShell = document.getElementById('attractions-map');
+  if (!mapShell) return;
 
-    // Show loading indicator
-    let loader = shell.querySelector('.bb-map-loader');
-    if (!loader) {
-      loader = document.createElement('div');
-      loader.className = 'bb-map-loader';
-      loader.innerHTML = '<div style="color:#ffd400; font-family:\'Century Gothic\',sans-serif; font-weight:bold; font-size:14px; background:rgba(0,0,0,0.8); padding:12px 24px; border-radius:4px; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); z-index:8;">Loading local attractions & tours...</div>';
-      shell.appendChild(loader);
+  const loadBtn = mapShell.querySelector('.bb-load-attractions-btn');
+  const posterWrap = mapShell.querySelector('.bb-map-poster-wrap');
+  const mapContainer = document.getElementById('direct-map-container');
+
+  if (!loadBtn || !mapContainer) return;
+
+  loadBtn.addEventListener('click', async () => {
+    // 1. Hide the poster image
+    if (posterWrap) {
+      posterWrap.style.display = 'none';
     }
 
-    if (!window.maplibregl) {
-      const link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = 'https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css';
-      document.head.appendChild(link);
+    // 2. Extract map metadata from dataset attributes
+    const centerAttr = mapShell.getAttribute('data-center') || '0,0';
+    const zoomAttr = mapShell.getAttribute('data-zoom') || '10';
+    const bboxAttr = mapShell.getAttribute('data-bbox');
 
-      const script = document.createElement('script');
-      script.src = 'https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js';
-      script.onload = initMapLibre;
-      document.head.appendChild(script);
-    } else {
-      initMapLibre();
-    }
-  }
+    const [lng, lat] = centerAttr.split(',').map(Number);
+    const zoom = parseFloat(zoomAttr);
 
-  function initMapLibre() {
-    mapInstance = new maplibregl.Map({
+    // 3. Instantiate MapLibre GL Map
+    globalMapInstance = new maplibregl.Map({
       container: 'direct-map-container',
       style: {
         version: 8,
@@ -1053,12 +1061,12 @@ document.addEventListener('DOMContentLoaded', () => {
             type: 'raster',
             tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
             tileSize: 256,
-            attribution: '&copy; OpenStreetMap contributors'
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           }
         },
         layers: [
           {
-            id: 'osm-layer',
+            id: 'osm-tiles-layer',
             type: 'raster',
             source: 'osm-tiles',
             minzoom: 0,
@@ -1066,164 +1074,219 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         ]
       },
-      center: center,
+      center: [lng, lat],
       zoom: zoom,
-      pitch: 0,
-      bearing: 0,
-      dragPan: true
+      cooperativeGestures: true // Requires two-finger pan / ctrl+scroll
     });
 
-    mapInstance.boxZoom.enable();
-    mapInstance.scrollZoom.enable();
-    if (mapInstance.touchZoomRotate) mapInstance.touchZoomRotate.enable();
+    // Add navigation controls (zoom in/out)
+    globalMapInstance.addControl(new maplibregl.NavigationControl(), 'top-right');
 
-    mapInstance.on('load', () => {
-      shell.classList.add('bb-map-loaded');
-      mapInstance.resize();
-
-      const coords = bbox ? bbox.split(',') : [39.5, -4.5, 41.5, -3.0];
-      const [s, w, n, e] = coords;
-
-      const overpassQuery = `
-        [out:json][timeout:25];
-        (
-          node["tourism"~"attraction|viewpoint|museum"](${s},${w},${n},${e});
-          way["tourism"~"attraction|viewpoint"](${s},${w},${n},${e});
-          node["historic"~"monument|castle|ruins"](${s},${w},${n},${e});
-          node["leisure"~"park|nature_reserve"](${s},${w},${n},${e});
-        );
-        out center;
-      `;
-
-      fetch('https://overpass-api.de/api/interpreter', {
-        method: 'POST',
-        body: overpassQuery
-      })
-      .then(res => res.json())
-      .then(data => {
-        // Remove loader element once data arrives
-        const loader = shell.querySelector('.bb-map-loader');
-        if (loader) loader.remove();
-
-        const features = data.elements.map(el => {
-          const lat = el.lat || (el.center && el.center.lat);
-          const lon = el.lon || (el.center && el.center.lon);
-          if (!lat || !lon) return null;
-
-          const tags = el.tags || {};
-          
-          // Skip items without a name to keep pins clean and relevant
-          if (!tags.name) return null;
-
-          let category = 'attraction';
-          if (tags.historic) category = 'historic monument';
-          else if (tags.museum) category = 'museum';
-          else if (tags.leisure === 'park' || tags.leisure === 'nature_reserve') category = 'park & nature';
-          else if (tags.viewpoint) category = 'viewpoint';
-
-          let imageUrl = null;
-          if (tags.wikimedia_commons) {
-            let filename = tags.wikimedia_commons.replace(/^File:/i, '').trim();
-            imageUrl = `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(filename)}?width=300`;
-          } else if (tags.image) {
-            imageUrl = tags.image;
-          }
-
-          let wikiLink = null;
-          if (tags.wikipedia) {
-            const parts = tags.wikipedia.split(':');
-            if (parts.length === 2) {
-              wikiLink = `https://${parts[0]}.wikipedia.org/wiki/${encodeURIComponent(parts[1].replace(/ /g, '_'))}`;
-            }
-          }
-
-          return {
-            type: 'Feature',
-            geometry: { type: 'Point', coordinates: [lon, lat] },
-            properties: { 
-              title: tags.name,
-              category: category,
-              image: imageUrl,
-              website: tags.website || tags['contact:website'] || wikiLink
-            }
-          };
-        }).filter(Boolean);
-
-        mapInstance.addSource('attractions', {
-          type: 'geojson',
-          data: { type: 'FeatureCollection', features: features }
-        });
-
-        mapInstance.addLayer({
-          id: 'attractions-pins',
-          type: 'circle',
-          source: 'attractions',
-          paint: {
-            'circle-radius': 8,
-            'circle-color': [
-              'match',
-              ['get', 'category'],
-              'historic monument', '#b01c22',
-              'museum', '#ff9800',
-              'park & nature', '#4caf50',
-              'viewpoint', '#00bcd4',
-              '#ffd400'
-            ],
-            'circle-stroke-width': 2,
-            'circle-stroke-color': '#000000'
-          }
-        });
-
-        mapInstance.on('click', 'attractions-pins', (e) => {
-          const props = e.features[0].properties;
-          const coords = e.features[0].geometry.coordinates.slice();
-
-          let htmlContent = `<div style="color:#000; font-family:'Century Gothic',sans-serif; max-width:210px; padding:4px;">`;
-          
-          if (props.image && props.image !== 'null') {
-            htmlContent += `<img src="${props.image}" alt="${props.title}" style="width:100%; height:110px; object-fit:cover; border-radius:4px; margin-bottom:6px;" onerror="this.style.display='none'">`;
-          }
-
-          htmlContent += `<strong style="font-size:13px; display:block; margin-bottom:2px; line-height:1.2;">${props.title}</strong>`;
-          htmlContent += `<span style="font-size:10px; color:#777; text-transform:uppercase; display:block; margin-bottom:6px; font-weight:bold;">${props.category}</span>`;
-
-          if (props.website && props.website !== 'null') {
-            htmlContent += `<a href="${props.website}" target="_blank" style="font-size:11px; color:#b01c22; text-decoration:underline; font-weight:bold;">More Info / Website &rarr;</a>`;
-          }
-
-          htmlContent += `</div>`;
-
-          new maplibregl.Popup({ maxWidth: '240px' })
-            .setLngLat(coords)
-            .setHTML(htmlContent)
-            .addTo(mapInstance);
-        });
-
-        mapInstance.on('mouseenter', 'attractions-pins', () => mapInstance.getCanvas().style.cursor = 'pointer');
-        mapInstance.on('mouseleave', 'attractions-pins', () => mapInstance.getCanvas().style.cursor = '');
-      })
-      .catch(err => {
-        console.error('Overpass fetch error:', err);
-        const loader = shell.querySelector('.bb-map-loader');
-        if (loader) loader.innerHTML = '<div style="color:#fff; background:#b01c22; padding:10px;">Failed to load attractions. Please refresh.</div>';
-      });
+    // 4. Fetch points of interest when map style loads
+    globalMapInstance.on('load', async () => {
+      if (bboxAttr) {
+        await loadAttractionsData(globalMapInstance, bboxAttr);
+      }
+      globalMapInstance.resize();
     });
-  }
 
-  const loadBtn = shell.querySelector('.bb-load-attractions-btn');
-  if (loadBtn) {
-    loadBtn.addEventListener('click', loadDirectMap);
-  }
-  shell.addEventListener('click', (e) => {
-    if (!initialized && (e.target.closest('.sa-hostel-map-poster') || e.target === shell)) {
-      loadDirectMap();
+    // 5. Setup popup interactions on pin click
+    setupMapPopups(globalMapInstance);
+  });
+}
+
+/**
+ * Builds Overpass QL Query with a strict 25-second limit
+ */
+function buildOverpassQuery(bboxStr) {
+  return `[out:json][timeout:25];
+(
+  node["tourism"~"attraction|viewpoint|museum|gallery|theme_park|zoo"](${bboxStr});
+  node["historic"~"monument|castle|ruins|archaeological_site|memorial"](${bboxStr});
+  node["leisure"~"park|water_park"](${bboxStr});
+);
+out body;
+>;
+out skel qt;`;
+}
+
+/**
+ * Fetches GeoJSON nodes cycling through backup mirrors if 504 timeouts occur
+ */
+function fetchOverpassDataWithFallback(bboxStr) {
+  const query = buildOverpassQuery(bboxStr);
+  const postBody = 'data=' + encodeURIComponent(query);
+
+  return (async function attemptFetch(index = 0) {
+    if (index >= OVERPASS_ENDPOINTS.length) {
+      throw new Error('All Overpass API servers failed or timed out.');
     }
+
+    const endpoint = OVERPASS_ENDPOINTS[index];
+    console.log(`[Overpass] Requesting attractions data from: ${endpoint}`);
+
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 20000); // 20s client timeout
+
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+        },
+        body: postBody,
+        signal: controller.signal
+      });
+
+      clearTimeout(timeoutId);
+
+      const contentType = response.headers.get('content-type') || '';
+      if (response.ok && contentType.includes('application/json')) {
+        const json = await response.json();
+        console.log(`[Overpass] Successfully retrieved data from ${endpoint}`);
+        return json;
+      } else {
+        console.warn(`[Overpass] ${endpoint} returned error ${response.status}. Trying next mirror...`);
+        return attemptFetch(index + 1);
+      }
+    } catch (err) {
+      console.warn(`[Overpass] Mirror ${endpoint} failed: ${err.message}. Trying next mirror...`);
+      return attemptFetch(index + 1);
+    }
+  })();
+}
+
+/**
+ * Converts Overpass JSON response into clean GeoJSON
+ */
+function overpassToGeoJSON(overpassJson) {
+  if (!overpassJson || !overpassJson.elements) {
+    return { type: 'FeatureCollection', features: [] };
+  }
+
+  const features = overpassJson.elements
+    .filter(el => el.type === 'node' && el.lat && el.lon)
+    .map(node => {
+      const tags = node.tags || {};
+      const name = tags.name || tags['name:en'] || 'Attraction';
+      
+      let category = 'attraction';
+      if (tags.tourism === 'museum') category = 'museum';
+      else if (tags.tourism === 'viewpoint') category = 'viewpoint';
+      else if (tags.historic) category = 'historic';
+      else if (tags.leisure) category = 'leisure';
+
+      return {
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: [node.lon, node.lat]
+        },
+        properties: {
+          id: node.id,
+          name: name,
+          category: category,
+          website: tags.website || tags['contact:website'] || '',
+          wikipedia: tags.wikipedia || '',
+          image: tags.image || tags['wikimedia_commons'] || ''
+        }
+      };
+    });
+
+  return {
+    type: 'FeatureCollection',
+    features: features
+  };
+}
+
+/**
+ * Loads GeoJSON onto MapLibre instance and configures category pin styles
+ */
+async function loadAttractionsData(map, bboxStr) {
+  try {
+    const rawData = await fetchOverpassDataWithFallback(bboxStr);
+    const geojson = overpassToGeoJSON(rawData);
+
+    console.log(`[Attractions Map] Plotted ${geojson.features.length} pins on map.`);
+
+    if (map.getSource('attractions-source')) {
+      map.getSource('attractions-source').setData(geojson);
+    } else {
+      map.addSource('attractions-source', {
+        type: 'geojson',
+        data: geojson
+      });
+
+      // Colored pin layer
+      map.addLayer({
+        id: 'attractions-pins',
+        type: 'circle',
+        source: 'attractions-source',
+        paint: {
+          'circle-radius': 8,
+          'circle-color': [
+            'match',
+            ['get', 'category'],
+            'museum', '#e67e22',   // Orange
+            'viewpoint', '#2ecc71',// Green
+            'historic', '#8e44ad', // Purple
+            'leisure', '#3498db',  // Blue
+            '#e74c3c'              // Red (Default)
+          ],
+          'circle-stroke-width': 2,
+          'circle-stroke-color': '#ffffff'
+        }
+      });
+    }
+
+  } catch (error) {
+    console.error('[Attractions Map] Error loading pins:', error);
+  }
+}
+
+/**
+ * Sets up popups and hover cursors on map pins
+ */
+function setupMapPopups(map) {
+  const popup = new maplibregl.Popup({
+    closeButton: true,
+    closeOnClick: false,
+    maxWidth: '280px'
   });
 
-  shell.addEventListener('touchstart', (e) => {
-    if (!initialized && e.touches.length === 1) {
-      shell.classList.add('touched-once');
-      setTimeout(() => shell.classList.remove('touched-once'), 2500);
+  map.on('mouseenter', 'attractions-pins', () => {
+    map.getCanvas().style.cursor = 'pointer';
+  });
+
+  map.on('mouseleave', 'attractions-pins', () => {
+    map.getCanvas().style.cursor = '';
+  });
+
+  map.on('click', 'attractions-pins', (e) => {
+    if (!e.features || !e.features.length) return;
+
+    const feature = e.features[0];
+    const coords = feature.geometry.coordinates.slice();
+    const props = feature.properties;
+
+    let popupHtml = `<div class="bb-map-popup">
+      <h3 style="margin:0 0 6px; font-size:15px; font-weight:bold; color:#111;">${props.name}</h3>`;
+
+    if (props.website) {
+      popupHtml += `<p style="margin:4px 0;"><a href="${props.website}" target="_blank" rel="noopener" style="color:#0066cc; text-decoration:underline;">Official Website</a></p>`;
     }
-  }, { passive: true });
-});
+
+    if (props.wikipedia) {
+      const wikiUrl = `https://en.wikipedia.org/wiki/${encodeURIComponent(props.wikipedia)}`;
+      popupHtml += `<p style="margin:4px 0;"><a href="${wikiUrl}" target="_blank" rel="noopener" style="color:#0066cc; text-decoration:underline;">Wikipedia Article</a></p>`;
+    }
+
+    popupHtml += `</div>`;
+
+    while (Math.abs(e.lngLat.lng - coords[0]) > 180) {
+      coords[0] += e.lngLat.lng > coords[0] ? 360 : -360;
+    }
+
+    popup.setLngLat(coords).setHTML(popupHtml).addTo(map);
+  });
+}
