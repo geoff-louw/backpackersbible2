@@ -5038,13 +5038,11 @@ table.centered-table td {
    map opens at exactly the poster's size.
    ============================================================ */
 
-/* ░░ REGIONAL ATTRACTIONS MAP STYLES ░░ */
-
 .bb-attractions-map-shell {
   position: relative;
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 70px auto 0 auto; /* Added 70px space above the map */
   height: 550px;
   background: #111;
   overflow: hidden;
@@ -5118,6 +5116,7 @@ table.centered-table td {
     height: 100vw;
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
+    margin-top: 70px;
   }
 }
 
@@ -5148,18 +5147,21 @@ table.centered-table td {
   display: none;
 }
 
-/* Map description styling below the map */
+/* Map description styling below the map (Centered) */
 .bb-attractions-desc {
   background: none;
   background-color: transparent;
   color: #000000;
   margin-top: 15px;
   margin-bottom: 30px;
-  padding: 0;
-  text-align: left;
+  padding: 0 20px;
+  text-align: center; /* Centered alignment */
   font-family: 'Century Gothic', sans-serif;
   font-size: 15px;
   line-height: 1.5;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .bb-attractions-desc .map-description__text {
