@@ -1010,6 +1010,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const center = shell.getAttribute('data-center').split(',').map(Number);
   const zoom = parseFloat(shell.getAttribute('data-zoom')) || 10;
+  const bbox = shell.getAttribute('data-bbox'); // e.g. "40.20,-4.20,40.70,-3.40"
 
   let initialized = false;
   let mapInstance = null;
@@ -1071,18 +1072,15 @@ document.addEventListener('DOMContentLoaded', () => {
       shell.classList.add('bb-map-loaded');
       mapInstance.resize();
 
-      // Get bounding box coordinates from current map bounds (south, west, north, east)
-      const bounds = mapInstance.getBounds();
-      const s = bounds.getSouth();
-      const w = bounds.getWest();
-      const n = bounds.getNorth();
-      const e = bounds.getEast();
+      // Use explicit bbox attribute if provided, otherwise fallback to a default coordinate window
+      const coords = bbox ? bbox.split(',') : [39.5, -4.5, 41.5, -3.0];
+      const [s, w, n, e] = coords;
 
-      // Query Overpass API using the visible bounding box
       const overpassQuery = `
         [out:json][timeout:25];
         (
           node["tourism"~"attraction|viewpoint|information|museum"](${s},${w},${n},${e});
+          way["tourism"~"attraction|viewpoint"](${s},${w},${n},${e});
           node["historic"~"monument|castle|ruins|archaeological_site"](${s},${w},${n},${e});
           node["leisure"~"park|nature_reserve"](${s},${w},${n},${e});
         );
@@ -1102,10 +1100,7 @@ document.addEventListener('DOMContentLoaded', () => {
           return {
             type: 'Feature',
             geometry: { type: 'Point', coordinates: [lon, lat] },
-            properties: { 
-              title: el.tags.name || "Tourist Attraction",
-              type: el.tags.tourism || el.tags.historic || el.tags.leisure || "attraction"
-            }
+            properties: { title: el.tags.name || "Tourist Attraction" }
           };
         }).filter(Boolean);
 
@@ -1114,7 +1109,6 @@ document.addEventListener('DOMContentLoaded', () => {
           data: { type: 'FeatureCollection', features: features }
         });
 
-        // Add yellow circle markers with red borders matching your brand palette
         mapInstance.addLayer({
           id: 'attractions-pins',
           type: 'circle',
@@ -1141,17 +1135,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Desktop auto-load immediately, Mobile tap-to-load
-  if (window.innerWidth >= 1024) {
-    loadDirectMap();
-  } else {
-    shell.addEventListener('click', loadDirectMap, { once: true });
-    
-    shell.addEventListener('touchstart', (e) => {
-      if (!initialized && e.touches.length === 1) {
-        shell.classList.add('touched-once');
-        setTimeout(() => shell.classList.remove('touched-once'), 2500);
-      }
-    }, { passive: true });
+  // Bind click event to the button and poster area
+  const loadBtn = shell.querySelector('.bb-load-attractions-btn');
+  if (loadBtn) {
+    loadBtn.addEventListener('click', loadDirectMap);
   }
+  shell.addEventListener('click', (e) => {
+    if (!initialized && (e.target.closest('.sa-hostel-map-poster') || e.target === shell)) {
+      loadDirectMap();
+    }
+  });
+
+  // Touch warning hint for single-finger scroll trap prevention
+  shell.addEventListener('touchstart', (e) => {
+    if (!initialized && e.touches.length === 1) {
+      shell.classList.add('touched-once');
+      setTimeout(() => shell.classList.remove('touched-once'), 2500);
+    }
+  }, { passive: true });
 });
