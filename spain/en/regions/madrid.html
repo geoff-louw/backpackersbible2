@@ -747,18 +747,13 @@
 
 
 <!-- ░░ REGIONAL ATTRACTIONS MAP ░░ -->
-<div class="map-description" id="attractions-map-description">
-  <span class="map-description__text">Discover the best things to do, attractions, and backpacker tours in Madrid. Use two fingers to move the map, pinch to zoom.</span>
-</div>
-
 <h2 class="sr-only">Search Madrid Attractions and Tours</h2>
 
 <section class="sa-hostel-map-shell bb-attractions-map-shell" id="attractions-map" 
          data-region="Madrid" 
          data-center="-3.7038,40.4168" 
          data-zoom="10" 
-         data-bbox="40.20,-4.20,40.70,-3.40" 
-         aria-describedby="attractions-map-description">
+         data-bbox="40.20,-4.20,40.70,-3.40">
 
   <!-- Poster image wrapper with click-to-load button -->
   <div class="bb-map-poster-wrap">
@@ -774,7 +769,7 @@
     </button>
   </div>
 
-  <!-- Direct map container (sits underneath) -->
+  <!-- Direct map container -->
   <div id="direct-map-container"></div>
 
   <!-- Touch instruction overlay -->
@@ -788,6 +783,11 @@
   </div>
 
 </section>
+
+<!-- Map description moved below the map -->
+<div class="map-description bb-attractions-desc" id="attractions-map-description">
+  <span class="map-description__text">Discover the best things to do, attractions, and backpacker tours in Madrid. Use two fingers to move the map, pinch to zoom.</span>
+</div>
 <!-- ░░ END REGIONAL MAP ░░ -->
 
 
