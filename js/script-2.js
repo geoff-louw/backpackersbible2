@@ -172,6 +172,35 @@
 
 
     /* ============================================================
+       3b. HEADER — "HOME" DROPDOWN POSITIONING
+       The small dropdown is position:fixed (like the mega menus),
+       so line it up under its trigger whenever it is about to show.
+       ============================================================ */
+
+    (function initHeaderDropdown() {
+        var items = document.querySelectorAll('.site-nav__item--dropdown');
+        if (!items.length) return;
+
+        items.forEach(function (item) {
+            var trigger = item.querySelector('.site-nav__mega-trigger');
+            var menu    = item.querySelector('.site-nav__mega-menu--dropdown');
+            if (!trigger || !menu) return;
+
+            function place() {
+                var r    = trigger.getBoundingClientRect();
+                var w    = menu.offsetWidth || 220;
+                var left = Math.max(8, Math.min(r.left, window.innerWidth - w - 8));
+                menu.style.left = left + 'px';
+            }
+
+            item.addEventListener('mouseenter', place);
+            trigger.addEventListener('focus', place);
+            trigger.addEventListener('keydown', place);
+        });
+    }());
+
+
+/* ============================================================
        4. HEADER — HAMBURGER & MOBILE MENU
        ============================================================ */
 
