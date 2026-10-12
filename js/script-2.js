@@ -1159,8 +1159,8 @@ function fetchOverpassDataWithFallback(bboxStr) {
 
       clearTimeout(timeoutId);
 
-      const contentType = response.headers.get('content-type'] || '';
-      if (response.ok && response.headers.get('content-type')?.includes('application/json')) {
+      const contentType = response.headers.get('content-type') || '';
+      if (response.ok && contentType.includes('application/json')) {
         return await response.json();
       } else {
         console.warn(`[Overpass] ${endpoint} returned error ${response.status}. Trying next mirror...`);
@@ -1188,7 +1188,6 @@ function overpassToGeoJSON(overpassJson) {
     .map(node => {
       const tags = node.tags || {};
       
-      // Intelligent Name Fallback Chain
       let name = tags.name || tags['name:es'] || tags['name:en'] || tags.operator;
       if (!name) {
         if (tags.historic) name = helperCapitalize(tags.historic);
