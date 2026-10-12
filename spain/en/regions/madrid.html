@@ -746,28 +746,26 @@
 </div>
 
 
-<!-- ░░ REGIONAL ATTRACTIONS MAP (NO IFRAME) ░░ -->
+<!-- ░░ REGIONAL ATTRACTIONS MAP ░░ -->
 <div class="map-description" id="attractions-map-description">
-  <span class="map-description__text">Discover the best things to do, attractions, and backpacker tours in [Region Name]. Use two fingers to move the map, pinch to zoom.</span>
+  <span class="map-description__text">Discover the best things to do, attractions, and backpacker tours in Madrid. Use two fingers to move the map, pinch to zoom.</span>
 </div>
 
-<h2 class="sr-only">
-    Search [Region Name] Attractions and Tours
-</h2>
+<h2 class="sr-only">Search Madrid Attractions and Tours</h2>
 
 <section class="sa-hostel-map-shell bb-attractions-map-shell" id="attractions-map" data-region="Madrid" data-center="-3.7038,40.4168" data-zoom="10" aria-describedby="attractions-map-description">
 
-  <!-- Poster image: visible before map initializes -->
+  <!-- Poster image (uses Cape Town fallback assets for now) -->
   <picture class="sa-hostel-map-poster">
-    <source media="(max-width: 767px)" srcset="/assets/fallback_map_[region]_mobile.webp">
-    <img src="/assets/fallback_map_[region].webp" 
-         alt="Interactive tourist attraction and tour map for [Region Name] showing things to do for backpackers."
+    <source media="(max-width: 767px)" srcset="/assets/fallback_map_cape-town_mobile.webp">
+    <img src="/assets/fallback_map_cape-town.webp" 
+         alt="Interactive tourist attraction and tour map for Madrid showing things to do for backpackers."
          loading="lazy"
          decoding="async">
   </picture>
 
-  <!-- The container where MapLibre will mount directly -->
-  <div id="direct-map-container" style="width: 100%; height: 100%; display: none;"></div>
+  <!-- The map canvas target (sits underneath the poster) -->
+  <div id="direct-map-container" class="bb-map-canvas-target"></div>
 
   <!-- Touch instruction overlay -->
   <div class="map-touch-instruction" aria-hidden="true">
