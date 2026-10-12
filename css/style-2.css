@@ -1275,6 +1275,28 @@ body {
 
 
 /* ============================================================
+   8c. MOBILE MENU — HEADING LINKS
+   Itineraries panel headings (Short Stays, Budget, ...) are links.
+   "#mobile-menu a" would otherwise turn them into uppercase rows,
+   so make them look like the plain .panel h3 headings.
+   ============================================================ */
+
+#mobile-menu .panel h3 a {
+    display: inline-block;
+    width: auto;
+    padding: 4px 0;
+    border-bottom: none;
+    font-size: inherit;
+    text-transform: none;
+    color: var(--color-white);
+}
+
+#mobile-menu .panel h3 a:hover {
+    color: var(--color-yellow);
+}
+
+
+/* ============================================================
    9. MAP SECTION
    Temporary — will be replaced with Leaflet map.
    ============================================================ */
