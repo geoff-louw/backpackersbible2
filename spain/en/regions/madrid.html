@@ -745,6 +745,45 @@
 
 </div>
 
+
+<!-- ░░ REGIONAL ATTRACTIONS MAP (NO IFRAME) ░░ -->
+<div class="map-description" id="attractions-map-description">
+  <span class="map-description__text">Discover the best things to do, attractions, and backpacker tours in [Region Name]. Use two fingers to move the map, pinch to zoom.</span>
+</div>
+
+<h2 class="sr-only">
+    Search [Region Name] Attractions and Tours
+</h2>
+
+<section class="sa-hostel-map-shell bb-attractions-map-shell" id="attractions-map" data-region="Madrid" data-center="-3.7038,40.4168" data-zoom="10" aria-describedby="attractions-map-description">
+
+  <!-- Poster image: visible before map initializes -->
+  <picture class="sa-hostel-map-poster">
+    <source media="(max-width: 767px)" srcset="/assets/fallback_map_[region]_mobile.webp">
+    <img src="/assets/fallback_map_[region].webp" 
+         alt="Interactive tourist attraction and tour map for [Region Name] showing things to do for backpackers."
+         loading="lazy"
+         decoding="async">
+  </picture>
+
+  <!-- The container where MapLibre will mount directly -->
+  <div id="direct-map-container" style="width: 100%; height: 100%; display: none;"></div>
+
+  <!-- Touch instruction overlay -->
+  <div class="map-touch-instruction" aria-hidden="true">
+    Use two fingers to move the map, pinch to zoom
+  </div>
+
+  <!-- Yellow circle info note -->
+  <div class="map-overlay-circle" aria-hidden="true">
+    Explore top tours<br>& attractions!<br>Tap icons for details.
+  </div>
+
+</section>
+<!-- ░░ END REGIONAL MAP ░░ -->
+
+
+
 <section class="region-header-section">
 
     <h2 class="area-hero-title area-hero-title--section-gap" id="activities">Things To Do In Madrid</h2>
