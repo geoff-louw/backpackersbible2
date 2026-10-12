@@ -1006,8 +1006,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 /* ==========================================================================
    ATTRACTIONS MAP CONTROLLER (script-2.js)
-   - Fixed MapLibre GL Raster Tile Configuration
-   - Automatic Container Resize & Fallback Error Display
+   - MapLibre GL Direct DOM Rendering with Safety & Diagnostics
    - Overpass API GeoJSON Fetcher with Auto-Failover Mirrors
    ========================================================================== */
 
@@ -1015,7 +1014,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initAttractionsMap();
 });
 
-// List of public Overpass API endpoints for fallback mirror rotation
 const OVERPASS_ENDPOINTS = [
   'https://overpass.kumi.systems/api/interpreter',
   'https://overpass.private.coffee/api/interpreter',
@@ -1024,9 +1022,6 @@ const OVERPASS_ENDPOINTS = [
 
 let globalMapInstance = null;
 
-/**
- * Initializes poster click handlers and sets up MapLibre instance
- */
 function initAttractionsMap() {
   const mapShell = document.getElementById('attractions-map');
   if (!mapShell) return;
@@ -1038,18 +1033,24 @@ function initAttractionsMap() {
   if (!loadBtn || !mapContainer) return;
 
   loadBtn.addEventListener('click', async () => {
-    // 1. Hide the poster image
+    // 1. Hide poster
     if (posterWrap) {
       posterWrap.style.display = 'none';
     }
 
-    // 2. Ensure container has an explicit height if CSS hasn't set one yet
+    // 2. Verify MapLibre is loaded
+    if (typeof maplibregl === 'undefined') {
+      console.error('[Attractions Map] Fatal: maplibregl is not defined. Ensure MapLibre CDN script is loaded in your HTML head.');
+      mapContainer.innerHTML = `<div style="padding: 20px; text-align: center; color: #d9534f; font-weight:bold;">Map library failed to load. Check browser console (F12).</div>`;
+      return;
+    }
+
+    // 3. Ensure container has dimensions
     if (mapContainer.clientHeight === 0) {
       mapContainer.style.height = '450px';
       mapContainer.style.width = '100%';
     }
 
-    // 3. Extract map metadata from dataset attributes
     const centerAttr = mapShell.getAttribute('data-center') || '0,0';
     const zoomAttr = mapShell.getAttribute('data-zoom') || '10';
     const bboxAttr = mapShell.getAttribute('data-bbox');
@@ -1058,7 +1059,6 @@ function initAttractionsMap() {
     const zoom = parseFloat(zoomAttr);
 
     try {
-      // 4. Instantiate MapLibre GL Map with standard OSM Style configuration
       globalMapInstance = new maplibregl.Map({
         container: 'direct-map-container',
         style: {
@@ -1090,15 +1090,12 @@ function initAttractionsMap() {
         cooperativeGestures: true
       });
 
-      // Add navigation controls (zoom in/out)
       globalMapInstance.addControl(new maplibregl.NavigationControl(), 'top-right');
 
-      // Force recalculation of container bounds right after render
       setTimeout(() => {
         if (globalMapInstance) globalMapInstance.resize();
       }, 100);
 
-      // 5. Fetch points of interest when map style loads
       globalMapInstance.on('load', async () => {
         globalMapInstance.resize();
         if (bboxAttr) {
@@ -1106,19 +1103,15 @@ function initAttractionsMap() {
         }
       });
 
-      // Setup popup interactions on pin click
       setupMapPopups(globalMapInstance);
 
     } catch (err) {
-      console.error('[Attractions Map] Failed to initialize MapLibre:', err);
-      mapContainer.innerHTML = `<div style="padding: 20px; text-align: center; color: #333;">Unable to load map tile layer. Please refresh and try again.</div>`;
+      console.error('[Attractions Map] MapLibre initialization error:', err);
+      mapContainer.innerHTML = `<div style="padding: 20px; text-align: center; color: #d9534f; font-weight:bold;">Error: ${err.message}</div>`;
     }
   });
 }
 
-/**
- * Builds Overpass QL Query with a strict 25-second limit
- */
 function buildOverpassQuery(bboxStr) {
   return `[out:json][timeout:25];
 (
@@ -1131,9 +1124,6 @@ out body;
 out skel qt;`;
 }
 
-/**
- * Fetches GeoJSON nodes cycling through backup mirrors if 504 timeouts occur
- */
 function fetchOverpassDataWithFallback(bboxStr) {
   const query = buildOverpassQuery(bboxStr);
   const postBody = 'data=' + encodeURIComponent(query);
@@ -1148,13 +1138,11 @@ function fetchOverpassDataWithFallback(bboxStr) {
 
     try {
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 20000); // 20s client timeout
+      const timeoutId = setTimeout(() => controller.abort(), 20000);
 
       const response = await fetch(endpoint, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-        },
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
         body: postBody,
         signal: controller.signal
       });
@@ -1163,9 +1151,7 @@ function fetchOverpassDataWithFallback(bboxStr) {
 
       const contentType = response.headers.get('content-type') || '';
       if (response.ok && contentType.includes('application/json')) {
-        const json = await response.json();
-        console.log(`[Overpass] Successfully retrieved data from ${endpoint}`);
-        return json;
+        return await response.json();
       } else {
         console.warn(`[Overpass] ${endpoint} returned error ${response.status}. Trying next mirror...`);
         return attemptFetch(index + 1);
@@ -1177,9 +1163,6 @@ function fetchOverpassDataWithFallback(bboxStr) {
   })();
 }
 
-/**
- * Converts Overpass JSON response into clean GeoJSON
- */
 function overpassToGeoJSON(overpassJson) {
   if (!overpassJson || !overpassJson.elements) {
     return { type: 'FeatureCollection', features: [] };
@@ -1208,21 +1191,14 @@ function overpassToGeoJSON(overpassJson) {
           name: name,
           category: category,
           website: tags.website || tags['contact:website'] || '',
-          wikipedia: tags.wikipedia || '',
-          image: tags.image || tags['wikimedia_commons'] || ''
+          wikipedia: tags.wikipedia || ''
         }
       };
     });
 
-  return {
-    type: 'FeatureCollection',
-    features: features
-  };
+  return { type: 'FeatureCollection', features };
 }
 
-/**
- * Loads GeoJSON onto MapLibre instance and configures category pin styles
- */
 async function loadAttractionsData(map, bboxStr) {
   try {
     const rawData = await fetchOverpassDataWithFallback(bboxStr);
@@ -1238,7 +1214,6 @@ async function loadAttractionsData(map, bboxStr) {
         data: geojson
       });
 
-      // Colored pin layer
       map.addLayer({
         id: 'attractions-pins',
         type: 'circle',
@@ -1248,26 +1223,22 @@ async function loadAttractionsData(map, bboxStr) {
           'circle-color': [
             'match',
             ['get', 'category'],
-            'museum', '#e67e22',   // Orange
-            'viewpoint', '#2ecc71',// Green
-            'historic', '#8e44ad', // Purple
-            'leisure', '#3498db',  // Blue
-            '#e74c3c'              // Red (Default)
+            'museum', '#e67e22',
+            'viewpoint', '#2ecc71',
+            'historic', '#8e44ad',
+            'leisure', '#3498db',
+            '#e74c3c'
           ],
           'circle-stroke-width': 2,
           'circle-stroke-color': '#ffffff'
         }
       });
     }
-
   } catch (error) {
     console.error('[Attractions Map] Error loading pins:', error);
   }
 }
 
-/**
- * Sets up popups and hover cursors on map pins
- */
 function setupMapPopups(map) {
   const popup = new maplibregl.Popup({
     closeButton: true,
