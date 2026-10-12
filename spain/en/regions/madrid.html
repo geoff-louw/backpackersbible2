@@ -755,7 +755,7 @@
 
 <section class="sa-hostel-map-shell bb-attractions-map-shell" id="attractions-map" data-region="Madrid" data-center="-3.7038,40.4168" data-zoom="10" aria-describedby="attractions-map-description">
 
-  <!-- Poster image (uses Cape Town fallback assets for now) -->
+  <!-- Poster image (using Cape Town fallback assets as requested) -->
   <picture class="sa-hostel-map-poster">
     <source media="(max-width: 767px)" srcset="/assets/fallback_map_cape-town_mobile.webp">
     <img src="/assets/fallback_map_cape-town.webp" 
@@ -764,8 +764,8 @@
          decoding="async">
   </picture>
 
-  <!-- The map canvas target (sits underneath the poster) -->
-  <div id="direct-map-container" class="bb-map-canvas-target"></div>
+  <!-- Direct map container (sits underneath the poster) -->
+  <div id="direct-map-container"></div>
 
   <!-- Touch instruction overlay -->
   <div class="map-touch-instruction" aria-hidden="true">
