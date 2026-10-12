@@ -5038,7 +5038,8 @@ table.centered-table td {
    map opens at exactly the poster's size.
    ============================================================ */
 
-/* Regional Attractions Map Shell */
+/* ░░ REGIONAL ATTRACTIONS MAP STYLES ░░ */
+
 .bb-attractions-map-shell {
   position: relative;
   width: 100%;
@@ -5047,8 +5048,6 @@ table.centered-table td {
   height: 550px;
   background: #111;
   overflow: hidden;
-
-  margin-top: 3em;
 }
 
 /* Poster wrapper & button layering */
@@ -5074,7 +5073,7 @@ table.centered-table td {
   object-fit: cover;
 }
 
-/* Action button matching your site theme */
+/* Action button */
 .bb-load-attractions-btn {
   position: absolute;
   top: 50%;
@@ -5149,11 +5148,21 @@ table.centered-table td {
   display: none;
 }
 
-
-
-
-/* Add vertical spacing above the regional attractions map */
-.map-description {
-  margin-top: 3em; /* Adjust this value if you want more or less space */
+/* Map description styling below the map */
+.bb-attractions-desc {
+  background: none;
+  background-color: transparent;
+  color: #000000;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  padding: 0;
+  text-align: left;
+  font-family: 'Century Gothic', sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
 }
 
+.bb-attractions-desc .map-description__text {
+  color: #000000;
+  background: none;
+}
