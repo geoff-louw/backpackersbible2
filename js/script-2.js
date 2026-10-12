@@ -1007,8 +1007,8 @@ document.addEventListener("DOMContentLoaded", function() {
 /* ==========================================================================
    ATTRACTIONS MAP CONTROLLER (script-2.js)
    - MapLibre GL Direct DOM Rendering with Overlay Spinner
-   - Rich GeoJSON Property Parsing (Websites, Wikipedia, Wikidata, Descriptions)
-   - Overpass API GeoJSON Fetcher with Auto-Failover Mirrors
+   - Strict Named-POI Filtering (Removes anonymous map clutter)
+   - Rich GeoJSON Metadata (Websites, Wikipedia, Wikidata, Descriptions)
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -1052,7 +1052,7 @@ function initAttractionsMap() {
       spinnerOverlay.style.cssText = 'position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(255,255,255,0.92); display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:10; font-family:sans-serif;';
       spinnerOverlay.innerHTML = `
         <div style="width: 42px; height: 42px; border: 4px solid #e0e0e0; border-top: 4px solid #e74c3c; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 12px;"></div>
-        <p style="font-size: 14px; font-weight: 600; color: #222; margin: 0;">Loading map & attractions data...</p>
+        <p style="font-size: 14px; font-weight: 600; color: #222; margin: 0;">Loading named attractions & tours...</p>
         <style>@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }</style>
       `;
       mapShell.style.position = 'relative';
@@ -1127,7 +1127,6 @@ function initAttractionsMap() {
         }
       });
 
-      // If map is already loaded (re-triggering)
       if (globalMapInstance.loaded() && bboxAttr) {
         await loadAttractionsData(globalMapInstance, bboxAttr, spinnerOverlay);
       }
@@ -1141,12 +1140,15 @@ function initAttractionsMap() {
   });
 }
 
+/**
+ * Overpass QL Query strictly requiring a [name] tag to exclude anonymous map nodes
+ */
 function buildOverpassQuery(bboxStr) {
   return `[out:json][timeout:25];
 (
-  node["tourism"~"attraction|viewpoint|museum|gallery|theme_park|zoo"](${bboxStr});
-  node["historic"~"monument|castle|ruins|archaeological_site|memorial"](${bboxStr});
-  node["leisure"~"park|water_park"](${bboxStr});
+  node["name"]["tourism"~"attraction|viewpoint|museum|gallery|theme_park|zoo"](${bboxStr});
+  node["name"]["historic"~"monument|castle|ruins|archaeological_site|memorial"](${bboxStr});
+  node["name"]["leisure"~"park|water_park"](${bboxStr});
 );
 out body;
 >;
@@ -1192,39 +1194,24 @@ function fetchOverpassDataWithFallback(bboxStr) {
   })();
 }
 
-function helperCapitalize(str) {
-  if (!str) return '';
-  return str.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-}
-
 function overpassToGeoJSON(overpassJson) {
   if (!overpassJson || !overpassJson.elements) {
     return { type: 'FeatureCollection', features: [] };
   }
 
   const features = overpassJson.elements
-    .filter(el => el.type === 'node' && el.lat && el.lon)
+    .filter(el => el.type === 'node' && el.lat && el.lon && el.tags && (el.tags.name || el.tags['name:es'] || el.tags['name:en']))
     .map(node => {
       const tags = node.tags || {};
       
-      // Robust Name Extraction
-      let name = tags.name || tags['name:es'] || tags['name:en'] || tags.operator;
-      if (!name) {
-        if (tags.historic) name = helperCapitalize(tags.historic);
-        else if (tags.tourism === 'museum') name = 'Museum';
-        else if (tags.tourism === 'viewpoint') name = 'Viewpoint';
-        else if (tags.tourism) name = helperCapitalize(tags.tourism);
-        else if (tags.leisure) name = helperCapitalize(tags.leisure);
-        else name = 'Point of Interest';
-      }
-
+      const name = tags.name || tags['name:es'] || tags['name:en'];
+      
       let category = 'attraction';
       if (tags.tourism === 'museum') category = 'museum';
       else if (tags.tourism === 'viewpoint') category = 'viewpoint';
       else if (tags.historic) category = 'historic';
       else if (tags.leisure) category = 'leisure';
 
-      // Rich Metadata Extraction
       const website = tags.website || tags['contact:website'] || '';
       const wikipedia = tags.wikipedia || '';
       const wikidata = tags.wikidata || '';
@@ -1258,7 +1245,7 @@ async function loadAttractionsData(map, bboxStr, spinnerOverlay) {
     const rawData = await fetchOverpassDataWithFallback(bboxStr);
     const geojson = overpassToGeoJSON(rawData);
 
-    console.log(`[Attractions Map] Plotted ${geojson.features.length} pins on map.`);
+    console.log(`[Attractions Map] Plotted ${geojson.features.length} named pins on map.`);
 
     if (map.getSource('attractions-source')) {
       map.getSource('attractions-source').setData(geojson);
@@ -1289,7 +1276,6 @@ async function loadAttractionsData(map, bboxStr, spinnerOverlay) {
       });
     }
 
-    // Hide spinner once loaded successfully
     if (spinnerOverlay) {
       spinnerOverlay.style.display = 'none';
     }
@@ -1328,7 +1314,7 @@ function setupMapPopups(map) {
       <h3 style="margin:0 0 6px; font-size:15px; font-weight:bold; color:#111;">${props.name}</h3>`;
 
     if (props.description) {
-      popupHtml += `<p style="margin:4px 0; font-size:13px; color:#441; line-height:1.4;">${props.description}</p>`;
+      popupHtml += `<p style="margin:4px 0; font-size:13px; color:#444; line-height:1.4;">${props.description}</p>`;
     }
 
     if (props.phone) {
@@ -1336,7 +1322,6 @@ function setupMapPopups(map) {
     }
 
     if (props.website) {
-      let displayUrl = props.website.replace(/^https?:\/\/(www\.)?/, '').split('/')[0];
       popupHtml += `<p style="margin:6px 0 2px; font-size:13px;"><a href="${props.website}" target="_blank" rel="noopener" style="color:#0066cc; text-decoration:underline; font-weight:600;">Official Website &rarr;</a></p>`;
     }
 
