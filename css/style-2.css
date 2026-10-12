@@ -1113,14 +1113,16 @@ body {
     flex: 0 0 auto;
 }
 
-/* -- Brand text: name / payoff / breadcrumb stacked -- */
-.site-header__brand-text {
-    gap: 3px;
+/* -- Brand row: name + breadcrumb inline, payoff underneath.
+      If space runs short the breadcrumb wraps below the name
+      (flex-wrap is already set on .site-header__brand-row). -- */
+.site-header__brand-row {
+    min-width: 0;
+    row-gap: 4px;
 }
 
 /* -- Breadcrumb (replaces .site-header__location-badge) -- */
 .site-header__breadcrumb {
-    margin-top: 2px;
     max-width: 100%;
 }
 .site-header__breadcrumb ol {
