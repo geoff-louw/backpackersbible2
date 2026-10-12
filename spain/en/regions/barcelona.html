@@ -755,6 +755,51 @@
 
     <h2 class="area-hero-title area-hero-title--section-gap" id="activities">Things To Do In Barcelona</h2>
 
+<!-- ░░ BARCELONA ATTRACTIONS MAP ░░ -->
+<h2 class="sr-only">Search Barcelona Attractions and Tours</h2>
+
+<section class="sa-hostel-map-shell bb-attractions-map-shell" id="attractions-map" 
+         data-region="Barcelona" 
+         data-center="2.1734,41.3851" 
+         data-zoom="12" 
+         data-bbox="41.32,2.05,41.46,2.25" 
+         aria-describedby="attractions-map-description">
+
+  <!-- Poster image wrapper with click-to-load button -->
+  <div class="bb-map-poster-wrap">
+    <picture class="sa-hostel-map-poster">
+      <source media="(max-width: 767px)" srcset="/assets/fallback_map_cape-town_mobile.webp">
+      <img src="/assets/fallback_map_cape-town.webp" 
+           alt="Interactive tourist attraction and tour map for Barcelona showing things to do for backpackers."
+           loading="lazy"
+           decoding="async">
+    </picture>
+    <button type="button" class="load-map-btn bb-load-attractions-btn">
+      Open Interactive Map
+    </button>
+  </div>
+
+  <!-- Direct map container -->
+  <div id="direct-map-container"></div>
+
+  <!-- Touch instruction overlay -->
+  <div class="map-touch-instruction" aria-hidden="true">
+    Use two fingers to move the map, pinch to zoom
+  </div>
+
+  <!-- Yellow circle info note -->
+  <div class="map-overlay-circle" aria-hidden="true">
+    Explore top tours<br>& attractions!<br>Tap icons for details.
+  </div>
+
+</section>
+
+<!-- Centered description below map -->
+<div class="map-description bb-attractions-desc" id="attractions-map-description">
+  <span class="map-description__text">Discover the best things to do, attractions, and backpacker tours in Barcelona. Use two fingers to move the map, pinch to zoom.</span>
+</div>
+<!-- ░░ END BARCELONA MAP ░░ -->
+
     <h3 class="section-heading-desktop">1. Sagrada Família &amp; Gaudí's Barcelona (Non-Negotiable)</h3>
 
 <p class="intro-p">You are going to see the Sagrada Família. This is not a suggestion. It has been under construction since 1882, it is still not finished, and it remains one of the most extraordinary buildings on Earth regardless.</p>

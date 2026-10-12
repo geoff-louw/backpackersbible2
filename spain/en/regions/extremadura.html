@@ -735,6 +735,51 @@
 
     <h2 class="area-hero-title area-hero-title--section-gap" id="activities">Things To Do In Extremadura</h2>
 
+<!-- ░░ EXTREMADURA ATTRACTIONS MAP ░░ -->
+<h2 class="sr-only">Search Extremadura Attractions and Tours</h2>
+
+<section class="sa-hostel-map-shell bb-attractions-map-shell" id="attractions-map" 
+         data-region="Extremadura" 
+         data-center="-6.15,39.20" 
+         data-zoom="7.5" 
+         data-bbox="37.9,-7.6,40.5,-4.7" 
+         aria-describedby="attractions-map-description">
+
+  <!-- Poster image wrapper with click-to-load button -->
+  <div class="bb-map-poster-wrap">
+    <picture class="sa-hostel-map-poster">
+      <source media="(max-width: 767px)" srcset="/assets/fallback_map_cape-town_mobile.webp">
+      <img src="/assets/fallback_map_cape-town.webp" 
+           alt="Interactive tourist attraction and tour map for Extremadura showing things to do for backpackers."
+           loading="lazy"
+           decoding="async">
+    </picture>
+    <button type="button" class="load-map-btn bb-load-attractions-btn">
+      Open Interactive Map
+    </button>
+  </div>
+
+  <!-- Direct map container -->
+  <div id="direct-map-container"></div>
+
+  <!-- Touch instruction overlay -->
+  <div class="map-touch-instruction" aria-hidden="true">
+    Use two fingers to move the map, pinch to zoom
+  </div>
+
+  <!-- Yellow circle info note -->
+  <div class="map-overlay-circle" aria-hidden="true">
+    Explore top tours<br>& attractions!<br>Tap icons for details.
+  </div>
+
+</section>
+
+<!-- Centered description below map -->
+<div class="map-description bb-attractions-desc" id="attractions-map-description">
+  <span class="map-description__text">Discover the best things to do, attractions, and backpacker tours in Extremadura. Use two fingers to move the map, pinch to zoom.</span>
+</div>
+<!-- ░░ END EXTREMADURA MAP ░░ -->
+
     <h3 class="section-heading-desktop">1. Cáceres' Old Town (Non-Negotiable)</h3>
 
 <p class="intro-p">Cáceres' old town is compact enough to see properly in half a day, and atmospheric enough that you'll want to give it a full one.</p>
