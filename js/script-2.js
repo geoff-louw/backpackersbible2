@@ -1051,41 +1051,39 @@ document.addEventListener('DOMContentLoaded', () => {
     mapInstance.scrollZoom.enable();
     if (mapInstance.touchZoomRotate) mapInstance.touchZoomRotate.enable();
 
-    // Resize map once rendered to ensure correct canvas bounds
-    setTimeout(() => {
-      if (mapInstance) mapInstance.resize();
-    }, 100);
+    mapInstance.on('load', () => {
+      // Force canvas resize to fix green placeholder/rendering glitches
+      mapInstance.resize();
 
-    const overpassQuery = `
-      [out:json][timeout:25];
-      area["name"="${regionName}"][admin_level=4]->.searchArea;
-      (
-        node["tourism"~"attraction|viewpoint|information"](area.searchArea);
-        way["tourism"~"attraction|viewpoint"](area.searchArea);
-        node["historic"~"monument|castle|ruins"](area.searchArea);
-        node["leisure"~"park|nature_reserve"](area.searchArea);
-      );
-      out center;
-    `;
+      const overpassQuery = `
+        [out:json][timeout:25];
+        area["name"="${regionName}"][admin_level=4]->.searchArea;
+        (
+          node["tourism"~"attraction|viewpoint|information"](area.searchArea);
+          way["tourism"~"attraction|viewpoint"](area.searchArea);
+          node["historic"~"monument|castle|ruins"](area.searchArea);
+          node["leisure"~"park|nature_reserve"](area.searchArea);
+        );
+        out center;
+      `;
 
-    fetch('https://overpass-api.de/api/interpreter', {
-      method: 'POST',
-      body: overpassQuery
-    })
-    .then(res => res.json())
-    .then(data => {
-      const features = data.elements.map(el => {
-        const lat = el.lat || (el.center && el.center.lat);
-        const lon = el.lon || (el.center && el.center.lon);
-        if (!lat || !lon) return null;
-        return {
-          type: 'Feature',
-          geometry: { type: 'Point', coordinates: [lon, lat] },
-          properties: { title: el.tags.name || "Backpacker Attraction" }
-        };
-      }).filter(Boolean);
+      fetch('https://overpass-api.de/api/interpreter', {
+        method: 'POST',
+        body: overpassQuery
+      })
+      .then(res => res.json())
+      .then(data => {
+        const features = data.elements.map(el => {
+          const lat = el.lat || (el.center && el.center.lat);
+          const lon = el.lon || (el.center && el.center.lon);
+          if (!lat || !lon) return null;
+          return {
+            type: 'Feature',
+            geometry: { type: 'Point', coordinates: [lon, lat] },
+            properties: { title: el.tags.name || "Backpacker Attraction" }
+          };
+        }).filter(Boolean);
 
-      mapInstance.on('load', () => {
         mapInstance.addSource('attractions', {
           type: 'geojson',
           data: { type: 'FeatureCollection', features: features }
@@ -1117,11 +1115,12 @@ document.addEventListener('DOMContentLoaded', () => {
           const bounds = features.reduce((b, f) => b.extend(f.geometry.coordinates), new maplibregl.LngLatBounds(features[0].geometry.coordinates, features[0].geometry.coordinates));
           mapInstance.fitBounds(bounds, { padding: 60, maxZoom: 13 });
         }
-      });
-    })
-    .catch(err => console.error('Overpass fetch error:', err));
+      })
+      .catch(err => console.error('Overpass fetch error:', err));
+    });
   }
 
+  // Desktop auto-load immediately, Mobile tap-to-load
   if (window.innerWidth >= 1024) {
     loadDirectMap();
   } else {
