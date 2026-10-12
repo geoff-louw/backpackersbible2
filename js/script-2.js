@@ -1007,8 +1007,8 @@ document.addEventListener("DOMContentLoaded", function() {
 /* ==========================================================================
    ATTRACTIONS MAP CONTROLLER (script-2.js)
    - MapLibre GL Direct DOM Rendering with Overlay Spinner
-   - Strict Named-POI Filtering (Removes anonymous map clutter)
-   - Rich GeoJSON Metadata (Websites, Wikipedia, Wikidata, Descriptions)
+   - Curated High-Value Tourist POI Filtering
+   - Dynamic Category Badges & Rich Metadata Popups
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -1034,7 +1034,6 @@ function initAttractionsMap() {
   if (!loadBtn || !mapContainer) return;
 
   loadBtn.addEventListener('click', async () => {
-    // 1. Hide poster image
     if (posterWrap) {
       posterWrap.style.display = 'none';
     }
@@ -1044,7 +1043,6 @@ function initAttractionsMap() {
       mapContainer.style.width = '100%';
     }
 
-    // 2. Show smooth loading overlay inside shell container
     let spinnerOverlay = mapShell.querySelector('.map-loading-overlay');
     if (!spinnerOverlay) {
       spinnerOverlay = document.createElement('div');
@@ -1052,7 +1050,7 @@ function initAttractionsMap() {
       spinnerOverlay.style.cssText = 'position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(255,255,255,0.92); display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:10; font-family:sans-serif;';
       spinnerOverlay.innerHTML = `
         <div style="width: 42px; height: 42px; border: 4px solid #e0e0e0; border-top: 4px solid #e74c3c; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 12px;"></div>
-        <p style="font-size: 14px; font-weight: 600; color: #222; margin: 0;">Loading named attractions & tours...</p>
+        <p style="font-size: 14px; font-weight: 600; color: #222; margin: 0;">Loading top attractions & tours...</p>
         <style>@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }</style>
       `;
       mapShell.style.position = 'relative';
@@ -1075,7 +1073,6 @@ function initAttractionsMap() {
     const zoom = parseFloat(zoomAttr);
 
     try {
-      // 3. Initialize MapLibre GL instance if not already present
       if (!globalMapInstance) {
         globalMapInstance = new maplibregl.Map({
           container: 'direct-map-container',
@@ -1119,7 +1116,6 @@ function initAttractionsMap() {
         if (globalMapInstance) globalMapInstance.resize();
       }, 100);
 
-      // 4. Fetch and plot attractions data
       globalMapInstance.on('load', async () => {
         globalMapInstance.resize();
         if (bboxAttr) {
@@ -1141,14 +1137,17 @@ function initAttractionsMap() {
 }
 
 /**
- * Overpass QL Query strictly requiring a [name] tag to exclude anonymous map nodes
+ * Refined Overpass QL Query targeting high-value tourist sites and heritage locations
  */
 function buildOverpassQuery(bboxStr) {
   return `[out:json][timeout:25];
 (
-  node["name"]["tourism"~"attraction|viewpoint|museum|gallery|theme_park|zoo"](${bboxStr});
-  node["name"]["historic"~"monument|castle|ruins|archaeological_site|memorial"](${bboxStr});
-  node["name"]["leisure"~"park|water_park"](${bboxStr});
+  node["tourism"="museum"](${bboxStr});
+  node["tourism"="attraction"]["wikipedia"](${bboxStr});
+  node["tourism"="attraction"]["name"](${bboxStr});
+  node["historic"~"castle|monument|archaeological_site|ruins"]["name"](${bboxStr});
+  node["amenity"="place_of_worship"]["building"="cathedral"](${bboxStr});
+  node["leisure"~"park|nature_reserve"]["name"](${bboxStr});
 );
 out body;
 >;
@@ -1194,6 +1193,20 @@ function fetchOverpassDataWithFallback(bboxStr) {
   })();
 }
 
+function getAttractionSubtitle(tags) {
+  if (tags.tourism === 'museum') return 'Museum & Gallery';
+  if (tags.historic === 'castle') return 'Historic Castle';
+  if (tags.historic === 'monument') return 'Historic Monument';
+  if (tags.historic === 'ruins') return 'Historical Ruins';
+  if (tags.historic === 'archaeological_site') return 'Archaeological Site';
+  if (tags.building === 'cathedral' || tags.amenity === 'place_of_worship') return 'Cathedral & Church';
+  if (tags.tourism === 'viewpoint') return 'Scenic Viewpoint';
+  if (tags.leisure === 'nature_reserve') return 'Nature Reserve';
+  if (tags.leisure === 'park') return 'Public Park';
+  if (tags.tourism === 'attraction') return 'Top Tourist Attraction';
+  return 'Point of Interest';
+}
+
 function overpassToGeoJSON(overpassJson) {
   if (!overpassJson || !overpassJson.elements) {
     return { type: 'FeatureCollection', features: [] };
@@ -1203,20 +1216,14 @@ function overpassToGeoJSON(overpassJson) {
     .filter(el => el.type === 'node' && el.lat && el.lon && el.tags && (el.tags.name || el.tags['name:es'] || el.tags['name:en']))
     .map(node => {
       const tags = node.tags || {};
-      
       const name = tags.name || tags['name:es'] || tags['name:en'];
+      const subtitle = getAttractionSubtitle(tags);
       
       let category = 'attraction';
       if (tags.tourism === 'museum') category = 'museum';
-      else if (tags.tourism === 'viewpoint') category = 'viewpoint';
-      else if (tags.historic) category = 'historic';
-      else if (tags.leisure) category = 'leisure';
-
-      const website = tags.website || tags['contact:website'] || '';
-      const wikipedia = tags.wikipedia || '';
-      const wikidata = tags.wikidata || '';
-      const description = tags.description || tags['description:es'] || tags['description:en'] || '';
-      const phone = tags.phone || tags['contact:phone'] || '';
+      else if (tags.tourism === 'viewpoint' || subtitle.includes('Viewpoint')) category = 'viewpoint';
+      else if (tags.historic || subtitle.includes('Castle') || subtitle.includes('Monument') || subtitle.includes('Ruins')) category = 'historic';
+      else if (tags.leisure || subtitle.includes('Park')) category = 'leisure';
 
       return {
         type: 'Feature',
@@ -1227,12 +1234,12 @@ function overpassToGeoJSON(overpassJson) {
         properties: {
           id: node.id,
           name: name,
+          subtitle: subtitle,
           category: category,
-          website: website,
-          wikipedia: wikipedia,
-          wikidata: wikidata,
-          description: description,
-          phone: phone
+          website: tags.website || tags['contact:website'] || '',
+          wikipedia: tags.wikipedia || '',
+          wikidata: tags.wikidata || '',
+          description: tags.description || tags['description:es'] || tags['description:en'] || ''
         }
       };
     });
@@ -1245,7 +1252,7 @@ async function loadAttractionsData(map, bboxStr, spinnerOverlay) {
     const rawData = await fetchOverpassDataWithFallback(bboxStr);
     const geojson = overpassToGeoJSON(rawData);
 
-    console.log(`[Attractions Map] Plotted ${geojson.features.length} named pins on map.`);
+    console.log(`[Attractions Map] Plotted ${geojson.features.length} curated pins on map.`);
 
     if (map.getSource('attractions-source')) {
       map.getSource('attractions-source').setData(geojson);
@@ -1311,14 +1318,11 @@ function setupMapPopups(map) {
     const props = feature.properties;
 
     let popupHtml = `<div class="bb-map-popup" style="font-family:sans-serif; padding:4px;">
-      <h3 style="margin:0 0 6px; font-size:15px; font-weight:bold; color:#111;">${props.name}</h3>`;
+      <h3 style="margin:0 0 2px; font-size:15px; font-weight:bold; color:#111;">${props.name}</h3>
+      <p style="margin:0 0 8px; font-size:11px; font-weight:700; color:#e67e22; text-transform:uppercase; letter-spacing:0.5px;">${props.subtitle}</p>`;
 
     if (props.description) {
-      popupHtml += `<p style="margin:4px 0; font-size:13px; color:#444; line-height:1.4;">${props.description}</p>`;
-    }
-
-    if (props.phone) {
-      popupHtml += `<p style="margin:4px 0; font-size:13px; color:#555;"><strong>Phone:</strong> <a href="tel:${props.phone}" style="color:#0066cc;">${props.phone}</a></p>`;
+      popupHtml += `<p style="margin:4px 0 8px; font-size:13px; color:#444; line-height:1.4;">${props.description}</p>`;
     }
 
     if (props.website) {
