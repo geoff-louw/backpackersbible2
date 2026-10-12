@@ -1035,12 +1035,32 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function initMapLibre() {
+    // Self-contained raster style using reliable open OSM tiles
     mapInstance = new maplibregl.Map({
       container: 'direct-map-container',
-      style: 'https://demotiles.maplibre.org/style.json',
+      style: {
+        version: 8,
+        sources: {
+          'osm-tiles': {
+            type: 'raster',
+            tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+            tileSize: 256,
+            attribution: '&copy; OpenStreetMap contributors'
+          }
+        },
+        layers: [
+          {
+            id: 'osm-layer',
+            type: 'raster',
+            source: 'osm-tiles',
+            minzoom: 0,
+            maxzoom: 19
+          }
+        ]
+      },
       center: center,
       zoom: zoom,
-      pitch: 45,
+      pitch: 0,
       bearing: 0,
       dragPan: true
     });
@@ -1049,7 +1069,7 @@ document.addEventListener('DOMContentLoaded', () => {
     mapInstance.scrollZoom.enable();
     if (mapInstance.touchZoomRotate) mapInstance.touchZoomRotate.enable();
 
-    // Only hide poster and show map AFTER the map tiles/style are fully loaded
+    // Hide poster only when map tiles have successfully loaded
     mapInstance.on('load', () => {
       shell.classList.add('bb-map-loaded');
       mapInstance.resize();
