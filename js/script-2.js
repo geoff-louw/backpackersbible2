@@ -20,7 +20,8 @@
    15. Mama Africa popup
    16. Preview box (hover blurbs)
    17. Contact email obfuscation
-        18.  Map facade (lazy load on mobile)
+   18.  Map facade (lazy load on mobile)
+   19. Things to do map
    ============================================================ */
 
 (function () {
@@ -996,4 +997,141 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     }
   });
+});
+
+
+/* ============================================================
+   19. THINGS TO DO MAP
+   ============================================================ */
+
+document.addEventListener('DOMContentLoaded', () => {
+  const shell = document.querySelector('.bb-attractions-map-shell');
+  if (!shell) return;
+
+  const poster = shell.querySelector('.sa-hostel-map-poster');
+  const mapContainer = document.getElementById('direct-map-container');
+  const regionName = shell.getAttribute('data-region') || 'Madrid';
+  const center = shell.getAttribute('data-center').split(',').map(Number);
+  const zoom = parseFloat(shell.getAttribute('data-zoom')) || 10;
+
+  let initialized = false;
+
+  function loadDirectMap() {
+    if (initialized) return;
+    initialized = true;
+
+    if (poster) poster.style.display = 'none';
+    mapContainer.style.display = 'block';
+    shell.classList.add('bb-map-loaded');
+
+    // Load MapLibre CSS & JS dynamically if not already present
+    if (!window.maplibregl) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css';
+      document.head.appendChild(link);
+
+      const script = document.createElement('script');
+      script.src = 'https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js';
+      script.onload = initMapLibre;
+      document.head.appendChild(script);
+    } else {
+      initMapLibre();
+    }
+  }
+
+  function initMapLibre() {
+    const map = new maplibregl.Map({
+      container: 'direct-map-container',
+      style: 'https://demotiles.maplibre.org/style.json',
+      center: center,
+      zoom: zoom,
+      pitch: 45,
+      bearing: 0,
+      dragPan: true
+    });
+
+    map.boxZoom.enable();
+    map.scrollZoom.enable();
+    if (map.touchZoomRotate) map.touchZoomRotate.enable();
+
+    const overpassQuery = `
+      [out:json][timeout:25];
+      area["name"="${regionName}"][admin_level=4]->.searchArea;
+      (
+        node["tourism"~"attraction|viewpoint|information"](area.searchArea);
+        way["tourism"~"attraction|viewpoint"](area.searchArea);
+        node["historic"~"monument|castle|ruins"](area.searchArea);
+        node["leisure"~"park|nature_reserve"](area.searchArea);
+      );
+      out center;
+    `;
+
+    fetch('https://overpass-api.de/api/interpreter', {
+      method: 'POST',
+      body: overpassQuery
+    })
+    .then(res => res.json())
+    .then(data => {
+      const features = data.elements.map(el => {
+        const lat = el.lat || (el.center && el.center.lat);
+        const lon = el.lon || (el.center && el.center.lon);
+        if (!lat || !lon) return null;
+        return {
+          type: 'Feature',
+          geometry: { type: 'Point', coordinates: [lon, lat] },
+          properties: { title: el.tags.name || "Backpacker Attraction" }
+        };
+      }).filter(Boolean);
+
+      map.on('load', () => {
+        map.addSource('attractions', {
+          type: 'geojson',
+          data: { type: 'FeatureCollection', features: features }
+        });
+
+        map.addLayer({
+          id: 'attractions-pins',
+          type: 'circle',
+          source: 'attractions',
+          paint: {
+            'circle-radius': 7,
+            'circle-color': '#ffd400',
+            'circle-stroke-width': 2,
+            'circle-stroke-color': '#b01c22'
+          }
+        });
+
+        map.on('click', 'attractions-pins', (e) => {
+          new maplibregl.Popup()
+            .setLngLat(e.features[0].geometry.coordinates)
+            .setHTML(`<div style="color:#000; font-family:'Century Gothic',sans-serif; padding:5px;"><strong>${e.features[0].properties.title}</strong><br><span style="font-size:11px; color:#555;">Backpacker Attraction</span></div>`)
+            .addTo(map);
+        });
+
+        map.on('mouseenter', 'attractions-pins', () => map.getCanvas().style.cursor = 'pointer');
+        map.on('mouseleave', 'attractions-pins', () => map.getCanvas().style.cursor = '');
+
+        if (features.length > 0) {
+          const bounds = features.reduce((b, f) => b.extend(f.geometry.coordinates), new maplibregl.LngLatBounds(features[0].geometry.coordinates, features[0].geometry.coordinates));
+          map.fitBounds(bounds, { padding: 60, maxZoom: 13 });
+        }
+      });
+    })
+    .catch(err => console.error('Overpass fetch error:', err));
+  }
+
+  // Auto-load on desktop, tap-to-load on mobile
+  if (window.innerWidth >= 1024) {
+    loadDirectMap();
+  } else {
+    shell.addEventListener('click', loadDirectMap, { once: true });
+    
+    shell.addEventListener('touchstart', (e) => {
+      if (!initialized && e.touches.length === 1) {
+        shell.classList.add('touched-once');
+        setTimeout(() => shell.classList.remove('touched-once'), 2500);
+      }
+    }, { passive: true });
+  }
 });
