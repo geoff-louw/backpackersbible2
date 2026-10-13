@@ -1572,7 +1572,37 @@ main {
         padding: 10px 0;
         z-index: calc(var(--z-header) - 1); /* same layer as quick-jump-menu */
         transition: transform var(--transition-slide); /* slides with the menu */
-        pointer-events: none; /* purely informational — no tap target */
+    }
+
+    /* Breadcrumb list inside the blue bar */
+    #page-title-bar ol {
+        list-style: none;
+        margin: 0;
+        padding: 0 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    #page-title-bar li {
+        display: inline-flex;
+        align-items: center;
+    }
+    #page-title-bar li + li::before {
+        content: "/";
+        margin: 0 0.6em;
+        font-weight: normal;
+        opacity: 0.6;
+    }
+    #page-title-bar a {
+        color: inherit;
+        text-decoration: none;
+        padding: 4px 0; /* slightly larger tap target */
+    }
+    #page-title-bar a:focus-visible {
+        outline: 2px solid #ffffff;
+        outline-offset: 2px;
+        border-radius: 2px;
     }
 
     /* Slide the title bar down with the menu when JS adds .is-hidden */
