@@ -686,12 +686,10 @@
             --bg-mobile: url('/spain/assets/images/backpacking_aragon_river_basilica_mobile.webp');">
 
     <div class="attribution-toggle">
-        <details>
-            <summary aria-label="Image attribution" title="Image attribution"><span aria-hidden="true">i</span></summary>
-            <div class="attribution-toggle__panel">
-                By <a rel="nofollow" class="external text" href="https://www.flickr.com/photos/99181891@N00">Paulo Brandao</a> - originally posted to <a href="//commons.wikimedia.org/wiki/Flickr" class="mw-redirect" title="Flickr">Flickr</a> as <a rel="nofollow" class="external text" href="https://www.flickr.com/photos/99181891@N00/2740345393">Basilica del Pilar, sunset</a>, <a href="https://creativecommons.org/licenses/by/2.0" title="Creative Commons Attribution 2.0">CC BY 2.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=4866442">Link</a>
-            </div>
-        </details>
+        <button type="button" class="attribution-toggle__btn" aria-label="Image attribution" aria-expanded="false" aria-controls="attr-1">i</button>
+        <div class="attribution-toggle__panel" id="attr-1">
+            By <a rel="nofollow" class="external text" href="https://www.flickr.com/photos/99181891@N00">Paulo Brandao</a> - originally posted to <a href="//commons.wikimedia.org/wiki/Flickr" class="mw-redirect" title="Flickr">Flickr</a> as <a rel="nofollow" class="external text" href="https://www.flickr.com/photos/99181891@N00/2740345393">Basilica del Pilar, sunset</a>, <a href="https://creativecommons.org/licenses/by/2.0" title="Creative Commons Attribution 2.0">CC BY 2.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=4866442">Link</a>
+        </div>
     </div>
 
 </div>
@@ -928,12 +926,10 @@
             --bg-mobile: url('/spain/assets/images/backpacking_aragon_castle_mobile.webp');">
 
     <div class="attribution-toggle">
-        <details>
-            <summary aria-label="Image attribution" title="Image attribution"><span aria-hidden="true">i</span></summary>
-            <div class="attribution-toggle__panel">
-                By <a rel="nofollow" class="external text" href="https://www.flickr.com/photos/99005287@N00">Joachim Quandt</a> - originally posted to <a href="//commons.wikimedia.org/wiki/Flickr" class="mw-redirect" title="Flickr">Flickr</a> as <a rel="nofollow" class="external text" href="https://www.flickr.com/photos/99005287@N00/266413479">PA010057</a>, <a href="https://creativecommons.org/licenses/by-sa/2.0" title="Creative Commons Attribution-Share Alike 2.0">CC BY-SA 2.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=5874335">Link</a>
-            </div>
-        </details>
+        <button type="button" class="attribution-toggle__btn" aria-label="Image attribution" aria-expanded="false" aria-controls="attr-2">i</button>
+        <div class="attribution-toggle__panel" id="attr-2">
+            By <a rel="nofollow" class="external text" href="https://www.flickr.com/photos/99005287@N00">Joachim Quandt</a> - originally posted to <a href="//commons.wikimedia.org/wiki/Flickr" class="mw-redirect" title="Flickr">Flickr</a> as <a rel="nofollow" class="external text" href="https://www.flickr.com/photos/99005287@N00/266413479">PA010057</a>, <a href="https://creativecommons.org/licenses/by-sa/2.0" title="Creative Commons Attribution-Share Alike 2.0">CC BY-SA 2.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=5874335">Link</a>
+        </div>
     </div>
 
 </div>
@@ -1386,15 +1382,31 @@ alt="Web Analytics"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 
 <script>
-/* Attribution (i) buttons: close on outside click or Escape */
+/* Attribution (i) buttons: click to fade in/out; close on outside click or Escape */
 (function () {
-    var boxes = document.querySelectorAll('.attribution-toggle details');
+    var boxes = document.querySelectorAll('.attribution-toggle');
     if (!boxes.length) return;
+    function close(box) {
+        box.classList.remove('is-open');
+        box.querySelector('.attribution-toggle__btn').setAttribute('aria-expanded', 'false');
+    }
+    boxes.forEach(function (box) {
+        var btn = box.querySelector('.attribution-toggle__btn');
+        btn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            var willOpen = !box.classList.contains('is-open');
+            boxes.forEach(close);
+            if (willOpen) {
+                box.classList.add('is-open');
+                btn.setAttribute('aria-expanded', 'true');
+            }
+        });
+    });
     document.addEventListener('click', function (e) {
-        boxes.forEach(function (d) { if (d.open && !d.contains(e.target)) d.open = false; });
+        boxes.forEach(function (box) { if (!box.contains(e.target)) close(box); });
     });
     document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') boxes.forEach(function (d) { d.open = false; });
+        if (e.key === 'Escape') boxes.forEach(close);
     });
 })();
 </script>
