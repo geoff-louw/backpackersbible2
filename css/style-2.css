@@ -4128,7 +4128,7 @@ img.bb-marker-icon {
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-bottom: 30px;  /* Mobile bottom margin */
+  margin-bottom: 20px;  /* Mobile bottom margin */
 }
 
 .cartouche-container img {
@@ -4140,7 +4140,7 @@ img.bb-marker-icon {
 /* Desktop styles (Screens wider than 767px) */
 @media (min-width: 768px) {
   .cartouche-container {
-    margin-bottom: 60px; /* Desktop bottom margin */
+    margin-bottom: 30px; /* Desktop bottom margin */
   }
 }
 
