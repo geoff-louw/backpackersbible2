@@ -1036,19 +1036,22 @@ document.addEventListener("DOMContentLoaded", function() {
 /* ==========================================================================
    ATTRACTIONS MAP CONTROLLER (script-2.js)
    - MapLibre GL Direct DOM Rendering with Overlay Spinner
-   - Overpass API Auto-Failover with Curated Regional Fallback
-   - Guaranteed 100% Uptime & Rich Tourist Metadata
+   - Pins come from a pre-built static file per region (see
+     build-attractions.mjs) — no live Overpass query in the browser
+   - MapLibre itself is loaded on demand, not on every page view
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
   initAttractionsMap();
 });
 
-const OVERPASS_ENDPOINTS = [
-  'https://overpass.kumi.systems/api/interpreter',
-  'https://overpass.private.coffee/api/interpreter',
-  'https://overpass-api.de/api/interpreter'
-];
+const MAPLIBRE_JS  = 'https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js';
+const MAPLIBRE_CSS = 'https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css';
+
+/* Where the pre-built pin files live. A region's file is named after its
+   page URL (e.g. /spain/en/regions/andalusia -> andalusia.json).
+   Override per page with data-src on #attractions-map if ever needed. */
+const ATTRACTIONS_DATA_BASE = '/spain/assets/data/attractions/';
 
 /**
  * Curated Fallback Datasets for Regions (Guarantees zero timeouts)
@@ -1157,6 +1160,12 @@ function initAttractionsMap() {
 
   if (!loadBtn || !mapContainer) return;
 
+  // Warm-up: begin fetching the map library as soon as the visitor shows
+  // intent (hover, touch or keyboard focus), so the click feels instant.
+  ['pointerenter', 'touchstart', 'focus'].forEach(evt => {
+    loadBtn.addEventListener(evt, () => { ensureMapLibre().catch(() => {}); }, { once: true, passive: true });
+  });
+
   loadBtn.addEventListener('click', async () => {
     if (posterWrap) {
       posterWrap.style.display = 'none';
@@ -1183,21 +1192,19 @@ function initAttractionsMap() {
       spinnerOverlay.style.display = 'flex';
     }
 
-    if (typeof maplibregl === 'undefined') {
-      console.error('[Attractions Map] Fatal: maplibregl is not defined.');
-      spinnerOverlay.innerHTML = `<p style="color: #d9534f; font-weight: bold;">Map library failed to load. Check console.</p>`;
-      return;
-    }
-
     const regionName = mapShell.getAttribute('data-region') || 'Extremadura';
     const centerAttr = mapShell.getAttribute('data-center') || '0,0';
     const zoomAttr = mapShell.getAttribute('data-zoom') || '10';
-    const bboxAttr = mapShell.getAttribute('data-bbox');
 
     const [lng, lat] = centerAttr.split(',').map(Number);
     const zoom = parseFloat(zoomAttr);
 
+    // Start both downloads at once: the pin file and the map library.
+    const dataPromise = fetchAttractionsData(mapShell, regionName);
+
     try {
+      await ensureMapLibre();
+
       if (!globalMapInstance) {
         globalMapInstance = new maplibregl.Map({
           container: 'direct-map-container',
@@ -1243,13 +1250,11 @@ function initAttractionsMap() {
 
       globalMapInstance.on('load', async () => {
         globalMapInstance.resize();
-        if (bboxAttr) {
-          await loadAttractionsData(globalMapInstance, bboxAttr, regionName, spinnerOverlay);
-        }
+        await loadAttractionsData(globalMapInstance, dataPromise, spinnerOverlay);
       });
 
-      if (globalMapInstance.loaded() && bboxAttr) {
-        await loadAttractionsData(globalMapInstance, bboxAttr, regionName, spinnerOverlay);
+      if (globalMapInstance.loaded()) {
+        await loadAttractionsData(globalMapInstance, dataPromise, spinnerOverlay);
       }
 
     } catch (err) {
@@ -1261,122 +1266,57 @@ function initAttractionsMap() {
   });
 }
 
-function buildOverpassQuery(bboxStr) {
-  return `[out:json][timeout:15];
-(
-  node["tourism"~"attraction|museum|viewpoint"](${bboxStr});
-  node["historic"~"castle|monument|ruins|archaeological_site"](${bboxStr});
-);
-out body;
->;
-out skel qt;`;
-}
+/**
+ * Loads MapLibre GL (JS + CSS) the first time it's needed.
+ * If the page still has the old <script>/<link> tags in <head>, this
+ * simply does nothing.
+ */
+let maplibrePromise = null;
+function ensureMapLibre() {
+  if (typeof maplibregl !== 'undefined') return Promise.resolve();
+  if (maplibrePromise) return maplibrePromise;
 
-function fetchOverpassDataWithFallback(bboxStr) {
-  const query = buildOverpassQuery(bboxStr);
-  const postBody = 'data=' + encodeURIComponent(query);
-
-  return (async function attemptFetch(index = 0) {
-    if (index >= OVERPASS_ENDPOINTS.length) {
-      throw new Error('All Overpass API servers failed or timed out.');
+  maplibrePromise = new Promise((resolve, reject) => {
+    if (!document.querySelector('link[href*="maplibre-gl.css"]')) {
+      const css = document.createElement('link');
+      css.rel = 'stylesheet';
+      css.href = MAPLIBRE_CSS;
+      document.head.appendChild(css);
     }
-
-    const endpoint = OVERPASS_ENDPOINTS[index];
-
-    try {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 12000);
-
-      const response = await fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
-        body: postBody,
-        signal: controller.signal
-      });
-
-      clearTimeout(timeoutId);
-
-      const contentType = response.headers.get('content-type') || '';
-      if (response.ok && contentType.includes('application/json')) {
-        return await response.json();
-      } else {
-        return attemptFetch(index + 1);
-      }
-    } catch (err) {
-      return attemptFetch(index + 1);
-    }
-  })();
+    const js = document.createElement('script');
+    js.src = MAPLIBRE_JS;
+    js.onload = () => resolve();
+    js.onerror = () => {
+      maplibrePromise = null; // allow a retry on the next click
+      reject(new Error('Map library failed to load. Please check your connection and try again.'));
+    };
+    document.head.appendChild(js);
+  });
+  return maplibrePromise;
 }
 
-function getAttractionSubtitle(tags) {
-  if (tags.tourism === 'museum') return 'Museum & Gallery';
-  if (tags.historic === 'castle') return 'Historic Castle';
-  if (tags.historic === 'monument') return 'Historic Monument';
-  if (tags.historic === 'ruins') return 'Historical Ruins';
-  if (tags.historic === 'archaeological_site') return 'Archaeological Site';
-  if (tags.tourism === 'viewpoint') return 'Scenic Viewpoint';
-  if (tags.tourism === 'attraction') return 'Tourist Attraction';
-  return 'Point of Interest';
-}
+/**
+ * Fetches the region's pre-built pin file (a small static GeoJSON).
+ * Never rejects: on any failure it falls back to the curated dataset
+ * (if there is one) or an empty map.
+ */
+function fetchAttractionsData(mapShell, regionName) {
+  const slug = window.location.pathname.split('/').filter(Boolean).pop().replace(/\.html$/, '');
+  const url = mapShell.getAttribute('data-src') || (ATTRACTIONS_DATA_BASE + slug + '.json');
 
-function overpassToGeoJSON(overpassJson) {
-  if (!overpassJson || !overpassJson.elements) {
-    return { type: 'FeatureCollection', features: [] };
-  }
-
-  const features = overpassJson.elements
-    .filter(el => el.type === 'node' && el.lat && el.lon && el.tags && (el.tags.name || el.tags['name:es'] || el.tags['name:en']))
-    .map(node => {
-      const tags = node.tags || {};
-      const name = tags.name || tags['name:es'] || tags['name:en'];
-      const subtitle = getAttractionSubtitle(tags);
-      
-      let category = 'attraction';
-      if (tags.tourism === 'museum') category = 'museum';
-      else if (tags.tourism === 'viewpoint') category = 'viewpoint';
-      else if (tags.historic) category = 'historic';
-
-      return {
-        type: 'Feature',
-        geometry: {
-          type: 'Point',
-          coordinates: [node.lon, node.lat]
-        },
-        properties: {
-          id: node.id,
-          name: name,
-          subtitle: subtitle,
-          category: category,
-          website: tags.website || tags['contact:website'] || '',
-          wikipedia: tags.wikipedia || '',
-          wikidata: tags.wikidata || '',
-          description: tags.description || tags['description:es'] || tags['description:en'] || ''
-        }
-      };
+  return fetch(url)
+    .then(res => {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return res.json();
+    })
+    .catch(err => {
+      console.warn(`[Attractions Map] Could not load ${url}.`, err);
+      return REGIONAL_FALLBACKS[regionName] || { type: 'FeatureCollection', features: [] };
     });
-
-  return { type: 'FeatureCollection', features };
 }
 
-async function loadAttractionsData(map, bboxStr, regionName, spinnerOverlay) {
-  let geojson = { type: 'FeatureCollection', features: [] };
-
-  try {
-    // Attempt live Overpass fetch with short timeout
-    const rawData = await fetchOverpassDataWithFallback(bboxStr);
-    geojson = overpassToGeoJSON(rawData);
-
-    // If Overpass returned few or zero named nodes, fall back to curated dataset
-    if (geojson.features.length < 3 && REGIONAL_FALLBACKS[regionName]) {
-      console.log(`[Attractions Map] Overpass returned limited data for ${regionName}. Using curated fallback dataset.`);
-      geojson = REGIONAL_FALLBACKS[regionName];
-    }
-  } catch (error) {
-    console.warn(`[Attractions Map] Overpass fetch failed. Using curated fallback for ${regionName}.`, error);
-    if (REGIONAL_FALLBACKS[regionName]) {
-      geojson = REGIONAL_FALLBACKS[regionName];
-    }
-  }
+async function loadAttractionsData(map, dataPromise, spinnerOverlay) {
+  const geojson = await dataPromise;
 
   console.log(`[Attractions Map] Plotted ${geojson.features.length} pins on map.`);
 
@@ -1413,6 +1353,12 @@ async function loadAttractionsData(map, bboxStr, regionName, spinnerOverlay) {
   }
 }
 
+function escapeHtml(str) {
+  return String(str == null ? '' : str)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
 function setupMapPopups(map) {
   const popup = new maplibregl.Popup({
     closeButton: true,
@@ -1436,20 +1382,20 @@ function setupMapPopups(map) {
     const props = feature.properties;
 
     let popupHtml = `<div class="bb-map-popup" style="font-family:sans-serif; padding:4px;">
-      <h3 style="margin:0 0 2px; font-size:15px; font-weight:bold; color:#111;">${props.name}</h3>
-      <p style="margin:0 0 8px; font-size:11px; font-weight:700; color:#e67e22; text-transform:uppercase; letter-spacing:0.5px;">${props.subtitle}</p>`;
+      <h3 style="margin:0 0 2px; font-size:15px; font-weight:bold; color:#111;">${escapeHtml(props.name)}</h3>
+      <p style="margin:0 0 8px; font-size:11px; font-weight:700; color:#e67e22; text-transform:uppercase; letter-spacing:0.5px;">${escapeHtml(props.subtitle)}</p>`;
 
     if (props.description) {
-      popupHtml += `<p style="margin:4px 0 8px; font-size:13px; color:#444; line-height:1.4;">${props.description}</p>`;
+      popupHtml += `<p style="margin:4px 0 8px; font-size:13px; color:#444; line-height:1.4;">${escapeHtml(props.description)}</p>`;
     }
 
     if (props.website) {
       popupHtml += `<p style="margin:6px 0 2px; font-size:13px;"><a href="${props.website}" target="_blank" rel="noopener" style="color:#0066cc; text-decoration:underline; font-weight:600;">Official Website &rarr;</a></p>`;
     }
 
-    if (props.wikipedia) {
-      let wikiTitle = props.wikipedia.includes(':') ? props.wikipedia.split(':')[1] : props.wikipedia;
-      let wikiUrl = `https://en.wikipedia.org/wiki/${encodeURIComponent(wikiTitle)}`;
+    if (props.wikiUrl || props.wikipedia) {
+      let wikiTitle = props.wikipedia ? (props.wikipedia.includes(':') ? props.wikipedia.split(':')[1] : props.wikipedia) : '';
+      let wikiUrl = props.wikiUrl || `https://en.wikipedia.org/wiki/${encodeURIComponent(wikiTitle)}`;
       popupHtml += `<p style="margin:4px 0 2px; font-size:13px;"><a href="${wikiUrl}" target="_blank" rel="noopener" style="color:#0066cc; text-decoration:underline; font-weight:600;">Wikipedia Article &rarr;</a></p>`;
     } else if (props.wikidata) {
       let wikidataUrl = `https://www.wikidata.org/wiki/${encodeURIComponent(props.wikidata)}`;
