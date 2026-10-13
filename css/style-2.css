@@ -2040,18 +2040,18 @@ details:not([open]) {
 
 
 /* ------------------------------------------------------------
-   COLLAPSIBLE IMAGE ATTRIBUTION  (ⓘ button, bottom right)
-   Replaces the always-visible .parallax-attribution badge.
+   COLLAPSIBLE IMAGE ATTRIBUTION  (i button, bottom right)
+   A plain <button> plus a panel that fades in. Deliberately NOT
+   a <details> element: the global details/summary rules
+   (section 12b "Read More") would restyle it and shift layout.
    Markup:
    <div class="attribution-toggle">
-       <details>
-           <summary aria-label="Image attribution"><span aria-hidden="true">i</span></summary>
-           <div class="attribution-toggle__panel">By … CC BY 2.0 …</div>
-       </details>
+       <button type="button" class="attribution-toggle__btn"
+               aria-label="Image attribution" aria-expanded="false"
+               aria-controls="attr-1">i</button>
+       <div class="attribution-toggle__panel" id="attr-1">By … CC BY 2.0 …</div>
    </div>
-   Uses native <details>, so it works with no JavaScript;
-   the small script at the foot of the page just adds
-   close-on-outside-click and Escape.
+   The inline script at the foot of the page toggles .is-open.
    ------------------------------------------------------------ */
 
 .attribution-toggle {
@@ -2061,29 +2061,26 @@ details:not([open]) {
     z-index: 1;
 }
 
-.attribution-toggle summary {
+.attribution-toggle__btn {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 28px;
     height: 28px;
+    margin: 0;
+    padding: 0;
     border: 1.5px solid rgba(255, 255, 255, 0.9);
     border-radius: 50%;
     background: rgba(0, 0, 0, 0.55);
     color: rgba(255, 255, 255, 0.9);
-    font: italic bold 0.95rem/1 Georgia, "Times New Roman", serif;
-    list-style: none;
+    font: bold 15px/1 Arial, Helvetica, sans-serif;
     cursor: pointer;
-    user-select: none;
     -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
-.attribution-toggle summary::-webkit-details-marker {
-    display: none;
-}
-
-.attribution-toggle summary:hover,
-.attribution-toggle details[open] summary {
+.attribution-toggle__btn:hover,
+.attribution-toggle.is-open .attribution-toggle__btn {
     background: rgba(0, 0, 0, 0.8);
     color: var(--color-white);
     border-color: var(--color-white);
@@ -2103,6 +2100,18 @@ details:not([open]) {
     padding: 6px 10px;
     border-radius: 4px;
     overflow-wrap: anywhere;
+
+    /* Hidden by default; fades in. visibility keeps the links out of
+       the tab order and away from clicks while the panel is closed. */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0s linear 0.25s;
+}
+
+.attribution-toggle.is-open .attribution-toggle__panel {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.25s ease, visibility 0s;
 }
 
 .attribution-toggle__panel a {
@@ -2117,6 +2126,13 @@ details:not([open]) {
 @media (max-width: 1100px) {
     .attribution-toggle__panel {
         font-size: 11px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .attribution-toggle__panel,
+    .attribution-toggle.is-open .attribution-toggle__panel {
+        transition: none;
     }
 }
 
