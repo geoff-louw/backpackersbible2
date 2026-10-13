@@ -1381,35 +1381,7 @@ src="https://c.statcounter.com/13225228/0/687dc53c/1/"
 alt="Web Analytics"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 
-<script>
-/* Attribution (i) buttons: click to fade in/out; close on outside click or Escape */
-(function () {
-    var boxes = document.querySelectorAll('.attribution-toggle');
-    if (!boxes.length) return;
-    function close(box) {
-        box.classList.remove('is-open');
-        box.querySelector('.attribution-toggle__btn').setAttribute('aria-expanded', 'false');
-    }
-    boxes.forEach(function (box) {
-        var btn = box.querySelector('.attribution-toggle__btn');
-        btn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            var willOpen = !box.classList.contains('is-open');
-            boxes.forEach(close);
-            if (willOpen) {
-                box.classList.add('is-open');
-                btn.setAttribute('aria-expanded', 'true');
-            }
-        });
-    });
-    document.addEventListener('click', function (e) {
-        boxes.forEach(function (box) { if (!box.contains(e.target)) close(box); });
-    });
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') boxes.forEach(close);
-    });
-})();
-</script>
+<script src="/js/attribution-toggle.js?v=1" defer></script>
 
 </body>
 </html>
