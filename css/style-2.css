@@ -1695,7 +1695,7 @@ main {
 
 /* h2 — used for major section headings */
 .section-heading-desktop {
-    font-size: 2.75rem;        /* ~44px */
+    font-size: var(--text-3xl);        /* 3rem / ~48px */
     font-weight: normal;
     line-height: 1.2;
     color: var(--color-black);
