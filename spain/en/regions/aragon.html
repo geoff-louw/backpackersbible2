@@ -685,8 +685,13 @@
      style="--bg-desktop: url('/spain/assets/images/backpacking_aragon_river_basilica.webp');
             --bg-mobile: url('/spain/assets/images/backpacking_aragon_river_basilica_mobile.webp');">
 
-    <div class="parallax-attribution" style="z-index: 1; position: absolute;">
-       By <a rel="nofollow" class="external text" href="https://www.flickr.com/photos/99181891@N00">Paulo Brandao</a> - originally posted to <a href="//commons.wikimedia.org/wiki/Flickr" class="mw-redirect" title="Flickr">Flickr</a> as <a rel="nofollow" class="external text" href="https://www.flickr.com/photos/99181891@N00/2740345393">Basilica del Pilar, sunset</a>, <a href="https://creativecommons.org/licenses/by/2.0" title="Creative Commons Attribution 2.0">CC BY 2.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=4866442">Link</a>
+    <div class="attribution-toggle">
+        <details>
+            <summary aria-label="Image attribution" title="Image attribution"><span aria-hidden="true">i</span></summary>
+            <div class="attribution-toggle__panel">
+                By <a rel="nofollow" class="external text" href="https://www.flickr.com/photos/99181891@N00">Paulo Brandao</a> - originally posted to <a href="//commons.wikimedia.org/wiki/Flickr" class="mw-redirect" title="Flickr">Flickr</a> as <a rel="nofollow" class="external text" href="https://www.flickr.com/photos/99181891@N00/2740345393">Basilica del Pilar, sunset</a>, <a href="https://creativecommons.org/licenses/by/2.0" title="Creative Commons Attribution 2.0">CC BY 2.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=4866442">Link</a>
+            </div>
+        </details>
     </div>
 
 </div>
@@ -922,8 +927,13 @@
      style="--bg-desktop: url('/spain/assets/images/backpacking_aragon_castle.webp');
             --bg-mobile: url('/spain/assets/images/backpacking_aragon_castle_mobile.webp');">
 
-    <div class="parallax-attribution" style="z-index: 1; position: absolute;">
-       By <a rel="nofollow" class="external text" href="https://www.flickr.com/photos/99005287@N00">Joachim Quandt</a> - originally posted to <a href="//commons.wikimedia.org/wiki/Flickr" class="mw-redirect" title="Flickr">Flickr</a> as <a rel="nofollow" class="external text" href="https://www.flickr.com/photos/99005287@N00/266413479">PA010057</a>, <a href="https://creativecommons.org/licenses/by-sa/2.0" title="Creative Commons Attribution-Share Alike 2.0">CC BY-SA 2.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=5874335">Link</a>
+    <div class="attribution-toggle">
+        <details>
+            <summary aria-label="Image attribution" title="Image attribution"><span aria-hidden="true">i</span></summary>
+            <div class="attribution-toggle__panel">
+                By <a rel="nofollow" class="external text" href="https://www.flickr.com/photos/99005287@N00">Joachim Quandt</a> - originally posted to <a href="//commons.wikimedia.org/wiki/Flickr" class="mw-redirect" title="Flickr">Flickr</a> as <a rel="nofollow" class="external text" href="https://www.flickr.com/photos/99005287@N00/266413479">PA010057</a>, <a href="https://creativecommons.org/licenses/by-sa/2.0" title="Creative Commons Attribution-Share Alike 2.0">CC BY-SA 2.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=5874335">Link</a>
+            </div>
+        </details>
     </div>
 
 </div>
@@ -1374,6 +1384,20 @@ class="statcounter"
 src="https://c.statcounter.com/13225228/0/687dc53c/1/"
 alt="Web Analytics"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+
+<script>
+/* Attribution (i) buttons: close on outside click or Escape */
+(function () {
+    var boxes = document.querySelectorAll('.attribution-toggle details');
+    if (!boxes.length) return;
+    document.addEventListener('click', function (e) {
+        boxes.forEach(function (d) { if (d.open && !d.contains(e.target)) d.open = false; });
+    });
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') boxes.forEach(function (d) { d.open = false; });
+    });
+})();
+</script>
 
 </body>
 </html>
