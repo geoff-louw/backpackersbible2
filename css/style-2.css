@@ -2040,6 +2040,88 @@ details:not([open]) {
 
 
 /* ------------------------------------------------------------
+   COLLAPSIBLE IMAGE ATTRIBUTION  (ⓘ button, bottom right)
+   Replaces the always-visible .parallax-attribution badge.
+   Markup:
+   <div class="attribution-toggle">
+       <details>
+           <summary aria-label="Image attribution"><span aria-hidden="true">i</span></summary>
+           <div class="attribution-toggle__panel">By … CC BY 2.0 …</div>
+       </details>
+   </div>
+   Uses native <details>, so it works with no JavaScript;
+   the small script at the foot of the page just adds
+   close-on-outside-click and Escape.
+   ------------------------------------------------------------ */
+
+.attribution-toggle {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    z-index: 1;
+}
+
+.attribution-toggle summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border: 1.5px solid rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.55);
+    color: rgba(255, 255, 255, 0.9);
+    font: italic bold 0.95rem/1 Georgia, "Times New Roman", serif;
+    list-style: none;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.attribution-toggle summary::-webkit-details-marker {
+    display: none;
+}
+
+.attribution-toggle summary:hover,
+.attribution-toggle details[open] summary {
+    background: rgba(0, 0, 0, 0.8);
+    color: var(--color-white);
+    border-color: var(--color-white);
+}
+
+.attribution-toggle__panel {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    right: 0;
+    width: max-content;
+    max-width: min(380px, calc(100vw - 40px));
+    background: rgba(0, 0, 0, 0.75);
+    color: rgba(255, 255, 255, 0.9);
+    font-family: Arial, sans-serif;
+    font-size: var(--text-xs);
+    line-height: 1.4;
+    padding: 6px 10px;
+    border-radius: 4px;
+    overflow-wrap: anywhere;
+}
+
+.attribution-toggle__panel a {
+    color: var(--color-yellow);
+    text-decoration: underline;
+}
+
+.attribution-toggle__panel a:hover {
+    color: var(--color-white);
+}
+
+@media (max-width: 1100px) {
+    .attribution-toggle__panel {
+        font-size: 11px;
+    }
+}
+
+
+/* ------------------------------------------------------------
    PARALLAX — MOBILE
    background-attachment: fixed causes severe zoom bugs on iOS.
    On mobile we switch to scroll and use background-size: cover
