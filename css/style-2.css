@@ -2069,11 +2069,12 @@ details:not([open]) {
     height: 28px;
     margin: 0;
     padding: 0;
-    border: 1.5px solid rgba(255, 255, 255, 0.9);
+    border: 3px solid rgba(255, 255, 255, 0.9);
     border-radius: 50%;
     background: rgba(0, 0, 0, 0.55);
     color: rgba(255, 255, 255, 0.9);
-    font: bold 15px/1 Arial, Helvetica, sans-serif;
+    font: 900 17px/1 Arial, Helvetica, sans-serif;
+    -webkit-text-stroke: 0.6px currentColor; /* thickens the "i" consistently across devices */
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
     transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
