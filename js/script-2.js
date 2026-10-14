@@ -1043,10 +1043,30 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.addEventListener('DOMContentLoaded', () => {
   initAttractionsMap();
+  initGygLinks();
 });
 
 const MAPLIBRE_JS  = 'https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js';
 const MAPLIBRE_CSS = 'https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css';
+
+/* GetYourGuide affiliate tracking.
+   Paste your GetYourGuide partner ID between the quotes once you have it.
+   While it is empty the button still works, but bookings are not tracked
+   to you. Applies to every link carrying the data-gyg-link attribute. */
+const GYG_PARTNER_ID = '';
+
+function initGygLinks() {
+  if (!GYG_PARTNER_ID) return;
+  document.querySelectorAll('a[data-gyg-link]').forEach(a => {
+    try {
+      const url = new URL(a.href);
+      url.searchParams.set('partner_id', GYG_PARTNER_ID);
+      url.searchParams.set('utm_medium', 'online_publisher');
+      url.searchParams.set('cmp', 'bb-map'); // shows in your reports that the booking came from the map button
+      a.href = url.toString();
+    } catch (e) { /* leave the plain link alone */ }
+  });
+}
 
 /* Where the pre-built pin files live. A region's file is named after its
    page URL (e.g. /spain/en/regions/andalusia -> andalusia.json).
