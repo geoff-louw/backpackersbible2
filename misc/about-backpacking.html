@@ -60,11 +60,11 @@
 <a class="skip-link" href="#site-nav">Skip to navigation</a>
 <a class="skip-link" href="#site-search">Skip to search</a>
 
+<!-- Header start -->
+
 <header id="site-header" aria-label="Site header">
 
-
     <div class="site-header__bar">
-
 
         <div class="site-header__branding">
 
@@ -76,15 +76,19 @@
                      height="80">
             </a>
 
-
             <div class="site-header__brand-text">
-
 
                 <div class="site-header__brand-row">
 
                     <span class="site-header__brand-name">BackpackersBible.com</span>
 
-                    <span class="site-header__location-badge">About Backpacking</span>
+                    <!-- BREADCRUMB -->
+                    <nav class="site-header__breadcrumb" aria-label="Breadcrumb">
+                        <ol>
+                            <li><a href="/">Home</a></li>
+                            <li aria-current="page">About Backpacking</li>
+                        </ol>
+                    </nav>
 
                 </div>
 
@@ -106,11 +110,8 @@
                 <span class="site-header__nav-toggle-bar" aria-hidden="true"></span>
             </button>
 
-
             <div class="site-header__search" id="site-search" role="search">
-
                 <div class="site-header__search-bar">
-
                     <input  class="site-header__search-input"
                             id="site-search-input"
                             type="search"
@@ -120,233 +121,19 @@
                             aria-autocomplete="list"
                             aria-controls="site-search-results"
                             aria-expanded="false">
-
                     <span class="site-header__search-icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true">
                             <circle cx="11" cy="11" r="7"/>
                             <line x1="16.5" y1="16.5" x2="22" y2="22"/>
                         </svg>
                     </span>
-
                 </div>
-
                 <div class="site-header__search-results"
                      id="site-search-results"
                      role="listbox"
                      aria-live="polite"
                      aria-label="Search results"></div>
-
             </div>
-
-            <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
-
-                <div class="site-nav__item">
-
-                    <button class="site-nav__mega-trigger site-nav__mega-trigger--downloads"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                            aria-controls="mega-downloads">
-                        ★ <strong>Free Offline Guides</strong>
-                    </button>
-
-                    <div class="site-nav__mega-menu site-nav__mega-menu--downloads" id="mega-downloads" role="menu" aria-label="Free offline guides">
-
-                        <div class="site-nav__mega-col">
-                            <h3 class="site-nav__mega-heading">PDF Hostel Guide</h3>
-                            <p class="site-nav__mega-desc">A compact interactive PDF with a clickable map and the contact details of every backpacking hostel in South Africa. No wifi needed — just save it to your phone and go.</p>
-                            <a href="/pdf/Backpackers_Bible_Lite-South_Africa.pdf"
-                               class="site-nav__mega-btn"
-                               target="_blank">
-                                Download PDF <span class="sr-only">(opens in a new tab)</span>
-                            </a>
-                            <p class="site-nav__mega-spec">(Interactive PDF — 800kb)</p>
-                        </div>
-
-                        <div class="site-nav__mega-col">
-                            <h3 class="site-nav__mega-heading">Full Backpackers Bible App</h3>
-                            <p class="site-nav__mega-desc">The complete guide — maps, regions, advice, tours, and hostel reviews — installed as an app icon on your home screen. Works fully offline, even in the Kalahari.</p>
-                            <a href="/#download-pwa" class="site-nav__mega-btn">
-                                Get the App →
-                            </a>
-                            <p class="site-nav__mega-spec">(Progressive Web App — free)</p>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <a href="/" class="site-nav__link">Home</a>
-
-                <div class="site-nav__item">
-
-                    <button class="site-nav__mega-trigger"
-                            aria-haspopup="menu"
-                            aria-expanded="false"
-                            aria-controls="mega-regions">
-                        Backpacking South Africa
-                    </button>
-
-                    <div class="site-nav__mega-menu" id="mega-regions" role="menu" aria-label="Backpacking South Africa regions">
-
-                        <div class="site-nav__mega-col">
-                            <h3 class="site-nav__mega-heading">All Regions</h3>
-                            <a href="/backpacking-south-africa/" role="menuitem">Regions Map / Full Hostel Directory</a>
-                            <h3 class="site-nav__mega-heading">Popular</h3>
-                            <a href="/backpacking-south-africa/cape-town" role="menuitem">Cape Town</a>
-                            <a href="/backpacking-south-africa/winelands" role="menuitem">Winelands</a>
-                            <a href="/backpacking-south-africa/route-62" role="menuitem">Route 62</a>
-                            <a href="/backpacking-south-africa/garden-route" role="menuitem">Garden Route</a>
-                            <a href="/backpacking-south-africa/sunshine-coast" role="menuitem">Sunshine Coast</a>
-                            <a href="/backpacking-south-africa/wild-coast" role="menuitem">Wild Coast</a>
-                            <a href="/backpacking-south-africa/drakensberg" role="menuitem">Drakensberg</a>
-                            <a href="/backpacking-south-africa/zululand" role="menuitem">Zululand</a>
-                            <a href="/backpacking-south-africa/kruger" role="menuitem">Kruger National Park</a>
-                        </div>
-
-                        <div class="site-nav__mega-col">
-                            <h3 class="site-nav__mega-heading">The Interior</h3>
-                            <a href="/backpacking-south-africa/cederberg" role="menuitem">Cederberg</a>
-                            <a href="/backpacking-south-africa/karoo" role="menuitem">The Karoo</a>
-                            <a href="/backpacking-south-africa/eastern-cape-interior" role="menuitem">Eastern Cape Interior</a>
-                            <a href="/backpacking-south-africa/midlands" role="menuitem">KZN Midlands</a>
-                            <a href="/backpacking-south-africa/free-state" role="menuitem">Free State</a>
-                            <a href="/backpacking-south-africa/johannesburg" role="menuitem">Johannesburg</a>
-                            <a href="/backpacking-south-africa/pretoria" role="menuitem">Pretoria</a>
-                            <a href="/backpacking-south-africa/mpumalanga" role="menuitem">Mpumalanga</a>
-                            <a href="/backpacking-south-africa/limpopo" role="menuitem">Limpopo</a>
-                            <a href="/backpacking-south-africa/north-west" role="menuitem">North West</a>
-                            <a href="/backpacking-south-africa/northern-cape" role="menuitem">Northern Cape</a>
-                        </div>
-
-                        <div class="site-nav__mega-col">
-                            <h3 class="site-nav__mega-heading">The Coast</h3>
-                            <a href="/backpacking-south-africa/west-coast" role="menuitem">West Coast</a>
-                            <a href="/backpacking-south-africa/overberg" role="menuitem">Overberg</a>
-                            <a href="/backpacking-south-africa/durban" role="menuitem">Durban</a>
-                            <a href="/backpacking-south-africa/south-coast" role="menuitem">South Coast</a>
-                            <a href="/backpacking-south-africa/north-coast" role="menuitem">North Coast</a>
-                            <h3 class="site-nav__mega-heading">Neighbouring Countries</h3>
-                            <a href="/backpacking-south-africa/eswatini" role="menuitem">Eswatini</a>
-                            <a href="/backpacking-south-africa/lesotho" role="menuitem">Lesotho</a>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- Mega menu item: Advice -->
-
-                <div class="site-nav__item">
-
-                    <button class="site-nav__mega-trigger"
-                            aria-haspopup="menu"
-                            aria-expanded="false"
-                            aria-controls="mega-advice">
-                        Advice
-                    </button>
-
-                    <div class="site-nav__mega-menu" id="mega-advice" role="menu" aria-label="Advice sections">
-
-                        <div class="site-nav__mega-col">
-                            <h3 class="site-nav__mega-heading">Preparation</h3>
-                            <a href="/backpacking-south-africa-advice/#checklists" role="menuitem">Preflight Checklist</a>
-                            <a href="/backpacking-south-africa-advice/#safety" role="menuitem">Safety</a>
-                            <a href="/backpacking-south-africa-advice/#money" role="menuitem">Money &amp; Budgeting</a>
-                            <a href="/backpacking-south-africa-advice/#medical" role="menuitem">Medical</a>
-                            <a href="/backpacking-south-africa-advice/#embassies" role="menuitem">Embassies</a>
-                            <a href="/backpacking-south-africa-advice/#cannabis" role="menuitem">Cannabis &amp; The Law</a>
-                            <a href="/backpacking-south-africa-advice/#apps" role="menuitem">Useful Apps</a>
-                        </div>
-
-                        <div class="site-nav__mega-col">
-                            <h3 class="site-nav__mega-heading">In-Country</h3>
-                            <a href="/backpacking-south-africa-advice/in-country#emergencies" role="menuitem">Emergencies</a>
-                            <a href="/backpacking-south-africa-advice/in-country#transport" role="menuitem">Transport</a>
-                            <a href="/backpacking-south-africa-advice/in-country#food-and-drink" role="menuitem">Food &amp; Drink</a>
-                            <a href="/backpacking-south-africa-advice/in-country#language" role="menuitem">Language</a>
-                            <a href="/backpacking-south-africa-advice/in-country#etiquette" role="menuitem">African Etiquette</a>
-                            <a href="/backpacking-south-africa-advice/in-country#games" role="menuitem">Fun &amp; Games</a>
-                            <a href="/backpacking-south-africa-advice/in-country#onward-travel" role="menuitem">Onward Travel</a>
-                        </div>
-
-                        <div class="site-nav__mega-col">
-                            <h3 class="site-nav__mega-heading">Specific Interests</h3>
-                            <a href="/backpacking-south-africa-advice/specifics#festivals" role="menuitem">Clubs &amp; Festivals</a>
-                            <a href="/backpacking-south-africa-advice/specifics#digital-nomads" role="menuitem">Digital Nomads</a>
-                            <a href="/backpacking-south-africa-advice/specifics#surfing" role="menuitem">Surfing</a>
-                            <a href="/backpacking-south-africa-advice/specifics#overlanding" role="menuitem">Overlanding</a>
-                            <a href="/backpacking-south-africa-advice/specifics#cycling" role="menuitem">Cycle Touring</a>
-                            <a href="/backpacking-south-africa-advice/specifics#volunteering" role="menuitem">Volunteering</a>
-                            <a href="/backpacking-south-africa-advice/specifics#language-schools" role="menuitem">Language Schools</a>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- Mega menu item: Tours -->
-
-                <div class="site-nav__item">
-
-                    <button class="site-nav__mega-trigger"
-                            aria-haspopup="menu"
-                            aria-expanded="false"
-                            aria-controls="mega-tours">
-                        Tours
-                    </button>
-
-                    <div class="site-nav__mega-menu" id="mega-tours" role="menu" aria-label="Tours and itineraries">
-
-                        <div class="site-nav__mega-col">
-                            <h3 class="site-nav__mega-heading">Self-Drive — Short Stay</h3>
-                            <a href="/backpacking-south-africa-tours/#cape-loop" role="menuitem">One Week: The Cape Loop</a>
-                            <a href="/backpacking-south-africa-tours/#whistle-stop" role="menuitem">Two Weeks: The Whistle-Stop Tour</a>
-                            <a href="/backpacking-south-africa-tours/#northeast-triangle" role="menuitem">Two Weeks: The Northeast Triangle</a>
-                            <a href="/backpacking-south-africa-tours/#grand-cape-loop" role="menuitem">Two Weeks: The Grand Cape Loop</a>
-                            <a href="/backpacking-south-africa-tours/#wild-north" role="menuitem">Two Weeks: The Wild North</a>
-                            <a href="/backpacking-south-africa-tours/#road-less-travelled" role="menuitem">Two Weeks: The Road Less Travelled</a>
-                        </div>
-
-                        <div class="site-nav__mega-col">
-                            <h3 class="site-nav__mega-heading">Self-Drive — Medium Stay</h3>
-                            <a href="/backpacking-south-africa-tours/#backpackers-bible" role="menuitem">Three Weeks: The Backpacker's Bible</a>
-                            <a href="/backpacking-south-africa-tours/#coast-and-karoo" role="menuitem">Three Weeks: Coast &amp; Karoo</a>
-                            <a href="/backpacking-south-africa-tours/#off-the-beaten-track" role="menuitem">Three Weeks: Off The Beaten Track</a>
-                            <h3 class="site-nav__mega-heading">Self-Drive — Long Stay</h3>
-                            <a href="/backpacking-south-africa-tours/#rainbow-nation" role="menuitem">One Month: The Rainbow Nation</a>
-                            <a href="/backpacking-south-africa-tours/#full-monty" role="menuitem">Three Months: The Full Monty</a>
-                        </div>
-
-                        <div class="site-nav__mega-col">
-                            <h3 class="site-nav__mega-heading">Tours &amp; Day Trips</h3>
-                            <a href="/backpacking-south-africa/cape-town#tours" role="menuitem">Cape Town</a>
-                            <a href="/backpacking-south-africa/winelands#tours" role="menuitem">Winelands</a>
-                            <a href="/backpacking-south-africa/west-coast#tours" role="menuitem">West Coast</a>
-                            <a href="/backpacking-south-africa/garden-route#tours" role="menuitem">Garden Route</a>
-                            <a href="/backpacking-south-africa/karoo#tours" role="menuitem">Karoo</a>
-                            <a href="/backpacking-south-africa/route-62#tours" role="menuitem">Route 62</a>
-                            <a href="/backpacking-south-africa/overberg#tours" role="menuitem">The Overberg</a>
-                            <a href="/backpacking-south-africa/sunshine-coast#tours" role="menuitem">Sunshine Coast</a>
-                            <a href="/backpacking-south-africa/durban#tours" role="menuitem">Durban</a>
-                            <a href="/backpacking-south-africa/drakensberg#tours" role="menuitem">Drakensberg</a>
-                            <a href="/backpacking-south-africa/zululand#tours" role="menuitem">Zululand</a>
-                            <a href="/backpacking-south-africa/kruger#tours" role="menuitem">Kruger</a>
-                            <a href="/backpacking-south-africa/johannesburg#tours" role="menuitem">Johannesburg</a>
-                            <a href="/backpacking-south-africa/eswatini#tours" role="menuitem">Eswatini</a>
-                            <a href="/backpacking-south-africa/lesotho#tours" role="menuitem">Lesotho</a>
-                        </div>
-
-                    </div>
-
-                </div>
-
-    <a href="/misc/about-backpacking" class="site-nav__link">About Backpacking</a>
-
-    <a href="/misc/backpacking-resources" class="site-nav__link">Resources</a>
-
-            </nav>
 
         </div>
 
@@ -356,7 +143,6 @@
     <div class="site-header__strip site-header__strip--yellow" aria-hidden="true"></div>
     <div class="site-header__strip site-header__strip--blue"   aria-hidden="true"></div>
     <div class="site-header__strip site-header__strip--green"  aria-hidden="true"></div>
-
 
 </header>
 
@@ -377,9 +163,9 @@
 
     <div id="map-fallback" style="display:none;">
         <picture>
-            <source media="(max-width: 767px)" srcset="/assets/fallback_map_world_mobile.jpg">
+            <source media="(max-width: 767px)" srcset="/assets/backpacking_world_map_mobile.webp">
             
-            <img src="/assets/fallback_map_world.jpg" alt="Map unavailable offline" style="width: 100%; height: auto; display: block; margin: 0;">
+            <img src="/assets/backpacking_world_map.webp" alt="Map showing all the backpacker hostels in the world" style="width: 100%; height: auto; display: block; margin: 0;">
         </picture>
     </div>
 
@@ -579,59 +365,6 @@ Its importance extends beyond tourism. Backpacking shapes economies, fosters cul
 In an increasingly interconnected world, backpacking remains a powerful expression of individual agency within global systems. It is not merely a way of travelling; it is a way of engaging with the world—one that continues to evolve, adapt, and inspire.
 </p>
 
-
-<h3 class="area-hero-title expanded-text__first-heading">Backpacking in South Africa - Past, Present and Future</h3>
-
-<p class="intro-p">Backpacking as we know it was born in the 1960s, with its roots in the flower-power counter-culture. A whole generation of rebels picked up a backpack, headed off to see the world, and did things their parents had never done. Cheap international flights were new. The hippy trail to Asia was opening up. Young people from Europe and the US poured into Turkey, Iran, Afghanistan, India, and Nepal. It was idealistic, bold, and completely new.</p>
-
-<p class="intro-p">South Africa played no part in any of this. The country was a police state under apartheid. The early backpackers believed in peace and love. That left no room for a government that repressed people on the basis of their race or poltical opinions. South Africa was not just unattractive as a place to visit. It was a place to avoid. An entire generation of Western travellers passed it by without a second thought.</p>
-
-<p class="intro-p">That all changed on 11 February 1990. Nelson Mandela walked out of prison after 27 years. The world watched. Within four years, South Africa had held its first free election. The apartheid era was over.</p>
-
-<p class="intro-p">By this time, backpacking had become a fully grown cultural force. In the UK, the Netherlands, Germany, Scandinavia, Australia, and the US, the "gap year" idea had taken hold. School and university leavers were taking time to travel the world before starting their careers. It was no longer just the hippies - millions of young people were now doing it every year. South-East Asia, India, Central America, and Australia were the go-to spots. South Africa had never been on the list. Then, almost overnight, it was.</p>
-
-<p class="intro-p">The timing was extraordinary. A whole new country opened its doors at the exact moment a new generation of young travellers was ready to walk through them. The result — to the bemusement of South Africa's own people — was a flood of backpackers. They arrived wide-eyed. The country they found had jaw-dropping wildlife. It had a stunning coastline and a warm culture. And the prices were so low their budgets felt almost embarrassing. Word spread fast. More people came.</p>
-
-<h4 class="section-heading-desktop">The Pioneers</h4>
-
-<p class="intro-p">A whole new industry appeared from almost nothing. Hundreds of backpackers hostels — known simply as "backpackers" in South Africa — sprang up all over the country. Some were in cities. Some were in beach towns. Some were in places so remote that getting there was half the fun.</p>
-
-<p class="intro-p">One of the very first was Ashanti Lodge in Cape Town. In 1992, Lisa Krohn and her partner Craig Johnstone converted some rooms above his parents' garage into three simple dorms. They had just come back from their own travels and knew what a good hostel could be. The timing was spot on. Within three years they had moved into a grand Victorian house on Hof Street in Gardens. Ashanti went on to become one of the most loved hostels in the country.</p>
-
-<p class="intro-p">Many of those early hostels were started by people who saw an opportunity. Lebo Malepa grew up in Orlando West, Soweto, next door to Nelson Mandela's old house. He started by selling crafts to the tour groups who came to see the Hector Pieterson Memorial. He got talking to travellers. He liked them. In 2003, he turned his family home into a backpackers hostel. Lebo's Soweto Backpackers became famous for its bicycle tours of the township. It was known for its storytelling nights too. And for its deep roots in the local community. Lebo won many awards and was rightly seen as one of South Africa's great tourism pioneers. He passed away on Christmas Day 2021. The hostel still runs today, led by his family and the team he built.</p>
-
-<p class="intro-p">A group of famous hostels grew up along the Wild Coast in the 1990s. The Price family was instrumental in this, taking over a fading resort that had been built for SA's domestic tourism market in the 1980's and turning it into Buccanneers Backpackers. Many of the ideas that shaped the Wild Coast's backpacking scene - free drinks on arrival, every 5th night free, dress-up parties - originated there. Sugar Shack in East London was started by Dave Malherbe, a former pro surfer who had competed on the world circuit. He and his brother Andre converted the old lifeguard's building on the beach into a hostel. It became a classic stop on the backpacking trail. Dave later took over the running of Coffee Shack in Coffee Bay, another Wild Coast legend, after its founder passed away.</p>
-
-<p class="intro-p">Tim and Annie Oakley — two travellers who had been teaching English in Taiwan — saved enough money to come home to South Africa and invest. They started Amapondo Backpackers in Port St Johns. It went on to become one of the most celebrated hostels on the Wild Coast. Another is Dillon Harvey, who travelled the world as a cook before starting The Kraal at Mpande on the Wild Coast. He's still there, one of the few of the Old Guard still standing.</p>
-
-<p class="intro-p">Not all the great stories are set in South Africa itself. Helen Large — now Jarman — is a British woman who started Pink Papaya Backpackers in Chimoio, a remote town in Mozambique. She did this in the early days of that country's own tourism boom. She later got married, moved south, and now owns Witsand Poshpackers in the Western Cape. The same free spirit that drove the early pioneers is still alive and well in her story.</p>
-
-<p class="intro-p">As the industry grew, new voices emerged. Bheki Dube is one of the most inspiring. He grew up in Johannesburg and started leading walking tours of the city centre at the age of 16. At 21, he opened his first hostel — Curiocity, in the vibrant Maboneng Precinct. He has since built the Curiocity brand into a group of four design-led hostels in Cape Town and Johannesburg. His approach — bold design, local roots, guided city tours — has helped reshape what backpackers hostels in South Africa can be.</p>
-
-<p class="intro-p">Professional groups have also entered the scene. Villa Viva in Cape Town was once known as The Backpack — one of the great originals. It is now part of a broader social enterprise network. Zzzone in Hermanus is a newer kind of hostel: design-focused and sleep-first. It targets the active traveller who wants a solid night's rest as much as a great time.</p>
-
-<p class="intro-p">And then there are the eccentrics who make backpacking so interesting. One of them is Louis Fourie: obsessed with permaculture, being off-grid and living a life free of society's constraints. He found his niche in  deeply traditional Africa, at Magwa Falls. It's one of the country's most draw-dropping natural features which, due to its remoteness, hardly any have even heard of. Thanks to Louis, it's now accessible to tourists - a real hidden gem waiting to be discovered.</p>
-
-<h4 class="section-heading-desktop">The Two Pillars of the Industry</h4>
-
-<p class="intro-p">For decades, two things held the whole backpacking South Africa scene together. One was the Baz Bus. The other was a small but mighty booklet called <em>Coast to Coast</em>.</p>
-
-<p class="intro-p">The Baz Bus was the creation of Barry "Baz" Zeidel — a chartered accountant and keen traveller. He had seen similar backpacker bus services while travelling in Europe and Australia. He launched the Baz Bus in November 1995 with two small buses and one route between Cape Town and Johannesburg. It was a hop-on, hop-off service, which picked up and dropped off directly at hostel doors. No bus terminals. No taxi rides. No getting lost. The idea was simple. The result was brilliant. The Baz Bus grew into a fleet of 26 buses that ran the length and breadth of the country. At its peak it carried over 15,000 backpackers a year. It was not cheap — but the price reflected quality. Baz was a popular employer who retained his staff for years and paid them well. Every driver knew every hostel, every stop, and every pothole on the route. You were in safe hands.</p>
-
-<p class="intro-p"><em>Coast to Coast</em> was a different kind of clever. It was conceived, designed, illustrated, written and distributed by a Capetonian graphic designer, Geoff Heald. This was a pocket-sized booklet — almost certainly the only travel guide in the world printed in black and white on cheap newsprint. It made up for this with a bright cover, cartoons, corny jokes in the page margins, an ingenious indexing system on the back cover, and a tone that matched the spirit of the industry perfectly. The content was all paid-for listings which, necessarily, said only good things about the advertisers  — this being before the era of online reviews. Nevertheless, piles of <em>Coast to Coast</em> sat in almost every hostel in the country, free for anyone to pick up and head into the unknown. At its height it was over 350 pages long, with more than 45,000 copies being printed each year. Tourists kept them as souvenirs. Others tried to copy it, but none could. The low production costs — cheap paper, single-colour printing — and its excellent distribution made it unassailable. It ran for decades.</p>
-
-<h4 class="section-heading-desktop">Where Things Stand Today</h4>
-
-<p class="intro-p">The early wave of excitement faded slowly over the years. There was a brief boost around the 2010 FIFA World Cup in South Africa. Then Covid arrived and hit the industry hard. Hostels closed. Staff were let go. The Baz Bus shut down. <em>Coast to Coast</em> ceased publication. For many people who had built their lives around this world, it was a body blow.</p>
-
-<p class="intro-p">As of early 2026, tourist numbers remain minimal, despite the  South African government's claims to the contrary. According to them, record numbers of holidaymakers from abroad are visiting the country. The Backpackers Bible is sceptical of these claims - at time of writing, we're on the Garden Route, one of the country's biggest drawcards, but we're seeing only a few international visitors here and there. It's not like the old days, when a place like Coffee Shack, in the middle of nowhere, was at full capacity of 75 bona fide tourists, three days a week, year-round. We suspect that workseekers and cross-border shoppers from other African countries are being included in the official tourism statistics in order to artificially inflate them. An indicator of this is that, according to official sources, the second-biggest group of tourists by language is French-speaking. In a normal scenario, the real figures would be English-speakers followed by German tourists, which makes us think that large numbers of French-speaking West African job seekers are being included in the holidaymaking stats.</p>
-
-<p class="intro-p">A bright point is that the Baz Bus is back. It was bought by the team behind Peru Hop — a similar backpacker bus service in South America — and is now running again. But it's not as big as it once was, serving a limited route between Cape Town and Gqeberha a few times a week, unlike in backpacking's heyday when every hostel in the country was visited every day. The 30-seater buses have been switched out for 16-seater minibuses.</p>
-
-<p class="intro-p">Just over 200 hostels are still operational. Many have survived by switching their customer base to the domestic tourism market, some cater to groups of contract workers. Some have become more local bars than tourism establishments. A few have resorted to dodgey employment practices to cut down on their overheads.  All of which is understandable, and some of which is not entirely acceptable. It tends to detract from the holiday spirit which tourists really want.</p>
-
-<p class="intro-p">Nevertheless, hope springs eternal. The infrastructure is still there, and South Africa remains one of the most exciting travel destinations in the world. Backpacking South Africa has always been shaped by two things. The first is what is happening inside the country. The second is what is happening back home for the travellers. The mood in Europe, the UK, Australasia and the USA matters. Conflicts in other parts of the world matter. So does the strength of the dollar, pound and euro against the rand. So does the cost of flights. South Africa's crime rate matters (although it must be said that the country has never had a serious problem with crime directed at tourists - its safety record remains comparable to most other backpacking destinations). These things push and pull the numbers. Right now, they are not pointing in the best of directions. But global circumstances may conspire to bring positive change. New players in the backpacking scene may bring in fresh ideas. South Africa has too much to offer to stay off the radar forever.</p>
-
 </section>
 
 </main>
@@ -711,14 +444,12 @@ In an increasingly interconnected world, backpacking remains a powerful expressi
     </div>
 </div>
 
-     <!-- Mobile menu -->
+    <!-- Mobile menu -->
 
 <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu" hidden>
 
-    <!-- Close button -->
     <button class="mobile-menu__close" id="mobile-menu-close" aria-label="Close navigation menu">&times;</button>
 
-    <!-- Search bar -->
     <div class="mobile-menu__search" role="search">
         <div class="mobile-menu__search-bar">
             <span class="mobile-menu__search-icon" aria-hidden="true">
@@ -736,129 +467,23 @@ In an increasingly interconnected world, backpacking remains a powerful expressi
                     aria-controls="mobile-menu-search-results"
                     aria-expanded="false">
         </div>
-        <!-- Results portal created by JS — this div is removed and replaced -->
         <div id="mobile-menu-search-results" class="mobile-menu__search-results" role="listbox" aria-live="polite" aria-label="Search results"></div>
     </div>
 
-    <!-- Nav links -->
-    <a href="/">Home</a>
+    <button class="accordion" aria-expanded="false" aria-controls="panel-home">HOME</button>
 
-    <button class="accordion" aria-expanded="false" aria-controls="panel-regions">BACKPACKING SOUTH AFRICA</button>
-
-    <div class="panel" id="panel-regions" role="region" aria-label="Backpacking South Africa regions">
-        <a href="/backpacking-south-africa/">Regions Map / Full Hostel Directory</a>
-        <a href="/backpacking-south-africa/cape-town">Cape Town</a>
-        <a href="/backpacking-south-africa/winelands">Winelands</a>
-        <a href="/backpacking-south-africa/west-coast">West Coast</a>
-        <a href="/backpacking-south-africa/cederberg">Cederberg</a>
-        <a href="/backpacking-south-africa/route-62">Route 62</a>
-        <a href="/backpacking-south-africa/overberg">The Overberg</a>
-        <a href="/backpacking-south-africa/garden-route">Garden Route</a>
-        <a href="/backpacking-south-africa/karoo">Karoo</a>
-        <a href="/backpacking-south-africa/sunshine-coast">Sunshine Coast</a>
-        <a href="/backpacking-south-africa/eastern-cape-interior">Eastern Cape Interior</a>
-        <a href="/backpacking-south-africa/wild-coast">Wild Coast</a>
-        <a href="/backpacking-south-africa/free-state">Free State</a>
-        <a href="/backpacking-south-africa/south-coast">South Coast</a>
-        <a href="/backpacking-south-africa/durban">Durban</a>
-        <a href="/backpacking-south-africa/north-coast">North Coast</a>
-        <a href="/backpacking-south-africa/midlands">Midlands</a>
-        <a href="/backpacking-south-africa/drakensberg">Drakensberg</a>
-        <a href="/backpacking-south-africa/zululand">Zululand</a>
-        <a href="/backpacking-south-africa/kruger">Kruger</a>
-        <a href="/backpacking-south-africa/mpumalanga">Mpumalanga</a>
-        <a href="/backpacking-south-africa/limpopo">Limpopo</a>
-        <a href="/backpacking-south-africa/johannesburg">Johannesburg</a>
-        <a href="/backpacking-south-africa/pretoria">Pretoria</a>
-        <a href="/backpacking-south-africa/north-west">North West</a>
-        <a href="/backpacking-south-africa/northern-cape">Northern Cape</a>
-        <a href="/backpacking-south-africa/eswatini">Eswatini</a>
-        <a href="/backpacking-south-africa/lesotho">Lesotho</a>
-    </div>
-
-    <button class="accordion" aria-expanded="false" aria-controls="panel-advice">ADVICE</button>
-
-    <div class="panel" id="panel-advice" role="region" aria-label="Advice sections">
-        <h3>Preparation</h3>
-        <a href="/backpacking-south-africa-advice/#checklists">Preflight Checklists</a>
-        <a href="/backpacking-south-africa-advice/#safety">Safety</a>
-        <a href="/backpacking-south-africa-advice/#money">Money</a>
-        <a href="/backpacking-south-africa-advice/#medical">Medical</a>
-        <a href="/backpacking-south-africa-advice/#embassies">Embassies</a>
-        <a href="/backpacking-south-africa-advice/#cannabis">Cannabis &amp; The Law</a>
-        <a href="/backpacking-south-africa-advice/#apps">Useful Apps</a>
-        <h3>In-Country</h3>
-        <a href="/backpacking-south-africa-advice/in-country#emergencies">Emergencies</a>
-        <a href="/backpacking-south-africa-advice/in-country#transport">Transport</a>
-        <a href="/backpacking-south-africa-advice/in-country#food-and-drink">Food &amp; Drink</a>
-        <a href="/backpacking-south-africa-advice/in-country#language">Language</a>
-        <a href="/backpacking-south-africa-advice/in-country#etiquette">African Etiquette</a>
-        <a href="/backpacking-south-africa-advice/in-country#games">Fun &amp; Games</a>
-        <a href="/backpacking-south-africa-advice/specifics#onward-travel">Onward Travel</a>
-        <h3>Specific Interests</h3>
-        <a href="/backpacking-south-africa-advice/specifics#festivals">Festivals &amp; Clubs</a>
-        <a href="/backpacking-south-africa-advice/specifics#surfing">Surfing</a>
-        <a href="/backpacking-south-africa-advice/specifics#digital-nomads">Digital Nomads</a>
-        <a href="/backpacking-south-africa-advice/specifics#overlanding">Overlanding</a>
-        <a href="/backpacking-south-africa-advice/specifics#cycling">Cycle Touring</a>
-        <a href="/backpacking-south-africa-advice/specifics#volunteering">Volunteering</a>
-        <a href="/backpacking-south-africa-advice/specifics#language-schools">Language Schools</a>
-    </div>
-
-    <button class="accordion" aria-expanded="false" aria-controls="panel-tours">TOURS</button>
-
-    <div class="panel" id="panel-tours" role="region" aria-label="Tours and itineraries">
-        <h3>Self-Drive Itineraries</h3>
-        <a href="/backpacking-south-africa-tours/#cape-loop">1 Week: The Cape Loop</a>
-        <a href="/backpacking-south-africa-tours/#whistlestop">2 Weeks: The Whistlestop Tour</a>
-        <a href="/backpacking-south-africa-tours/#northeast-triangle">2 Weeks: The Northeast Triangle</a>
-        <a href="/backpacking-south-africa-tours/#grand-cape-loop">2 Weeks: The Grand Cape Loop</a>
-        <a href="/backpacking-south-africa-tours/#wild-north">2 Weeks: The Wild North</a>
-        <a href="/backpacking-south-africa-tours/#road-less-travelled">2 Weeks: The Road Less Travelled</a>
-        <a href="/backpacking-south-africa-tours/#backpackers-bible">3 Weeks: The Backpacker's Bible</a>
-        <a href="/backpacking-south-africa-tours/#coast-and-karoo">3 Weeks: Coast &amp; Karoo</a>
-        <a href="/backpacking-south-africa-tours/#off-the-beaten-track">3 Weeks: Off The Beaten Track</a>
-        <a href="/backpacking-south-africa-tours/#rainbow-nation">1 Month: The Rainbow Nation</a>
-        <a href="/backpacking-south-africa-tours/#full-monty">3 Months: The Full Monty</a>
-        <h3>Tours &amp; Day Trips</h3>
-        <a href="/backpacking-south-africa/cape-town#tours">Cape Town</a>
-        <a href="/backpacking-south-africa/winelands#tours">Winelands</a>
-        <a href="/backpacking-south-africa/west-coast#tours">West Coast</a>
-        <a href="/backpacking-south-africa/garden-route#tours">Garden Route</a>
-        <a href="/backpacking-south-africa/karoo#tours">Karoo</a>
-        <a href="/backpacking-south-africa/route-62#tours">Route 62</a>
-        <a href="/backpacking-south-africa/overberg#tours">The Overberg</a>
-        <a href="/backpacking-south-africa/sunshine-coast#tours">Sunshine Coast</a>
-        <a href="/backpacking-south-africa/durban#tours">Durban</a>
-        <a href="/backpacking-south-africa/drakensberg#tours">Drakensberg</a>
-        <a href="/backpacking-south-africa/zululand#tours">Zululand</a>
-        <a href="/backpacking-south-africa/kruger#tours">Kruger</a>
-        <a href="/backpacking-south-africa/johannesburg#tours">Johannesburg</a>
-        <a href="/backpacking-south-africa/eswatini#tours">Eswatini</a>
-        <a href="/backpacking-south-africa/lesotho#tours">Lesotho</a>
+    <div class="panel" id="panel-home" role="region" aria-label="Choose a guide">
+        <a href="/">Home</a>
+        <a href="/">South Africa</a>
+        <a href="/spain/en/" aria-current="page">Spain</a>
     </div>
 
     <a href="/misc/about-backpacking">About Backpacking</a>
 
     <a href="/misc/backpacking-resources">Resources</a>
 
-    <!-- Downloads accordion -->
-    <button class="accordion accordion--downloads" aria-expanded="false" aria-controls="panel-downloads">★ FREE OFFLINE GUIDES</button>
-
-    <div class="panel" id="panel-downloads" role="region" aria-label="Free offline guides">
-        <h3>PDF Hostel Guide</h3>
-        <p class="panel__desc">A compact interactive PDF with a clickable map and every hostel's contact details. No wifi needed — just save it to your phone.</p>
-        <a href="/pdf/Backpackers_Bible_Lite-South_Africa.pdf" target="_blank">Download PDF <span class="sr-only">(opens in a new tab)</span></a>
-        <p class="panel__spec">(Interactive PDF — 800kb)</p>
-        <h3>Full Backpackers Bible App</h3>
-        <p class="panel__desc">The complete guide installed as an app icon on your home screen. Maps, regions, advice, tours, and hostel reviews — fully offline.</p>
-        <a href="/#download-pwa">Get the App →</a>
-        <p class="panel__spec">(Progressive Web App — free)</p>
-    </div>
-
-    <!-- WhatsApp share -->
     <a class="mobile-menu__share"
-       href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://backpackersbible.com"
+       href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://www.backpackersbible.com/"
        target="_blank"
        rel="noopener noreferrer">
         <img src="/assets/whatsapp_icon_round.png" alt="Share on WhatsApp" width="45" height="45">
