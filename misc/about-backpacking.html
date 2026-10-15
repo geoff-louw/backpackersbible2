@@ -31,27 +31,28 @@
 <!-- Stylesheet -->
 <link rel="stylesheet" href="/css/style-2.css">
 <style>
-/* Backpacking cost-per-day table (scoped to .cost-table) */
-.cost-table-wrap{margin:1.75rem 0 2rem;overflow-x:auto;-webkit-overflow-scrolling:touch}
-.cost-table{width:100%;border-collapse:collapse;font-family:inherit;font-size:1rem;line-height:1.45;background:#fff}
-.cost-table caption{caption-side:top;text-align:left;font-weight:700;color:#670000;padding:0 0 .6rem}
-.cost-table thead th{background:#670000;color:#fff;text-align:left;padding:.75rem .9rem;border:0;font-weight:700}
-.cost-table tbody th,.cost-table tbody td{padding:.65rem .9rem;border:0;border-bottom:1px solid #e6dada;vertical-align:top;text-align:left;background:transparent}
-.cost-table tr.cost-table__region th{background:#005F8A;color:#fff;font-weight:700;letter-spacing:.03em;padding:.6rem .9rem;border-bottom:0}
-.cost-table .cost-table__country{font-weight:700;color:#670000;white-space:nowrap}
-.cost-table .cost-table__cost{font-weight:700;color:#bc1d23;white-space:nowrap}
-.cost-table .cost-table__note{color:#333}
+/* Data tables: cost per day and classic routes (scoped to .info-table) */
+.info-table-wrap{margin:1.75rem 0 2rem;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.info-table{width:100%;border-collapse:collapse;font-family:inherit;font-size:1rem;line-height:1.45;background:#fff}
+.info-table caption{caption-side:top;text-align:left;font-weight:700;color:#670000;padding:0 0 .6rem}
+.info-table thead th{background:#670000;color:#fff;text-align:left;padding:.75rem .9rem;border:0;font-weight:700}
+.info-table tbody th,.info-table tbody td{padding:.65rem .9rem;border:0;border-bottom:1px solid #e6dada;vertical-align:top;text-align:left;background:transparent}
+.info-table tr.info-table__region th{background:#005F8A;color:#fff;font-weight:700;letter-spacing:.03em;padding:.6rem .9rem;border-bottom:0}
+.info-table .info-table__country{font-weight:700;color:#670000;white-space:nowrap}
+.info-table .info-table__figure{font-weight:700;color:#bc1d23;white-space:nowrap}
+.info-table .info-table__note{color:#333}
+  .info-table--routes .info-table__country{white-space:normal}
 @media (max-width:640px){
-  .cost-table-wrap{overflow-x:visible}
-  .cost-table,.cost-table tbody,.cost-table caption{display:block}
-  .cost-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-  .cost-table tbody tr{display:flex;flex-wrap:wrap;align-items:baseline;padding:.7rem .9rem;border-bottom:1px solid #e6dada}
-  .cost-table tbody tr.cost-table__region{display:block;padding:0;border-bottom:0;margin-top:.75rem}
-  .cost-table tbody tr.cost-table__region th{display:block;width:100%;box-sizing:border-box}
-  .cost-table tbody th.cost-table__country,.cost-table tbody td{display:block;padding:0;border:0}
-  .cost-table .cost-table__country{flex:1 1 auto;white-space:normal;font-size:1.05rem}
-  .cost-table .cost-table__cost{flex:0 0 auto;margin-left:auto;padding-left:.75rem;font-size:1.05rem}
-  .cost-table .cost-table__note{flex:1 1 100%;margin-top:.2rem;font-size:.92rem}
+  .info-table-wrap{overflow-x:visible}
+  .info-table,.info-table tbody,.info-table caption{display:block}
+  .info-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .info-table tbody tr{display:flex;flex-wrap:wrap;align-items:baseline;padding:.7rem .9rem;border-bottom:1px solid #e6dada}
+  .info-table tbody tr.info-table__region{display:block;padding:0;border-bottom:0;margin-top:.75rem}
+  .info-table tbody tr.info-table__region th{display:block;width:100%;box-sizing:border-box}
+  .info-table tbody th.info-table__country,.info-table tbody td{display:block;padding:0;border:0}
+  .info-table .info-table__country{flex:1 1 auto;white-space:normal;font-size:1.05rem}
+  .info-table .info-table__figure{flex:0 0 auto;margin-left:auto;padding-left:.75rem;font-size:1.05rem}
+  .info-table .info-table__note{flex:1 1 100%;margin-top:.2rem;font-size:.92rem}
 }
 </style>
 
@@ -217,6 +218,10 @@
 </blockquote>
 
 <p class="intro-p">
+<strong>A note on the word.</strong> In the United States and Canada, “backpacking” usually means walking for several days with a pack and a tent, which people in Britain, Australia, South Africa and much of the rest of the English-speaking world would call hiking or trekking (and which has local names of its own, such as “tramping” in New Zealand and “bushwalking” in Australia). Elsewhere, and throughout this guide, backpacking means independent, low-budget travel, usually lasting weeks or months and relying on hostels, buses and trains as much as on foot. The two meanings overlap on a few famous routes, such as the Inca Trail and the Camino de Santiago, where the walking is the journey, but most backpackers never carry a tent.
+</p>
+
+<p class="intro-p">
 Backpacking is often reduced to a stereotype: a young traveller with a large rucksack, moving cheaply from hostel to hostel. While this image contains some truth, it obscures the deeper reality. Backpacking is one of the most influential and enduring forms of global travel, shaping not only tourism economies but also cultural exchange, identity formation, and the geography of mobility itself. It is both a product of globalisation and a critique of it—simultaneously enabled by modern infrastructure and motivated by a desire to escape structured, commercialised travel.
 </p>
 
@@ -276,6 +281,24 @@ Backpackers tend to stay longer and travel more widely within a destination, spr
 
 <p class="intro-p">
 Globally, there are estimated to be between 40,000 and 50,000 backpacker hostels, though precise figures are difficult to establish due to the informal nature of the sector in some regions. Europe and Southeast Asia account for the largest concentrations, while Australia, New Zealand, and parts of Latin America also maintain extensive hostel networks.
+</p>
+
+<h2 class="section-heading-desktop">How Backpackers Open Up New Destinations</h2>
+
+<p class="intro-p">
+One of backpacking’s most important effects is that it opens up places that conventional tourism has not yet reached. Young travellers on small budgets are more adventurous than most: they will take the overnight bus, sleep in a basic guesthouse, eat from a street stall and head for a town with no hotels at all, because discomfort and uncertainty are a price they are happy to pay for novelty and low cost. Older travellers, who tend to have families, tighter schedules and higher expectations of comfort, will generally stay away until a place has been proven safe, reachable and easy. Backpackers therefore act as scouts. Their word of mouth, guidebook entries, blog posts and social media posts are often how a new destination first reaches a wider audience.
+</p>
+
+<p class="intro-p">
+Tourism researchers have recognised this pattern for decades. Stanley Plog’s 1974 model describes adventurous “allocentric” travellers as the first to arrive at a new destination, followed in time by more cautious “psychocentric” travellers who want familiarity and convenience. Richard Butler’s 1980 tourist area life cycle tells the same story from the destination’s side, moving from exploration, when a handful of independent visitors arrive, through involvement and development to consolidation, and eventually to stagnation, decline or reinvention. Backpackers are typically the people who set that cycle in motion.
+</p>
+
+<p class="intro-p">
+What makes backpackers distinctive is that they also grow older and richer. The young traveller who once slept in a cheap dorm on a remote beach later has a career, a family and a far larger budget, along with fond memories of the places where they first travelled. They want to return, but this time with a private room, air conditioning and a decent restaurant, and they bring friends and relatives who would never have gone in the first place. Hotels, resorts and tour operators follow, and a village that was once visited only by the young and broke becomes a destination for everyone. Goa, the Thai islands, parts of Bali and the cities of Eastern Europe after 1989 all followed versions of this path. For local communities the cycle brings income and jobs, but also rising prices and pressure on the very character that attracted the first visitors.
+</p>
+
+<p class="intro-p">
+The cycle never stops, because each new generation of backpackers moves on in search of somewhere cheaper, quieter and less visited. Albania, Georgia and Uzbekistan are among the places travel writers currently describe as emerging, and a few years from now they may look very different. It is also why the cost table later in this guide is best read as a snapshot: today’s cheap frontier is likely to be tomorrow’s mid-range destination.
 </p>
 
 <h2 class="section-heading-desktop">Backpacking in Europe</h2>
@@ -348,6 +371,46 @@ In contrast, Central and South America have emerged as major backpacking regions
 Infrastructure in the region has improved significantly, with a growing number of hostels and transport options facilitating independent travel. Daily budgets typically range from €30 to €70, depending on the country.
 </p>
 
+<h2 class="section-heading-desktop">Classic Backpacker Routes</h2>
+
+<p class="intro-p">
+Backpackers rarely wander at random. Over the decades, travellers using the same cheap buses, trains and hostels have worn well-known trails across the map, and many of them have nicknames. They are best thought of as corridors rather than fixed itineraries: most travellers take a section, add side trips and skip others, and the routes shift as new places are discovered and old ones become too busy or too expensive. The table below sets out the best known, with typical times for an unhurried trip.
+</p>
+
+<div class="info-table-wrap">
+<table class="info-table info-table--routes">
+<caption>Classic backpacker routes and how long they usually take</caption>
+<thead>
+<tr><th scope="col">Route</th><th scope="col">Typical time</th><th scope="col">Where it goes</th></tr>
+</thead>
+<tbody>
+<tr class="info-table__region"><th scope="colgroup" colspan="3">Europe</th></tr>
+<tr><th scope="row" class="info-table__country">Interrail and Eurail loops</th><td class="info-table__figure">2–6 weeks</td><td class="info-table__note">Rail passes and budget airlines link the big cities in loops such as London, Paris, Amsterdam, Berlin, Prague, Vienna and Budapest, or around the Mediterranean from Lisbon to Athens.</td></tr>
+<tr><th scope="row" class="info-table__country">The Balkans circuit</th><td class="info-table__figure">2–4 weeks</td><td class="info-table__note">Ljubljana, Zagreb, Plitvice, Split, Dubrovnik, Kotor and Tirana, with Sarajevo and Mostar as popular detours. A newer and cheaper alternative to the western European loop.</td></tr>
+<tr><th scope="row" class="info-table__country">Camino de Santiago</th><td class="info-table__figure">About 5 weeks</td><td class="info-table__note">A walking pilgrimage of roughly 780 km from Saint-Jean-Pied-de-Port in France to Santiago de Compostela in Spain, with cheap pilgrim hostels (albergues) along the way. Many people walk a shorter section.</td></tr>
+<tr class="info-table__region"><th scope="colgroup" colspan="3">Asia</th></tr>
+<tr><th scope="row" class="info-table__country">Banana Pancake Trail</th><td class="info-table__figure">1–3 months</td><td class="info-table__note">Southeast Asia’s best-known circuit, usually Bangkok, Chiang Mai, northern Laos, Vietnam and Cambodia, with Thai islands and Indonesia added on. It is named after the pancakes sold to travellers.</td></tr>
+<tr><th scope="row" class="info-table__country">Vietnam, north to south</th><td class="info-table__figure">2–4 weeks</td><td class="info-table__note">Hanoi, Ninh Binh or Ha Long Bay, Hue, Hoi An, Da Lat and Ho Chi Minh City, by sleeper bus, train and motorbike.</td></tr>
+<tr><th scope="row" class="info-table__country">India’s Golden Triangle</th><td class="info-table__figure">2–6 weeks</td><td class="info-table__note">Delhi, Agra and Jaipur, often extended through Rajasthan or south to Goa and the Himalayan foothills.</td></tr>
+<tr><th scope="row" class="info-table__country">Japan’s Golden Route</th><td class="info-table__figure">10–14 days</td><td class="info-table__note">Tokyo, Kyoto and Osaka by bullet train, with Nara, Hiroshima and Mount Fuji as common additions.</td></tr>
+<tr><th scope="row" class="info-table__country">The Hippie Trail</th><td class="info-table__figure">Several months</td><td class="info-table__note">A historic overland route from Istanbul through Tehran and Kabul to Delhi and Kathmandu that defined the 1960s and 1970s. It effectively ended in 1979, when the Iranian Revolution and the Soviet invasion of Afghanistan closed its heart.</td></tr>
+<tr class="info-table__region"><th scope="colgroup" colspan="3">Africa</th></tr>
+<tr><th scope="row" class="info-table__country">The Garden Route</th><td class="info-table__figure">5–14 days</td><td class="info-table__note">Cape Town to Gqeberha along the southern coast via Stellenbosch, Hermanus, Mossel Bay, Wilderness, Knysna, Plettenberg Bay and Tsitsikamma. The Baz Bus links the hostels, and many travellers continue to the Wild Coast, the Drakensberg and Durban.</td></tr>
+<tr><th scope="row" class="info-table__country">Cape to Cairo</th><td class="info-table__figure">3 weeks–3 months</td><td class="info-table__note">Overland between Cape Town and East Africa via Namibia, Botswana, Zambia, Malawi, Tanzania and Kenya, by truck tour, bus or self-drive. Victoria Falls, the Okavango Delta and Zanzibar are staples. Few travellers attempt the whole length in one trip; most do a section.</td></tr>
+<tr class="info-table__region"><th scope="colgroup" colspan="3">The Americas</th></tr>
+<tr><th scope="row" class="info-table__country">Central America route</th><td class="info-table__figure">1–3 months</td><td class="info-table__note">Mexico’s Yucatán and Chiapas, Guatemala (Antigua and Lake Atitlán), Belize, Honduras’s Bay Islands, Nicaragua and Costa Rica, mostly by shuttle bus.</td></tr>
+<tr><th scope="row" class="info-table__country">The Gringo Trail</th><td class="info-table__figure">2–6 months</td><td class="info-table__note">Colombia (Cartagena and Medellín), Ecuador (Quito and Baños), Peru (Lima, Cusco, Machu Picchu and Arequipa), Bolivia (Lake Titicaca, La Paz and Uyuni), then Chile and Argentina (San Pedro de Atacama, Patagonia and Buenos Aires). Many travellers do only the Peru and Bolivia stretch.</td></tr>
+<tr class="info-table__region"><th scope="colgroup" colspan="3">Oceania</th></tr>
+<tr><th scope="row" class="info-table__country">Australia’s East Coast</th><td class="info-table__figure">3–6 weeks</td><td class="info-table__note">Sydney to Cairns via Byron Bay, Brisbane, K’gari (Fraser Island) and the Whitsundays, often with Melbourne and the Great Ocean Road added at the start.</td></tr>
+<tr><th scope="row" class="info-table__country">New Zealand</th><td class="info-table__figure">3–6 weeks</td><td class="info-table__note">Auckland, Rotorua, Wellington, Abel Tasman, Franz Josef and Queenstown across both islands, by hop-on hop-off bus, campervan or rental car.</td></tr>
+</tbody>
+</table>
+</div>
+
+<p class="intro-p">
+The map keeps changing. Routes through the Balkans, the Caucasus and Central Asia are among those now being worn in, much as the Banana Pancake Trail and the Gringo Trail were a generation ago.
+</p>
+
 <h2 class="section-heading-desktop">The Digital Transformation of Backpacking</h2>
 
 <p class="intro-p">
@@ -386,60 +449,60 @@ One of the first things any backpacker wants to know is how far their money will
 The figures exclude international flights, visas, travel insurance and big-ticket extras such as safaris, diving or multi-day treks, which can easily double a day's spending. The lower figure suits a slow, careful traveller who stays put for several days at a time; the upper figure suits someone who moves often, books private rooms or travels in peak season.
 </p>
 
-<div class="cost-table-wrap">
-<table class="cost-table">
+<div class="info-table-wrap">
+<table class="info-table">
 <caption>Typical backpacker budget per person per day, 2026 prices, in euros</caption>
 <thead>
 <tr><th scope="col">Country</th><th scope="col">Per day</th><th scope="col">What moves the number</th></tr>
 </thead>
 <tbody>
-<tr class="cost-table__region"><th scope="colgroup" colspan="3">Europe</th></tr>
-<tr><th scope="row" class="cost-table__country">Albania</th><td class="cost-table__cost">€30–€50</td><td class="cost-table__note">Cheapest in Europe; the coast costs more in July and August</td></tr>
-<tr><th scope="row" class="cost-table__country">Poland</th><td class="cost-table__cost">€35–€55</td><td class="cost-table__note">Strong value; Warsaw costs more than Kraków or Gdańsk</td></tr>
-<tr><th scope="row" class="cost-table__country">Czechia</th><td class="cost-table__cost">€40–€60</td><td class="cost-table__note">Prague is dearer than Brno and smaller towns</td></tr>
-<tr><th scope="row" class="cost-table__country">Portugal</th><td class="cost-table__cost">€50–€80</td><td class="cost-table__note">Lisbon and Porto beds and summer prices push it up</td></tr>
-<tr><th scope="row" class="cost-table__country">Spain</th><td class="cost-table__cost">€50–€80</td><td class="cost-table__note">Valencia and the interior are cheaper than Barcelona</td></tr>
-<tr><th scope="row" class="cost-table__country">Germany</th><td class="cost-table__cost">€50–€80</td><td class="cost-table__note">Leipzig and smaller cities are cheaper than Frankfurt</td></tr>
-<tr><th scope="row" class="cost-table__country">Greece</th><td class="cost-table__cost">€50–€85</td><td class="cost-table__note">Athens is fair value; islands and ferries cost far more</td></tr>
-<tr><th scope="row" class="cost-table__country">Croatia</th><td class="cost-table__cost">€55–€90</td><td class="cost-table__note">Summer coast, ferries and Dubrovnik raise it sharply</td></tr>
-<tr><th scope="row" class="cost-table__country">Italy</th><td class="cost-table__cost">€55–€95</td><td class="cost-table__note">Big-city beds and paid sights add up; early-booked trains are good value</td></tr>
-<tr><th scope="row" class="cost-table__country">France</th><td class="cost-table__cost">€60–€95</td><td class="cost-table__note">Lyon is cheaper than Paris</td></tr>
-<tr><th scope="row" class="cost-table__country">United Kingdom</th><td class="cost-table__cost">€60–€100</td><td class="cost-table__note">London drives the average; Manchester is better value</td></tr>
-<tr class="cost-table__region"><th scope="colgroup" colspan="3">Asia</th></tr>
-<tr><th scope="row" class="cost-table__country">Nepal</th><td class="cost-table__cost">€20–€40</td><td class="cost-table__note">Excellent value unless treks, flights and gear hire are added</td></tr>
-<tr><th scope="row" class="cost-table__country">Sri Lanka</th><td class="cost-table__cost">€20–€40</td><td class="cost-table__note">Safaris, surf camps and private drivers raise the average</td></tr>
-<tr><th scope="row" class="cost-table__country">Vietnam</th><td class="cost-table__cost">€20–€40</td><td class="cost-table__note">Sleeper buses and street food keep costs low</td></tr>
-<tr><th scope="row" class="cost-table__country">Cambodia</th><td class="cost-table__cost">€20–€40</td><td class="cost-table__note">Angkor passes and transport are the main spikes</td></tr>
-<tr><th scope="row" class="cost-table__country">India</th><td class="cost-table__cost">€20–€45</td><td class="cost-table__note">Very low, but private drivers and comfort upgrades change it fast</td></tr>
-<tr><th scope="row" class="cost-table__country">Indonesia</th><td class="cost-table__cost">€25–€50</td><td class="cost-table__note">Bali costs more than Java, Sumatra or Lombok</td></tr>
-<tr><th scope="row" class="cost-table__country">Thailand</th><td class="cost-table__cost">€30–€50</td><td class="cost-table__note">The north is cheaper; islands and party routes cost more</td></tr>
-<tr><th scope="row" class="cost-table__country">Malaysia</th><td class="cost-table__cost">€30–€55</td><td class="cost-table__note">Cities cost more than the food courts suggest; transport is easy</td></tr>
-<tr><th scope="row" class="cost-table__country">Georgia</th><td class="cost-table__cost">€30–€55</td><td class="cost-table__note">Great food and guesthouse value; mountain transport is the swing cost</td></tr>
-<tr><th scope="row" class="cost-table__country">Philippines</th><td class="cost-table__cost">€35–€60</td><td class="cost-table__note">Island hopping, boats and domestic flights add up</td></tr>
-<tr><th scope="row" class="cost-table__country">Turkey</th><td class="cost-table__cost">€40–€70</td><td class="cost-table__note">Istanbul and Cappadocia cost more; buses and local food help</td></tr>
-<tr><th scope="row" class="cost-table__country">South Korea</th><td class="cost-table__cost">€60–€105</td><td class="cost-table__note">Efficient transport; Seoul and Jeju push the average up</td></tr>
-<tr><th scope="row" class="cost-table__country">Japan</th><td class="cost-table__cost">€70–€120</td><td class="cost-table__note">Hostels and cheap food help; rail travel and attractions decide the total</td></tr>
-<tr class="cost-table__region"><th scope="colgroup" colspan="3">Africa</th></tr>
-<tr><th scope="row" class="cost-table__country">Egypt</th><td class="cost-table__cost">€20–€35</td><td class="cost-table__note">Cheap beds and food; site tickets are extra</td></tr>
-<tr><th scope="row" class="cost-table__country">Morocco</th><td class="cost-table__cost">€25–€45</td><td class="cost-table__note">Cheap dorms, street food and shared taxis</td></tr>
-<tr><th scope="row" class="cost-table__country">Kenya</th><td class="cost-table__cost">€30–€50</td><td class="cost-table__note">Safari and park fees are extra</td></tr>
-<tr><th scope="row" class="cost-table__country">Tanzania</th><td class="cost-table__cost">€30–€50</td><td class="cost-table__note">Park fees, safaris and Kilimanjaro are priced separately and dominate</td></tr>
-<tr><th scope="row" class="cost-table__country">South Africa</th><td class="cost-table__cost">€40–€75</td><td class="cost-table__note">Dorms and self-catering sit at the bottom; activities and the Christmas peak raise it</td></tr>
-<tr><th scope="row" class="cost-table__country">Namibia</th><td class="cost-table__cost">€55–€95</td><td class="cost-table__note">Long distances mean car hire or organised transfers</td></tr>
-<tr class="cost-table__region"><th scope="colgroup" colspan="3">North America</th></tr>
-<tr><th scope="row" class="cost-table__country">Mexico</th><td class="cost-table__cost">€25–€50</td><td class="cost-table__note">Tulum and the Caribbean coast cost more than Oaxaca or Chiapas</td></tr>
-<tr><th scope="row" class="cost-table__country">Canada</th><td class="cost-table__cost">€55–€95</td><td class="cost-table__note">Big-city hostels and the Rockies in summer cost most</td></tr>
-<tr><th scope="row" class="cost-table__country">United States</th><td class="cost-table__cost">€55–€100</td><td class="cost-table__note">Camping out west is far cheaper than hostel cities such as New York</td></tr>
-<tr class="cost-table__region"><th scope="colgroup" colspan="3">South America</th></tr>
-<tr><th scope="row" class="cost-table__country">Bolivia</th><td class="cost-table__cost">€20–€35</td><td class="cost-table__note">The cheapest country on the continent</td></tr>
-<tr><th scope="row" class="cost-table__country">Peru</th><td class="cost-table__cost">€25–€45</td><td class="cost-table__note">Machu Picchu entry and rail transfers can double a week</td></tr>
-<tr><th scope="row" class="cost-table__country">Colombia</th><td class="cost-table__cost">€30–€50</td><td class="cost-table__note">The Caribbean coast runs well above the interior</td></tr>
-<tr><th scope="row" class="cost-table__country">Argentina</th><td class="cost-table__cost">€30–€55</td><td class="cost-table__note">The exchange rate is volatile; Patagonia costs far more</td></tr>
-<tr><th scope="row" class="cost-table__country">Brazil</th><td class="cost-table__cost">€35–€55</td><td class="cost-table__note">Distances and coastal cities push it up</td></tr>
-<tr><th scope="row" class="cost-table__country">Chile</th><td class="cost-table__cost">€45–€60</td><td class="cost-table__note">Among the dearest countries in South America</td></tr>
-<tr class="cost-table__region"><th scope="colgroup" colspan="3">Oceania</th></tr>
-<tr><th scope="row" class="cost-table__country">New Zealand</th><td class="cost-table__cost">€60–€100</td><td class="cost-table__note">Dorm beds alone cost around €25–€30 a night; activities and transport add most</td></tr>
-<tr><th scope="row" class="cost-table__country">Australia</th><td class="cost-table__cost">€65–€110</td><td class="cost-table__note">Dorm beds, huge distances and tours are the big costs</td></tr>
+<tr class="info-table__region"><th scope="colgroup" colspan="3">Europe</th></tr>
+<tr><th scope="row" class="info-table__country">Albania</th><td class="info-table__figure">€30–€50</td><td class="info-table__note">Cheapest in Europe; the coast costs more in July and August</td></tr>
+<tr><th scope="row" class="info-table__country">Poland</th><td class="info-table__figure">€35–€55</td><td class="info-table__note">Strong value; Warsaw costs more than Kraków or Gdańsk</td></tr>
+<tr><th scope="row" class="info-table__country">Czechia</th><td class="info-table__figure">€40–€60</td><td class="info-table__note">Prague is dearer than Brno and smaller towns</td></tr>
+<tr><th scope="row" class="info-table__country">Portugal</th><td class="info-table__figure">€50–€80</td><td class="info-table__note">Lisbon and Porto beds and summer prices push it up</td></tr>
+<tr><th scope="row" class="info-table__country">Spain</th><td class="info-table__figure">€50–€80</td><td class="info-table__note">Valencia and the interior are cheaper than Barcelona</td></tr>
+<tr><th scope="row" class="info-table__country">Germany</th><td class="info-table__figure">€50–€80</td><td class="info-table__note">Leipzig and smaller cities are cheaper than Frankfurt</td></tr>
+<tr><th scope="row" class="info-table__country">Greece</th><td class="info-table__figure">€50–€85</td><td class="info-table__note">Athens is fair value; islands and ferries cost far more</td></tr>
+<tr><th scope="row" class="info-table__country">Croatia</th><td class="info-table__figure">€55–€90</td><td class="info-table__note">Summer coast, ferries and Dubrovnik raise it sharply</td></tr>
+<tr><th scope="row" class="info-table__country">Italy</th><td class="info-table__figure">€55–€95</td><td class="info-table__note">Big-city beds and paid sights add up; early-booked trains are good value</td></tr>
+<tr><th scope="row" class="info-table__country">France</th><td class="info-table__figure">€60–€95</td><td class="info-table__note">Lyon is cheaper than Paris</td></tr>
+<tr><th scope="row" class="info-table__country">United Kingdom</th><td class="info-table__figure">€60–€100</td><td class="info-table__note">London drives the average; Manchester is better value</td></tr>
+<tr class="info-table__region"><th scope="colgroup" colspan="3">Asia</th></tr>
+<tr><th scope="row" class="info-table__country">Nepal</th><td class="info-table__figure">€20–€40</td><td class="info-table__note">Excellent value unless treks, flights and gear hire are added</td></tr>
+<tr><th scope="row" class="info-table__country">Sri Lanka</th><td class="info-table__figure">€20–€40</td><td class="info-table__note">Safaris, surf camps and private drivers raise the average</td></tr>
+<tr><th scope="row" class="info-table__country">Vietnam</th><td class="info-table__figure">€20–€40</td><td class="info-table__note">Sleeper buses and street food keep costs low</td></tr>
+<tr><th scope="row" class="info-table__country">Cambodia</th><td class="info-table__figure">€20–€40</td><td class="info-table__note">Angkor passes and transport are the main spikes</td></tr>
+<tr><th scope="row" class="info-table__country">India</th><td class="info-table__figure">€20–€45</td><td class="info-table__note">Very low, but private drivers and comfort upgrades change it fast</td></tr>
+<tr><th scope="row" class="info-table__country">Indonesia</th><td class="info-table__figure">€25–€50</td><td class="info-table__note">Bali costs more than Java, Sumatra or Lombok</td></tr>
+<tr><th scope="row" class="info-table__country">Thailand</th><td class="info-table__figure">€30–€50</td><td class="info-table__note">The north is cheaper; islands and party routes cost more</td></tr>
+<tr><th scope="row" class="info-table__country">Malaysia</th><td class="info-table__figure">€30–€55</td><td class="info-table__note">Cities cost more than the food courts suggest; transport is easy</td></tr>
+<tr><th scope="row" class="info-table__country">Georgia</th><td class="info-table__figure">€30–€55</td><td class="info-table__note">Great food and guesthouse value; mountain transport is the swing cost</td></tr>
+<tr><th scope="row" class="info-table__country">Philippines</th><td class="info-table__figure">€35–€60</td><td class="info-table__note">Island hopping, boats and domestic flights add up</td></tr>
+<tr><th scope="row" class="info-table__country">Turkey</th><td class="info-table__figure">€40–€70</td><td class="info-table__note">Istanbul and Cappadocia cost more; buses and local food help</td></tr>
+<tr><th scope="row" class="info-table__country">South Korea</th><td class="info-table__figure">€60–€105</td><td class="info-table__note">Efficient transport; Seoul and Jeju push the average up</td></tr>
+<tr><th scope="row" class="info-table__country">Japan</th><td class="info-table__figure">€70–€120</td><td class="info-table__note">Hostels and cheap food help; rail travel and attractions decide the total</td></tr>
+<tr class="info-table__region"><th scope="colgroup" colspan="3">Africa</th></tr>
+<tr><th scope="row" class="info-table__country">Egypt</th><td class="info-table__figure">€20–€35</td><td class="info-table__note">Cheap beds and food; site tickets are extra</td></tr>
+<tr><th scope="row" class="info-table__country">Morocco</th><td class="info-table__figure">€25–€45</td><td class="info-table__note">Cheap dorms, street food and shared taxis</td></tr>
+<tr><th scope="row" class="info-table__country">Kenya</th><td class="info-table__figure">€30–€50</td><td class="info-table__note">Safari and park fees are extra</td></tr>
+<tr><th scope="row" class="info-table__country">Tanzania</th><td class="info-table__figure">€30–€50</td><td class="info-table__note">Park fees, safaris and Kilimanjaro are priced separately and dominate</td></tr>
+<tr><th scope="row" class="info-table__country">South Africa</th><td class="info-table__figure">€40–€75</td><td class="info-table__note">Dorms and self-catering sit at the bottom; activities and the Christmas peak raise it</td></tr>
+<tr><th scope="row" class="info-table__country">Namibia</th><td class="info-table__figure">€55–€95</td><td class="info-table__note">Long distances mean car hire or organised transfers</td></tr>
+<tr class="info-table__region"><th scope="colgroup" colspan="3">North America</th></tr>
+<tr><th scope="row" class="info-table__country">Mexico</th><td class="info-table__figure">€25–€50</td><td class="info-table__note">Tulum and the Caribbean coast cost more than Oaxaca or Chiapas</td></tr>
+<tr><th scope="row" class="info-table__country">Canada</th><td class="info-table__figure">€55–€95</td><td class="info-table__note">Big-city hostels and the Rockies in summer cost most</td></tr>
+<tr><th scope="row" class="info-table__country">United States</th><td class="info-table__figure">€55–€100</td><td class="info-table__note">Camping out west is far cheaper than hostel cities such as New York</td></tr>
+<tr class="info-table__region"><th scope="colgroup" colspan="3">South America</th></tr>
+<tr><th scope="row" class="info-table__country">Bolivia</th><td class="info-table__figure">€20–€35</td><td class="info-table__note">The cheapest country on the continent</td></tr>
+<tr><th scope="row" class="info-table__country">Peru</th><td class="info-table__figure">€25–€45</td><td class="info-table__note">Machu Picchu entry and rail transfers can double a week</td></tr>
+<tr><th scope="row" class="info-table__country">Colombia</th><td class="info-table__figure">€30–€50</td><td class="info-table__note">The Caribbean coast runs well above the interior</td></tr>
+<tr><th scope="row" class="info-table__country">Argentina</th><td class="info-table__figure">€30–€55</td><td class="info-table__note">The exchange rate is volatile; Patagonia costs far more</td></tr>
+<tr><th scope="row" class="info-table__country">Brazil</th><td class="info-table__figure">€35–€55</td><td class="info-table__note">Distances and coastal cities push it up</td></tr>
+<tr><th scope="row" class="info-table__country">Chile</th><td class="info-table__figure">€45–€60</td><td class="info-table__note">Among the dearest countries in South America</td></tr>
+<tr class="info-table__region"><th scope="colgroup" colspan="3">Oceania</th></tr>
+<tr><th scope="row" class="info-table__country">New Zealand</th><td class="info-table__figure">€60–€100</td><td class="info-table__note">Dorm beds alone cost around €25–€30 a night; activities and transport add most</td></tr>
+<tr><th scope="row" class="info-table__country">Australia</th><td class="info-table__figure">€65–€110</td><td class="info-table__note">Dorm beds, huge distances and tours are the big costs</td></tr>
 </tbody>
 </table>
 </div>
