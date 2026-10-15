@@ -1038,8 +1038,19 @@
     </details>
 </section>
 
-<div class="parallax-window" style="background-image: url('/assets/backpackers_advice-apps.webp');" role="img" aria-label="Backpacker using a smartphone">
-    <div class="parallax-attribution">Photo: Mateusz Dach</div>
+     <!-- Parallax image -->
+
+<div class="parallax-window"
+     style="--bg-desktop: url('/assets/backpackers_advice-apps.webp');
+            --bg-mobile: url('/assets/backpackers_advice-apps.webp');">
+
+    <div class="attribution-toggle">
+        <button type="button" class="attribution-toggle__btn" aria-label="Image attribution" aria-expanded="false" aria-controls="attr-4">i</button>
+        <div class="attribution-toggle__panel" id="attr-4">
+       Photo: Mateusz Dach
+        </div>
+    </div>
+
 </div>
 
 <section class="region-header-section text-section--after-parallax" id="apps" aria-labelledby="heading-apps">
