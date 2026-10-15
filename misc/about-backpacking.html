@@ -30,6 +30,31 @@
 
 <!-- Stylesheet -->
 <link rel="stylesheet" href="/css/style-2.css">
+<style>
+/* Backpacking cost-per-day table (scoped to .cost-table) */
+.cost-table-wrap{margin:1.75rem 0 2rem;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cost-table{width:100%;border-collapse:collapse;font-family:inherit;font-size:1rem;line-height:1.45;background:#fff}
+.cost-table caption{caption-side:top;text-align:left;font-weight:700;color:#670000;padding:0 0 .6rem}
+.cost-table thead th{background:#670000;color:#fff;text-align:left;padding:.75rem .9rem;border:0;font-weight:700}
+.cost-table tbody th,.cost-table tbody td{padding:.65rem .9rem;border:0;border-bottom:1px solid #e6dada;vertical-align:top;text-align:left;background:transparent}
+.cost-table tr.cost-table__region th{background:#005F8A;color:#fff;font-weight:700;letter-spacing:.03em;padding:.6rem .9rem;border-bottom:0}
+.cost-table .cost-table__country{font-weight:700;color:#670000;white-space:nowrap}
+.cost-table .cost-table__cost{font-weight:700;color:#bc1d23;white-space:nowrap}
+.cost-table .cost-table__note{color:#333}
+@media (max-width:640px){
+  .cost-table-wrap{overflow-x:visible}
+  .cost-table,.cost-table tbody,.cost-table caption{display:block}
+  .cost-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .cost-table tbody tr{display:flex;flex-wrap:wrap;align-items:baseline;padding:.7rem .9rem;border-bottom:1px solid #e6dada}
+  .cost-table tbody tr.cost-table__region{display:block;padding:0;border-bottom:0;margin-top:.75rem}
+  .cost-table tbody tr.cost-table__region th{display:block;width:100%;box-sizing:border-box}
+  .cost-table tbody th.cost-table__country,.cost-table tbody td{display:block;padding:0;border:0}
+  .cost-table .cost-table__country{flex:1 1 auto;white-space:normal;font-size:1.05rem}
+  .cost-table .cost-table__cost{flex:0 0 auto;margin-left:auto;padding-left:.75rem;font-size:1.05rem}
+  .cost-table .cost-table__note{flex:1 1 100%;margin-top:.2rem;font-size:.92rem}
+}
+</style>
+
 <script src="/js/script-2.js" defer></script>
 
 <!-- Favicon -->
@@ -196,7 +221,7 @@ Backpacking is often reduced to a stereotype: a young traveller with a large ruc
 </p>
 
 <p class="intro-p">
-As a global phenomenon, backpacking has evolved across centuries, adapting to shifts in technology, economics, and culture. Today it represents a substantial segment of the international travel market. According to the World Youth Student and Educational (WYSE) Travel Confederation, youth and backpacker travellers account for more than 23% of all international tourist arrivals, representing over 300 million trips annually. Their collective spending is estimated at over £250 billion per year, making backpacking not a fringe activity but a central pillar of global tourism.
+As a global phenomenon, backpacking has evolved across centuries, adapting to shifts in technology, economics, and culture. Today it represents a substantial segment of the international travel market. According to the World Youth Student and Educational (WYSE) Travel Confederation, youth and backpacker travellers account for more than 23% of all international tourist arrivals, representing over 300 million trips annually. Their collective spending is estimated at over €290 billion per year, making backpacking not a fringe activity but a central pillar of global tourism.
 </p>
 
 <h2 class="section-heading-desktop">Origins: From Aristocratic Travel to Countercultural Movement</h2>
@@ -242,7 +267,7 @@ The motivations behind backpacking are complex and multifaceted. For some, it re
 <h2 class="section-heading-desktop">The Global Backpacker Economy</h2>
 
 <p class="intro-p">
-Backpacking is not merely a cultural phenomenon; it is a significant economic force. Youth and backpacker travellers account for approximately one quarter of international tourism, with global spending estimated at over £250–300 billion annually. What distinguishes backpackers economically is not the amount they spend per day—typically lower than that of conventional tourists—but the duration and distribution of their spending.
+Backpacking is not merely a cultural phenomenon; it is a significant economic force. Youth and backpacker travellers account for approximately one quarter of international tourism, with global spending estimated at over €290–350 billion annually. What distinguishes backpackers economically is not the amount they spend per day—typically lower than that of conventional tourists—but the duration and distribution of their spending.
 </p>
 
 <p class="intro-p">
@@ -264,7 +289,7 @@ Popular destinations include cities such as Barcelona, Paris, Rome, Amsterdam, a
 </p>
 
 <p class="intro-p">
-Europe is home to an estimated 15,000 to 20,000 hostels, ranging from traditional dormitory-style accommodations to high-end “poshtels” that blend budget pricing with boutique design. Daily spending by backpackers in Europe typically ranges from £40 to £80, depending on the country, with higher costs in Western Europe balanced by lower prices in the east.
+Europe is home to an estimated 15,000 to 20,000 hostels, ranging from traditional dormitory-style accommodations to high-end “poshtels” that blend budget pricing with boutique design. Daily spending by backpackers in Europe typically ranges from €45 to €95, depending on the country, with higher costs in Western Europe balanced by lower prices in the east.
 </p>
 
 <h2 class="section-heading-desktop">Backpacking in Asia</h2>
@@ -274,7 +299,7 @@ Asia, particularly Southeast Asia, is widely regarded as the global epicentre of
 </p>
 
 <p class="intro-p">
-The appeal of Asia lies in its affordability, diversity, and accessibility. Daily budgets can be as low as £15–£30 in many parts of Southeast Asia, allowing travellers to extend their journeys significantly. At the same time, the region offers a wide range of experiences, from tropical beaches and dense jungles to ancient temples and rapidly modernising cities.
+The appeal of Asia lies in its affordability, diversity, and accessibility. Daily budgets can be as low as €18–€35 in many parts of Southeast Asia, allowing travellers to extend their journeys significantly. At the same time, the region offers a wide range of experiences, from tropical beaches and dense jungles to ancient temples and rapidly modernising cities.
 </p>
 
 <p class="intro-p">
@@ -296,7 +321,7 @@ South Africa serves as a major gateway, with well-developed infrastructure and a
 </p>
 
 <p class="intro-p">
-Daily spending varies widely, ranging from £30 to £70, depending on the region and style of travel. While the number of hostels is lower than in Europe or Asia, their distribution reflects key travel corridors, creating a functional if less dense network.
+Daily spending varies widely, ranging from €35 to €80, depending on the region and style of travel. While the number of hostels is lower than in Europe or Asia, their distribution reflects key travel corridors, creating a functional if less dense network.
 </p>
 
 <h2 class="section-heading-desktop">Backpacking in Australasia</h2>
@@ -306,7 +331,7 @@ Australia and New Zealand occupy a unique position within the global backpacking
 </p>
 
 <p class="intro-p">
-Australia’s east coast route, from Sydney to Cairns, is one of the most established backpacker trails in the world. New Zealand offers a similarly structured experience, with well-marked travel circuits across both the North and South Islands. Daily costs are significantly higher than in Asia, often exceeding £70–£100, but are offset by higher earning potential.
+Australia’s east coast route, from Sydney to Cairns, is one of the most established backpacker trails in the world. New Zealand offers a similarly structured experience, with well-marked travel circuits across both the North and South Islands. Daily costs are significantly higher than in Asia, often exceeding €80–€115, but are offset by higher earning potential.
 </p>
 
 <h2 class="section-heading-desktop">Backpacking in the Americas</h2>
@@ -320,7 +345,7 @@ In contrast, Central and South America have emerged as major backpacking regions
 </p>
 
 <p class="intro-p">
-Infrastructure in the region has improved significantly, with a growing number of hostels and transport options facilitating independent travel. Daily budgets typically range from £25 to £60, depending on the country.
+Infrastructure in the region has improved significantly, with a growing number of hostels and transport options facilitating independent travel. Daily budgets typically range from €30 to €70, depending on the country.
 </p>
 
 <h2 class="section-heading-desktop">The Digital Transformation of Backpacking</h2>
@@ -349,6 +374,82 @@ Hostel booking platforms such as Hostelworld list tens of thousands of propertie
 
 <p class="intro-p">
 Despite these technological advancements, the fundamental ethos of backpacking remains unchanged. It continues to prioritise independence, adaptability, and meaningful engagement with the world.
+</p>
+
+<h2 class="section-heading-desktop">Backpacking Costs Per Day: A Country-by-Country Comparison</h2>
+
+<p class="intro-p">
+One of the first things any backpacker wants to know is how far their money will go, and the answer varies enormously from one country to the next. The table below compares typical daily budgets in 41 popular backpacking destinations across six regions, at 2026 prices and in euros. Each range assumes a traveller who sleeps in hostel dorms or simple guesthouses, eats a mix of local food and self-catering, uses public transport and pays for a couple of low-cost activities each week.
+</p>
+
+<p class="intro-p">
+The figures exclude international flights, visas, travel insurance and big-ticket extras such as safaris, diving or multi-day treks, which can easily double a day's spending. The lower figure suits a slow, careful traveller who stays put for several days at a time; the upper figure suits someone who moves often, books private rooms or travels in peak season.
+</p>
+
+<div class="cost-table-wrap">
+<table class="cost-table">
+<caption>Typical backpacker budget per person per day, 2026 prices, in euros</caption>
+<thead>
+<tr><th scope="col">Country</th><th scope="col">Per day</th><th scope="col">What moves the number</th></tr>
+</thead>
+<tbody>
+<tr class="cost-table__region"><th scope="colgroup" colspan="3">Europe</th></tr>
+<tr><th scope="row" class="cost-table__country">Albania</th><td class="cost-table__cost">€30–€50</td><td class="cost-table__note">Cheapest in Europe; the coast costs more in July and August</td></tr>
+<tr><th scope="row" class="cost-table__country">Poland</th><td class="cost-table__cost">€35–€55</td><td class="cost-table__note">Strong value; Warsaw costs more than Kraków or Gdańsk</td></tr>
+<tr><th scope="row" class="cost-table__country">Czechia</th><td class="cost-table__cost">€40–€60</td><td class="cost-table__note">Prague is dearer than Brno and smaller towns</td></tr>
+<tr><th scope="row" class="cost-table__country">Portugal</th><td class="cost-table__cost">€50–€80</td><td class="cost-table__note">Lisbon and Porto beds and summer prices push it up</td></tr>
+<tr><th scope="row" class="cost-table__country">Spain</th><td class="cost-table__cost">€50–€80</td><td class="cost-table__note">Valencia and the interior are cheaper than Barcelona</td></tr>
+<tr><th scope="row" class="cost-table__country">Germany</th><td class="cost-table__cost">€50–€80</td><td class="cost-table__note">Leipzig and smaller cities are cheaper than Frankfurt</td></tr>
+<tr><th scope="row" class="cost-table__country">Greece</th><td class="cost-table__cost">€50–€85</td><td class="cost-table__note">Athens is fair value; islands and ferries cost far more</td></tr>
+<tr><th scope="row" class="cost-table__country">Croatia</th><td class="cost-table__cost">€55–€90</td><td class="cost-table__note">Summer coast, ferries and Dubrovnik raise it sharply</td></tr>
+<tr><th scope="row" class="cost-table__country">Italy</th><td class="cost-table__cost">€55–€95</td><td class="cost-table__note">Big-city beds and paid sights add up; early-booked trains are good value</td></tr>
+<tr><th scope="row" class="cost-table__country">France</th><td class="cost-table__cost">€60–€95</td><td class="cost-table__note">Lyon is cheaper than Paris</td></tr>
+<tr><th scope="row" class="cost-table__country">United Kingdom</th><td class="cost-table__cost">€60–€100</td><td class="cost-table__note">London drives the average; Manchester is better value</td></tr>
+<tr class="cost-table__region"><th scope="colgroup" colspan="3">Asia</th></tr>
+<tr><th scope="row" class="cost-table__country">Nepal</th><td class="cost-table__cost">€20–€40</td><td class="cost-table__note">Excellent value unless treks, flights and gear hire are added</td></tr>
+<tr><th scope="row" class="cost-table__country">Sri Lanka</th><td class="cost-table__cost">€20–€40</td><td class="cost-table__note">Safaris, surf camps and private drivers raise the average</td></tr>
+<tr><th scope="row" class="cost-table__country">Vietnam</th><td class="cost-table__cost">€20–€40</td><td class="cost-table__note">Sleeper buses and street food keep costs low</td></tr>
+<tr><th scope="row" class="cost-table__country">Cambodia</th><td class="cost-table__cost">€20–€40</td><td class="cost-table__note">Angkor passes and transport are the main spikes</td></tr>
+<tr><th scope="row" class="cost-table__country">India</th><td class="cost-table__cost">€20–€45</td><td class="cost-table__note">Very low, but private drivers and comfort upgrades change it fast</td></tr>
+<tr><th scope="row" class="cost-table__country">Indonesia</th><td class="cost-table__cost">€25–€50</td><td class="cost-table__note">Bali costs more than Java, Sumatra or Lombok</td></tr>
+<tr><th scope="row" class="cost-table__country">Thailand</th><td class="cost-table__cost">€30–€50</td><td class="cost-table__note">The north is cheaper; islands and party routes cost more</td></tr>
+<tr><th scope="row" class="cost-table__country">Malaysia</th><td class="cost-table__cost">€30–€55</td><td class="cost-table__note">Cities cost more than the food courts suggest; transport is easy</td></tr>
+<tr><th scope="row" class="cost-table__country">Georgia</th><td class="cost-table__cost">€30–€55</td><td class="cost-table__note">Great food and guesthouse value; mountain transport is the swing cost</td></tr>
+<tr><th scope="row" class="cost-table__country">Philippines</th><td class="cost-table__cost">€35–€60</td><td class="cost-table__note">Island hopping, boats and domestic flights add up</td></tr>
+<tr><th scope="row" class="cost-table__country">Turkey</th><td class="cost-table__cost">€40–€70</td><td class="cost-table__note">Istanbul and Cappadocia cost more; buses and local food help</td></tr>
+<tr><th scope="row" class="cost-table__country">South Korea</th><td class="cost-table__cost">€60–€105</td><td class="cost-table__note">Efficient transport; Seoul and Jeju push the average up</td></tr>
+<tr><th scope="row" class="cost-table__country">Japan</th><td class="cost-table__cost">€70–€120</td><td class="cost-table__note">Hostels and cheap food help; rail travel and attractions decide the total</td></tr>
+<tr class="cost-table__region"><th scope="colgroup" colspan="3">Africa</th></tr>
+<tr><th scope="row" class="cost-table__country">Egypt</th><td class="cost-table__cost">€20–€35</td><td class="cost-table__note">Cheap beds and food; site tickets are extra</td></tr>
+<tr><th scope="row" class="cost-table__country">Morocco</th><td class="cost-table__cost">€25–€45</td><td class="cost-table__note">Cheap dorms, street food and shared taxis</td></tr>
+<tr><th scope="row" class="cost-table__country">Kenya</th><td class="cost-table__cost">€30–€50</td><td class="cost-table__note">Safari and park fees are extra</td></tr>
+<tr><th scope="row" class="cost-table__country">Tanzania</th><td class="cost-table__cost">€30–€50</td><td class="cost-table__note">Park fees, safaris and Kilimanjaro are priced separately and dominate</td></tr>
+<tr><th scope="row" class="cost-table__country">South Africa</th><td class="cost-table__cost">€40–€75</td><td class="cost-table__note">Dorms and self-catering sit at the bottom; activities and the Christmas peak raise it</td></tr>
+<tr><th scope="row" class="cost-table__country">Namibia</th><td class="cost-table__cost">€55–€95</td><td class="cost-table__note">Long distances mean car hire or organised transfers</td></tr>
+<tr class="cost-table__region"><th scope="colgroup" colspan="3">North America</th></tr>
+<tr><th scope="row" class="cost-table__country">Mexico</th><td class="cost-table__cost">€25–€50</td><td class="cost-table__note">Tulum and the Caribbean coast cost more than Oaxaca or Chiapas</td></tr>
+<tr><th scope="row" class="cost-table__country">Canada</th><td class="cost-table__cost">€55–€95</td><td class="cost-table__note">Big-city hostels and the Rockies in summer cost most</td></tr>
+<tr><th scope="row" class="cost-table__country">United States</th><td class="cost-table__cost">€55–€100</td><td class="cost-table__note">Camping out west is far cheaper than hostel cities such as New York</td></tr>
+<tr class="cost-table__region"><th scope="colgroup" colspan="3">South America</th></tr>
+<tr><th scope="row" class="cost-table__country">Bolivia</th><td class="cost-table__cost">€20–€35</td><td class="cost-table__note">The cheapest country on the continent</td></tr>
+<tr><th scope="row" class="cost-table__country">Peru</th><td class="cost-table__cost">€25–€45</td><td class="cost-table__note">Machu Picchu entry and rail transfers can double a week</td></tr>
+<tr><th scope="row" class="cost-table__country">Colombia</th><td class="cost-table__cost">€30–€50</td><td class="cost-table__note">The Caribbean coast runs well above the interior</td></tr>
+<tr><th scope="row" class="cost-table__country">Argentina</th><td class="cost-table__cost">€30–€55</td><td class="cost-table__note">The exchange rate is volatile; Patagonia costs far more</td></tr>
+<tr><th scope="row" class="cost-table__country">Brazil</th><td class="cost-table__cost">€35–€55</td><td class="cost-table__note">Distances and coastal cities push it up</td></tr>
+<tr><th scope="row" class="cost-table__country">Chile</th><td class="cost-table__cost">€45–€60</td><td class="cost-table__note">Among the dearest countries in South America</td></tr>
+<tr class="cost-table__region"><th scope="colgroup" colspan="3">Oceania</th></tr>
+<tr><th scope="row" class="cost-table__country">New Zealand</th><td class="cost-table__cost">€60–€100</td><td class="cost-table__note">Dorm beds alone cost around €25–€30 a night; activities and transport add most</td></tr>
+<tr><th scope="row" class="cost-table__country">Australia</th><td class="cost-table__cost">€65–€110</td><td class="cost-table__note">Dorm beds, huge distances and tours are the big costs</td></tr>
+</tbody>
+</table>
+</div>
+
+<p class="intro-p">
+The pattern is clear. Nepal, Sri Lanka, Vietnam, Cambodia, Egypt and Bolivia are the cheapest places to travel, with a realistic day starting at around €20. Eastern Europe, Mexico, Colombia, Peru, Morocco and most of Southeast Asia sit in the middle, at roughly €30 to €55. Western Europe, Japan, North America and Australasia are in a different league, and a day there starts at around €50 to €65 even with dorm beds and self-catering. Peak seasons matter as much as geography: summer in Europe, Christmas in South Africa and New Zealand, and cherry-blossom season in Japan can all push a country towards the top of its range.
+</p>
+
+<p class="intro-p">
+These are planning estimates, not exact prices. They are drawn from several published 2026 cost surveys and country guides, compared against one another and rounded to the nearest five euros. The main sources were Backpacking Is Life's Backpacker Cost Index (updated September 2026), BestTravelScout's European budgets (April 2026), Brokepackr's Backpacker Cost Index, Latam Travellers' South American budgets, Baz Bus's South African costs, and hostel pricing from Hostelz and Budget Your Trip. Figures originally quoted in US dollars were converted at roughly US$1.15 to the euro, and South African prices at around R18.65 to the euro. Where sources disagreed, we favoured the range on which most of them overlapped. The data is thinnest, and the sources differ most, for Australia, New Zealand, Canada and Namibia, so treat those four with extra caution. Currency swings can also move prices quickly in places such as Argentina and South Africa.
 </p>
 
 <h2 class="section-heading-desktop">Conclusion</h2>
