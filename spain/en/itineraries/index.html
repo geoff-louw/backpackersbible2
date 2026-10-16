@@ -51,11 +51,11 @@
 <a class="skip-link" href="#site-nav">Skip to navigation</a>
 <a class="skip-link" href="#site-search">Skip to search</a>
 
+<!-- Header start -->
+
 <header id="site-header" aria-label="Site header">
 
-
     <div class="site-header__bar">
-
 
         <div class="site-header__branding">
 
@@ -67,15 +67,20 @@
                      height="80">
             </a>
 
-
             <div class="site-header__brand-text">
-
 
                 <div class="site-header__brand-row">
 
                     <span class="site-header__brand-name">BackpackersBible.com</span>
 
-                    <span class="site-header__location-badge">Tours of Spain</span>
+                    <!-- BREADCRUMB -->
+
+                    <nav class="site-header__breadcrumb" aria-label="Breadcrumb">
+                        <ol>
+                            <li><a href="/spain/en/">Spain</a></li>
+                            <li aria-current="page">Itineraries</li>
+                        </ol>
+                    </nav>
 
                 </div>
 
@@ -97,11 +102,8 @@
                 <span class="site-header__nav-toggle-bar" aria-hidden="true"></span>
             </button>
 
-
             <div class="site-header__search" id="site-search" role="search">
-
                 <div class="site-header__search-bar">
-
                     <input  class="site-header__search-input"
                             id="site-search-input"
                             type="search"
@@ -111,171 +113,181 @@
                             aria-autocomplete="list"
                             aria-controls="site-search-results"
                             aria-expanded="false">
-
                     <span class="site-header__search-icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true">
                             <circle cx="11" cy="11" r="7"/>
                             <line x1="16.5" y1="16.5" x2="22" y2="22"/>
                         </svg>
                     </span>
-
                 </div>
-
                 <div class="site-header__search-results"
                      id="site-search-results"
                      role="listbox"
                      aria-live="polite"
                      aria-label="Search results"></div>
-
             </div>
 
             <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
 
-                <div class="site-nav__item">
+                <!-- Home dropdown -->
 
-                    <button class="site-nav__mega-trigger site-nav__mega-trigger--downloads"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                            aria-controls="mega-downloads">
-                        ★ <strong>Free Offline Guides</strong>
-                    </button>
-
-                    <div class="site-nav__mega-menu site-nav__mega-menu--downloads" id="mega-downloads" role="menu" aria-label="Free offline guides">
-
-                        <div class="site-nav__mega-col">
-                            <h3 class="site-nav__mega-heading">PDF Hostel Guide</h3>
-                            <p class="site-nav__mega-desc">A compact interactive PDF with a clickable map and the contact details of every backpacking hostel in South Africa. No wifi needed — just save it to your phone and go.</p>
-                            <a href="/pdf/Backpackers_Bible_Lite-South_Africa.pdf"
-                               class="site-nav__mega-btn"
-                               target="_blank">
-                                Download PDF <span class="sr-only">(opens in a new tab)</span>
-                            </a>
-                            <p class="site-nav__mega-spec">(Interactive PDF — 800kb)</p>
-                        </div>
-
-                        <div class="site-nav__mega-col">
-                            <h3 class="site-nav__mega-heading">Full Backpackers Bible App</h3>
-                            <p class="site-nav__mega-desc">The complete guide — maps, regions, advice, tours, and hostel reviews — installed as an app icon on your home screen. Works fully offline, even in the Kalahari.</p>
-                            <a href="/#download-pwa" class="site-nav__mega-btn">
-                                Get the App →
-                            </a>
-                            <p class="site-nav__mega-spec">(Progressive Web App — free)</p>
-                        </div>
-
+                <div class="site-nav__item site-nav__item--dropdown">
+                    <button class="site-nav__mega-trigger" aria-haspopup="menu" aria-expanded="false" aria-controls="mega-home">Home</button>
+                    <div class="site-nav__mega-menu site-nav__mega-menu--dropdown" id="mega-home" role="menu" aria-label="Choose a guide">
+                        <!-- "Home" and "South Africa" both point at "/" for now because the SA guide IS the
+                             homepage until the front page is swapped over. Update both when that happens. -->
+                        <a href="/" role="menuitem">Home</a>
+                        <a href="/" role="menuitem">South Africa</a>
+                        <a href="/spain/en/" role="menuitem" aria-current="page">Spain</a>
                     </div>
-
                 </div>
 
-                <a href="/" class="site-nav__link">Home</a>
+                <!-- Regions / City Guides -->
 
                 <div class="site-nav__item">
-
-                    <button class="site-nav__mega-trigger"
-                            aria-haspopup="menu"
-                            aria-expanded="false"
-                            aria-controls="mega-regions">
-                        Backpacking South Africa
-                    </button>
-
-                    <div class="site-nav__mega-menu" id="mega-regions" role="menu" aria-label="Backpacking South Africa regions">
-
+                    <button class="site-nav__mega-trigger" aria-haspopup="menu" aria-expanded="false" aria-controls="mega-regions">Regions/City Guides</button>
+                    <div class="site-nav__mega-menu site-nav__mega-menu--4col" id="mega-regions" role="menu" aria-label="Regions and city guides">
                         <div class="site-nav__mega-col">
-                            <h3 class="site-nav__mega-heading">All Regions</h3>
-                            <a href="/backpacking-south-africa/" role="menuitem">Regions Map / Full Hostel Directory</a>
-                            <h3 class="site-nav__mega-heading">Popular</h3>
-                            <a href="/backpacking-south-africa/cape-town" role="menuitem">Cape Town</a>
-                            <a href="/backpacking-south-africa/winelands" role="menuitem">Winelands</a>
-                            <a href="/backpacking-south-africa/route-62" role="menuitem">Route 62</a>
-                            <a href="/backpacking-south-africa/garden-route" role="menuitem">Garden Route</a>
-                            <a href="/backpacking-south-africa/sunshine-coast" role="menuitem">Sunshine Coast</a>
-                            <a href="/backpacking-south-africa/wild-coast" role="menuitem">Wild Coast</a>
-                            <a href="/backpacking-south-africa/drakensberg" role="menuitem">Drakensberg</a>
-                            <a href="/backpacking-south-africa/zululand" role="menuitem">Zululand</a>
-                            <a href="/backpacking-south-africa/kruger" role="menuitem">Kruger National Park</a>
+                            <h3 class="site-nav__mega-heading">Start Here</h3>
+                            <a href="/spain/en/" role="menuitem">Spain Overview</a>
+                            <a href="/spain/en/regions/" role="menuitem">Regions Map</a>
+                            <h3 class="site-nav__mega-heading">Central Spain</h3>
+                            <a href="/spain/en/regions/madrid" role="menuitem">Madrid</a>
+                            <a href="/spain/en/regions/castile-and-leon" role="menuitem">Castile &amp; León</a>
+                            <a href="/spain/en/regions/castilla-la-mancha" role="menuitem">Castilla-La Mancha</a>
+                            <a href="/spain/en/regions/toledo" role="menuitem">Toledo</a>
+                            <a href="/spain/en/regions/aragon" role="menuitem">Aragón</a>
+                            <a href="/spain/en/regions/zaragoza" role="menuitem">Zaragoza</a>
+                            <a href="/spain/en/regions/pyrenees" role="menuitem">Pyrenees</a>
                         </div>
-
                         <div class="site-nav__mega-col">
-                            <h3 class="site-nav__mega-heading">The Interior</h3>
-                            <a href="/backpacking-south-africa/cederberg" role="menuitem">Cederberg</a>
-                            <a href="/backpacking-south-africa/karoo" role="menuitem">The Karoo</a>
-                            <a href="/backpacking-south-africa/eastern-cape-interior" role="menuitem">Eastern Cape Interior</a>
-                            <a href="/backpacking-south-africa/midlands" role="menuitem">KZN Midlands</a>
-                            <a href="/backpacking-south-africa/free-state" role="menuitem">Free State</a>
-                            <a href="/backpacking-south-africa/johannesburg" role="menuitem">Johannesburg</a>
-                            <a href="/backpacking-south-africa/pretoria" role="menuitem">Pretoria</a>
-                            <a href="/backpacking-south-africa/mpumalanga" role="menuitem">Mpumalanga</a>
-                            <a href="/backpacking-south-africa/limpopo" role="menuitem">Limpopo</a>
-                            <a href="/backpacking-south-africa/north-west" role="menuitem">North West</a>
-                            <a href="/backpacking-south-africa/northern-cape" role="menuitem">Northern Cape</a>
+                            <h3 class="site-nav__mega-heading">Catalonia &amp; the East</h3>
+                            <a href="/spain/en/regions/catalonia" role="menuitem">Catalonia</a>
+                            <a href="/spain/en/regions/barcelona" role="menuitem">Barcelona</a>
+                            <a href="/spain/en/regions/costa-brava" role="menuitem">Costa Brava</a>
+                            <a href="/spain/en/regions/valencia" role="menuitem">Valencia</a>
+                            <a href="/spain/en/regions/valencia-city" role="menuitem">Valencia City</a>
+                            <a href="/spain/en/regions/costa-blanca" role="menuitem">Costa Blanca</a>
+                            <a href="/spain/en/regions/murcia" role="menuitem">Murcia</a>
+                            <a href="/spain/en/regions/balearic-islands" role="menuitem">Balearic Islands</a>
+                            <a href="/spain/en/regions/ibiza" role="menuitem">Ibiza</a>
                         </div>
-
                         <div class="site-nav__mega-col">
-                            <h3 class="site-nav__mega-heading">The Coast</h3>
-                            <a href="/backpacking-south-africa/west-coast" role="menuitem">West Coast</a>
-                            <a href="/backpacking-south-africa/overberg" role="menuitem">Overberg</a>
-                            <a href="/backpacking-south-africa/durban" role="menuitem">Durban</a>
-                            <a href="/backpacking-south-africa/south-coast" role="menuitem">South Coast</a>
-                            <a href="/backpacking-south-africa/north-coast" role="menuitem">North Coast</a>
-                            <h3 class="site-nav__mega-heading">Neighbouring Countries</h3>
-                            <a href="/backpacking-south-africa/eswatini" role="menuitem">Eswatini</a>
-                            <a href="/backpacking-south-africa/lesotho" role="menuitem">Lesotho</a>
+                            <h3 class="site-nav__mega-heading">Andalusia &amp; the South</h3>
+                            <a href="/spain/en/regions/andalusia" role="menuitem">Andalusia</a>
+                            <a href="/spain/en/regions/seville" role="menuitem">Seville</a>
+                            <a href="/spain/en/regions/granada" role="menuitem">Granada</a>
+                            <a href="/spain/en/regions/malaga" role="menuitem">Malaga</a>
+                            <a href="/spain/en/regions/costa-del-sol" role="menuitem">Costa del Sol</a>
+                            <a href="/spain/en/regions/extremadura" role="menuitem">Extremadura</a>
+                            <a href="/spain/en/regions/canary-islands" role="menuitem">Canary Islands</a>
+                            <a href="/spain/en/regions/cueta-melilla" role="menuitem">Ceuta &amp; Melilla</a>
                         </div>
-
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">Green Spain &amp; the North</h3>
+                            <a href="/spain/en/regions/galicia" role="menuitem">Galicia</a>
+                            <a href="/spain/en/regions/camino-de-santiago" role="menuitem">Camino de Santiago</a>
+                            <a href="/spain/en/regions/asturias" role="menuitem">Asturias</a>
+                            <a href="/spain/en/regions/cantabria" role="menuitem">Cantabria</a>
+                            <a href="/spain/en/regions/basque-country" role="menuitem">Basque Country</a>
+                            <a href="/spain/en/regions/bilbao" role="menuitem">Bilbao</a>
+                            <a href="/spain/en/regions/navarre" role="menuitem">Navarre</a>
+                            <a href="/spain/en/regions/pamplona" role="menuitem">Pamplona</a>
+                            <a href="/spain/en/regions/la-rioja" role="menuitem">La Rioja</a>
+                        </div>
                     </div>
-
                 </div>
 
+                <!-- Hostels (hostel pages not built yet: /spain/en/hostels/<region>) -->
+                <div class="site-nav__item">
+                    <button class="site-nav__mega-trigger" aria-haspopup="menu" aria-expanded="false" aria-controls="mega-hostels">Hostels</button>
+                    <div class="site-nav__mega-menu site-nav__mega-menu--4col" id="mega-hostels" role="menu" aria-label="Hostels by region and city">
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">Start Here</h3>
+                            <a href="/spain/en/hostels/" role="menuitem">Full Hostel Directory</a>
+                            <h3 class="site-nav__mega-heading">Central Spain</h3>
+                            <a href="/spain/en/hostels/madrid" role="menuitem">Madrid</a>
+                            <a href="/spain/en/hostels/castile-and-leon" role="menuitem">Castile &amp; León</a>
+                            <a href="/spain/en/hostels/castilla-la-mancha" role="menuitem">Castilla-La Mancha</a>
+                            <a href="/spain/en/hostels/toledo" role="menuitem">Toledo</a>
+                            <a href="/spain/en/hostels/aragon" role="menuitem">Aragón</a>
+                            <a href="/spain/en/hostels/zaragoza" role="menuitem">Zaragoza</a>
+                            <a href="/spain/en/hostels/pyrenees" role="menuitem">Pyrenees</a>
+                        </div>
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">Catalonia &amp; the East</h3>
+                            <a href="/spain/en/hostels/catalonia" role="menuitem">Catalonia</a>
+                            <a href="/spain/en/hostels/barcelona" role="menuitem">Barcelona</a>
+                            <a href="/spain/en/hostels/costa-brava" role="menuitem">Costa Brava</a>
+                            <a href="/spain/en/hostels/valencia" role="menuitem">Valencia</a>
+                            <a href="/spain/en/hostels/valencia-city" role="menuitem">Valencia City</a>
+                            <a href="/spain/en/hostels/costa-blanca" role="menuitem">Costa Blanca</a>
+                            <a href="/spain/en/hostels/murcia" role="menuitem">Murcia</a>
+                            <a href="/spain/en/hostels/balearic-islands" role="menuitem">Balearic Islands</a>
+                            <a href="/spain/en/hostels/ibiza" role="menuitem">Ibiza</a>
+                        </div>
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">Andalusia &amp; the South</h3>
+                            <a href="/spain/en/hostels/andalusia" role="menuitem">Andalusia</a>
+                            <a href="/spain/en/hostels/seville" role="menuitem">Seville</a>
+                            <a href="/spain/en/hostels/granada" role="menuitem">Granada</a>
+                            <a href="/spain/en/hostels/malaga" role="menuitem">Malaga</a>
+                            <a href="/spain/en/hostels/costa-del-sol" role="menuitem">Costa del Sol</a>
+                            <a href="/spain/en/hostels/extremadura" role="menuitem">Extremadura</a>
+                            <a href="/spain/en/hostels/canary-islands" role="menuitem">Canary Islands</a>
+                            <a href="/spain/en/hostels/cueta-melilla" role="menuitem">Ceuta &amp; Melilla</a>
+                        </div>
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">Green Spain &amp; the North</h3>
+                            <a href="/spain/en/hostels/galicia" role="menuitem">Galicia</a>
+                            <a href="/spain/en/hostels/camino-de-santiago" role="menuitem">Camino de Santiago</a>
+                            <a href="/spain/en/hostels/asturias" role="menuitem">Asturias</a>
+                            <a href="/spain/en/hostels/cantabria" role="menuitem">Cantabria</a>
+                            <a href="/spain/en/hostels/basque-country" role="menuitem">Basque Country</a>
+                            <a href="/spain/en/hostels/bilbao" role="menuitem">Bilbao</a>
+                            <a href="/spain/en/hostels/navarre" role="menuitem">Navarre</a>
+                            <a href="/spain/en/hostels/pamplona" role="menuitem">Pamplona</a>
+                            <a href="/spain/en/hostels/la-rioja" role="menuitem">La Rioja</a>
+                        </div>
+                    </div>
+                </div>
 
-                <!-- Mega menu item: Advice -->
+                <!-- Advice -->
 
                 <div class="site-nav__item">
-
-                    <button class="site-nav__mega-trigger"
-                            aria-haspopup="menu"
-                            aria-expanded="false"
-                            aria-controls="mega-advice">
-                        Advice
-                    </button>
-
+                    <button class="site-nav__mega-trigger" aria-haspopup="menu" aria-expanded="false" aria-controls="mega-advice">Advice</button>
                     <div class="site-nav__mega-menu" id="mega-advice" role="menu" aria-label="Advice sections">
-
                         <div class="site-nav__mega-col">
                             <h3 class="site-nav__mega-heading">Preparation</h3>
-                            <a href="/backpacking-south-africa-advice/#checklists" role="menuitem">Preflight Checklist</a>
-                            <a href="/backpacking-south-africa-advice/#safety" role="menuitem">Safety</a>
-                            <a href="/backpacking-south-africa-advice/#money" role="menuitem">Money &amp; Budgeting</a>
-                            <a href="/backpacking-south-africa-advice/#medical" role="menuitem">Medical</a>
-                            <a href="/backpacking-south-africa-advice/#embassies" role="menuitem">Embassies</a>
-                            <a href="/backpacking-south-africa-advice/#cannabis" role="menuitem">Cannabis &amp; The Law</a>
-                            <a href="/backpacking-south-africa-advice/#apps" role="menuitem">Useful Apps</a>
+                            <a href="/spain/en/advice/#checklists" role="menuitem">Preflight Checklist</a>
+                            <a href="/spain/en/advice/#safety" role="menuitem">Staying Safe &amp; Travelling Well</a>
+                            <a href="/spain/en/advice/#money" role="menuitem">Money &amp; Budgeting</a>
+                            <a href="/spain/en/advice/#medical" role="menuitem">Medical</a>
+                            <a href="/spain/en/advice/#embassies" role="menuitem">Embassies</a>
+                            <a href="/spain/en/advice/#drinking" role="menuitem">Drinking &amp; Nightlife Laws</a>
+                            <a href="/spain/en/advice/#apps" role="menuitem">Useful Apps</a>
                         </div>
-
                         <div class="site-nav__mega-col">
                             <h3 class="site-nav__mega-heading">In-Country</h3>
-                            <a href="/backpacking-south-africa-advice/in-country#emergencies" role="menuitem">Emergencies</a>
-                            <a href="/backpacking-south-africa-advice/in-country#transport" role="menuitem">Transport</a>
-                            <a href="/backpacking-south-africa-advice/in-country#food-and-drink" role="menuitem">Food &amp; Drink</a>
-                            <a href="/backpacking-south-africa-advice/in-country#language" role="menuitem">Language</a>
-                            <a href="/backpacking-south-africa-advice/in-country#etiquette" role="menuitem">African Etiquette</a>
-                            <a href="/backpacking-south-africa-advice/in-country#games" role="menuitem">Fun &amp; Games</a>
-                            <a href="/backpacking-south-africa-advice/in-country#onward-travel" role="menuitem">Onward Travel</a>
+                            <a href="/spain/en/advice/in-country#emergencies" role="menuitem">Emergencies</a>
+                            <a href="/spain/en/advice/in-country#transport" role="menuitem">Transport</a>
+                            <a href="/spain/en/advice/in-country#food-and-drink" role="menuitem">Food &amp; Drink</a>
+                            <a href="/spain/en/advice/in-country#language" role="menuitem">Language</a>
+                            <a href="/spain/en/advice/in-country#etiquette" role="menuitem">Spanish Etiquette</a>
+                            <a href="/spain/en/advice/in-country#games" role="menuitem">Fun &amp; Games</a>
+                            <a href="/spain/en/advice/in-country#onward-travel" role="menuitem">Onward Travel</a>
                         </div>
-
                         <div class="site-nav__mega-col">
                             <h3 class="site-nav__mega-heading">Specific Interests</h3>
-                            <a href="/backpacking-south-africa-advice/specifics#festivals" role="menuitem">Clubs &amp; Festivals</a>
-                            <a href="/backpacking-south-africa-advice/specifics#digital-nomads" role="menuitem">Digital Nomads</a>
-                            <a href="/backpacking-south-africa-advice/specifics#surfing" role="menuitem">Surfing</a>
-                            <a href="/backpacking-south-africa-advice/specifics#overlanding" role="menuitem">Overlanding</a>
-                            <a href="/backpacking-south-africa-advice/specifics#cycling" role="menuitem">Cycle Touring</a>
-                            <a href="/backpacking-south-africa-advice/specifics#volunteering" role="menuitem">Volunteering</a>
-                            <a href="/backpacking-south-africa-advice/specifics#language-schools" role="menuitem">Language Schools</a>
+                            <a href="/spain/en/advice/specifics#festivals" role="menuitem">Fiestas &amp; Festivals</a>
+                            <a href="/spain/en/advice/specifics#digital-nomads" role="menuitem">Digital Nomads</a>
+                            <a href="/spain/en/advice/specifics#camino" role="menuitem">The Camino de Santiago</a>
+                            <a href="/spain/en/advice/specifics#surfing" role="menuitem">Surfing</a>
+                            <a href="/spain/en/advice/specifics#cycling" role="menuitem">Cycle Touring</a>
+                            <a href="/spain/en/advice/specifics#language-schools" role="menuitem">Language Schools</a>
                         </div>
-
                     </div>
-
                 </div>
-
 
                 <!-- Mega menu item: Itineraries -->
 
@@ -323,9 +335,7 @@
 
                 </div>
 
-    <a href="/misc/about-backpacking" class="site-nav__link">About Backpacking</a>
-
-    <a href="/misc/backpacking-resources" class="site-nav__link">Resources</a>
+                <a href="/misc/about-backpacking" class="site-nav__link">About Backpacking</a>
 
             </nav>
 
@@ -338,9 +348,7 @@
     <div class="site-header__strip site-header__strip--blue"   aria-hidden="true"></div>
     <div class="site-header__strip site-header__strip--green"  aria-hidden="true"></div>
 
-
 </header>
-
 
 <!-- Map Libre start -->
 
