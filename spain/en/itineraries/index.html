@@ -1911,14 +1911,12 @@ The Cercanías train to the airport.<br>
     </div>
 </div>
 
-<!-- Mobile menu -->
+    <!-- Mobile menu -->
 
 <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu" hidden>
 
-    <!-- Close button -->
     <button class="mobile-menu__close" id="mobile-menu-close" aria-label="Close navigation menu">&times;</button>
 
-    <!-- Search bar -->
     <div class="mobile-menu__search" role="search">
         <div class="mobile-menu__search-bar">
             <span class="mobile-menu__search-icon" aria-hidden="true">
@@ -1936,127 +1934,185 @@ The Cercanías train to the airport.<br>
                     aria-controls="mobile-menu-search-results"
                     aria-expanded="false">
         </div>
-        <!-- Results portal created by JS — this div is removed and replaced -->
         <div id="mobile-menu-search-results" class="mobile-menu__search-results" role="listbox" aria-live="polite" aria-label="Search results"></div>
     </div>
 
-    <!-- Nav links -->
-    <a href="/">Home</a>
+    <button class="accordion" aria-expanded="false" aria-controls="panel-home">HOME</button>
 
-    <button class="accordion" aria-expanded="false" aria-controls="panel-regions">BACKPACKING SOUTH AFRICA</button>
+    <div class="panel" id="panel-home" role="region" aria-label="Choose a guide">
+        <a href="/">Home</a>
+        <a href="/">South Africa</a>
+        <a href="/spain/en/" aria-current="page">Spain</a>
+    </div>
 
-    <div class="panel" id="panel-regions" role="region" aria-label="Backpacking South Africa regions">
-        <a href="/backpacking-south-africa/">Regions Map / Full Hostel Directory</a>
-        <a href="/backpacking-south-africa/cape-town">Cape Town</a>
-        <a href="/backpacking-south-africa/winelands">Winelands</a>
-        <a href="/backpacking-south-africa/west-coast">West Coast</a>
-        <a href="/backpacking-south-africa/cederberg">Cederberg</a>
-        <a href="/backpacking-south-africa/route-62">Route 62</a>
-        <a href="/backpacking-south-africa/overberg">The Overberg</a>
-        <a href="/backpacking-south-africa/garden-route">Garden Route</a>
-        <a href="/backpacking-south-africa/karoo">Karoo</a>
-        <a href="/backpacking-south-africa/sunshine-coast">Sunshine Coast</a>
-        <a href="/backpacking-south-africa/eastern-cape-interior">Eastern Cape Interior</a>
-        <a href="/backpacking-south-africa/wild-coast">Wild Coast</a>
-        <a href="/backpacking-south-africa/free-state">Free State</a>
-        <a href="/backpacking-south-africa/south-coast">South Coast</a>
-        <a href="/backpacking-south-africa/durban">Durban</a>
-        <a href="/backpacking-south-africa/north-coast">North Coast</a>
-        <a href="/backpacking-south-africa/midlands">Midlands</a>
-        <a href="/backpacking-south-africa/drakensberg">Drakensberg</a>
-        <a href="/backpacking-south-africa/zululand">Zululand</a>
-        <a href="/backpacking-south-africa/kruger">Kruger</a>
-        <a href="/backpacking-south-africa/mpumalanga">Mpumalanga</a>
-        <a href="/backpacking-south-africa/limpopo">Limpopo</a>
-        <a href="/backpacking-south-africa/johannesburg">Johannesburg</a>
-        <a href="/backpacking-south-africa/pretoria">Pretoria</a>
-        <a href="/backpacking-south-africa/north-west">North West</a>
-        <a href="/backpacking-south-africa/northern-cape">Northern Cape</a>
-        <a href="/backpacking-south-africa/eswatini">Eswatini</a>
-        <a href="/backpacking-south-africa/lesotho">Lesotho</a>
+    <button class="accordion" aria-expanded="false" aria-controls="panel-regions">REGIONS/CITY GUIDES</button>
+
+    <div class="panel" id="panel-regions" role="region" aria-label="Regions and city guides">
+        <h3>Spain Overview</h3>
+        <a href="/spain/en/regions/">Regions Map</a>
+        <h3>Central Spain</h3>
+        <a href="/spain/en/regions/madrid">Madrid</a>
+        <a href="/spain/en/regions/castile-and-leon">Castile &amp; León</a>
+        <a href="/spain/en/regions/castilla-la-mancha">Castilla-La Mancha</a>
+        <a href="/spain/en/regions/toledo">Toledo</a>
+        <a href="/spain/en/regions/aragon">Aragón</a>
+        <h3>Catalonia &amp; the East</h3>
+        <a href="/spain/en/regions/catalonia">Catalonia</a>
+        <a href="/spain/en/regions/barcelona">Barcelona</a>
+        <a href="/spain/en/regions/valencia">Valencia</a>
+        <a href="/spain/en/regions/murcia">Murcia</a>
+        <a href="/spain/en/regions/balearic-islands">Balearic Islands</a>
+        <h3>Andalusia &amp; the South</h3>
+        <a href="/spain/en/regions/andalusia">Andalusia</a>
+        <a href="/spain/en/regions/seville">Seville</a>
+        <a href="/spain/en/regions/extremadura">Extremadura</a>
+        <a href="/spain/en/regions/canary-islands">Canary Islands</a>
+        <a href="/spain/en/regions/cueta-melilla">Ceuta &amp; Melilla</a>
+        <h3>Green Spain &amp; the North</h3>
+        <a href="/spain/en/regions/galicia">Galicia</a>
+        <a href="/spain/en/regions/camino-de-santiago">Camino de Santiago</a>
+        <a href="/spain/en/regions/asturias">Asturias</a>
+        <a href="/spain/en/regions/cantabria">Cantabria</a>
+        <a href="/spain/en/regions/basque-country">Basque Country</a>
+        <a href="/spain/en/regions/navarre">Navarre</a>
+        <a href="/spain/en/regions/la-rioja">La Rioja</a>
+    </div>
+
+    <button class="accordion" aria-expanded="false" aria-controls="panel-hostels">HOSTELS</button>
+
+    <div class="panel" id="panel-hostels" role="region" aria-label="Hostels by region and city">
+
+        <h3>Start Here</h3>
+
+        <a href="/spain/en/hostels/">Full Hostel Directory</a>
+
+        <h3>Central Spain</h3>
+        <a href="/spain/en/hostels/madrid">Madrid</a>
+        <a href="/spain/en/hostels/castile-and-leon">Castile &amp; León</a>
+        <a href="/spain/en/hostels/castilla-la-mancha">Castilla-La Mancha</a>
+        <a href="/spain/en/hostels/toledo">Toledo</a>
+        <a href="/spain/en/hostels/aragon">Aragón</a>
+
+        <h3>Catalonia &amp; the East</h3>
+        <a href="/spain/en/hostels/catalonia">Catalonia</a>
+        <a href="/spain/en/hostels/barcelona">Barcelona</a>
+        <a href="/spain/en/hostels/valencia">Valencia</a>
+        <a href="/spain/en/hostels/murcia">Murcia</a>
+        <a href="/spain/en/hostels/balearic-islands">Balearic Islands</a>
+
+        <h3>Andalusia &amp; the South</h3>
+        <a href="/spain/en/hostels/andalusia">Andalusia</a>
+        <a href="/spain/en/hostels/seville">Seville</a>
+        <a href="/spain/en/hostels/extremadura">Extremadura</a>
+        <a href="/spain/en/hostels/canary-islands">Canary Islands</a>
+        <a href="/spain/en/hostels/cueta-melilla">Ceuta &amp; Melilla</a>
+        <h3>Green Spain &amp; the North</h3>
+        <a href="/spain/en/hostels/galicia">Galicia</a>
+        <a href="/spain/en/hostels/camino-de-santiago">Camino de Santiago</a>
+        <a href="/spain/en/hostels/asturias">Asturias</a>
+        <a href="/spain/en/hostels/cantabria">Cantabria</a>
+        <a href="/spain/en/hostels/basque-country">Basque Country</a>
+        <a href="/spain/en/hostels/navarre">Navarre</a>
+        <a href="/spain/en/hostels/la-rioja">La Rioja</a>
+
     </div>
 
     <button class="accordion" aria-expanded="false" aria-controls="panel-advice">ADVICE</button>
 
     <div class="panel" id="panel-advice" role="region" aria-label="Advice sections">
+
         <h3>Preparation</h3>
-        <a href="/backpacking-south-africa-advice/#checklists">Preflight Checklists</a>
-        <a href="/backpacking-south-africa-advice/#safety">Safety</a>
-        <a href="/backpacking-south-africa-advice/#money">Money</a>
-        <a href="/backpacking-south-africa-advice/#medical">Medical</a>
-        <a href="/backpacking-south-africa-advice/#embassies">Embassies</a>
-        <a href="/backpacking-south-africa-advice/#cannabis">Cannabis &amp; The Law</a>
-        <a href="/backpacking-south-africa-advice/#apps">Useful Apps</a>
+
+        <a href="/spain/en/advice/#checklists">Preflight Checklist</a>
+        <a href="/spain/en/advice/#safety">Staying Safe &amp; Travelling Well</a>
+        <a href="/spain/en/advice/#money">Money &amp; Budgeting</a>
+        <a href="/spain/en/advice/#medical">Medical</a>
+        <a href="/spain/en/advice/#embassies">Embassies</a>
+        <a href="/spain/en/advice/#drinking">Drinking &amp; Nightlife Laws</a>
+        <a href="/spain/en/advice/#apps">Useful Apps</a>
+
         <h3>In-Country</h3>
-        <a href="/backpacking-south-africa-advice/in-country#emergencies">Emergencies</a>
-        <a href="/backpacking-south-africa-advice/in-country#transport">Transport</a>
-        <a href="/backpacking-south-africa-advice/in-country#food-and-drink">Food &amp; Drink</a>
-        <a href="/backpacking-south-africa-advice/in-country#language">Language</a>
-        <a href="/backpacking-south-africa-advice/in-country#etiquette">African Etiquette</a>
-        <a href="/backpacking-south-africa-advice/in-country#games">Fun &amp; Games</a>
-        <a href="/backpacking-south-africa-advice/specifics#onward-travel">Onward Travel</a>
+
+        <a href="/spain/en/advice/in-country#emergencies">Emergencies</a>
+        <a href="/spain/en/advice/in-country#transport">Transport</a>
+        <a href="/spain/en/advice/in-country#food-and-drink">Food &amp; Drink</a>
+        <a href="/spain/en/advice/in-country#language">Language</a>
+        <a href="/spain/en/advice/in-country#etiquette">Spanish Etiquette</a>
+        <a href="/spain/en/advice/in-country#games">Fun &amp; Games</a>
+        <a href="/spain/en/advice/in-country#onward-travel">Onward Travel</a>
+
         <h3>Specific Interests</h3>
-        <a href="/backpacking-south-africa-advice/specifics#festivals">Festivals &amp; Clubs</a>
-        <a href="/backpacking-south-africa-advice/specifics#surfing">Surfing</a>
-        <a href="/backpacking-south-africa-advice/specifics#digital-nomads">Digital Nomads</a>
-        <a href="/backpacking-south-africa-advice/specifics#overlanding">Overlanding</a>
-        <a href="/backpacking-south-africa-advice/specifics#cycling">Cycle Touring</a>
-        <a href="/backpacking-south-africa-advice/specifics#volunteering">Volunteering</a>
-        <a href="/backpacking-south-africa-advice/specifics#language-schools">Language Schools</a>
+
+        <a href="/spain/en/advice/specifics#festivals">Fiestas &amp; Festivals</a>
+        <a href="/spain/en/advice/specifics#digital-nomads">Digital Nomads</a>
+        <a href="/spain/en/advice/specifics#camino">The Camino de Santiago</a>
+        <a href="/spain/en/advice/specifics#surfing">Surfing</a>
+        <a href="/spain/en/advice/specifics#cycling">Cycle Touring</a>
+        <a href="/spain/en/advice/specifics#language-schools">Language Schools</a>
+        <a href="/spain/en/advice/specifics#accessible-travel">Accessible Travel</a>
+
     </div>
 
-    <button class="accordion" aria-expanded="false" aria-controls="panel-tours">ITINERARIES</button>
+    <button class="accordion" aria-expanded="false" aria-controls="panel-itineraries">ITINERARIES</button>
 
-    <div class="panel" id="panel-tours" role="region" aria-label="Spain itineraries">
-        <h3>Short Stays</h3>
-        <a href="/spain/en/itineraries/#barcelona-5-days">5 Days: Barcelona City Stay</a>
-        <a href="/spain/en/itineraries/#madrid-5-days">5 Days: Madrid</a>
-        <a href="/spain/en/itineraries/#big-four">10 Days: The Big Four</a>
-        <h3>By Budget</h3>
-        <a href="/spain/en/itineraries/#shoestring">2 Weeks: The Shoestring Tour</a>
-        <a href="/spain/en/itineraries/#flashpacker">2 Weeks: The Flashpacker's Spain</a>
-        <a href="/spain/en/itineraries/#four-friends">10 Days: Four Friends and a Fiat</a>
-        <a href="/spain/en/itineraries/#party-tour">2 Weeks: The Party Hostel Tour</a>
-        <h3>Camino &amp; Long Trips</h3>
-        <a href="/spain/en/itineraries/#camino-frances">7 Days: Camino Francés</a>
-        <a href="/spain/en/itineraries/#immersion">1 Month: Spanish Immersion</a>
-        <a href="/spain/en/itineraries/#la-vuelta">3 Months: La Vuelta</a>
-        <h3>Different</h3>
-        <a href="/spain/en/itineraries/#accessible-spain">8 Days: Accessible Spain</a>
-        <a href="/spain/en/itineraries/#beyond-the-guidebook">3 Weeks: Beyond the Guidebook</a>
+    <div class="panel" id="panel-itineraries" role="region" aria-label="Itineraries">
+
+        <a href="/spain/en/itineraries/">All Itineraries</a>
+
+                            <h3 class="site-nav__mega-heading">Short Stays</h3>
+
+                            <a href="/spain/en/itineraries/#barcelona-5-days" role="menuitem">5 Days: Barcelona City Stay</a>
+                            <a href="/spain/en/itineraries/#madrid-5-days" role="menuitem">5 Days: Madrid</a>
+                            <a href="/spain/en/itineraries/#camino-frances" role="menuitem">7 Days: Camino Francés</a>
+                            <a href="/spain/en/itineraries/#accessible-spain" role="menuitem">8 Days: Accessible Spain</a>
+                            <a href="/spain/en/itineraries/#big-four" role="menuitem">10 Days: The Big Four</a>
+                            <a href="/spain/en/itineraries/#four-friends" role="menuitem">10 Days: Four Friends and a Fiat</a>
+                            <a href="/spain/en/itineraries/#party-tour" role="menuitem">2 Weeks: The Party Hostel Tour</a>
+
+        <h3><a href="/spain/en/itineraries/long-stays/">Long Stays</a></h3>
+
+                            <a href="/spain/en/itineraries/#beyond-the-guidebook" role="menuitem">3 Weeks: Beyond the Guidebook</a>
+                            <a href="/spain/en/itineraries/#immersion" role="menuitem">1 Month: Spanish Immersion</a>
+                            <a href="/spain/en/itineraries/#la-vuelta" role="menuitem">3 Months: La Vuelta</a>
+
+        <h3><a href="/spain/en/itineraries/budget/">By Budget</a></h3>
+
+                            <a href="/spain/en/itineraries/#shoestring" role="menuitem">2 Weeks: The Shoestring Tour</a>
+                            <a href="/spain/en/itineraries/#flashpacker" role="menuitem">2 Weeks: The Flashpacker's Spain</a>
+
     </div>
 
     <a href="/misc/about-backpacking">About Backpacking</a>
 
-    <a href="/misc/backpacking-resources">Resources</a>
-
-    <!-- Downloads accordion -->
     <button class="accordion accordion--downloads" aria-expanded="false" aria-controls="panel-downloads">★ FREE OFFLINE GUIDES</button>
 
     <div class="panel" id="panel-downloads" role="region" aria-label="Free offline guides">
+
         <h3>PDF Hostel Guide</h3>
-        <p class="panel__desc">A compact interactive PDF with a clickable map and every hostel's contact details. No wifi needed — just save it to your phone.</p>
-        <a href="/pdf/Backpackers_Bible_Lite-South_Africa.pdf" target="_blank">Download PDF <span class="sr-only">(opens in a new tab)</span></a>
-        <p class="panel__spec">(Interactive PDF — 800kb)</p>
+
+        <p class="panel__desc">A compact interactive PDF with a clickable map, reional guides and contact details of Spain's backpacking hostels. No wifi needed — just save it to your phone and go.</p>
+        <a href="#" target="_blank">Download PDF <span class="sr-only">(opens in a new tab)</span></a>
+        <p class="panel__spec">(Interactive PDF — 800kb - free)</p>
+
         <h3>Full Backpackers Bible App</h3>
-        <p class="panel__desc">The complete guide installed as an app icon on your home screen. Maps, regions, advice, tours, and hostel reviews — fully offline.</p>
-        <a href="/#download-pwa">Get the App →</a>
+
+        <p class="panel__desc">The complete guide — maps, regions, advice, tours, and hostel reviews — installed as an app icon on your home screen. Works fully offline.</p>
+        <a href="#">Get the App</a>
         <p class="panel__spec">(Progressive Web App — free)</p>
+
     </div>
 
-    <!-- WhatsApp share -->
     <a class="mobile-menu__share"
-       href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://backpackersbible.com"
+       href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://backpackersbible.com/spain/en/"
        target="_blank"
-       rel="noopener noreferrer"
-       aria-label="Share BackpackersBible.com on WhatsApp (opens in a new tab)">
-        <img src="/assets/whatsapp_icon_round.png" alt="" aria-hidden="true" width="45" height="45">
-        <span aria-hidden="true">SHARE</span>
+       rel="noopener noreferrer">
+        <img src="/assets/whatsapp_icon_round.png" alt="Share on WhatsApp" width="45" height="45">
+        SHARE <span class="sr-only">(opens in a new tab)</span>
     </a>
 
 </div>
 
-<!-- ARIA overrides for mobile menu and accordion are in script-2.js -->
+    <!-- Mobile menu end -->
 
 <!-- Map lazy-load + filter buttons -->
 <script>
