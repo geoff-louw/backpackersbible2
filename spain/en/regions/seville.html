@@ -55,7 +55,7 @@
 <a class="skip-link" href="#site-nav">Skip to navigation</a>
 <a class="skip-link" href="#site-search">Skip to search</a>
 
-<!-- Header start -->
+<!-- Header -->
 
 <header id="site-header" aria-label="Site header">
 
@@ -77,13 +77,12 @@
 
                     <span class="site-header__brand-name">BackpackersBible.com</span>
 
-                    <!-- BREADCRUMB — change the <ol> items per page type.
-                         Last item = current page: plain text, aria-current="page", no link. -->
+                    <!-- BREADCRUMB -->
+
                     <nav class="site-header__breadcrumb" aria-label="Breadcrumb">
                         <ol>
                             <li><a href="/spain/en/">Spain</a></li>
-                            <li><a href="/spain/en/regions/">Regions/Cities</a></li>
-                            <li aria-current="page">Seville</li>
+                            <li aria-current="page">Itineraries</li>
                         </ol>
                     </nav>
 
@@ -332,10 +331,15 @@
                             <a href="/spain/en/itineraries/#camino-frances" role="menuitem">7 Days: Camino Francés</a>
                             <a href="/spain/en/itineraries/#accessible-spain" role="menuitem">8 Days: Accessible Spain</a>
                             <a href="/spain/en/itineraries/#big-four" role="menuitem">10 Days: The Big Four</a>
+                            <a href="/spain/en/itineraries/#four-friends" role="menuitem">10 Days: Four Friends and a Fiat</a>
+                            <a href="/spain/en/itineraries/#green-coast-train" role="menuitem">10 Days: Slow Train Along the Green Coast</a>
+                            <a href="/spain/en/itineraries/#party-tour" role="menuitem">2 Weeks: The Party Hostel Tour</a>
+                            <a href="/spain/en/itineraries/#pride-and-beaches" role="menuitem">2 Weeks: Pride and Beaches (LGBTQ+)</a>
                         </div>
 
                         <div class="site-nav__mega-col">
                             <h3 class="site-nav__mega-heading">Long Trips</h3>
+                            <a href="/spain/en/itineraries/#north-to-south" role="menuitem">3 Weeks: North to South</a>
                             <a href="/spain/en/itineraries/#beyond-the-guidebook" role="menuitem">3 Weeks: Beyond the Guidebook</a>
                             <a href="/spain/en/itineraries/#immersion" role="menuitem">1 Month: Spanish Immersion</a>
                             <a href="/spain/en/itineraries/#la-vuelta" role="menuitem">3 Months: La Vuelta</a>
@@ -343,10 +347,8 @@
 
                         <div class="site-nav__mega-col">
                             <h3 class="site-nav__mega-heading">By Budget</h3>
-                            <a href="/spain/en/itineraries/#party-tour" role="menuitem">2 Weeks: The Party Hostel Tour</a>
                             <a href="/spain/en/itineraries/#shoestring" role="menuitem">2 Weeks: The Shoestring Tour</a>
                             <a href="/spain/en/itineraries/#flashpacker" role="menuitem">2 Weeks: The Flashpacker's Spain</a>
-                            <a href="/spain/en/itineraries/#four-friends" role="menuitem">10 Days: Four Friends and a Fiat</a>
                         </div>
 
                         <div class="site-nav__mega-col">
@@ -990,10 +992,6 @@
 
 <div class="hostel-grid-spacer"></div>
 
-     <!-- Spacer -->
-
-<div class="hostel-grid-spacer"></div>
-
      <!-- Section 3: Hostel Directory -->
 
 <section class="hostel-list-section" id="list-container">
@@ -1009,12 +1007,10 @@
             <a href="https://www.hostelworld.com/hostels/europe/spain/seville/" target="_blank" class="btn-hostelworld-com">HOSTELWORLD</a>
         </div>
 
-     <!-- Understanding Budget Accommodation -->
-
-<p class="intro-p"><strong>A quick note about Spanish accommodation:</strong> a <em>hostel</em>, <em>hostal</em> and <em>albergue</em> are not necessarily the same thing. Hostels are the familiar backpacker option, while a <em>hostal</em> is usually a cheap private guesthouse. <em>Albergue</em> can mean a youth hostel, municipal hostel, mountain refuge or Camino pilgrim hostel, each with different rules. Regional languages can add to the confusion too — for example, Catalonia uses <em>alberg</em> and the Basque Country uses <em>aterpetxe</em>. There are also networks such as REAJ, Hostelling International and Catalonia's Xanascat.</p>
-
-<p class="intro-p"><a href="https://www.backpackersbible.com/spain/en/#budget" class="blue-link">More info: understanding budget accommodation in Spain</a></p>
-
+<p class="section-cta__label"><strong>For a full list of hostels, see our</strong></p>
+<div class="section-cta">
+    <a href="/spain/en/hostels/seville" class="hostel-dir-btn">Seville Hostel Directory</a>
+</div>
 
      <!-- Spacer -->
 
@@ -1203,38 +1199,56 @@ window.BB_TIPS = [
         <div id="mobile-menu-search-results" class="mobile-menu__search-results" role="listbox" aria-live="polite" aria-label="Search results"></div>
     </div>
 
+    <button class="accordion accordion--downloads" aria-expanded="false" aria-controls="panel-downloads">★ FREE OFFLINE GUIDES</button>
+
+    <div class="panel" id="panel-downloads" role="region" aria-label="Free offline guides">
+
+        <h3>PDF Hostel Guide</h3>
+        <p class="panel__desc">A compact interactive PDF with a clickable map, reional guides and contact details of Spain's backpacking hostels. No wifi needed — just save it to your phone and go.</p>
+        <a href="#" target="_blank">Download PDF <span class="sr-only">(opens in a new tab)</span></a>
+        <p class="panel__spec">(Interactive PDF — 800kb — free)</p>
+        <h3>Full Backpackers Bible App</h3>
+        <p class="panel__desc">The complete guide — maps, regions, advice, tours, and hostel reviews — installed as an app icon on your home screen. Works fully offline.</p>
+        <a href="#">Get the App</a>
+        <p class="panel__spec">(Progressive Web App — free)</p>
+
+    </div>
+
     <button class="accordion" aria-expanded="false" aria-controls="panel-home">HOME</button>
 
     <div class="panel" id="panel-home" role="region" aria-label="Choose a guide">
+
         <a href="/">Home</a>
         <a href="/">South Africa</a>
         <a href="/spain/en/" aria-current="page">Spain</a>
+
     </div>
 
     <button class="accordion" aria-expanded="false" aria-controls="panel-regions">REGIONS/CITY GUIDES</button>
 
     <div class="panel" id="panel-regions" role="region" aria-label="Regions and city guides">
-        <h3>Spain Overview</h3>
+
+        <h3><a href="/spain/en/">Spain Overview</a></h3>
         <a href="/spain/en/regions/">Regions Map</a>
         <h3>Central Spain</h3>
         <a href="/spain/en/regions/madrid">Madrid</a>
-        <a href="/spain/en/regions/castile-and-leon">Castile &amp; León</a>
+        <a href="/spain/en/regions/castile-and-leon">Castile & León</a>
         <a href="/spain/en/regions/castilla-la-mancha">Castilla-La Mancha</a>
         <a href="/spain/en/regions/toledo">Toledo</a>
         <a href="/spain/en/regions/aragon">Aragón</a>
-        <h3>Catalonia &amp; the East</h3>
+        <h3>Catalonia & the East</h3>
         <a href="/spain/en/regions/catalonia">Catalonia</a>
         <a href="/spain/en/regions/barcelona">Barcelona</a>
         <a href="/spain/en/regions/valencia">Valencia</a>
         <a href="/spain/en/regions/murcia">Murcia</a>
         <a href="/spain/en/regions/balearic-islands">Balearic Islands</a>
-        <h3>Andalusia &amp; the South</h3>
+        <h3>Andalusia & the South</h3>
         <a href="/spain/en/regions/andalusia">Andalusia</a>
         <a href="/spain/en/regions/seville">Seville</a>
         <a href="/spain/en/regions/extremadura">Extremadura</a>
         <a href="/spain/en/regions/canary-islands">Canary Islands</a>
-        <a href="/spain/en/regions/cueta-melilla">Ceuta &amp; Melilla</a>
-        <h3>Green Spain &amp; the North</h3>
+        <a href="/spain/en/regions/cueta-melilla">Ceuta & Melilla</a>
+        <h3>Green Spain & the North</h3>
         <a href="/spain/en/regions/galicia">Galicia</a>
         <a href="/spain/en/regions/camino-de-santiago">Camino de Santiago</a>
         <a href="/spain/en/regions/asturias">Asturias</a>
@@ -1242,37 +1256,34 @@ window.BB_TIPS = [
         <a href="/spain/en/regions/basque-country">Basque Country</a>
         <a href="/spain/en/regions/navarre">Navarre</a>
         <a href="/spain/en/regions/la-rioja">La Rioja</a>
+
     </div>
 
     <button class="accordion" aria-expanded="false" aria-controls="panel-hostels">HOSTELS</button>
 
     <div class="panel" id="panel-hostels" role="region" aria-label="Hostels by region and city">
 
-        <h3>Start Here</h3>
-
-        <a href="/spain/en/hostels/">Full Hostel Directory</a>
-
+        <h3>All Backpacker Hostels</h3>
+        <a href="/spain/en/hostels">Hostel Directory</a>
         <h3>Central Spain</h3>
         <a href="/spain/en/hostels/madrid">Madrid</a>
-        <a href="/spain/en/hostels/castile-and-leon">Castile &amp; León</a>
+        <a href="/spain/en/hostels/castile-and-leon">Castile & León</a>
         <a href="/spain/en/hostels/castilla-la-mancha">Castilla-La Mancha</a>
         <a href="/spain/en/hostels/toledo">Toledo</a>
         <a href="/spain/en/hostels/aragon">Aragón</a>
-
-        <h3>Catalonia &amp; the East</h3>
+        <h3>Hostels in Catalonia & the East</h3>
         <a href="/spain/en/hostels/catalonia">Catalonia</a>
         <a href="/spain/en/hostels/barcelona">Barcelona</a>
         <a href="/spain/en/hostels/valencia">Valencia</a>
         <a href="/spain/en/hostels/murcia">Murcia</a>
         <a href="/spain/en/hostels/balearic-islands">Balearic Islands</a>
-
-        <h3>Andalusia &amp; the South</h3>
+        <h3>Hostels in Andalusia & the South</h3>
         <a href="/spain/en/hostels/andalusia">Andalusia</a>
         <a href="/spain/en/hostels/seville">Seville</a>
         <a href="/spain/en/hostels/extremadura">Extremadura</a>
         <a href="/spain/en/hostels/canary-islands">Canary Islands</a>
-        <a href="/spain/en/hostels/cueta-melilla">Ceuta &amp; Melilla</a>
-        <h3>Green Spain &amp; the North</h3>
+        <a href="/spain/en/hostels/cueta-melilla">Ceuta & Melilla</a>
+        <h3>Hostels in Green Spain & the North</h3>
         <a href="/spain/en/hostels/galicia">Galicia</a>
         <a href="/spain/en/hostels/camino-de-santiago">Camino de Santiago</a>
         <a href="/spain/en/hostels/asturias">Asturias</a>
@@ -1288,28 +1299,23 @@ window.BB_TIPS = [
     <div class="panel" id="panel-advice" role="region" aria-label="Advice sections">
 
         <h3>Preparation</h3>
-
         <a href="/spain/en/advice/#checklists">Preflight Checklist</a>
-        <a href="/spain/en/advice/#safety">Staying Safe &amp; Travelling Well</a>
-        <a href="/spain/en/advice/#money">Money &amp; Budgeting</a>
+        <a href="/spain/en/advice/#safety">Staying Safe & Travelling Well</a>
+        <a href="/spain/en/advice/#money">Money & Budgeting</a>
         <a href="/spain/en/advice/#medical">Medical</a>
         <a href="/spain/en/advice/#embassies">Embassies</a>
-        <a href="/spain/en/advice/#drinking">Drinking &amp; Nightlife Laws</a>
+        <a href="/spain/en/advice/#drinking">Drinking & Nightlife Laws</a>
         <a href="/spain/en/advice/#apps">Useful Apps</a>
-
         <h3>In-Country</h3>
-
         <a href="/spain/en/advice/in-country#emergencies">Emergencies</a>
         <a href="/spain/en/advice/in-country#transport">Transport</a>
-        <a href="/spain/en/advice/in-country#food-and-drink">Food &amp; Drink</a>
+        <a href="/spain/en/advice/in-country#food-and-drink">Food & Drink</a>
         <a href="/spain/en/advice/in-country#language">Language</a>
         <a href="/spain/en/advice/in-country#etiquette">Spanish Etiquette</a>
-        <a href="/spain/en/advice/in-country#games">Fun &amp; Games</a>
+        <a href="/spain/en/advice/in-country#games">Fun & Games</a>
         <a href="/spain/en/advice/in-country#onward-travel">Onward Travel</a>
-
         <h3>Specific Interests</h3>
-
-        <a href="/spain/en/advice/specifics#festivals">Fiestas &amp; Festivals</a>
+        <a href="/spain/en/advice/specifics#festivals">Fiestas & Festivals</a>
         <a href="/spain/en/advice/specifics#digital-nomads">Digital Nomads</a>
         <a href="/spain/en/advice/specifics#camino">The Camino de Santiago</a>
         <a href="/spain/en/advice/specifics#surfing">Surfing</a>
@@ -1321,52 +1327,53 @@ window.BB_TIPS = [
 
     <button class="accordion" aria-expanded="false" aria-controls="panel-itineraries">ITINERARIES</button>
 
-    <div class="panel" id="panel-itineraries" role="region" aria-label="Itineraries">
+    <div class="panel" id="panel-itineraries" role="region" aria-label="Spain itineraries">
 
-        <a href="/spain/en/itineraries/">All Itineraries</a>
-
-                            <h3 class="site-nav__mega-heading">Short Stays</h3>
-
-                            <a href="/spain/en/itineraries/#barcelona-5-days" role="menuitem">5 Days: Barcelona City Stay</a>
-                            <a href="/spain/en/itineraries/#madrid-5-days" role="menuitem">5 Days: Madrid</a>
-                            <a href="/spain/en/itineraries/#camino-frances" role="menuitem">7 Days: Camino Francés</a>
-                            <a href="/spain/en/itineraries/#accessible-spain" role="menuitem">8 Days: Accessible Spain</a>
-                            <a href="/spain/en/itineraries/#big-four" role="menuitem">10 Days: The Big Four</a>
-                            <a href="/spain/en/itineraries/#four-friends" role="menuitem">10 Days: Four Friends and a Fiat</a>
-                            <a href="/spain/en/itineraries/#party-tour" role="menuitem">2 Weeks: The Party Hostel Tour</a>
-
-        <h3><a href="/spain/en/itineraries/long-stays/">Long Stays</a></h3>
-
-                            <a href="/spain/en/itineraries/#beyond-the-guidebook" role="menuitem">3 Weeks: Beyond the Guidebook</a>
-                            <a href="/spain/en/itineraries/#immersion" role="menuitem">1 Month: Spanish Immersion</a>
-                            <a href="/spain/en/itineraries/#la-vuelta" role="menuitem">3 Months: La Vuelta</a>
-
-        <h3><a href="/spain/en/itineraries/budget/">By Budget</a></h3>
-
-                            <a href="/spain/en/itineraries/#shoestring" role="menuitem">2 Weeks: The Shoestring Tour</a>
-                            <a href="/spain/en/itineraries/#flashpacker" role="menuitem">2 Weeks: The Flashpacker's Spain</a>
+        <h3>Short Stays</h3>
+        <a href="/spain/en/itineraries/#barcelona-5-days">5 Days: Barcelona City Stay</a>
+        <a href="/spain/en/itineraries/#madrid-5-days">5 Days: Madrid</a>
+        <a href="/spain/en/itineraries/#camino-frances">7 Days: Camino Francés</a>
+        <a href="/spain/en/itineraries/#accessible-spain">8 Days: Accessible Spain</a>
+        <a href="/spain/en/itineraries/#big-four">10 Days: The Big Four</a>
+        <a href="/spain/en/itineraries/#four-friends">10 Days: Four Friends and a Fiat</a>
+        <a href="/spain/en/itineraries/#green-coast-train">10 Days: Slow Train Along the Green Coast</a>
+        <a href="/spain/en/itineraries/#party-tour">2 Weeks: The Party Hostel Tour</a>
+        <a href="/spain/en/itineraries/#pride-and-beaches">2 Weeks: Pride and Beaches (LGBTQ+)</a>
+        <h3>Long Trips</h3>
+        <a href="/spain/en/itineraries/#north-to-south">3 Weeks: North to South</a>
+        <a href="/spain/en/itineraries/#beyond-the-guidebook">3 Weeks: Beyond the Guidebook</a>
+        <a href="/spain/en/itineraries/#immersion">1 Month: Spanish Immersion</a>
+        <a href="/spain/en/itineraries/#la-vuelta">3 Months: La Vuelta</a>
+        <h3>By Budget</h3>
+        <a href="/spain/en/itineraries/#shoestring">2 Weeks: The Shoestring Tour</a>
+        <a href="/spain/en/itineraries/#flashpacker">2 Weeks: The Flashpacker's Spain</a>
+        <h3>Tours & Day Trips</h3>
+        <a href="/spain/en/regions/catalonia#gygtours">Catalonia</a>
+        <a href="/spain/en/regions/barcelona#gygtours">Barcelona</a>
+        <a href="/spain/en/regions/madrid#gygtours">Madrid</a>
+        <a href="/spain/en/regions/andalusia#gygtours">Andalusia</a>
+        <a href="/spain/en/regions/seville#gygtours">Seville</a>
+        <a href="/spain/en/regions/valencia#gygtours">Valencia</a>
+        <a href="/spain/en/regions/basque-country#gygtours">Basque Country</a>
+        <a href="/spain/en/regions/galicia#gygtours">Galicia</a>
+        <a href="/spain/en/regions/camino-de-santiago#gygtours">The Camino</a>
+        <a href="/spain/en/regions/asturias#gygtours">Asturias</a>
+        <a href="/spain/en/regions/cantabria#gygtours">Cantabria</a>
+        <a href="/spain/en/regions/castile-and-leon#gygtours">Castile y León</a>
+        <a href="/spain/en/regions/castilla-la-mancha#gygtours">Castilla-La Mancha</a>
+        <a href="/spain/en/regions/toledo#gygtours">Toledo</a>
+        <a href="/spain/en/regions/aragon#gygtours">Aragón</a>
+        <a href="/spain/en/regions/navarre#gygtours">Navarre</a>
+        <a href="/spain/en/regions/la-rioja#gygtours">La Rioja</a>
+        <a href="/spain/en/regions/extremadura#gygtours">Extremadura</a>
+        <a href="/spain/en/regions/murcia#gygtours">Murcia</a>
+        <a href="/spain/en/regions/balearic-islands#gygtours">Balearic Islands</a>
+        <a href="/spain/en/regions/canary-islands#gygtours">Canary Islands</a>
+        <a href="/spain/en/regions/cueta-melilla#gygtours">Ceuta & Melilla</a>
 
     </div>
 
     <a href="/misc/about-backpacking">About Backpacking</a>
-
-    <button class="accordion accordion--downloads" aria-expanded="false" aria-controls="panel-downloads">★ FREE OFFLINE GUIDES</button>
-
-    <div class="panel" id="panel-downloads" role="region" aria-label="Free offline guides">
-
-        <h3>PDF Hostel Guide</h3>
-
-        <p class="panel__desc">A compact interactive PDF with a clickable map, reional guides and contact details of Spain's backpacking hostels. No wifi needed — just save it to your phone and go.</p>
-        <a href="#" target="_blank">Download PDF <span class="sr-only">(opens in a new tab)</span></a>
-        <p class="panel__spec">(Interactive PDF — 800kb - free)</p>
-
-        <h3>Full Backpackers Bible App</h3>
-
-        <p class="panel__desc">The complete guide — maps, regions, advice, tours, and hostel reviews — installed as an app icon on your home screen. Works fully offline.</p>
-        <a href="#">Get the App</a>
-        <p class="panel__spec">(Progressive Web App — free)</p>
-
-    </div>
 
     <a class="mobile-menu__share"
        href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://backpackersbible.com/spain/en/"
