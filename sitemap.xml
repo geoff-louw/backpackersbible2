@@ -361,103 +361,208 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://www.backpackersbible.com/spain/en/regions/</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.backpackersbible.com/spain/en/regions/andalusia</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.backpackersbible.com/spain/en/regions/aragon</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.backpackersbible.com/spain/en/regions/asturias</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.backpackersbible.com/spain/en/regions/barcelona</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.backpackersbible.com/spain/en/regions/basque-country</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.backpackersbible.com/spain/en/regions/camino-de-santiago</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.backpackersbible.com/spain/en/regions/cantabria</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.backpackersbible.com/spain/en/regions/castile-and-leon</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.backpackersbible.com/spain/en/regions/castilla-la-mancha</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.backpackersbible.com/spain/en/regions/catalonia</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.backpackersbible.com/spain/en/regions/galicia</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.backpackersbible.com/spain/en/regions/madrid</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.backpackersbible.com/spain/en/regions/navarre</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.backpackersbible.com/spain/en/regions/seville</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.backpackersbible.com/spain/en/regions/toledo</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.backpackersbible.com/spain/en/regions/la-rioja</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.backpackersbible.com/spain/en/regions/extremadura</loc>
-    <lastmod>2026-10-05</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.backpackersbible.com/spain/en/regions/valencia</loc>
-    <lastmod>2026-09-10</lastmod>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.backpackersbible.com/spain/en/hostels/andalusia</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.backpackersbible.com/spain/en/hostels/aragon</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.backpackersbible.com/spain/en/hostels/asturias</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.backpackersbible.com/spain/en/hostels/barcelona</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.backpackersbible.com/spain/en/hostels/basque-country</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.backpackersbible.com/spain/en/hostels/camino-de-santiago</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.backpackersbible.com/spain/en/hostels/cantabria</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.backpackersbible.com/spain/en/hostels/castile-and-leon</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.backpackersbible.com/spain/en/hostels/catalonia</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.backpackersbible.com/spain/en/hostels/galicia</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.backpackersbible.com/spain/en/hostels/madrid</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.backpackersbible.com/spain/en/hostels/navarre</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.backpackersbible.com/spain/en/hostels/seville</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.backpackersbible.com/spain/en/hostels/toledo</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.backpackersbible.com/spain/en/hostels/la-rioja</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.backpackersbible.com/spain/en/hostels/extremadura</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.backpackersbible.com/spain/en/hostels/valencia</loc>
+    <lastmod>2026-10-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.backpackersbible.com/spain/en/advice/</loc>
-    <lastmod>2026-09-10</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.backpackersbible.com/spain/en/advice/</loc>
-    <lastmod>2026-09-10</lastmod>
+    <loc>https://www.backpackersbible.com/spain/en/advice/in-country</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.backpackersbible.com/spain/en/advice/specifics</loc>
+    <lastmod>2026-10-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.backpackersbible.com/spain/en/itineraries/</loc>
+    <lastmod>2026-10-18</lastmod>
     <priority>0.8</priority>
   </url>
 </urlset>
