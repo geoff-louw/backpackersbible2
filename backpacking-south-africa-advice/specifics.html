@@ -54,11 +54,11 @@
 <a class="skip-link" href="#site-nav">Skip to navigation</a>
 <a class="skip-link" href="#site-search">Skip to search</a>
 
+<!-- Header -->
+
 <header id="site-header" aria-label="Site header">
 
-
     <div class="site-header__bar">
-
 
         <div class="site-header__branding">
 
@@ -70,7 +70,6 @@
                      height="80">
             </a>
 
-
             <div class="site-header__brand-text">
 
 
@@ -78,7 +77,16 @@
 
                     <span class="site-header__brand-name">BackpackersBible.com</span>
 
-                    <span class="site-header__location-badge">Backpacking South Africa - Advice</span>
+                    <!-- BREADCRUMB -->
+
+                    <nav class="site-header__breadcrumb" aria-label="Breadcrumb">
+                        <ol>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/">South Africa</a></li>
+                            <li><a href="/backpacking-south-africa-advice/">Advice</a></li>
+                            <li aria-current="page">Specific Interests</li>
+                        </ol>
+                    </nav>
 
                 </div>
 
@@ -169,7 +177,16 @@
 
                 </div>
 
-                <a href="/" class="site-nav__link">Home</a>
+                <!-- Home dropdown -->
+
+                <div class="site-nav__item site-nav__item--dropdown">
+                    <button class="site-nav__mega-trigger" aria-haspopup="menu" aria-expanded="false" aria-controls="mega-home">Home</button>
+                    <div class="site-nav__mega-menu site-nav__mega-menu--dropdown" id="mega-home" role="menu" aria-label="Choose a guide">
+                        <a href="/" role="menuitem">Home</a>
+                        <a href="/" role="menuitem" aria-current="page">South Africa</a>
+                        <a href="/spain/en/" role="menuitem">Spain</a>
+                    </div>
+                </div>
 
                 <div class="site-nav__item">
 
@@ -222,6 +239,66 @@
                             <h3 class="site-nav__mega-heading">Neighbouring Countries</h3>
                             <a href="/backpacking-south-africa/eswatini" role="menuitem">Eswatini</a>
                             <a href="/backpacking-south-africa/lesotho" role="menuitem">Lesotho</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Hostels -->
+
+                <div class="site-nav__item">
+
+                    <button class="site-nav__mega-trigger"
+                            aria-haspopup="menu"
+                            aria-expanded="false"
+                            aria-controls="mega-hostels">
+                        Hostels
+                    </button>
+
+                    <div class="site-nav__mega-menu" id="mega-hostels" role="menu" aria-label="Hostels by region">
+
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">All Backpacker Hostels</h3>
+                            <a href="/south-africa-hostel-directory/" role="menuitem">Hostel Directory</a>
+                            <h3 class="site-nav__mega-heading">Popular</h3>
+                            <a href="/south-africa-hostel-directory/cape-town" role="menuitem">Cape Town</a>
+                            <a href="/south-africa-hostel-directory/winelands" role="menuitem">Winelands</a>
+                            <a href="/south-africa-hostel-directory/route-62" role="menuitem">Route 62</a>
+                            <a href="/south-africa-hostel-directory/garden-route" role="menuitem">Garden Route</a>
+                            <a href="/south-africa-hostel-directory/sunshine-coast" role="menuitem">Sunshine Coast</a>
+                            <a href="/south-africa-hostel-directory/wild-coast" role="menuitem">Wild Coast</a>
+                            <a href="/south-africa-hostel-directory/drakensberg" role="menuitem">Drakensberg</a>
+                            <a href="/south-africa-hostel-directory/zululand" role="menuitem">Zululand</a>
+                            <a href="/south-africa-hostel-directory/kruger" role="menuitem">Kruger National Park</a>
+                        </div>
+
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">The Interior</h3>
+                            <a href="/south-africa-hostel-directory/cederberg" role="menuitem">Cederberg</a>
+                            <a href="/south-africa-hostel-directory/karoo" role="menuitem">The Karoo</a>
+                            <a href="/south-africa-hostel-directory/eastern-cape-interior" role="menuitem">Eastern Cape Interior</a>
+                            <a href="/south-africa-hostel-directory/midlands" role="menuitem">KZN Midlands</a>
+                            <a href="/south-africa-hostel-directory/free-state" role="menuitem">Free State</a>
+                            <a href="/south-africa-hostel-directory/johannesburg" role="menuitem">Johannesburg</a>
+                            <a href="/south-africa-hostel-directory/pretoria" role="menuitem">Pretoria</a>
+                            <a href="/south-africa-hostel-directory/mpumalanga" role="menuitem">Mpumalanga</a>
+                            <a href="/south-africa-hostel-directory/limpopo" role="menuitem">Limpopo</a>
+                            <a href="/south-africa-hostel-directory/north-west" role="menuitem">North West</a>
+                            <a href="/south-africa-hostel-directory/northern-cape" role="menuitem">Northern Cape</a>
+                        </div>
+
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">The Coast</h3>
+                            <a href="/south-africa-hostel-directory/west-coast" role="menuitem">West Coast</a>
+                            <a href="/south-africa-hostel-directory/overberg" role="menuitem">Overberg</a>
+                            <a href="/south-africa-hostel-directory/durban" role="menuitem">Durban</a>
+                            <a href="/south-africa-hostel-directory/south-coast" role="menuitem">South Coast</a>
+                            <a href="/south-africa-hostel-directory/north-coast" role="menuitem">North Coast</a>
+                            <h3 class="site-nav__mega-heading">Neighbouring Countries</h3>
+                            <a href="/south-africa-hostel-directory/eswatini" role="menuitem">Eswatini</a>
+                            <a href="/south-africa-hostel-directory/lesotho" role="menuitem">Lesotho</a>
                         </div>
 
                     </div>
@@ -338,8 +415,6 @@
 
     <a href="/misc/about-backpacking" class="site-nav__link">About Backpacking</a>
 
-    <a href="/misc/backpacking-resources" class="site-nav__link">Resources</a>
-
             </nav>
 
         </div>
@@ -350,7 +425,6 @@
     <div class="site-header__strip site-header__strip--yellow" aria-hidden="true"></div>
     <div class="site-header__strip site-header__strip--blue"   aria-hidden="true"></div>
     <div class="site-header__strip site-header__strip--green"  aria-hidden="true"></div>
-
 
 </header>
 
@@ -1110,9 +1184,30 @@
         <div id="mobile-menu-search-results" class="mobile-menu__search-results" role="listbox" aria-live="polite" aria-label="Search results"></div>
     </div>
 
-    <!-- Nav links -->
-    <a href="/">Home</a>
+    <!-- Downloads accordion -->
+    <button class="accordion accordion--downloads" aria-expanded="false" aria-controls="panel-downloads">★ FREE OFFLINE GUIDES</button>
 
+    <div class="panel" id="panel-downloads" role="region" aria-label="Free offline guides">
+        <h3>PDF Hostel Guide</h3>
+        <p class="panel__desc">A compact interactive PDF with a clickable map and every hostel's contact details. No wifi needed — just save it to your phone.</p>
+        <a href="/pdf/Backpackers_Bible_Lite-South_Africa.pdf" target="_blank">Download PDF <span class="sr-only">(opens in a new tab)</span></a>
+        <p class="panel__spec">(Interactive PDF — 800kb)</p>
+        <h3>Full Backpackers Bible App</h3>
+        <p class="panel__desc">The complete guide installed as an app icon on your home screen. Maps, regions, advice, tours, and hostel reviews — fully offline.</p>
+        <a href="/#download-pwa">Get the App →</a>
+        <p class="panel__spec">(Progressive Web App — free)</p>
+    </div>
+
+    <!-- Home dropdown -->
+    <button class="accordion" aria-expanded="false" aria-controls="panel-home">HOME</button>
+
+    <div class="panel" id="panel-home" role="region" aria-label="Choose a guide">
+        <a href="/">Home</a>
+        <a href="/" aria-current="page">South Africa</a>
+        <a href="/spain/en/">Spain</a>
+    </div>
+
+    <!-- Nav links -->
     <button class="accordion" aria-expanded="false" aria-controls="panel-regions">BACKPACKING SOUTH AFRICA</button>
 
     <div class="panel" id="panel-regions" role="region" aria-label="Backpacking South Africa regions">
@@ -1144,6 +1239,44 @@
         <a href="/backpacking-south-africa/northern-cape">Northern Cape</a>
         <a href="/backpacking-south-africa/eswatini">Eswatini</a>
         <a href="/backpacking-south-africa/lesotho">Lesotho</a>
+    </div>
+
+    <button class="accordion" aria-expanded="false" aria-controls="panel-hostels">HOSTELS</button>
+
+    <div class="panel" id="panel-hostels" role="region" aria-label="Hostels by region">
+        <h3>All Backpacker Hostels</h3>
+        <a href="/south-africa-hostel-directory/">Hostel Directory</a>
+        <h3>Popular</h3>
+        <a href="/south-africa-hostel-directory/cape-town">Cape Town</a>
+        <a href="/south-africa-hostel-directory/winelands">Winelands</a>
+        <a href="/south-africa-hostel-directory/route-62">Route 62</a>
+        <a href="/south-africa-hostel-directory/garden-route">Garden Route</a>
+        <a href="/south-africa-hostel-directory/sunshine-coast">Sunshine Coast</a>
+        <a href="/south-africa-hostel-directory/wild-coast">Wild Coast</a>
+        <a href="/south-africa-hostel-directory/drakensberg">Drakensberg</a>
+        <a href="/south-africa-hostel-directory/zululand">Zululand</a>
+        <a href="/south-africa-hostel-directory/kruger">Kruger</a>
+        <h3>The Interior</h3>
+        <a href="/south-africa-hostel-directory/cederberg">Cederberg</a>
+        <a href="/south-africa-hostel-directory/karoo">Karoo</a>
+        <a href="/south-africa-hostel-directory/eastern-cape-interior">Eastern Cape Interior</a>
+        <a href="/south-africa-hostel-directory/midlands">Midlands</a>
+        <a href="/south-africa-hostel-directory/free-state">Free State</a>
+        <a href="/south-africa-hostel-directory/johannesburg">Johannesburg</a>
+        <a href="/south-africa-hostel-directory/pretoria">Pretoria</a>
+        <a href="/south-africa-hostel-directory/mpumalanga">Mpumalanga</a>
+        <a href="/south-africa-hostel-directory/limpopo">Limpopo</a>
+        <a href="/south-africa-hostel-directory/north-west">North West</a>
+        <a href="/south-africa-hostel-directory/northern-cape">Northern Cape</a>
+        <h3>The Coast</h3>
+        <a href="/south-africa-hostel-directory/west-coast">West Coast</a>
+        <a href="/south-africa-hostel-directory/overberg">The Overberg</a>
+        <a href="/south-africa-hostel-directory/durban">Durban</a>
+        <a href="/south-africa-hostel-directory/south-coast">South Coast</a>
+        <a href="/south-africa-hostel-directory/north-coast">North Coast</a>
+        <h3>Neighbouring Countries</h3>
+        <a href="/south-africa-hostel-directory/eswatini">Eswatini</a>
+        <a href="/south-africa-hostel-directory/lesotho">Lesotho</a>
     </div>
 
     <button class="accordion" aria-expanded="false" aria-controls="panel-advice">ADVICE</button>
@@ -1210,22 +1343,6 @@
 
     <a href="/misc/about-backpacking">About Backpacking</a>
 
-    <a href="/misc/backpacking-resources">Resources</a>
-
-    <!-- Downloads accordion -->
-    <button class="accordion accordion--downloads" aria-expanded="false" aria-controls="panel-downloads">★ FREE OFFLINE GUIDES</button>
-
-    <div class="panel" id="panel-downloads" role="region" aria-label="Free offline guides">
-        <h3>PDF Hostel Guide</h3>
-        <p class="panel__desc">A compact interactive PDF with a clickable map and every hostel's contact details. No wifi needed — just save it to your phone.</p>
-        <a href="/pdf/Backpackers_Bible_Lite-South_Africa.pdf" target="_blank">Download PDF <span class="sr-only">(opens in a new tab)</span></a>
-        <p class="panel__spec">(Interactive PDF — 800kb)</p>
-        <h3>Full Backpackers Bible App</h3>
-        <p class="panel__desc">The complete guide installed as an app icon on your home screen. Maps, regions, advice, tours, and hostel reviews — fully offline.</p>
-        <a href="/#download-pwa">Get the App →</a>
-        <p class="panel__spec">(Progressive Web App — free)</p>
-    </div>
-
     <!-- WhatsApp share -->
     <a class="mobile-menu__share"
        href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://backpackersbible.com"
@@ -1237,7 +1354,7 @@
 
 </div>
 
-<!-- ARIA overrides for mobile menu and accordion are in script-2.js -->
+<!-- Mobile menu end -->
 
 <!-- Schema markup -->
 <script type="application/ld+json">
