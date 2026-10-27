@@ -74,11 +74,11 @@
 <a class="skip-link" href="#site-nav">Skip to navigation</a>
 <a class="skip-link" href="#site-search">Skip to search</a>
 
-<!-- Header -->
-
 <header id="site-header" aria-label="Site header">
 
+
     <div class="site-header__bar">
+
 
         <div class="site-header__branding">
 
@@ -90,21 +90,15 @@
                      height="80">
             </a>
 
+
             <div class="site-header__brand-text">
+
 
                 <div class="site-header__brand-row">
 
                     <span class="site-header__brand-name">BackpackersBible.com</span>
 
-                    <!-- BREADCRUMB -->
-
-                    <nav class="site-header__breadcrumb" aria-label="Breadcrumb">
-                        <ol>
-                            <li><a href="/">Home</a></li>
-                            <li><a href="/">South Africa</a></li>
-                            <li aria-current="page">Cape Town</li>
-                        </ol>
-                    </nav>
+                    <span class="site-header__location-badge">Cape Town</span>
 
                 </div>
 
@@ -126,8 +120,11 @@
                 <span class="site-header__nav-toggle-bar" aria-hidden="true"></span>
             </button>
 
+
             <div class="site-header__search" id="site-search" role="search">
+
                 <div class="site-header__search-bar">
+
                     <input  class="site-header__search-input"
                             id="site-search-input"
                             type="search"
@@ -137,27 +134,27 @@
                             aria-autocomplete="list"
                             aria-controls="site-search-results"
                             aria-expanded="false">
+
                     <span class="site-header__search-icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true">
                             <circle cx="11" cy="11" r="7"/>
                             <line x1="16.5" y1="16.5" x2="22" y2="22"/>
                         </svg>
                     </span>
+
                 </div>
+
                 <div class="site-header__search-results"
                      id="site-search-results"
                      role="listbox"
                      aria-live="polite"
                      aria-label="Search results"></div>
-            </div>
 
-            <!-- Mega Menu -->
+            </div>
 
             <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
 
-            <!-- Downloads -->
-
-<div class="site-nav__item">
+                <div class="site-nav__item">
 
                     <button class="site-nav__mega-trigger site-nav__mega-trigger--downloads"
                             aria-haspopup="true"
@@ -176,12 +173,12 @@
                                target="_blank">
                                 Download PDF <span class="sr-only">(opens in a new tab)</span>
                             </a>
-                            <p class="site-nav__mega-spec">(Interactive PDF — 5mb — free)</p>
+                            <p class="site-nav__mega-spec">(Interactive PDF — 800kb)</p>
                         </div>
 
                         <div class="site-nav__mega-col">
                             <h3 class="site-nav__mega-heading">Full Backpackers Bible App</h3>
-                            <p class="site-nav__mega-desc">The complete guide — maps, regions, advice, tours, and hostel reviews — installed as an app icon on your home screen. Works fully offline.</p>
+                            <p class="site-nav__mega-desc">The complete guide — maps, regions, advice, tours, and hostel reviews — installed as an app icon on your home screen. Works fully offline, even in the Kalahari.</p>
                             <a href="/#download-pwa" class="site-nav__mega-btn">
                                 Get the App →
                             </a>
@@ -192,27 +189,20 @@
 
                 </div>
 
-                <!-- Home dropdown -->
-
-                <div class="site-nav__item site-nav__item--dropdown">
-                    <button class="site-nav__mega-trigger" aria-haspopup="menu" aria-expanded="false" aria-controls="mega-home">Home</button>
-                    <div class="site-nav__mega-menu site-nav__mega-menu--dropdown" id="mega-home" role="menu" aria-label="Choose a guide">
-                        <a href="/" role="menuitem">Home</a>
-                        <a href="/" role="menuitem">South Africa</a>
-                        <a href="/spain/en/" role="menuitem" aria-current="page">Spain</a>
-                    </div>
-                </div>
-
-                <!-- Regions / City Guides -->
+                <a href="/" class="site-nav__link">Home</a>
 
                 <div class="site-nav__item">
-                    <button class="site-nav__mega-trigger" aria-haspopup="menu" aria-expanded="false" aria-controls="mega-regions">Regions/City Guides</button>
-                    <div class="site-nav__mega-menu site-nav__mega-menu--4col" id="mega-regions" role="menu" aria-label="Regions and city guides">
 
+                    <button class="site-nav__mega-trigger"
+                            aria-haspopup="menu"
+                            aria-expanded="false"
+                            aria-controls="mega-regions">
+                        Backpacking South Africa
+                    </button>
+
+                    <div class="site-nav__mega-menu" id="mega-regions" role="menu" aria-label="Backpacking South Africa regions">
 
                         <div class="site-nav__mega-col">
-
-<div class="site-nav__mega-col">
                             <h3 class="site-nav__mega-heading">All Regions</h3>
                             <a href="/backpacking-south-africa/" role="menuitem">Regions Map / Full Hostel Directory</a>
                             <h3 class="site-nav__mega-heading">Popular</h3>
@@ -253,67 +243,25 @@
                             <a href="/backpacking-south-africa/eswatini" role="menuitem">Eswatini</a>
                             <a href="/backpacking-south-africa/lesotho" role="menuitem">Lesotho</a>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Hostels -->
-
-                <div class="site-nav__item">
-                    <button class="site-nav__mega-trigger" aria-haspopup="menu" aria-expanded="false" aria-controls="mega-hostels">Hostels</button>
-                    <div class="site-nav__mega-menu site-nav__mega-menu--4col" id="mega-hostels" role="menu" aria-label="Hostels by region and city">
-                        
-
-<div class="site-nav__mega-col">
-                            <h3 class="site-nav__mega-heading">All Regions</h3>
-                            <a href="/south-africa-hostel-directory/" role="menuitem">Full Hostel Directory</a>
-                            <h3 class="site-nav__mega-heading">Popular</h3>
-                            <a href="/south-africa-hostel-directory/cape-town" role="menuitem">Cape Town</a>
-                            <a href="/south-africa-hostel-directory/winelands" role="menuitem">Winelands</a>
-                            <a href="/south-africa-hostel-directory/route-62" role="menuitem">Route 62</a>
-                            <a href="/south-africa-hostel-directory/garden-route" role="menuitem">Garden Route</a>
-                            <a href="/south-africa-hostel-directory/sunshine-coast" role="menuitem">Sunshine Coast</a>
-                            <a href="/south-africa-hostel-directory/wild-coast" role="menuitem">Wild Coast</a>
-                            <a href="/south-africa-hostel-directory/drakensberg" role="menuitem">Drakensberg</a>
-                            <a href="/south-africa-hostel-directory/zululand" role="menuitem">Zululand</a>
-                            <a href="/south-africa-hostel-directory/kruger" role="menuitem">Kruger National Park</a>
-                        </div>
-
-                        <div class="site-nav__mega-col">
-                            <h3 class="site-nav__mega-heading">The Interior</h3>
-                            <a href="/south-africa-hostel-directory/cederberg" role="menuitem">Cederberg</a>
-                            <a href="/south-africa-hostel-directory/karoo" role="menuitem">The Karoo</a>
-                            <a href="/south-africa-hostel-directory/eastern-cape-interior" role="menuitem">Eastern Cape Interior</a>
-                            <a href="/south-africa-hostel-directory/midlands" role="menuitem">KZN Midlands</a>
-                            <a href="/south-africa-hostel-directory/free-state" role="menuitem">Free State</a>
-                            <a href="/south-africa-hostel-directory/johannesburg" role="menuitem">Johannesburg</a>
-                            <a href="/south-africa-hostel-directory/pretoria" role="menuitem">Pretoria</a>
-                            <a href="/south-africa-hostel-directory/mpumalanga" role="menuitem">Mpumalanga</a>
-                            <a href="/south-africa-hostel-directory/limpopo" role="menuitem">Limpopo</a>
-                            <a href="/south-africa-hostel-directory/north-west" role="menuitem">North West</a>
-                            <a href="/south-africa-hostel-directory/northern-cape" role="menuitem">Northern Cape</a>
-                        </div>
-
-                        <div class="site-nav__mega-col">
-                            <h3 class="site-nav__mega-heading">The Coast</h3>
-                            <a href="/south-africa-hostel-directory/west-coast" role="menuitem">West Coast</a>
-                            <a href="/south-africa-hostel-directory/overberg" role="menuitem">Overberg</a>
-                            <a href="/south-africa-hostel-directory/durban" role="menuitem">Durban</a>
-                            <a href="/south-africa-hostel-directory/south-coast" role="menuitem">South Coast</a>
-                            <a href="/south-africa-hostel-directory/north-coast" role="menuitem">North Coast</a>
-                            <h3 class="site-nav__mega-heading">Neighbouring Countries</h3>
-                            <a href="/south-africa-hostel-directory/eswatini" role="menuitem">Eswatini</a>
-                            <a href="/south-africa-hostel-directory/lesotho" role="menuitem">Lesotho</a>
-                        </div>
-
 
                     </div>
+
                 </div>
 
-                <!-- Advice -->
+
+                <!-- Mega menu item: Advice -->
 
                 <div class="site-nav__item">
-                    <button class="site-nav__mega-trigger" aria-haspopup="menu" aria-expanded="false" aria-controls="mega-advice">Advice</button>
+
+                    <button class="site-nav__mega-trigger"
+                            aria-haspopup="menu"
+                            aria-expanded="false"
+                            aria-controls="mega-advice">
+                        Advice
+                    </button>
+
                     <div class="site-nav__mega-menu" id="mega-advice" role="menu" aria-label="Advice sections">
+
                         <div class="site-nav__mega-col">
                             <h3 class="site-nav__mega-heading">Preparation</h3>
                             <a href="/backpacking-south-africa-advice/#checklists" role="menuitem">Preflight Checklist</a>
@@ -325,7 +273,6 @@
                             <a href="/backpacking-south-africa-advice/#apps" role="menuitem">Useful Apps</a>
                         </div>
 
-
                         <div class="site-nav__mega-col">
                             <h3 class="site-nav__mega-heading">In-Country</h3>
                             <a href="/backpacking-south-africa-advice/in-country#emergencies" role="menuitem">Emergencies</a>
@@ -335,7 +282,7 @@
                             <a href="/backpacking-south-africa-advice/in-country#etiquette" role="menuitem">African Etiquette</a>
                             <a href="/backpacking-south-africa-advice/in-country#games" role="menuitem">Fun &amp; Games</a>
                             <a href="/backpacking-south-africa-advice/in-country#onward-travel" role="menuitem">Onward Travel</a>
-
+                        </div>
 
                         <div class="site-nav__mega-col">
                             <h3 class="site-nav__mega-heading">Specific Interests</h3>
@@ -347,10 +294,13 @@
                             <a href="/backpacking-south-africa-advice/specifics#volunteering" role="menuitem">Volunteering</a>
                             <a href="/backpacking-south-africa-advice/specifics#language-schools" role="menuitem">Language Schools</a>
                         </div>
+
                     </div>
+
                 </div>
 
-                <!-- Itineraries -->
+
+                <!-- Mega menu item: Tours -->
 
                 <div class="site-nav__item">
 
@@ -358,10 +308,10 @@
                             aria-haspopup="menu"
                             aria-expanded="false"
                             aria-controls="mega-tours">
-                        Itineraries
+                        Tours
                     </button>
 
-                    <div class="site-nav__mega-menu site-nav__mega-menu--4col" id="mega-tours" role="menu" aria-label="South Africa itineraries">
+                    <div class="site-nav__mega-menu" id="mega-tours" role="menu" aria-label="Tours and itineraries">
 
                         <div class="site-nav__mega-col">
                             <h3 class="site-nav__mega-heading">Self-Drive — Short Stay</h3>
@@ -406,9 +356,9 @@
 
                 </div>
 
-                <a href="/misc/about-backpacking" class="site-nav__link">About Backpacking</a>
+    <a href="/misc/about-backpacking" class="site-nav__link">About Backpacking</a>
 
-                <a href="/misc/backpacking-resources" class="site-nav__link">Resources</a>
+    <a href="/misc/backpacking-resources" class="site-nav__link">Resources</a>
 
             </nav>
 
@@ -422,14 +372,6 @@
     <div class="site-header__strip site-header__strip--green"  aria-hidden="true"></div>
 
 </header>
-
-
-
-
-
-
-
-
 
 <!-- Map Libre start -->
 
