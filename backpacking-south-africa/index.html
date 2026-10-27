@@ -69,11 +69,11 @@
 <a class="skip-link" href="#site-nav">Skip to navigation</a>
 <a class="skip-link" href="#site-search">Skip to search</a>
 
+<!-- Header -->
+
 <header id="site-header" aria-label="Site header">
 
-
     <div class="site-header__bar">
-
 
         <div class="site-header__branding">
 
@@ -85,7 +85,6 @@
                      height="80">
             </a>
 
-
             <div class="site-header__brand-text">
 
 
@@ -93,7 +92,15 @@
 
                     <span class="site-header__brand-name">BackpackersBible.com</span>
 
-                    <span class="site-header__location-badge">South Africa</span>
+                    <!-- BREADCRUMB -->
+
+                    <nav class="site-header__breadcrumb" aria-label="Breadcrumb">
+                        <ol>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/">South Africa</a></li>
+                            <li><a href="/backpacking-south-africa/">Regions/Cities</a></li>
+                        </ol>
+                    </nav>
 
                 </div>
 
@@ -184,7 +191,16 @@
 
                 </div>
 
-                <a href="/" class="site-nav__link">Home</a>
+                <!-- Home dropdown -->
+
+                <div class="site-nav__item site-nav__item--dropdown">
+                    <button class="site-nav__mega-trigger" aria-haspopup="menu" aria-expanded="false" aria-controls="mega-home">Home</button>
+                    <div class="site-nav__mega-menu site-nav__mega-menu--dropdown" id="mega-home" role="menu" aria-label="Choose a guide">
+                        <a href="/" role="menuitem">Home</a>
+                        <a href="/" role="menuitem" aria-current="page">South Africa</a>
+                        <a href="/spain/en/" role="menuitem">Spain</a>
+                    </div>
+                </div>
 
                 <div class="site-nav__item">
 
@@ -237,6 +253,66 @@
                             <h3 class="site-nav__mega-heading">Neighbouring Countries</h3>
                             <a href="/backpacking-south-africa/eswatini" role="menuitem">Eswatini</a>
                             <a href="/backpacking-south-africa/lesotho" role="menuitem">Lesotho</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Hostels -->
+
+                <div class="site-nav__item">
+
+                    <button class="site-nav__mega-trigger"
+                            aria-haspopup="menu"
+                            aria-expanded="false"
+                            aria-controls="mega-hostels">
+                        Hostels
+                    </button>
+
+                    <div class="site-nav__mega-menu" id="mega-hostels" role="menu" aria-label="Hostels by region">
+
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">All Backpacker Hostels</h3>
+                            <a href="/south-africa-hostel-directory/" role="menuitem">Hostel Directory</a>
+                            <h3 class="site-nav__mega-heading">Popular</h3>
+                            <a href="/south-africa-hostel-directory/cape-town" role="menuitem">Cape Town</a>
+                            <a href="/south-africa-hostel-directory/winelands" role="menuitem">Winelands</a>
+                            <a href="/south-africa-hostel-directory/route-62" role="menuitem">Route 62</a>
+                            <a href="/south-africa-hostel-directory/garden-route" role="menuitem">Garden Route</a>
+                            <a href="/south-africa-hostel-directory/sunshine-coast" role="menuitem">Sunshine Coast</a>
+                            <a href="/south-africa-hostel-directory/wild-coast" role="menuitem">Wild Coast</a>
+                            <a href="/south-africa-hostel-directory/drakensberg" role="menuitem">Drakensberg</a>
+                            <a href="/south-africa-hostel-directory/zululand" role="menuitem">Zululand</a>
+                            <a href="/south-africa-hostel-directory/kruger" role="menuitem">Kruger National Park</a>
+                        </div>
+
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">The Interior</h3>
+                            <a href="/south-africa-hostel-directory/cederberg" role="menuitem">Cederberg</a>
+                            <a href="/south-africa-hostel-directory/karoo" role="menuitem">The Karoo</a>
+                            <a href="/south-africa-hostel-directory/eastern-cape-interior" role="menuitem">Eastern Cape Interior</a>
+                            <a href="/south-africa-hostel-directory/midlands" role="menuitem">KZN Midlands</a>
+                            <a href="/south-africa-hostel-directory/free-state" role="menuitem">Free State</a>
+                            <a href="/south-africa-hostel-directory/johannesburg" role="menuitem">Johannesburg</a>
+                            <a href="/south-africa-hostel-directory/pretoria" role="menuitem">Pretoria</a>
+                            <a href="/south-africa-hostel-directory/mpumalanga" role="menuitem">Mpumalanga</a>
+                            <a href="/south-africa-hostel-directory/limpopo" role="menuitem">Limpopo</a>
+                            <a href="/south-africa-hostel-directory/north-west" role="menuitem">North West</a>
+                            <a href="/south-africa-hostel-directory/northern-cape" role="menuitem">Northern Cape</a>
+                        </div>
+
+                        <div class="site-nav__mega-col">
+                            <h3 class="site-nav__mega-heading">The Coast</h3>
+                            <a href="/south-africa-hostel-directory/west-coast" role="menuitem">West Coast</a>
+                            <a href="/south-africa-hostel-directory/overberg" role="menuitem">Overberg</a>
+                            <a href="/south-africa-hostel-directory/durban" role="menuitem">Durban</a>
+                            <a href="/south-africa-hostel-directory/south-coast" role="menuitem">South Coast</a>
+                            <a href="/south-africa-hostel-directory/north-coast" role="menuitem">North Coast</a>
+                            <h3 class="site-nav__mega-heading">Neighbouring Countries</h3>
+                            <a href="/south-africa-hostel-directory/eswatini" role="menuitem">Eswatini</a>
+                            <a href="/south-africa-hostel-directory/lesotho" role="menuitem">Lesotho</a>
                         </div>
 
                     </div>
@@ -353,8 +429,6 @@
 
     <a href="/misc/about-backpacking" class="site-nav__link">About Backpacking</a>
 
-    <a href="/misc/backpacking-resources" class="site-nav__link">Resources</a>
-
             </nav>
 
         </div>
@@ -366,7 +440,6 @@
     <div class="site-header__strip site-header__strip--blue"   aria-hidden="true"></div>
     <div class="site-header__strip site-header__strip--green"  aria-hidden="true"></div>
 
-
 </header>
 
 <div class="header-spacer" aria-hidden="true"></div>
@@ -374,206 +447,14 @@
 <main id="main-content">
 <span id="map" aria-hidden="true"></span>
 
-
-
-<!-- Map Libre start -->
-
-<!-- Map description -->
-<div class="map-description" id="hostel-map-description">
-  <span class="map-description__text">The easiest way to choose the right hostel. Our unique 3D interactive map lets you filter South African backpackers by vibe, safety, setups, and value.</span>
-</div>
-
-  <!-- Map filter buttons -->
-
-<h2 class="sr-only">
-    Search South Africa Backpacker Hostels
-</h2>
-
-<p class="sr-only">
-    Filter backpackers hostels by digital nomad suitability, solo female traveller friendliness, safety, surfing, camping, value for money, party atmosphere, african culture experiences, adventure activities and nature experiences.
-</p>
-
-<div class="map-filter-bar">
-    <div class="map-filter-bar__scroll">
-        <div class="map-filter-bar__row" role="toolbar" aria-label="Filter hostels by category">
-
-            <a href="#" class="map-filter-btn map-filter-btn--active" style="background-color: #ffd400; color: #000000;" data-filter="all" aria-pressed="true"  aria-label="Show all backpackers hostels in South Africa">★ All Hostels</a>
-            <a href="#" class="map-filter-btn" style="background-color: #b01c22;"                       data-filter="is_best_overall"  aria-pressed="false" aria-label="Show popular backpackers hostels">Top Picks</a>
-            <a href="#" class="map-filter-btn" style="background-color: #ffd400; color: #000000;"       data-filter="is_solo_women"    aria-pressed="false" aria-label="Show backpackers hostels which are best for Solo Women">Best for Solo Women</a>
-            <a href="#" class="map-filter-btn" style="background-color: #ffd400; color: #000000;"                       data-filter="is_party"         aria-pressed="false" aria-label="Show backpackers hostels which have the best parties">Best Parties</a>
-            <a href="#" class="map-filter-btn" style="background-color: #ffd400; color: #000000;"                       data-filter="is_value"         aria-pressed="false" aria-label="Show backpackers hostels which deliver the best value">Best Value</a>
-            <a href="#" class="map-filter-btn" style="background-color: #ffd400; color: #000000;"                       data-filter="is_chill"         aria-pressed="false" aria-label="Show backpackers hostels with chill vibes">Chill Vibes</a>
-            <a href="#" class="map-filter-btn" style="background-color: #ffd400; color: #000000;"                       data-filter="is_digital_nomad" aria-pressed="false" aria-label="Show backpackers hostels which are best for Digital Nomads">Digital Nomads</a>
-            <a href="#" class="map-filter-btn" style="background-color: #ffd400; color: #000000;"                       data-filter="is_surfer"        aria-pressed="false" aria-label="Show backpackers hostels which are best for surfers">Surfers</a>
-            <a href="#" class="map-filter-btn" style="background-color: #ffd400; color: #000000;"                       data-filter="is_safety"        aria-pressed="false" aria-label="Show backpackers hostels which are safest">Safest</a>
-            <a href="#" class="map-filter-btn" style="background-color: #ffd400; color: #000000;"                       data-filter="is_amenities"     aria-pressed="false" aria-label="Show backpackers hostels which have the best amenities">Best Amenities</a>
-            <a href="#" class="map-filter-btn" style="background-color: #ffd400; color: #000000;"                       data-filter="is_ethical"       aria-pressed="false" aria-label="Show the most ethical backpackers hostels">Most Ethical</a>
-            <a href="#" class="map-filter-btn" style="background-color: #ffd400; color: #000000;"                       data-filter="is_adventure"     aria-pressed="false" aria-label="Show backpackers hostels with the best adventure activities">Adventure</a>
-            <a href="#" class="map-filter-btn" style="background-color: #ffd400; color: #000000;"                       data-filter="is_nature"        aria-pressed="false" aria-label="Show backpackers hostels in the best locations for nature and African wildlife">Best for Nature</a>
-            <a href="#" class="map-filter-btn" style="background-color: #ffd400; color: #000000;"                       data-filter="is_cultural"      aria-pressed="false" aria-label="Show backpackers hostels with the best access to African culture">Best African Culture</a>
-            <a href="#" class="map-filter-btn" style="background-color: #ffd400; color: #000000;"                       data-filter="is_cheapest"      aria-pressed="false" aria-label="Show the backpackers hostels with the lowest rates">Cheapest</a>
-            <a href="#" class="map-filter-btn" style="background-color: #ffd400; color: #000000;"                       data-filter="is_camping"       aria-pressed="false" aria-label="Show backpackers hostels which offer camping as an accommodation option">Camping</a>
-
-        </div>
-    </div>
-</div>
-
-<!-- ░░ HOSTEL MAP ░░ -->
-<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description">
-
-  <!-- Poster image: shows before user loads the map -->
-  <picture class="sa-hostel-map-poster">
-    <source media="(max-width: 767px)" srcset="/assets/fallback_map_national_mobile.webp">
-    <img src="/assets/fallback_map_national.webp" 
-         alt="Interactive backpacker hostel map of South Africa showing hostels that can be filtered by travel style, safety, digital nomad suitability, surfing, camping and budget travel preferences."
-         loading="eager"
-         fetchpriority="high"
-         decoding="async">
-  </picture>
-
-  <!-- The map iframe — src is blank until user clicks -->
-  <iframe
-    class="sa-hostel-map-iframe bb-map-iframe"
-    title="Interactive hostel map of South Africa"
-    src="about:blank"
-    data-src="/map.html?region=national&center=23.68,-29.92&zoom=5&mobile-center=23.00,-35.40&mobile-zoom=4"
-    loading="lazy"
-    allowfullscreen>
-  </iframe>
-
-  <!-- Yellow circle: desktop-only info note; mobile: not shown (CSS) -->
-  <div class="map-overlay-circle" aria-hidden="true">
-    We list ALL the hostels<br>in the country!<br>Click the icons for info.
-  </div>
-
-</section>
-<!-- ░░ END HOSTEL MAP ░░ -->
-
-<!-- ░░ BUILD YOUR OWN ITINERARY ░░ -->
-
-<div class="bb-it-intro">
-  <h2>Where To Go, What To See and How Much It'll Cost</h2>
-  <p>Use our wizard to plan your trip, based on what <strong>you</strong> want to see and do, and your budget. Costs calculated according to 2026 prices.</p>
-  <button type="button" class="bb-it-cta" id="bb-it-open-btn" aria-expanded="false" aria-controls="bb-itinerary-mount">
-Build your own itinerary
-  </button>
-</div>
-
-<div id="bb-itinerary-mount" style="display:none;"></div>
-
-<script>
-(function () {
-  var openBtn   = document.getElementById('bb-it-open-btn');
-  var mount     = document.getElementById('bb-itinerary-mount');
-  var mapFrame  = document.querySelector('.bb-map-iframe');
-  var loaded    = false;
-
-  openBtn.addEventListener('click', function () {
-    openBtn.style.display = 'none';
-    openBtn.setAttribute('aria-expanded', 'true');
-    mount.style.display = '';
-    mount.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-    /* The tour guide character can sit invisible-but-clickable over
-       parts of the page. Suspend it the instant the wizard is asked
-       to open — BB_ITINERARY_INIT() suspends it again once loaded,
-       but this covers the gap while the script itself is loading. */
-    if (window.BB_TourGuide) window.BB_TourGuide.suspend();
-
-    if (loaded) {
-      // Already loaded once this page-view — just re-show it.
-      if (window.BB_ITINERARY_INIT) {
-        window.BB_ITINERARY_INIT({ mount: mount, mapFrame: mapFrame, currentRegion: 'cederberg' });
-      }
-      return;
-    }
-    loaded = true;
-
-    mount.innerHTML = '<div style="text-align:center;padding:30px 0;font-family:\'Century Gothic\',sans-serif;color:#777;">Loading the itinerary builder…</div>';
-
-    var script = document.createElement('script');
-    script.src = '/assets/js/itinerary-builder.js';
-    script.onload = function () {
-      window.BB_ITINERARY_INIT({ mount: mount, mapFrame: mapFrame, currentRegion: 'cederberg' });
-    };
-    script.onerror = function () {
-      mount.innerHTML = '<p style="text-align:center;padding:30px 0;">Sorry — the itinerary builder couldn\'t load. Please check your connection and try again.</p>';
-    };
-    document.head.appendChild(script);
-  });
-})();
-</script>
-<!-- ░░ END BUILD YOUR OWN ITINERARY ░░ -->
-
-
-     <!-- Horizontal regional menu -->
-
-<section class="jump-menu-section">  
-
-<nav class="jump-menu-container" id="top-jump" aria-label="Regions jump menu">
-
-        <a href="/" class="jump-card"><img src="/assets/hostels_thumb_home.png" alt="Backpacking South Africa" class="jump-card-img"><div class="jump-card-overlay">HOME</div></a>
-
-        <a href="/backpacking-south-africa-tours/" class="jump-card"><img src="/assets/hostels_thumb_itineraries.webp" alt="Tours of South Africa" class="jump-card-img"><div class="jump-card-overlay">ITINERARIES</div></a>
-
-        <a href="/backpacking-south-africa-advice/" class="jump-card"><img src="/assets/hostels_thumb_advice.webp" alt="Advice for Backpackers" class="jump-card-img"><div class="jump-card-overlay">ADVICE</div></a>
-
-        <a href="/#download-pwa" class="jump-card"><img src="/assets/hostels_thumb_app.webp" alt="Backpacking South Africa App" class="jump-card-img" loading="lazy" decoding="async" fetchpriority="low"><div class="jump-card-overlay">GET THE APP</div></a>
-
-        <a href="/backpacking-south-africa/cape-town" class="jump-card"><img src="/assets/hostels_thumb_cape_town.webp" alt="Backpacking Cape Town" class="jump-card-img" loading="lazy" decoding="async" fetchpriority="low"><div class="jump-card-overlay">CAPE TOWN</div></a>
-
-        <a href="/backpacking-south-africa/winelands" class="jump-card"><img src="/assets/hostels_thumb_winelands.webp" alt="Backpacking the Cape Winelands" class="jump-card-img" loading="lazy" decoding="async" fetchpriority="low"><div class="jump-card-overlay">WINELANDS</div></a>
-
-        <a href="/backpacking-south-africa/west-coast" class="jump-card"><img src="/assets/hostels_thumb_west_coast.webp" alt="Backpacking the West Coast" class="jump-card-img" loading="lazy" decoding="async" fetchpriority="low"><div class="jump-card-overlay">WEST COAST</div></a>
-
-        <a href="/backpacking-south-africa/cederberg" class="jump-card"><img src="/assets/hostels_thumb_cederberg.webp" alt="Backpacking the Cederberg" class="jump-card-img" loading="lazy" decoding="async" fetchpriority="low"><div class="jump-card-overlay">CEDERBERG</div></a>
-
-        <a href="/backpacking-south-africa/route-62" class="jump-card"><img src="/assets/hostels_thumb_route_62.webp" alt="Backpacking Route 62" class="jump-card-img" loading="lazy" decoding="async" fetchpriority="low"><div class="jump-card-overlay">ROUTE 62</div></a>
-
-        <a href="/backpacking-south-africa/overberg" class="jump-card"><img src="/assets/hostels_thumb_overberg.webp" alt="Backpacking the Overberg" class="jump-card-img" loading="lazy" decoding="async" fetchpriority="low"><div class="jump-card-overlay">OVERBERG</div></a>
-
-        <a href="/backpacking-south-africa/garden-route" class="jump-card"><img src="/assets/hostels_thumb_garden_route.webp" alt="Backpacking the Garden Route" class="jump-card-img" loading="lazy" decoding="async" fetchpriority="low"><div class="jump-card-overlay">GARDEN ROUTE</div></a>
-
-        <a href="/backpacking-south-africa/karoo" class="jump-card"><img src="/assets/hostels_thumb_karoo.webp" alt="Backpacking the Karoo" class="jump-card-img" loading="lazy" decoding="async" fetchpriority="low"><div class="jump-card-overlay">KAROO</div></a>
-
-        <a href="/backpacking-south-africa/sunshine-coast" class="jump-card"><img src="/assets/hostels_thumb_sunshine_coast.webp" alt="Backpacking the Sunshine Coast" class="jump-card-img" loading="lazy" decoding="async" fetchpriority="low"><div class="jump-card-overlay">SUNSHINE COAST</div></a>
-
-        <a href="/backpacking-south-africa/eastern-cape-interior" class="jump-card"><img src="/assets/hostels_thumb_eastern_cape.webp" alt="Backpacking the Eastern Cape Interior" loading="lazy" decoding="async" fetchpriority="low"><div class="jump-card-overlay">E CAPE INTERIOR</div></a>
-
-        <a href="/backpacking-south-africa/wild-coast" class="jump-card"><img src="/assets/hostels_thumb_wild_coast.webp" alt="Backpacking the Wild Coast" loading="lazy" decoding="async" fetchpriority="low"><div class="jump-card-overlay">WILD COAST</div></a>
-
-        <a href="/backpacking-south-africa/free-state" class="jump-card"><img src="/assets/hostels_thumb_freestate.webp" alt="Backpacking the Free State" class="jump-card-img" loading="lazy" decoding="async" fetchpriority="low"><div class="jump-card-overlay">FREE STATE</div></a>
-
-        <a href="/backpacking-south-africa/south-coast" class="jump-card"><img src="/assets/hostels_thumb_south_coast.webp" alt="Backpacking the South Coast" class="jump-card-img" loading="lazy" decoding="async" fetchpriority="low"><div class="jump-card-overlay">SOUTH COAST</div></a>
-
-        <a href="/backpacking-south-africa/durban" class="jump-card"><img src="/assets/hostels_thumb_durban.webp" class="jump-card-img" alt="Backpacking Durban" loading="lazy" decoding="async" fetchpriority="low"><div class="jump-card-overlay">DURBAN</div></a>
-
-        <a href="/backpacking-south-africa/north-coast" class="jump-card"><img src="/assets/hostels_thumb_north_coast.webp" alt="Backpacking the North Coast" class="jump-card-img" loading="lazy" decoding="async" fetchpriority="low"><div class="jump-card-overlay">NORTH COAST</div></a>
-
-        <a href="/backpacking-south-africa/midlands" class="jump-card"><img src="/assets/hostels_thumb_midlands.webp" alt="Backpacking the Midlands" class="jump-card-img" loading="lazy" decoding="async" fetchpriority="low"><div class="jump-card-overlay">MIDLANDS</div></a>
-
-        <a href="/backpacking-south-africa/drakensberg" class="jump-card"><img src="/assets/hostels_thumb_drakensberg.webp" alt="Backpacking the Drakensberg" class="jump-card-img" loading="lazy" decoding="async" fetchpriority="low"><div class="jump-card-overlay">DRAKENSBERG</div></a>
-
-        <a href="/backpacking-south-africa/zululand" class="jump-card"><img src="/assets/hostels_thumb_zululand.webp" alt="Backpacking Zululand" class="jump-card-img" loading="lazy" decoding="async" fetchpriority="low"><div class="jump-card-overlay">ZULULAND</div></a>
-
-        <a href="/backpacking-south-africa/kruger" class="jump-card"><img src="/assets/hostels_thumb_kruger.webp" alt="Backpacking Kruger" class="jump-card-img" loading="lazy" decoding="async" fetchpriority="low"><div class="jump-card-overlay">KRUGER</div></a>
-
-        <a href="/backpacking-south-africa/mpumalanga" class="jump-card"><img src="/assets/hostels_thumb_mpumalanga.webp" alt="Backpacking Mpumalanga Province" class="jump-card-img" loading="lazy" decoding="async" fetchpriority="low"><div class="jump-card-overlay">MPUMALANGA</div></a>
-
-        <a href="/backpacking-south-africa/limpopo" class="jump-card"><img src="/assets/hostels_thumb_limpopo.webp" alt="Backpacking Limpopo Province" class="jump-card-img" loading="lazy" decoding="async" fetchpriority="low"><div class="jump-card-overlay">LIMPOPO</div></a>
-
-        <a href="/backpacking-south-africa/johannesburg" class="jump-card"><img src="/assets/hostels_thumb_joburg.webp" alt="Backpacking Johannesburg" class="jump-card-img" loading="lazy" decoding="async" fetchpriority="low"><div class="jump-card-overlay">JOBURG</div></a>
-
-        <a href="/backpacking-south-africa/pretoria" class="jump-card"><img src="/assets/hostels_thumb_pretoria.webp" alt="Backpacking Pretoria" class="jump-card-img" loading="lazy" decoding="async" fetchpriority="low"><div class="jump-card-overlay">PRETORIA</div></a>
-
-        <a href="/backpacking-south-africa/north-west" class="jump-card"><img src="/assets/hostels_thumb_north_west.webp" alt="Backpacking North West Province" class="jump-card-img" loading="lazy" decoding="async" fetchpriority="low"><div class="jump-card-overlay">NORTH WEST</div></a>
-
-        <a href="/backpacking-south-africa/northern-cape" class="jump-card"><img src="/assets/hostels_thumb_northern_cape.webp" alt="Backpacking Northern Cape Province" class="jump-card-img" loading="lazy" decoding="async" fetchpriority="low"><div class="jump-card-overlay">NORTHERN CAPE</div></a>
-
-        <a href="/backpacking-south-africa/eswatini" class="jump-card"><img src="/assets/hostels_thumb_eswatini.webp" alt="Backpacking Eswatini" class="jump-card-img" loading="lazy" decoding="async" fetchpriority="low"><div class="jump-card-overlay">ESWATINI</div></a>
-
-        <a href="/backpacking-south-africa/lesotho" class="jump-card"><img src="/assets/hostels_thumb_lesotho.webp" alt="Backpacking Lesotho" class="jump-card-img" loading="lazy" decoding="async" fetchpriority="low"><div class="jump-card-overlay">LESOTHO</div></a>
-</nav>
+<section class="hero-section">
+    <picture>
+        <source media="(max-width: 767px)" srcset="../assets/south_africa_backpacking_map.png">
+        
+        <source media="(min-width: 768px)" srcset="../assets/south_africa_backpacking_map_extended.webp">
+        
+        <img src="../assets/south_africa_backpacking_map_extended.webp" alt="Map showing the backpacking regions of South Africa" class="hero-img-fluid">
+    </picture>
 </section>
 
 <div class="yellow-menu-backdrop"></div>
