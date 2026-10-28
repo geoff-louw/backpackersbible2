@@ -21,13 +21,13 @@
 
   <link rel="alternate" hreflang="en"         href="https://www.backpackersbible.com/spain/en/">
 
-<!-- Spanish translation not live yet — add this once /spain/es/ is built:
-  <link rel="alternate" hreflang="es" href="https://www.backpackersbible.com/spain/es/">
--->
+<link rel="alternate" hreflang="es"         href="https://www.backpackersbible.com/spain/es/">
 
 <link rel="preload" href="/fonts/CenturyGothic-Bold.woff2" as="font" type="font/woff2" crossorigin>
 
 <link rel="stylesheet" href="/css/style-2.css?v=4">
+
+<link rel="stylesheet" href="/css/language-selector.css?v=1">
 
   <link rel="icon" type="image/x-icon"        href="/assets/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
@@ -132,6 +132,25 @@
                      role="listbox"
                      aria-live="polite"
                      aria-label="Search results"></div>
+            </div>
+
+            <!-- Language selector -->
+
+            <div class="lang-switch" id="lang-switch">
+                <button type="button" class="lang-switch__btn" id="lang-switch-btn"
+                        aria-expanded="false" aria-controls="lang-switch-menu"
+                        aria-label="Language: English. Change language" title="English">
+                    <img src="/assets/flags/gb.svg" alt="" width="28" height="21">
+                    <span class="lang-switch__caret" aria-hidden="true"></span>
+                </button>
+                <ul class="lang-switch__menu" id="lang-switch-menu" hidden>
+                    <li>
+                        <a class="lang-switch__link" href="/spain/es/" hreflang="es" lang="es" title="Español">
+                            <img src="/assets/flags/es.svg" alt="" width="28" height="21">
+                            <span class="sr-only">Español</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
 
             <!-- Mega Menu -->
@@ -1309,6 +1328,8 @@ window.BB_TIPS = [
     <!-- Mobile menu end -->
 
 <script src="/js/script-2.js" defer></script>
+
+<script src="/js/language-selector.js?v=1" defer></script>
 
 <script type="application/ld+json">
 {
