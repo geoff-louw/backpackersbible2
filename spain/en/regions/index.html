@@ -130,6 +130,25 @@
                      aria-label="Search results"></div>
             </div>
 
+            <!-- Language selector -->
+
+            <div class="lang-switch" id="lang-switch">
+                <button type="button" class="lang-switch__btn" id="lang-switch-btn"
+                        aria-expanded="false" aria-controls="lang-switch-menu"
+                        aria-label="Language: English. Change language" title="English">
+                    <img src="/assets/flags/gb.svg" alt="" width="28" height="21">
+                    <span class="lang-switch__caret" aria-hidden="true"></span>
+                </button>
+                <ul class="lang-switch__menu" id="lang-switch-menu" hidden>
+                    <li>
+                        <a class="lang-switch__link" href="/spain/es/" hreflang="es" lang="es" title="Español">
+                            <img src="/assets/flags/es.svg" alt="" width="28" height="21">
+                            <span class="sr-only">Español</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
             <!-- Mega Menu -->
 
             <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
