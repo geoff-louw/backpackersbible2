@@ -50,6 +50,7 @@
    43. Table centre
    44. ITINERARY HUB TILES
    45. PLACE NAME PRONUNCIATIONS
+   47. LANGUAGE SELECTOR
    ============================================================ */
 
 
@@ -5555,3 +5556,24 @@ table.centered-table td {
   color: #000000;
   background: none;
 }
+
+
+
+/* ============================================================
+   47. LANGUAGE SELECTOR
+   ============================================================ */
+
+
+/* Language selector — flag button + dropdown (header, right of search) */
+.lang-switch{position:relative;display:flex;align-items:center;flex:0 0 auto;margin-left:.75rem}
+.lang-switch__btn{display:flex;align-items:center;gap:.4rem;min-width:44px;min-height:40px;padding:.3rem .45rem;background:transparent;border:0;border-radius:6px;color:inherit;font:inherit;line-height:1;cursor:pointer}
+.lang-switch__btn:hover{background:rgba(128,128,128,.2)}
+.lang-switch__btn:focus-visible,.lang-switch__link:focus-visible{outline:2px solid #FFD700;outline-offset:2px;box-shadow:0 0 0 2px #670000}
+.lang-switch__caret{width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;transition:transform .15s ease}
+.lang-switch__btn[aria-expanded="true"] .lang-switch__caret{transform:rotate(180deg)}
+.lang-switch img{display:block;width:28px;height:21px;border-radius:2px;box-shadow:0 0 0 1px rgba(0,0,0,.3)}
+.lang-switch__menu{position:absolute;top:calc(100% + 6px);right:0;z-index:1200;margin:0;padding:.35rem;list-style:none;background:#fff;border:1px solid rgba(0,0,0,.15);border-radius:6px;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+.lang-switch__menu[hidden]{display:none}
+.lang-switch__link{display:flex;align-items:center;justify-content:center;min-width:44px;min-height:40px;padding:.3rem .45rem;border-radius:4px}
+.lang-switch__link:hover{background:rgba(0,0,0,.08)}
+@media (prefers-reduced-motion:reduce){.lang-switch__caret{transition:none}}
