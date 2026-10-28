@@ -9,6 +9,7 @@
    4.  Header — hamburger & mobile menu
    5.  Header — accordion (mobile menu panels)
    6.  Header — search (desktop + mobile)
+   6b. Header — language selector
    7.  Back to top button
    8.  Smooth scroll for anchor links
    9.  Gallery scrollers
@@ -22,7 +23,6 @@
    17. Contact email obfuscation
    18.  Map facade (lazy load on mobile)
    19. Things to do map
-   20. Language selector
    ============================================================ */
 
 (function () {
@@ -467,6 +467,56 @@
             if (this.value) {
                 positionPortal();
                 portal.classList.add('is-open');
+            }
+        });
+    });
+
+
+    /* ============================================================
+       6b. HEADER — LANGUAGE SELECTOR
+       Flag button toggles a one-item dropdown. The dropdown link is a
+       plain <a href>, so switching language is ordinary navigation.
+       Closes on Escape, click outside, or focus leaving the selector.
+       ============================================================ */
+
+    onReady(function () {
+        var root = el('lang-switch');
+        var btn  = el('lang-switch-btn');
+        var menu = el('lang-switch-menu');
+        if (!root || !btn || !menu) return;
+
+        function openLang() {
+            menu.removeAttribute('hidden');
+            btn.setAttribute('aria-expanded', 'true');
+        }
+
+        function closeLang(returnFocus) {
+            menu.setAttribute('hidden', '');
+            btn.setAttribute('aria-expanded', 'false');
+            if (returnFocus) btn.focus();
+        }
+
+        btn.addEventListener('click', function () {
+            if (menu.hasAttribute('hidden')) {
+                openLang();
+            } else {
+                closeLang();
+            }
+        });
+
+        document.addEventListener('click', function (e) {
+            if (!root.contains(e.target)) closeLang();
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && !menu.hasAttribute('hidden')) {
+                closeLang(true);
+            }
+        });
+
+        root.addEventListener('focusout', function (e) {
+            if (!menu.hasAttribute('hidden') && e.relatedTarget && !root.contains(e.relatedTarget)) {
+                closeLang();
             }
         });
     });
@@ -1432,32 +1482,3 @@ function setupMapPopups(map) {
     popup.setLngLat(coords).setHTML(popupHtml).addTo(map);
   });
 }
-
-
-/* ============================================================
-   20. LANGUAGE SELECTOR
-   ============================================================ */
-
-/* Language selector — disclosure dropdown. Links are plain <a href>, so it still works as navigation. */
-(function () {
-  var root = document.getElementById('lang-switch');
-  if (!root) return;
-  var btn = document.getElementById('lang-switch-btn');
-  var menu = document.getElementById('lang-switch-menu');
-
-  function open()  { menu.hidden = false; btn.setAttribute('aria-expanded', 'true'); }
-  function close(returnFocus) {
-    menu.hidden = true;
-    btn.setAttribute('aria-expanded', 'false');
-    if (returnFocus) btn.focus();
-  }
-
-  btn.addEventListener('click', function () { menu.hidden ? open() : close(); });
-  document.addEventListener('click', function (e) { if (!root.contains(e.target)) close(); });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && !menu.hidden) close(true);
-  });
-  root.addEventListener('focusout', function (e) {
-    if (!menu.hidden && e.relatedTarget && !root.contains(e.relatedTarget)) close();
-  });
-})();
