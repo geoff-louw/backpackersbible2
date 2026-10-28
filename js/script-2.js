@@ -22,6 +22,7 @@
    17. Contact email obfuscation
    18.  Map facade (lazy load on mobile)
    19. Things to do map
+   20. Language selector
    ============================================================ */
 
 (function () {
@@ -154,58 +155,6 @@
         document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') closeAllMenus();
         });
-
-        /* ----------------------------------------------------
-           Auto-open "Free Offline Guides" on page load (desktop).
-           Closes as soon as the header hides on scroll-down
-           (same direction + threshold as section 2), and is not
-           reopened when the header returns on scroll-up.
-           Also hands over to normal hover/click behaviour the
-           moment the visitor interacts with the nav.
-           ---------------------------------------------------- */
-        (function autoOpenDownloads() {
-            var nav     = document.getElementById('site-nav');
-            var trigger = document.querySelector('.site-nav__mega-trigger--downloads');
-            var menu    = document.getElementById('mega-downloads');
-            if (!nav || !trigger || !menu) return;
-
-            /* Desktop nav only — skip if the nav isn't displayed (mobile) */
-            if (getComputedStyle(nav).display === 'none' || !nav.offsetWidth) return;
-
-            var THRESHOLD   = 80;
-            var lastScrollY = window.pageYOffset || document.documentElement.scrollTop;
-
-            /* Don't open if the browser restored a scrolled position */
-            if (lastScrollY > THRESHOLD) return;
-
-            openMenu(trigger, menu);
-
-            function stopAutoOpen(close) {
-                window.removeEventListener('scroll', onScroll);
-                nav.removeEventListener('mouseenter', onNavInteract);
-                nav.removeEventListener('focusin', onNavInteract);
-                nav.removeEventListener('touchstart', onNavInteract);
-                if (close) closeAllMenus();
-            }
-
-            function onScroll() {
-                var y = window.pageYOffset || document.documentElement.scrollTop;
-                if (y > lastScrollY && y > THRESHOLD) {
-                    stopAutoOpen(true);
-                }
-                lastScrollY = y;
-            }
-
-            /* Visitor is using the nav — normal behaviour takes over */
-            function onNavInteract() {
-                stopAutoOpen(true);
-            }
-
-            window.addEventListener('scroll', onScroll, { passive: true });
-            nav.addEventListener('mouseenter', onNavInteract);
-            nav.addEventListener('focusin', onNavInteract);
-            nav.addEventListener('touchstart', onNavInteract, { passive: true });
-        }());
 
         function openMenu(trigger, menu) {
             trigger.setAttribute('aria-expanded', 'true');
@@ -1483,3 +1432,32 @@ function setupMapPopups(map) {
     popup.setLngLat(coords).setHTML(popupHtml).addTo(map);
   });
 }
+
+
+/* ============================================================
+   20. LANGUAGE SELECTOR
+   ============================================================ */
+
+/* Language selector — disclosure dropdown. Links are plain <a href>, so it still works as navigation. */
+(function () {
+  var root = document.getElementById('lang-switch');
+  if (!root) return;
+  var btn = document.getElementById('lang-switch-btn');
+  var menu = document.getElementById('lang-switch-menu');
+
+  function open()  { menu.hidden = false; btn.setAttribute('aria-expanded', 'true'); }
+  function close(returnFocus) {
+    menu.hidden = true;
+    btn.setAttribute('aria-expanded', 'false');
+    if (returnFocus) btn.focus();
+  }
+
+  btn.addEventListener('click', function () { menu.hidden ? open() : close(); });
+  document.addEventListener('click', function (e) { if (!root.contains(e.target)) close(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !menu.hidden) close(true);
+  });
+  root.addEventListener('focusout', function (e) {
+    if (!menu.hidden && e.relatedTarget && !root.contains(e.relatedTarget)) close();
+  });
+})();
