@@ -12,6 +12,7 @@
    6.  Site Header (desktop)
    7.  Mobile Menu
    8.  Site Header — Responsive (mobile)
+   8b-2. Site Header — Language Selector
    9.  Map Section
    10. Jump Menu
    11. Quick Jump Menu
@@ -50,7 +51,6 @@
    43. Table centre
    44. ITINERARY HUB TILES
    45. PLACE NAME PRONUNCIATIONS
-   47. LANGUAGE SELECTOR
    ============================================================ */
 
 
@@ -1271,6 +1271,124 @@ body {
 @media (max-width: 1100px) {
     .site-header__breadcrumb {
         display: none;
+    }
+}
+
+
+/* ============================================================
+   8b-2. SITE HEADER — LANGUAGE SELECTOR
+   Flag button + one-item dropdown (the other language).
+   Markup: <div class="lang-switch" id="lang-switch"> in the header
+   controls, directly after the search block. Behaviour: script-2.js 6b.
+   Desktop (1280px+): pill sits at the far right, level with the search
+   bar, and the search bar shifts left to make room.
+   Below 1280px: sits in the controls row, just left of the hamburger.
+   ============================================================ */
+
+.lang-switch {
+    position: relative;
+    z-index: var(--z-above);
+    flex: 0 0 auto;
+    margin-right: 8px;
+}
+
+.lang-switch__btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 36px;
+    padding: 0 10px;
+    background-color: #e8a0aa;
+    border: none;
+    border-radius: 999px;
+    color: var(--color-white);
+    font-family: var(--font-primary);
+    cursor: pointer;
+    transition: background-color var(--transition-base);
+}
+
+.lang-switch__btn:hover,
+.lang-switch__btn[aria-expanded="true"] {
+    background-color: #f0b8c0;
+}
+
+.lang-switch__btn:focus-visible {
+    outline: 3px solid var(--color-yellow-bright);
+    outline-offset: 3px;
+}
+
+.lang-switch img {
+    display: block;
+    width: 24px;
+    height: 18px;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+}
+
+.lang-switch__caret {
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid var(--color-white);
+    transition: transform var(--transition-base);
+}
+
+.lang-switch__btn[aria-expanded="true"] .lang-switch__caret {
+    transform: rotate(180deg);
+}
+
+.lang-switch__menu {
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    margin: 0;
+    padding: 6px;
+    list-style: none;
+    background: var(--color-white);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.lang-switch__menu[hidden] {
+    display: none;
+}
+
+.lang-switch__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 36px;
+    border-radius: 8px;
+}
+
+.lang-switch__link:hover {
+    background-color: var(--color-grey-light);
+}
+
+.lang-switch__link:focus-visible {
+    outline: 3px solid var(--color-blue);
+    outline-offset: 1px;
+}
+
+/* Hamburger layouts (<=1279px): flag sits to the left of the hamburger */
+@media (max-width: 1279px) {
+    .lang-switch {
+        order: -1;
+    }
+}
+
+/* Desktop proper: pin to the far right, level with the search bar */
+@media (min-width: 1280px) {
+    .lang-switch {
+        position: absolute;
+        top: 16px;
+        right: clamp(20px, 3vw, 40px);
+        margin-right: 0;
+    }
+    .site-header__search {
+        right: calc(clamp(20px, 3vw, 40px) + 70px);
     }
 }
 
@@ -5556,24 +5674,3 @@ table.centered-table td {
   color: #000000;
   background: none;
 }
-
-
-
-/* ============================================================
-   47. LANGUAGE SELECTOR
-   ============================================================ */
-
-
-/* Language selector — flag button + dropdown (header, right of search) */
-.lang-switch{position:relative;display:flex;align-items:center;flex:0 0 auto;margin-left:.75rem}
-.lang-switch__btn{display:flex;align-items:center;gap:.4rem;min-width:44px;min-height:40px;padding:.3rem .45rem;background:transparent;border:0;border-radius:6px;color:inherit;font:inherit;line-height:1;cursor:pointer}
-.lang-switch__btn:hover{background:rgba(128,128,128,.2)}
-.lang-switch__btn:focus-visible,.lang-switch__link:focus-visible{outline:2px solid #FFD700;outline-offset:2px;box-shadow:0 0 0 2px #670000}
-.lang-switch__caret{width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;transition:transform .15s ease}
-.lang-switch__btn[aria-expanded="true"] .lang-switch__caret{transform:rotate(180deg)}
-.lang-switch img{display:block;width:28px;height:21px;border-radius:2px;box-shadow:0 0 0 1px rgba(0,0,0,.3)}
-.lang-switch__menu{position:absolute;top:calc(100% + 6px);right:0;z-index:1200;margin:0;padding:.35rem;list-style:none;background:#fff;border:1px solid rgba(0,0,0,.15);border-radius:6px;box-shadow:0 6px 18px rgba(0,0,0,.25)}
-.lang-switch__menu[hidden]{display:none}
-.lang-switch__link{display:flex;align-items:center;justify-content:center;min-width:44px;min-height:40px;padding:.3rem .45rem;border-radius:4px}
-.lang-switch__link:hover{background:rgba(0,0,0,.08)}
-@media (prefers-reduced-motion:reduce){.lang-switch__caret{transition:none}}
