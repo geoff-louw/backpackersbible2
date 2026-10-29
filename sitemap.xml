@@ -206,11 +206,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.backpackersbible.com/404</loc>
-    <lastmod>2026-10-27</lastmod>
-    <priority>0.3</priority>
-  </url>
-  <url>
     <loc>https://www.backpackersbible.com/pdf/City_of_Cape_Town_Backpacking_Study.pdf</loc>
     <lastmod>2026-10-27</lastmod>
     <priority>0.5</priority>
@@ -302,11 +297,6 @@
   </url>
   <url>
     <loc>https://www.backpackersbible.com/south-africa-hostel-directory/north-coast</loc>
-    <lastmod>2026-10-27</lastmod>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.backpackersbible.com/south-africa-hostel-directory/northern-cape</loc>
     <lastmod>2026-10-27</lastmod>
     <priority>0.9</priority>
   </url>
@@ -580,6 +570,7 @@
     <lastmod>2026-10-27</lastmod>
     <priority>0.8</priority>
   </url>
+  <url>
     <loc>https://www.backpackersbible.com/spain/assets/pdf/BackpackersBible-Spain.pdf</loc>
     <lastmod>2026-10-29</lastmod>
     <priority>0.8</priority>
