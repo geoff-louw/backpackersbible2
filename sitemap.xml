@@ -572,7 +572,22 @@
   </url>
   <url>
     <loc>https://www.backpackersbible.com/spain/assets/pdf/BackpackersBible-Spain.pdf</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.backpackersbible.com/spain/es/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.backpackersbible.com/spain/es/regiones/espana-costera</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.backpackersbible.com/spain/es/regiones/cataluna</loc>
+    <lastmod>2026-10-30</lastmod>
     <priority>0.8</priority>
   </url>
 </urlset>
