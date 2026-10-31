@@ -3,12 +3,18 @@
    Camino de Santiago hostel pages only
    (camino-de-santiago, camino-frances, camino-portugues).
 
-   Day flag (desktop, >= 1101px):
+   Day flag:
    While the visitor reads through the accommodation, a red tab
-   at the left edge shows which night-stop they are scrolling
-   through ("Start", "Day 1", "Day 2" …). It appears when the
-   first "Start" heading reaches the flag's height and goes
-   again once the last hostel card has scrolled past.
+   shows which night-stop they are scrolling through ("Start",
+   "Day 1", "Day 2" …). It appears when the first heading reaches
+   the flag's height and goes again once the last hostel card has
+   scrolled past.
+
+   Desktop (>= 1101px): tab on the left edge, 40% down the screen.
+   Mobile / tablet:     tab at the top left, below the fixed
+                        header. When script-2.js hides the header
+                        on scroll-down (#site-header.is-hidden),
+                        the tab slides up to the top edge.
 
    Reads data-label from each ".camino-stop h4", and creates
    the flag itself — no extra markup needed in the page.
@@ -41,19 +47,34 @@
         document.body.appendChild(flag);
 
         var desktop = window.matchMedia('(min-width: 1101px)');
+        var header  = document.getElementById('site-header');
         var current = null;
         var ticking = false;
+
+        /* Mobile: follow the header sliding away / back */
+        function syncHeader() {
+            flag.classList.toggle(
+                'is-header-hidden',
+                !!header && header.classList.contains('is-hidden')
+            );
+        }
+        if (header && window.MutationObserver) {
+            new MutationObserver(syncHeader).observe(header, {
+                attributes: true,
+                attributeFilter: ['class']
+            });
+        }
+        syncHeader();
 
         function update() {
             ticking = false;
 
-            if (!desktop.matches) {
-                flag.classList.remove('is-visible');
-                return;
-            }
-
-            /* Same height as the flag (CSS top: 40%) */
-            var line = window.innerHeight * 0.4;
+            /* The height at which the visitor is "reading":
+               desktop — the flag's own height (CSS top: 40%);
+               mobile  — just below the flag, under the header. */
+            var line = desktop.matches
+                ? Math.max(window.innerHeight * 0.4, 200)
+                : 200;
 
             var active = null;
             for (var i = 0; i < stops.length; i++) {
