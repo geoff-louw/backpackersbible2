@@ -51,6 +51,7 @@
    43. Table centre
    44. ITINERARY HUB TILES
    45. PLACE NAME PRONUNCIATIONS
+   46. CAMINO DE SANTIAGO
    ============================================================ */
 
 
@@ -5676,7 +5677,7 @@ table.centered-table td {
 }
 
 /* ============================================================
-   CAMINO DE SANTIAGO — route chooser, day menu, day flag
+   46. CAMINO DE SANTIAGO — route chooser, day menu, day flag
    Used on the three Camino hostel pages (camino-de-santiago,
    camino-frances, camino-portugues).
 
@@ -5791,7 +5792,7 @@ table.centered-table td {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    background-color: #005F8A;
+    background-color: #bc1d23;
     color: var(--color-white);
     font-family: var(--font-primary);
     font-size: var(--text-base);
