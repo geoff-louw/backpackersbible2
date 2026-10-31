@@ -5845,38 +5845,51 @@ table.centered-table td {
     scroll-margin-top: 175px;
 }
 
-/* ---- Day flag (desktop only) ---- */
+/* ---- Day flag ----
+   Mobile/tablet (<=1100px): top-left, just below the fixed header
+   (75px bar + 24px colour strips = 99px). When script-2.js hides the
+   header on scroll-down, camino.js adds .is-header-hidden and the
+   flag slides up to the top edge.
+   Desktop (>=1101px): left edge, 40% down the screen. */
 
 .camino-day-flag {
-    display: none;
+    position: fixed;
+    left: 0;
+    top: 110px;
+    z-index: var(--z-popup);
+    padding: 8px 14px 8px 10px;
+    background-color: var(--color-red);
+    color: var(--color-white);
+    font-family: var(--font-primary);
+    font-size: var(--text-sm);
+    font-weight: bold;
+    letter-spacing: 0.06em;
+    line-height: 1.2;
+    text-transform: uppercase;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity var(--transition-base),
+                transform var(--transition-base),
+                top var(--transition-slide);
+    pointer-events: none;
+}
+
+.camino-day-flag.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+.camino-day-flag.is-header-hidden {
+    top: 12px;
 }
 
 @media (min-width: 1101px) {
-    .camino-day-flag {
-        display: block;
-        position: fixed;
-        left: 0;
+    .camino-day-flag,
+    .camino-day-flag.is-header-hidden {
         top: 40%;
-        z-index: var(--z-popup);
         padding: 12px 18px 12px 14px;
-        background-color: var(--color-red);
-        color: var(--color-white);
-        font-family: var(--font-primary);
         font-size: var(--text-base);
-        font-weight: bold;
-        letter-spacing: 0.06em;
-        line-height: 1.2;
-        text-transform: uppercase;
-        border-radius: 0 8px 8px 0;
-        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
-        opacity: 0;
-        transform: translateX(-100%);
-        transition: opacity var(--transition-base), transform var(--transition-base);
-        pointer-events: none;
-    }
-
-    .camino-day-flag.is-visible {
-        opacity: 1;
-        transform: none;
     }
 }
