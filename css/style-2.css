@@ -12,7 +12,7 @@
    6.  Site Header (desktop)
    7.  Mobile Menu
    8.  Site Header — Responsive (mobile)
-   8b-2. Site Header — Language Selector
+   8b-2. Site Header — Language Selector (desktop flag + mobile-menu flag row)
    9.  Map Section
    10. Jump Menu
    11. Quick Jump Menu
@@ -51,7 +51,6 @@
    43. Table centre
    44. ITINERARY HUB TILES
    45. PLACE NAME PRONUNCIATIONS
-   46. CAMINO DE SANTIAGO
    ============================================================ */
 
 
@@ -1278,39 +1277,39 @@ body {
 
 /* ============================================================
    8b-2. SITE HEADER — LANGUAGE SELECTOR
-   Flag button + one-item dropdown (the other language).
+   Desktop (1280px+): a bare flag + caret on the header background,
+   to the right of the search bar. Click opens a one-item dropdown with
+   the other language's flag. No pill/background behind it.
    Markup: <div class="lang-switch" id="lang-switch"> in the header
-   controls, directly after the search block. Behaviour: script-2.js 6b.
-   Desktop (1280px+): pill sits at the far right, level with the search
-   bar, and the search bar shifts left to make room.
-   Below 1280px: sits in the controls row, just left of the hamburger.
+   controls, directly after the search block.
+   Hamburger layouts (<=1279px): the header selector is hidden and
+   script-2.js 6b builds .mobile-menu__lang (both flags, side by side)
+   at the top of the open mobile menu, above "Free offline guides".
    ============================================================ */
 
 .lang-switch {
     position: relative;
     z-index: var(--z-above);
     flex: 0 0 auto;
-    margin-right: 8px;
 }
 
 .lang-switch__btn {
     display: flex;
     align-items: center;
     gap: 6px;
-    height: 36px;
-    padding: 0 10px;
-    background-color: #e8a0aa;
+    height: 32px;
+    padding: 0 6px;
+    background: none;
     border: none;
-    border-radius: 999px;
+    border-radius: 6px;
     color: var(--color-white);
     font-family: var(--font-primary);
     cursor: pointer;
-    transition: background-color var(--transition-base);
 }
 
-.lang-switch__btn:hover,
-.lang-switch__btn[aria-expanded="true"] {
-    background-color: #f0b8c0;
+.lang-switch__btn:hover img,
+.lang-switch__btn[aria-expanded="true"] img {
+    opacity: 0.85;
 }
 
 .lang-switch__btn:focus-visible {
@@ -1324,6 +1323,7 @@ body {
     height: 18px;
     border-radius: 2px;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+    transition: opacity var(--transition-fast);
 }
 
 .lang-switch__caret {
@@ -1373,10 +1373,10 @@ body {
     outline-offset: 1px;
 }
 
-/* Hamburger layouts (<=1279px): flag sits to the left of the hamburger */
+/* Hamburger layouts (<=1279px): no flag in the header bar */
 @media (max-width: 1279px) {
     .lang-switch {
-        order: -1;
+        display: none;
     }
 }
 
@@ -1384,13 +1384,50 @@ body {
 @media (min-width: 1280px) {
     .lang-switch {
         position: absolute;
-        top: 16px;
+        top: 18px;
         right: clamp(20px, 3vw, 40px);
-        margin-right: 0;
     }
     .site-header__search {
-        right: calc(clamp(20px, 3vw, 40px) + 70px);
+        right: calc(clamp(20px, 3vw, 40px) + 60px);
     }
+}
+
+/* Mobile menu: both flags in a row, above "Free offline guides".
+   Built by script-2.js 6b. The current language is ringed in yellow
+   and is not a link; the other flag is a normal link. */
+.mobile-menu__lang {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 1.5rem;
+}
+
+.mobile-menu__lang-item,
+#mobile-menu .mobile-menu__lang a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 44px;
+    padding: 0;
+    border-bottom: 0;
+    border-radius: 8px;
+}
+
+.mobile-menu__lang img {
+    display: block;
+    width: 32px;
+    height: 24px;
+    border-radius: 3px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+}
+
+.mobile-menu__lang-item[aria-current="true"] {
+    box-shadow: 0 0 0 2px var(--color-yellow-bright);
+}
+
+#mobile-menu .mobile-menu__lang a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
 }
 
 
@@ -5677,7 +5714,7 @@ table.centered-table td {
 }
 
 /* ============================================================
-   46. CAMINO DE SANTIAGO — route chooser, day menu, day flag
+   CAMINO DE SANTIAGO — route chooser, day menu, day flag
    Used on the three Camino hostel pages (camino-de-santiago,
    camino-frances, camino-portugues).
 
@@ -5792,7 +5829,7 @@ table.centered-table td {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    background-color: #bc1d23;
+    background-color: #005F8A;
     color: var(--color-white);
     font-family: var(--font-primary);
     font-size: var(--text-base);
