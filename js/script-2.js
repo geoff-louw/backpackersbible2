@@ -474,9 +474,13 @@
 
     /* ============================================================
        6b. HEADER — LANGUAGE SELECTOR
-       Flag button toggles a one-item dropdown. The dropdown link is a
-       plain <a href>, so switching language is ordinary navigation.
-       Closes on Escape, click outside, or focus leaving the selector.
+       Desktop: flag button toggles a one-item dropdown. The dropdown
+       link is a plain <a href>, so switching language is ordinary
+       navigation. Closes on Escape, click outside, or focus leaving.
+       Mobile menu: builds a row of both flags at the top of the open
+       menu (above "Free offline guides"), from the same header markup,
+       so the pages need no extra HTML. The current language is shown
+       but not linked; the other flag links to the translated page.
        ============================================================ */
 
     onReady(function () {
@@ -484,6 +488,43 @@
         var btn  = el('lang-switch-btn');
         var menu = el('lang-switch-menu');
         if (!root || !btn || !menu) return;
+
+        /* ---- flag row inside the mobile menu ---- */
+        var mobile = el('mobile-menu');
+        var other  = menu.querySelector('a');
+        var curImg = btn.querySelector('img');
+        var othImg = other ? other.querySelector('img') : null;
+        var anchor = mobile ? mobile.querySelector('.accordion--downloads') : null;
+
+        if (mobile && other && curImg && othImg && anchor && !mobile.querySelector('.mobile-menu__lang')) {
+            var isEs   = (document.documentElement.lang || '').toLowerCase().indexOf('es') === 0;
+            var curLbl = btn.getAttribute('title') || '';
+            var othLbl = other.getAttribute('title') || '';
+
+            var row = document.createElement('div');
+            row.className = 'mobile-menu__lang';
+            row.setAttribute('role', 'group');
+            row.setAttribute('aria-label', isEs ? 'Idioma' : 'Language');
+
+            var curEl = document.createElement('span');
+            curEl.className = 'mobile-menu__lang-item';
+            curEl.setAttribute('aria-current', 'true');
+            curEl.innerHTML = '<img src="' + curImg.getAttribute('src') + '" alt="">' +
+                              '<span class="sr-only">' + curLbl + (isEs ? ' (idioma actual)' : ' (current language)') + '</span>';
+
+            var othEl = document.createElement('a');
+            othEl.href = other.getAttribute('href');
+            if (other.getAttribute('hreflang')) othEl.setAttribute('hreflang', other.getAttribute('hreflang'));
+            if (other.getAttribute('lang'))     othEl.setAttribute('lang', other.getAttribute('lang'));
+            othEl.innerHTML = '<img src="' + othImg.getAttribute('src') + '" alt="">' +
+                              '<span class="sr-only">' + othLbl + '</span>';
+
+            // English flag first, Spanish second, on both language versions
+            if (isEs) { row.appendChild(othEl); row.appendChild(curEl); }
+            else      { row.appendChild(curEl); row.appendChild(othEl); }
+
+            mobile.insertBefore(row, anchor);
+        }
 
         function openLang() {
             menu.removeAttribute('hidden');
