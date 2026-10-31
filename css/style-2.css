@@ -5674,3 +5674,109 @@ table.centered-table td {
   color: #000000;
   background: none;
 }
+
+/* ============================================================
+   CAMINO DE SANTIAGO — route chooser + night-stop headings
+   Used on the three Camino hostel pages (camino-de-santiago,
+   camino-frances, camino-portugues).
+
+   .camino-choose  — three 300px square route maps in a row, each
+                     with the route name and start/finish/distance/
+                     days underneath. aria-current="page" marks the
+                     route you are on. Selectors are scoped to
+                     .hostel-list-section so they win over the
+                     generic ".hostel-list-section ul / li a" rules.
+   .camino-stop    — yellow wrapper for the h4 "Start: …" /
+                     "End of day n: …" headings that sit between the
+                     hostel cards. The h4 itself uses the shared
+                     .sub-heading-desktop class.
+   ============================================================ */
+
+.hostel-list-section ul.camino-choose {
+    list-style: none;
+    margin: 0 auto 20px auto;
+    padding: 0 15px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 300px));
+    justify-content: center;
+    gap: 30px;
+    max-width: var(--container-max);
+    box-sizing: border-box;
+}
+
+.hostel-list-section .camino-choose__item {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.hostel-list-section .camino-choose__link {
+    display: block;
+    font-size: var(--text-base);
+    font-weight: normal;
+    line-height: 1.4;
+    color: var(--color-black);
+    text-decoration: none;
+}
+
+.hostel-list-section .camino-choose__link:hover {
+    color: var(--color-black);
+}
+
+.camino-choose__img {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    margin: 0 auto;
+    border: 4px solid transparent;
+    box-sizing: border-box;
+}
+
+.camino-choose__link:hover .camino-choose__img,
+.camino-choose__link:focus-visible .camino-choose__img,
+.camino-choose__link[aria-current="page"] .camino-choose__img {
+    border-color: var(--color-red);
+}
+
+.hostel-list-section .camino-choose__link:focus-visible {
+    outline: 3px solid var(--color-yellow-bright);
+    outline-offset: 2px;
+}
+
+.camino-choose__name {
+    display: block;
+    margin-top: 12px;
+    font-size: var(--text-lg);
+    font-weight: bold;
+    line-height: 1.25;
+}
+
+.camino-choose__meta {
+    display: block;
+    margin-top: 6px;
+    font-size: var(--text-sm);
+    font-weight: normal;
+    line-height: 1.4;
+}
+
+.camino-stop {
+    background-color: var(--color-yellow);
+    width: 100%;
+}
+
+@media (max-width: 700px) {
+    .hostel-list-section ul.camino-choose {
+        gap: 12px;
+        padding: 0 10px;
+    }
+    .camino-choose__name {
+        font-size: var(--text-sm);
+        margin-top: 8px;
+    }
+    .camino-choose__meta {
+        font-size: var(--text-xs);
+    }
+}
