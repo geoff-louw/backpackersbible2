@@ -910,14 +910,13 @@ Build your own itinerary
 
 
 
-
 <!-- BACKPACKERSBIBLE WTF BUTTON -->
 <style>
 .wtf-wrap {
   display: flex;
   justify-content: center;
   width: 100%;
-  margin: 20px auto;
+  margin: 70px auto 20px;
   text-align: center;
 }
 
@@ -941,7 +940,8 @@ Build your own itinerary
   font-weight: 900;
   cursor: pointer;
   animation: wtfBlink 1.5s infinite;
-  transition: width .35s, height .35s, border-radius .35s;
+  transition: width .35s, height .35s, border-radius .35s,
+              background .35s, color .35s;
   box-shadow: 0 2px 5px rgba(0,0,0,.2);
 }
 
@@ -954,12 +954,12 @@ Build your own itinerary
   50% { opacity: .75; }
 }
 
-/* THE MANICULE */
+/* MANICULE */
 
 .wtf-hand {
   display: block;
-  width: 43px;
-  height: 50px;
+  width: 30px;
+  height: 36px;
   margin: -1px auto 0;
   pointer-events: none;
 }
@@ -974,11 +974,14 @@ Build your own itinerary
   width: 100%;
   height: auto;
   min-height: 72px;
-  padding: 17px 20px;
+  padding: 18px 20px;
+  border: 2px solid #ed2024;
+  outline: none;
   border-radius: 7px;
-  outline: 1px solid #222;
   text-align: left;
   animation: none;
+  background: white;
+  color: #111;
   cursor: pointer;
 }
 
@@ -998,6 +1001,7 @@ Build your own itinerary
   display: block;
   font-size: 20px;
   font-weight: 900;
+  color: #ed2024;
   margin-bottom: 12px;
   letter-spacing: .5px;
 }
@@ -1007,10 +1011,7 @@ Build your own itinerary
   font-size: 14px;
   font-weight: normal;
   line-height: 1.55;
-}
-
-.wtf-widget.is-open .wtf-hand {
-  display: none;
+  color: #111;
 }
 
 .wtf-close {
@@ -1021,14 +1022,19 @@ Build your own itinerary
   display: block;
   font-size: 10px;
   font-weight: normal;
+  color: #666;
   margin-top: 14px;
-  opacity: .8;
   letter-spacing: 1px;
+}
+
+.wtf-widget.is-open .wtf-hand {
+  display: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .wtf-trigger {
     animation: none;
+    transition: none;
   }
 }
 </style>
@@ -1079,14 +1085,13 @@ Build your own itinerary
       <span class="wtf-close">CLICK TO CLOSE</span>
     </button>
 
-    <!-- YOUR ORIGINAL MANICULE -->
+    <!-- MANICULE -->
     <svg class="wtf-hand"
       viewBox="0 0 28.220184 32.88607"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true">
 
       <g transform="matrix(0.41200966,0,0,0.41200966,-27.300547,-40.299141)">
-
         <path
           style="fill:#ffffff;stroke:none"
           d="m 96.96323,121.21409 v -16.3833
@@ -1108,33 +1113,30 @@ Build your own itinerary
           -6.19661,-9.76862 -7.23266,0 -6.36722,6.79994
           -6.36722,6.79994 v -5.43995
           c 0,-1.85453 -2.65816,-5.25451
-          -5.87268,-5.25451 -3.214517,0
-          -5.974749,2.4982 -6.01644,5.26725 z"/>
-
+          -5.87268,-5.25451 -3.214517,0 -5.974749,2.4982
+          -6.01644,5.26725 z"/>
         <path
           style="fill:none;stroke:#000000;stroke-width:1.8;
           stroke-linecap:round;stroke-linejoin:round"
           d="m 108.91417,134.08408 v -12.04702
           c 0,-4.45087 -3.70906,-5.93449
-          -6.30541,-5.93449 -2.59634,0
-          -5.672222,1.91817 -5.672222,6.18176"/>
-
+          -6.30541,-5.93449 -2.59634,0 -5.672222,1.91817
+          -5.672222,6.18176"/>
         <path
           style="fill:none;stroke:#000000;stroke-width:1.8;
           stroke-linecap:round;stroke-linejoin:round"
           d="m 121.2777,134.20771 v -7.9868
           c 0,-3.33816 -2.84361,-6.30541
-          -6.42904,-6.30541 -3.58542,0
-          -5.94949,2.98324 -5.94949,6.85116"/>
-
+          -6.42904,-6.30541 -3.58542,0 -5.94949,2.98324
+          -5.94949,6.85116"/>
         <path
           style="fill:none;stroke:#000000;stroke-width:1.8;
           stroke-linecap:round;stroke-linejoin:round"
           d="m 121.35436,129.42453
           c 0,-5.33283 3.7592,-6.03222
-          6.03221,-6.03222 2.27301,0
-          6.46933,1.4862 6.46933,6.03222
-          v 22.82676 c 0,6.99387 -5.68252,24.47855
+          6.03221,-6.03222 2.27301,0 6.46933,1.4862
+          6.46933,6.03222 v 22.82676
+          c 0,6.99387 -5.68252,24.47855
           -24.04143,24.47855 -8.56749,0
           -14.949401,-4.80829 -17.397255,-6.29448
           -2.447856,-1.4862 -19.320573,-11.10278
