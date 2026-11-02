@@ -910,6 +910,270 @@ Build your own itinerary
 
 
 
+<!-- BACKPACKERSBIBLE WTF BUTTON -->
+<style>
+.wtf-wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 70px auto 20px;
+  text-align: center;
+}
+
+.wtf-widget {
+  width: 82px;
+  text-align: center;
+}
+
+.wtf-trigger {
+  box-sizing: border-box;
+  width: 72px;
+  height: 72px;
+  padding: 0;
+  border: 4px solid white;
+  outline: 0px solid #222;
+  border-radius: 50%;
+  background: #ed2024;
+  color: white;
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 900;
+  cursor: pointer;
+  animation: wtfBlink 1.5s infinite;
+  transition: width .35s, height .35s, border-radius .35s,
+              background .35s, color .35s;
+  box-shadow: 0 2px 5px rgba(0,0,0,.2);
+}
+
+.wtf-trigger:hover {
+  background: #c90000;
+}
+
+@keyframes wtfBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .75; }
+}
+
+/* MANICULE */
+
+.wtf-hand {
+  display: block;
+  width: 30px;
+  height: 36px;
+  margin: -1px auto 0;
+  pointer-events: none;
+}
+
+/* EXPANDED PANEL */
+
+.wtf-widget.is-open {
+  width: min(360px, 100%);
+}
+
+.wtf-widget.is-open .wtf-trigger {
+  width: 100%;
+  height: auto;
+  min-height: 72px;
+  padding: 18px 20px;
+  border: 2px solid #ed2024;
+  outline: none;
+  border-radius: 7px;
+  text-align: left;
+  animation: none;
+  background: white;
+  color: #111;
+  cursor: pointer;
+}
+
+.wtf-heading {
+  display: none;
+}
+
+.wtf-copy {
+  display: none;
+}
+
+.wtf-widget.is-open .wtf-label {
+  display: none;
+}
+
+.wtf-widget.is-open .wtf-heading {
+  display: block;
+  font-size: 20px;
+  font-weight: 900;
+  color: #ed2024;
+  margin-bottom: 12px;
+  letter-spacing: .5px;
+}
+
+.wtf-widget.is-open .wtf-copy {
+  display: block;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.55;
+  color: #111;
+}
+
+.wtf-close {
+  display: none;
+}
+
+.wtf-widget.is-open .wtf-close {
+  display: block;
+  font-size: 10px;
+  font-weight: normal;
+  color: #666;
+  margin-top: 14px;
+  letter-spacing: 1px;
+}
+
+.wtf-widget.is-open .wtf-hand {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wtf-trigger {
+    animation: none;
+    transition: none;
+  }
+}
+</style>
+
+<div class="wtf-wrap">
+  <div class="wtf-widget" id="wtfWidget">
+
+    <button type="button"
+      class="wtf-trigger"
+      id="wtfTrigger"
+      aria-expanded="false"
+      aria-label="Show a Cape Town fun fact">
+
+      <span class="wtf-label">WTF?</span>
+
+      <span class="wtf-heading">FUN FACT</span>
+
+      <span class="wtf-copy">
+        EVER BEEN MUGGED BY A BABOON?
+
+        <br><br>
+
+        Walk through Simon's Town with food in your hand
+        and you might find out what it's like. The Cape
+        Peninsula's chacma baboons have become remarkably
+        brazen around people, and some have learned that
+        handbags, shopping bags and even cars can be
+        excellent sources of free lunch.
+
+        <br><br>
+
+        They're legally protected wildlife, and feeding
+        them is illegal. But that doesn't stop them from
+        helping themselves. The problem is that baboons
+        which get used to human food become increasingly
+        bold about looking for it.
+
+        <br><br>
+
+        The City of Cape Town even warns visitors that
+        baboons have learned to open car doors to get at
+        food. So keep your snacks hidden, your bags close
+        and your windows shut. The local pickpockets have
+        tails, enormous teeth and absolutely no respect
+        for personal property.
+      </span>
+
+      <span class="wtf-close">CLICK TO CLOSE</span>
+    </button>
+
+    <!-- MANICULE -->
+    <svg class="wtf-hand"
+      viewBox="0 0 28.220184 32.88607"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true">
+
+      <g transform="matrix(0.41200966,0,0,0.41200966,-27.300547,-40.299141)">
+        <path
+          style="fill:#ffffff;stroke:none"
+          d="m 96.96323,121.21409 v -16.3833
+          c 0,-2.71012 -3.059818,-6.119634
+          -6.032214,-6.119634 -2.972395,0
+          -6.381908,2.273014 -6.381908,6.294484
+          v 44.09841 c 0,0 -5.157981,-1.74847
+          -7.081295,-2.36044 -1.923315,-0.61196
+          -6.819027,-1.74846 -9.266881,2.27301
+          -2.447856,4.02148 -0.174847,7.34357
+          2.36043,8.82977 2.53528,1.48619
+          19.407997,11.10277 21.855853,12.58897
+          2.447854,1.48619 8.829765,6.29448
+          17.397255,6.29448 18.35891,0
+          24.04143,-17.48468 24.04143,-24.47855
+          v -22.82676 c 0,-4.54602 -4.19632,-6.03222
+          -6.46933,-6.03222 -2.27301,0 -5.97039,0.88484
+          -5.97039,6.21767 0,0 1.03606,-9.76862
+          -6.19661,-9.76862 -7.23266,0 -6.36722,6.79994
+          -6.36722,6.79994 v -5.43995
+          c 0,-1.85453 -2.65816,-5.25451
+          -5.87268,-5.25451 -3.214517,0 -5.974749,2.4982
+          -6.01644,5.26725 z"/>
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1.8;
+          stroke-linecap:round;stroke-linejoin:round"
+          d="m 108.91417,134.08408 v -12.04702
+          c 0,-4.45087 -3.70906,-5.93449
+          -6.30541,-5.93449 -2.59634,0 -5.672222,1.91817
+          -5.672222,6.18176"/>
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1.8;
+          stroke-linecap:round;stroke-linejoin:round"
+          d="m 121.2777,134.20771 v -7.9868
+          c 0,-3.33816 -2.84361,-6.30541
+          -6.42904,-6.30541 -3.58542,0 -5.94949,2.98324
+          -5.94949,6.85116"/>
+        <path
+          style="fill:none;stroke:#000000;stroke-width:1.8;
+          stroke-linecap:round;stroke-linejoin:round"
+          d="m 121.35436,129.42453
+          c 0,-5.33283 3.7592,-6.03222
+          6.03221,-6.03222 2.27301,0 6.46933,1.4862
+          6.46933,6.03222 v 22.82676
+          c 0,6.99387 -5.68252,24.47855
+          -24.04143,24.47855 -8.56749,0
+          -14.949401,-4.80829 -17.397255,-6.29448
+          -2.447856,-1.4862 -19.320573,-11.10278
+          -21.855853,-12.58897 -2.535277,-1.48619
+          -4.808286,-4.80829 -2.36043,-8.82977
+          2.447854,-4.02147 7.343566,-2.88497
+          9.266881,-2.27301 1.923314,0.61197
+          7.081295,2.36044 7.081295,2.36044
+          v -44.09841 c 0,-4.02147 3.409513,-6.294484
+          6.381908,-6.294484 2.972396,0 6.032214,3.409514
+          6.032214,6.119634 v 29.36502"/>
+      </g>
+    </svg>
+
+  </div>
+</div>
+
+<script>
+(function () {
+  const widget = document.getElementById("wtfWidget");
+  const trigger = document.getElementById("wtfTrigger");
+
+  if (!widget || !trigger) return;
+
+  trigger.addEventListener("click", function () {
+    const isOpen = widget.classList.toggle("is-open");
+    trigger.setAttribute("aria-expanded", String(isOpen));
+  });
+})();
+</script>
+
+
+
+
+
+
+
 
      <!-- Quick Facts -->
 
