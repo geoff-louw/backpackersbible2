@@ -904,6 +904,95 @@ Build your own itinerary
   </picture>
 </div>
 
+
+
+
+
+
+
+
+
+<!-- BACKPACKERSBIBLE WTF BUTTON -->
+<div class="wtf-container" style="margin:18px 0; text-align:left;">
+
+  <button id="wtfButton"
+    aria-expanded="false"
+    aria-controls="wtfFact"
+    style="background:#FFD400; color:#111; border:2px solid #111;
+    border-radius:5px; padding:11px 20px; font-family:inherit;
+    font-size:16px; font-weight:900; letter-spacing:1px;
+    cursor:pointer; transition:all .15s;"
+    onmouseover="this.style.background='#111';this.style.color='#FFD400';this.style.transform='rotate(-2deg)'"
+    onmouseout="this.style.background='#FFD400';this.style.color='#111';this.style.transform='none'">
+    WTF?!
+  </button>
+
+  <div id="wtfFact" hidden
+    style="max-width:520px; margin-top:12px; padding:18px;
+    background:#fff9d9; border:2px solid #111; border-radius:6px;
+    color:#222; text-align:left;">
+
+    <div style="font-size:20px; font-weight:900; margin-bottom:10px;">
+      CAPE TOWN WTF!
+    </div>
+
+    <p style="line-height:1.5;">
+      Legend has it that, in 1895, Cape Town's famous Noon Gun
+      accidentally fired at 10:30 because a spider interfered
+      with its electrical signalling system.
+    </p>
+
+    <p style="font-weight:bold; font-style:italic; line-height:1.5;">
+      Augustus says: "Two centuries of military technology,
+      man. Taken down by a bloody spider. Respect."
+    </p>
+
+    <button id="wtfAnother"
+      style="background:#111; color:#FFD400; border:0;
+      padding:9px 15px; font-weight:bold; cursor:pointer;
+      border-radius:3px;">
+      GIVE ME ANOTHER!
+    </button>
+
+    <div style="margin-top:12px; font-size:11px; color:#666;
+    font-style:italic;">
+      Historical accuracy disputed. Spider unavailable for comment.
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function () {
+  const button = document.getElementById("wtfButton");
+  const fact = document.getElementById("wtfFact");
+  const another = document.getElementById("wtfAnother");
+
+  if (!button || !fact || !another) return;
+
+  button.addEventListener("click", function () {
+    fact.hidden = !fact.hidden;
+    button.setAttribute("aria-expanded", String(!fact.hidden));
+  });
+
+  another.addEventListener("click", function () {
+    fact.hidden = true;
+    button.setAttribute("aria-expanded", "false");
+
+    setTimeout(function () {
+      fact.hidden = false;
+      button.setAttribute("aria-expanded", "true");
+    }, 150);
+  });
+})();
+</script>
+
+
+
+
+
+
+
      <!-- Quick Facts -->
 
 <section class="area-hero-container" id="quickfacts">
