@@ -1524,28 +1524,3 @@ function setupMapPopups(map) {
     popup.setLngLat(coords).setHTML(popupHtml).addTo(map);
   });
 }
-
-
-/* ============================================================
-   20. WTF BUTTON
-   ============================================================ */
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    document.querySelectorAll(".wtf-widget").forEach(function (widget) {
-
-        const trigger = widget.querySelector(".wtf-trigger");
-
-        if (!trigger) return;
-
-        trigger.addEventListener("click", function () {
-
-            const isOpen = widget.classList.toggle("is-open");
-
-            trigger.setAttribute("aria-expanded", isOpen);
-
-        });
-
-    });
-
-});
