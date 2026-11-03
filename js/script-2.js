@@ -23,6 +23,7 @@
    17. Contact email obfuscation
    18.  Map facade (lazy load on mobile)
    19. Things to do map
+   20. WTF button
    ============================================================ */
 
 (function () {
@@ -1523,3 +1524,28 @@ function setupMapPopups(map) {
     popup.setLngLat(coords).setHTML(popupHtml).addTo(map);
   });
 }
+
+
+/* ============================================================
+   20. WTF BUTTON
+   ============================================================ */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    document.querySelectorAll(".wtf-widget").forEach(function (widget) {
+
+        const trigger = widget.querySelector(".wtf-trigger");
+
+        if (!trigger) return;
+
+        trigger.addEventListener("click", function () {
+
+            const isOpen = widget.classList.toggle("is-open");
+
+            trigger.setAttribute("aria-expanded", isOpen);
+
+        });
+
+    });
+
+});
