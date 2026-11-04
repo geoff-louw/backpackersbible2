@@ -587,22 +587,37 @@
   </url>
   <url>
     <loc>https://www.backpackersbible.com/spain/es/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-04</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.backpackersbible.com/spain/es/regiones/espana-costera</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-04</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.backpackersbible.com/spain/es/regiones/cataluna</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-04</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.backpackersbible.com/spain/es/regiones/barcelona</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-04</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.backpackersbible.com/spain/es/regiones/sevilla</loc>
+    <lastmod>2026-11-04</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.backpackersbible.com/spain/es/regiones/valencia</loc>
+    <lastmod>2026-11-04</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <lochttps://www.backpackersbible.com/spain/es/regiones/camino-de-santiago</loc>
+    <lastmod>2026-11-04</lastmod>
     <priority>0.8</priority>
   </url>
 </urlset>
