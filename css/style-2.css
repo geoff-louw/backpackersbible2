@@ -52,6 +52,7 @@
    44. ITINERARY HUB TILES
    45. PLACE NAME PRONUNCIATIONS
    46. WTF Button
+   47. Camino table
    ============================================================ */
 
 
@@ -5931,5 +5932,45 @@ table.centered-table td {
         padding: 12px 18px 12px 14px;
         font-size: var(--text-base);
     }
+}
+
+
+/* ============================================================
+   47. Camino table
+   ============================================================ */
+
+.camino-comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 15px;
+}
+
+.camino-comparison-table th,
+.camino-comparison-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+  vertical-align: top;
+}
+
+.camino-comparison-table th {
+  background: #bc1d23;
+  color: #fff;
+  font-weight: bold;
+}
+
+.camino-comparison-table tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.small {
+  font-size: 13px;
+  color: #666;
 }
 
