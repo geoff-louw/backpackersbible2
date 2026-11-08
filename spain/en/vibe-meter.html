@@ -9,6 +9,8 @@
 
   <meta name="color-scheme" content="light">
 
+    <meta name="robots" content="noindex">
+
   <title>Backpacking Spain | Hostels, Regions &amp; Budget Travel Guide</title>
 
   <meta name="description" content="Direct hostel contacts, honest regional guides, and real budget advice for backpacking Spain. No affiliate fluff — built for backpackers, by backpackers.">
@@ -519,13 +521,10 @@
     <h1 class="area-hero-title" id="faq">Vibe Meter</h1>
 
 
-
-
 <div class="vibe-meter-card" style="--score: 8.5;">
   <svg
      width="100%"
      height="100%"
-     /* Perfectly matches the background card's exact x, y, width, and height bounds */
      viewBox="37.722286 52.766296 167.72946 158.74797"
      version="1.1"
      xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -538,8 +537,8 @@
           --final-angle: calc(var(--min-deg) + (var(--score) / 10 * var(--sweep-range)));
           
           width: 100%;
-          max-width: 380px;
-          margin: 0 auto; /* Centres the card horizontally on the page */
+          max-width: 520px; /* Increased size for crystal-clear legibility */
+          margin: 0 auto;
           display: block;
           position: relative;
         }
@@ -656,6 +655,12 @@
     <path style="fill:#9bff00;stroke:#000000;stroke-width:0.5;" d="m 78.514545,127.6824 c -0.01583,13.03325 5.8829,25.44213 13.223608,32.39829 8.2e-5,-0.0574 -5.805842,5.67706 -5.805842,5.67706 -13.877621,-13.91135 -15.693719,-31.36781 -15.685562,-38.0854 0.976062,0.001 8.267796,0.0104 8.267796,0.0104 z" />
     <path style="fill:#14d700;stroke:#000000;stroke-width:0.5;" d="m 91.866536,159.90332 c 9.268064,9.16345 22.244914,13.67752 32.352214,13.33595 -0.0408,-0.0404 -0.0351,8.12007 -0.0351,8.12007 -19.64947,0.11155 -33.35311,-10.8537 -38.130052,-15.57671 0.68612,-0.69422 5.813197,-5.87906 5.813197,-5.87906 z" />
 
+    <!-- Curving "Party-ness" Text Path along the top arc -->
+    <path style="fill:none;stroke:none;" d="m 103.82258,92.942156 c 12.96281,-5.332721 19.8943,-8.957327 38.59156,-3.120071" id="partyPath" />
+    <text style="font-weight:bold;font-size:5.5px;font-family:'Century Gothic';fill:#000000;">
+      <textPath href="#partyPath" startOffset="50%" text-anchor="middle">Party-ness</textPath>
+    </text>
+
     <!-- Sub-dial Face -->
     <g transform="matrix(0.71445729,0,0,0.71445729,9.4771098,22.438679)">
       <circle style="fill:#a1a1a1;stroke-width:0.508865;" cx="124.3993" cy="153.42212" r="16.910416" />
@@ -696,7 +701,7 @@
   </svg>
 </div>
 
-<!-- Updated IntersectionObserver targeting the vertical middle of the screen -->
+<!-- Center-screen Trigger Script -->
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const observer = new IntersectionObserver((entries, observer) => {
@@ -708,7 +713,6 @@
       });
     }, {
       root: null,
-      /* Shrinks the detection box so it only fires when the element hits the middle horizontal stripe of the screen */
       rootMargin: "-40% 0px -40% 0px", 
       threshold: 0
     });
@@ -718,8 +722,6 @@
     });
   });
 </script>
-
-
 
 
 </section>
