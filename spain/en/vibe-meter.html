@@ -516,7 +516,7 @@
 
 <section class="area-hero-container" id="guide">
 
-    <h1 class="area-hero-title" id="faq">Backpacking Spain</h1>
+    <h1 class="area-hero-title" id="faq">Vibe Meter</h1>
 
 
 
@@ -525,19 +525,16 @@
   <svg
      width="100%"
      height="100%"
-     viewBox="0 0 167.72946 158.74797"
+     /* FIX 1: Expanded viewBox to perfectly encompass your entire design coordinates (30 to 200) */
+     viewBox="35 50 140 135"
      version="1.1"
      xmlns:xlink="http://www.w3.org/1999/xlink"
      xmlns="http://www.w3.org/2000/svg">
     <defs>
       <style>
-        /* ==========================================================
-           1. DYNAMIC CALCULATIONS & TIMINGS
-           ================================================---------- */
         .vibe-meter-card {
           --min-deg: -110deg;
           --sweep-range: 220deg;
-          /* Maps score (0 to 10) to target needle angle */
           --final-angle: calc(var(--min-deg) + (var(--score) / 10 * var(--sweep-range)));
           
           width: 100%;
@@ -546,24 +543,51 @@
         }
 
         /* ==========================================================
-           2. MAIN NEEDLE ANIMATIONS (Search Settle + Ambient Idle)
+           2. CONTROLLED ANIMATION STATES
            ================================================---------- */
+        /* Needles rest at start position until the JS adds .in-view */
         #main-needle-group {
-          /* Exact center pin coordinate of your main gauge face */
           transform-origin: 123.77471px 127.88613px;
+          transform: rotate(-110deg); 
+        }
+
+        .sub-dial-needle {
+          transform-origin: 123.89387px 153.76831px;
+          transform: rotate(0deg);
+        }
+
+        .number-reel {
+          display: flex;
+          flex-direction: column;
+          transform: translateY(0);
+        }
+
+        /* Triggered Classes added via JavaScript IntersectionObserver */
+        .vibe-meter-card.in-view #main-needle-group {
           animation: 
             mainNeedleSettle 3s cubic-bezier(0.45, 0.05, 0.55, 0.95) forwards,
             mainNeedleIdle 4s ease-in-out 3.1s infinite;
         }
 
+        .vibe-meter-card.in-view .sub-dial-needle {
+          animation: 
+            subSettle 3s ease-in-out forwards,
+            subIdle 3.5s ease-in-out 3.1s infinite;
+        }
+
+        .vibe-meter-card.in-view .number-reel {
+          animation: reelClick 3s cubic-bezier(0.15, 0.85, 0.35, 1.2) forwards;
+        }
+
+        /* Keyframes */
         @keyframes mainNeedleSettle {
           0%   { transform: rotate(-110deg); }
-          20%  { transform: rotate(95deg); }   /* Overshoot right */
-          40%  { transform: rotate(-60deg); }  /* Swing back left */
-          60%  { transform: rotate(60deg); }   /* Overshoot right again */
-          75%  { transform: rotate(calc(var(--final-angle) - 15deg)); } /* Pull-back */
-          88%  { transform: rotate(calc(var(--final-angle) + 8deg)); }  /* Micro bounce */
-          100% { transform: rotate(var(--final-angle)); }              /* Settle on true score */
+          20%  { transform: rotate(95deg); }
+          40%  { transform: rotate(-60deg); }
+          60%  { transform: rotate(60deg); }
+          75%  { transform: rotate(calc(var(--final-angle) - 15deg)); }
+          88%  { transform: rotate(calc(var(--final-angle) + 8deg)); }
+          100% { transform: rotate(var(--final-angle)); }
         }
 
         @keyframes mainNeedleIdle {
@@ -571,16 +595,6 @@
           92% { transform: rotate(calc(var(--final-angle) + 3.5deg)); }
           94% { transform: rotate(calc(var(--final-angle) - 2deg)); }
           96% { transform: rotate(calc(var(--final-angle) + 1deg)); }
-        }
-
-        /* ==========================================================
-           3. SUB-DIAL NEEDLE ANIMATIONS
-           ================================================---------- */
-        .sub-dial-needle {
-          transform-origin: 123.89387px 153.76831px;
-          animation: 
-            subSettle 3s ease-in-out forwards,
-            subIdle 3.5s ease-in-out 3.1s infinite;
         }
 
         @keyframes subSettle {
@@ -596,9 +610,6 @@
           94% { transform: rotate(30deg); }
         }
 
-        /* ==========================================================
-           4. WATCH-STYLE MECHANICAL DATE REEL (Slot Animation)
-           ================================================---------- */
         .score-window-wrapper {
           width: 24.025mm;
           height: 12.798mm;
@@ -612,12 +623,6 @@
           color: #000000;
         }
 
-        .number-reel {
-          display: flex;
-          flex-direction: column;
-          animation: reelClick 3s cubic-bezier(0.15, 0.85, 0.35, 1.2) forwards;
-        }
-
         .number-reel span {
           height: 12.798mm;
           display: flex;
@@ -626,13 +631,11 @@
           min-width: 24mm;
         }
 
-        /* Vertical ratcheting step sequence (12.798mm per step item) */
         @keyframes reelClick {
           0%   { transform: translateY(0); }
-          25%  { transform: translateY(-76.788mm); } /* Cycles through numbers */
+          25%  { transform: translateY(-76.788mm); }
           50%  { transform: translateY(-38.394mm); }
           75%  { transform: translateY(-115.182mm); }
-          /* Calculates final offset based on score value: index * step-height */
           100% { transform: translateY(calc(var(--score-index, 8) * -12.798mm)); }
         }
       </style>
@@ -654,11 +657,10 @@
     <path style="fill:#9bff00;stroke:#000000;stroke-width:0.5;" d="m 78.514545,127.6824 c -0.01583,13.03325 5.8829,25.44213 13.223608,32.39829 8.2e-5,-0.0574 -5.805842,5.67706 -5.805842,5.67706 -13.877621,-13.91135 -15.693719,-31.36781 -15.685562,-38.0854 0.976062,0.001 8.267796,0.0104 8.267796,0.0104 z" />
     <path style="fill:#14d700;stroke:#000000;stroke-width:0.5;" d="m 91.866536,159.90332 c 9.268064,9.16345 22.244914,13.67752 32.352214,13.33595 -0.0408,-0.0404 -0.0351,8.12007 -0.0351,8.12007 -19.64947,0.11155 -33.35311,-10.8537 -38.130052,-15.57671 0.68612,-0.69422 5.813197,-5.87906 5.813197,-5.87906 z" />
 
-    <!-- Sub-dial Face (Friendliness/Activities) -->
+    <!-- Sub-dial Face -->
     <g transform="matrix(0.71445729,0,0,0.71445729,9.4771098,22.438679)">
       <circle style="fill:#a1a1a1;stroke-width:0.508865;" cx="124.3993" cy="153.42212" r="16.910416" />
       <text style="font-weight:bold;font-size:3.87531px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;" x="124.31605" y="159.78477">Friendliness</text>
-      <!-- Animated Sub-Needle -->
       <g class="sub-dial-needle">
         <path style="fill:#000000;stroke:#000000;stroke-width:0.508865;stroke-linecap:round;" d="m 123.94226,153.8792 12.98547,-9.86906" />
         <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="1.5422727" />
@@ -666,7 +668,7 @@
       </g>
     </g>
 
-    <!-- Watch-Style Mechanical Date Display Reel (ForeignObject replacement for static slots) -->
+    <!-- Watch-Style Mechanical Date Display Reel -->
     <foreignObject x="138.93318" y="121.25021" width="24.025503" height="12.798634">
       <div xmlns="http://www.w3.org/1999/xhtml" class="score-window-wrapper">
         <div class="number-reel">
@@ -686,7 +688,7 @@
       </div>
     </foreignObject>
 
-    <!-- Main Indicator Needle & Center Caps (Grouped for coordinated pivot rotation) -->
+    <!-- Main Indicator Needle & Center Caps -->
     <g id="main-needle-group">
       <rect style="fill:#bebebe;stroke:#000000;stroke-width:0.512163;stroke-linecap:round;" width="3.2357354" height="57.638039" x="175.6566" y="-34.751022" ry="1.7103276" transform="rotate(40.332538)" />
       <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.5;" cx="123.77471" cy="127.88613" r="5.8483286" />
@@ -695,6 +697,26 @@
   </svg>
 </div>
 
+<!-- Tiny script to trigger the animation when centered in viewport -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target); // Runs only once per page load
+        }
+      });
+    }, {
+      root: null,
+      threshold: 0.5 // Triggers when 50% of the card is visible in the center screen
+    });
+
+    document.querySelectorAll('.vibe-meter-card').forEach(card => {
+      observer.observe(card);
+    });
+  });
+</script>
 
 
 
