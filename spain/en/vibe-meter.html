@@ -554,6 +554,11 @@
           transform: rotate(0deg);
         }
 
+        .sub-dial-needle-big {
+          transform-origin: 123.89387px 153.76831px;
+          transform: rotate(0deg);
+        }
+
         .number-reel {
           display: flex;
           flex-direction: column;
@@ -571,6 +576,12 @@
           animation: 
             subSettle 3s ease-in-out forwards,
             subIdle 3.5s ease-in-out 3.1s infinite;
+        }
+
+        .vibe-meter-card.in-view .sub-dial-needle-big {
+          animation: 
+            subSettleBig 3s ease-in-out forwards,
+            subIdleBig 3.8s ease-in-out 3.1s infinite;
         }
 
         .vibe-meter-card.in-view .number-reel {
@@ -606,6 +617,19 @@
           0%, 88%, 100% { transform: rotate(35deg); }
           91% { transform: rotate(42deg); }
           94% { transform: rotate(30deg); }
+        }
+
+        @keyframes subSettleBig {
+          0%   { transform: rotate(0deg); }
+          30%  { transform: rotate(-90deg); }
+          60%  { transform: rotate(80deg); }
+          100% { transform: rotate(-25deg); }
+        }
+
+        @keyframes subIdleBig {
+          0%, 88%, 100% { transform: rotate(-25deg); }
+          91% { transform: rotate(-18deg); }
+          94% { transform: rotate(-30deg); }
         }
 
         .score-window-wrapper {
@@ -655,17 +679,28 @@
     <path style="fill:#9bff00;stroke:#000000;stroke-width:0.5;" d="m 78.514545,127.6824 c -0.01583,13.03325 5.8829,25.44213 13.223608,32.39829 8.2e-5,-0.0574 -5.805842,5.67706 -5.805842,5.67706 -13.877621,-13.91135 -15.693719,-31.36781 -15.685562,-38.0854 0.976062,0.001 8.267796,0.0104 8.267796,0.0104 z" />
     <path style="fill:#14d700;stroke:#000000;stroke-width:0.5;" d="m 91.866536,159.90332 c 9.268064,9.16345 22.244914,13.67752 32.352214,13.33595 -0.0408,-0.0404 -0.0351,8.12007 -0.0351,8.12007 -19.64947,0.11155 -33.35311,-10.8537 -38.130052,-15.57671 0.68612,-0.69422 5.813197,-5.87906 5.813197,-5.87906 z" />
 
-    <!-- Curving "Party-ness" Text Path (Shifted right via startOffset="57%") -->
+    <!-- Curving "Party-ness" Text Path (Slightly rotated clockwise via transform) -->
     <path style="fill:none;stroke:none;" d="m 103.82258,92.942156 c 12.96281,-5.332721 19.8943,-8.957327 38.59156,-3.120071" id="partyPath" />
-    <text style="font-weight:bold;font-size:5.3px;font-family:'Century Gothic';fill:#000000;">
+    <text style="font-weight:bold;font-size:5.3px;font-family:'Century Gothic';fill:#000000;" transform="rotate(3.5, 124, 90)">
       <textPath href="#partyPath" startOffset="57%" text-anchor="middle">Party-ness</textPath>
     </text>
 
-    <!-- Sub-dial Face ("Friendliness" text scaled up to font-size: 5.2px) -->
+    <!-- Small Sub-dial ("Value" centred below) -->
     <g transform="matrix(0.71445729,0,0,0.71445729,9.4771098,22.438679)">
       <circle style="fill:#a1a1a1;stroke-width:0.508865;" cx="124.3993" cy="153.42212" r="16.910416" />
-      <text style="font-weight:bold;font-size:5.2px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;" x="124.31605" y="160.28477">Friendliness</text>
+      <text style="font-weight:bold;font-size:5.2px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;" x="124.31605" y="160.28477">Value</text>
       <g class="sub-dial-needle">
+        <path style="fill:#000000;stroke:#000000;stroke-width:0.508865;stroke-linecap:round;" d="m 123.94226,153.8792 12.98547,-9.86906" />
+        <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="1.5422727" />
+        <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="0.82388818" />
+      </g>
+    </g>
+
+    <!-- Bigger Master Sub-dial ("Friendliness" below centre of main dial) -->
+    <g id="g8">
+      <circle style="fill:#a1a1a1;stroke-width:0.508865;" cx="124.3993" cy="153.42212" r="16.910416" />
+      <text style="font-weight:bold;font-size:4.8px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;" x="124.31605" y="174.5">Friendliness</text>
+      <g class="sub-dial-needle-big">
         <path style="fill:#000000;stroke:#000000;stroke-width:0.508865;stroke-linecap:round;" d="m 123.94226,153.8792 12.98547,-9.86906" />
         <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="1.5422727" />
         <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="0.82388818" />
