@@ -525,8 +525,8 @@
   <svg
      width="100%"
      height="100%"
-     /* FIX 1: Expanded viewBox to perfectly encompass your entire design coordinates (30 to 200) */
-     viewBox="35 50 140 135"
+     /* Perfectly matches the background card's exact x, y, width, and height bounds */
+     viewBox="37.722286 52.766296 167.72946 158.74797"
      version="1.1"
      xmlns:xlink="http://www.w3.org/1999/xlink"
      xmlns="http://www.w3.org/2000/svg">
@@ -539,13 +539,12 @@
           
           width: 100%;
           max-width: 380px;
+          margin: 0 auto; /* Centres the card horizontally on the page */
+          display: block;
           position: relative;
         }
 
-        /* ==========================================================
-           2. CONTROLLED ANIMATION STATES
-           ================================================---------- */
-        /* Needles rest at start position until the JS adds .in-view */
+        /* Initial resting states */
         #main-needle-group {
           transform-origin: 123.77471px 127.88613px;
           transform: rotate(-110deg); 
@@ -562,7 +561,7 @@
           transform: translateY(0);
         }
 
-        /* Triggered Classes added via JavaScript IntersectionObserver */
+        /* Triggered Animations on Center-Screen Entry */
         .vibe-meter-card.in-view #main-needle-group {
           animation: 
             mainNeedleSettle 3s cubic-bezier(0.45, 0.05, 0.55, 0.95) forwards,
@@ -697,19 +696,21 @@
   </svg>
 </div>
 
-<!-- Tiny script to trigger the animation when centered in viewport -->
+<!-- Updated IntersectionObserver targeting the vertical middle of the screen -->
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('in-view');
-          observer.unobserve(entry.target); // Runs only once per page load
+          observer.unobserve(entry.target);
         }
       });
     }, {
       root: null,
-      threshold: 0.5 // Triggers when 50% of the card is visible in the center screen
+      /* Shrinks the detection box so it only fires when the element hits the middle horizontal stripe of the screen */
+      rootMargin: "-40% 0px -40% 0px", 
+      threshold: 0
     });
 
     document.querySelectorAll('.vibe-meter-card').forEach(card => {
@@ -717,10 +718,6 @@
     });
   });
 </script>
-
-
-
-
 
 
 
