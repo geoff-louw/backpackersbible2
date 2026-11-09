@@ -585,17 +585,16 @@
             subIdleBig 3.8s ease-in-out 3.1s infinite;
         }
 
-        /* Three separate reels ticking at different slower rates to form 0.0 -> 9.6 */
         .vibe-meter-card.in-view .digit-reel.reel-tens {
-          animation: tensTick 3s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+          animation: tensTick 20s linear infinite;
         }
 
         .vibe-meter-card.in-view .digit-reel.reel-units {
-          animation: unitsTick 3s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+          animation: unitsTick 20s cubic-bezier(0.3, 0.1, 0.1, 1) infinite;
         }
 
         .vibe-meter-card.in-view .digit-reel.reel-tenths {
-          animation: tenthsTick 12s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+          animation: tenthsTick 20s cubic-bezier(0.3, 0.1, 0.1, 1) infinite;
         }
 
         /* Keyframes */
@@ -652,7 +651,7 @@
           align-items: center;
           font-family: 'Century Gothic', sans-serif;
           font-weight: bold;
-          font-size: 7mm;
+          font-size: 2.3mm; /* Corrected to fit the mechanical window cleanly */
           color: #000000;
         }
 
@@ -663,7 +662,7 @@
           flex-direction: column;
           align-items: center;
           justify-content: flex-start;
-          width: 6.5mm;
+          width: 3.8mm;
         }
 
         .dot-box {
@@ -671,8 +670,8 @@
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 3mm;
-          font-size: 7mm;
+          width: 1.8mm;
+          font-size: 2.3mm;
           line-height: 1;
         }
 
@@ -688,37 +687,42 @@
           line-height: 1;
         }
 
-        /* Tens digit stays at 0 */
         @keyframes tensTick {
-          0%   { transform: translateY(0px); }
-          100% { transform: translateY(0px); }
+          0%, 100% { transform: translateY(0px); }
         }
 
-        /* Units digit ticks slowly from 0 up to 9 over 3 seconds */
         @keyframes unitsTick {
-          0%   { transform: translateY(0px); }
-          10%  { transform: translateY(-12.798mm); }
-          20%  { transform: translateY(-25.596mm); }
-          30%  { transform: translateY(-38.394mm); }
-          40%  { transform: translateY(-51.192mm); }
-          50%  { transform: translateY(-63.990mm); }
-          60%  { transform: translateY(-76.788mm); }
-          70%  { transform: translateY(-89.586mm); }
-          80%  { transform: translateY(-102.384mm); }
-          100% { transform: translateY(-115.182mm); } /* Settles on 9 */
+          0%   { transform: translateY(0px); }          /* 0 */
+          1.6% { transform: translateY(-12.798mm); }    /* 1 */
+          3.3% { transform: translateY(-25.596mm); }    /* 2 */
+          5.0% { transform: translateY(-38.394mm); }    /* 3 */
+          6.6% { transform: translateY(-51.192mm); }    /* 4 */
+          8.3% { transform: translateY(-63.990mm); }    /* 5 */
+          10%  { transform: translateY(-76.788mm); }    /* 6 */
+          11.6%{ transform: translateY(-89.586mm); }    /* 7 */
+          13.3%{ transform: translateY(-102.384mm); }   /* 8 */
+          15%  { transform: translateY(-115.182mm); }   /* 9 (Reached at 3s) */
+          70%  { transform: translateY(-115.182mm); }   /* Long pause at 9 */
+          75%  { transform: translateY(-102.384mm); }   /* Minor dip to 8 */
+          80%  { transform: translateY(-115.182mm); }   /* Back to 9 */
+          100% { transform: translateY(-115.182mm); }   /* Holds at 9 */
         }
 
-        /* Tenths digit ticks from 0 to 6 over 3s, pauses at 9.6, then occasionally fluctuates up/down */
         @keyframes tenthsTick {
           0%   { transform: translateY(0px); }          /* 0 */
-          25%  { transform: translateY(-38.394mm); }    /* 3 */
-          50%  { transform: translateY(-76.788mm); }    /* 6 (Reaches 9.6 at ~3s) */
-          60%  { transform: translateY(-76.788mm); }    /* Pause at 9.6 */
-          68%  { transform: translateY(-38.394mm); }    /* Dips down to 3 (.3) */
-          76%  { transform: translateY(-89.586mm); }    /* Ticks up to 7 (.7) */
-          84%  { transform: translateY(-76.788mm); }    /* Returns to 6 (.6) */
-          92%  { transform: translateY(-102.384mm); }   /* Ticks to 8 (.8) */
-          100% { transform: translateY(-76.788mm); }    /* Settles back on 6 (.6) */
+          2.1% { transform: translateY(-12.798mm); }    /* 1 */
+          4.2% { transform: translateY(-25.596mm); }    /* 2 */
+          6.3% { transform: translateY(-38.394mm); }    /* 3 */
+          8.4% { transform: translateY(-51.192mm); }    /* 4 */
+          10.5%{ transform: translateY(-63.990mm); }    /* 5 */
+          15%  { transform: translateY(-76.788mm); }    /* 6 (Reached 9.6 at 3s) */
+          70%  { transform: translateY(-76.788mm); }    /* Long pause at 9.6 */
+          74%  { transform: translateY(-38.394mm); }    /* Shift down to .3 */
+          78%  { transform: translateY(-89.586mm); }    /* Shift up to .7 */
+          82%  { transform: translateY(-76.788mm); }    /* Return to .6 */
+          88%  { transform: translateY(-102.384mm); }   /* Fluctuation to .8 */
+          92%  { transform: translateY(-76.788mm); }    /* Settles back to .6 */
+          100% { transform: translateY(-76.788mm); }    /* Holds at 9.6 */
         }
       </style>
     </defs>
