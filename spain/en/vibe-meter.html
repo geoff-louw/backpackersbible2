@@ -634,63 +634,62 @@
         }
 
         .score-window-wrapper {
-          width: 24.025mm;
-          height: 12.798mm;
+          width: 100%;
+          height: 100%;
           overflow: hidden;
           background: #a1a1a1;
           display: flex;
           justify-content: center;
-          align-items: center;
+          align-items: flex-start;
           font-family: 'Century Gothic', sans-serif;
           font-weight: bold;
-          font-size: 7mm;
+          font-size: 8px;
           color: #000000;
         }
 
         .number-reel span {
           height: 12.798mm;
           min-height: 12.798mm;
-          max-height: 12.798mm;
           display: flex;
           align-items: center;
           justify-content: center;
-          min-width: 24.025mm;
+          width: 100%;
           flex-shrink: 0;
           line-height: 1;
         }
 
         /* 
-          Reel Step height = 12.798mm
-          Index 0: 0.0  ( 0.000mm)
-          Index 1: 1.0  (-12.798mm)
-          Index 2: 2.0  (-25.596mm)
-          Index 3: 3.0  (-38.394mm)
-          Index 4: 4.0  (-51.192mm)
-          Index 5: 5.0  (-63.990mm)
-          Index 6: 6.0  (-76.788mm)
-          Index 7: 7.0  (-89.586mm)
-          Index 8: 8.0  (-102.384mm)
-          Index 9: 9.0  (-115.182mm)
-          Index 10: 9.3 (-127.980mm)
-          Index 11: 9.6 (-140.778mm)  <-- Final/Resting Target
-          Index 12: 9.7 (-153.576mm)
-          Index 13: 9.8 (-166.374mm)
+          Reel Step height = 12.798mm (translated to px units for smooth CSS transform)
+          Index 0: 0.0  (0px)
+          Index 1: 1.0  (-48.37px)
+          Index 2: 2.0  (-96.74px)
+          Index 3: 3.0  (-145.11px)
+          Index 4: 4.0  (-193.48px)
+          Index 5: 5.0  (-241.85px)
+          Index 6: 6.0  (-290.22px)
+          Index 7: 7.0  (-338.59px)
+          Index 8: 8.0  (-386.96px)
+          Index 9: 9.0  (-435.33px)
+          Index 10: 9.3 (-483.70px)
+          Index 11: 9.6 (-532.07px)  <-- Final/Resting Target
+          Index 12: 9.7 (-580.44px)
+          Index 13: 9.8 (-628.81px)
         */
         @keyframes reelClick {
-          0%   { transform: translateY(0mm); }           /* 0.0 */
-          6%   { transform: translateY(-38.394mm); }     /* ticks to 3.0 */
-          12%  { transform: translateY(-76.788mm); }     /* ticks to 6.0 */
-          18%  { transform: translateY(-115.182mm); }    /* ticks to 9.0 */
-          20%  { transform: translateY(-166.374mm); }    /* reaches 9.8 at ~3 seconds */
-          26%  { transform: translateY(-140.778mm); }    /* settles to 9.6 */
-          55%  { transform: translateY(-140.778mm); }    /* holds at 9.6 */
-          62%  { transform: translateY(-127.980mm); }    /* fluctuation: dips to 9.3 */
-          68%  { transform: translateY(-153.576mm); }    /* goes to 9.7 */
-          75%  { transform: translateY(-140.778mm); }    /* returns to 9.6 */
-          85%  { transform: translateY(-140.778mm); }    /* holds */
-          90%  { transform: translateY(-166.374mm); }    /* later update tick to 9.8 */
-          95%  { transform: translateY(-127.980mm); }    /* dips to 9.3 */
-          100% { transform: translateY(-140.778mm); }    /* settles back to 9.6 */
+          0%   { transform: translateY(0px); }
+          6%   { transform: translateY(-145.11px); }     /* 3.0 */
+          12%  { transform: translateY(-290.22px); }     /* 6.0 */
+          18%  { transform: translateY(-435.33px); }     /* 9.0 */
+          20%  { transform: translateY(-628.81px); }     /* reaches 9.8 at ~3s */
+          26%  { transform: translateY(-532.07px); }     /* settles to 9.6 */
+          55%  { transform: translateY(-532.07px); }     /* holds at 9.6 */
+          62%  { transform: translateY(-483.70px); }     /* dips to 9.3 */
+          68%  { transform: translateY(-580.44px); }     /* goes to 9.7 */
+          75%  { transform: translateY(-532.07px); }     /* returns to 9.6 */
+          85%  { transform: translateY(-532.07px); }     /* holds */
+          90%  { transform: translateY(-628.81px); }     /* update tick to 9.8 */
+          95%  { transform: translateY(-483.70px); }     /* dips to 9.3 */
+          100% { transform: translateY(-532.07px); }     /* settles back to 9.6 */
         }
       </style>
     </defs>
@@ -778,21 +777,21 @@
     <g transform="translate(0, 3.5)">
       <foreignObject x="138.93318" y="121.25021" width="24.025503" height="12.798634">
         <div xmlns="http://www.w3.org/1999/xhtml" class="score-window-wrapper">
-          <div class="number-reel" style="display: block; position: relative;">
-            <span style="display: block; height: 12.798mm; line-height: 12.798mm; text-align: center;">0.0</span>
-            <span style="display: block; height: 12.798mm; line-height: 12.798mm; text-align: center;">1.0</span>
-            <span style="display: block; height: 12.798mm; line-height: 12.798mm; text-align: center;">2.0</span>
-            <span style="display: block; height: 12.798mm; line-height: 12.798mm; text-align: center;">3.0</span>
-            <span style="display: block; height: 12.798mm; line-height: 12.798mm; text-align: center;">4.0</span>
-            <span style="display: block; height: 12.798mm; line-height: 12.798mm; text-align: center;">5.0</span>
-            <span style="display: block; height: 12.798mm; line-height: 12.798mm; text-align: center;">6.0</span>
-            <span style="display: block; height: 12.798mm; line-height: 12.798mm; text-align: center;">7.0</span>
-            <span style="display: block; height: 12.798mm; line-height: 12.798mm; text-align: center;">8.0</span>
-            <span style="display: block; height: 12.798mm; line-height: 12.798mm; text-align: center;">9.0</span>
-            <span style="display: block; height: 12.798mm; line-height: 12.798mm; text-align: center;">9.3</span>
-            <span style="display: block; height: 12.798mm; line-height: 12.798mm; text-align: center;">9.6</span>
-            <span style="display: block; height: 12.798mm; line-height: 12.798mm; text-align: center;">9.7</span>
-            <span style="display: block; height: 12.798mm; line-height: 12.798mm; text-align: center;">9.8</span>
+          <div class="number-reel">
+            <span>0.0</span>
+            <span>1.0</span>
+            <span>2.0</span>
+            <span>3.0</span>
+            <span>4.0</span>
+            <span>5.0</span>
+            <span>6.0</span>
+            <span>7.0</span>
+            <span>8.0</span>
+            <span>9.0</span>
+            <span>9.3</span>
+            <span>9.6</span>
+            <span>9.7</span>
+            <span>9.8</span>
           </div>
         </div>
       </foreignObject>
