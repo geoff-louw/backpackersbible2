@@ -585,7 +585,7 @@
         }
 
         .vibe-meter-card.in-view .number-reel {
-          animation: reelClick 3s cubic-bezier(0.15, 0.85, 0.35, 1.2) forwards;
+          animation: reelClick 6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
         }
 
         /* Keyframes */
@@ -633,15 +633,16 @@
         }
 
         .score-window-wrapper {
-          width: 24.025mm;
-          height: 12.798mm;
+          width: 100%;
+          height: 100%;
           overflow: hidden;
           background: #a1a1a1;
           display: flex;
           justify-content: center;
+          align-items: center;
           font-family: 'Century Gothic', sans-serif;
           font-weight: bold;
-          font-size: 7mm;
+          font-size: 7.5mm;
           color: #000000;
         }
 
@@ -653,12 +654,32 @@
           min-width: 24mm;
         }
 
+        /* 
+          Reel items (each step is 12.798mm):
+          Index 0: 0.0  (0px)
+          Index 1: 1.0  (-12.798mm)
+          Index 2: 2.0  (-25.596mm)
+          Index 3: 3.0  (-38.394mm)
+          Index 4: 4.0  (-51.192mm)
+          Index 5: 5.0  (-63.990mm)
+          Index 6: 6.0  (-76.788mm)
+          Index 7: 7.0  (-89.586mm)
+          Index 8: 8.0  (-102.384mm)
+          Index 9: 9.0  (-115.182mm)
+          Index 10: 9.3 (-127.980mm)
+          Index 11: 9.6 (-140.778mm)
+          Index 12: 9.7 (-153.576mm)
+          Index 13: 9.8 (-166.374mm)
+        */
         @keyframes reelClick {
-          0%   { transform: translateY(0); }
-          25%  { transform: translateY(-76.788mm); }
-          50%  { transform: translateY(-38.394mm); }
-          75%  { transform: translateY(-115.182mm); }
-          100% { transform: translateY(calc(var(--score-index, 8) * -12.798mm)); }
+          0%   { transform: translateY(0mm); }         /* 0.0 */
+          20%  { transform: translateY(-102.384mm); }  /* spins up to 8.0 */
+          35%  { transform: translateY(-166.374mm); }  /* overshoots to 9.8 */
+          50%  { transform: translateY(-140.778mm); }  /* settles to 9.6 */
+          65%  { transform: translateY(-140.778mm); }  /* holds at 9.6 */
+          75%  { transform: translateY(-127.980mm); }  /* dips to 9.3 */
+          87%  { transform: translateY(-153.576mm); }  /* goes to 9.7 */
+          100% { transform: translateY(-140.778mm); }  /* returns & settles on 9.6 */
         }
       </style>
     </defs>
@@ -744,7 +765,7 @@
 
     <!-- Watch-Style Mechanical Date Display Reel & Centered "Location" Label (4.8px) -->
     <g transform="translate(0, 3.5)">
-      <foreignObject x="138.93318" y="121.25021" width="24.025503" height="12.798634">
+      <foreignObject x="135" y="117" width="31.8" height="19.5">
         <div xmlns="http://www.w3.org/1999/xhtml" class="score-window-wrapper">
           <div class="number-reel">
             <span>0.0</span>
@@ -756,9 +777,11 @@
             <span>6.0</span>
             <span>7.0</span>
             <span>8.0</span>
-            <span>8.5</span>
             <span>9.0</span>
-            <span>10.0</span>
+            <span>9.3</span>
+            <span>9.6</span>
+            <span>9.7</span>
+            <span>9.8</span>
           </div>
         </div>
       </foreignObject>
