@@ -585,7 +585,7 @@
         }
 
         .vibe-meter-card.in-view .number-reel {
-          animation: reelClick 12s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+          animation: reelClick 15s cubic-bezier(0.25, 1, 0.5, 1) infinite;
         }
 
         /* Keyframes */
@@ -647,10 +647,14 @@
 
         .number-reel span {
           height: 12.798mm;
+          min-height: 12.798mm;
+          max-height: 12.798mm;
           display: flex;
           align-items: center;
           justify-content: center;
           min-width: 24mm;
+          flex-shrink: 0;
+          line-height: 1;
         }
 
         /* 
@@ -672,20 +676,19 @@
         */
         @keyframes reelClick {
           0%   { transform: translateY(0mm); }           /* 0.0 */
-          7%   { transform: translateY(-38.394mm); }     /* ticks to 3.0 */
-          14%  { transform: translateY(-76.788mm); }     /* ticks to 6.0 */
-          22%  { transform: translateY(-115.182mm); }    /* ticks to 9.0 */
-          25%  { transform: translateY(-166.374mm); }    /* reaches 9.8 (at ~3s) */
-          30%  { transform: translateY(-140.778mm); }    /* settles to 9.6 */
-          35%  { transform: translateY(-127.980mm); }    /* dips to 9.3 */
-          40%  { transform: translateY(-153.576mm); }    /* goes to 9.7 */
-          45%  { transform: translateY(-140.778mm); }    /* returns to 9.6 */
-          70%  { transform: translateY(-140.778mm); }    /* pause / hold */
-          75%  { transform: translateY(-127.980mm); }    /* later fluctuation: dips to 9.3 */
-          80%  { transform: translateY(-166.374mm); }    /* ticks to 9.8 */
-          85%  { transform: translateY(-153.576mm); }    /* ticks to 9.7 */
-          92%  { transform: translateY(-140.778mm); }    /* settles back to 9.6 */
-          100% { transform: translateY(-140.778mm); }    /* holds at 9.6 */
+          6%   { transform: translateY(-38.394mm); }     /* ticks to 3.0 */
+          12%  { transform: translateY(-76.788mm); }     /* ticks to 6.0 */
+          18%  { transform: translateY(-115.182mm); }    /* ticks to 9.0 */
+          20%  { transform: translateY(-166.374mm); }    /* reaches 9.8 at ~3 seconds */
+          26%  { transform: translateY(-140.778mm); }    /* settles to 9.6 */
+          55%  { transform: translateY(-140.778mm); }    /* holds at 9.6 */
+          62%  { transform: translateY(-127.980mm); }    /* fluctuation: dips to 9.3 */
+          68%  { transform: translateY(-153.576mm); }    /* goes to 9.7 */
+          75%  { transform: translateY(-140.778mm); }    /* returns to 9.6 */
+          85%  { transform: translateY(-140.778mm); }    /* holds */
+          90%  { transform: translateY(-166.374mm); }    /* later update tick to 9.8 */
+          95%  { transform: translateY(-127.980mm); }    /* dips to 9.3 */
+          100% { transform: translateY(-140.778mm); }    /* settles back to 9.6 */
         }
       </style>
     </defs>
@@ -809,7 +812,7 @@
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.0add ? entry.target.classList.add('in-view') : entry.target.classList.add('in-view');
+          entry.target.classList.add('in-view');
           observer.unobserve(entry.target);
         }
       });
