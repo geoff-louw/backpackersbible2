@@ -585,17 +585,17 @@
             subIdleBig 3.8s ease-in-out 3.1s infinite;
         }
 
-        /* Fully linked mechanical reel ticking from 00.0 to 09.6 */
+        /* Geared Mechanical Stepping Animations */
         .vibe-meter-card.in-view .digit-reel.reel-tens {
-          animation: tensTick 22s cubic-bezier(0.3, 0.1, 0.1, 1) infinite;
+          animation: tensTick 24s steps(1, end) infinite;
         }
 
         .vibe-meter-card.in-view .digit-reel.reel-units {
-          animation: unitsTick 22s cubic-bezier(0.3, 0.1, 0.1, 1) infinite;
+          animation: unitsTick 24s steps(10, end) infinite;
         }
 
         .vibe-meter-card.in-view .digit-reel.reel-tenths {
-          animation: tenthsTick 22s cubic-bezier(0.3, 0.1, 0.1, 1) infinite;
+          animation: tenthsTick 24s steps(100, end) infinite;
         }
 
         /* Keyframes */
@@ -651,7 +651,7 @@
           justify-content: center;
           align-items: center;
           font-family: 'Century Gothic', sans-serif;
-          font-weight: normal; /* Regular weight as requested */
+          font-weight: normal;
           font-size: 2.3mm;
           color: #000000;
         }
@@ -689,55 +689,131 @@
           line-height: 1;
         }
 
-        /* 
-          Tens digit (first digit): 
-          Stays at '0' through 00.0 to 09.9, then clicks to '0' (for 0x.x) or stays 0. 
-          Since target is 09.6, tens stays at index 0 ('0') throughout.
-        */
+        /* Tens digit (first digit): stays at '0' through 09.6 */
         @keyframes tensTick {
           0%, 100% { transform: translateY(0px); }
         }
 
-        /* 
-          Units digit (second digit): 
-          Reaches '9' right at 3 seconds (15% of 22s), holds at 9, with minor historical fluctuation.
-        */
+        /* Units digit (second digit): ticks over once every 10 steps of tenths (0 -> 9) */
         @keyframes unitsTick {
-          0%   { transform: translateY(0px); }          /* 0 */
-          1.5% { transform: translateY(-12.798mm); }    /* 1 */
-          3.0% { transform: translateY(-25.596mm); }    /* 2 */
-          4.5% { transform: translateY(-38.394mm); }    /* 3 */
-          6.0% { transform: translateY(-51.192mm); }    /* 4 */
-          7.5% { transform: translateY(-63.990mm); }    /* 5 */
-          9.0% { transform: translateY(-76.788mm); }    /* 6 */
-          10.5%{ transform: translateY(-89.586mm); }    /* 7 */
-          12.0%{ transform: translateY(-102.384mm); }   /* 8 */
-          15%  { transform: translateY(-115.182mm); }   /* 9 (Reached at ~3s) */
-          70%  { transform: translateY(-115.182mm); }   /* Long hold at 9 */
-          75%  { transform: translateY(-102.384mm); }   /* Fluctuation down to 8 */
-          80%  { transform: translateY(-115.182mm); }   /* Back to 9 */
+          0%   { transform: translateY(0mm); }          /* 0 */
+          10%  { transform: translateY(-12.798mm); }    /* 1 */
+          20%  { transform: translateY(-25.596mm); }    /* 2 */
+          30%  { transform: translateY(-38.394mm); }    /* 3 */
+          40%  { transform: translateY(-51.192mm); }    /* 4 */
+          50%  { transform: translateY(-63.990mm); }    /* 5 */
+          60%  { transform: translateY(-76.788mm); }    /* 6 */
+          70%  { transform: translateY(-89.586mm); }    /* 7 */
+          80%  { transform: translateY(-102.384mm); }   /* 8 */
+          90%  { transform: translateY(-115.182mm); }   /* 9 (Reached at 9.0) */
+          96%  { transform: translateY(-102.384mm); }   /* Occasional shift down to 8 */
+          98%  { transform: translateY(-115.182mm); }   /* Back to 9 */
           100% { transform: translateY(-115.182mm); }   /* Holds at 9 */
         }
 
-        /* 
-          Tenths digit (third digit): 
-          Reaches '6' right at 3 seconds (15% of 22s), holds at 6, with periodic historical fluctuations (dips and rises).
-        */
+        /* Tenths digit (third digit): steps continuously 0 through 9 for every single unit */
         @keyframes tenthsTick {
-          0%   { transform: translateY(0px); }          /* 0 */
-          1.5% { transform: translateY(-12.798mm); }    /* 1 */
-          3.0% { transform: translateY(-25.596mm); }    /* 2 */
-          4.5% { transform: translateY(-38.394mm); }    /* 3 */
-          6.0% { transform: translateY(-51.192mm); }    /* 4 */
-          7.5% { transform: translateY(-63.990mm); }    /* 5 */
-          15%  { transform: translateY(-76.788mm); }    /* 6 (Reached 9.6 at ~3s) */
-          70%  { transform: translateY(-76.788mm); }    /* Long hold at 9.6 */
-          74%  { transform: translateY(-38.394mm); }    /* Dip to 09.3 */
-          78%  { transform: translateY(-89.586mm); }    /* Rise to 09.7 */
-          82%  { transform: translateY(-76.788mm); }    /* Return to 09.6 */
-          88%  { transform: translateY(-102.384mm); }   /* Fluctuation to 09.8 */
-          92%  { transform: translateY(-76.788mm); }    /* Settles back to 09.6 */
-          100% { transform: translateY(-76.788mm); }    /* Holds at 09.6 */
+          0%   { transform: translateY(0mm); }
+          1%   { transform: translateY(-12.798mm); }
+          2%   { transform: translateY(-25.596mm); }
+          3%   { transform: translateY(-38.394mm); }
+          4%   { transform: translateY(-51.192mm); }
+          5%   { transform: translateY(-63.990mm); }
+          6%   { transform: translateY(-76.788mm); }
+          7%   { transform: translateY(-89.586mm); }
+          8%   { transform: translateY(-102.384mm); }
+          9%   { transform: translateY(-115.182mm); } /* .9 */
+          10%  { transform: translateY(0mm); }          /* rolls over to .0 */
+          11%  { transform: translateY(-12.798mm); }
+          12%  { transform: translateY(-25.596mm); }
+          13%  { transform: translateY(-38.394mm); }
+          14%  { transform: translateY(-51.192mm); }
+          15%  { transform: translateY(-63.990mm); }
+          16%  { transform: translateY(-76.788mm); }
+          17%  { transform: translateY(-89.586mm); }
+          18%  { transform: translateY(-102.384mm); }
+          19%  { transform: translateY(-115.182mm); } /* .9 */
+          20%  { transform: translateY(0mm); }
+          21%  { transform: translateY(-12.798mm); }
+          22%  { transform: translateY(-25.596mm); }
+          23%  { transform: translateY(-38.394mm); }
+          24%  { transform: translateY(-51.192mm); }
+          25%  { transform: translateY(-63.990mm); }
+          26%  { transform: translateY(-76.788mm); }
+          27%  { transform: translateY(-89.586mm); }
+          28%  { transform: translateY(-102.384mm); }
+          29%  { transform: translateY(-115.182mm); }
+          30%  { transform: translateY(0mm); }
+          31%  { transform: translateY(-12.798mm); }
+          32%  { transform: translateY(-25.596mm); }
+          33%  { transform: translateY(-38.394mm); }
+          34%  { transform: translateY(-51.192mm); }
+          35%  { transform: translateY(-63.990mm); }
+          36%  { transform: translateY(-76.788mm); }
+          37%  { transform: translateY(-89.586mm); }
+          38%  { transform: translateY(-102.384mm); }
+          39%  { transform: translateY(-115.182mm); }
+          40%  { transform: translateY(0mm); }
+          41%  { transform: translateY(-12.798mm); }
+          42%  { transform: translateY(-25.596mm); }
+          43%  { transform: translateY(-38.394mm); }
+          44%  { transform: translateY(-51.192mm); }
+          45%  { transform: translateY(-63.990mm); }
+          46%  { transform: translateY(-76.788mm); }
+          47%  { transform: translateY(-89.586mm); }
+          48%  { transform: translateY(-102.384mm); }
+          49%  { transform: translateY(-115.182mm); }
+          50%  { transform: translateY(0mm); }
+          51%  { transform: translateY(-12.798mm); }
+          52%  { transform: translateY(-25.596mm); }
+          53%  { transform: translateY(-38.394mm); }
+          54%  { transform: translateY(-51.192mm); }
+          55%  { transform: translateY(-63.990mm); }
+          56%  { transform: translateY(-76.788mm); }
+          57%  { transform: translateY(-89.586mm); }
+          58%  { transform: translateY(-102.384mm); }
+          59%  { transform: translateY(-115.182mm); }
+          60%  { transform: translateY(0mm); }
+          61%  { transform: translateY(-12.798mm); }
+          62%  { transform: translateY(-25.596mm); }
+          63%  { transform: translateY(-38.394mm); }
+          64%  { transform: translateY(-51.192mm); }
+          65%  { transform: translateY(-63.990mm); }
+          66%  { transform: translateY(-76.788mm); }
+          67%  { transform: translateY(-89.586mm); }
+          68%  { transform: translateY(-102.384mm); }
+          69%  { transform: translateY(-115.182mm); }
+          70%  { transform: translateY(0mm); }
+          71%  { transform: translateY(-12.798mm); }
+          72%  { transform: translateY(-25.596mm); }
+          73%  { transform: translateY(-38.394mm); }
+          74%  { transform: translateY(-51.192mm); }
+          75%  { transform: translateY(-63.990mm); }
+          76%  { transform: translateY(-76.788mm); }
+          77%  { transform: translateY(-89.586mm); }
+          78%  { transform: translateY(-102.384mm); }
+          79%  { transform: translateY(-115.182mm); }
+          80%  { transform: translateY(0mm); }
+          81%  { transform: translateY(-12.798mm); }
+          82%  { transform: translateY(-25.596mm); }
+          83%  { transform: translateY(-38.394mm); }
+          84%  { transform: translateY(-51.192mm); }
+          85%  { transform: translateY(-63.990mm); }
+          86%  { transform: translateY(-76.788mm); }
+          87%  { transform: translateY(-89.586mm); }
+          88%  { transform: translateY(-102.384mm); }
+          89%  { transform: translateY(-115.182mm); }
+          90%  { transform: translateY(0mm); }          /* 9.0 */
+          91%  { transform: translateY(-12.798mm); }    /* 9.1 */
+          92%  { transform: translateY(-25.596mm); }    /* 9.2 */
+          93%  { transform: translateY(-38.394mm); }    /* 9.3 */
+          94%  { transform: translateY(-51.192mm); }    /* 9.4 */
+          95%  { transform: translateY(-63.990mm); }    /* 9.5 */
+          96%  { transform: translateY(-76.788mm); }    /* 9.6 (Target reached) */
+          97%  { transform: translateY(-38.394mm); }    /* Fluctuation to 9.3 */
+          98%  { transform: translateY(-89.586mm); }    /* Fluctuation to 9.7 */
+          99%  { transform: translateY(-76.788mm); }    /* Back to 9.6 */
+          100% { transform: translateY(-76.788mm); }    /* Holds at 9.6 */
         }
       </style>
     </defs>
@@ -821,7 +897,7 @@
       </g>
     </g>
 
-    <!-- Watch-Style Separate Segment Reels (Tens, Units, Decimal Dot, Tenths) & Centered "Location" Label -->
+    <!-- Watch-Style Separate Segment Geared Reels (Tens, Units, Decimal Dot, Tenths) & Centered "Location" Label -->
     <g transform="translate(0, 3.5)">
       <foreignObject x="138.93318" y="121.25021" width="24.025503" height="12.798634">
         <div xmlns="http://www.w3.org/1999/xhtml" class="score-window-wrapper">
