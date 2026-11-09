@@ -554,6 +554,11 @@
           transform: rotate(0deg);
         }
 
+        .sub-dial-needle-big {
+          transform-origin: 123.89387px 153.76831px;
+          transform: rotate(0deg);
+        }
+
         .number-reel {
           display: flex;
           flex-direction: column;
@@ -571,6 +576,12 @@
           animation: 
             subSettle 3s ease-in-out forwards,
             subIdle 3.5s ease-in-out 3.1s infinite;
+        }
+
+        .vibe-meter-card.in-view .sub-dial-needle-big {
+          animation: 
+            subSettleBig 3s ease-in-out forwards,
+            subIdleBig 3.8s ease-in-out 3.1s infinite;
         }
 
         .vibe-meter-card.in-view .number-reel {
@@ -606,6 +617,19 @@
           0%, 88%, 100% { transform: rotate(35deg); }
           91% { transform: rotate(42deg); }
           94% { transform: rotate(30deg); }
+        }
+
+        @keyframes subSettleBig {
+          0%   { transform: rotate(0deg); }
+          30%  { transform: rotate(-90deg); }
+          60%  { transform: rotate(80deg); }
+          100% { transform: rotate(-25deg); }
+        }
+
+        @keyframes subIdleBig {
+          0%, 88%, 100% { transform: rotate(-25deg); }
+          91% { transform: rotate(-18deg); }
+          94% { transform: rotate(-30deg); }
         }
 
         .score-window-wrapper {
@@ -661,8 +685,8 @@
       <textPath href="#partyPath" startOffset="57%" text-anchor="middle">Party-ness</textPath>
     </text>
 
-    <!-- SUB-DIAL 1: Cleanliness (Top position on shared imaginary circle) -->
-    <g transform="matrix(0.71445729,0,0,0.71445729,35.225,-7.71)">
+    <!-- SUB-DIAL 1: Cleanliness (Positioned on top-left of circle) -->
+    <g transform="matrix(0.71445729,0,0,0.71445729,9.4771098,-3.5)">
       <circle style="fill:#a1a1a1;stroke-width:0.508865;" cx="124.3993" cy="153.42212" r="16.910416" />
       <text style="font-weight:bold;font-size:4.6px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;" x="124.31605" y="161.5">Cleanliness</text>
       <g class="sub-dial-needle">
@@ -672,8 +696,8 @@
       </g>
     </g>
 
-    <!-- SUB-DIAL 2: Activities/Tours (Right position on shared imaginary circle) -->
-    <g transform="matrix(0.71445729,0,0,0.71445729,61.225,18.29)">
+    <!-- SUB-DIAL 2: Activities/Tours (Positioned on top-right of circle) -->
+    <g transform="matrix(0.71445729,0,0,0.71445729,49.13,-3.5)">
       <circle style="fill:#a1a1a1;stroke-width:0.508865;" cx="124.3993" cy="153.42212" r="16.910416" />
       <text style="font-weight:bold;font-size:4.4px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;" x="124.31605" y="161.5">Activities</text>
       <g class="sub-dial-needle">
@@ -683,8 +707,8 @@
       </g>
     </g>
 
-    <!-- SUB-DIAL 3: Value (Left position on shared imaginary circle) -->
-    <g transform="matrix(0.71445729,0,0,0.71445729,9.225,18.29)">
+    <!-- SUB-DIAL 3: Value (Unchanged position and scale) -->
+    <g transform="matrix(0.71445729,0,0,0.71445729,9.4771098,22.438679)">
       <circle style="fill:#a1a1a1;stroke-width:0.508865;" cx="124.3993" cy="153.42212" r="16.910416" />
       <text style="font-weight:bold;font-size:5.2px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;" x="124.31605" y="161.5">Value</text>
       <g class="sub-dial-needle">
@@ -694,11 +718,24 @@
       </g>
     </g>
 
-    <!-- SUB-DIAL 4: Friendliness (Bottom position on shared imaginary circle, scaled down to match Value size/weight) -->
-    <g transform="matrix(0.71445729,0,0,0.71445729,35.225,44.29)">
-      <circle style="fill:#a1a1a1;stroke-width:0.508865;" cx="124.3993" cy="153.42212" r="16.910416" />
-      <text style="font-weight:bold;font-size:5.2px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;" x="124.31605" y="161.5">Friendliness</text>
-      <g class="sub-dial-needle">
+    <!-- SUB-DIAL 4: Friendliness (Unchanged original size, font, and position) -->
+    <g id="g8">
+      <circle style="font-variation-settings:normal;vector-effect:none;fill:#a1a1a1;fill-opacity:1;stroke-width:0.508865;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.01773, 1.01773;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;paint-order:markers fill stroke;stop-color:#000000"
+         id="path2-1"
+         cx="124.3993"
+         cy="153.42212"
+         r="16.910416" />
+      <text style="font-weight:bold;font-size:5.2px;line-height:1;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic, Bold';text-anchor:middle;fill:#000000;"
+         x="124.31605"
+         y="161.5"
+         id="text2-6">
+        <tspan
+           id="tspan2-7"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.2px;font-family:'Century Gothic';fill:#000000;"
+           x="124.31605"
+           y="161.5">Friendliness</tspan>
+      </text>
+      <g class="sub-dial-needle-big">
         <path style="fill:#000000;stroke:#000000;stroke-width:0.508865;stroke-linecap:round;" d="m 123.94226,153.8792 12.98547,-9.86906" />
         <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="1.5422727" />
         <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="0.82388818" />
