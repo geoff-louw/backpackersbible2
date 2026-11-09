@@ -710,7 +710,88 @@
     <!-- SUB-DIAL 3: Value (Unchanged position and scale) -->
     <g transform="matrix(0.71445729,0,0,0.71445729,9.4771098,22.438679)">
       <circle style="fill:#a1a1a1;stroke-width:0.508865;" cx="124.3993" cy="153.42212" r="16.910416" />
-      <text style="font-weight:bold;
+      <text style="font-weight:bold;font-size:5.2px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;" x="124.31605" y="161.5">Value</text>
+      <g class="sub-dial-needle">
+        <path style="fill:#000000;stroke:#000000;stroke-width:0.508865;stroke-linecap:round;" d="m 123.94226,153.8792 12.98547,-9.86906" />
+        <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="1.5422727" />
+        <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="0.82388818" />
+      </g>
+    </g>
+
+    <!-- SUB-DIAL 4: Friendliness (Unchanged original size, font, and position) -->
+    <g id="g8">
+      <circle style="font-variation-settings:normal;vector-effect:none;fill:#a1a1a1;fill-opacity:1;stroke-width:0.508865;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.01773, 1.01773;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;paint-order:markers fill stroke;stop-color:#000000"
+         id="path2-1"
+         cx="124.3993"
+         cy="153.42212"
+         r="16.910416" />
+      <text style="font-weight:bold;font-size:5.2px;line-height:1;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic, Bold';text-anchor:middle;fill:#000000;"
+         x="124.31605"
+         y="161.5"
+         id="text2-6">
+        <tspan
+           id="tspan2-7"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.2px;font-family:'Century Gothic';fill:#000000;"
+           x="124.31605"
+           y="161.5">Friendliness</tspan>
+      </text>
+      <g class="sub-dial-needle-big">
+        <path style="fill:#000000;stroke:#000000;stroke-width:0.508865;stroke-linecap:round;" d="m 123.94226,153.8792 12.98547,-9.86906" />
+        <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="1.5422727" />
+        <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="0.82388818" />
+      </g>
+    </g>
+
+    <!-- Watch-Style Mechanical Date Display Reel -->
+    <foreignObject x="138.93318" y="121.25021" width="24.025503" height="12.798634">
+      <div xmlns="http://www.w3.org/1999/xhtml" class="score-window-wrapper">
+        <div class="number-reel">
+          <span>0.0</span>
+          <span>1.0</span>
+          <span>2.0</span>
+          <span>3.0</span>
+          <span>4.0</span>
+          <span>5.0</span>
+          <span>6.0</span>
+          <span>7.0</span>
+          <span>8.0</span>
+          <span>8.5</span>
+          <span>9.0</span>
+          <span>10.0</span>
+        </div>
+      </div>
+    </foreignObject>
+
+    <!-- Main Indicator Needle & Center Caps -->
+    <g id="main-needle-group">
+      <rect style="fill:#bebebe;stroke:#000000;stroke-width:0.512163;stroke-linecap:round;" width="3.2357354" height="57.638039" x="175.6566" y="-34.751022" ry="1.7103276" transform="rotate(40.332538)" />
+      <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.5;" cx="123.77471" cy="127.88613" r="5.8483286" />
+      <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.5;" cx="123.77471" cy="127.88613" r="3.1242003" />
+    </g>
+  </svg>
+</div>
+
+<!-- Center-screen Trigger Script -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      root: null,
+      rootMargin: "-40% 0px -40% 0px", 
+      threshold: 0
+    });
+
+    document.querySelectorAll('.vibe-meter-card').forEach(card => {
+      observer.observe(card);
+    });
+  });
+</script>
 
 
 </section>
