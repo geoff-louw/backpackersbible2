@@ -521,255 +521,66 @@
     <h1 class="area-hero-title" id="faq">Vibe Meter</h1>
 
 
-<div class="vibe-meter-card" style="--score: 8.5;">
-  <svg
-     width="100%"
-     height="100%"
-     viewBox="37.722286 52.766296 167.72946 158.74797"
-     version="1.1"
-     xmlns:xlink="http://www.w3.org/1999/xlink"
-     xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <style>
-        .vibe-meter-card {
-          --min-deg: -110deg;
-          --sweep-range: 220deg;
-          --final-angle: calc(var(--min-deg) + (var(--score) / 10 * var(--sweep-range)));
-          
-          width: 100%;
-          max-width: 520px;
-          margin: 0 auto;
-          display: block;
-          position: relative;
-        }
+<!-- SVG Vibe Meter Card -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" width="100%" height="auto" role="img" aria-label="Hostel Vibe Metrics">
+  <style>
+    .dial-bg { fill: none; stroke: #e0e0e0; stroke-width: 8; stroke-linecap: round; }
+    .dial-val { fill: none; stroke-width: 8; stroke-linecap: round; transition: stroke-dashoffset 0.5s ease; }
+    .dial-title { font-family: system-ui, -apple-system, sans-serif; font-size: 14px; font-weight: 700; fill: #222222; text-anchor: middle; }
+    .dial-sub { font-family: system-ui, -apple-system, sans-serif; font-size: 11px; font-weight: 600; fill: #555555; text-anchor: middle; }
+    .dial-num { font-family: system-ui, -apple-system, sans-serif; font-size: 18px; font-weight: 800; fill: #111111; text-anchor: middle; }
+    .dial-num-sub { font-family: system-ui, -apple-system, sans-serif; font-size: 13px; font-weight: 700; fill: #333333; text-anchor: middle; }
+    
+    /* Category Colors */
+    .c-party { stroke: #ff3b30; }
+    .c-value { stroke: #34c759; }
+    .c-friendly { stroke: #af52de; }
+    .c-clean { stroke: #007aff; }
+    .c-tours { stroke: #ff9500; }
+  </style>
 
-        /* Initial resting states */
-        #main-needle-group {
-          transform-origin: 123.77471px 127.88613px;
-          transform: rotate(-110deg); 
-        }
+  <!-- MAIN DIAL: Party-ness (Center Large) -->
+  <g transform="translate(200, 105)">
+    <!-- Arc radius 65, circumference ~408. 270deg arc ~ 306 max stroke -->
+    <path class="dial-bg" d="M -46 46 A 65 65 0 1 1 46 46" />
+    <path class="dial-val c-party" d="M -46 46 A 65 65 0 1 1 46 46" stroke-dasharray="306" stroke-dashoffset="61" />
+    <text y="-8" class="dial-title">Party-ness</text>
+    <text y="18" class="dial-num">8.0<tspan font-size="11px" font-weight="500" fill="#777">/10</tspan></text>
+  </g>
 
-        .sub-dial-needle {
-          transform-origin: 123.89387px 153.76831px;
-          transform: rotate(0deg);
-        }
+  <!-- BOTTOM LEFT DIAL: Value -->
+  <g transform="translate(65, 235)">
+    <!-- Arc radius 38, circumference ~238. 270deg arc ~ 179 max stroke -->
+    <path class="dial-bg" d="M -27 27 A 38 38 0 1 1 27 27" />
+    <path class="dial-val c-value" d="M -27 27 A 38 38 0 1 1 27 27" stroke-dasharray="179" stroke-dashoffset="27" />
+    <text y="-4" class="dial-sub">Value</text>
+    <text y="14" class="dial-num-sub">8.5</text>
+  </g>
 
-        .sub-dial-needle-big {
-          transform-origin: 123.89387px 153.76831px;
-          transform: rotate(0deg);
-        }
+  <!-- BOTTOM CENTER-LEFT DIAL: Cleanliness -->
+  <g transform="translate(155, 235)">
+    <path class="dial-bg" d="M -27 27 A 38 38 0 1 1 27 27" />
+    <path class="dial-val c-clean" d="M -27 27 A 38 38 0 1 1 27 27" stroke-dasharray="179" stroke-dashoffset="45" />
+    <text y="-4" class="dial-sub">Cleanliness</text>
+    <text y="14" class="dial-num-sub">7.5</text>
+  </g>
 
-        .number-reel {
-          display: flex;
-          flex-direction: column;
-          transform: translateY(0);
-        }
+  <!-- BOTTOM CENTER-RIGHT DIAL: Friendliness -->
+  <g transform="translate(245, 235)">
+    <path class="dial-bg" d="M -27 27 A 38 38 0 1 1 27 27" />
+    <path class="dial-val c-friendly" d="M -27 27 A 38 38 0 1 1 27 27" stroke-dasharray="179" stroke-dashoffset="18" />
+    <text y="-4" class="dial-sub">Friendliness</text>
+    <text y="14" class="dial-num-sub">9.0</text>
+  </g>
 
-        /* Triggered Animations on Center-Screen Entry */
-        .vibe-meter-card.in-view #main-needle-group {
-          animation: 
-            mainNeedleSettle 3s cubic-bezier(0.45, 0.05, 0.55, 0.95) forwards,
-            mainNeedleIdle 4s ease-in-out 3.1s infinite;
-        }
-
-        .vibe-meter-card.in-view .sub-dial-needle {
-          animation: 
-            subSettle 3s ease-in-out forwards,
-            subIdle 3.5s ease-in-out 3.1s infinite;
-        }
-
-        .vibe-meter-card.in-view .sub-dial-needle-big {
-          animation: 
-            subSettleBig 3s ease-in-out forwards,
-            subIdleBig 3.8s ease-in-out 3.1s infinite;
-        }
-
-        .vibe-meter-card.in-view .number-reel {
-          animation: reelClick 3s cubic-bezier(0.15, 0.85, 0.35, 1.2) forwards;
-        }
-
-        /* Keyframes */
-        @keyframes mainNeedleSettle {
-          0%   { transform: rotate(-110deg); }
-          20%  { transform: rotate(95deg); }
-          40%  { transform: rotate(-60deg); }
-          60%  { transform: rotate(60deg); }
-          75%  { transform: rotate(calc(var(--final-angle) - 15deg)); }
-          88%  { transform: rotate(calc(var(--final-angle) + 8deg)); }
-          100% { transform: rotate(var(--final-angle)); }
-        }
-
-        @keyframes mainNeedleIdle {
-          0%, 90%, 100% { transform: rotate(var(--final-angle)); }
-          92% { transform: rotate(calc(var(--final-angle) + 3.5deg)); }
-          94% { transform: rotate(calc(var(--final-angle) - 2deg)); }
-          96% { transform: rotate(calc(var(--final-angle) + 1deg)); }
-        }
-
-        @keyframes subSettle {
-          0%   { transform: rotate(0deg); }
-          30%  { transform: rotate(120deg); }
-          60%  { transform: rotate(-70deg); }
-          100% { transform: rotate(35deg); }
-        }
-
-        @keyframes subIdle {
-          0%, 88%, 100% { transform: rotate(35deg); }
-          91% { transform: rotate(42deg); }
-          94% { transform: rotate(30deg); }
-        }
-
-        @keyframes subSettleBig {
-          0%   { transform: rotate(0deg); }
-          30%  { transform: rotate(-90deg); }
-          60%  { transform: rotate(80deg); }
-          100% { transform: rotate(-25deg); }
-        }
-
-        @keyframes subIdleBig {
-          0%, 88%, 100% { transform: rotate(-25deg); }
-          91% { transform: rotate(-18deg); }
-          94% { transform: rotate(-30deg); }
-        }
-
-        .score-window-wrapper {
-          width: 24.025mm;
-          height: 12.798mm;
-          overflow: hidden;
-          background: #a1a1a1;
-          display: flex;
-          justify-content: center;
-          font-family: 'Century Gothic', sans-serif;
-          font-weight: bold;
-          font-size: 7mm;
-          color: #000000;
-        }
-
-        .number-reel span {
-          height: 12.798mm;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          min-width: 24mm;
-        }
-
-        @keyframes reelClick {
-          0%   { transform: translateY(0); }
-          25%  { transform: translateY(-76.788mm); }
-          50%  { transform: translateY(-38.394mm); }
-          75%  { transform: translateY(-115.182mm); }
-          100% { transform: translateY(calc(var(--score-index, 8) * -12.798mm)); }
-        }
-      </style>
-    </defs>
-
-    <!-- Background Card -->
-    <rect style="fill:#ffd400;" width="167.72946" height="158.74797" x="37.722286" y="52.766296" ry="0.43908408" />
-
-    <!-- Main Outer Rim & Faces -->
-    <circle style="fill:#d6d6d6;stroke:#000000;stroke-width:0.4;" cx="124.0995" cy="127.88613" r="60.077427" />
-    <circle style="fill:#cbcbcb;stroke:#000000;stroke-width:1.5561;" cx="124.0995" cy="127.88613" r="57.932709" />
-    <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.4;" cx="124.0995" cy="127.88613" r="55.844093" />
-
-    <!-- Color Arcs -->
-    <path style="fill:#ff0000;stroke:#000000;stroke-width:0.5;" d="m 169.60474,127.92124 c 0,-13.03327 -5.91378,-25.43497 -13.26293,-32.382216 0,0.05742 5.79894,-5.684112 5.79894,-5.684112 13.8945,13.894498 15.73179,31.348738 15.73179,38.066328 -0.97606,0 -8.2678,0 -8.2678,0 z" />
-    <path style="fill:#ff6a00;stroke:#000000;stroke-width:0.5;" d="m 156.28322,95.702067 c -9.16694,-9.264624 -22.09345,-13.920846 -32.20389,-13.690235 0.0404,0.04082 0.12423,-8.119199 0.12423,-8.119199 19.64951,0.104133 33.23197,11.219121 37.95678,15.994281 -0.69383,0.686511 -5.87712,5.815153 -5.87712,5.815153 z" />
-    <path style="fill:#ffbc00;stroke:#000000;stroke-width:0.5;" d="m 123.94554,82.161792 c -13.03239,0.151072 -25.364709,6.208217 -32.226297,13.637401 0.05743,-6.73e-4 -5.750946,-5.732665 -5.750946,-5.732665 13.732501,-14.054625 31.164273,-16.094117 37.881413,-16.171983 0.0113,0.975997 0.0955,8.26725 0.0955,8.26725 z" />
-    <path style="fill:#e1ff00;stroke:#000000;stroke-width:0.5;" d="m 91.969003,95.657957 c -9.259154,9.172463 -13.907662,22.101753 -13.671019,32.212053 0.0408,-0.0404 -8.119271,-0.11939 -8.119271,-0.11939 0.09241,-19.64957 11.199293,-33.238656 15.971636,-37.966317 0.686918,0.693428 5.81842,5.873886 5.81842,5.873886 z" />
-    <path style="fill:#9bff00;stroke:#000000;stroke-width:0.5;" d="m 78.514545,127.6824 c -0.01583,13.03325 5.8829,25.44213 13.223608,32.39829 8.2e-5,-0.0574 -5.805842,5.67706 -5.805842,5.67706 -13.877621,-13.91135 -15.693719,-31.36781 -15.685562,-38.0854 0.976062,0.001 8.267796,0.0104 8.267796,0.0104 z" />
-    <path style="fill:#14d700;stroke:#000000;stroke-width:0.5;" d="m 91.866536,159.90332 c 9.268064,9.16345 22.244914,13.67752 32.352214,13.33595 -0.0408,-0.0404 -0.0351,8.12007 -0.0351,8.12007 -19.64947,0.11155 -33.35311,-10.8537 -38.130052,-15.57671 0.68612,-0.69422 5.813197,-5.87906 5.813197,-5.87906 z" />
-
-    <!-- Curving "Party-ness" Text Path (Fine-tuned curve alignment) -->
-    <path style="fill:none;stroke:none;" d="m 103.82258,92.942156 c 12.96281,-5.332721 19.8943,-8.957327 38.59156,-3.120071" id="partyPath" />
-    <text style="font-weight:bold;font-size:5.3px;font-family:'Century Gothic';fill:#000000;" transform="rotate(1.8, 124, 90)">
-      <textPath href="#partyPath" startOffset="57%" text-anchor="middle">Party-ness</textPath>
-    </text>
-
-    <!-- Small Sub-dial ("Value" inside, slightly lower down) -->
-    <g transform="matrix(0.71445729,0,0,0.71445729,9.4771098,22.438679)">
-      <circle style="fill:#a1a1a1;stroke-width:0.508865;" cx="124.3993" cy="153.42212" r="16.910416" />
-      <text style="font-weight:bold;font-size:5.2px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;" x="124.31605" y="161.5">Value</text>
-      <g class="sub-dial-needle">
-        <path style="fill:#000000;stroke:#000000;stroke-width:0.508865;stroke-linecap:round;" d="m 123.94226,153.8792 12.98547,-9.86906" />
-        <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="1.5422727" />
-        <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="0.82388818" />
-      </g>
-    </g>
-
-    <!-- Bigger Master Sub-dial ("Friendliness" matched in size/boldness, positioned further down away from center) -->
-    <g id="g8">
-      <circle style="font-variation-settings:normal;vector-effect:none;fill:#a1a1a1;fill-opacity:1;stroke-width:0.508865;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.01773, 1.01773;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;paint-order:markers fill stroke;stop-color:#000000"
-         id="path2-1"
-         cx="124.3993"
-         cy="153.42212"
-         r="16.910416" />
-      <text style="font-weight:bold;font-size:5.2px;line-height:1;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic, Bold';text-anchor:middle;fill:#000000;"
-         x="124.31605"
-         y="161.5"
-         id="text2-6">
-        <tspan
-           id="tspan2-7"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.2px;font-family:'Century Gothic';fill:#000000;"
-           x="124.31605"
-           y="161.5">Friendliness</tspan>
-      </text>
-      <g class="sub-dial-needle-big">
-        <path style="fill:#000000;stroke:#000000;stroke-width:0.508865;stroke-linecap:round;" d="m 123.94226,153.8792 12.98547,-9.86906" />
-        <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="1.5422727" />
-        <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="0.82388818" />
-      </g>
-    </g>
-
-    <!-- Watch-Style Mechanical Date Display Reel -->
-    <foreignObject x="138.93318" y="121.25021" width="24.025503" height="12.798634">
-      <div xmlns="http://www.w3.org/1999/xhtml" class="score-window-wrapper">
-        <div class="number-reel">
-          <span>0.0</span>
-          <span>1.0</span>
-          <span>2.0</span>
-          <span>3.0</span>
-          <span>4.0</span>
-          <span>5.0</span>
-          <span>6.0</span>
-          <span>7.0</span>
-          <span>8.0</span>
-          <span>8.5</span>
-          <span>9.0</span>
-          <span>10.0</span>
-        </div>
-      </div>
-    </foreignObject>
-
-    <!-- Main Indicator Needle & Center Caps -->
-    <g id="main-needle-group">
-      <rect style="fill:#bebebe;stroke:#000000;stroke-width:0.512163;stroke-linecap:round;" width="3.2357354" height="57.638039" x="175.6566" y="-34.751022" ry="1.7103276" transform="rotate(40.332538)" />
-      <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.5;" cx="123.77471" cy="127.88613" r="5.8483286" />
-      <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.5;" cx="123.77471" cy="127.88613" r="3.1242003" />
-    </g>
-  </svg>
-</div>
-
-<!-- Center-screen Trigger Script -->
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      root: null,
-      rootMargin: "-40% 0px -40% 0px", 
-      threshold: 0
-    });
-
-    document.querySelectorAll('.vibe-meter-card').forEach(card => {
-      observer.observe(card);
-    });
-  });
-</script>
+  <!-- BOTTOM RIGHT DIAL: Activities/Tours -->
+  <g transform="translate(335, 235)">
+    <path class="dial-bg" d="M -27 27 A 38 38 0 1 1 27 27" />
+    <path class="dial-val c-tours" d="M -27 27 A 38 38 0 1 1 27 27" stroke-dasharray="179" stroke-dashoffset="36" />
+    <text y="-4" class="dial-sub">Activities/Tours</text>
+    <text y="14" class="dial-num-sub">8.0</text>
+  </g>
+</svg>
 
 
 </section>
