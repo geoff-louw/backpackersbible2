@@ -559,7 +559,7 @@
           transform: rotate(0deg);
         }
 
-        .number-reel {
+        .digit-reel {
           display: flex;
           flex-direction: column;
           transform: translateY(0);
@@ -585,8 +585,17 @@
             subIdleBig 3.8s ease-in-out 3.1s infinite;
         }
 
-        .vibe-meter-card.in-view .number-reel {
-          animation: reelClick 15s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+        /* Three separate reels ticking at different slower rates to form 0.0 -> 9.6 */
+        .vibe-meter-card.in-view .digit-reel.reel-tens {
+          animation: tensTick 3s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        .vibe-meter-card.in-view .digit-reel.reel-units {
+          animation: unitsTick 3.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        .vibe-meter-card.in-view .digit-reel.reel-tenths {
+          animation: tenthsTick 3.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
         }
 
         /* Keyframes */
@@ -634,22 +643,43 @@
         }
 
         .score-window-wrapper {
-          width: 100%;
-          height: 100%;
+          width: 24.025mm;
+          height: 12.798mm;
           overflow: hidden;
           background: #a1a1a1;
           display: flex;
           justify-content: center;
-          align-items: flex-start;
+          align-items: center;
           font-family: 'Century Gothic', sans-serif;
           font-weight: bold;
-          font-size: 8px;
+          font-size: 7mm;
           color: #000000;
         }
 
-        .number-reel span {
+        .digit-box {
+          height: 12.798mm;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
+          width: 6mm;
+        }
+
+        .dot-box {
+          height: 12.798mm;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 3mm;
+          font-size: 7mm;
+          line-height: 1;
+        }
+
+        .digit-reel span {
           height: 12.798mm;
           min-height: 12.798mm;
+          max-height: 12.798mm;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -658,38 +688,38 @@
           line-height: 1;
         }
 
-        /* 
-          Reel Step height = 12.798mm (translated to px units for smooth CSS transform)
-          Index 0: 0.0  (0px)
-          Index 1: 1.0  (-48.37px)
-          Index 2: 2.0  (-96.74px)
-          Index 3: 3.0  (-145.11px)
-          Index 4: 4.0  (-193.48px)
-          Index 5: 5.0  (-241.85px)
-          Index 6: 6.0  (-290.22px)
-          Index 7: 7.0  (-338.59px)
-          Index 8: 8.0  (-386.96px)
-          Index 9: 9.0  (-435.33px)
-          Index 10: 9.3 (-483.70px)
-          Index 11: 9.6 (-532.07px)  <-- Final/Resting Target
-          Index 12: 9.7 (-580.44px)
-          Index 13: 9.8 (-628.81px)
-        */
-        @keyframes reelClick {
-          0%   { transform: translateY(0px); }
-          6%   { transform: translateY(-145.11px); }     /* 3.0 */
-          12%  { transform: translateY(-290.22px); }     /* 6.0 */
-          18%  { transform: translateY(-435.33px); }     /* 9.0 */
-          20%  { transform: translateY(-628.81px); }     /* reaches 9.8 at ~3s */
-          26%  { transform: translateY(-532.07px); }     /* settles to 9.6 */
-          55%  { transform: translateY(-532.07px); }     /* holds at 9.6 */
-          62%  { transform: translateY(-483.70px); }     /* dips to 9.3 */
-          68%  { transform: translateY(-580.44px); }     /* goes to 9.7 */
-          75%  { transform: translateY(-532.07px); }     /* returns to 9.6 */
-          85%  { transform: translateY(-532.07px); }     /* holds */
-          90%  { transform: translateY(-628.81px); }     /* update tick to 9.8 */
-          95%  { transform: translateY(-483.70px); }     /* dips to 9.3 */
-          100% { transform: translateY(-532.07px); }     /* settles back to 9.6 */
+        /* Tens digit (first digit): stays at '0' during initial startup */
+        @keyframes tensTick {
+          0%   { transform: translateY(0mm); }
+          100% { transform: translateY(0mm); }
+        }
+
+        /* Units digit (second digit): ticks slowly 0 -> 1 -> 2 -> ... -> 9 */
+        @keyframes unitsTick {
+          0%   { transform: translateY(0mm); }          /* 0 */
+          11%  { transform: translateY(-12.798mm); }    /* 1 */
+          22%  { transform: translateY(-25.596mm); }    /* 2 */
+          33%  { transform: translateY(-38.394mm); }    /* 3 */
+          44%  { transform: translateY(-51.192mm); }    /* 4 */
+          55%  { transform: translateY(-63.990mm); }    /* 5 */
+          66%  { transform: translateY(-76.788mm); }    /* 6 */
+          77%  { transform: translateY(-89.586mm); }    /* 7 */
+          88%  { transform: translateY(-102.384mm); }   /* 8 */
+          100% { transform: translateY(-115.182mm); }   /* 9 (and holds) */
+        }
+
+        /* Tenths digit (third digit after dot): ticks slowly 0 -> ... -> 6, with periodic historical fluctuations */
+        @keyframes tenthsTick {
+          0%   { transform: translateY(0mm); }          /* 0 */
+          15%  { transform: translateY(-25.596mm); }    /* 2 */
+          30%  { transform: translateY(-51.192mm); }    /* 4 */
+          45%  { transform: translateY(-76.788mm); }    /* 6 (Reaches target 9.6 at ~3s) */
+          60%  { transform: translateY(-76.788mm); }    /* Pause at 9.6 */
+          68%  { transform: translateY(-38.394mm); }    /* Fluctuates down to 9.3 */
+          76%  { transform: translateY(-89.586mm); }    /* Fluctuates up to 9.7 */
+          85%  { transform: translateY(-76.788mm); }    /* Returns to 9.6 */
+          92%  { transform: translateY(-102.384mm); }   /* Minor shift to 9.8 */
+          100% { transform: translateY(-76.788mm); }    /* Settles back on 9.6 */
         }
       </style>
     </defs>
@@ -773,25 +803,47 @@
       </g>
     </g>
 
-    <!-- Watch-Style Mechanical Date Display Reel & Centered "Location" Label (Exact original dimensions & placement) -->
+    <!-- Watch-Style Separate Segment Reels (Tens, Decimal Dot, Tenths) & Centered "Location" Label -->
     <g transform="translate(0, 3.5)">
       <foreignObject x="138.93318" y="121.25021" width="24.025503" height="12.798634">
         <div xmlns="http://www.w3.org/1999/xhtml" class="score-window-wrapper">
-          <div class="number-reel">
-            <span>0.0</span>
-            <span>1.0</span>
-            <span>2.0</span>
-            <span>3.0</span>
-            <span>4.0</span>
-            <span>5.0</span>
-            <span>6.0</span>
-            <span>7.0</span>
-            <span>8.0</span>
-            <span>9.0</span>
-            <span>9.3</span>
-            <span>9.6</span>
-            <span>9.7</span>
-            <span>9.8</span>
+          <!-- First Digit (Tens) -->
+          <div class="digit-box">
+            <div class="digit-reel reel-tens">
+              <span>0</span>
+            </div>
+          </div>
+          <!-- Second Digit (Units) -->
+          <div class="digit-box">
+            <div class="digit-reel reel-units">
+              <span>0</span>
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
+              <span>4</span>
+              <span>5</span>
+              <span>6</span>
+              <span>7</span>
+              <span>8</span>
+              <span>9</span>
+            </div>
+          </div>
+          <!-- Decimal Separator -->
+          <div class="dot-box">.</div>
+          <!-- Third Digit (Tenths) -->
+          <div class="digit-box">
+            <div class="digit-reel reel-tenths">
+              <span>0</span>
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
+              <span>4</span>
+              <span>5</span>
+              <span>6</span>
+              <span>7</span>
+              <span>8</span>
+              <span>9</span>
+            </div>
           </div>
         </div>
       </foreignObject>
