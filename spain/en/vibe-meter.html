@@ -591,11 +591,11 @@
         }
 
         .vibe-meter-card.in-view .digit-reel.reel-units {
-          animation: unitsTick 3.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+          animation: unitsTick 3s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
         }
 
         .vibe-meter-card.in-view .digit-reel.reel-tenths {
-          animation: tenthsTick 3.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+          animation: tenthsTick 12s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
         }
 
         /* Keyframes */
@@ -643,8 +643,8 @@
         }
 
         .score-window-wrapper {
-          width: 24.025mm;
-          height: 12.798mm;
+          width: 100%;
+          height: 100%;
           overflow: hidden;
           background: #a1a1a1;
           display: flex;
@@ -663,7 +663,7 @@
           flex-direction: column;
           align-items: center;
           justify-content: flex-start;
-          width: 6mm;
+          width: 6.5mm;
         }
 
         .dot-box {
@@ -688,38 +688,37 @@
           line-height: 1;
         }
 
-        /* Tens digit (first digit): stays at '0' during initial startup */
+        /* Tens digit stays at 0 */
         @keyframes tensTick {
-          0%   { transform: translateY(0mm); }
-          100% { transform: translateY(0mm); }
+          0%   { transform: translateY(0px); }
+          100% { transform: translateY(0px); }
         }
 
-        /* Units digit (second digit): ticks slowly 0 -> 1 -> 2 -> ... -> 9 */
+        /* Units digit ticks slowly from 0 up to 9 over 3 seconds */
         @keyframes unitsTick {
-          0%   { transform: translateY(0mm); }          /* 0 */
-          11%  { transform: translateY(-12.798mm); }    /* 1 */
-          22%  { transform: translateY(-25.596mm); }    /* 2 */
-          33%  { transform: translateY(-38.394mm); }    /* 3 */
-          44%  { transform: translateY(-51.192mm); }    /* 4 */
-          55%  { transform: translateY(-63.990mm); }    /* 5 */
-          66%  { transform: translateY(-76.788mm); }    /* 6 */
-          77%  { transform: translateY(-89.586mm); }    /* 7 */
-          88%  { transform: translateY(-102.384mm); }   /* 8 */
-          100% { transform: translateY(-115.182mm); }   /* 9 (and holds) */
+          0%   { transform: translateY(0px); }
+          10%  { transform: translateY(-12.798mm); }
+          20%  { transform: translateY(-25.596mm); }
+          30%  { transform: translateY(-38.394mm); }
+          40%  { transform: translateY(-51.192mm); }
+          50%  { transform: translateY(-63.990mm); }
+          60%  { transform: translateY(-76.788mm); }
+          70%  { transform: translateY(-89.586mm); }
+          80%  { transform: translateY(-102.384mm); }
+          100% { transform: translateY(-115.182mm); } /* Settles on 9 */
         }
 
-        /* Tenths digit (third digit after dot): ticks slowly 0 -> ... -> 6, with periodic historical fluctuations */
+        /* Tenths digit ticks from 0 to 6 over 3s, pauses at 9.6, then occasionally fluctuates up/down */
         @keyframes tenthsTick {
-          0%   { transform: translateY(0mm); }          /* 0 */
-          15%  { transform: translateY(-25.596mm); }    /* 2 */
-          30%  { transform: translateY(-51.192mm); }    /* 4 */
-          45%  { transform: translateY(-76.788mm); }    /* 6 (Reaches target 9.6 at ~3s) */
+          0%   { transform: translateY(0px); }          /* 0 */
+          25%  { transform: translateY(-38.394mm); }    /* 3 */
+          50%  { transform: translateY(-76.788mm); }    /* 6 (Reaches 9.6 at ~3s) */
           60%  { transform: translateY(-76.788mm); }    /* Pause at 9.6 */
-          68%  { transform: translateY(-38.394mm); }    /* Fluctuates down to 9.3 */
-          76%  { transform: translateY(-89.586mm); }    /* Fluctuates up to 9.7 */
-          85%  { transform: translateY(-76.788mm); }    /* Returns to 9.6 */
-          92%  { transform: translateY(-102.384mm); }   /* Minor shift to 9.8 */
-          100% { transform: translateY(-76.788mm); }    /* Settles back on 9.6 */
+          68%  { transform: translateY(-38.394mm); }    /* Dips down to 3 (.3) */
+          76%  { transform: translateY(-89.586mm); }    /* Ticks up to 7 (.7) */
+          84%  { transform: translateY(-76.788mm); }    /* Returns to 6 (.6) */
+          92%  { transform: translateY(-102.384mm); }   /* Ticks to 8 (.8) */
+          100% { transform: translateY(-76.788mm); }    /* Settles back on 6 (.6) */
         }
       </style>
     </defs>
@@ -803,7 +802,7 @@
       </g>
     </g>
 
-    <!-- Watch-Style Separate Segment Reels (Tens, Decimal Dot, Tenths) & Centered "Location" Label -->
+    <!-- Watch-Style Separate Segment Reels (Tens, Units, Decimal Dot, Tenths) & Centered "Location" Label -->
     <g transform="translate(0, 3.5)">
       <foreignObject x="138.93318" y="121.25021" width="24.025503" height="12.798634">
         <div xmlns="http://www.w3.org/1999/xhtml" class="score-window-wrapper">
