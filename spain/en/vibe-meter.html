@@ -653,30 +653,13 @@
           min-width: 24mm;
         }
 
-        /* 
-          Reel items count is 14 items total (index 0 to 13).
-          Index 0: 0.0
-          Index 1: 1.0
-          Index 2: 2.0
-          Index 3: 3.0
-          Index 4: 4.0
-          Index 5: 5.0
-          Index 6: 6.0
-          Index 7: 7.0
-          Index 8: 8.0
-          Index 9: 9.0
-          Index 10: 9.5
-          Index 11: 9.8  (overshoot)
-          Index 12: 9.6  (final settled value)
-          Index 13: 10.0
-        */
         @keyframes reelClick {
           0%   { transform: translateY(0); }
-          25%  { transform: translateY(-76.788mm); }   /* spins through middle numbers */
-          50%  { transform: translateY(-140.778mm); }  /* clicks up to 9.8 (Index 11) */
-          75%  { transform: translateY(-153.576mm); }  /* settles back down to 9.6 (Index 12) */
-          90%  { transform: translateY(-147.000mm); }  /* subtle bounce */
-          100% { transform: translateY(-153.576mm); }  /* locks on 9.6 */
+          20%  { transform: translateY(-76.788mm); }   /* clicks through middle numbers */
+          45%  { transform: translateY(-115.182mm); }  /* overshoots to 9.8 */
+          70%  { transform: translateY(-102.384mm); }  /* bounces back to settle on 9.6 */
+          85%  { transform: translateY(-110.000mm); }  /* slight micro-jitter */
+          100% { transform: translateY(-102.384mm); }  /* final lock on 9.6 */
         }
       </style>
     </defs>
@@ -706,7 +689,7 @@
     <!-- SUB-DIAL 1: Cleanliness -->
     <g transform="matrix(0.71445729,0,0,0.71445729,22.15,-3.5)">
       <circle style="fill:#a1a1a1;stroke-width:0.508865;" cx="124.3993" cy="153.42212" r="16.910416" />
-      <text style="font-weight:bold;font-size:4.6px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;" x="124.31605" y="161.5">Cleanliness</text>
+      <text style="font-weight:bold;font-size:4.2px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;" x="124.31605" y="161.5">Cleanliness</text>
       <g class="sub-dial-needle">
         <path style="fill:#000000;stroke:#000000;stroke-width:0.508865;stroke-linecap:round;" d="m 123.94226,153.8792 10.98547,-11.86906" />
         <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="1.5422727" />
@@ -717,7 +700,7 @@
     <!-- SUB-DIAL 2: Activities/Tours -->
     <g transform="matrix(0.71445729,0,0,0.71445729,51.33,-0.5)">
       <circle style="fill:#a1a1a1;stroke-width:0.508865;" cx="124.3993" cy="153.42212" r="16.910416" />
-      <text style="font-weight:bold;font-size:4.4px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;" x="124.31605" y="161.5">Activities</text>
+      <text style="font-weight:bold;font-size:4.1px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;" x="124.31605" y="161.5">Activities</text>
       <g class="sub-dial-needle">
         <path style="fill:#000000;stroke:#000000;stroke-width:0.508865;stroke-linecap:round;" d="m 123.94226,153.8792 8.98547,-13.86906" />
         <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="1.5422727" />
@@ -728,7 +711,7 @@
     <!-- SUB-DIAL 3: Value -->
     <g transform="matrix(0.71445729,0,0,0.71445729,9.4771098,22.438679)">
       <circle style="fill:#a1a1a1;stroke-width:0.508865;" cx="124.3993" cy="153.42212" r="16.910416" />
-      <text style="font-weight:bold;font-size:5.2px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;" x="124.31605" y="161.5">Value</text>
+      <text style="font-weight:bold;font-size:4.8px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;" x="124.31605" y="161.5">Value</text>
       <g class="sub-dial-needle">
         <path style="fill:#000000;stroke:#000000;stroke-width:0.508865;stroke-linecap:round;" d="m 123.94226,153.8792 12.98547,-9.86906" />
         <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="1.5422727" />
@@ -743,13 +726,13 @@
          cx="124.3993"
          cy="153.42212"
          r="16.910416" />
-      <text style="font-weight:bold;font-size:5.2px;line-height:1;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic, Bold';text-anchor:middle;fill:#000000;"
+      <text style="font-weight:bold;font-size:4.3px;line-height:1;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic, Bold';text-anchor:middle;fill:#000000;"
          x="124.31605"
          y="161.5"
          id="text2-6">
         <tspan
            id="tspan2-7"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.2px;font-family:'Century Gothic';fill:#000000;"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.3px;font-family:'Century Gothic';fill:#000000;"
            x="124.31605"
            y="161.5">Friendliness</tspan>
       </text>
