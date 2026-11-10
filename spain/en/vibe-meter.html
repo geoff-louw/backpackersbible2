@@ -522,6 +522,424 @@
 
 
 
+
+<div class="vibe-meter-card" style="--score: 9.6;">
+
+<style>
+.vibe-meter-card {
+  --min-deg: -110deg;
+  --sweep-range: 220deg;
+  --final-angle: calc(var(--min-deg) + (var(--score) / 10 * var(--sweep-range)));
+  width:100%;
+  max-width:520px;
+  margin:0 auto;
+  display:block;
+  position:relative;
+}
+
+/* NEEDLE POSITIONS */
+
+#main-needle-group {
+  transform-origin:123.77471px 127.88613px;
+  transform:rotate(139.667462deg);
+  transition:transform 1.2s cubic-bezier(0.4,0,0.2,1);
+}
+
+.sub-dial-needle {
+  transform-origin:123.89387px 153.76831px;
+  transform:rotate(0deg);
+}
+
+.sub-dial-needle-big {
+  transform-origin:123.89387px 153.76831px;
+  transform:rotate(0deg);
+}
+
+/* NEEDLE ANIMATIONS */
+
+.vibe-meter-card.in-view #main-needle-group {
+  animation:mainNeedleSettle 5.5s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+
+.vibe-meter-card.in-view .sub-dial-needle {
+  animation:
+    subSettle 3s ease-in-out forwards,
+    subIdle 3.5s ease-in-out 3.1s infinite;
+}
+
+.vibe-meter-card.in-view .sub-dial-needle-big {
+  animation:
+    subSettleBig 3s ease-in-out forwards,
+    subIdleBig 3.8s ease-in-out 3.1s infinite;
+}
+
+/* LOCATION NUMBER DISPLAY */
+
+.score-window-wrapper {
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  position:relative;
+  background:#a1a1a1;
+  color:#000;
+  font-family:'Century Gothic',sans-serif;
+  font-size:2.3mm;
+  font-weight:normal;
+}
+
+/* INITIAL AND LIVE DISPLAY SHARED DIGIT DIMENSIONS */
+
+.location-reel,
+.location-live {
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  width:100%;
+  height:100%;
+  line-height:12.798634px;
+  font-family:'Century Gothic',sans-serif;
+  font-size:2.3mm;
+}
+
+/* INITIAL ODOMETER DISPLAY */
+
+.location-reel {
+  display:flex;
+}
+
+.digit-window {
+  position:relative;
+  display:block;
+  width:5px;
+  height:12.798634px;
+  overflow:hidden;
+  flex:0 0 5px;
+}
+
+.digit-reel {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  transition:transform 0.13s linear;
+  will-change:transform;
+}
+
+.digit-reel span,
+.tenths-reel span {
+  display:block;
+  box-sizing:border-box;
+  width:100%;
+  height:12.798634px;
+  min-height:12.798634px;
+  max-height:12.798634px;
+  margin:0;
+  padding:0;
+  flex-shrink:0;
+  line-height:12.798634px;
+  text-align:center;
+  white-space:nowrap;
+  font-family:'Century Gothic',sans-serif;
+  font-size:2.3mm;
+  font-weight:normal;
+  font-variant-numeric:lining-nums tabular-nums;
+  font-feature-settings:"lnum","tnum";
+}
+
+.location-static {
+  display:block;
+  height:12.798634px;
+  line-height:12.798634px;
+  width:5px;
+  flex:0 0 5px;
+  text-align:center;
+}
+
+/* LIVE DISPLAY */
+
+.location-live {
+  display:none;
+}
+
+.score-window-wrapper.show-live .location-live {
+  display:flex;
+}
+
+.score-window-wrapper.show-live .location-reel {
+  display:none;
+}
+
+.location-live-fixed {
+  display:block;
+  height:12.798634px;
+  line-height:12.798634px;
+  width:5px;
+  flex:0 0 5px;
+  text-align:center;
+  white-space:nowrap;
+}
+
+.tenths-window {
+  position:relative;
+  display:block;
+  height:12.798634px;
+  width:5px;
+  overflow:hidden;
+  flex:0 0 5px;
+}
+
+.tenths-reel {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  transform:translateY(-12.798634px);
+  will-change:transform;
+  transition:transform 0.55s ease-in-out;
+}
+
+/* MAIN NEEDLE: START DOWN, SWEEP CLOCKWISE TO 30 DEGREES */
+
+@keyframes mainNeedleSettle {
+  0%   {transform:rotate(139.667462deg);}
+  55%  {transform:rotate(349.667462deg);}
+  100% {transform:rotate(349.667462deg);}
+}
+
+/* SUB-DIAL NEEDLES */
+
+@keyframes subSettle {
+  0% {transform:rotate(0deg);}
+  30% {transform:rotate(120deg);}
+  60% {transform:rotate(-70deg);}
+  100% {transform:rotate(35deg);}
+}
+
+@keyframes subIdle {
+  0%,88%,100% {transform:rotate(35deg);}
+  91% {transform:rotate(42deg);}
+  94% {transform:rotate(30deg);}
+}
+
+@keyframes subSettleBig {
+  0% {transform:rotate(0deg);}
+  30% {transform:rotate(-90deg);}
+  60% {transform:rotate(80deg);}
+  100% {transform:rotate(-25deg);}
+}
+
+@keyframes subIdleBig {
+  0%,88%,100% {transform:rotate(-25deg);}
+  91% {transform:rotate(-18deg);}
+  94% {transform:rotate(-30deg);}
+}
+</style>
+
+<svg
+ width="100%"
+ height="100%"
+ viewBox="37.722286 52.766296 167.72946 158.74797"
+ version="1.1"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns="http://www.w3.org/2000/svg">
+
+<defs>
+  <path id="pathQuietBase" d="m 90.945802,167.19329 c 17.683908,12.4017 22.966118,10.56442 27.788998,11.94238" fill="none" />
+  <path id="pathWild" d="m 157.63169,93.575242 c 9.01588,10.732498 14.57346,16.236728 14.68704,35.823658" fill="none" />
+</defs>
+
+<!-- BACKGROUND -->
+
+<rect style="fill:#ffd400;"
+ width="167.72946" height="158.74797"
+ x="37.722286" y="52.766296" ry="0.43908408"/>
+
+<!-- OUTER RIM -->
+
+<circle style="fill:#d6d6d6;stroke:#000000;stroke-width:0.4;"
+ cx="124.0995" cy="127.88613" r="60.077427"/>
+
+<circle style="fill:#cbcbcb;stroke:#000000;stroke-width:1.5561;"
+ cx="124.0995" cy="127.88613" r="57.932709"/>
+
+<circle style="fill:#ffffff;stroke:#000000;stroke-width:0.4;"
+ cx="124.0995" cy="127.88613" r="55.844093"/>
+
+<!-- COLOUR ARCS -->
+
+<path style="fill:#ff0000;stroke:#000000;stroke-width:0.5;"
+ d="m 169.60474,127.92124 c 0,-13.03327 -5.91378,-25.43497 -13.26293,-32.382216 0,0.05742 5.79894,-5.684112 5.79894,-5.684112 13.8945,13.894498 15.73179,31.348738 15.73179,38.066328 -0.97606,0 -8.2678,0 -8.2678,0 z"/>
+
+<path style="fill:#ff6a00;stroke:#000000;stroke-width:0.5;"
+ d="m 156.28322,95.702067 c -9.16694,-9.264624 -22.09345,-13.920846 -32.20389,-13.690235 0.0404,0.04082 0.12423,-8.119199 0.12423,-8.119199 19.64951,0.104133 33.23197,11.219121 37.95678,15.994281 -0.69383,0.686511 -5.87712,5.815153 -5.87712,5.815153 z"/>
+
+<path style="fill:#ffbc00;stroke:#000000;stroke-width:0.5;"
+ d="m 123.94554,82.161792 c -13.03239,0.151072 -25.364709,6.208217 -32.226297,13.637401 0.05743,-6.73e-4 -5.750946,-5.732665 -5.750946,-5.732665 13.732501,-14.054625 31.164273,-16.094117 37.881413,-16.171983 0.0113,0.975997 0.0955,8.26725 0.0955,8.26725 z"/>
+
+<path style="fill:#e1ff00;stroke:#000000;stroke-width:0.5;"
+ d="m 91.969003,95.657957 c -9.259154,9.172463 -13.907662,22.101753 -13.671019,32.212053 0.0408,-0.0404 -8.119271,-0.11939 -8.119271,-0.11939 0.09241,-19.64957 11.199293,-33.238656 15.971636,-37.966317 0.686918,0.693428 5.81842,5.873886 5.81842,5.873886 z"/>
+
+<path style="fill:#9bff00;stroke:#000000;stroke-width:0.5;"
+ d="m 78.514545,127.6824 c -0.01583,13.03325 5.8829,25.44213 13.223608,32.39829 8.2e-5,-0.0574 -5.805842,5.67706 -5.805842,5.67706 -13.877621,-13.91135 -15.693719,-31.36781 -15.685562,-38.0854 0.976062,0.001 8.267796,0.0104 8.267796,0.0104 z"/>
+
+<path style="fill:#14d700;stroke:#000000;stroke-width:0.5;"
+ d="m 91.866536,159.90332 c 9.268064,9.16345 22.244914,13.67752 32.352214,13.33595 -0.0408,-0.0404 -0.0351,8.12007 -0.0351,8.12007 -19.64947,0.11155 -33.35311,-10.8537 -38.130052,-15.57671 0.68612,-0.69422 5.813197,-5.87906 5.813197,-5.87906 z"/>
+
+<!-- ARC TEXT: QUIET -->
+
+<text style="font-weight:bold;font-size:8.46667px;line-height:1;font-family:'Century Gothic',sans-serif;text-anchor:middle;fill:#ffffff;"
+ transform="translate(-1.7630905,-1.3779667)">
+ <textPath href="#pathQuietBase" startOffset="50%" text-anchor="middle">
+  <tspan style="font-weight:bold;font-size:5.1px;font-family:'Century Gothic',sans-serif;">Quiet</tspan>
+ </textPath>
+</text>
+
+<!-- ARC TEXT: WILD -->
+
+<text style="font-weight:bold;font-size:5.1px;line-height:1;font-family:'Century Gothic',sans-serif;text-anchor:middle;fill:#ffffff;"
+ transform="translate(-1.3779667,-0.91864448)">
+ <textPath href="#pathWild" startOffset="50%" text-anchor="middle">Wild</textPath>
+</text>
+
+<!-- PARTY-NESS -->
+
+<path style="fill:none;stroke:none;"
+ d="m 103.82258,92.942156 c 12.96281,-5.332721 19.8943,-8.957327 38.59156,-3.120071"
+ id="partyPath"/>
+
+<text style="font-weight:bold;font-size:5.3px;font-family:'Century Gothic';fill:#000000;"
+ transform="rotate(1.8,124,90)">
+ <textPath href="#partyPath" startOffset="57%" text-anchor="middle">Party-ness</textPath>
+</text>
+
+<!-- CLEANLINESS -->
+
+<g transform="matrix(0.71445729,0,0,0.71445729,22.15,-3.5)">
+ <circle style="fill:#a1a1a1;stroke-width:0.508865;" cx="124.3993" cy="153.42212" r="16.910416"/>
+ <text style="font-weight:bold;font-size:4.6px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;" x="124.31605" y="161.5">Cleanliness</text>
+ <g class="sub-dial-needle">
+  <path style="fill:#000000;stroke:#000000;stroke-width:0.508865;stroke-linecap:round;" d="m 123.94226,153.8792 10.98547,-11.86906"/>
+  <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="1.5422727"/>
+  <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="0.82388818"/>
+ </g>
+</g>
+
+<!-- ACTIVITIES -->
+
+<g transform="matrix(0.71445729,0,0,0.71445729,51.33,-0.5)">
+ <circle style="fill:#a1a1a1;stroke-width:0.508865;" cx="124.3993" cy="153.42212" r="16.910416"/>
+ <text style="font-weight:bold;font-size:5.6px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;" x="124.31605" y="161.5">Activities</text>
+ <g class="sub-dial-needle">
+  <path style="fill:#000000;stroke:#000000;stroke-width:0.508865;stroke-linecap:round;" d="m 123.94226,153.8792 8.98547,-13.86906"/>
+  <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="1.5422727"/>
+  <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="0.82388818"/>
+ </g>
+</g>
+
+<!-- VALUE -->
+
+<g transform="matrix(0.71445729,0,0,0.71445729,9.4771098,22.438679)">
+ <circle style="fill:#a1a1a1;stroke-width:0.508865;" cx="124.3993" cy="153.42212" r="16.910416"/>
+ <text style="font-weight:bold;font-size:5.5px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;" x="124.31605" y="161.5">Value</text>
+ <g class="sub-dial-needle">
+  <path style="fill:#000000;stroke:#000000;stroke-width:0.508865;stroke-linecap:round;" d="m 123.94226,153.8792 12.98547,-9.86906"/>
+  <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="1.5422727"/>
+  <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="0.82388818"/>
+ </g>
+</g>
+
+<!-- FRIENDLINESS -->
+
+<g id="g8">
+ <circle style="fill:#a1a1a1;stroke-width:0;" cx="124.3993" cy="153.42212" r="16.910416"/>
+ <text style="font-weight:bold;font-size:4.4px;line-height:1;font-family:'Century Gothic';text-anchor:middle;fill:#000000;" x="124.31605" y="161.5">
+  <tspan style="font-weight:bold;font-size:4.15px;font-family:'Century Gothic';" x="124.31605" y="161.5">Friendliness</tspan>
+ </text>
+ <g class="sub-dial-needle-big">
+  <path style="fill:#000000;stroke:#000000;stroke-width:0.508865;stroke-linecap:round;" d="m 123.94226,153.8792 12.98547,-9.86906"/>
+  <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="1.5422727"/>
+  <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="0.82388818"/>
+ </g>
+</g>
+
+<!-- LOCATION REEL -->
+
+<g transform="translate(0,3.5)">
+
+ <foreignObject x="138.93318" y="121.25021" width="24.025503" height="12.798634">
+
+  <div xmlns="http://www.w3.org/1999/xhtml" class="score-window-wrapper">
+
+   <!-- INITIAL ODOMETER -->
+
+   <div class="location-reel">
+
+    <span class="location-static">0</span>
+
+    <div class="digit-window">
+     <div class="digit-reel units-reel"></div>
+    </div>
+
+    <span class="location-static">.</span>
+
+    <div class="digit-window">
+     <div class="digit-reel initial-tenths-reel"></div>
+    </div>
+
+   </div>
+
+   <!-- LIVE DISPLAY -->
+
+   <div class="location-live">
+
+    <span class="location-live-fixed">0</span>
+
+    <div class="digit-window">
+     <span class="location-live-fixed">9</span>
+    </div>
+
+    <span class="location-static">.</span>
+
+    <div class="tenths-window">
+     <div class="tenths-reel"></div>
+    </div>
+
+   </div>
+
+  </div>
+
+ </foreignObject>
+
+ <text style="font-weight:bold;font-size:4.6px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;"
+ x="150.94593" y="138">Location</text>
+
+</g>
+
+<!-- MAIN NEEDLE -->
+
+<g id="main-needle-group">
+ <rect style="fill:#bebebe;stroke:#000000;stroke-width:0.512163;stroke-linecap:round;"
+ width="3.2357354" height="57.638039" x="175.6566" y="-34.751022" ry="1.7103276"
+ transform="rotate(40.332538)"/>
+ <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.5;" cx="123.77471" cy="127.88613" r="5.8483286"/>
+ <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.5;" cx="123.77471" cy="127.88613" r="3.1242003"/>
+</g>
+
+</svg>
+</div>
+
+<!-- INLINE JAVASCRIPT -->
+
 <script>
 (function() {
 
@@ -542,7 +960,7 @@
 
       card.dataset.initialised = 'true';
 
-      /* HAND OVER MAIN NEEDLE CONTROL AFTER OPENING SWEEP */
+      /* HAND OVER NEEDLE CONTROL AFTER OPENING SWEEP */
 
       if (mainNeedle) {
         mainNeedle.addEventListener('animationend', function(event) {
@@ -615,13 +1033,9 @@
             'translateY(-' + (tenthsPosition * rowHeight) + 'px)';
 
           if (step < totalSteps) {
-
             setTimeout(advanceReels, interval);
-
           } else {
-
             setTimeout(startLiveDisplay, 150);
-
           }
 
         }
@@ -636,8 +1050,10 @@
 
         wrapper.classList.add('show-live');
 
-        /* Subsequent needle movements.
-           The displayed location score remains at 9.6. */
+        /*
+          Needle movements around the 30-degree position.
+          The displayed location score remains at 9.6.
+        */
 
         const liveScores = [
           30, 34, 28, 32, 26,
@@ -657,16 +1073,17 @@
 
           const score = liveScores[position % liveScores.length];
 
-          /* Keep the location display at 9.6.
-             Only the main needle moves. */
+          /*
+            IMPORTANT:
+            Do not move the decimal reel here.
+            It must continue displaying 9.6.
+            Only the main needle moves.
+          */
 
           if (mainNeedle) {
-
             const needleAngle = score + 319.667462;
-
             mainNeedle.style.transform =
               'rotate(' + needleAngle + 'deg)';
-
           }
 
           const delay = intervals[position % intervals.length];
@@ -677,9 +1094,9 @@
 
         }
 
-        /* REDUCED PAUSE BEFORE SUBSEQUENT MOVEMENTS */
+        /* PAUSE AFTER THE OPENING SWEEP BEFORE LIVE MOVEMENT */
 
-        setTimeout(updateLiveScore, 650);
+        setTimeout(updateLiveScore, 2500);
 
       }
 
@@ -708,9 +1125,9 @@
       });
 
     }, {
-      root: null,
-      rootMargin: "-40% 0px -40% 0px",
-      threshold: 0
+      root:null,
+      rootMargin:"-40% 0px -40% 0px",
+      threshold:0
     });
 
     cards.forEach(card => observer.observe(card));
@@ -725,8 +1142,6 @@
 
 })();
 </script>
-
-
 
 
 </section>
