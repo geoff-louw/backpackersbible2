@@ -576,14 +576,16 @@
 
 /* LOCATION NUMBER REEL */
 
+/* The important change here is that the reel is no longer
+   vertically centred inside the grey window. */
+
 .score-window-wrapper {
   width:100%;
   height:100%;
   overflow:hidden;
+  position:relative;
+  display:block;
   background:#a1a1a1;
-  display:flex;
-  justify-content:center;
-  align-items:center;
   font-family:'Century Gothic',sans-serif;
   font-weight:normal;
   font-size:2.3mm;
@@ -591,10 +593,15 @@
 }
 
 .location-reel {
+  position:absolute;
+  top:0;
+  left:0;
   display:flex;
   flex-direction:column;
   width:100%;
-  transform:translateY(0);
+  margin:0;
+  padding:0;
+  transform:translateY(-639.9317px);
   will-change:transform;
 }
 
@@ -619,14 +626,14 @@
   font-feature-settings:"lnum","tnum";
 }
 
-/* THREE-SECOND INITIAL COUNT */
+/* START AT 05.0 AND ROLL TO 09.6 */
 
 .vibe-meter-card.in-view .location-reel {
-  animation:locationReelStart 3s steps(96,end) forwards;
+  animation:locationReelStart 3s steps(46,end) forwards;
 }
 
 @keyframes locationReelStart {
-  from { transform:translateY(0); }
+  from { transform:translateY(-639.9317px); }
   to   { transform:translateY(-1228.668864px); }
 }
 
@@ -792,7 +799,7 @@
 
   <div xmlns="http://www.w3.org/1999/xhtml" class="score-window-wrapper">
 
-   <div class="location-reel" id="location-reel"></div>
+   <div class="location-reel"></div>
 
   </div>
 
@@ -819,112 +826,129 @@
 <!-- INLINE JAVASCRIPT -->
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
+(function() {
 
-  const cards = document.querySelectorAll('.vibe-meter-card');
+  function initialiseVibeMeters() {
 
-  cards.forEach(card => {
+    const cards = document.querySelectorAll('.vibe-meter-card');
 
-    const reel = card.querySelector('#location-reel');
+    cards.forEach(card => {
 
-    if (!reel) return;
+      const reel = card.querySelector('.location-reel');
 
-    // Generate numbers 00.0 to 09.7
-    // The extra 09.7 allows a small upward fluctuation.
+      if (!reel || reel.dataset.initialised === 'true') return;
 
-    for (let i = 0; i <= 97; i++) {
+      reel.dataset.initialised = 'true';
 
-      const digit = document.createElement('span');
+      // Generate the number strip from 00.0 to 09.7.
 
-      digit.textContent = (i / 10).toFixed(1).padStart(4, '0');
+      for (let i = 0; i <= 97; i++) {
 
-      reel.appendChild(digit);
+        const digit = document.createElement('span');
 
-    }
+        digit.textContent = (i / 10).toFixed(1).padStart(4, '0');
 
-    // Wait until the initial three-second animation finishes.
+        reel.appendChild(digit);
 
-    reel.addEventListener('animationend', function(event) {
+      }
 
-      if (event.animationName !== 'locationReelStart') return;
+      // Start at 05.0.
 
-      // Lock the reel exactly at 09.6.
+      const rowHeight = 12.798634;
+      const startingPosition = 50 * rowHeight;
+      const finalPosition = 96 * rowHeight;
 
-      reel.style.animation = 'none';
-      reel.style.transform = 'translateY(-1228.668864px)';
+      reel.style.transform =
+        'translateY(-' + startingPosition + 'px)';
 
-      // Small live-review movements around the average of 09.6.
+      // When the initial roll finishes, hold at 09.6
+      // and begin the occasional live-review movements.
 
-      const liveScores = [
-        95, 96, 97, 96, 96,
-        95, 96, 97, 96, 96,
-        97, 96, 95, 96, 96,
-        97, 96, 96, 95, 96
-      ];
+      reel.addEventListener('animationend', function(event) {
 
-      const intervals = [
-        4200, 5100, 3700, 6200, 4500,
-        5800, 3900, 5400, 4300, 6000
-      ];
+        if (event.animationName !== 'locationReelStart') return;
 
-      let position = 0;
-
-      function updateLiveScore() {
-
-        const score = liveScores[position % liveScores.length];
-
-        // Smooth mechanical movement between numbers.
-
-        reel.style.transition = 'transform 0.55s ease-in-out';
+        reel.style.animation = 'none';
+        reel.style.transition = 'none';
 
         reel.style.transform =
-          'translateY(-' + (score * 12.798634) + 'px)';
+          'translateY(-' + finalPosition + 'px)';
 
-        const delay = intervals[position % intervals.length];
+        const liveScores = [
+          95, 96, 97, 96, 96,
+          95, 96, 97, 96, 96,
+          97, 96, 95, 96, 96,
+          97, 96, 96, 95, 96
+        ];
 
-        position++;
+        const intervals = [
+          4200, 5100, 3700, 6200, 4500,
+          5800, 3900, 5400, 4300, 6000
+        ];
 
-        setTimeout(updateLiveScore, delay);
+        let position = 0;
 
-      }
+        function updateLiveScore() {
 
-      // Pause briefly at 09.6 before the first live movement.
+          const score = liveScores[position % liveScores.length];
 
-      setTimeout(updateLiveScore, 2500);
+          reel.style.transition = 'transform 0.55s ease-in-out';
+
+          reel.style.transform =
+            'translateY(-' + (score * rowHeight) + 'px)';
+
+          const delay = intervals[position % intervals.length];
+
+          position++;
+
+          setTimeout(updateLiveScore, delay);
+
+        }
+
+        // Hold at 09.6 for a moment before the first movement.
+
+        setTimeout(updateLiveScore, 2500);
+
+      });
 
     });
 
-  });
+    // Start each meter when it reaches the centre of the screen.
 
-  // Start the meter when it reaches the centre of the screen.
+    const observer = new IntersectionObserver((entries, observer) => {
 
-  const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
 
-    entries.forEach(entry => {
+        if (entry.isIntersecting) {
 
-      if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
 
-        entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
 
-        observer.unobserve(entry.target);
+        }
 
-      }
+      });
 
+    }, {
+      root:null,
+      rootMargin:"-40% 0px -40% 0px",
+      threshold:0
     });
 
-  }, {
-    root:null,
-    rootMargin:"-40% 0px -40% 0px",
-    threshold:0
-  });
+    cards.forEach(card => {
+      observer.observe(card);
+    });
 
-  cards.forEach(card => {
-    observer.observe(card);
-  });
+  }
 
-});
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initialiseVibeMeters);
+  } else {
+    initialiseVibeMeters();
+  }
+
+})();
 </script>
-
 
 
 </section>
