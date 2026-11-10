@@ -722,15 +722,12 @@
   0% {
     transform:rotate(var(--start-angle));
   }
-
   45% {
-    transform:rotate(calc(var(--final-angle) + 10deg));
+    transform:rotate(calc(var(--final-angle) - 10deg));
   }
-
   72% {
-    transform:rotate(calc(var(--final-angle) - 4deg));
+    transform:rotate(calc(var(--final-angle) + 4deg));
   }
-
   100% {
     transform:rotate(var(--final-angle));
   }
@@ -981,7 +978,7 @@
         */
 
         const startAngle = 180 - bearing;
-        const finalAngle = startAngle + (score * 4.5);
+        const finalAngle = startAngle - (score * 4.5);
 
         needle.style.setProperty('--start-angle', startAngle + 'deg');
         needle.style.setProperty('--final-angle', finalAngle + 'deg');
