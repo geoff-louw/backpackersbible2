@@ -522,6 +522,7 @@
 
 
 
+
 <div class="vibe-meter-card" style="--score: 9.6;">
 
 <style>
@@ -587,9 +588,29 @@
   font-weight:normal;
 }
 
-/* INITIAL FULL NUMBER REEL */
+/* INITIAL ODOMETER DISPLAY */
 
 .location-reel {
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  width:100%;
+  height:100%;
+  line-height:12.798634px;
+}
+
+.digit-window {
+  position:relative;
+  display:block;
+  width:5px;
+  height:12.798634px;
+  overflow:hidden;
+  flex:0 0 5px;
+}
+
+.digit-reel {
   position:absolute;
   top:0;
   left:0;
@@ -598,11 +619,11 @@
   padding:0;
   display:flex;
   flex-direction:column;
-  transform:translateY(-895.90438px);
+  transition:transform 0.13s linear;
   will-change:transform;
 }
 
-.location-reel span,
+.digit-reel span,
 .tenths-reel span {
   display:block;
   box-sizing:border-box;
@@ -623,18 +644,16 @@
   font-feature-settings:"lnum","tnum";
 }
 
-/* START AT 07.0 AND ROLL TO 09.6 */
-
-.vibe-meter-card.in-view .location-reel {
-  animation:locationReelStart 4s steps(26,end) forwards;
+.location-static {
+  display:block;
+  height:12.798634px;
+  line-height:12.798634px;
+  width:5px;
+  flex:0 0 5px;
+  text-align:center;
 }
 
-@keyframes locationReelStart {
-  from { transform:translateY(-895.90438px); }
-  to   { transform:translateY(-1228.668864px); }
-}
-
-/* LIVE DISPLAY: 09. STAYS STILL */
+/* LIVE DISPLAY */
 
 .location-live {
   position:absolute;
@@ -685,6 +704,7 @@
   flex-direction:column;
   transform:translateY(-12.798634px);
   will-change:transform;
+  transition:transform 0.55s ease-in-out;
 }
 
 /* MAIN NEEDLE */
@@ -849,7 +869,25 @@
 
   <div xmlns="http://www.w3.org/1999/xhtml" class="score-window-wrapper">
 
-   <div class="location-reel"></div>
+   <!-- INITIAL ODOMETER -->
+
+   <div class="location-reel">
+
+    <span class="location-static">0</span>
+
+    <div class="digit-window">
+     <div class="digit-reel units-reel"></div>
+    </div>
+
+    <span class="location-static">.</span>
+
+    <div class="digit-window">
+     <div class="digit-reel initial-tenths-reel"></div>
+    </div>
+
+   </div>
+
+   <!-- LIVE DISPLAY -->
 
    <div class="location-live">
     <span class="location-live-fixed">09.</span>
@@ -891,52 +929,102 @@
 
     cards.forEach(card => {
 
-      const reel = card.querySelector('.location-reel');
       const wrapper = card.querySelector('.score-window-wrapper');
-      const tenthsReel = card.querySelector('.tenths-reel');
+      const unitsReel = card.querySelector('.units-reel');
+      const initialTenthsReel = card.querySelector('.initial-tenths-reel');
+      const liveTenthsReel = card.querySelector('.tenths-reel');
 
-      if (!reel || !wrapper || !tenthsReel) return;
-      if (reel.dataset.initialised === 'true') return;
+      if (!wrapper || !unitsReel || !initialTenthsReel || !liveTenthsReel) return;
+      if (card.dataset.initialised === 'true') return;
 
-      reel.dataset.initialised = 'true';
+      card.dataset.initialised = 'true';
 
       const rowHeight = 12.798634;
 
-      // Build the full number reel, from 00.0 to 09.7.
+      /* BUILD THE UNITS REEL */
 
-      for (let i = 0; i <= 97; i++) {
-        const digit = document.createElement('span');
-        digit.textContent = (i / 10).toFixed(1).padStart(4, '0');
-        reel.appendChild(digit);
+      for (let cycle = 0; cycle < 2; cycle++) {
+        for (let i = 0; i <= 9; i++) {
+
+          const digit = document.createElement('span');
+          digit.textContent = i;
+          unitsReel.appendChild(digit);
+
+        }
       }
 
-      // Build the smaller live reel: only the final digit.
+      /* BUILD THE TENTHS REEL */
+
+      for (let cycle = 0; cycle < 4; cycle++) {
+        for (let i = 0; i <= 9; i++) {
+
+          const digit = document.createElement('span');
+          digit.textContent = i;
+          initialTenthsReel.appendChild(digit);
+
+        }
+      }
+
+      /* SET INITIAL POSITION: 07.0 */
+
+      unitsReel.style.transform =
+        'translateY(-' + (7 * rowHeight) + 'px)';
+
+      initialTenthsReel.style.transform =
+        'translateY(-' + (10 * rowHeight) + 'px)';
+
+      /* BUILD LIVE TENTHS REEL */
 
       [5, 6, 7].forEach(number => {
+
         const digit = document.createElement('span');
         digit.textContent = number;
-        tenthsReel.appendChild(digit);
+        liveTenthsReel.appendChild(digit);
+
       });
 
-      // Begin at 07.0.
+      /* START THE ODOMETER */
 
-      const startingPosition = 70 * rowHeight;
-      const finalPosition = 96 * rowHeight;
+      function startOdometer() {
 
-      reel.style.transform =
-        'translateY(-' + startingPosition + 'px)';
+        let step = 0;
 
-      // Animate from 07.0 to 09.6.
+        const totalSteps = 26;
+        const duration = 4000;
+        const interval = duration / totalSteps;
 
-      reel.addEventListener('animationend', function(event) {
+        function advanceReels() {
 
-        if (event.animationName !== 'locationReelStart') return;
+          step++;
 
-        // Switch to the separate live display.
-        // The fixed "09." will no longer move.
+          const unitsPosition = 7 + Math.floor(step / 10);
+          const tenthsPosition = 10 + step;
 
-        reel.style.animation = 'none';
-        reel.style.display = 'none';
+          unitsReel.style.transform =
+            'translateY(-' + (unitsPosition * rowHeight) + 'px)';
+
+          initialTenthsReel.style.transform =
+            'translateY(-' + (tenthsPosition * rowHeight) + 'px)';
+
+          if (step < totalSteps) {
+
+            setTimeout(advanceReels, interval);
+
+          } else {
+
+            setTimeout(startLiveDisplay, 150);
+
+          }
+
+        }
+
+        setTimeout(advanceReels, interval);
+
+      }
+
+      /* SWITCH TO LIVE DISPLAY */
+
+      function startLiveDisplay() {
 
         wrapper.classList.add('show-live');
 
@@ -958,12 +1046,7 @@
 
           const score = liveScores[position % liveScores.length];
 
-          // Only the final digit moves.
-
-          tenthsReel.style.transition =
-            'transform 0.55s ease-in-out';
-
-          tenthsReel.style.transform =
+          liveTenthsReel.style.transform =
             'translateY(-' + ((score - 5) * rowHeight) + 'px)';
 
           const delay = intervals[position % intervals.length];
@@ -971,25 +1054,33 @@
           position++;
 
           setTimeout(updateLiveScore, delay);
-        }
 
-        // Hold at 09.6 before the first movement.
+        }
 
         setTimeout(updateLiveScore, 2500);
 
-      });
+      }
+
+      card.startOdometer = startOdometer;
 
     });
 
-    // Start the meter when it reaches the centre of the screen.
+    /* START WHEN THE METER ENTERS THE VIEW */
 
     const observer = new IntersectionObserver((entries, observer) => {
 
       entries.forEach(entry => {
 
         if (entry.isIntersecting) {
+
           entry.target.classList.add('in-view');
+
+          if (entry.target.startOdometer) {
+            entry.target.startOdometer();
+          }
+
           observer.unobserve(entry.target);
+
         }
 
       });
@@ -1012,6 +1103,7 @@
 
 })();
 </script>
+
 
 
 </section>
