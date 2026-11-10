@@ -2334,7 +2334,7 @@
         "hwRating": "8.6 / 10",
         "booking": "https://www.booking.com/hotel/za/beach-house-backpackers.html",
         "hostelworld": "https://www.hostelworld.com/hostels/p/52697/wilderness-beach-house-backpackers/",
-        "is_best_overall": true,
+        "is_best_overall": false,
         "is_value": true,
         "is_party": true,
         "is_chill": true,
