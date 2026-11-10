@@ -523,6 +523,7 @@
 
 
 
+
 <div class="vibe-meter-card" style="--score: 9.6;">
 
 <style>
@@ -545,11 +546,7 @@
   transition:transform 1.2s cubic-bezier(0.4,0,0.2,1);
 }
 
-.sub-dial-needle {
-  transform-origin:123.89387px 153.76831px;
-  transform:rotate(0deg);
-}
-
+.sub-dial-needle,
 .sub-dial-needle-big {
   transform-origin:123.89387px 153.76831px;
   transform:rotate(0deg);
@@ -561,16 +558,11 @@
   animation:mainNeedleSettle 5.5s cubic-bezier(0.4,0,0.2,1) forwards;
 }
 
-.vibe-meter-card.in-view .sub-dial-needle {
-  animation:
-    subSettle 3s ease-in-out forwards,
-    subIdle 3.5s ease-in-out 3.1s infinite;
-}
-
+.vibe-meter-card.in-view .sub-dial-needle,
 .vibe-meter-card.in-view .sub-dial-needle-big {
   animation:
-    subSettleBig 3s ease-in-out forwards,
-    subIdleBig 3.8s ease-in-out 3.1s infinite;
+    miniNeedleSettle var(--settle-duration, 3.5s) cubic-bezier(0.4,0,0.2,1) forwards,
+    miniNeedleIdle var(--idle-duration, 4.8s) ease-in-out var(--idle-delay, 3.6s) infinite;
 }
 
 /* LOCATION NUMBER DISPLAY */
@@ -708,7 +700,7 @@
   transition:transform 0.55s ease-in-out;
 }
 
-/* MAIN NEEDLE: START DOWN, SWEEP CLOCKWISE TO 30 DEGREES */
+/* MAIN NEEDLE: START DOWN, SWEEP TO 30 DEGREES */
 
 @keyframes mainNeedleSettle {
   0%   {transform:rotate(139.667462deg);}
@@ -716,32 +708,35 @@
   100% {transform:rotate(349.667462deg);}
 }
 
-/* SUB-DIAL NEEDLES */
+/* MINI-NEEDLES: START AT ZERO, OVERSHOOT, THEN SETTLE */
 
-@keyframes subSettle {
-  0% {transform:rotate(0deg);}
-  30% {transform:rotate(120deg);}
-  60% {transform:rotate(-70deg);}
-  100% {transform:rotate(35deg);}
+@keyframes miniNeedleSettle {
+  0% {
+    transform:rotate(var(--start-angle));
+  }
+  45% {
+    transform:rotate(calc(var(--final-angle) + 10deg));
+  }
+  72% {
+    transform:rotate(calc(var(--final-angle) - 4deg));
+  }
+  100% {
+    transform:rotate(var(--final-angle));
+  }
 }
 
-@keyframes subIdle {
-  0%,88%,100% {transform:rotate(35deg);}
-  91% {transform:rotate(42deg);}
-  94% {transform:rotate(30deg);}
-}
+/* SMALL, IRREGULAR MOVEMENTS AFTER SETTLING */
 
-@keyframes subSettleBig {
-  0% {transform:rotate(0deg);}
-  30% {transform:rotate(-90deg);}
-  60% {transform:rotate(80deg);}
-  100% {transform:rotate(-25deg);}
-}
-
-@keyframes subIdleBig {
-  0%,88%,100% {transform:rotate(-25deg);}
-  91% {transform:rotate(-18deg);}
-  94% {transform:rotate(-30deg);}
+@keyframes miniNeedleIdle {
+  0%, 75%, 100% {
+    transform:rotate(var(--final-angle));
+  }
+  84% {
+    transform:rotate(calc(var(--final-angle) + var(--wiggle)));
+  }
+  92% {
+    transform:rotate(calc(var(--final-angle) - var(--wiggle)));
+  }
 }
 </style>
 
@@ -822,50 +817,50 @@
  <textPath href="#partyPath" startOffset="57%" text-anchor="middle">Party-ness</textPath>
 </text>
 
-<!-- CLEANLINESS -->
+<!-- CLEANLINESS: SCORE 8 -->
 
 <g transform="matrix(0.71445729,0,0,0.71445729,22.15,-3.5)">
  <circle style="fill:#a1a1a1;stroke-width:0.508865;" cx="124.3993" cy="153.42212" r="16.910416"/>
  <text style="font-weight:bold;font-size:4.6px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;" x="124.31605" y="161.5">Cleanliness</text>
- <g class="sub-dial-needle">
+ <g class="sub-dial-needle" data-score="8" data-bearing="43.2">
   <path style="fill:#000000;stroke:#000000;stroke-width:0.508865;stroke-linecap:round;" d="m 123.94226,153.8792 10.98547,-11.86906"/>
   <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="1.5422727"/>
   <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="0.82388818"/>
  </g>
 </g>
 
-<!-- ACTIVITIES -->
+<!-- ACTIVITIES: SCORE 3 -->
 
 <g transform="matrix(0.71445729,0,0,0.71445729,51.33,-0.5)">
  <circle style="fill:#a1a1a1;stroke-width:0.508865;" cx="124.3993" cy="153.42212" r="16.910416"/>
  <text style="font-weight:bold;font-size:5.6px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;" x="124.31605" y="161.5">Activities</text>
- <g class="sub-dial-needle">
+ <g class="sub-dial-needle" data-score="3" data-bearing="33.3">
   <path style="fill:#000000;stroke:#000000;stroke-width:0.508865;stroke-linecap:round;" d="m 123.94226,153.8792 8.98547,-13.86906"/>
   <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="1.5422727"/>
   <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="0.82388818"/>
  </g>
 </g>
 
-<!-- VALUE -->
+<!-- VALUE: SCORE 5 -->
 
 <g transform="matrix(0.71445729,0,0,0.71445729,9.4771098,22.438679)">
  <circle style="fill:#a1a1a1;stroke-width:0.508865;" cx="124.3993" cy="153.42212" r="16.910416"/>
  <text style="font-weight:bold;font-size:5.5px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;" x="124.31605" y="161.5">Value</text>
- <g class="sub-dial-needle">
+ <g class="sub-dial-needle" data-score="5" data-bearing="50.6">
   <path style="fill:#000000;stroke:#000000;stroke-width:0.508865;stroke-linecap:round;" d="m 123.94226,153.8792 12.98547,-9.86906"/>
   <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="1.5422727"/>
   <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="0.82388818"/>
  </g>
 </g>
 
-<!-- FRIENDLINESS -->
+<!-- FRIENDLINESS: SCORE 7 -->
 
 <g id="g8">
  <circle style="fill:#a1a1a1;stroke-width:0;" cx="124.3993" cy="153.42212" r="16.910416"/>
  <text style="font-weight:bold;font-size:4.4px;line-height:1;font-family:'Century Gothic';text-anchor:middle;fill:#000000;" x="124.31605" y="161.5">
   <tspan style="font-weight:bold;font-size:4.15px;font-family:'Century Gothic';" x="124.31605" y="161.5">Friendliness</tspan>
  </text>
- <g class="sub-dial-needle-big">
+ <g class="sub-dial-needle-big" data-score="7" data-bearing="50.6">
   <path style="fill:#000000;stroke:#000000;stroke-width:0.508865;stroke-linecap:round;" d="m 123.94226,153.8792 12.98547,-9.86906"/>
   <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="1.5422727"/>
   <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="0.82388818"/>
@@ -960,7 +955,50 @@
 
       card.dataset.initialised = 'true';
 
-      /* HAND OVER NEEDLE CONTROL AFTER OPENING SWEEP */
+      /* SET UP THE FOUR MINI-NEEDLES */
+
+      const miniNeedles = card.querySelectorAll(
+        '.sub-dial-needle, .sub-dial-needle-big'
+      );
+
+      const needleSettings = [
+        {settle:3.2, idle:4.5, delay:3.3, wiggle:2.0},
+        {settle:3.7, idle:5.1, delay:3.8, wiggle:1.6},
+        {settle:3.4, idle:4.8, delay:3.5, wiggle:2.2},
+        {settle:3.9, idle:5.3, delay:4.0, wiggle:1.8}
+      ];
+
+      miniNeedles.forEach((needle, index) => {
+
+        const score = Number(needle.dataset.score);
+        const bearing = Number(needle.dataset.bearing);
+
+        /*
+          Each needle drawing has a slightly different original angle.
+
+          This calculates the rotation needed to make:
+          SCORE 0 = 180 degrees (straight down)
+          SCORE 10 = 135 degrees
+
+          The score is then mapped proportionally between them.
+        */
+
+        const startAngle = 180 - bearing;
+        const finalAngle = startAngle - (score * 4.5);
+
+        needle.style.setProperty('--start-angle', startAngle + 'deg');
+        needle.style.setProperty('--final-angle', finalAngle + 'deg');
+
+        const settings = needleSettings[index];
+
+        needle.style.setProperty('--settle-duration', settings.settle + 's');
+        needle.style.setProperty('--idle-duration', settings.idle + 's');
+        needle.style.setProperty('--idle-delay', settings.delay + 's');
+        needle.style.setProperty('--wiggle', settings.wiggle + 'deg');
+
+      });
+
+      /* HAND OVER MAIN NEEDLE CONTROL AFTER OPENING SWEEP */
 
       if (mainNeedle) {
         mainNeedle.addEventListener('animationend', function(event) {
@@ -1051,8 +1089,8 @@
         wrapper.classList.add('show-live');
 
         /*
-          Needle movements around the 30-degree position.
           The displayed location score remains at 9.6.
+          Only the main Party-ness needle moves here.
         */
 
         const liveScores = [
@@ -1073,13 +1111,6 @@
 
           const score = liveScores[position % liveScores.length];
 
-          /*
-            IMPORTANT:
-            Do not move the decimal reel here.
-            It must continue displaying 9.6.
-            Only the main needle moves.
-          */
-
           if (mainNeedle) {
             const needleAngle = score + 319.667462;
             mainNeedle.style.transform =
@@ -1093,8 +1124,6 @@
           setTimeout(updateLiveScore, delay);
 
         }
-
-        /* PAUSE AFTER THE OPENING SWEEP BEFORE LIVE MOVEMENT */
 
         setTimeout(updateLiveScore, 2500);
 
