@@ -522,7 +522,6 @@
 
 
 
-
 <div class="vibe-meter-card" style="--score: 9.6;">
 
 <style>
@@ -537,7 +536,7 @@
   position:relative;
 }
 
-/* INITIAL NEEDLE POSITIONS */
+/* NEEDLE POSITIONS */
 
 #main-needle-group {
   transform-origin:123.77471px 127.88613px;
@@ -574,51 +573,49 @@
     subIdleBig 3.8s ease-in-out 3.1s infinite;
 }
 
-/* LOCATION NUMBER REEL */
-
-/* The important change here is that the reel is no longer
-   vertically centred inside the grey window. */
+/* LOCATION NUMBER DISPLAY */
 
 .score-window-wrapper {
   width:100%;
   height:100%;
   overflow:hidden;
   position:relative;
-  display:block;
   background:#a1a1a1;
+  color:#000;
   font-family:'Century Gothic',sans-serif;
-  font-weight:normal;
   font-size:2.3mm;
-  color:#000000;
+  font-weight:normal;
 }
+
+/* INITIAL FULL NUMBER REEL */
 
 .location-reel {
   position:absolute;
   top:0;
   left:0;
-  display:flex;
-  flex-direction:column;
   width:100%;
   margin:0;
   padding:0;
-  transform:translateY(-639.9317px);
+  display:flex;
+  flex-direction:column;
+  transform:translateY(-895.90438px);
   will-change:transform;
 }
 
-.location-reel span {
-  display:flex;
-  align-items:center;
-  justify-content:center;
+.location-reel span,
+.tenths-reel span {
+  display:block;
   box-sizing:border-box;
   width:100%;
   height:12.798634px;
   min-height:12.798634px;
   max-height:12.798634px;
-  padding:0;
   margin:0;
+  padding:0;
   flex-shrink:0;
   line-height:12.798634px;
   text-align:center;
+  white-space:nowrap;
   font-family:'Century Gothic',sans-serif;
   font-size:2.3mm;
   font-weight:normal;
@@ -626,15 +623,68 @@
   font-feature-settings:"lnum","tnum";
 }
 
-/* START AT 05.0 AND ROLL TO 09.6 */
+/* START AT 07.0 AND ROLL TO 09.6 */
 
 .vibe-meter-card.in-view .location-reel {
-  animation:locationReelStart 3s steps(46,end) forwards;
+  animation:locationReelStart 4s steps(26,end) forwards;
 }
 
 @keyframes locationReelStart {
-  from { transform:translateY(-639.9317px); }
+  from { transform:translateY(-895.90438px); }
   to   { transform:translateY(-1228.668864px); }
+}
+
+/* LIVE DISPLAY: 09. STAYS STILL */
+
+.location-live {
+  position:absolute;
+  inset:0;
+  display:none;
+  align-items:flex-start;
+  justify-content:center;
+  width:100%;
+  height:100%;
+  font-family:'Century Gothic',sans-serif;
+  font-size:2.3mm;
+  line-height:12.798634px;
+}
+
+.score-window-wrapper.show-live .location-live {
+  display:flex;
+}
+
+.score-window-wrapper.show-live .location-reel {
+  display:none;
+}
+
+.location-live-fixed {
+  display:block;
+  height:12.798634px;
+  line-height:12.798634px;
+  white-space:pre;
+  flex:0 0 auto;
+}
+
+.tenths-window {
+  position:relative;
+  display:block;
+  height:12.798634px;
+  width:5px;
+  overflow:hidden;
+  flex:0 0 5px;
+}
+
+.tenths-reel {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  transform:translateY(-12.798634px);
+  will-change:transform;
 }
 
 /* MAIN NEEDLE */
@@ -801,6 +851,13 @@
 
    <div class="location-reel"></div>
 
+   <div class="location-live">
+    <span class="location-live-fixed">09.</span>
+    <div class="tenths-window">
+     <div class="tenths-reel"></div>
+    </div>
+   </div>
+
   </div>
 
  </foreignObject>
@@ -835,50 +892,59 @@
     cards.forEach(card => {
 
       const reel = card.querySelector('.location-reel');
+      const wrapper = card.querySelector('.score-window-wrapper');
+      const tenthsReel = card.querySelector('.tenths-reel');
 
-      if (!reel || reel.dataset.initialised === 'true') return;
+      if (!reel || !wrapper || !tenthsReel) return;
+      if (reel.dataset.initialised === 'true') return;
 
       reel.dataset.initialised = 'true';
 
-      // Generate the number strip from 00.0 to 09.7.
+      const rowHeight = 12.798634;
+
+      // Build the full number reel, from 00.0 to 09.7.
 
       for (let i = 0; i <= 97; i++) {
-
         const digit = document.createElement('span');
-
         digit.textContent = (i / 10).toFixed(1).padStart(4, '0');
-
         reel.appendChild(digit);
-
       }
 
-      // Start at 05.0.
+      // Build the smaller live reel: only the final digit.
 
-      const rowHeight = 12.798634;
-      const startingPosition = 50 * rowHeight;
+      [5, 6, 7].forEach(number => {
+        const digit = document.createElement('span');
+        digit.textContent = number;
+        tenthsReel.appendChild(digit);
+      });
+
+      // Begin at 07.0.
+
+      const startingPosition = 70 * rowHeight;
       const finalPosition = 96 * rowHeight;
 
       reel.style.transform =
         'translateY(-' + startingPosition + 'px)';
 
-      // When the initial roll finishes, hold at 09.6
-      // and begin the occasional live-review movements.
+      // Animate from 07.0 to 09.6.
 
       reel.addEventListener('animationend', function(event) {
 
         if (event.animationName !== 'locationReelStart') return;
 
-        reel.style.animation = 'none';
-        reel.style.transition = 'none';
+        // Switch to the separate live display.
+        // The fixed "09." will no longer move.
 
-        reel.style.transform =
-          'translateY(-' + finalPosition + 'px)';
+        reel.style.animation = 'none';
+        reel.style.display = 'none';
+
+        wrapper.classList.add('show-live');
 
         const liveScores = [
-          95, 96, 97, 96, 96,
-          95, 96, 97, 96, 96,
-          97, 96, 95, 96, 96,
-          97, 96, 96, 95, 96
+          5, 6, 7, 6, 6,
+          5, 6, 7, 6, 6,
+          7, 6, 5, 6, 6,
+          7, 6, 6, 5, 6
         ];
 
         const intervals = [
@@ -892,20 +958,22 @@
 
           const score = liveScores[position % liveScores.length];
 
-          reel.style.transition = 'transform 0.55s ease-in-out';
+          // Only the final digit moves.
 
-          reel.style.transform =
-            'translateY(-' + (score * rowHeight) + 'px)';
+          tenthsReel.style.transition =
+            'transform 0.55s ease-in-out';
+
+          tenthsReel.style.transform =
+            'translateY(-' + ((score - 5) * rowHeight) + 'px)';
 
           const delay = intervals[position % intervals.length];
 
           position++;
 
           setTimeout(updateLiveScore, delay);
-
         }
 
-        // Hold at 09.6 for a moment before the first movement.
+        // Hold at 09.6 before the first movement.
 
         setTimeout(updateLiveScore, 2500);
 
@@ -913,18 +981,15 @@
 
     });
 
-    // Start each meter when it reaches the centre of the screen.
+    // Start the meter when it reaches the centre of the screen.
 
     const observer = new IntersectionObserver((entries, observer) => {
 
       entries.forEach(entry => {
 
         if (entry.isIntersecting) {
-
           entry.target.classList.add('in-view');
-
           observer.unobserve(entry.target);
-
         }
 
       });
@@ -935,9 +1000,7 @@
       threshold:0
     });
 
-    cards.forEach(card => {
-      observer.observe(card);
-    });
+    cards.forEach(card => observer.observe(card));
 
   }
 
