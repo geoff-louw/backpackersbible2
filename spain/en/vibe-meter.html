@@ -764,6 +764,15 @@
  xmlns:xlink="http://www.w3.org/1999/xlink"
  xmlns="http://www.w3.org/2000/svg">
 
+<defs>
+  <!-- QUIET: Bottom-Left Green Arc (Clockwise sweep for upright text) -->
+  <path id="pathQuiet" d="M 87.5 156 A 51.5 51.5 0 0 1 124 175.5" fill="none" />
+  <!-- WILD: Right Red Arc (Counter-Clockwise sweep for upright text on right side) -->
+  <path id="pathWild" d="M 172.5 132 A 51.5 51.5 0 0 0 156 95.5" fill="none" />
+  <!-- PARTY-NESS: Top Arch Curve -->
+  <path id="pathPartyness" d="M 94 92 C 108 82 140 82 154 92" fill="none" />
+</defs>
+
 <!-- BACKGROUND -->
 
 <rect style="fill:#ffd400;"
@@ -801,29 +810,18 @@
 <path style="fill:#14d700;stroke:#000000;stroke-width:0.5;"
  d="m 91.866536,159.90332 c 9.268064,9.16345 22.244914,13.67752 32.352214,13.33595 -0.0408,-0.0404 -0.0351,8.12007 -0.0351,8.12007 -19.64947,0.11155 -33.35311,-10.8537 -38.130052,-15.57671 0.68612,-0.69422 5.813197,-5.87906 5.813197,-5.87906 z"/>
 
-<!-- ARC TEXT: WILD & QUIET -->
+<!-- ARC TEXTS -->
 
-<path style="fill:none;stroke:none;" id="wildPath"
- d="M 87 144 A 47 47 0 0 0 120 171"/>
-<text style="font-weight:bold;font-size:4.5px;font-family:'Century Gothic';fill:#ffffff;">
- <textPath href="#wildPath" startOffset="50%" text-anchor="middle">wild</textPath>
+<text style="font-weight:bold;font-size:4.2px;font-family:'Century Gothic',sans-serif;fill:#ffffff;">
+  <textPath href="#pathQuiet" startOffset="50%" text-anchor="middle">quiet</textPath>
 </text>
 
-<path style="fill:none;stroke:none;" id="quietPath"
- d="M 171 120 A 47 47 0 0 0 144 87"/>
-<text style="font-weight:bold;font-size:4.5px;font-family:'Century Gothic';fill:#ffffff;">
- <textPath href="#quietPath" startOffset="50%" text-anchor="middle">quiet</textPath>
+<text style="font-weight:bold;font-size:4.2px;font-family:'Century Gothic',sans-serif;fill:#ffffff;">
+  <textPath href="#pathWild" startOffset="50%" text-anchor="middle">wild</textPath>
 </text>
 
-<!-- PARTY-NESS -->
-
-<path style="fill:none;stroke:none;"
- d="m 103.82258,92.942156 c 12.96281,-5.332721 19.8943,-8.957327 38.59156,-3.120071"
- id="partyPath"/>
-
-<text style="font-weight:bold;font-size:5.3px;font-family:'Century Gothic';fill:#000000;"
- transform="rotate(1.8,124,90)">
- <textPath href="#partyPath" startOffset="57%" text-anchor="middle">Party-ness</textPath>
+<text style="font-weight:bold;font-size:5.2px;font-family:'Century Gothic',sans-serif;fill:#000000;">
+  <textPath href="#pathPartyness" startOffset="50%" text-anchor="middle">Party-ness</textPath>
 </text>
 
 <!-- CLEANLINESS -->
