@@ -540,6 +540,7 @@
 #main-needle-group {
   transform-origin:123.77471px 127.88613px;
   transform:rotate(-110deg);
+  transition:transform 1.2s cubic-bezier(0.4,0,0.2,1);
 }
 
 .sub-dial-needle {
@@ -555,9 +556,7 @@
 /* NEEDLE ANIMATIONS */
 
 .vibe-meter-card.in-view #main-needle-group {
-  animation:
-    mainNeedleSettle 3s cubic-bezier(0.45,0.05,0.55,0.95) forwards,
-    mainNeedleIdle 4s ease-in-out 3.1s infinite;
+  animation:mainNeedleSettle 5.5s cubic-bezier(0.4,0,0.2,1) forwards;
 }
 
 .vibe-meter-card.in-view .sub-dial-needle {
@@ -711,19 +710,8 @@
 
 @keyframes mainNeedleSettle {
   0%   {transform:rotate(-110deg);}
-  20%  {transform:rotate(95deg);}
-  40%  {transform:rotate(-60deg);}
-  60%  {transform:rotate(60deg);}
-  75%  {transform:rotate(calc(var(--final-angle) - 15deg));}
-  88%  {transform:rotate(calc(var(--final-angle) + 8deg));}
-  100% {transform:rotate(var(--final-angle));}
-}
-
-@keyframes mainNeedleIdle {
-  0%,90%,100% {transform:rotate(var(--final-angle));}
-  92% {transform:rotate(calc(var(--final-angle) + 3.5deg));}
-  94% {transform:rotate(calc(var(--final-angle) - 2deg));}
-  96% {transform:rotate(calc(var(--final-angle) + 1deg));}
+  72%  {transform:rotate(33deg);}
+  100% {transform:rotate(33deg);}
 }
 
 /* SUB-DIAL NEEDLES */
@@ -812,13 +800,13 @@
 <text style="font-weight:bold;font-size:8.46667px;line-height:1;font-family:'Century Gothic',sans-serif;text-anchor:middle;fill:#ffffff;"
  transform="translate(-1.7630905,-1.3779667)">
  <textPath href="#pathQuietBase" startOffset="50%" text-anchor="middle">
-  <tspan style="font-weight:bold;font-size:4.6px;font-family:'Century Gothic',sans-serif;">Quiet</tspan>
+  <tspan style="font-weight:bold;font-size:5.1px;font-family:'Century Gothic',sans-serif;">Quiet</tspan>
  </textPath>
 </text>
 
 <!-- ARC TEXT: WILD -->
 
-<text style="font-weight:bold;font-size:4.6px;line-height:1;font-family:'Century Gothic',sans-serif;text-anchor:middle;fill:#ffffff;"
+<text style="font-weight:bold;font-size:5.1px;line-height:1;font-family:'Century Gothic',sans-serif;text-anchor:middle;fill:#ffffff;"
  transform="translate(-1.3779667,-0.91864448)">
  <textPath href="#pathWild" startOffset="50%" text-anchor="middle">Wild</textPath>
 </text>
@@ -965,11 +953,22 @@
       const unitsReel = card.querySelector('.units-reel');
       const initialTenthsReel = card.querySelector('.initial-tenths-reel');
       const liveTenthsReel = card.querySelector('.tenths-reel');
+      const mainNeedle = card.querySelector('#main-needle-group');
 
       if (!wrapper || !unitsReel || !initialTenthsReel || !liveTenthsReel) return;
       if (card.dataset.initialised === 'true') return;
 
       card.dataset.initialised = 'true';
+
+      /* Once the opening sweep finishes, hand control to the live-score updates. */
+      if (mainNeedle) {
+        mainNeedle.addEventListener('animationend', function(event) {
+          if (event.animationName === 'mainNeedleSettle') {
+            mainNeedle.style.animation = 'none';
+            mainNeedle.style.transform = 'rotate(33deg)';
+          }
+        });
+      }
 
       const rowHeight = 12.798634;
 
@@ -1061,10 +1060,10 @@
         wrapper.classList.add('show-live');
 
         const liveScores = [
-          5, 6, 7, 6, 6,
-          5, 6, 7, 6, 6,
-          7, 6, 5, 6, 6,
-          7, 6, 6, 5, 6
+          6, 7, 6, 6, 5,
+          6, 7, 6, 6, 5,
+          7, 6, 6, 5, 6,
+          7, 6, 5, 6, 6
         ];
 
         const intervals = [
@@ -1080,6 +1079,12 @@
 
           liveTenthsReel.style.transform =
             'translateY(-' + ((score - 5) * rowHeight) + 'px)';
+
+          /* Move the main needle with the changing live score. */
+          if (mainNeedle) {
+            const needleAngle = -110 + (score * 22);
+            mainNeedle.style.transform = 'rotate(' + needleAngle + 'deg)';
+          }
 
           const delay = intervals[position % intervals.length];
 
