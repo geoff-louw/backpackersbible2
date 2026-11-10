@@ -521,9 +521,6 @@
     <h1 class="area-hero-title" id="faq">Vibe Meter</h1>
 
 
-
-
-
 <div class="vibe-meter-card" style="--score: 9.6;">
 
 <style>
@@ -538,7 +535,7 @@
   position:relative;
 }
 
-/* NEEDLE POSITIONS */
+/* MAIN NEEDLE POSITION */
 
 #main-needle-group {
   transform-origin:123.77471px 127.88613px;
@@ -546,17 +543,22 @@
   transition:transform 1.2s cubic-bezier(0.4,0,0.2,1);
 }
 
+/* MINI-NEEDLE POSITIONS */
+
 .sub-dial-needle,
 .sub-dial-needle-big {
   transform-origin:123.89387px 153.76831px;
   transform:rotate(0deg);
+  opacity:0;
 }
 
-/* NEEDLE ANIMATIONS */
+/* MAIN NEEDLE ANIMATION */
 
 .vibe-meter-card.in-view #main-needle-group {
   animation:mainNeedleSettle 5.5s cubic-bezier(0.4,0,0.2,1) forwards;
 }
+
+/* MINI-NEEDLE ANIMATIONS */
 
 .vibe-meter-card.in-view .sub-dial-needle,
 .vibe-meter-card.in-view .sub-dial-needle-big {
@@ -700,7 +702,7 @@
   transition:transform 0.55s ease-in-out;
 }
 
-/* MAIN NEEDLE */
+/* MAIN NEEDLE ANIMATION */
 
 @keyframes mainNeedleSettle {
   0%   {transform:rotate(139.667462deg);}
@@ -711,31 +713,48 @@
 /*
   MINI-NEEDLES
 
-  The rotation angle DECREASES as the needle moves.
-  This produces an ANTICLOCKWISE sweep.
+  Start at 180 degrees (south).
 
-  They travel slightly past their final position,
-  then return and settle.
+  Make a LONG CLOCKWISE sweep:
+  south -> west -> north -> east -> final position.
+
+  Adding 360 degrees to the destination makes the
+  needle travel almost a complete revolution rather
+  than taking the short route.
 */
 
 @keyframes miniNeedleSettle {
+
   0% {
     transform:rotate(var(--start-angle));
+    opacity:0;
   }
+
+  1% {
+    transform:rotate(var(--start-angle));
+    opacity:1;
+  }
+
   45% {
-    transform:rotate(calc(var(--final-angle) - 10deg));
+    transform:rotate(calc(var(--final-angle) + 360deg + 10deg));
+    opacity:1;
   }
+
   72% {
-    transform:rotate(calc(var(--final-angle) + 4deg));
+    transform:rotate(calc(var(--final-angle) + 360deg - 4deg));
+    opacity:1;
   }
+
   100% {
-    transform:rotate(var(--final-angle));
+    transform:rotate(calc(var(--final-angle) + 360deg));
+    opacity:1;
   }
 }
 
 /* SMALL MOVEMENTS AFTER SETTLING */
 
 @keyframes miniNeedleIdle {
+
   0%, 75%, 100% {
     transform:rotate(var(--final-angle));
   }
@@ -970,11 +989,13 @@
         const bearing = Number(needle.dataset.bearing);
 
         /*
-          Starting direction: straight down (180 degrees).
-          Final direction: 180 minus 4.5 degrees per score point.
+          The starting direction is straight down (180 degrees).
 
-          CSS rotation angles DECREASE during the sweep,
-          producing anticlockwise movement.
+          The final score position is calculated by moving
+          4.5 degrees for every score point.
+
+          The CSS animation adds 360 degrees to the destination
+          to make the needle travel the LONG clockwise route.
         */
 
         const startAngle = 180 - bearing;
@@ -1160,6 +1181,7 @@
 
 })();
 </script>
+
 
 
 
