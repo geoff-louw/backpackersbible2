@@ -700,7 +700,7 @@
   transition:transform 0.55s ease-in-out;
 }
 
-/* MAIN NEEDLE: START DOWN, SWEEP TO 30 DEGREES */
+/* MAIN NEEDLE */
 
 @keyframes mainNeedleSettle {
   0%   {transform:rotate(139.667462deg);}
@@ -708,32 +708,45 @@
   100% {transform:rotate(349.667462deg);}
 }
 
-/* MINI-NEEDLES: START AT ZERO, OVERSHOOT, THEN SETTLE */
+/*
+  MINI-NEEDLES
+
+  The rotation angle DECREASES as the needle moves.
+  This produces an ANTICLOCKWISE sweep.
+
+  They travel slightly past their final position,
+  then return and settle.
+*/
 
 @keyframes miniNeedleSettle {
   0% {
     transform:rotate(var(--start-angle));
   }
+
   45% {
-    transform:rotate(calc(var(--final-angle) + 10deg));
+    transform:rotate(calc(var(--final-angle) - 10deg));
   }
+
   72% {
-    transform:rotate(calc(var(--final-angle) - 4deg));
+    transform:rotate(calc(var(--final-angle) + 4deg));
   }
+
   100% {
     transform:rotate(var(--final-angle));
   }
 }
 
-/* SMALL, IRREGULAR MOVEMENTS AFTER SETTLING */
+/* SMALL MOVEMENTS AFTER SETTLING */
 
 @keyframes miniNeedleIdle {
   0%, 75%, 100% {
     transform:rotate(var(--final-angle));
   }
+
   84% {
     transform:rotate(calc(var(--final-angle) + var(--wiggle)));
   }
+
   92% {
     transform:rotate(calc(var(--final-angle) - var(--wiggle)));
   }
@@ -822,7 +835,7 @@
 <g transform="matrix(0.71445729,0,0,0.71445729,22.15,-3.5)">
  <circle style="fill:#a1a1a1;stroke-width:0.508865;" cx="124.3993" cy="153.42212" r="16.910416"/>
  <text style="font-weight:bold;font-size:4.6px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;" x="124.31605" y="161.5">Cleanliness</text>
- <g class="sub-dial-needle" data-score="8" data-bearing="43.2">
+ <g class="sub-dial-needle" data-score="8" data-bearing="42.8">
   <path style="fill:#000000;stroke:#000000;stroke-width:0.508865;stroke-linecap:round;" d="m 123.94226,153.8792 10.98547,-11.86906"/>
   <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="1.5422727"/>
   <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="0.82388818"/>
@@ -834,7 +847,7 @@
 <g transform="matrix(0.71445729,0,0,0.71445729,51.33,-0.5)">
  <circle style="fill:#a1a1a1;stroke-width:0.508865;" cx="124.3993" cy="153.42212" r="16.910416"/>
  <text style="font-weight:bold;font-size:5.6px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;" x="124.31605" y="161.5">Activities</text>
- <g class="sub-dial-needle" data-score="3" data-bearing="33.3">
+ <g class="sub-dial-needle" data-score="3" data-bearing="33.0">
   <path style="fill:#000000;stroke:#000000;stroke-width:0.508865;stroke-linecap:round;" d="m 123.94226,153.8792 8.98547,-13.86906"/>
   <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="1.5422727"/>
   <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="0.82388818"/>
@@ -846,7 +859,7 @@
 <g transform="matrix(0.71445729,0,0,0.71445729,9.4771098,22.438679)">
  <circle style="fill:#a1a1a1;stroke-width:0.508865;" cx="124.3993" cy="153.42212" r="16.910416"/>
  <text style="font-weight:bold;font-size:5.5px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;" x="124.31605" y="161.5">Value</text>
- <g class="sub-dial-needle" data-score="5" data-bearing="50.6">
+ <g class="sub-dial-needle" data-score="5" data-bearing="52.8">
   <path style="fill:#000000;stroke:#000000;stroke-width:0.508865;stroke-linecap:round;" d="m 123.94226,153.8792 12.98547,-9.86906"/>
   <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="1.5422727"/>
   <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="0.82388818"/>
@@ -860,7 +873,7 @@
  <text style="font-weight:bold;font-size:4.4px;line-height:1;font-family:'Century Gothic';text-anchor:middle;fill:#000000;" x="124.31605" y="161.5">
   <tspan style="font-weight:bold;font-size:4.15px;font-family:'Century Gothic';" x="124.31605" y="161.5">Friendliness</tspan>
  </text>
- <g class="sub-dial-needle-big" data-score="7" data-bearing="50.6">
+ <g class="sub-dial-needle-big" data-score="7" data-bearing="52.8">
   <path style="fill:#000000;stroke:#000000;stroke-width:0.508865;stroke-linecap:round;" d="m 123.94226,153.8792 12.98547,-9.86906"/>
   <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="1.5422727"/>
   <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="0.82388818"/>
@@ -875,40 +888,26 @@
 
   <div xmlns="http://www.w3.org/1999/xhtml" class="score-window-wrapper">
 
-   <!-- INITIAL ODOMETER -->
-
    <div class="location-reel">
-
     <span class="location-static">0</span>
-
     <div class="digit-window">
      <div class="digit-reel units-reel"></div>
     </div>
-
     <span class="location-static">.</span>
-
     <div class="digit-window">
      <div class="digit-reel initial-tenths-reel"></div>
     </div>
-
    </div>
 
-   <!-- LIVE DISPLAY -->
-
    <div class="location-live">
-
     <span class="location-live-fixed">0</span>
-
     <div class="digit-window">
      <span class="location-live-fixed">9</span>
     </div>
-
     <span class="location-static">.</span>
-
     <div class="tenths-window">
      <div class="tenths-reel"></div>
     </div>
-
    </div>
 
   </div>
@@ -955,7 +954,7 @@
 
       card.dataset.initialised = 'true';
 
-      /* SET UP THE FOUR MINI-NEEDLES */
+      /* MINI-NEEDLE SCORES AND MOVEMENT */
 
       const miniNeedles = card.querySelectorAll(
         '.sub-dial-needle, .sub-dial-needle-big'
@@ -974,13 +973,11 @@
         const bearing = Number(needle.dataset.bearing);
 
         /*
-          Each needle drawing has a slightly different original angle.
+          Starting direction: straight down (180 degrees).
+          Final direction: 180 minus 4.5 degrees per score point.
 
-          This calculates the rotation needed to make:
-          SCORE 0 = 180 degrees (straight down)
-          SCORE 10 = 135 degrees
-
-          The score is then mapped proportionally between them.
+          CSS rotation angles DECREASE during the sweep,
+          producing anticlockwise movement.
         */
 
         const startAngle = 180 - bearing;
@@ -998,7 +995,7 @@
 
       });
 
-      /* HAND OVER MAIN NEEDLE CONTROL AFTER OPENING SWEEP */
+      /* MAIN NEEDLE CONTROL */
 
       if (mainNeedle) {
         mainNeedle.addEventListener('animationend', function(event) {
@@ -1088,11 +1085,6 @@
 
         wrapper.classList.add('show-live');
 
-        /*
-          The displayed location score remains at 9.6.
-          Only the main Party-ness needle moves here.
-        */
-
         const liveScores = [
           30, 34, 28, 32, 26,
           31, 35, 29, 33, 27,
@@ -1171,6 +1163,7 @@
 
 })();
 </script>
+
 
 
 </section>
