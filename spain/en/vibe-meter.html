@@ -523,6 +523,7 @@
 
 
 
+
 <div class="vibe-meter-card" style="--score: 9.6;">
 
 <style>
@@ -588,9 +589,10 @@
   font-weight:normal;
 }
 
-/* INITIAL ODOMETER DISPLAY */
+/* INITIAL AND LIVE DISPLAY SHARED DIGIT DIMENSIONS */
 
-.location-reel {
+.location-reel,
+.location-live {
   position:absolute;
   inset:0;
   display:flex;
@@ -599,6 +601,14 @@
   width:100%;
   height:100%;
   line-height:12.798634px;
+  font-family:'Century Gothic',sans-serif;
+  font-size:2.3mm;
+}
+
+/* INITIAL ODOMETER DISPLAY */
+
+.location-reel {
+  display:flex;
 }
 
 .digit-window {
@@ -656,16 +666,7 @@
 /* LIVE DISPLAY */
 
 .location-live {
-  position:absolute;
-  inset:0;
   display:none;
-  align-items:flex-start;
-  justify-content:center;
-  width:100%;
-  height:100%;
-  font-family:'Century Gothic',sans-serif;
-  font-size:2.3mm;
-  line-height:12.798634px;
 }
 
 .score-window-wrapper.show-live .location-live {
@@ -680,8 +681,10 @@
   display:block;
   height:12.798634px;
   line-height:12.798634px;
-  white-space:pre;
-  flex:0 0 auto;
+  width:5px;
+  flex:0 0 5px;
+  text-align:center;
+  white-space:nowrap;
 }
 
 .tenths-window {
@@ -887,13 +890,22 @@
 
    </div>
 
-   <!-- LIVE DISPLAY -->
+   <!-- LIVE DISPLAY: SAME FIXED-WIDTH DIGIT WINDOWS -->
 
    <div class="location-live">
-    <span class="location-live-fixed">09.</span>
+
+    <span class="location-live-fixed">0</span>
+
+    <div class="digit-window">
+     <span class="location-live-fixed">9</span>
+    </div>
+
+    <span class="location-static">.</span>
+
     <div class="tenths-window">
      <div class="tenths-reel"></div>
     </div>
+
    </div>
 
   </div>
