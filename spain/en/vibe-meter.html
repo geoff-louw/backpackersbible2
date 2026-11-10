@@ -522,354 +522,304 @@
 
 
 
+
 <div class="vibe-meter-card" style="--score: 9.6;">
 
 <style>
-  .vibe-meter-card {
-    --min-deg: -110deg;
-    --sweep-range: 220deg;
-    --final-angle: calc(var(--min-deg) + (var(--score) / 10 * var(--sweep-range)));
+.vibe-meter-card {
+  --min-deg: -110deg;
+  --sweep-range: 220deg;
+  --final-angle: calc(var(--min-deg) + (var(--score) / 10 * var(--sweep-range)));
+  width:100%;
+  max-width:520px;
+  margin:0 auto;
+  display:block;
+  position:relative;
+}
 
-    width: 100%;
-    max-width: 520px;
-    margin: 0 auto;
-    display: block;
-    position: relative;
-  }
+/* INITIAL NEEDLE POSITIONS */
 
-  /* Initial needle positions */
+#main-needle-group {
+  transform-origin:123.77471px 127.88613px;
+  transform:rotate(-110deg);
+}
 
-  #main-needle-group {
-    transform-origin: 123.77471px 127.88613px;
-    transform: rotate(-110deg);
-  }
+.sub-dial-needle {
+  transform-origin:123.89387px 153.76831px;
+  transform:rotate(0deg);
+}
 
-  .sub-dial-needle {
-    transform-origin: 123.89387px 153.76831px;
-    transform: rotate(0deg);
-  }
+.sub-dial-needle-big {
+  transform-origin:123.89387px 153.76831px;
+  transform:rotate(0deg);
+}
 
-  .sub-dial-needle-big {
-    transform-origin: 123.89387px 153.76831px;
-    transform: rotate(0deg);
-  }
+/* NEEDLE ANIMATIONS */
 
-  /* Main needle animation */
+.vibe-meter-card.in-view #main-needle-group {
+  animation:
+    mainNeedleSettle 3s cubic-bezier(0.45,0.05,0.55,0.95) forwards,
+    mainNeedleIdle 4s ease-in-out 3.1s infinite;
+}
 
-  .vibe-meter-card.in-view #main-needle-group {
-    animation:
-      mainNeedleSettle 3s cubic-bezier(0.45, 0.05, 0.55, 0.95) forwards,
-      mainNeedleIdle 4s ease-in-out 3.1s infinite;
-  }
+.vibe-meter-card.in-view .sub-dial-needle {
+  animation:
+    subSettle 3s ease-in-out forwards,
+    subIdle 3.5s ease-in-out 3.1s infinite;
+}
 
-  .vibe-meter-card.in-view .sub-dial-needle {
-    animation:
-      subSettle 3s ease-in-out forwards,
-      subIdle 3.5s ease-in-out 3.1s infinite;
-  }
+.vibe-meter-card.in-view .sub-dial-needle-big {
+  animation:
+    subSettleBig 3s ease-in-out forwards,
+    subIdleBig 3.8s ease-in-out 3.1s infinite;
+}
 
-  .vibe-meter-card.in-view .sub-dial-needle-big {
-    animation:
-      subSettleBig 3s ease-in-out forwards,
-      subIdleBig 3.8s ease-in-out 3.1s infinite;
-  }
+/* LOCATION NUMBER REEL */
 
-  /* LOCATION NUMBER REEL */
+.score-window-wrapper {
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  background:#a1a1a1;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:'Century Gothic',sans-serif;
+  font-weight:normal;
+  font-size:2.3mm;
+  color:#000000;
+}
 
-  .score-window-wrapper {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background: #a1a1a1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Century Gothic', sans-serif;
-    font-weight: normal;
-    font-size: 2.3mm;
-    color: #000000;
-  }
+.location-reel {
+  display:flex;
+  flex-direction:column;
+  width:100%;
+  transform:translateY(0);
+  will-change:transform;
+}
 
-  .location-reel {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    transform: translateY(0);
-    will-change: transform;
-  }
+.location-reel span {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-sizing:border-box;
+  width:100%;
+  height:12.798634px;
+  min-height:12.798634px;
+  max-height:12.798634px;
+  padding:0;
+  margin:0;
+  flex-shrink:0;
+  line-height:12.798634px;
+  text-align:center;
+  font-family:'Century Gothic',sans-serif;
+  font-size:2.3mm;
+  font-weight:normal;
+  font-variant-numeric:lining-nums tabular-nums;
+  font-feature-settings:"lnum","tnum";
+}
 
-  .location-reel span {
-    width: 100%;
-    height: 12.798634mm;
-    min-height: 12.798634mm;
-    max-height: 12.798634mm;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    line-height: 1;
-  }
+/* THREE-SECOND INITIAL COUNT */
 
-  /* The complete reel: 00.0 through 09.6 */
+.vibe-meter-card.in-view .location-reel {
+  animation:locationReelStart 3s steps(96,end) forwards;
+}
 
-  .vibe-meter-card.in-view .location-reel {
-    animation: locationReel 48s steps(96, end) forwards;
-  }
+@keyframes locationReelStart {
+  from { transform:translateY(0); }
+  to   { transform:translateY(-1228.668864px); }
+}
 
-  @keyframes locationReel {
-    from {
-      transform: translateY(0);
-    }
-    to {
-      transform: translateY(-1228.668864mm);
-    }
-  }
+/* MAIN NEEDLE */
 
-  /* MAIN NEEDLE */
+@keyframes mainNeedleSettle {
+  0%   {transform:rotate(-110deg);}
+  20%  {transform:rotate(95deg);}
+  40%  {transform:rotate(-60deg);}
+  60%  {transform:rotate(60deg);}
+  75%  {transform:rotate(calc(var(--final-angle) - 15deg));}
+  88%  {transform:rotate(calc(var(--final-angle) + 8deg));}
+  100% {transform:rotate(var(--final-angle));}
+}
 
-  @keyframes mainNeedleSettle {
-    0%   { transform: rotate(-110deg); }
-    20%  { transform: rotate(95deg); }
-    40%  { transform: rotate(-60deg); }
-    60%  { transform: rotate(60deg); }
-    75%  { transform: rotate(calc(var(--final-angle) - 15deg)); }
-    88%  { transform: rotate(calc(var(--final-angle) + 8deg)); }
-    100% { transform: rotate(var(--final-angle)); }
-  }
+@keyframes mainNeedleIdle {
+  0%,90%,100% {transform:rotate(var(--final-angle));}
+  92% {transform:rotate(calc(var(--final-angle) + 3.5deg));}
+  94% {transform:rotate(calc(var(--final-angle) - 2deg));}
+  96% {transform:rotate(calc(var(--final-angle) + 1deg));}
+}
 
-  @keyframes mainNeedleIdle {
-    0%, 90%, 100% { transform: rotate(var(--final-angle)); }
-    92% { transform: rotate(calc(var(--final-angle) + 3.5deg)); }
-    94% { transform: rotate(calc(var(--final-angle) - 2deg)); }
-    96% { transform: rotate(calc(var(--final-angle) + 1deg)); }
-  }
+/* SUB-DIAL NEEDLES */
 
-  /* SUB-DIAL NEEDLES */
+@keyframes subSettle {
+  0% {transform:rotate(0deg);}
+  30% {transform:rotate(120deg);}
+  60% {transform:rotate(-70deg);}
+  100% {transform:rotate(35deg);}
+}
 
-  @keyframes subSettle {
-    0%   { transform: rotate(0deg); }
-    30%  { transform: rotate(120deg); }
-    60%  { transform: rotate(-70deg); }
-    100% { transform: rotate(35deg); }
-  }
+@keyframes subIdle {
+  0%,88%,100% {transform:rotate(35deg);}
+  91% {transform:rotate(42deg);}
+  94% {transform:rotate(30deg);}
+}
 
-  @keyframes subIdle {
-    0%, 88%, 100% { transform: rotate(35deg); }
-    91% { transform: rotate(42deg); }
-    94% { transform: rotate(30deg); }
-  }
+@keyframes subSettleBig {
+  0% {transform:rotate(0deg);}
+  30% {transform:rotate(-90deg);}
+  60% {transform:rotate(80deg);}
+  100% {transform:rotate(-25deg);}
+}
 
-  @keyframes subSettleBig {
-    0%   { transform: rotate(0deg); }
-    30%  { transform: rotate(-90deg); }
-    60%  { transform: rotate(80deg); }
-    100% { transform: rotate(-25deg); }
-  }
-
-  @keyframes subIdleBig {
-    0%, 88%, 100% { transform: rotate(-25deg); }
-    91% { transform: rotate(-18deg); }
-    94% { transform: rotate(-30deg); }
-  }
+@keyframes subIdleBig {
+  0%,88%,100% {transform:rotate(-25deg);}
+  91% {transform:rotate(-18deg);}
+  94% {transform:rotate(-30deg);}
+}
 </style>
 
 <svg
-  width="100%"
-  height="100%"
-  viewBox="37.722286 52.766296 167.72946 158.74797"
-  version="1.1"
-  xmlns:xlink="http://www.w3.org/1999/xlink"
-  xmlns="http://www.w3.org/2000/svg">
+ width="100%"
+ height="100%"
+ viewBox="37.722286 52.766296 167.72946 158.74797"
+ version="1.1"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns="http://www.w3.org/2000/svg">
 
-  <!-- Background Card -->
+<!-- BACKGROUND -->
 
-  <rect
-    style="fill:#ffd400;"
-    width="167.72946"
-    height="158.74797"
-    x="37.722286"
-    y="52.766296"
-    ry="0.43908408" />
+<rect style="fill:#ffd400;"
+ width="167.72946" height="158.74797"
+ x="37.722286" y="52.766296" ry="0.43908408"/>
 
-  <!-- Main Outer Rim & Faces -->
+<!-- OUTER RIM -->
 
-  <circle style="fill:#d6d6d6;stroke:#000000;stroke-width:0.4;"
-    cx="124.0995" cy="127.88613" r="60.077427" />
+<circle style="fill:#d6d6d6;stroke:#000000;stroke-width:0.4;"
+ cx="124.0995" cy="127.88613" r="60.077427"/>
 
-  <circle style="fill:#cbcbcb;stroke:#000000;stroke-width:1.5561;"
-    cx="124.0995" cy="127.88613" r="57.932709" />
+<circle style="fill:#cbcbcb;stroke:#000000;stroke-width:1.5561;"
+ cx="124.0995" cy="127.88613" r="57.932709"/>
 
-  <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.4;"
-    cx="124.0995" cy="127.88613" r="55.844093" />
+<circle style="fill:#ffffff;stroke:#000000;stroke-width:0.4;"
+ cx="124.0995" cy="127.88613" r="55.844093"/>
 
-  <!-- Colour Arcs -->
+<!-- COLOUR ARCS -->
 
-  <path style="fill:#ff0000;stroke:#000000;stroke-width:0.5;"
-    d="m 169.60474,127.92124 c 0,-13.03327 -5.91378,-25.43497 -13.26293,-32.382216 0,0.05742 5.79894,-5.684112 5.79894,-5.684112 13.8945,13.894498 15.73179,31.348738 15.73179,38.066328 -0.97606,0 -8.2678,0 -8.2678,0 z" />
+<path style="fill:#ff0000;stroke:#000000;stroke-width:0.5;"
+ d="m 169.60474,127.92124 c 0,-13.03327 -5.91378,-25.43497 -13.26293,-32.382216 0,0.05742 5.79894,-5.684112 5.79894,-5.684112 13.8945,13.894498 15.73179,31.348738 15.73179,38.066328 -0.97606,0 -8.2678,0 -8.2678,0 z"/>
 
-  <path style="fill:#ff6a00;stroke:#000000;stroke-width:0.5;"
-    d="m 156.28322,95.702067 c -9.16694,-9.264624 -22.09345,-13.920846 -32.20389,-13.690235 0.0404,0.04082 0.12423,-8.119199 0.12423,-8.119199 19.64951,0.104133 33.23197,11.219121 37.95678,15.994281 -0.69383,0.686511 -5.87712,5.815153 -5.87712,5.815153 z" />
+<path style="fill:#ff6a00;stroke:#000000;stroke-width:0.5;"
+ d="m 156.28322,95.702067 c -9.16694,-9.264624 -22.09345,-13.920846 -32.20389,-13.690235 0.0404,0.04082 0.12423,-8.119199 0.12423,-8.119199 19.64951,0.104133 33.23197,11.219121 37.95678,15.994281 -0.69383,0.686511 -5.87712,5.815153 -5.87712,5.815153 z"/>
 
-  <path style="fill:#ffbc00;stroke:#000000;stroke-width:0.5;"
-    d="m 123.94554,82.161792 c -13.03239,0.151072 -25.364709,6.208217 -32.226297,13.637401 0.05743,-6.73e-4 -5.750946,-5.732665 -5.750946,-5.732665 13.732501,-14.054625 31.164273,-16.094117 37.881413,-16.171983 0.0113,0.975997 0.0955,8.26725 0.0955,8.26725 z" />
+<path style="fill:#ffbc00;stroke:#000000;stroke-width:0.5;"
+ d="m 123.94554,82.161792 c -13.03239,0.151072 -25.364709,6.208217 -32.226297,13.637401 0.05743,-6.73e-4 -5.750946,-5.732665 -5.750946,-5.732665 13.732501,-14.054625 31.164273,-16.094117 37.881413,-16.171983 0.0113,0.975997 0.0955,8.26725 0.0955,8.26725 z"/>
 
-  <path style="fill:#e1ff00;stroke:#000000;stroke-width:0.5;"
-    d="m 91.969003,95.657957 c -9.259154,9.172463 -13.907662,22.101753 -13.671019,32.212053 0.0408,-0.0404 -8.119271,-0.11939 -8.119271,-0.11939 0.09241,-19.64957 11.199293,-33.238656 15.971636,-37.966317 0.686918,0.693428 5.81842,5.873886 5.81842,5.873886 z" />
+<path style="fill:#e1ff00;stroke:#000000;stroke-width:0.5;"
+ d="m 91.969003,95.657957 c -9.259154,9.172463 -13.907662,22.101753 -13.671019,32.212053 0.0408,-0.0404 -8.119271,-0.11939 -8.119271,-0.11939 0.09241,-19.64957 11.199293,-33.238656 15.971636,-37.966317 0.686918,0.693428 5.81842,5.873886 5.81842,5.873886 z"/>
 
-  <path style="fill:#9bff00;stroke:#000000;stroke-width:0.5;"
-    d="m 78.514545,127.6824 c -0.01583,13.03325 5.8829,25.44213 13.223608,32.39829 8.2e-5,-0.0574 -5.805842,5.67706 -5.805842,5.67706 -13.877621,-13.91135 -15.693719,-31.36781 -15.685562,-38.0854 0.976062,0.001 8.267796,0.0104 8.267796,0.0104 z" />
+<path style="fill:#9bff00;stroke:#000000;stroke-width:0.5;"
+ d="m 78.514545,127.6824 c -0.01583,13.03325 5.8829,25.44213 13.223608,32.39829 8.2e-5,-0.0574 -5.805842,5.67706 -5.805842,5.67706 -13.877621,-13.91135 -15.693719,-31.36781 -15.685562,-38.0854 0.976062,0.001 8.267796,0.0104 8.267796,0.0104 z"/>
 
-  <path style="fill:#14d700;stroke:#000000;stroke-width:0.5;"
-    d="m 91.866536,159.90332 c 9.268064,9.16345 22.244914,13.67752 32.352214,13.33595 -0.0408,-0.0404 -0.0351,8.12007 -0.0351,8.12007 -19.64947,0.11155 -33.35311,-10.8537 -38.130052,-15.57671 0.68612,-0.69422 5.813197,-5.87906 5.813197,-5.87906 z" />
+<path style="fill:#14d700;stroke:#000000;stroke-width:0.5;"
+ d="m 91.866536,159.90332 c 9.268064,9.16345 22.244914,13.67752 32.352214,13.33595 -0.0408,-0.0404 -0.0351,8.12007 -0.0351,8.12007 -19.64947,0.11155 -33.35311,-10.8537 -38.130052,-15.57671 0.68612,-0.69422 5.813197,-5.87906 5.813197,-5.87906 z"/>
 
-  <!-- Party-ness Label -->
+<!-- PARTY-NESS -->
 
-  <path style="fill:none;stroke:none;"
-    d="m 103.82258,92.942156 c 12.96281,-5.332721 19.8943,-8.957327 38.59156,-3.120071"
-    id="partyPath" />
+<path style="fill:none;stroke:none;"
+ d="m 103.82258,92.942156 c 12.96281,-5.332721 19.8943,-8.957327 38.59156,-3.120071"
+ id="partyPath"/>
 
-  <text style="font-weight:bold;font-size:5.3px;font-family:'Century Gothic';fill:#000000;"
-    transform="rotate(1.8, 124, 90)">
-    <textPath href="#partyPath" startOffset="57%" text-anchor="middle">Party-ness</textPath>
-  </text>
+<text style="font-weight:bold;font-size:5.3px;font-family:'Century Gothic';fill:#000000;"
+ transform="rotate(1.8,124,90)">
+ <textPath href="#partyPath" startOffset="57%" text-anchor="middle">Party-ness</textPath>
+</text>
 
-  <!-- SUB-DIAL 1: Cleanliness -->
+<!-- CLEANLINESS -->
 
-  <g transform="matrix(0.71445729,0,0,0.71445729,22.15,-3.5)">
-    <circle style="fill:#a1a1a1;stroke-width:0.508865;"
-      cx="124.3993" cy="153.42212" r="16.910416" />
+<g transform="matrix(0.71445729,0,0,0.71445729,22.15,-3.5)">
+ <circle style="fill:#a1a1a1;stroke-width:0.508865;" cx="124.3993" cy="153.42212" r="16.910416"/>
+ <text style="font-weight:bold;font-size:4.6px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;" x="124.31605" y="161.5">Cleanliness</text>
+ <g class="sub-dial-needle">
+  <path style="fill:#000000;stroke:#000000;stroke-width:0.508865;stroke-linecap:round;" d="m 123.94226,153.8792 10.98547,-11.86906"/>
+  <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="1.5422727"/>
+  <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="0.82388818"/>
+ </g>
+</g>
 
-    <text style="font-weight:bold;font-size:4.6px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;"
-      x="124.31605" y="161.5">Cleanliness</text>
+<!-- ACTIVITIES -->
 
-    <g class="sub-dial-needle">
-      <path style="fill:#000000;stroke:#000000;stroke-width:0.508865;stroke-linecap:round;"
-        d="m 123.94226,153.8792 10.98547,-11.86906" />
-      <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;"
-        cx="123.89387" cy="153.76831" r="1.5422727" />
-      <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;"
-        cx="123.89387" cy="153.76831" r="0.82388818" />
-    </g>
-  </g>
+<g transform="matrix(0.71445729,0,0,0.71445729,51.33,-0.5)">
+ <circle style="fill:#a1a1a1;stroke-width:0.508865;" cx="124.3993" cy="153.42212" r="16.910416"/>
+ <text style="font-weight:bold;font-size:5.6px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;" x="124.31605" y="161.5">Activities</text>
+ <g class="sub-dial-needle">
+  <path style="fill:#000000;stroke:#000000;stroke-width:0.508865;stroke-linecap:round;" d="m 123.94226,153.8792 8.98547,-13.86906"/>
+  <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="1.5422727"/>
+  <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="0.82388818"/>
+ </g>
+</g>
 
-  <!-- SUB-DIAL 2: Activities -->
+<!-- VALUE -->
 
-  <g transform="matrix(0.71445729,0,0,0.71445729,51.33,-0.5)">
-    <circle style="fill:#a1a1a1;stroke-width:0.508865;"
-      cx="124.3993" cy="153.42212" r="16.910416" />
+<g transform="matrix(0.71445729,0,0,0.71445729,9.4771098,22.438679)">
+ <circle style="fill:#a1a1a1;stroke-width:0.508865;" cx="124.3993" cy="153.42212" r="16.910416"/>
+ <text style="font-weight:bold;font-size:5.5px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;" x="124.31605" y="161.5">Value</text>
+ <g class="sub-dial-needle">
+  <path style="fill:#000000;stroke:#000000;stroke-width:0.508865;stroke-linecap:round;" d="m 123.94226,153.8792 12.98547,-9.86906"/>
+  <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="1.5422727"/>
+  <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="0.82388818"/>
+ </g>
+</g>
 
-    <text style="font-weight:bold;font-size:5.6px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;"
-      x="124.31605" y="161.5">Activities</text>
+<!-- FRIENDLINESS -->
 
-    <g class="sub-dial-needle">
-      <path style="fill:#000000;stroke:#000000;stroke-width:0.508865;stroke-linecap:round;"
-        d="m 123.94226,153.8792 8.98547,-13.86906" />
-      <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;"
-        cx="123.89387" cy="153.76831" r="1.5422727" />
-      <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;"
-        cx="123.89387" cy="153.76831" r="0.82388818" />
-    </g>
-  </g>
+<g id="g8">
+ <circle style="fill:#a1a1a1;stroke-width:0;" cx="124.3993" cy="153.42212" r="16.910416"/>
+ <text style="font-weight:bold;font-size:4.4px;line-height:1;font-family:'Century Gothic';text-anchor:middle;fill:#000000;" x="124.31605" y="161.5">
+  <tspan style="font-weight:bold;font-size:4.15px;font-family:'Century Gothic';" x="124.31605" y="161.5">Friendliness</tspan>
+ </text>
+ <g class="sub-dial-needle-big">
+  <path style="fill:#000000;stroke:#000000;stroke-width:0.508865;stroke-linecap:round;" d="m 123.94226,153.8792 12.98547,-9.86906"/>
+  <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="1.5422727"/>
+  <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;" cx="123.89387" cy="153.76831" r="0.82388818"/>
+ </g>
+</g>
 
-  <!-- SUB-DIAL 3: Value -->
+<!-- LOCATION REEL -->
 
-  <g transform="matrix(0.71445729,0,0,0.71445729,9.4771098,22.438679)">
-    <circle style="fill:#a1a1a1;stroke-width:0.508865;"
-      cx="124.3993" cy="153.42212" r="16.910416" />
+<g transform="translate(0,3.5)">
 
-    <text style="font-weight:bold;font-size:5.5px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;"
-      x="124.31605" y="161.5">Value</text>
+ <foreignObject x="138.93318" y="121.25021" width="24.025503" height="12.798634">
 
-    <g class="sub-dial-needle">
-      <path style="fill:#000000;stroke:#000000;stroke-width:0.508865;stroke-linecap:round;"
-        d="m 123.94226,153.8792 12.98547,-9.86906" />
-      <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;"
-        cx="123.89387" cy="153.76831" r="1.5422727" />
-      <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;"
-        cx="123.89387" cy="153.76831" r="0.82388818" />
-    </g>
-  </g>
+  <div xmlns="http://www.w3.org/1999/xhtml" class="score-window-wrapper">
 
-  <!-- SUB-DIAL 4: Friendliness -->
+   <div class="location-reel" id="location-reel"></div>
 
-  <g id="g8">
-    <circle style="fill:#a1a1a1;stroke-width:0;"
-      id="path2-1"
-      cx="124.3993" cy="153.42212" r="16.910416" />
+  </div>
 
-    <text style="font-weight:bold;font-size:4.4px;line-height:1;font-family:'Century Gothic';text-anchor:middle;fill:#000000;"
-      x="124.31605" y="161.5">
-      <tspan style="font-weight:bold;font-size:4.15px;font-family:'Century Gothic';"
-        x="124.31605" y="161.5">Friendliness</tspan>
-    </text>
+ </foreignObject>
 
-    <g class="sub-dial-needle-big">
-      <path style="fill:#000000;stroke:#000000;stroke-width:0.508865;stroke-linecap:round;"
-        d="m 123.94226,153.8792 12.98547,-9.86906" />
-      <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;"
-        cx="123.89387" cy="153.76831" r="1.5422727" />
-      <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.131856;"
-        cx="123.89387" cy="153.76831" r="0.82388818" />
-    </g>
-  </g>
+ <text style="font-weight:bold;font-size:4.6px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;"
+ x="150.94593" y="138">Location</text>
 
-  <!-- LOCATION NUMBER REEL -->
+</g>
 
-  <g transform="translate(0, 3.5)">
+<!-- MAIN NEEDLE -->
 
-    <foreignObject
-      x="138.93318"
-      y="121.25021"
-      width="24.025503"
-      height="12.798634">
-
-      <div xmlns="http://www.w3.org/1999/xhtml"
-        class="score-window-wrapper">
-
-        <div class="location-reel" id="location-reel">
-        </div>
-
-      </div>
-
-    </foreignObject>
-
-    <text
-      style="font-weight:bold;font-size:4.6px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;"
-      x="150.94593"
-      y="138">Location</text>
-
-  </g>
-
-  <!-- MAIN INDICATOR NEEDLE -->
-
-  <g id="main-needle-group">
-
-    <rect style="fill:#bebebe;stroke:#000000;stroke-width:0.512163;stroke-linecap:round;"
-      width="3.2357354"
-      height="57.638039"
-      x="175.6566"
-      y="-34.751022"
-      ry="1.7103276"
-      transform="rotate(40.332538)" />
-
-    <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.5;"
-      cx="123.77471" cy="127.88613" r="5.8483286" />
-
-    <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.5;"
-      cx="123.77471" cy="127.88613" r="3.1242003" />
-
-  </g>
+<g id="main-needle-group">
+ <rect style="fill:#bebebe;stroke:#000000;stroke-width:0.512163;stroke-linecap:round;"
+ width="3.2357354" height="57.638039" x="175.6566" y="-34.751022" ry="1.7103276"
+ transform="rotate(40.332538)"/>
+ <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.5;" cx="123.77471" cy="127.88613" r="5.8483286"/>
+ <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.5;" cx="123.77471" cy="127.88613" r="3.1242003"/>
+</g>
 
 </svg>
-
 </div>
 
-<!-- INLINE ANIMATION SCRIPT -->
+<!-- INLINE JAVASCRIPT -->
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-
-  // Generate all 97 numbers, from 00.0 to 09.6
 
   const cards = document.querySelectorAll('.vibe-meter-card');
 
@@ -877,23 +827,76 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const reel = card.querySelector('#location-reel');
 
-    if (reel) {
+    if (!reel) return;
 
-      for (let i = 0; i <= 96; i++) {
+    // Generate numbers 00.0 to 09.7
+    // The extra 09.7 allows a small upward fluctuation.
 
-        const digit = document.createElement('span');
+    for (let i = 0; i <= 97; i++) {
 
-        digit.textContent = (i / 10).toFixed(1).padStart(4, '0');
+      const digit = document.createElement('span');
 
-        reel.appendChild(digit);
+      digit.textContent = (i / 10).toFixed(1).padStart(4, '0');
 
-      }
+      reel.appendChild(digit);
 
     }
 
+    // Wait until the initial three-second animation finishes.
+
+    reel.addEventListener('animationend', function(event) {
+
+      if (event.animationName !== 'locationReelStart') return;
+
+      // Lock the reel exactly at 09.6.
+
+      reel.style.animation = 'none';
+      reel.style.transform = 'translateY(-1228.668864px)';
+
+      // Small live-review movements around the average of 09.6.
+
+      const liveScores = [
+        95, 96, 97, 96, 96,
+        95, 96, 97, 96, 96,
+        97, 96, 95, 96, 96,
+        97, 96, 96, 95, 96
+      ];
+
+      const intervals = [
+        4200, 5100, 3700, 6200, 4500,
+        5800, 3900, 5400, 4300, 6000
+      ];
+
+      let position = 0;
+
+      function updateLiveScore() {
+
+        const score = liveScores[position % liveScores.length];
+
+        // Smooth mechanical movement between numbers.
+
+        reel.style.transition = 'transform 0.55s ease-in-out';
+
+        reel.style.transform =
+          'translateY(-' + (score * 12.798634) + 'px)';
+
+        const delay = intervals[position % intervals.length];
+
+        position++;
+
+        setTimeout(updateLiveScore, delay);
+
+      }
+
+      // Pause briefly at 09.6 before the first live movement.
+
+      setTimeout(updateLiveScore, 2500);
+
+    });
+
   });
 
-  // Start animations when the meter reaches the centre of the screen
+  // Start the meter when it reaches the centre of the screen.
 
   const observer = new IntersectionObserver((entries, observer) => {
 
@@ -910,9 +913,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
   }, {
-    root: null,
-    rootMargin: "-40% 0px -40% 0px",
-    threshold: 0
+    root:null,
+    rootMargin:"-40% 0px -40% 0px",
+    threshold:0
   });
 
   cards.forEach(card => {
