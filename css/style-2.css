@@ -3189,7 +3189,7 @@ h3.product-title {
 
 .back-to-top {
     position: fixed;
-    bottom: 40px;
+    bottom: 30px;
     right: 30px;
     width: 50px;
     height: 50px;
@@ -3234,7 +3234,7 @@ h3.product-title {
 
 @media (max-width: 768px) {
     .back-to-top {
-        bottom: 65px; /* 55px quick-jump-menu + 10px gap */
+        bottom: 75px; /* 55px quick-jump-menu + 10px gap */
         right: 20px;
         width: 45px;
         height: 45px;
