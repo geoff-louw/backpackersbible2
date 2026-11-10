@@ -539,7 +539,7 @@
 
 #main-needle-group {
   transform-origin:123.77471px 127.88613px;
-  transform:rotate(-110deg);
+  transform:rotate(139.667462deg);
   transition:transform 1.2s cubic-bezier(0.4,0,0.2,1);
 }
 
@@ -709,9 +709,9 @@
 /* MAIN NEEDLE */
 
 @keyframes mainNeedleSettle {
-  0%   {transform:rotate(-110deg);}
-  72%  {transform:rotate(33deg);}
-  100% {transform:rotate(33deg);}
+  0%   {transform:rotate(139.667462deg);}
+  55%  {transform:rotate(349.667462deg);}
+  100% {transform:rotate(349.667462deg);}
 }
 
 /* SUB-DIAL NEEDLES */
@@ -965,7 +965,7 @@
         mainNeedle.addEventListener('animationend', function(event) {
           if (event.animationName === 'mainNeedleSettle') {
             mainNeedle.style.animation = 'none';
-            mainNeedle.style.transform = 'rotate(33deg)';
+            mainNeedle.style.transform = 'rotate(349.667462deg)';
           }
         });
       }
@@ -1059,11 +1059,12 @@
 
         wrapper.classList.add('show-live');
 
+        /* Small simulated review movements around the 30-degree position. */
         const liveScores = [
-          6, 7, 6, 6, 5,
-          6, 7, 6, 6, 5,
-          7, 6, 6, 5, 6,
-          7, 6, 5, 6, 6
+          30, 34, 28, 32, 26,
+          31, 35, 29, 33, 27,
+          32, 28, 34, 25, 31,
+          36, 29, 33, 27, 30
         ];
 
         const intervals = [
@@ -1082,7 +1083,7 @@
 
           /* Move the main needle with the changing live score. */
           if (mainNeedle) {
-            const needleAngle = -110 + (score * 22);
+            const needleAngle = score + 319.667462;
             mainNeedle.style.transform = 'rotate(' + needleAngle + 'deg)';
           }
 
