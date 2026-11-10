@@ -765,10 +765,10 @@
  xmlns="http://www.w3.org/2000/svg">
 
 <defs>
-  <!-- QUIET: Green Block Path (Sweep down-right) -->
-  <path id="pathQuietFixed" d="M 91 163 C 100 170 114 172 124 169" fill="none" />
-  <!-- WILD: Red Block Path (Sweep down along right arc) -->
-  <path id="pathWildFixed" d="M 172 98 C 178 110 177 122 173 131" fill="none" />
+  <!-- QUIET: Bottom-Left Green Block Arc Path -->
+  <path id="pathQuiet" d="M 98 162 A 50 50 0 0 0 135 174" fill="none" />
+  <!-- WILD: Right Red Block Arc Path -->
+  <path id="pathWild" d="M 166 108 A 50 50 0 0 1 166 148" fill="none" />
 </defs>
 
 <!-- BACKGROUND -->
@@ -810,15 +810,15 @@
 
 <!-- ARC TEXTS: QUIET & WILD -->
 
-<text style="font-weight:bold;font-size:4.2px;font-family:'Century Gothic',sans-serif;fill:#ffffff;">
-  <textPath href="#pathQuietFixed" startOffset="50%" text-anchor="middle">quiet</textPath>
+<text style="font-weight:bold;font-size:5.5px;font-family:'Century Gothic',sans-serif;fill:#ffffff;">
+  <textPath href="#pathQuiet" startOffset="50%" text-anchor="middle">Quiet</textPath>
 </text>
 
-<text style="font-weight:bold;font-size:4.2px;font-family:'Century Gothic',sans-serif;fill:#ffffff;">
-  <textPath href="#pathWildFixed" startOffset="50%" text-anchor="middle">wild</textPath>
+<text style="font-weight:bold;font-size:5.5px;font-family:'Century Gothic',sans-serif;fill:#ffffff;">
+  <textPath href="#pathWild" startOffset="50%" text-anchor="middle">Wild</textPath>
 </text>
 
-<!-- REVERTED ORIGINAL PARTY-NESS -->
+<!-- PARTY-NESS -->
 
 <path style="fill:none;stroke:none;"
  d="m 103.82258,92.942156 c 12.96281,-5.332721 19.8943,-8.957327 38.59156,-3.120071"
