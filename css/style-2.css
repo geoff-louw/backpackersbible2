@@ -6000,6 +6000,7 @@ table.centered-table td {
    48. VIBE METER
    ============================================================ */
 
+
 .vm-vibe-meter-card { width:100%; max-width:520px; aspect-ratio:167.72946 / 158.74797; margin:0 auto; display:block; position:relative; line-height:0; }
 .vm-vibe-meter-card > svg { display:block; width:100%; height:100%; overflow:visible; }
 .vm-vibe-meter-card .vm-score-window-wrapper { width:100%; height:100%; overflow:hidden; position:relative; background:#a1a1a1; color:#000; font-family:'Century Gothic',sans-serif; font-size:2.3mm; line-height:1; }
@@ -6011,4 +6012,12 @@ table.centered-table td {
 .vm-vibe-meter-card .vm-main-needle-group, .vm-vibe-meter-card .vm-sub-dial-needle, .vm-vibe-meter-card .vm-sub-dial-needle-big { transform-box:view-box; }
 .vm-vibe-meter-card .vm-mini-label { font-size:5.4px !important; }
 .vm-vibe-meter-card .vm-mini-label tspan { font-size:5.1px !important; }
-@media (max-width:600px) { .vm-vibe-meter-card { width:min(calc(100vw - 16px),560px); max-width:none; margin-left:50%; transform:translateX(-50%); } }
+/* On phones, use the full available screen width rather than the smaller desktop cap. */
+@media (max-width:600px) {
+  .vm-vibe-meter-card {
+    width:min(100vw,620px);
+    max-width:none;
+    margin-left:50%;
+    transform:translateX(-50%);
+  }
+}
