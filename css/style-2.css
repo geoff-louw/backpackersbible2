@@ -5996,212 +5996,22 @@ table.centered-table td {
 }
 
 
-
 /* ============================================================
    48. VIBE METER
    ============================================================ */
 
-/* VIBEMETER CSS ADDITION — append to /css/style-2.css */
-.vm-vibe-meter-card{
-  --min-deg: -110deg;
-  --sweep-range: 220deg;
-  --final-angle: calc(var(--min-deg) + (var(--score) / 10 * var(--sweep-range)));
-  width:100%;
-  max-width:520px;
-  margin:0 auto;
-  display:block;
-  position:relative;
-}
+/* VIBEMETER STYLES v4 — replace the previous vibe-meter CSS block with this */
+.vm-vibe-meter-card { width:100%; max-width:520px; aspect-ratio:167.72946 / 158.74797; margin:0 auto; display:block; position:relative; line-height:0; }
+.vm-vibe-meter-card > svg { display:block; width:100%; height:100%; overflow:visible; }
+.vm-vibe-meter-card .vm-score-window-wrapper { width:100%; height:100%; overflow:hidden; position:relative; background:#a1a1a1; color:#000; font-family:'Century Gothic',sans-serif; font-size:2.3mm; line-height:1; }
+.vm-vibe-meter-card .vm-location-reel { position:absolute; inset:0; display:flex; align-items:flex-start; justify-content:center; width:100%; height:100%; line-height:12.798634px; font-family:'Century Gothic',sans-serif; font-size:2.3mm; }
+.vm-vibe-meter-card .vm-digit-window { position:relative; display:block; width:5px; height:12.798634px; overflow:hidden; flex:0 0 5px; }
+.vm-vibe-meter-card .vm-digit-reel { position:absolute; top:0; left:0; width:100%; margin:0; padding:0; display:flex; flex-direction:column; will-change:transform; }
+.vm-vibe-meter-card .vm-digit-reel span { display:block; box-sizing:border-box; width:100%; height:12.798634px; min-height:12.798634px; max-height:12.798634px; margin:0; padding:0; flex:0 0 12.798634px; line-height:12.798634px; text-align:center; white-space:nowrap; font-family:'Century Gothic',sans-serif; font-size:2.3mm; font-weight:normal; font-variant-numeric:lining-nums tabular-nums; font-feature-settings:'lnum','tnum'; }
+.vm-vibe-meter-card .vm-location-static { display:block; height:12.798634px; line-height:12.798634px; width:5px; flex:0 0 5px; text-align:center; }
+.vm-vibe-meter-card .vm-main-needle-group, .vm-vibe-meter-card .vm-sub-dial-needle, .vm-vibe-meter-card .vm-sub-dial-needle-big { transform-box:view-box; }
+.vm-vibe-meter-card .vm-mini-label { font-size:5.4px !important; }
+.vm-vibe-meter-card .vm-mini-label tspan { font-size:5.1px !important; }
+@media (max-width:600px) { .vm-vibe-meter-card { width:min(calc(100vw - 16px),560px); max-width:none; margin-left:50%; transform:translateX(-50%); } }
 
-
-.vm-vibe-meter-card .vm-main-needle-group{
-  transform-origin:123.77471px 127.88613px;
-  transform:rotate(139.667462deg);
-  transition:transform 1.2s cubic-bezier(0.4,0,0.2,1);
-}
-
-
-.vm-vibe-meter-card .vm-sub-dial-needle,
-.vm-vibe-meter-card .vm-sub-dial-needle-big{
-  transform-origin:123.89387px 153.76831px;
-  transform:rotate(0deg);
-  opacity:0;
-}
-
-
-.vm-vibe-meter-card.vm-in-view .vm-main-needle-group{
-  animation:vm_mainNeedleSettle 5.5s cubic-bezier(0.4,0,0.2,1) forwards;
-}
-
-
-.vm-vibe-meter-card.vm-in-view .vm-sub-dial-needle,
-.vm-vibe-meter-card.vm-in-view .vm-sub-dial-needle-big{
-  animation:
-    vm_miniNeedleSettle var(--settle-duration, 3.5s) cubic-bezier(0.4,0,0.2,1) forwards,
-    vm_miniNeedleIdle var(--idle-duration, 4.8s) ease-in-out var(--idle-delay, 3.6s) infinite;
-}
-
-
-.vm-vibe-meter-card .vm-score-window-wrapper{
-  width:100%;
-  height:100%;
-  overflow:hidden;
-  position:relative;
-  background:#a1a1a1;
-  color:#000;
-  font-family:"Century Gothic",sans-serif;
-  font-size:2.3mm;
-  font-weight:normal;
-}
-
-
-.vm-vibe-meter-card .vm-location-reel,
-.vm-vibe-meter-card .vm-location-live{
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:flex-start;
-  justify-content:center;
-  width:100%;
-  height:100%;
-  line-height:12.798634px;
-  font-family:"Century Gothic",sans-serif;
-  font-size:2.3mm;
-}
-
-
-.vm-vibe-meter-card .vm-location-reel{ display:flex; }
-
-.vm-vibe-meter-card .vm-digit-window{
-  position:relative;
-  display:block;
-  width:5px;
-  height:12.798634px;
-  overflow:hidden;
-  flex:0 0 5px;
-}
-
-.vm-vibe-meter-card .vm-digit-reel{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  margin:0;
-  padding:0;
-  display:flex;
-  flex-direction:column;
-  transition:transform 0.13s linear;
-  will-change:transform;
-}
-
-.vm-vibe-meter-card .vm-digit-reel span,
-.vm-vibe-meter-card .vm-tenths-reel span{
-  display:block;
-  box-sizing:border-box;
-  width:100%;
-  height:12.798634px;
-  min-height:12.798634px;
-  max-height:12.798634px;
-  margin:0;
-  padding:0;
-  flex-shrink:0;
-  line-height:12.798634px;
-  text-align:center;
-  white-space:nowrap;
-  font-family:"Century Gothic",sans-serif;
-  font-size:2.3mm;
-  font-weight:normal;
-  font-variant-numeric:lining-nums tabular-nums;
-  font-feature-settings:"lnum","tnum";
-}
-
-.vm-vibe-meter-card .vm-location-static{
-  display:block;
-  height:12.798634px;
-  line-height:12.798634px;
-  width:5px;
-  flex:0 0 5px;
-  text-align:center;
-}
-
-
-.vm-vibe-meter-card .vm-location-live{ display:none; }
-.vm-vibe-meter-card .vm-score-window-wrapper.vm-show-live .vm-location-live{ display:flex; }
-.vm-vibe-meter-card .vm-score-window-wrapper.vm-show-live .vm-location-reel{ display:none; }
-
-.vm-vibe-meter-card .vm-location-live-fixed{
-  display:block;
-  height:12.798634px;
-  line-height:12.798634px;
-  width:5px;
-  flex:0 0 5px;
-  text-align:center;
-  white-space:nowrap;
-}
-
-.vm-vibe-meter-card .vm-tenths-window{
-  position:relative;
-  display:block;
-  height:12.798634px;
-  width:5px;
-  overflow:hidden;
-  flex:0 0 5px;
-}
-
-.vm-vibe-meter-card .vm-tenths-reel{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  margin:0;
-  padding:0;
-  display:flex;
-  flex-direction:column;
-  transform:translateY(-12.798634px);
-  will-change:transform;
-  transition:transform 0.55s ease-in-out;
-}
-
-
-@keyframes vm_mainNeedleSettle {
-  0%   {transform:rotate(139.667462deg);}
-  55%  {transform:rotate(var(--vm-main-target, 349.667462deg));}
-  100% {transform:rotate(var(--vm-main-target, 349.667462deg));}
-}
-
-
-@keyframes vm_miniNeedleSettle {
-  0% {
-    transform:rotate(var(--start-angle));
-    opacity:0;
-  }
-  1% {
-    transform:rotate(var(--start-angle));
-    opacity:1;
-  }
-  45% {
-    transform:rotate(calc(var(--final-angle) + 360deg + 10deg));
-    opacity:1;
-  }
-  72% {
-    transform:rotate(calc(var(--final-angle) + 360deg - 4deg));
-    opacity:1;
-  }
-  100% {
-    transform:rotate(calc(var(--final-angle) + 360deg));
-    opacity:1;
-  }
-}
-
-
-@keyframes vm_miniNeedleIdle {
-  0%, 75%, 100% {
-    transform:rotate(var(--final-angle));
-  }
-  84% {
-    transform:rotate(calc(var(--final-angle) + var(--wiggle)));
-  }
-  92% {
-    transform:rotate(calc(var(--final-angle) - var(--wiggle)));
-  }
 }
