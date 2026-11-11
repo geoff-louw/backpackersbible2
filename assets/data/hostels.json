@@ -2725,44 +2725,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          23.37264,
-          -34.05419
-        ]
-      },
-      "properties": {
-        "region": "garden-route",
-        "id": "plett-backpackers",
-        "name": "PLETT BACKPACKERS",
-        "address": "21 Main Street, Plettenberg Bay, 6600",
-        "phone": "+27823399531",
-        "whatsapp": "+27823399531",
-        "email": "info@pletbackpackers.co.za",
-        "website": "pletbackpackers.co.za",
-        "info": "The central Main Street option with a penthouse twist.",
-        "anchor": "/south-africa-hostel-directory/garden-route#plett-backpackers",
-        "googleRating": "3.6 / 5",
-        "is_best_overall": false,
-        "is_value": false,
-        "is_party": false,
-        "is_chill": false,
-        "is_solo_women": false,
-        "is_digital_nomad": false,
-        "is_surfer": false,
-        "is_safety": true,
-        "is_amenities": false,
-        "is_ethical": false,
-        "is_adventure": false,
-        "is_nature": false,
-        "is_cultural": false,
-        "is_cheapest": false,
-        "is_camping": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           23.36977,
           -34.05504
         ]
