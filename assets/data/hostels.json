@@ -659,43 +659,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          18.46891,
-          -33.93916
-        ]
-      },
-      "properties": {
-        "region": "cape-town",
-        "id": "bohemian-lofts-backpackers",
-        "name": "BOHEMIAN LOFTS BACKPACKERS",
-        "address": "41 Trill Road, Observatory, Cape Town, 7925",
-        "phone": "+27214476204",
-        "email": "info@bohemianlofts.com",
-        "website": "bohemianlofts.com",
-        "info": "A characterful budget option with an artistic edge.",
-        "anchor": "/south-africa-hostel-directory/cape-town#bohemian-lofts-backpackers",
-        "googleRating": "4.4 / 5",
-        "is_best_overall": false,
-        "is_value": false,
-        "is_party": false,
-        "is_chill": false,
-        "is_solo_women": false,
-        "is_digital_nomad": false,
-        "is_surfer": false,
-        "is_safety": true,
-        "is_amenities": false,
-        "is_ethical": false,
-        "is_adventure": false,
-        "is_nature": false,
-        "is_cultural": false,
-        "is_cheapest": true,
-        "is_camping": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           18.48803,
           -33.93755
         ]
