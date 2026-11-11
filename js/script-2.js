@@ -24,6 +24,7 @@
    18.  Map facade (lazy load on mobile)
    19. Things to do map
    20. WTF button
+   21. Vibe Meter
    ============================================================ */
 
 (function () {
@@ -1524,3 +1525,158 @@ function setupMapPopups(map) {
     popup.setLngLat(coords).setHTML(popupHtml).addTo(map);
   });
 }
+
+
+
+/* ============================================================
+   21. VIBE METER
+   ============================================================ */
+
+
+/* VIBEMETER ENGINE — append this complete block to /js/script-2.js */
+(function () {
+  const VM_SVG_TEMPLATE = "<svg\n width=\"100%\"\n height=\"100%\"\n viewBox=\"37.722286 52.766296 167.72946 158.74797\"\n version=\"1.1\"\n xmlns:xlink=\"http://www.w3.org/1999/xlink\"\n xmlns=\"http://www.w3.org/2000/svg\">\n\n<defs>\n  <path id=\"pathQuietBase\" d=\"m 90.945802,167.19329 c 17.683908,12.4017 22.966118,10.56442 27.788998,11.94238\" fill=\"none\" />\n  <path id=\"pathWild\" d=\"m 157.63169,93.575242 c 9.01588,10.732498 14.57346,16.236728 14.68704,35.823658\" fill=\"none\" />\n</defs>\n\n<!-- BACKGROUND -->\n<rect style=\"fill:#ffd400;\" width=\"167.72946\" height=\"158.74797\" x=\"37.722286\" y=\"52.766296\" ry=\"0.43908408\"/>\n\n<!-- OUTER RIM -->\n<circle style=\"fill:#d6d6d6;stroke:#000000;stroke-width:0.4;\" cx=\"124.0995\" cy=\"127.88613\" r=\"60.077427\"/>\n<circle style=\"fill:#cbcbcb;stroke:#000000;stroke-width:1.5561;\" cx=\"124.0995\" cy=\"127.88613\" r=\"57.932709\"/>\n<circle style=\"fill:#ffffff;stroke:#000000;stroke-width:0.4;\" cx=\"124.0995\" cy=\"127.88613\" r=\"55.844093\"/>\n\n<!-- UPDATED COLOUR ARCS: CLEANER PARTY-NESS SEGMENTS -->\n<!-- Coordinates translated from the revised Inkscape SVG to the main meter. -->\n<g transform=\"translate(37.722286,52.766296)\">\n <path style=\"fill:#ff0000;fill-opacity:1;stroke:#ff0000;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:miter;paint-order:markers fill stroke;\" d=\"m 131.96094,75.07552 c 0,-16.536458 -8.20209,-27.119791 -13.29532,-32.213021 l 5.72162,-5.721614 c 9.19427,9.194271 15.64349,21.596614 15.64349,37.934635 -1.32292,0 -8.06979,0 -8.06979,0 z\"/>\n <path style=\"fill:#ff6a00;fill-opacity:1;stroke:#ffd700;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:miter;paint-order:markers fill stroke;\" d=\"M 118.65651,42.892416 C 106.96346,31.199374 93.680164,29.515582 86.477249,29.515581 l 4e-6,-8.091588 c 13.002657,0 26.332727,4.209495 37.885457,15.76222 -0.93545,0.935445 -5.7062,5.706203 -5.7062,5.706203 z\"/>\n <path style=\"fill:#ffbc00;fill-opacity:1;stroke:#ffd700;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:miter;paint-order:markers fill stroke;\" d=\"m 86.388292,29.549229 c -16.53647,1e-6 -27.119798,8.20209 -32.213028,13.29532 l -5.721616,-5.721621 c 9.194267,-9.194267 21.596617,-15.643484 37.934637,-15.643491 0,1.322926 7e-6,8.069792 7e-6,8.069792 z\"/>\n <path style=\"fill:#e1ff00;fill-opacity:1;stroke:#ffd700;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:miter;paint-order:markers fill stroke;\" d=\"M 54.181093,42.771827 C 42.488044,54.464878 40.804254,67.748174 40.804254,74.951089 l -8.091591,-4e-6 c 0,-13.002657 4.209501,-26.332728 15.762221,-37.885457 0.93545,0.93545 5.706209,5.706199 5.706209,5.706199 z\"/>\n <path style=\"fill:#9bff00;fill-opacity:1;stroke:#ffd700;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:miter;paint-order:markers fill stroke;\" d=\"m 40.862609,75.19432 c 0,16.53647 8.202091,27.1198 13.29532,32.21303 l -5.72162,5.72162 C 39.24204,103.9347 32.792824,91.532344 32.792816,75.194327 c 1.322926,0 8.069793,-7e-6 8.069793,-7e-6 z\"/>\n <path style=\"fill:#14d700;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:miter;paint-order:markers fill stroke;\" d=\"m 54.60643,107.39958 c 11.693049,11.69305 24.976348,13.37684 32.179262,13.37684 v 8.09159 c -13.002661,1e-5 -26.332737,-4.2095 -37.885469,-15.76222 0.93545,-0.93545 5.706207,-5.70621 5.706207,-5.70621 z\"/>\n</g>\n\n<!-- ARC TEXT: QUIET -->\n<text style=\"font-weight:bold;font-size:8.46667px;line-height:1;font-family:'Century Gothic',sans-serif;text-anchor:middle;fill:#ffffff;\" transform=\"translate(-1.7630905,-1.3779667)\">\n <textPath href=\"#pathQuietBase\" startOffset=\"50%\" text-anchor=\"middle\"><tspan style=\"font-weight:bold;font-size:5.1px;font-family:'Century Gothic',sans-serif;\">Quiet</tspan></textPath>\n</text>\n\n<!-- ARC TEXT: WILD -->\n<text style=\"font-weight:bold;font-size:5.1px;line-height:1;font-family:'Century Gothic',sans-serif;text-anchor:middle;fill:#ffffff;\" transform=\"translate(-1.3779667,-0.91864448)\">\n <textPath href=\"#pathWild\" startOffset=\"50%\" text-anchor=\"middle\">Wild</textPath>\n</text>\n\n<!-- PARTY-NESS -->\n<path style=\"fill:none;stroke:none;\" d=\"m 103.82258,92.942156 c 12.96281,-5.332721 19.8943,-8.957327 38.59156,-3.120071\" id=\"partyPath\"/>\n<text style=\"font-weight:bold;font-size:5.3px;font-family:'Century Gothic';fill:#000000;\" transform=\"rotate(1.8,124,90)\">\n <textPath href=\"#partyPath\" startOffset=\"57%\" text-anchor=\"middle\">Party-ness</textPath>\n</text>\n\n<!-- CLEANLINESS: SCORE 8 -->\n<g transform=\"matrix(0.71445729,0,0,0.71445729,22.15,-3.5)\">\n <image href=\"mini-dial.svg\" x=\"107.488884\" y=\"136.511704\" width=\"33.820832\" height=\"33.820832\" preserveAspectRatio=\"none\"/>\n <text style=\"font-weight:bold;font-size:4.6px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;\" x=\"124.31605\" y=\"161.5\">Cleanliness</text>\n <g class=\"vm-sub-dial-needle\" data-vm-score=\"8\" data-vm-bearing=\"42.8\">\n  <path style=\"fill:#000000;stroke:#000000;stroke-width:0.508865;stroke-linecap:round;\" d=\"m 123.94226,153.8792 10.98547,-11.86906\"/>\n  <circle style=\"fill:#ffffff;stroke:#000000;stroke-width:0.131856;\" cx=\"123.89387\" cy=\"153.76831\" r=\"1.5422727\"/>\n  <circle style=\"fill:#ffffff;stroke:#000000;stroke-width:0.131856;\" cx=\"123.89387\" cy=\"153.76831\" r=\"0.82388818\"/>\n </g>\n</g>\n\n<!-- ACTIVITIES: SCORE 3 -->\n<g transform=\"matrix(0.71445729,0,0,0.71445729,51.33,-0.5)\">\n <image href=\"mini-dial.svg\" x=\"107.488884\" y=\"136.511704\" width=\"33.820832\" height=\"33.820832\" preserveAspectRatio=\"none\"/>\n <text style=\"font-weight:bold;font-size:5.6px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;\" x=\"124.31605\" y=\"161.5\">Activities</text>\n <g class=\"vm-sub-dial-needle\" data-vm-score=\"3\" data-vm-bearing=\"33.0\">\n  <path style=\"fill:#000000;stroke:#000000;stroke-width:0.508865;stroke-linecap:round;\" d=\"m 123.94226,153.8792 8.98547,-13.86906\"/>\n  <circle style=\"fill:#ffffff;stroke:#000000;stroke-width:0.131856;\" cx=\"123.89387\" cy=\"153.76831\" r=\"1.5422727\"/>\n  <circle style=\"fill:#ffffff;stroke:#000000;stroke-width:0.131856;\" cx=\"123.89387\" cy=\"153.76831\" r=\"0.82388818\"/>\n </g>\n</g>\n\n<!-- VALUE: SCORE 5 -->\n<g transform=\"matrix(0.71445729,0,0,0.71445729,9.4771098,22.438679)\">\n <image href=\"mini-dial.svg\" x=\"107.488884\" y=\"136.511704\" width=\"33.820832\" height=\"33.820832\" preserveAspectRatio=\"none\"/>\n <text style=\"font-weight:bold;font-size:5.5px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;\" x=\"124.31605\" y=\"161.5\">Value</text>\n <g class=\"vm-sub-dial-needle\" data-vm-score=\"5\" data-vm-bearing=\"52.8\">\n  <path style=\"fill:#000000;stroke:#000000;stroke-width:0.508865;stroke-linecap:round;\" d=\"m 123.94226,153.8792 12.98547,-9.86906\"/>\n  <circle style=\"fill:#ffffff;stroke:#000000;stroke-width:0.131856;\" cx=\"123.89387\" cy=\"153.76831\" r=\"1.5422727\"/>\n  <circle style=\"fill:#ffffff;stroke:#000000;stroke-width:0.131856;\" cx=\"123.89387\" cy=\"153.76831\" r=\"0.82388818\"/>\n </g>\n</g>\n\n<!-- FRIENDLINESS: SCORE 7 -->\n<g class=\"vm-g8\">\n <image href=\"mini-dial.svg\" x=\"107.488884\" y=\"136.511704\" width=\"33.820832\" height=\"33.820832\" preserveAspectRatio=\"none\"/>\n <text style=\"font-weight:bold;font-size:4.4px;line-height:1;font-family:'Century Gothic';text-anchor:middle;fill:#000000;\" x=\"124.31605\" y=\"161.5\">\n  <tspan style=\"font-weight:bold;font-size:4.15px;font-family:'Century Gothic';\" x=\"124.31605\" y=\"161.5\">Friendliness</tspan>\n </text>\n <g class=\"vm-sub-dial-needle-big\" data-vm-score=\"7\" data-vm-bearing=\"52.8\">\n  <path style=\"fill:#000000;stroke:#000000;stroke-width:0.508865;stroke-linecap:round;\" d=\"m 123.94226,153.8792 12.98547,-9.86906\"/>\n  <circle style=\"fill:#ffffff;stroke:#000000;stroke-width:0.131856;\" cx=\"123.89387\" cy=\"153.76831\" r=\"1.5422727\"/>\n  <circle style=\"fill:#ffffff;stroke:#000000;stroke-width:0.131856;\" cx=\"123.89387\" cy=\"153.76831\" r=\"0.82388818\"/>\n </g>\n</g>\n\n<!-- LOCATION REEL -->\n<g transform=\"translate(0,3.5)\">\n <foreignObject x=\"138.93318\" y=\"121.25021\" width=\"24.025503\" height=\"12.798634\">\n  <div xmlns=\"http://www.w3.org/1999/xhtml\" class=\"vm-score-window-wrapper\">\n   <div class=\"vm-location-reel\">\n    <span class=\"vm-location-static\">0</span>\n    <div class=\"vm-digit-window\"><div class=\"vm-digit-reel vm-units-reel\"></div></div>\n    <span class=\"vm-location-static\">.</span>\n    <div class=\"vm-digit-window\"><div class=\"vm-digit-reel vm-initial-tenths-reel\"></div></div>\n   </div>\n   <div class=\"vm-location-live\">\n    <span class=\"vm-location-live-fixed\">0</span>\n    <div class=\"vm-digit-window\"><span class=\"vm-location-live-fixed\">9</span></div>\n    <span class=\"vm-location-static\">.</span>\n    <div class=\"vm-tenths-window\"><div class=\"vm-tenths-reel\"></div></div>\n   </div>\n  </div>\n </foreignObject>\n <text style=\"font-weight:bold;font-size:4.6px;font-family:'Century Gothic';text-anchor:middle;fill:#000000;\" x=\"150.94593\" y=\"138\">Location</text>\n</g>\n\n<!-- MAIN NEEDLE -->\n<g class=\"vm-main-needle-group\">\n <rect style=\"fill:#bebebe;stroke:#000000;stroke-width:0.512163;stroke-linecap:round;\" width=\"3.2357354\" height=\"57.638039\" x=\"175.6566\" y=\"-34.751022\" ry=\"1.7103276\" transform=\"rotate(40.332538)\"/>\n <circle style=\"fill:#ffffff;stroke:#000000;stroke-width:0.5;\" cx=\"123.77471\" cy=\"127.88613\" r=\"5.8483286\"/>\n <circle style=\"fill:#ffffff;stroke:#000000;stroke-width:0.5;\" cx=\"123.77471\" cy=\"127.88613\" r=\"3.1242003\"/>\n</g>\n\n</svg>";
+  const VM_NEEDLE_SETTINGS = [
+    { settle: 3.2, idle: 4.5, delay: 3.3, wiggle: 2.0 },
+    { settle: 3.7, idle: 5.1, delay: 3.8, wiggle: 1.6 },
+    { settle: 3.4, idle: 4.8, delay: 3.5, wiggle: 2.2 },
+    { settle: 3.9, idle: 5.3, delay: 4.0, wiggle: 1.8 }
+  ];
+
+  function buildMeter(card) {
+    if (card.dataset.vmBuilt === 'true') return;
+    card.dataset.vmBuilt = 'true';
+    const name = card.dataset.name || 'Hostel';
+    const overall = clampScore(card.dataset.score, 9.6);
+    const scores = [
+      clampScore(card.dataset.cleanliness, 0),
+      clampScore(card.dataset.activities, 0),
+      clampScore(card.dataset.value, 0),
+      clampScore(card.dataset.friendliness, 0)
+    ];
+    card.setAttribute('role', 'img');
+    card.setAttribute('aria-label', `Vibe meter for ${name}. Overall score ${overall.toFixed(1)} out of 10.`);
+    card.style.setProperty('--score', overall);
+    card.innerHTML = VM_SVG_TEMPLATE;
+
+    // Give every SVG ID a unique name so multiple meters never clash.
+    const svg = card.querySelector('svg');
+    const idMap = new Map();
+    svg.querySelectorAll('[id]').forEach(el => {
+      const oldId = el.id;
+      const newId = `vm-${Math.random().toString(36).slice(2, 9)}-${oldId}`;
+      idMap.set(oldId, newId);
+      el.id = newId;
+    });
+    svg.querySelectorAll('*').forEach(el => {
+      for (const attr of ['href', 'xlink:href']) {
+        const value = el.getAttribute(attr);
+        if (value && value.startsWith('#') && idMap.has(value.slice(1))) el.setAttribute(attr, '#' + idMap.get(value.slice(1)));
+      }
+    });
+
+    const needles = card.querySelectorAll('.vm-sub-dial-needle, .vm-sub-dial-needle-big');
+    needles.forEach((needle, index) => {
+      const score = scores[index];
+      needle.dataset.vmScore = score;
+      // Dial starts at south (180°) and moves clockwise across a 270° scale.
+      const startAngle = 180;
+      const finalAngle = 180 + (score * 27);
+      const settings = VM_NEEDLE_SETTINGS[index];
+      needle.style.setProperty('--start-angle', startAngle + 'deg');
+      needle.style.setProperty('--final-angle', finalAngle + 'deg');
+      needle.style.setProperty('--settle-duration', settings.settle + 's');
+      needle.style.setProperty('--idle-duration', settings.idle + 's');
+      needle.style.setProperty('--idle-delay', settings.delay + 's');
+      needle.style.setProperty('--wiggle', settings.wiggle + 'deg');
+    });
+
+    const wrapper = card.querySelector('.vm-score-window-wrapper');
+    const unitsReel = card.querySelector('.vm-units-reel');
+    const initialTenthsReel = card.querySelector('.vm-initial-tenths-reel');
+    const liveTenthsReel = card.querySelector('.vm-tenths-reel');
+    const mainNeedle = card.querySelector('.vm-main-needle-group');
+    if (!wrapper || !unitsReel || !initialTenthsReel || !liveTenthsReel) return;
+
+    // Build the rolling digits. The reel starts at 07.0 and rolls up to the hostel score.
+    const rowHeight = 12.798634;
+    for (let cycle = 0; cycle < 3; cycle++) {
+      for (let i = 0; i <= 9; i++) {
+        const digit = document.createElement('span'); digit.textContent = i; unitsReel.appendChild(digit);
+      }
+    }
+    for (let cycle = 0; cycle < 4; cycle++) {
+      for (let i = 0; i <= 9; i++) {
+        const digit = document.createElement('span'); digit.textContent = i; initialTenthsReel.appendChild(digit);
+      }
+    }
+    unitsReel.style.transform = `translateY(-${7 * rowHeight}px)`;
+    initialTenthsReel.style.transform = `translateY(-${10 * rowHeight}px)`;
+    const tenths = Math.round((overall % 1) * 10) % 10;
+    [tenths].forEach(number => {
+      const digit = document.createElement('span'); digit.textContent = number; liveTenthsReel.appendChild(digit);
+    });
+    const liveFixed = card.querySelectorAll('.vm-location-live-fixed');
+    if (liveFixed.length > 1) liveFixed[1].textContent = Math.floor(overall);
+
+    // Animate the overall needle to the overall rating.
+    if (mainNeedle) {
+      const targetAngle = 139.667462 + (overall / 9.6) * 210;
+      mainNeedle.style.setProperty('--vm-main-target', targetAngle + 'deg');
+      mainNeedle.addEventListener('animationend', function (event) {
+        if (event.animationName === 'vm_mainNeedleSettle') {
+          mainNeedle.style.animation = 'none';
+          mainNeedle.style.transform = `rotate(${targetAngle}deg)`;
+        }
+      });
+    }
+
+    card.vmStartOdometer = function () {
+      if (card.dataset.vmStarted === 'true') return;
+      card.dataset.vmStarted = 'true';
+      let step = 0;
+      const target = Math.max(0, Math.min(29, Math.round((overall - 7) * 10)));
+      const totalSteps = Math.max(1, target);
+      const interval = 4000 / totalSteps;
+      function advance() {
+        step++;
+        const unitsPosition = 7 + Math.floor(step / 10);
+        const tenthsPosition = 10 + step;
+        unitsReel.style.transform = `translateY(-${unitsPosition * rowHeight}px)`;
+        initialTenthsReel.style.transform = `translateY(-${tenthsPosition * rowHeight}px)`;
+        if (step < totalSteps) setTimeout(advance, interval);
+        else setTimeout(() => {
+          wrapper.classList.add('vm-show-live');
+          liveTenthsReel.style.transform = `translateY(-${0 * rowHeight}px)`;
+        }, 150);
+      }
+      setTimeout(advance, interval);
+    };
+  }
+
+  function clampScore(value, fallback) {
+    const number = Number(value);
+    return Number.isFinite(number) ? Math.max(0, Math.min(10, number)) : fallback;
+  }
+
+  function initialise() {
+    const cards = document.querySelectorAll('.vm-vibe-meter-card');
+    cards.forEach(buildMeter);
+    if (!('IntersectionObserver' in window)) {
+      cards.forEach(card => { card.classList.add('vm-in-view'); if (card.vmStartOdometer) card.vmStartOdometer(); });
+      return;
+    }
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('vm-in-view');
+          if (entry.target.vmStartOdometer) entry.target.vmStartOdometer();
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { root: null, rootMargin: '-40% 0px -40% 0px', threshold: 0 });
+    cards.forEach(card => observer.observe(card));
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initialise);
+  else initialise();
+})();
