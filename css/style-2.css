@@ -6015,7 +6015,7 @@ table.centered-table td {
 /* On phones, use the full available screen width rather than the smaller desktop cap. */
 @media (max-width:600px) {
   .vm-vibe-meter-card {
-    width:min(100vw,620px);
+    width:min(106vw,680px);
     max-width:none;
     margin-left:50%;
     transform:translateX(-50%);
