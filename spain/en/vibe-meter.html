@@ -521,7 +521,6 @@
     <h1 class="area-hero-title" id="faq">Vibe Meter</h1>
 
 
-
 <div class="vibe-meter-card" style="--score: 9.6;">
 
 <style>
@@ -692,7 +691,7 @@
   100% {transform:rotate(349.667462deg);}
 }
 
-/* MINI-NEEDLES: LONG CLOCKWISE SWEEP */
+/* MINI-NEEDLES: long clockwise sweep */
 @keyframes miniNeedleSettle {
   0% {
     transform:rotate(var(--start-angle));
@@ -703,15 +702,15 @@
     opacity:1;
   }
   45% {
-    transform:rotate(calc(var(--final-angle) + 360deg + 10deg));
+    transform:rotate(calc(var(--final-angle) + 10deg));
     opacity:1;
   }
   72% {
-    transform:rotate(calc(var(--final-angle) + 360deg - 4deg));
+    transform:rotate(calc(var(--final-angle) - 4deg));
     opacity:1;
   }
   100% {
-    transform:rotate(calc(var(--final-angle) + 360deg));
+    transform:rotate(var(--final-angle));
     opacity:1;
   }
 }
@@ -751,43 +750,33 @@
 <circle style="fill:#cbcbcb;stroke:#000000;stroke-width:1.5561;" cx="124.0995" cy="127.88613" r="57.932709"/>
 <circle style="fill:#ffffff;stroke:#000000;stroke-width:0.4;" cx="124.0995" cy="127.88613" r="55.844093"/>
 
-<!-- COLOURED ARC SEGMENTS -->
+<!-- UPDATED FIVE-COLOUR SCALE: FIVE SEGMENTS, WITH INTERMEDIATE TICK MARKS -->
+<!-- Coordinates taken from the revised Inkscape SVG and aligned to the main dial. -->
 <g transform="translate(37.722286,52.766296)">
+ <!-- COLOURED SEGMENTS: each covers two points -->
+ <path style="fill:#14d700;fill-opacity:1;stroke:none;" d="m 86.35103,120.63396 c -19.597061,0 -32.280315,-11.96803 -36.762367,-18.64343 0,0.0477 -6.675395,4.76814 -6.675395,4.76814 8.725696,10.48991 20.884456,22.02881 43.485442,22.02881 0,-0.33377 -0.04768,-8.15352 -0.04768,-8.15352 z"/>
+ <path style="fill:#e1ff00;fill-opacity:1;stroke:none;" d="M 49.573961,101.69397 C 38.103125,85.80485 40.382764,68.516068 43.171625,60.974715 c -0.03868,0.02792 -7.773307,-2.6214 -7.773307,-2.6214 -3.397686,13.214831 -5.636394,29.827171 7.592744,48.151865 0.270617,-0.19536 6.582899,-4.81121 6.582899,-4.81121 z"/>
+ <path style="fill:#ffbc00;fill-opacity:1;stroke:none;" d="m 43.115348,60.892623 c 6.073946,-18.632 21.383697,-26.981269 29.119547,-29.173613 -0.04535,-0.01479 -2.464346,-7.824516 -2.464346,-7.824516 -12.677803,5.044733 -27.416991,13.028341 -34.421992,34.516349 0.317327,0.103455 7.766791,2.48178 7.766791,2.48178 z"/>
+ <path style="fill:#ff6a00;fill-opacity:1;stroke:none;" d="m 72.389708,31.887766 c 18.626858,-6.0897 34.401212,1.344576 40.735712,6.296718 -0.0148,-0.0453 4.86325,-6.606427 4.86325,-6.606427 -11.5534,-7.259122 -26.695881,-14.448495 -48.177963,-7.425343 0.103709,0.317243 2.579001,7.735052 2.579001,7.735052 z"/>
+ <path style="fill:#ff0000;fill-opacity:1;stroke:none;" d="m 113.15642,38.333652 c 15.89614,11.461107 19.18478,28.586627 18.91636,36.622643 0.0279,-0.03865 8.20334,0.03637 8.20334,0.03637 -0.94294,-13.612008 -4.05711,-30.082701 -22.3899,-43.300638 -0.1952,0.270729 -4.7298,6.641629 -4.7298,6.641629 z"/>
 
- <path style="fill:#ff0000;fill-opacity:1;stroke:#ff0000;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:miter;paint-order:markers fill stroke;" d="m 131.96094,75.07552 c 0,-16.536458 -8.20209,-27.119791 -13.29532,-32.213021 l 5.72162,-5.721614 c 9.19427,9.194271 15.64349,21.596614 15.64349,37.934635 -1.32292,0 -8.06979,0 -8.06979,0 z"/>
+ <!-- BLACK OUTLINES AROUND THE COLOURED BAND -->
+ <path style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;" d="m 124.60136,37.323444 c 9.60242,9.710409 15.53134,23.061013 15.53134,37.796391 M 48.360073,37.115257 c 9.728324,-9.731521 23.169785,-15.750899 38.017147,-15.7509 m 38.22414,15.959087 C 114.85716,27.469656 101.33017,21.364356 86.37722,21.364357 M 32.621742,75.119835 c 0,-14.840969 6.014196,-28.277247 15.738331,-38.004578 m 0.15454,76.163123 C 38.699698,103.53911 32.621742,90.039262 32.621742,75.119835 m 15.892871,38.158545 c 9.715888,9.641 23.093707,15.59693 37.862607,15.59693 v -8.16506"/>
+ <path style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;" d="m 86.37722,120.68846 c -12.6427,0 -24.082879,-5.1486 -32.338201,-13.46348 m 0,0 C 45.861103,98.988071 40.808598,87.643991 40.808598,75.119835 m 0,0 c 0,-12.613769 5.125068,-24.030514 13.406446,-32.281478 m 0,0 C 62.456581,34.627088 73.824134,29.551212 86.37722,29.551212 m 32.17121,13.296147 c 8.27607,8.250265 13.39741,19.663294 13.39741,32.272476 h 8.01874 M 86.37722,29.551212 c 12.557672,0 23.92894,5.079585 32.17121,13.296147"/>
 
- <path style="fill:#ff6a00;fill-opacity:1;stroke:#ffd700;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:miter;paint-order:markers fill stroke;" d="M 118.65651,42.892416 C 106.96346,31.199374 93.680164,29.515582 86.477249,29.515581 l 4e-6,-8.091588 c 13.002657,0 26.332727,4.209495 37.885457,15.76222 -0.93545,0.935445 -5.7062,5.706203 -5.7062,5.706203 z"/>
+ <!-- FIVE SHORT INTERMEDIATE TICK MARKS: 1, 3, 5, 7 AND 9 -->
+ <path style="fill:#000000;stroke:#000000;stroke-width:0.5;stroke-linecap:round;" d="m 61.99992,123.03082 1.902812,-3.69991"/>
+ <path style="fill:#000000;stroke:#000000;stroke-width:0.5;stroke-linecap:round;" d="m 33.400811,83.505973 4.128896,-0.512099"/>
+ <path style="fill:#000000;stroke:#000000;stroke-width:0.5;stroke-linecap:round;" d="m 48.521648,37.247822 2.922928,2.960832"/>
+ <path style="fill:#000000;stroke:#000000;stroke-width:0.5;stroke-linecap:round;" d="m 94.746962,22.11448 -0.604104,4.116442"/>
+ <path style="fill:#000000;stroke:#000000;stroke-width:0.5;stroke-linecap:round;" d="m 134.16965,50.765376 -3.68138,1.938413"/>
 
- <path style="fill:#ffbc00;fill-opacity:1;stroke:#ffd700;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:miter;paint-order:markers fill stroke;" d="m 86.388292,29.549229 c -16.53647,1e-6 -27.119798,8.20209 -32.213028,13.29532 l -5.721616,-5.721621 c 9.194267,-9.194267 21.596617,-15.643484 37.934637,-15.643491 0,1.322926 7e-6,8.069792 7e-6,8.069792 z"/>
-
- <path style="fill:#e1ff00;fill-opacity:1;stroke:#ffd700;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:miter;paint-order:markers fill stroke;" d="M 54.181093,42.771827 C 42.488044,54.464878 40.804254,67.748174 40.804254,74.951089 l -8.091591,-4e-6 c 0,-13.002657 4.209501,-26.332728 15.762221,-37.885457 0.93545,0.93545 5.706209,5.706199 5.706209,5.706199 z"/>
-
- <path style="fill:#9bff00;fill-opacity:1;stroke:#ffd700;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:miter;paint-order:markers fill stroke;" d="m 40.862609,75.19432 c 0,16.53647 8.202091,27.1198 13.29532,32.21303 l -5.72162,5.72162 C 39.24204,103.9347 32.792824,91.532344 32.792816,75.194327 c 1.322926,0 8.069793,-7e-6 8.069793,-7e-6 z"/>
-
- <path style="fill:#14d700;fill-opacity:1;stroke:none;stroke-width:0.2;stroke-linecap:round;stroke-linejoin:miter;paint-order:markers fill stroke;" d="m 54.60643,107.39958 c 11.693049,11.69305 24.976348,13.37684 32.179262,13.37684 v 8.09159 c -13.002661,1e-5 -26.332737,-4.2095 -37.885469,-15.76222 0.93545,-0.93545 5.706207,-5.70621 5.706207,-5.70621 z"/>
-
-</g>
-
-<!-- SEPARATE BLACK OUTLINES AROUND COLOURED ARCS -->
-<g transform="translate(37.722286,52.766296)"
-   fill="none"
-   stroke="#000000"
-   stroke-width="0.65"
-   stroke-linecap="round"
-   stroke-linejoin="round">
-
- <path d="m 131.96094,75.07552 c 0,-16.536458 -8.20209,-27.119791 -13.29532,-32.213021 l 5.72162,-5.721614 c 9.19427,9.194271 15.64349,21.596614 15.64349,37.934635 -1.32292,0 -8.06979,0 -8.06979,0 z"/>
-
- <path d="M 118.65651,42.892416 C 106.96346,31.199374 93.680164,29.515582 86.477249,29.515581 l 4e-6,-8.091588 c 13.002657,0 26.332727,4.209495 37.885457,15.76222 -0.93545,0.935445 -5.7062,5.706203 -5.7062,5.706203 z"/>
-
- <path d="m 86.388292,29.549229 c -16.53647,1e-6 -27.119798,8.20209 -32.213028,13.29532 l -5.721616,-5.721621 c 9.194267,-9.194267 21.596617,-15.643484 37.934637,-15.643491 0,1.322926 7e-6,8.069792 7e-6,8.069792 z"/>
-
- <path d="M 54.181093,42.771827 C 42.488044,54.464878 40.804254,67.748174 40.804254,74.951089 l -8.091591,-4e-6 c 0,-13.002657 4.209501,-26.332728 15.762221,-37.885457 0.93545,0.93545 5.706209,5.706199 5.706209,5.706199 z"/>
-
- <path d="m 40.862609,75.19432 c 0,16.53647 8.202091,27.1198 13.29532,32.21303 l -5.72162,5.72162 C 39.24204,103.9347 32.792824,91.532344 32.792816,75.194327 c 1.322926,0 8.069793,-7e-6 8.069793,-7e-6 z"/>
-
- <path d="m 54.60643,107.39958 c 11.693049,11.69305 24.976348,13.37684 32.179262,13.37684 v 8.09159 c -13.002661,1e-5 -26.332737,-4.2095 -37.885469,-15.76222 0.93545,-0.93545 5.706207,-5.70621 5.706207,-5.70621 z"/>
-
+ <!-- MAJOR DIVISION TICKS -->
+ <path style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:round;" d="m 49.486682,102.11951 -6.3304,4.62486"/>
+ <path style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:round;" d="M 43.021419,61.093114 35.334207,58.598141"/>
+ <path style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:round;" d="m 72.286775,31.760326 -2.494974,-7.61978"/>
+ <path style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:round;" d="m 113.35268,38.23377 4.58535,-6.473444"/>
+ <path style="fill:#000000;stroke:#000000;stroke-width:0.2;" d="m 86.664966,116.24391 v -1.31387"/>
 </g>
 
 <!-- ARC TEXT: QUIET -->
@@ -918,7 +907,7 @@
         const score = Number(needle.dataset.score);
         const bearing = Number(needle.dataset.bearing);
         const startAngle = 180 - bearing;
-        const finalAngle = startAngle - (score * 4.5);
+        const finalAngle = startAngle + (score * 27);
 
         needle.style.setProperty('--start-angle', startAngle + 'deg');
         needle.style.setProperty('--final-angle', finalAngle + 'deg');
