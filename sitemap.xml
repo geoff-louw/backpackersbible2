@@ -686,13 +686,28 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.backpackersbible.com/spain/es/regiones/ceuta-melilla</loc>
+    <lastmod>2026-11-09</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.backpackersbible.com/spain/es/itinerarios/</loc>
     <lastmod>2026-11-10</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.backpackersbible.com/spain/es/regiones/ceuta-melilla</loc>
-    <lastmod>2026-11-09</lastmod>
+    <loc>https://www.backpackersbible.com/spain/es/consejos/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.backpackersbible.com/spain/es/consejos/en-espana</loc>
+    <lastmod>2026-11-11</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.backpackersbible.com/spain/es/consejos/intereses</loc>
+    <lastmod>2026-11-11</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
