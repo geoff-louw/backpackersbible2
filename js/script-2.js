@@ -1541,6 +1541,7 @@ function setupMapPopups(map) {
     friendliness: { settle: 3900, idleDuration: 5300, delay: 4000, wiggle: 0.7 }
   };
 
+  
   function scoreFrom(card, key, fallbackKey) {
     let raw = card.getAttribute('data-' + key);
     if (raw === null && fallbackKey) raw = card.getAttribute('data-' + fallbackKey);
@@ -1548,164 +1549,322 @@ function setupMapPopups(map) {
     const n = Number(raw);
     return Number.isFinite(n) ? Math.max(0, Math.min(10, n)) : 0;
   }
+
   function addDigit(reel, digit) {
     const span = document.createElement('span');
     span.textContent = String(digit);
     reel.appendChild(span);
   }
+
   function uniqueSvgIds(svg, index) {
     const map = new Map();
+
     svg.querySelectorAll('[id]').forEach(el => {
       const oldId = el.id;
       const newId = 'vm-meter-' + index + '-' + oldId;
       map.set(oldId, newId);
       el.id = newId;
     });
+
     svg.querySelectorAll('*').forEach(el => {
       ['href', 'xlink:href'].forEach(attr => {
         const value = el.getAttribute(attr);
-        if (value && value.charAt(0) === '#' && map.has(value.slice(1))) el.setAttribute(attr, '#' + map.get(value.slice(1)));
+        if (value && value.charAt(0) === '#' && map.has(value.slice(1))) {
+          el.setAttribute(attr, '#' + map.get(value.slice(1)));
+        }
       });
+
       ['style', 'fill', 'stroke', 'clip-path', 'filter', 'mask'].forEach(attr => {
         const value = el.getAttribute(attr);
         if (!value) return;
+
         let updated = value;
-        map.forEach((newId, oldId) => { updated = updated.replaceAll('url(#' + oldId + ')', 'url(#' + newId + ')'); });
+        map.forEach((newId, oldId) => {
+          updated = updated.replaceAll('url(#' + oldId + ')', 'url(#' + newId + ')');
+        });
+
         if (updated !== value) el.setAttribute(attr, updated);
       });
     });
   }
-  function animateNeedle(needle, startAngle, endAngle, duration, wiggle, idleDelay, idleDuration) {
-    needle.style.transformOrigin = '123.89387px 153.76831px';
-    needle.style.transformBox = 'view-box';
-    needle.style.opacity = '1';
-    const animation = needle.animate(
-      [{ transform: 'rotate(' + startAngle + 'deg)' }, { transform: 'rotate(' + endAngle + 'deg)' }],
-      { duration: duration, easing: 'cubic-bezier(.4,0,.2,1)', fill: 'forwards' }
-    );
-    animation.onfinish = function () {
-      needle.style.transform = 'rotate(' + endAngle + 'deg)';
-      animation.cancel();
-      if (!wiggle) return;
-      function idle() {
-        const wiggleAnimation = needle.animate([
-          { transform: 'rotate(' + endAngle + 'deg)' },
-          { transform: 'rotate(' + (endAngle + wiggle) + 'deg)' },
-          { transform: 'rotate(' + (endAngle - wiggle) + 'deg)' },
-          { transform: 'rotate(' + endAngle + 'deg)' }
-        ], { duration: idleDuration, easing: 'ease-in-out' });
-        wiggleAnimation.onfinish = function () { needle.style.transform = 'rotate(' + endAngle + 'deg)'; wiggleAnimation.cancel(); window.setTimeout(idle, idleDelay); };
+
+  // Native SVG rotation. This avoids CSS transform-origin problems
+  // inside the nested and scaled SVG groups.
+  function animateSvgNeedle(needle, startAngle, endAngle, duration, wiggle, idleDelay, idleDuration, cx, cy) {
+    let animationFrame = null;
+    let idleTimer = null;
+
+    const pivot = cx + ' ' + cy;
+
+    function setAngle(angle) {
+      needle.setAttribute('transform', 'rotate(' + angle + ' ' + pivot + ')');
+    }
+
+    function ease(t) {
+      return t < 0.5
+        ? 4 * t * t * t
+        : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+
+    function move(from, to, time, callback) {
+      if (animationFrame !== null) {
+        cancelAnimationFrame(animationFrame);
       }
-      window.setTimeout(idle, idleDelay);
+
+      const startTime = performance.now();
+
+      function frame(now) {
+        const progress = Math.min(1, (now - startTime) / time);
+        const eased = ease(progress);
+        const angle = from + (to - from) * eased;
+
+        setAngle(angle);
+
+        if (progress < 1) {
+          animationFrame = requestAnimationFrame(frame);
+        } else {
+          animationFrame = null;
+          setAngle(to);
+          if (callback) callback();
+        }
+      }
+
+      animationFrame = requestAnimationFrame(frame);
+    }
+
+    setAngle(startAngle);
+
+    move(startAngle, endAngle, duration, function () {
+      if (!wiggle) return;
+
+      function idle() {
+        move(endAngle, endAngle + wiggle, idleDuration / 4, function () {
+          move(endAngle + wiggle, endAngle - wiggle, idleDuration / 2, function () {
+            move(endAngle - wiggle, endAngle, idleDuration / 4, function () {
+              idleTimer = window.setTimeout(idle, idleDelay);
+            });
+          });
+        });
+      }
+
+      idleTimer = window.setTimeout(idle, idleDelay);
+    });
+
+    return function stop() {
+      if (animationFrame !== null) cancelAnimationFrame(animationFrame);
+      if (idleTimer !== null) window.clearTimeout(idleTimer);
     };
   }
+
   function buildMeter(card, index) {
     if (card.dataset.vmBuilt === 'v6') return;
+
     card.dataset.vmBuilt = 'v6';
+
     const locationScore = scoreFrom(card, 'location', 'score');
     const partyScore = scoreFrom(card, 'partyness', 'score');
+
     const miniScores = {
       cleanliness: scoreFrom(card, 'cleanliness'),
       activities: scoreFrom(card, 'activities'),
       value: scoreFrom(card, 'value'),
       friendliness: scoreFrom(card, 'friendliness')
     };
+
     const name = card.dataset.name || 'Hostel';
+
     card.setAttribute('role', 'img');
-    card.setAttribute('aria-label', 'Vibe meter for ' + name + '. Location ' + locationScore.toFixed(1) + ' out of 10. Party-ness ' + partyScore.toFixed(1) + ' out of 10.');
+    card.setAttribute(
+      'aria-label',
+      'Vibe meter for ' + name +
+      '. Location ' + locationScore.toFixed(1) +
+      ' out of 10. Party-ness ' + partyScore.toFixed(1) +
+      ' out of 10.'
+    );
+
     card.innerHTML = VM_SVG_TEMPLATE;
+
     const svg = card.querySelector('svg');
     uniqueSvgIds(svg, index);
 
     card.vmStartAnimations = function () {
       if (card.dataset.vmAnimationsStarted === 'true') return;
       card.dataset.vmAnimationsStarted = 'true';
+
+      // MINI DIALS
+      const miniScaleAngles = [
+        90.02, 120.53, 149.92, 180.93, 212.76,
+        241.42, 269.88, 303.53, 336.15, 368.03, 399.90
+      ];
+
       Object.keys(miniScores).forEach(key => {
         const needle = card.querySelector('[data-vm-needle="' + key + '"]');
         if (!needle) return;
+
         const settings = VM_NEEDLE_SETTINGS[key];
         const baseAngle = Number(needle.getAttribute('data-vm-base-angle'));
-        // Angles follow the tick positions in the supplied original mini-dial artwork.
-        // Interpolate between each numbered mark so the needle tracks the scale accurately.
-        const miniScaleAngles = [90.02, 120.53, 149.92, 180.93, 212.76, 241.42, 269.88, 303.53, 336.15, 368.03, 399.90];
-        const wholeScore = Math.floor(miniScores[key]);
-        const fraction = miniScores[key] - wholeScore;
+
+        const score = miniScores[key];
+        const wholeScore = Math.floor(score);
+        const fraction = score - wholeScore;
         const nextMark = Math.min(10, wholeScore + 1);
-        const targetPointerAngle = miniScaleAngles[wholeScore] + (miniScaleAngles[nextMark] - miniScaleAngles[wholeScore]) * fraction;
+
+        const targetPointerAngle =
+          miniScaleAngles[wholeScore] +
+          (miniScaleAngles[nextMark] - miniScaleAngles[wholeScore]) * fraction;
+
         const rotation = targetPointerAngle - baseAngle;
-        animateNeedle(needle, 0, rotation, settings.settle, settings.wiggle, settings.delay, settings.idleDuration);
+
+        animateSvgNeedle(
+          needle,
+          0,
+          rotation,
+          settings.settle,
+          settings.wiggle,
+          settings.delay,
+          settings.idleDuration,
+          123.89387,
+          153.76831
+        );
       });
 
+      // MAIN PARTY-NESS NEEDLE
       const mainNeedle = card.querySelector('[data-vm-needle="partyness"]');
-      if (mainNeedle) {
-        // Main dial runs clockwise through 270 degrees from 0 to 10.
-        const targetAngle = 141.280309 + partyScore * 27;
-        mainNeedle.style.transformOrigin = '123.77471px 127.88613px';
-        mainNeedle.style.transformBox = 'view-box';
-        mainNeedle.animate(
-          [{ transform: 'rotate(141.280309deg)' }, { transform: 'rotate(' + targetAngle + 'deg)' }],
-          { duration: 5500, easing: 'cubic-bezier(.4,0,.2,1)', fill: 'forwards' }
-        ).onfinish = function (event) { mainNeedle.style.transform = 'rotate(' + targetAngle + 'deg)'; };
-      }
 
+      if (mainNeedle) {
+        const startAngle = 141.280309;
+        const targetAngle = startAngle + partyScore * 27;
+
+        animateSvgNeedle(
+          mainNeedle,
+          startAngle,
+          targetAngle,
+          5500,
+          0,
+          0,
+          0,
+          123.77471,
+          127.88613
+        );
+      }
     };
 
-    // Build all three odometer reels from the same sequence of values, so they stay in sync.
+    // LOCATION ODOMETER
     const reels = {
       tens: card.querySelector('.vm-tens-reel'),
       units: card.querySelector('.vm-units-reel'),
       tenths: card.querySelector('.vm-tenths-reel')
     };
+
     const rowHeight = 12.798634;
-    const startValue = 70; // opening display: 07.0
+    const startValue = 70;
     const targetValue = Math.round(locationScore * 10);
+
     const direction = targetValue >= startValue ? 1 : -1;
     const steps = Math.abs(targetValue - startValue);
+
     for (let i = 0; i <= steps; i++) {
       const value = startValue + i * direction;
+
       addDigit(reels.tens, Math.floor(value / 100));
       addDigit(reels.units, Math.floor(value / 10) % 10);
       addDigit(reels.tenths, value % 10);
     }
+
     function setPosition(step) {
       const y = -(step * rowHeight);
-      Object.values(reels).forEach(reel => { reel.style.transform = 'translateY(' + y + 'px)'; });
+
+      Object.values(reels).forEach(reel => {
+        reel.style.transform = 'translateY(' + y + 'px)';
+      });
     }
+
     setPosition(0);
+
     card.vmStartOdometer = function () {
       if (card.dataset.vmStarted === 'true') return;
       card.dataset.vmStarted = 'true';
+
       if (!steps) return;
+
       let step = 0;
       const interval = 4000 / steps;
-      function advance() { step++; setPosition(step); if (step < steps) window.setTimeout(advance, interval); }
+
+      function advance() {
+        step++;
+        setPosition(step);
+
+        if (step < steps) {
+          window.setTimeout(advance, interval);
+        }
+      }
+
       window.setTimeout(advance, interval);
     };
   }
+
   function initialise() {
     const cards = document.querySelectorAll('.vm-vibe-meter-card');
+
     cards.forEach(buildMeter);
+
     if (!('IntersectionObserver' in window)) {
-      cards.forEach(card => { card.classList.add('vm-in-view'); if (card.vmStartAnimations) card.vmStartAnimations(); if (card.vmStartOdometer) card.vmStartOdometer(); });
+      cards.forEach(card => {
+        card.classList.add('vm-in-view');
+
+        if (card.vmStartAnimations) card.vmStartAnimations();
+        if (card.vmStartOdometer) card.vmStartOdometer();
+      });
+
       return;
     }
+
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
+
         const rect = entry.boundingClientRect;
-        const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+        const viewportHeight =
+          window.innerHeight || document.documentElement.clientHeight;
+
         const cardCentre = rect.top + rect.height / 2;
-        // Start only when the centre of the meter is in the middle 30% of the screen.
-        if (cardCentre >= viewportHeight * 0.35 && cardCentre <= viewportHeight * 0.65) {
+
+        // Only start when the centre of the meter enters the
+        // middle 30% of the visible screen.
+        if (
+          cardCentre >= viewportHeight * 0.35 &&
+          cardCentre <= viewportHeight * 0.65
+        ) {
           entry.target.classList.add('vm-in-view');
-          if (entry.target.vmStartAnimations) entry.target.vmStartAnimations();
-          if (entry.target.vmStartOdometer) entry.target.vmStartOdometer();
+
+          if (entry.target.vmStartAnimations) {
+            entry.target.vmStartAnimations();
+          }
+
+          if (entry.target.vmStartOdometer) {
+            entry.target.vmStartOdometer();
+          }
+
           obs.unobserve(entry.target);
         }
       });
-    }, { root: null, rootMargin: '-30% 0px -30% 0px', threshold: [0, 0.1, 0.25, 0.5, 0.75, 1] });
+    }, {
+      root: null,
+
+      // Use pixels/zero rather than vertical percentages.
+      // Vertical percentage rootMargins are calculated against width.
+      rootMargin: '0px',
+
+      threshold: 0
+    });
+
     cards.forEach(card => observer.observe(card));
   }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initialise);
-  else initialise();
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initialise);
+  } else {
+    initialise();
+  }
 })();
+
