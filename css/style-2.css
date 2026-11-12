@@ -6100,12 +6100,13 @@ table.centered-table td {
   transform-box:view-box;
 }
 
+/* Keep all four mini-dial labels exactly the same size. */
 .vm-vibe-meter-card .vm-mini-label {
   font-size:5.4px !important;
 }
 
 .vm-vibe-meter-card .vm-mini-label tspan {
-  font-size:5.1px !important;
+  font-size:5.4px !important;
 }
 
 /* VIBE-meter logo */
@@ -6117,7 +6118,7 @@ table.centered-table td {
 .vm-vibe-meter-card .vm-logo-top,
 .vm-vibe-meter-card .vm-logo-bottom {
   font-family:Arial,sans-serif;
-  font-size:2.3px;
+  font-size:7px;
   font-weight:700;
   font-style:normal;
 }
@@ -6127,7 +6128,7 @@ table.centered-table td {
 }
 
 .vm-vibe-meter-card .vm-logo-tm {
-  font-size:1px;
+  font-size:2.4px;
   font-weight:700;
 }
 
@@ -6140,4 +6141,3 @@ table.centered-table td {
     transform:translateX(-50%);
   }
 }
-
