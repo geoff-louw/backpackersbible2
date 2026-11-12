@@ -6001,17 +6001,136 @@ table.centered-table td {
    ============================================================ */
 
 
-.vm-vibe-meter-card { width:100%; max-width:520px; aspect-ratio:167.72946 / 158.74797; margin:0 auto; display:block; position:relative; line-height:0; }
-.vm-vibe-meter-card > svg { display:block; width:100%; height:100%; overflow:visible; }
-.vm-vibe-meter-card .vm-score-window-wrapper { width:100%; height:100%; overflow:hidden; position:relative; background:#a1a1a1; color:#000; font-family:'Century Gothic',sans-serif; font-size:2.3mm; line-height:1; }
-.vm-vibe-meter-card .vm-location-reel { position:absolute; inset:0; display:flex; align-items:flex-start; justify-content:center; width:100%; height:100%; line-height:12.798634px; font-family:'Century Gothic',sans-serif; font-size:2.3mm; }
-.vm-vibe-meter-card .vm-digit-window { position:relative; display:block; width:5px; height:12.798634px; overflow:hidden; flex:0 0 5px; }
-.vm-vibe-meter-card .vm-digit-reel { position:absolute; top:0; left:0; width:100%; margin:0; padding:0; display:flex; flex-direction:column; will-change:transform; }
-.vm-vibe-meter-card .vm-digit-reel span { display:block; box-sizing:border-box; width:100%; height:12.798634px; min-height:12.798634px; max-height:12.798634px; margin:0; padding:0; flex:0 0 12.798634px; line-height:12.798634px; text-align:center; white-space:nowrap; font-family:'Century Gothic',sans-serif; font-size:2.3mm; font-weight:normal; font-variant-numeric:lining-nums tabular-nums; font-feature-settings:'lnum','tnum'; }
-.vm-vibe-meter-card .vm-location-static { display:block; height:12.798634px; line-height:12.798634px; width:5px; flex:0 0 5px; text-align:center; }
-.vm-vibe-meter-card .vm-main-needle-group, .vm-vibe-meter-card .vm-sub-dial-needle, .vm-vibe-meter-card .vm-sub-dial-needle-big { transform-box:view-box; }
-.vm-vibe-meter-card .vm-mini-label { font-size:5.4px !important; }
-.vm-vibe-meter-card .vm-mini-label tspan { font-size:5.1px !important; }
+
+.vm-vibe-meter-card {
+  width:100%;
+  max-width:520px;
+  aspect-ratio:167.72946 / 158.74797;
+  margin:0 auto;
+  display:block;
+  position:relative;
+  line-height:0;
+}
+
+.vm-vibe-meter-card > svg {
+  display:block;
+  width:100%;
+  height:100%;
+  overflow:visible;
+}
+
+.vm-vibe-meter-card .vm-score-window-wrapper {
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  position:relative;
+  background:#a1a1a1;
+  color:#000;
+  font-family:'Century Gothic',sans-serif;
+  font-size:2.3mm;
+  line-height:1;
+}
+
+.vm-vibe-meter-card .vm-location-reel {
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  width:100%;
+  height:100%;
+  line-height:12.798634px;
+  font-family:'Century Gothic',sans-serif;
+  font-size:2.3mm;
+}
+
+.vm-vibe-meter-card .vm-digit-window {
+  position:relative;
+  display:block;
+  width:5px;
+  height:12.798634px;
+  overflow:hidden;
+  flex:0 0 5px;
+}
+
+.vm-vibe-meter-card .vm-digit-reel {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  will-change:transform;
+}
+
+.vm-vibe-meter-card .vm-digit-reel span {
+  display:block;
+  box-sizing:border-box;
+  width:100%;
+  height:12.798634px;
+  min-height:12.798634px;
+  max-height:12.798634px;
+  margin:0;
+  padding:0;
+  flex:0 0 12.798634px;
+  line-height:12.798634px;
+  text-align:center;
+  white-space:nowrap;
+  font-family:'Century Gothic',sans-serif;
+  font-size:2.3mm;
+  font-weight:normal;
+  font-variant-numeric:lining-nums tabular-nums;
+  font-feature-settings:'lnum','tnum';
+}
+
+.vm-vibe-meter-card .vm-location-static {
+  display:block;
+  height:12.798634px;
+  line-height:12.798634px;
+  width:5px;
+  flex:0 0 5px;
+  text-align:center;
+}
+
+.vm-vibe-meter-card .vm-main-needle-group,
+.vm-vibe-meter-card .vm-sub-dial-needle,
+.vm-vibe-meter-card .vm-sub-dial-needle-big {
+  transform-box:view-box;
+}
+
+.vm-vibe-meter-card .vm-mini-label {
+  font-size:5.4px !important;
+}
+
+.vm-vibe-meter-card .vm-mini-label tspan {
+  font-size:5.1px !important;
+}
+
+/* VIBE-meter logo */
+.vm-vibe-meter-card .vm-logo {
+  fill:#333333;
+  text-anchor:start;
+}
+
+.vm-vibe-meter-card .vm-logo-top,
+.vm-vibe-meter-card .vm-logo-bottom {
+  font-family:Arial,sans-serif;
+  font-size:2.3px;
+  font-weight:700;
+  font-style:normal;
+}
+
+.vm-vibe-meter-card .vm-logo-top {
+  font-style:italic;
+}
+
+.vm-vibe-meter-card .vm-logo-tm {
+  font-size:1px;
+  font-weight:700;
+}
+
 /* On phones, use the full available screen width rather than the smaller desktop cap. */
 @media (max-width:600px) {
   .vm-vibe-meter-card {
@@ -6021,3 +6140,4 @@ table.centered-table td {
     transform:translateX(-50%);
   }
 }
+
