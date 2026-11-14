@@ -5168,7 +5168,7 @@ img.bb-marker-icon {
 
 
 .bb-it-intro {
-    background: #1d479c;
+    background: #e86a6a;
     padding: 22px 20px 30px;
     text-align: center;
   }
@@ -5528,6 +5528,140 @@ table.centered-table td {
   font-style: normal;
   font-family: inherit;
 }
+
+/* ============================================================
+   46. WTF BUTTON
+   Red "WTF?" fun-fact button. Click toggles .is-open (see
+   script-2.js section 20). Markup lives in each page:
+   .wtf-wrap > .wtf-widget > button.wtf-trigger + svg.wtf-hand
+   ============================================================ */
+
+.wtf-wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 70px auto 20px;
+  text-align: center;
+}
+
+.wtf-widget {
+  width: 82px;
+  text-align: center;
+}
+
+.wtf-trigger {
+  box-sizing: border-box;
+  width: 72px;
+  height: 72px;
+  padding: 0;
+  border: 4px solid white;
+  outline: 0px solid #222;
+  border-radius: 50%;
+  background: #ed2024;
+  color: white;
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 900;
+  cursor: pointer;
+  animation: wtfBlink 1.5s infinite;
+  transition: width .35s, height .35s, border-radius .35s,
+              background .35s, color .35s;
+  box-shadow: 0 2px 5px rgba(0,0,0,.2);
+}
+
+.wtf-trigger:hover {
+  background: #c90000;
+}
+
+@keyframes wtfBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .75; }
+}
+
+/* MANICULE */
+
+.wtf-hand {
+  display: block;
+  width: 30px;
+  height: 36px;
+  margin: -1px auto 0;
+  pointer-events: none;
+}
+
+/* EXPANDED PANEL */
+
+.wtf-widget.is-open {
+  width: min(360px, 100%);
+}
+
+.wtf-widget.is-open .wtf-trigger {
+  width: 100%;
+  height: auto;
+  min-height: 72px;
+  padding: 18px 20px;
+  border: 2px solid #ed2024;
+  outline: none;
+  border-radius: 7px;
+  text-align: left;
+  animation: none;
+  background: white;
+  color: #111;
+  cursor: pointer;
+}
+
+.wtf-heading {
+  display: none;
+}
+
+.wtf-copy {
+  display: none;
+}
+
+.wtf-widget.is-open .wtf-label {
+  display: none;
+}
+
+.wtf-widget.is-open .wtf-heading {
+  display: block;
+  font-size: 20px;
+  font-weight: 900;
+  color: #ed2024;
+  margin-bottom: 12px;
+  letter-spacing: .5px;
+}
+
+.wtf-widget.is-open .wtf-copy {
+  display: block;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.55;
+  color: #111;
+}
+
+.wtf-close {
+  display: none;
+}
+
+.wtf-widget.is-open .wtf-close {
+  display: block;
+  font-size: 10px;
+  font-weight: normal;
+  color: #666;
+  margin-top: 14px;
+  letter-spacing: 1px;
+}
+
+.wtf-widget.is-open .wtf-hand {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wtf-trigger {
+    animation: none;
+    transition: none;
+  }
+}
+
 
 /* ============================================================
    46. PLACES MAP (things-to-do maps — MapLibre loads on click)
