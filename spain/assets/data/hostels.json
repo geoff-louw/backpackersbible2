@@ -1,0 +1,872 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.766295,
+     42.117619
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "alberg-banyoles",
+    "name": "ALBERG BANYOLES",
+    "address": "Carrer Migdia, 10, 17820 Banyoles, Girona",
+    "phone": "+34972575454",
+    "email": "info@albergdebanyoles.com",
+    "website": "www.albergdebanyoles.com",
+    "info": "Alberg de Banyoles is a tourist hostel at Carrer del Migdia 10 in the urban centre of Banyoles, in the Pla de l'Estany, aimed mainly at school groups, sports teams and families. Its site says the central position is ideal for sports stays in canoeing, swimming and rowing, with good access to Banyoles lake and the facilities of the Club Natació Banyoles, as well as excursions and activities for school classes and families. There are more than ten rooms with bathrooms for four to six people, and stays are on a full-board basis with educational, sporting and cultural activities. Families can combine a stay with a free guided visit and discount coupons for local activities. The Girona to Banyoles to Serinyà greenway, nearly 40 km of the Tren Pinxo route, is a new cycling option on the doorstep. A virtual tour of the hostel is on its website. Phone, email, Facebook and Instagram are listed in the footer.",
+    "anchor": "/spain/en/hostels/catalonia#alberg-banyoles",
+    "googleRating": "3.8 / 5",
+    "booking": "https://www.booking.com/hotel/es/totel-la-ast.ca.html"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     3.149969,
+     42.366894
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "alberg-costa-brava",
+    "name": "ALBERG COSTA BRAVA",
+    "address": "Carrer Setcases, 9, 17490 Llançà, Girona",
+    "phone": "+34972380384",
+    "email": "info@albergcostabrava.com",
+    "website": "www.albergcostabrava.com",
+    "info": "Alberg Costa Brava is a hostel at Carrer Setcases 9 in Llançà, near the beach in the Cap de Creus area, with double rooms, family rooms and group stays. A team of four opened it more than ten years ago as a refuge for walkers, cyclists, kayakers and nature lovers, and it belongs to the Hostelling International and Costa Brava Pirineu hostel networks. Breakfast uses local km0 products such as bread from a local bakery, there are inclusive toilets, and guests are asked to help recycle and cut energy, water and plastic use. Walks from the area include stage one of the GR92 coastal path from Portbou to Llançà, a six-hour stage on to Cadaqués, and Sant Pere de Rodes. The Dalí museum in Figueres, Cadaqués and Cap de Creus are all within reach, and trains and buses link Llançà with Barcelona. Contact is by phone, email, Facebook and Instagram.",
+    "anchor": "/spain/en/hostels/catalonia#alberg-costa-brava",
+    "googleRating": "4.7 / 5",
+    "booking": "https://www.booking.com/hotel/es/alberg-l-estacio.html"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     1.957755,
+     42.339743
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "alberg-la-molina-xanascat",
+    "name": "ALBERG LA MOLINA XANASCAT",
+    "address": "Plaça del Sitjar, 1, 17537 La Molina, Girona, Girona",
+    "phone": "+34972892012",
+    "email": "reserves.xanascat@gencat.cat",
+    "website": "xanascat.gencat.cat",
+    "info": "La Molina Xanascat is a mountain hostel at 1,450 metres in the municipality of Alp, in the Cerdanya, built in stone and wood to blend into its surroundings. It is five minutes from the La Molina ski slopes, 15 from La Masella and about 25 from French resorts such as Font-Romeu, and Puigcerdà, the capital of the Cerdanya, is close. In winter it is a base for skiing and other mountain sports, and nearby you can hike in the Cadí-Moixeró Natural Park, visit the Martinet bunkers, see animals at a farm in Prullans or tour local food producers. Local events include the Trinxat festival in Puigcerdà in February and an accordion meeting at La Molina in August. It belongs to the Xanascat network of Catalan youth hostels, which mostly serves school and youth groups; reservations go through the network's central office or online.",
+    "anchor": "/spain/en/hostels/catalonia#alberg-la-molina-xanascat",
+    "googleRating": "4.3 / 5",
+    "booking": "https://www.booking.com/hotel/es/mare-de-da-c-u-de-les-neus.ca.html"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.100211,
+     42.31317
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "alberg-planoles-xanascat",
+    "name": "ALBERG PLANOLES XANASCAT",
+    "address": "Ctra Nevà Prat Cap Riu, s/n, 17535 Planoles, Girona",
+    "phone": "+34972736177",
+    "email": "alberg.planoles@gencat.cat",
+    "website": "xanascat.gencat.cat",
+    "info": "Planoles Xanascat is a mountain hostel beside the village of Planoles, on the Rigard river in the Ribes valleys of the Ripollès, surrounded by woods, paths and mountain villages. It has 194 places and was the first hostel the Generalitat of Catalonia inaugurated as such, a mountain building for staying comfortably for a few days. Walks and hikes start from the door, peaks above 2,000 metres are within easy reach, and the ski resorts of La Molina and La Masella, the north of the Berguedà and the Cerdanya are all close, with adventure sports and fishing for those who want them. Above all, the hostel sells peace and quiet. It belongs to the Xanascat network of Catalan youth hostels and can be contacted directly or through the network's central reservations office.",
+    "anchor": "/spain/en/hostels/catalonia#alberg-planoles-xanascat",
+    "googleRating": "4.1 / 5",
+    "booking": "https://www.booking.com/hotel/es/alberg-pera-figuera.html"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.821901,
+     41.985085
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "bed-in-girona",
+    "name": "BED IN GIRONA",
+    "address": "Carrer Anselm Clavé, 36 Principal, 17001 Girona",
+    "phone": "+34678177916",
+    "website": "www.bedingirona.com",
+    "info": "",
+    "anchor": "/spain/en/hostels/catalonia#bed-in-girona",
+    "googleRating": "3.0 / 5",
+    "hostelworld": "https://www.hostelworld.com/bed-and-breakfasts/p/273975/bed-in-girona/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.809931,
+     41.975162
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "can-cocollona",
+    "name": "CAN COCOLLONA",
+    "address": "Av. de la Hispanitat, 38, 17005 Girona",
+    "phone": "+34607409610",
+    "website": "www.cancocollona.com",
+    "info": "",
+    "anchor": "/spain/en/hostels/catalonia#can-cocollona",
+    "googleRating": "4.2 / 5",
+    "booking": "https://www.booking.com/hotel/es/can-cocollona.html",
+    "hostelworld": "https://www.hostelworld.com/hostels/p/289643/can-cocollona/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.385476,
+     41.848197
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "cubez-hostel-viladrau",
+    "name": "CUBEZ HOSTEL VILADRAU",
+    "address": "Passeig Doctor Ariet, 6, 17406 Viladrau, Girona",
+    "phone": "+34613741228",
+    "whatsapp": "+34613741228",
+    "email": "contact@cubez.es",
+    "website": "cubez.es",
+    "info": "Cubez Hostel Viladrau is a hostel in the village of Viladrau, in the heart of the Montseny, surrounded by the Montseny Natural Park and the Guilleries range and about an hour from Barcelona. Its site pitches it as a base for nature lovers and adventurers, with seasonal activities through the year. Rooms range from singles and twins to triples and quads, including a four-bed bunk room, and there is a dining room serving a breakfast buffet and a dinner menu. Guests can hire mountain bikes and quad bikes, borrow mushroom-picking baskets, and use a barbecue pit and a bonfire area. Groups can request a quote for stays with meals, bike hire, hiking gear and picnic lunches. Bookings go through its website, and guests can contact the hostel by phone, WhatsApp or email.",
+    "anchor": "/spain/en/hostels/catalonia#cubez-hostel-viladrau",
+    "googleRating": "4.4 / 5",
+    "booking": "https://www.booking.com/hotel/es/cubez-hostal-viladrau.html",
+    "hostelworld": "https://www.hostelworld.com/hostels/p/331418/cubez-hostal-viladrau/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.84916,
+     41.70042
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "hostal-ancora",
+    "name": "HOSTAL ANCORA",
+    "address": "Carrer de Santa Anna, 1, 17310 Lloret de Mar, Girona",
+    "phone": "+34972364589",
+    "website": "www.hotelscheck-in.com",
+    "info": "",
+    "anchor": "/spain/en/hostels/catalonia#hostal-ancora",
+    "googleRating": "3.9 / 5",
+    "booking": "https://www.booking.com/hotel/es/ancora.html"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     3.176926,
+     42.261905
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "hostal-gloria",
+    "name": "HOSTAL GLORIA",
+    "address": "Carrer d'en Mairó, 28, 17480 Roses, Girona",
+    "phone": "+34972254293",
+    "website": "hostal-gloria.hotelpedia.top",
+    "info": "",
+    "anchor": "/spain/en/hostels/catalonia#hostal-gloria",
+    "googleRating": "2.8 / 5",
+    "booking": "https://www.booking.com/hotel/es/agi-gloria-hostel.html"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     3.275987,
+     42.288321
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "hostal-vehi",
+    "name": "HOSTAL VEHÍ",
+    "address": "Carrer de l'Església, 6, 17488 Cadaqués, Girona",
+    "phone": "+34972258470",
+    "whatsapp": "+34633396166",
+    "email": "info@hostalvehi.com",
+    "website": "www.hostalvehi.com",
+    "info": "Hostal Vehí is a family-run hostal at Carrer de l'Església 6, in the centre of Cadaqués, beside the church of Santa María and a few metres from the beach. The building dates from 1944, when it was a fonda, an inn, and later a restaurant, and it now offers private rooms only: a 12 square metre single, a 12 square metre double with one or two beds, and an 18 square metre triple with three single beds. Rooms have private bathrooms, air conditioning and, depending on the room, heating, cable or flat-screen TV, a safe and a hairdryer, and the hostal has free Wi-Fi. Its site promises free cancellation up to 72 hours before arrival and the best price when you book direct. Cadaqués is called the most charming village on the Costa Brava, and the hostal is within walking distance of its stone lanes. Guests can contact the hostal by phone, WhatsApp or email.",
+    "anchor": "/spain/en/hostels/catalonia#hostal-vehi",
+    "googleRating": "4.8 / 5",
+    "booking": "https://www.booking.com/hotel/es/hostal-vehi.html"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.804642,
+     41.975837
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "hostel-alhambra",
+    "name": "HOSTEL ALHAMBRA",
+    "address": "Carrer del Bassegoda, 18, 17006 Girona",
+    "phone": "+34649945131",
+    "website": "www.hostel-alhambra-gerona.vivehotels.com",
+    "info": "",
+    "anchor": "/spain/en/hostels/catalonia#hostel-alhambra",
+    "googleRating": "2.6 / 5",
+    "booking": "https://www.booking.com/hotel/es/hostel-alhambra.html"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.930822,
+     41.7204
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "hotel-l-illa",
+    "name": "HOTEL L'ILLA",
+    "address": "Carrer Nou, 35, 17320 Tossa de Mar, Girona",
+    "phone": "+34694288187",
+    "whatsapp": "+34694288187",
+    "website": "www.lillahotel.es",
+    "info": "L'Illa Hotel is a small, simple hotel at Carrer Nou 35 in the centre of Tossa de Mar, a few minutes from the old town and about five minutes on foot from the beach. Its rooms were renovated in 2025 and are cleaned daily; singles have a window or inner balcony, and doubles and triples have inner or outer balconies. All have a private bathroom, a TV and heating and cooling, and Wi-Fi covers the whole building. Parking is available with limited spaces, so ask on arrival. Breakfast is not served, but the team recommends places nearby. The owner pitches it as a straightforward place to rest after a day exploring Tossa, with a personal welcome, and guest reviews on its site single out the helpful staff, the cleanliness and the location. The hotel also lists shared rooms on a separate page of its website. Booking direct through the site is promised to be the cheapest option.",
+    "anchor": "/spain/en/hostels/catalonia#hotel-l-illa",
+    "googleRating": "4.2 / 5",
+    "booking": "https://www.booking.com/hotel/es/l-39-illa.html",
+    "hostelworld": "https://www.hostelworld.com/hotels/p/335460/l-illa-hotel/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.776611,
+     41.894263
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "hotel-salles-aeroport-girona",
+    "name": "HOTEL SALLÉS AEROPORT GIRONA",
+    "address": "N-156, Km. 0,6, 17457 Riudellots de la Selva, Girona",
+    "phone": "+34972477940",
+    "email": "hotelag@salleshotels.com",
+    "website": "www.aeroportgirona.com",
+    "info": "Hotel Sallés Aeroport Girona is a hotel, not a hostel, on the Nacional 156 road at kilometre 0.6 in Riudellots de la Selva, five minutes from Girona-Costa Brava airport and 15 minutes from Girona's old town, and about 45 minutes from both Barcelona and the French border. It sells itself as a minimalist stopover for travellers who enjoy the journey. Rooms are doubles and triples, and day-use rooms are also offered for a rest between flights. There is free parking, a large outdoor pool and garden, a restaurant called Empordà serving traditional Catalan food with modern touches and local produce, and a 400 square metre spa with a heated pool, jacuzzi, sensory showers and massage rooms that is open to non-guests too. Guests who book on the hotel's own website are promised the best price, early check-in and late check-out, a welcome drink and free spa access. It has meeting rooms for business groups.",
+    "anchor": "/spain/en/hostels/catalonia#hotel-salles-aeroport-girona",
+    "googleRating": "4.2 / 5",
+    "booking": "https://www.booking.com/hotel/es/salles-aeroport-de-girona.html",
+    "hostelworld": "https://www.hostelworld.com/hotels/p/27107/salles-hotel-aeroport-de-girona/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.931481,
+     41.71784
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "mana-mana-hostel",
+    "name": "MANÀ MANÀ HOSTEL",
+    "address": "Carrer de Sant Telm, 9, 17320 Tossa de Mar, Girona",
+    "phone": "+34711514189",
+    "whatsapp": "+34711514189",
+    "email": "info@manamanahostel.com",
+    "website": "www.manamanahostel.com",
+    "info": "Mana Mana is a youth hostel at Carrer de Sant Telm 9 in Tossa de Mar, about 40 metres from the beach and inside the only fortified medieval town still standing on the Catalan coast. It has beds in a six-bed mixed dorm, a four-bed female dorm and a four- or five-bed mixed room with a private bathroom. The hostel's rooftop terrace has a bar and food service and views over the town, and guests often mention the family dinners held there on many evenings and the mix of nationalities. Sheets and blankets, free Wi-Fi, a shared kitchen and luggage storage are included. Walking the Camí de Ronda coast path, diving and snorkelling, and the town's cultural calendar are the main activities it suggests. It carries a solo-female-friendly badge and belongs to a group of independent European hostels, and reviewers repeatedly praise the owner, Pablo, the cleanliness and the location.",
+    "anchor": "/spain/en/hostels/catalonia#mana-mana-hostel",
+    "googleRating": "4.7 / 5",
+    "booking": "https://www.booking.com/hotel/es/mana-mana-hostel.html",
+    "hostelworld": "https://www.hostelworld.com/hostels/p/65220/mana-mana-hostel/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.820544,
+     41.959404
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "residencia-universitaria-resa-campus-de-montilivi",
+    "name": "RESIDÈNCIA UNIVERSITÀRIA RESA CAMPUS DE MONTILIVI",
+    "address": "Carrer Mercè Rodoreda i Gurgui, 2, 17003 Girona",
+    "phone": "+34972588200",
+    "website": "resa.es",
+    "info": "",
+    "anchor": "/spain/en/hostels/catalonia#residencia-universitaria-resa-campus-de-montilivi",
+    "googleRating": "4.0 / 5",
+    "hostelworld": "https://www.hostelworld.com/hostels/p/313821/residencia-universitaria-resa-campus-de-montilivi/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     3.122086,
+     42.127825
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "xanascat-alberg-empuries",
+    "name": "XANASCAT - ALBERG EMPÚRIES",
+    "address": "Carrer de J. Puig i Cadafalch, 36, 17130 L'Escala, Girona",
+    "phone": "+34972771200",
+    "email": "reserves.xanascat@gencat.cat",
+    "website": "xanascat.gencat.cat",
+    "info": "",
+    "anchor": "/spain/en/hostels/catalonia#xanascat-alberg-empuries",
+    "googleRating": "4.0 / 5",
+    "booking": "https://www.booking.com/hotel/es/empaories.es.html"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     1.530262,
+     41.183598
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "alberg-coma-ruga-xanascat",
+    "name": "ALBERG COMA-RUGA XANASCAT",
+    "address": "Av. Palfuriana, 104, 43880 Coma-ruga, Tarragona",
+    "phone": "+34977680008",
+    "email": "reserves.xanascat@gencat.cat",
+    "website": "xanascat.gencat.cat",
+    "info": "Coma-ruga Xanascat is a seaside hostel at Avinguda Palfuriana 104 in Coma-ruga, part of the municipality of El Vendrell in the Baix Penedès, built long ago to host children on holiday. Xanascat sums the area up as the Mediterranean: culture, sport, thermal waters and a long beach. El Vendrell has several museums and foundations and stages cultural events, above all concerts, both in the town centre and in the seafront district. Hostel routines are posted: dinner is served from 20:30 to 21:00 and silence begins at midnight, with other times available at the hostel. It belongs to the Xanascat network of Catalan youth hostels, which mostly serves school and youth groups; reservations go through the network's central office or online.",
+    "anchor": "/spain/en/hostels/catalonia#alberg-coma-ruga-xanascat",
+    "googleRating": "4.2 / 5",
+    "booking": "https://www.booking.com/hotel/es/santa-maria-del-mar.html"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     0.725304,
+     40.724876
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "alberg-deltebre-xanascat",
+    "name": "ALBERG DELTEBRE XANASCAT",
+    "address": "Avinguda de les Goles de l'Ebre, s/n, 43580 Deltebre, Tarragona",
+    "phone": "+34977480136",
+    "email": "reserves.xanascat@gencat.cat",
+    "website": "xanascat.gencat.cat",
+    "info": "Deltebre Xanascat is a youth hostel on Avinguda de les Goles de l'Ebre in Deltebre, which Xanascat describes as being in the heart of the Ebro Delta Nature Park, a prime spot for experiencing nature. It is one of the hostels of the Xanascat network run by the Catalan Government, which mostly serves school and youth groups, and reservations go through the network's central office or online. Check rooms, facilities and opening dates with the hostel or the central reservations office before you plan a stay.",
+    "anchor": "/spain/en/hostels/catalonia#alberg-deltebre-xanascat",
+    "googleRating": "4.4 / 5",
+    "booking": "https://www.booking.com/hotel/es/mn-antoni-batlle.html"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     1.091128,
+     41.379801
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "alberg-l-espluga-de-francoli-xanascat",
+    "name": "ALBERG L'ESPLUGA DE FRANCOLÍ XANASCAT",
+    "address": "Les Masies, s/n, 43440 L'Espluga de Francolí, Tarragona",
+    "phone": "+34977870356",
+    "email": "reserves.xanascat@gencat.cat",
+    "website": "xanascat.gencat.cat",
+    "info": "",
+    "anchor": "/spain/en/hostels/catalonia#alberg-l-espluga-de-francoli-xanascat",
+    "googleRating": "4.3 / 5",
+    "booking": "https://www.booking.com/hotel/es/alberg-jaume-i.sl.html"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     0.493468,
+     40.906955
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "alberg-xerta",
+    "name": "ALBERG XERTA",
+    "address": "Carrer Major, 63, 43592 Xerta, Tarragona",
+    "phone": "+34630408497",
+    "whatsapp": "+34630408497",
+    "email": "info@albergxerta.com",
+    "website": "www.albergxerta.com",
+    "info": "Alberg Xerta is a hostel at Carrer Major 63 in the village of Xerta, in the Terres de l'Ebre, which describes itself as an eco-responsible refuge set in the heart of nature. It has five rooms with 50 beds and is open all year. Its main business is stays for school groups, with programmes for primary and secondary classes combining adventure activities, workshops on local fauna and flora, walks and visits to learn about the local culture, but it also takes families, groups of friends and individual travellers, and the whole hostel can be rented. A virtual tour of the building is on its website. The hostel is run by the company Viurenviu, SL, and its website shows an email address and a mobile number for enquiries. It suits groups and small parties better than a traveller looking for a bed in a social dorm.",
+    "anchor": "/spain/en/hostels/catalonia#alberg-xerta",
+    "googleRating": "4.3 / 5",
+    "booking": "https://www.booking.com/hotel/es/alberg-xerta-allotjament-rural.en-gb.html"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     0.738576,
+     41.041887
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "camping-alberg-tivissa",
+    "name": "CÀMPING ALBERG TIVISSA",
+    "address": "Carrer Foig, 3, 43746 Tivissa, Tarragona",
+    "phone": "+34652480805",
+    "website": "albergcampingtivissa.cat",
+    "info": "",
+    "anchor": "/spain/en/hostels/catalonia#camping-alberg-tivissa",
+    "googleRating": "4.1 / 5",
+    "booking": "https://www.booking.com/hotel/es/resort-farmwood-tivissa.es.html"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     1.23815,
+     41.117672
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "casa-roma-hostel-boutique",
+    "name": "CASA ROMA HOSTEL BOUTIQUE",
+    "address": "Av. de Roma, 32, 43005 Tarragona",
+    "phone": "+34630858022",
+    "whatsapp": "+34630858022",
+    "email": "hola@casaromatarragona.com",
+    "website": "casaromatarragona.com",
+    "info": "Casa Roma Hostel Boutique is a design-led hostel at Avinguda de Roma 32 in Tarragona, with a Mediterranean feel and a tourist licence number of HT-005106-46. It offers private rooms only: elegant doubles, family rooms with bunk beds and spacious quads, all with private bathrooms, plenty of natural light and a quiet setting. There are generous common areas for working, relaxing and sharing meals, a restaurant serving creative, local, seasonal Mediterranean food from breakfast to dinner, self-service laundry, electric bikes to rent for exploring the city and its beaches, and access to parking. Two meeting and event spaces, Barcino and Tarraco, are available to hire, and the hostel welcomes sports, corporate and school groups with tailored stays. The young team describes its approach as warm and attentive. It is a good base for seeing Roman Tarragona at a calm pace. Guests contact the hostel by phone or email.",
+    "anchor": "/spain/en/hostels/catalonia#casa-roma-hostel-boutique",
+    "googleRating": "4.6 / 5",
+    "booking": "https://www.booking.com/hotel/es/casa-roma-hostel-boutique.html",
+    "hostelworld": "https://www.hostelworld.com/hostels/p/333943/casa-roma-hostel-boutique/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     1.255355,
+     41.116758
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "hostal-forum-tarragona",
+    "name": "HOSTAL FORUM TARRAGONA",
+    "address": "Plaça de la Font, 37, 43003 Tarragona",
+    "phone": "+34643029145",
+    "whatsapp": "+34643029145",
+    "email": "reservas@forumtarragona.com",
+    "website": "www.forumtarragona.com",
+    "info": "Hostal Forum Tarragona is at Plaça de la Font 37 in the centre of Tarragona, in a building that stands on the old tiers of the Roman circus of Tarraco, so guests sleep literally on top of the cavea where thousands once watched the games. It offers shared rooms with bunk beds and exposed stone walls, and private rooms with a private bathroom, some with a small balcony over the square. Rooms have air conditioning and fast free Wi-Fi, and guests can use a dining area with a fridge, microwave and long table, a coffee corner with free drinking water and a work space. Check-in is automatic around the clock through a touch-screen kiosk and key dispenser, with check-in from 14:00 and check-out at 11:00. Smoking is not allowed and parking is paid. Guest reviews praise the location, cleanliness and value, though several note that rooms are small. It is registered under licence HT-000115.",
+    "anchor": "/spain/en/hostels/catalonia#hostal-forum-tarragona",
+    "googleRating": "3.3 / 5",
+    "booking": "https://www.booking.com/hotel/es/hostal-forum-tarragona.html",
+    "hostelworld": "https://www.hostelworld.com/hotels/p/277802/forum-tarragona/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     0.443328,
+     40.591557
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "hotel-bon-lloc",
+    "name": "HOTEL BON LLOC",
+    "address": "Carretera Vinaròs, s/n, 43550 Ulldecona, Tarragona",
+    "phone": "+34977720209",
+    "email": "hola@hotelbonlloc.com",
+    "website": "www.hotelbonlloc.com",
+    "info": "Hotel Bon Lloc is a rustic family hotel, not a hostel, on the Carretera de Vinaròs in Ulldecona, in the south of Tarragona province, run since 1974. It sits in a quiet setting away from the bustle of the town but close enough to reach the local sights, which include Ulldecona castle, the old town, the cave paintings and the Ermita de la Pietat, with the Ebro delta and the Ports de Beseit mountains further afield. Rooms range from singles and doubles to a quadruple, an apartment and a deluxe suite, and guests have free Wi-Fi, free parking in front of the hotel around the clock, a secure bike store and all-day access to the swimming pool. Check-in is from 16:00 to 21:00, check-out is at noon, and guests can come and go at any hour. The restaurant serves a daily menu using local produce. It suits drivers and cyclists looking for a quiet private room, not backpackers in dorms.",
+    "anchor": "/spain/en/hostels/catalonia#hotel-bon-lloc",
+    "googleRating": "4.3 / 5",
+    "booking": "https://www.booking.com/hotel/es/bon-lloc.html",
+    "hostelworld": "https://www.hostelworld.com/hotels/p/332155/hotel-bon-lloc/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     1.217346,
+     41.115463
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "hotel-canada-tarragona",
+    "name": "HOTEL CANADÁ TARRAGONA",
+    "address": "Carr. Valencia, 211, 43006 Tarragona",
+    "phone": "+34977541633",
+    "website": "www.hotelcanada.es",
+    "info": "",
+    "anchor": "/spain/en/hostels/catalonia#hotel-canada-tarragona",
+    "googleRating": "3.9 / 5",
+    "booking": "https://www.booking.com/hotel/es/canada-torreforta.html",
+    "hostelworld": "https://www.hostelworld.com/hotels/p/329065/hotel-canada/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     1.243162,
+     41.12083
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "residencia-universitaria-sant-jordi",
+    "name": "RESIDÈNCIA UNIVERSITÀRIA SANT JORDI",
+    "address": "Rambla President Lluís Companys, 5, 43005 Tarragona",
+    "phone": "+34977240195",
+    "website": "resa.es",
+    "info": "",
+    "anchor": "/spain/en/hostels/catalonia#residencia-universitaria-sant-jordi",
+    "googleRating": "3.3 / 5",
+    "booking": "https://www.booking.com/hotel/es/residencia-sant-jordi.html",
+    "hostelworld": "https://www.hostelworld.com/hostels/p/310977/residencia-universitaria-resa-sant-jordi/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     1.251694,
+     41.114457
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "tarragona-hostel",
+    "name": "TARRAGONA HOSTEL",
+    "address": "Carrer de la Unió, 26, 43001 Tarragona",
+    "phone": "+34637545484",
+    "whatsapp": "+34637545484",
+    "email": "tarragonahostel@gmail.com",
+    "website": "www.tarragonahostel.com",
+    "info": "Tarragona Hostel is a social hostel at Carrer de la Unió 26 in the centre of Tarragona. Its site says three travellers opened it in 2014 as the city's first hostel, and its aim is to be a meeting point where travellers and locals share experiences. It has shared and private rooms, all with lockers, a fully equipped shared kitchen and common areas for socialising. The bar and café serves breakfast and coffee, vermouth and evening gatherings, and hosts cultural events. The hostel organises excursions and guided routes, rents bicycles and can host private celebrations. Breakfast is included on all bookings from 1 June to 30 September and is an optional extra from 1 October to 31 May. Check-in is from 14:00 until midnight and check-out is until 11:00. It says it suits solo travellers, many of whom make friends in the common areas or on activities. The Roman amphitheatre by the sea and the Rambla Nova are among its suggested sights.",
+    "anchor": "/spain/en/hostels/catalonia#tarragona-hostel",
+    "googleRating": "4.2 / 5",
+    "booking": "https://www.booking.com/hotel/es/tarragona-hostel.html",
+    "hostelworld": "https://www.hostelworld.com/hostels/p/85072/tarragona-hostel/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.094008,
+     41.32451
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "airhostel-bcn",
+    "name": "AIRHOSTEL BCN",
+    "address": "Carrer de Narcís Monturiol, 48, 08820 El Prat de Llobregat, Barcelona",
+    "phone": "+34938336837",
+    "whatsapp": "+34681000228",
+    "email": "info@airhostel.com",
+    "website": "airhostel.com",
+    "info": "AirHostel BCN is a hostel at Carrer Narcís Monturiol 48 in El Prat de Llobregat, a few minutes by public transport from Barcelona-El Prat airport, aimed at travellers with stopovers or early flights. It calls its concept lowxury, mixing the social side of a hostel with premium facilities. Shared dorms are mixed or female, with a curtain on every bed, air conditioning and a personal locker, and private rooms are available too. Guests get free Wi-Fi, a kitchen with a microwave, a cafeteria area, a meeting room and a jukebox and vending machine in the common spaces. The metro and buses link El Prat with central Barcelona, from the Sagrada Família and the Ramblas to the Fira trade-fair grounds. Booking on its official website is promised to carry the best price plus an extra 10 per cent discount, and there is a groups page for larger bookings. Phone, email, Facebook and Instagram are listed on the site.",
+    "anchor": "/spain/en/hostels/catalonia#airhostel-bcn",
+    "googleRating": "4.3 / 5",
+    "booking": "https://www.booking.com/hotel/es/airhostel-barcelona.html",
+    "hostelworld": "https://www.hostelworld.com/hostels/p/286795/barcelona-airport-airhostel/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.403333,
+     41.535278
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "alberg-cabrera-de-mar-xanascat",
+    "name": "ALBERG CABRERA DE MAR XANASCAT",
+    "address": "Camí de Santa Elena, 34, 08349 Cabrera de Mar, Barcelona",
+    "phone": "+34937594448",
+    "email": "reserves.xanascat@gencat.cat",
+    "website": "xanascat.gencat.cat",
+    "info": "Cabrera de Mar Xanascat is a youth hostel at Camí de Santa Elena 34 in Cabrera de Mar, a charming small town in the Maresme surrounded by nature, which Xanascat describes as the most welcoming and captivating part of the Maresme. It is one of the hostels of the Xanascat network run by the Catalan Government, which mostly serves school and youth groups, and it is also one of the network's hostels used for its summer programme. Reservations go through the network's central office or online. Check rooms, facilities and opening dates with the hostel or the central reservations office before you plan a stay.",
+    "anchor": "/spain/en/hostels/catalonia#alberg-cabrera-de-mar-xanascat",
+    "googleRating": "4.3 / 5",
+    "booking": "https://www.booking.com/hotel/es/torre-ametller.html"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     1.885861,
+     41.966015
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "alberg-cal-pons",
+    "name": "ALBERG CAL PONS",
+    "address": "Plaça Sant Josep, s/n, 08692 Puig-reig, Barcelona",
+    "phone": "+34934744678",
+    "email": "fundacio@fundesplai.org",
+    "website": "fundesplai.org",
+    "info": "",
+    "anchor": "/spain/en/hostels/catalonia#alberg-cal-pons",
+    "googleRating": "4.2 / 5",
+    "booking": "https://www.booking.com/hotel/es/cal-pons.html"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.082561,
+     41.315657
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "alberg-centre-esplai",
+    "name": "ALBERG CENTRE ESPLAI",
+    "address": "Carrer del Riu Anoia, 42, 08820 El Prat de Llobregat, Barcelona",
+    "phone": "+34934747474",
+    "email": "info@albergueesplaibarcelona.com",
+    "website": "www.albergueesplaibarcelona.com",
+    "info": "Alberg Centre Esplai is a hostel at Carrer Riu Anoia 42-54 in El Prat de Llobregat, beside Barcelona airport, run by Fundesplai, a non-profit foundation focused on education and social inclusion. It describes itself as an oasis of nature and comfort that is ecological, accessible and family friendly, and it holds the EMAS and Biosphere sustainability certifications, saving water, recycling and producing green energy. The building is 100 per cent accessible, with private rooms, a restaurant serving a buffet and set menus, a café, a swimming pool, a garden, an auditorium, meeting rooms and a large multi-purpose pavilion, plus parking. Families, school groups, sports clubs, conferences and travellers who care about the environment are its target guests, and past guests praise its closeness to the airport, spacious rooms and a family play area. Contact details, a route guide by public transport and online booking are on its website.",
+    "anchor": "/spain/en/hostels/catalonia#alberg-centre-esplai",
+    "googleRating": "3.7 / 5",
+    "booking": "https://www.booking.com/hotel/es/centre-esplai-hostel.html",
+    "hostelworld": "https://www.hostelworld.com/hostels/p/31098/alberg-de-centre-esplai/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.117577,
+     41.373783
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "casa-barcelo-camp-nou-hostel",
+    "name": "CASA BARCELÓ CAMP NOU HOSTEL",
+    "address": "Carrer Occident, 69, BAJOS, 08904 L'Hospitalet de Llobregat, Barcelona",
+    "phone": "+34938376160",
+    "website": "www.casabarcelocampnou.com",
+    "info": "",
+    "anchor": "/spain/en/hostels/catalonia#casa-barcelo-camp-nou-hostel",
+    "googleRating": "3.8 / 5",
+    "booking": "https://www.booking.com/hotel/es/casa-barcelo-camp-nou-hostel.html",
+    "hostelworld": "https://www.hostelworld.com/hostels/p/289427/casa-barcelo-camp-nou-hostel/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.120965,
+     41.376655
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "hola-hostal",
+    "name": "HOLA HOSTAL",
+    "address": "Carrer 11 de Setembre, 11, 08903 L'Hospitalet de Llobregat, Barcelona",
+    "phone": "+34936254903",
+    "email": "collblanc@holahostal.com",
+    "website": "holahostal.com",
+    "info": "Hola Hostel Collblanc is at Carrer 11 de Setembre 11 in the Collblanc district of L'Hospitalet de Llobregat, just outside Barcelona, and is one of two Hola hostels in the area. Its own site describes it as a functional, comfortable, well-located place for organising a trip and enjoying Barcelona and its surroundings with complete freedom. It has a 24-hour reception, Wi-Fi, air conditioning, a kitchen and dining area, and shared rooms including a mixed six-person dormitory with lockers and a mix of single and bunk beds. The site promises the best online price and free cancellation up to 48 hours before arrival when you book direct, and it is registered with the Catalan youth-hostel registry as number 687. Phone, email, Facebook and Instagram are listed on the Hola Hostel website. Check the Booking.com and Hostelworld listings for rates and recent guest reviews before you book.",
+    "anchor": "/spain/en/hostels/catalonia#hola-hostal",
+    "googleRating": "3.7 / 5",
+    "booking": "https://www.booking.com/hotel/es/hola-hostal-collblanc.html",
+    "hostelworld": "https://www.hostelworld.com/hostels/p/287661/hola-hostel-collblanc/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.128129,
+     41.360914
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "hostelfly-fira-barcelona",
+    "name": "HOSTELFLY FIRA BARCELONA",
+    "address": "Carrer d'Enric Morera, 58, 08902 L'Hospitalet de Llobregat, Barcelona",
+    "phone": "+34934008120",
+    "email": "fira@hostelfly.com",
+    "website": "www.hostelfly.com",
+    "info": "Hostelfly Fira Barcelona is a hostel at Carrer d'Enric Morera 58 in L'Hospitalet de Llobregat, next to Gran Via and very close to the Fira Barcelona exhibition grounds, so it works as a convenient base for trade fairs, events, work trips and group getaways as well as city breaks. It describes its offer as shared rooms with a private bathroom, common areas for day-to-day use and services meant to make the stay smooth from arrival. The building has a lift, a lounge and a swimming pool, and it is part of the Hostelfly group, which also runs a hostel near Madrid airport and promotes free cancellation and a best-price guarantee on its own website. Reservations can be made online, and the hostel can be contacted by phone or email. Check the Booking.com and Hostelworld listings for room types, rates and recent guest reviews before you book.",
+    "anchor": "/spain/en/hostels/catalonia#hostelfly-fira-barcelona",
+    "googleRating": "4.1 / 5",
+    "booking": "https://www.booking.com/hotel/es/hostelfly-fira-barcelona.html",
+    "hostelworld": "https://www.hostelworld.com/hostels/p/338720/hostelfly-fira-barcelona/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.092753,
+     41.328369
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "mucha-masia-hostel-rural-urba",
+    "name": "MUCHA MASIA HOSTEL RURAL-URBÀ",
+    "address": "Carrer de Jaume Casanovas, 55, 08820 El Prat de Llobregat, Barcelona",
+    "phone": "+34936814189",
+    "email": "contacto@muchamasia.com",
+    "website": "www.muchamasia.com",
+    "info": "Mucha Masia is a hostel at Carrer Jaume Casanovas 55 in El Prat de Llobregat, in one of the few traditional Catalan farmhouses, or masías, still standing in the town centre, with walls more than two centuries old. It is about 15 minutes from the centre of Barcelona and from the airport and is surrounded by the Llobregat Delta and the Parc Agrari. Facilities listed include free Wi-Fi throughout, a 24-hour reception, a kitchen for guests, a large terrace with chill-out areas, free tea, breakfast included, a locker drawer with a key under every bunk and accessibility for all guests. Bikes can be rented to ride to the beach or into the delta nature reserve, and an airport taxi service can be arranged. The Camp Nou stadium is about 25 minutes away on metro line 9. Reviewers praise the friendly staff, who are always on reception, and the relaxed atmosphere. Contact is by phone or email.",
+    "anchor": "/spain/en/hostels/catalonia#mucha-masia-hostel-rural-urba",
+    "googleRating": "4.4 / 5",
+    "booking": "https://www.booking.com/hotel/es/mucha-masia.html",
+    "hostelworld": "https://www.hostelworld.com/hostels/p/282999/mucha-masia-hostel-rural-urba/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     2.087054,
+     41.325101
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "salles-hotel-ciutat-del-prat",
+    "name": "SALLÉS HOTEL CIUTAT DEL PRAT",
+    "address": "Avinguda del Remolar, 46, 08820 El Prat de Llobregat, Barcelona",
+    "phone": "+34933788333",
+    "email": "hotelcdp@salleshotels.com",
+    "website": "www.hotelciutatdelprat.com",
+    "info": "Hotel Sallés Ciutat del Prat is a hotel, not a hostel, at Avinguda del Remolar 46 in the centre of El Prat de Llobregat, five minutes from Barcelona airport and 15 minutes from the centre of Barcelona and the port, near the quiet Prat beach. It offers single and double rooms and triples, a heated indoor pool with waterfalls, jets and a sauna, a fitness centre and a restaurant called Sinfonía, where chef Joan Figueres cooks local produce with a creative touch. A free transfer runs from the airport to the hotel and back, and to key places in the town, and free Wi-Fi is included. Guests who book on the hotel's own website are promised early check-in and late check-out, a welcome drink and the best price, and there is a cruise pack for travellers boarding a ship the next day. It belongs to the Sallés Hotels group. It is a convenient private-room stop before a flight rather than a backpacker base.",
+    "anchor": "/spain/en/hostels/catalonia#salles-hotel-ciutat-del-prat",
+    "googleRating": "4.2 / 5",
+    "booking": "https://www.booking.com/hotel/es/ciutatdelprat.html",
+    "hostelworld": "https://www.hostelworld.com/hotels/p/27879/hotel-ciutat-del-prat-barcelona-airport/"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     1.09467,
+     42.564077
+    ]
+   },
+   "properties": {
+    "region": "catalonia",
+    "id": "alberg-les-daines",
+    "name": "ALBERG LES DAINES",
+    "address": "Pla de Berrader, s/n, 25597 Espot, Lleida",
+    "phone": "+34973116900",
+    "email": "alberg@lesdaines.com",
+    "website": "lesdaines.com",
+    "info": "Albergue Les Daines is a mountain hostel at Pla de Berradé in Espot, Lleida, at the foot of the Espot Esquí ski slopes, about 50 metres from the lifts and a kilometre and a half from the village of Espot, the gateway to Aigüestortes i Estany de Sant Maurici National Park. It is open all year. Rooms are never shared between unrelated guests: family rooms for four or five with bunks and single beds and a shared bathroom, and doubles with a shared or private bathroom, and pets are welcome. The bar-restaurant serves home cooking to guests and passers-by, and there is a chill-out area. The hostel can arrange ski school and equipment rental, and the area offers more than 20 km of pistes on 22 runs, plus rafting, canyoning, climbing, mountain biking, horse riding and quad circuits. It suits families, school and scout groups, friends and couples, and is open to walkers heading into the national park.",
+    "anchor": "/spain/en/hostels/catalonia#alberg-les-daines",
+    "googleRating": "4.4 / 5",
+    "booking": "https://www.booking.com/hotel/es/alberg-les-daines.html"
+   }
+  }
+ ]
+}
