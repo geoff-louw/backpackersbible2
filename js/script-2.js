@@ -1528,6 +1528,39 @@ function setupMapPopups(map) {
 
 
 /* ============================================================
+   20. WTF BUTTON
+   Toggles .is-open on .wtf-widget and keeps aria-expanded in
+   sync. Does nothing on pages without a .wtf-widget. Styles are
+   in style-2.css section 46.
+   ============================================================ */
+
+(function () {
+  'use strict';
+
+  function initWtfButtons() {
+    var widgets = document.querySelectorAll('.wtf-widget');
+    if (!widgets.length) return;
+
+    widgets.forEach(function (widget) {
+      var trigger = widget.querySelector('.wtf-trigger');
+      if (!trigger) return;
+
+      trigger.addEventListener('click', function () {
+        var isOpen = widget.classList.toggle('is-open');
+        trigger.setAttribute('aria-expanded', String(isOpen));
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initWtfButtons);
+  } else {
+    initWtfButtons();
+  }
+})();
+
+
+/* ============================================================
    21. VIBE METER
    ============================================================ */
 
