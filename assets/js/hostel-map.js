@@ -1,33 +1,48 @@
 /**
- * hostel-map.js  —  BackpackersBible.com shared interactive map
- * Requires: MapLibre GL JS 4.1.3
- * /assets/data/hostels.json
- * /assets/data/regions.json
+ * hostel-map.js  —  BackpackersBible.com shared interactive map  (v3: inline, country-neutral, bottom sheet)
+ * Requires: MapLibre GL JS 4.1.3 (loaded here from unpkg unless cfg.maplibreJs / cfg.maplibreCss are set)
  *
- * Usage on any page:
- * <div id="bb-map-wrap"></div>
- * <script>
- * window.BB_MAP_CONFIG = {
- * region:  'cape-town',        // slug from regions.json, or 'national'
- * center:  [18.415, -33.925],  // [lng, lat]
- * zoom:    13,
- * pitch:   60,                 // optional, default 55
- * bearing: 180                 // 0=N 90=E 180=S 270=W
- * };
- * </script>
- * <script src="/assets/js/hostel-map.js" defer></script>
+ * v2 changes from v1 (everything else is unchanged):
+ *   - Runs directly in the host page. No iframe. window.top === window, so the existing
+ *     BB_* postMessage protocol (BB_FILTER_MAP, BB_OPEN_HOSTEL, BB_SELECT_MODE, BB_DRAW_ROUTE,
+ *     BB_CLEAR_ROUTE, BB_MAP_READY, BB_REGION_TOGGLED) keeps working in-page, so the itinerary
+ *     builder needs no changes.
+ *   - Country-neutral: hostelsUrl, regionsUrl, countryName, height, terrainRegions,
+ *     locateBounds, filterThreshold, maplibreJs and maplibreCss are configurable.
+ *   - Filters match legacy booleans (is_party: true) OR numeric scores (scores.party >= threshold)
+ *     OR yes/no tags (tags: ['camping']) OR a price band (priceBand: 'budget').
+ *   - window.BB_MAP_API = { count(filters), filter(filters) } for the page script. 'filters' can be one key,
+ *     an array, or a comma-separated list; a hostel must match ALL of them (multi-select).
+ *   - Spanish phone numbers formatted (+34 XXX XX XX XX); tel: links now carry the +.
+ *   - Double-load guard.
+ *
+ * v3 changes:
+ *   - A pin's name label is never hidden under neighbouring pins (hovered / focused / selected pin rises).
+ *   - Larger desktop popups (320px wide, 13px text); long write-ups scroll inside the popup.
+ *   - Booking.com / Hostelworld buttons now sit directly under the street address.
+ *   - Mobile (<= 768px): popups are replaced by a bottom sheet fixed to the bottom of the screen, outside
+ *     the map. Swipe down, tap x, tap empty map, press Esc or scroll the page down to dismiss it.
+ *   - cfg.cssSized: when true the wrapper is sized by CSS (.sa-hostel-map-iframe) instead of inline styles.
+ *
+ * Usage (normally done by /assets/js/bb-map-loader.js on first interaction):
+ *   <div id="bb-map-wrap"></div>
+ *   window.BB_MAP_CONFIG = { region:'catalonia', center:[1.605,41.845], zoom:7, countryName:'Spain',
+ *     hostelsUrl:'/spain/assets/data/hostels.json', regionsUrl:'/spain/assets/data/regions.json' };
+ *   then inject <script src="/assets/js/hostel-map.js">
  *
  * PWA offline fallback images (place these in /assets/):
- * fallback_map_{region}.jpg
- * fallback_map_{region}_mobile.jpg
+ *   fallback_map_{region}.jpg
+ *   fallback_map_{region}_mobile.jpg
  */
 (function () {
   'use strict';
+  if (window.__BB_MAP_LOADED) return;
+  window.__BB_MAP_LOADED = true;
 
   const ESRI_KEY     = 'AAPTamFHVrEf9zxt8n1GPoheQBg..bZv3-QfiJifUiQeQyM3pXO47eztKbb95jfxtBtNJzl319gr4-Qv_NmXKOOXFf8ChUYYi4lQviyIz1wk3Rpa69Pb2iltlAFf1MU5_iDbiqXIeRP7sUB3raC3mivce3axukBeoiuKssKI2rvflMzNf5GK47nOPgPlwsKPoEPYZZlLUCxOBw3k9nZFYiHkv57Dm7SRYAlRm612dJDve7isWPk6eJ77s5fU1wtpNRtsaTzRbbT4lgsEsG2ElAT1_TZLPnMqZ';
   const MAPTILER_KEY = 'EQ5JVo2nFxFOEjgxpA7x'; // terrain only (Cape Town / Drakensberg)
-  const HOSTELS_URL  = '/assets/data/hostels.json';
-  const REGIONS_URL  = '/assets/data/regions.json';
+  const HOSTELS_URL  = (window.BB_MAP_CONFIG && window.BB_MAP_CONFIG.hostelsUrl) || '/assets/data/hostels.json';
+  const REGIONS_URL  = (window.BB_MAP_CONFIG && window.BB_MAP_CONFIG.regionsUrl) || '/assets/data/regions.json';
   const BRAND_YELLOW = '#FFD700';
   const BRAND_RED    = '#bc1d23';
 
@@ -42,13 +57,13 @@
 
   const wrap = document.getElementById('bb-map-wrap');
   if (!wrap) return;
-  wrap.style.cssText = 'position:relative;width:100%;height:590px;';
+  if (!cfg.cssSized) wrap.style.cssText = 'position:relative;width:100%;height:' + (cfg.height || '590px') + ';';
 
   wrap.innerHTML = `
     <div id="bb-map"
          style="width:100%;height:100%;background:${BRAND_YELLOW};"
          role="application"
-         aria-label="Interactive map of backpacker hostels${REGION !== 'national' ? ' in this region' : ' across South Africa'}"
+         aria-label="Interactive map of backpacker hostels${REGION !== 'national' ? ' in this region' : ' across ' + (cfg.countryName || 'South Africa')}"
          tabindex="0"></div>
     <button id="bb-map-toggle"
             aria-pressed="true"
@@ -137,8 +152,8 @@
     .bb-route-stage:focus { outline:3px solid ${BRAND_YELLOW};outline-offset:1px; }
     .maplibregl-popup { opacity:0;transition:opacity 0.4s ease-in-out;pointer-events:none; }
     .maplibregl-popup.bb-fade-in { opacity:1;pointer-events:auto; }
-    .bb-popup { width:220px;font-family:'Century Gothic',sans-serif;font-size:11px;color:#333;overflow-wrap:break-word;word-break:break-word;box-sizing:border-box; }
-    .bb-popup h3 { margin:0 0 8px;font-size:13px;color:${BRAND_RED};border-bottom:1px solid #eee;padding-bottom:6px;line-height:1.3; }
+    .bb-popup { width:320px;font-family:'Century Gothic',sans-serif;font-size:13px;color:#333;overflow-wrap:break-word;word-break:break-word;box-sizing:border-box; }
+    .bb-popup h3 { margin:0 0 8px;font-size:16px;color:${BRAND_RED};border-bottom:1px solid #eee;padding-bottom:6px;line-height:1.3; }
     .bb-popup-field { margin:3px 0;line-height:1.5; }
     .bb-popup-field b { color:#555; }
     .bb-popup-field a { color:#333;text-decoration:none; }
@@ -148,7 +163,7 @@
     .bb-popup-more { color:${BRAND_RED};font-weight:bold;text-decoration:none; }
     .bb-popup-more:hover { text-decoration:underline; }
     .bb-popup-btns { display:flex;flex-direction:column;gap:5px;margin-top:8px; }
-    .bb-popup-btn { display:block;width:100%;text-align:center;text-decoration:none;padding:6px 4px;border-radius:4px;font-family:'Century Gothic',sans-serif;font-size:11px;font-weight:bold;color:#fff;box-sizing:border-box; }
+    .bb-popup-btn { display:block;width:100%;text-align:center;text-decoration:none;padding:8px 6px;border-radius:4px;font-family:'Century Gothic',sans-serif;font-size:13px;font-weight:bold;color:#fff;box-sizing:border-box; }
     .bb-popup-btn:hover { opacity:0.88; }
     .bb-btn-booking { background:#003580; }
     .bb-btn-hostelworld { background:#f37022; }
@@ -159,16 +174,57 @@
     }
     #bb-map-toggle:hover { background:#fff9d6; }
     #bb-map:focus { outline:3px solid ${BRAND_YELLOW};outline-offset:2px; }
+
+    /* v3 — a hovered / focused / selected pin rises above its neighbours so its name is never hidden */
+    .maplibregl-marker.bb-marker:hover,
+    .maplibregl-marker.bb-marker:focus-within,
+    .maplibregl-marker.bb-marker.bb-marker--active { z-index:1000 !important; }
+    .maplibregl-popup { z-index:1100; }
+    .bb-popup { max-height:var(--bb-popup-max,420px);overflow-y:auto;overscroll-behavior:contain;padding-right:4px; }
+    .bb-popup-btns { margin:8px 0 6px; }
+
+    /* v3 — mobile bottom sheet (replaces popups at <= 768px) */
+    #bb-sheet {
+      position:fixed;left:0;right:0;bottom:0;z-index:10000;box-sizing:border-box;
+      max-height:72vh;max-height:min(72vh,calc(100dvh - 140px));
+      display:flex;flex-direction:column;background:#fff;
+      border-top:4px solid ${BRAND_YELLOW};border-radius:16px 16px 0 0;
+      box-shadow:0 -8px 28px rgba(0,0,0,0.35);
+      font-family:'Century Gothic',sans-serif;color:#333;
+      transform:translateY(110%);visibility:hidden;
+      transition:transform 0.3s ease,visibility 0s linear 0.3s;
+    }
+    #bb-sheet.is-open { transform:translateY(0);visibility:visible;transition:transform 0.3s ease,visibility 0s; }
+    #bb-sheet:focus { outline:none; }
+    #bb-sheet .bb-sheet-head { flex:0 0 auto;position:relative;padding:8px 0 4px;touch-action:none; }
+    #bb-sheet .bb-sheet-grip { width:44px;height:5px;border-radius:3px;background:#ccc;margin:0 auto; }
+    #bb-sheet .bb-sheet-close {
+      position:absolute;top:0;right:4px;width:44px;height:44px;border:0;background:transparent;
+      font-size:30px;line-height:1;color:#555;cursor:pointer;
+    }
+    #bb-sheet .bb-sheet-close:focus-visible { outline:3px solid ${BRAND_YELLOW};outline-offset:-3px; }
+    #bb-sheet .bb-sheet-body {
+      flex:1 1 auto;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
+      padding:4px 18px calc(18px + env(safe-area-inset-bottom,0px));
+    }
+    #bb-sheet .bb-popup { width:auto;max-width:none;max-height:none;overflow:visible;font-size:15px;padding:0; }
+    #bb-sheet .bb-popup h3 { font-size:20px;padding-right:40px; }
+    #bb-sheet .bb-popup-field { margin:6px 0; }
+    #bb-sheet .bb-popup-field a { display:inline-block;padding:3px 0; }
+    #bb-sheet .bb-popup-btns { gap:8px; }
+    #bb-sheet .bb-popup-btn { font-size:15px;padding:13px 6px; }
+    #bb-sheet .bb-popup-more { display:inline-block;padding:4px 0; }
+    @media (prefers-reduced-motion:reduce) { #bb-sheet,#bb-sheet.is-open { transition:none; } }
   `;
   document.head.appendChild(css);
 
   const cssLink = document.createElement('link');
   cssLink.rel   = 'stylesheet';
-  cssLink.href  = 'https://unpkg.com/maplibre-gl@4.1.3/dist/maplibre-gl.css';
+  cssLink.href  = cfg.maplibreCss || 'https://unpkg.com/maplibre-gl@4.1.3/dist/maplibre-gl.css';
   document.head.appendChild(cssLink);
 
   const mlScript   = document.createElement('script');
-  mlScript.src     = 'https://unpkg.com/maplibre-gl@4.1.3/dist/maplibre-gl.js';
+  mlScript.src     = cfg.maplibreJs  || 'https://unpkg.com/maplibre-gl@4.1.3/dist/maplibre-gl.js';
   mlScript.onload  = initMap;
   mlScript.onerror = () => showOffline('MapLibre script failed to load');
   document.head.appendChild(mlScript);
@@ -187,7 +243,14 @@
     if (d.startsWith('27')  && d.length===11) return `+${d.slice(0,2)} ${d.slice(2,4)} ${d.slice(4,7)} ${d.slice(7)}`;
     if (d.startsWith('268') && d.length===11) return `+${d.slice(0,3)} ${d.slice(3,7)} ${d.slice(7)}`;
     if (d.startsWith('266') && d.length===11) return `+${d.slice(0,3)} ${d.slice(3,7)} ${d.slice(7)}`;
+    if (d.startsWith('34')  && d.length===11) return `+${d.slice(0,2)} ${d.slice(2,5)} ${d.slice(5,7)} ${d.slice(7,9)} ${d.slice(9)}`;
     return p;
+  }
+
+  // tel: href — keeps the leading + on international numbers so they dial correctly from abroad
+  function telDigits(p) {
+    const d = (p || '').replace(/\D/g, '');
+    return ((p || '').trim().startsWith('+') || d.length >= 11) ? '+' + d : d;
   }
 
   function buildPopup(h) {
@@ -216,10 +279,10 @@
       <div class="bb-popup" role="region" aria-label="${h.name} hostel information">
         <h3>${h.name}</h3>
         <div class="bb-popup-field"><b>Address:</b> ${h.address||''}</div>
-        <div class="bb-popup-field"><b>Phone:</b> <a href="tel:${(h.phone||'').replace(/\D/g,'')}">${fmtPhone(h.phone)}</a></div>
+        ${btns}
+        <div class="bb-popup-field"><b>Phone:</b> <a href="tel:${telDigits(h.phone)}">${fmtPhone(h.phone)}</a></div>
         ${wa}${em}${web}${ratings}<hr>
         <div class="bb-popup-info">${h.info||''}${more}</div>
-        ${btns}
       </div>`;
   }
 
@@ -244,7 +307,8 @@
   function initMap() {
     Promise.all([
       fetch(HOSTELS_URL).then(r => r.json()),
-      fetch(REGIONS_URL).then(r => r.json())
+      // A missing regions file is fine for a single-region page (no polygons are needed): fall back to {}
+      fetch(REGIONS_URL).then(r => (r.ok ? r.json() : {})).catch(() => ({}))
     ]).then(([hostelGeoJSON, regions]) => {
 
       const features = REGION === 'national'
@@ -353,7 +417,7 @@
         if (e.key==='-') map.zoomOut();
       });
 
-      const TERRAIN_REGIONS = ['cape-town', 'drakensberg'];
+      const TERRAIN_REGIONS = cfg.terrainRegions || ['cape-town', 'drakensberg'];
       const hasTerrain = TERRAIN_REGIONS.includes(REGION);
 
       let is3D = true;
@@ -423,9 +487,10 @@
               .setLngLat([lng, lat])
               .addTo(map);
 
-            // Only fly to location if user is within southern Africa bounds
-            // (roughly: lng 15–34, lat -35 to -17)
-            const inSA = lng >= 15 && lng <= 34 && lat >= -35 && lat <= -17;
+            // Only fly to location if user is inside the configured area
+            // (cfg.locateBounds = [west, south, east, north]; default = southern Africa)
+            const lb = cfg.locateBounds || [15, -35, 34, -17];
+            const inSA = lng >= lb[0] && lng <= lb[2] && lat >= lb[1] && lat <= lb[3];
             if (inSA) {
               map.flyTo({ center: [lng, lat], zoom: Math.max(map.getZoom(), 10), duration: 1200 });
             }
@@ -817,10 +882,130 @@
 
         // ── MARKERS / CLUSTERS ───────────────────────────────────────────────
         let activePopup = null;
+        let activeMarkerEl = null;
 
-        function showPopup(coords, html) {
+        // The pin whose popup / sheet is open stays above its neighbours (see .bb-marker--active)
+        function setActiveMarker(el) {
+          if (activeMarkerEl) activeMarkerEl.classList.remove('bb-marker--active');
+          activeMarkerEl = el || null;
+          if (activeMarkerEl) activeMarkerEl.classList.add('bb-marker--active');
+        }
+
+        // ── MOBILE BOTTOM SHEET ──────────────────────────────────────────
+        // At <= 768px popups are replaced by a panel fixed to the bottom of the screen, outside the
+        // map. It sits above the fixed bottom bars (#quick-jump-menu, #page-title-bar), and slides
+        // away on swipe-down, the x button, a tap on empty map, Esc, or when the page is scrolled down.
+        // (Not inside an iframe: there "the bottom of the screen" would only be the bottom of the map box,
+        //  so pages still using the old iframe keep normal popups.)
+        const useSheet = () => window.innerWidth <= 768 && window.self === window.top;
+        let sheetEl = null, sheetOpen = false, sheetOpenedAt = 0, sheetOpenY = 0, lastScrollY = 0, sheetReturnFocus = null;
+
+        function buildSheet() {
+          if (sheetEl) return sheetEl;
+          sheetEl = document.createElement('div');
+          sheetEl.id = 'bb-sheet';
+          sheetEl.setAttribute('role', 'dialog');
+          sheetEl.setAttribute('aria-modal', 'false');
+          sheetEl.setAttribute('aria-hidden', 'true');
+          sheetEl.setAttribute('aria-label', 'Information');
+          sheetEl.tabIndex = -1;
+          sheetEl.innerHTML =
+            '<div class="bb-sheet-head"><div class="bb-sheet-grip" aria-hidden="true"></div>' +
+            '<button type="button" class="bb-sheet-close" aria-label="Close">&times;</button></div>' +
+            '<div class="bb-sheet-body"></div>';
+          document.body.appendChild(sheetEl);
+
+          sheetEl.querySelector('.bb-sheet-close').addEventListener('click', () => closeSheet());
+          // "More info" scrolls the page to the hostel's write-up, so the sheet gets out of the way
+          sheetEl.addEventListener('click', (ev) => {
+            if (ev.target.closest && ev.target.closest('.bb-popup-more')) closeSheet();
+          });
+
+          // swipe down on the grip / header to dismiss
+          const head = sheetEl.querySelector('.bb-sheet-head');
+          let startY = null, dy = 0;
+          head.addEventListener('touchstart', (ev) => {
+            startY = ev.touches[0].clientY; dy = 0; sheetEl.style.transition = 'none';
+          }, { passive: true });
+          head.addEventListener('touchmove', (ev) => {
+            if (startY === null) return;
+            dy = Math.max(0, ev.touches[0].clientY - startY);
+            sheetEl.style.transform = 'translateY(' + dy + 'px)';
+          }, { passive: true });
+          const endDrag = () => {
+            if (startY === null) return;
+            sheetEl.style.transition = '';
+            if (dy > 80) closeSheet();
+            sheetEl.style.transform = '';
+            startY = null; dy = 0;
+          };
+          head.addEventListener('touchend', endDrag);
+          head.addEventListener('touchcancel', endDrag);
+
+          document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape' && sheetOpen) closeSheet(); });
+          window.addEventListener('scroll', onPageScroll, { passive: true });
+          window.addEventListener('resize', () => { if (sheetOpen && !useSheet()) closeSheet(); });
+          return sheetEl;
+        }
+
+        function onPageScroll() {
+          if (!sheetOpen) return;
+          const y = window.scrollY;
+          // scrolling the page down (like the bottom bars do) slides the sheet away
+          if (Date.now() - sheetOpenedAt > 600 && y > lastScrollY + 4 && y - sheetOpenY > 40) closeSheet();
+          lastScrollY = y;
+        }
+
+        function openSheet(coords, html, markerEl) {
+          buildSheet();
+          const body = sheetEl.querySelector('.bb-sheet-body');
+          body.innerHTML = html;
+          body.scrollTop = 0;
+          const title = body.querySelector('h3');
+          if (title) {
+            title.id = 'bb-sheet-title';
+            sheetEl.setAttribute('aria-labelledby', 'bb-sheet-title');
+            sheetEl.removeAttribute('aria-label');
+          }
+          if (activePopup) { activePopup.remove(); activePopup = null; }
+          sheetReturnFocus = markerEl || document.activeElement;
+          setActiveMarker(markerEl);
+          sheetOpen = true;
+          sheetOpenedAt = Date.now();
+          sheetOpenY = lastScrollY = window.scrollY;
+          sheetEl.setAttribute('aria-hidden', 'false');
+          requestAnimationFrame(() => {
+            sheetEl.classList.add('is-open');
+            // keep the chosen pin visible above the sheet
+            const box = wrap.getBoundingClientRect();
+            const covered = Math.max(0, box.bottom - (window.innerHeight - sheetEl.offsetHeight));
+            const pad = Math.min(covered, Math.round(box.height * 0.6));
+            map.easeTo({ center: coords, padding: { top: 0, left: 0, right: 0, bottom: pad }, duration: 400 });
+            try { sheetEl.focus({ preventScroll: true }); } catch (e) { sheetEl.focus(); }
+          });
+        }
+
+        function closeSheet() {
+          if (!sheetOpen) return;
+          sheetOpen = false;
+          sheetEl.classList.remove('is-open');
+          sheetEl.setAttribute('aria-hidden', 'true');
+          setActiveMarker(null);
+          map.easeTo({ padding: { top: 0, left: 0, right: 0, bottom: 0 }, duration: 300 });
+          if (sheetReturnFocus && document.contains(sheetReturnFocus) && sheetEl.contains(document.activeElement)) {
+            try { sheetReturnFocus.focus({ preventScroll: true }); } catch (e) { /* ignore */ }
+          }
+          sheetReturnFocus = null;
+        }
+
+        function showPopup(coords, html, markerEl) {
+          if (useSheet()) { openSheet(coords, html, markerEl); return; }
+          if (sheetOpen) closeSheet();
+          // long write-ups scroll inside the popup instead of running off the map
+          wrap.style.setProperty('--bb-popup-max', Math.max(220, wrap.clientHeight - 130) + 'px');
+          setActiveMarker(markerEl);
           const open = () => {
-            const p = new maplibregl.Popup({ offset:15, closeButton:false })
+            const p = new maplibregl.Popup({ offset:15, closeButton:false, maxWidth:'none' })
               .setHTML(html).setLngLat(coords).addTo(map);
             activePopup = p;
             setTimeout(() => { const el=p.getElement(); if(el) el.classList.add('bb-fade-in'); }, 50);
@@ -838,6 +1023,8 @@
 
         map.on('click', (e) => {
           if (e.clickHandled) return;
+          if (sheetOpen) closeSheet();
+          setActiveMarker(null);
           if (activePopup) {
             const el = activePopup.getElement();
             if (el) el.classList.remove('bb-fade-in');
@@ -849,12 +1036,49 @@
         let activeFilter = 'all';
         const allMarkers = []; // populated below — every page, national included
 
+        // A hostel matches a filter if ANY of these hold:
+        //   legacy boolean   properties.is_party === true
+        //   numeric score    properties.scores.party >= threshold (default 7)
+        //   yes/no tag       properties.tags includes 'camping'
+        //   price band       properties.priceBand === 'budget'
+        const FILTER_THRESHOLD = cfg.filterThreshold !== undefined ? cfg.filterThreshold : 7;
+        function featureMatches(p, key) {
+          if (!key || key === 'all') return true;
+          if (p[key] === true) return true;
+          const base = String(key).replace(/^is_/, '');
+          if (p['is_' + base] === true) return true;
+          if (p.priceBand === base) return true;
+          if (Array.isArray(p.tags) && p.tags.indexOf(base) !== -1) return true;
+          const s = p.scores && p.scores[base];
+          return typeof s === 'number' && s >= FILTER_THRESHOLD;
+        }
+
+        // Several filters can be active at once and a hostel must match ALL of them
+        // (e.g. 'party' + 'surfers' = party hostels that are also good for surfers).
+        // Accepts an array, a comma-separated string ('party,surfers'), 'all' or empty.
+        function normKeys(f) {
+          const list = Array.isArray(f) ? f : String(f == null ? '' : f).split(',');
+          return list.map(k => String(k).trim()).filter(k => k && k !== 'all');
+        }
+        function matchesAll(p, keys) { return keys.every(k => featureMatches(p, k)); }
+
+        // Small public API for the host page (counts let it grey out empty filter buttons)
+        window.BB_MAP_API = {
+          count:  (f) => { const keys = normKeys(f); return allMarkers.filter(({ feature }) => matchesAll(feature.properties, keys)).length; },
+          filter: (f) => applyFilter(f)
+        };
+
+        // Returns how many pins are now showing
         function applyFilter(filterKey) {
           activeFilter = filterKey;
+          const keys = normKeys(filterKey);
+          let shown = 0;
           allMarkers.forEach(({ marker, feature }) => {
-            const show = filterKey === 'all' || feature.properties[filterKey] === true;
+            const show = matchesAll(feature.properties, keys);
+            if (show) shown++;
             marker.getElement().style.display = show ? '' : 'none';
           });
+          return shown;
         }
 
         // Listen for postMessage filter instructions from parent page
@@ -873,7 +1097,7 @@
             const coords = target.feature.geometry.coordinates;
             const html   = buildPopup(target.feature.properties);
             map.flyTo({ center: coords, zoom: Math.max(map.getZoom(), 14), duration: 800 });
-            setTimeout(() => showPopup(coords, html), 850);
+            setTimeout(() => showPopup(coords, html, target.marker.getElement()), 850);
           }
         });
 
@@ -1015,7 +1239,7 @@
           const openPopup = e => {
             if (selectModeActive) return;
             if(e) e.stopPropagation();
-            showPopup(coords,html);
+            showPopup(coords, html, container);
           };
           container.addEventListener('click', openPopup);
           container.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' '){e.preventDefault();openPopup(e);} });
