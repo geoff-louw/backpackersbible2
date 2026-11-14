@@ -51,6 +51,7 @@
   var readyPromise = null;
   var isReady = false;
   var selected = [];            // active filter keys (the buttons' own data-filter values)
+  var filtersReady = true;      // false while no hostel carries any filter data yet
 
   /* ── helpers ─────────────────────────────────────────────────────────── */
   function nums(str) {
@@ -125,7 +126,7 @@
   // Dim (but keep clickable) buttons that would leave nothing once added to the current selection
   function dimEmptyCombos() {
     var api = window.BB_MAP_API;
-    if (!api) return;
+    if (!api || !filtersReady) return;
     buttons.forEach(function (b) {
       var k = keyOf(b);
       if (k === 'all' || b.getAttribute('aria-disabled') === 'true') return;
@@ -141,6 +142,12 @@
   function applyToMap() {
     var api = window.BB_MAP_API;
     if (!isReady || !api) return;
+    if (!filtersReady) {
+      // No hostel has any rating or tag yet: keep every pin visible and say why nothing changes
+      api.filter([]);
+      say(selected.length ? 'Ratings for these filters are still being compiled \u2013 check back soon.' : '', selected.length > 0);
+      return;
+    }
     var n = api.filter(selected);
     if (selected.length && n === 0) say('No hostels match all of those filters. Try removing one.', true);
     else say(selected.length ? n + (n === 1 ? ' hostel shown.' : ' hostels shown.') : '', false);
@@ -209,7 +216,7 @@
       window.addEventListener('message', onMsg);
 
       var s = document.createElement('script');
-      s.src = ds.mapScript || '/assets/js/hostel-map.js?v=3';
+      s.src = ds.mapScript || '/assets/js/hostel-map.js?v=3.1';
       s.onerror = function () {
         window.removeEventListener('message', onMsg);
         // Put the poster back so the visitor still sees a map image
@@ -230,6 +237,11 @@
   function afterReady() {
     var api = window.BB_MAP_API;
     if (api) {
+      // If no filter matches any hostel at all, the ratings simply aren't compiled yet:
+      // leave every button usable (and say so when one is used) instead of greying them all out
+      filtersReady = buttons.some(function (b) { return keyOf(b) !== 'all' && api.count(keyOf(b)) > 0; });
+    }
+    if (api && filtersReady) {
       // Grey out (and disable) filter buttons that match nothing in this view at all
       buttons.forEach(function (b) {
         var k = keyOf(b);

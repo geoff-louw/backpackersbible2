@@ -21,7 +21,8 @@
  *   - Larger desktop popups (320px wide, 13px text); long write-ups scroll inside the popup.
  *   - Booking.com / Hostelworld buttons now sit directly under the street address.
  *   - Mobile (<= 768px): popups are replaced by a bottom sheet fixed to the bottom of the screen, outside
- *     the map. Swipe down, tap x, tap empty map, press Esc or scroll the page down to dismiss it.
+ *     the map. It always fills the lower half of the screen (long write-ups scroll inside it) and the page
+ *     is scrolled so the map sits in the upper half. Swipe down, tap x, tap empty map, press Esc or scroll the page down to dismiss it.
  *   - cfg.cssSized: when true the wrapper is sized by CSS (.sa-hostel-map-iframe) instead of inline styles.
  *
  * Usage (normally done by /assets/js/bb-map-loader.js on first interaction):
@@ -186,7 +187,7 @@
     /* v3 — mobile bottom sheet (replaces popups at <= 768px) */
     #bb-sheet {
       position:fixed;left:0;right:0;bottom:0;z-index:10000;box-sizing:border-box;
-      max-height:72vh;max-height:min(72vh,calc(100dvh - 140px));
+      height:50vh;height:50dvh;max-height:50vh;max-height:50dvh;
       display:flex;flex-direction:column;background:#fff;
       border-top:4px solid ${BRAND_YELLOW};border-radius:16px 16px 0 0;
       box-shadow:0 -8px 28px rgba(0,0,0,0.35);
@@ -204,7 +205,7 @@
     }
     #bb-sheet .bb-sheet-close:focus-visible { outline:3px solid ${BRAND_YELLOW};outline-offset:-3px; }
     #bb-sheet .bb-sheet-body {
-      flex:1 1 auto;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
+      flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
       padding:4px 18px calc(18px + env(safe-area-inset-bottom,0px));
     }
     #bb-sheet .bb-popup { width:auto;max-width:none;max-height:none;overflow:visible;font-size:15px;padding:0; }
@@ -976,12 +977,28 @@
           sheetEl.setAttribute('aria-hidden', 'false');
           requestAnimationFrame(() => {
             sheetEl.classList.add('is-open');
-            // keep the chosen pin visible above the sheet
-            const box = wrap.getBoundingClientRect();
-            const covered = Math.max(0, box.bottom - (window.innerHeight - sheetEl.offsetHeight));
-            const pad = Math.min(covered, Math.round(box.height * 0.6));
-            map.easeTo({ center: coords, padding: { top: 0, left: 0, right: 0, bottom: pad }, duration: 400 });
             try { sheetEl.focus({ preventScroll: true }); } catch (e) { sheetEl.focus(); }
+            // The sheet always takes the lower half of the screen and the map keeps the upper half.
+            // If the map isn't mostly inside that upper half, scroll the page so it is
+            // (the scroll-away rule is paused while that happens).
+            const box0 = wrap.getBoundingClientRect();
+            const half = window.innerHeight / 2;
+            const visible = Math.max(0, Math.min(box0.bottom, half) - Math.max(box0.top, 0));
+            let delay = 0;
+            if (visible < Math.min(box0.height, half) * 0.75) {
+              window.scrollTo({ top: Math.max(0, window.scrollY + box0.top - 70), behavior: 'smooth' });
+              sheetOpenedAt = Date.now() + 900;
+              delay = 700;
+            }
+            setTimeout(() => {
+              if (!sheetOpen) return;
+              sheetOpenY = lastScrollY = window.scrollY;
+              // keep the chosen pin visible above the sheet
+              const box = wrap.getBoundingClientRect();
+              const covered = Math.max(0, box.bottom - (window.innerHeight - sheetEl.offsetHeight));
+              const pad = Math.min(covered, Math.round(box.height * 0.6));
+              map.easeTo({ center: coords, padding: { top: 0, left: 0, right: 0, bottom: pad }, duration: 400 });
+            }, delay);
           });
         }
 
