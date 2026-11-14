@@ -463,7 +463,7 @@
 
 <!-- Map description -->
 <div class="map-description" id="hostel-map-description">
-  <span class="map-description__text"><strong>BACKPACKERS FINDER:</strong> The easiest way to choose the right backpacker hostel. Our unique 3D interactive map lets you filter South African backpackers by vibe, safety, setups, and value.</span>
+  <span class="map-description__text"><strong>BACKPACKERS FINDER:</strong> The easiest way to choose the right backpacker hostel. Our unique 3D interactive map lets you filter South African backpackers by vibe, safety, setups, and value. Select one or more to find your perfect hostel.</span>
 </div>
 
   <!-- Map filter buttons -->
@@ -497,7 +497,17 @@
 </div>
 
 <!-- ░░ HOSTEL MAP ░░ -->
-<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description">
+<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description"
+  data-bb-map
+  data-region="cape-town"
+  data-country="South Africa"
+  data-center="18.412,-33.937"
+  data-zoom="13"
+  data-pitch="60"
+  data-bearing="180"
+  data-mobile-center="18.41649,-33.92525"
+  data-mobile-zoom="11.5"
+  data-autoload="viewport">
 
   <!-- Poster image: shows before user loads the map -->
   <picture class="sa-hostel-map-poster">
@@ -509,15 +519,10 @@
          decoding="async">
   </picture>
 
-  <!-- The map iframe — src is blank until user clicks -->
-  <iframe
-    class="sa-hostel-map-iframe bb-map-iframe"
-    title="Interactive hostel map of Cape Town"
-    src="about:blank"
-    data-src="/map.html?region=cape-town&center=18.412,-33.937&zoom=13&pitch=60&bearing=180&mobile-center=18.41649,-33.92525&mobile-zoom=11.5"
-    loading="lazy"
-    allowfullscreen>
-  </iframe>
+  <button type="button" class="sr-only" id="bb-map-load-btn">Load the interactive hostel map</button>
+
+  <!-- The map renders here (inline, no iframe) -->
+  <div id="bb-map-wrap" class="sa-hostel-map-iframe bb-map-iframe" hidden></div>
 
   <!-- Yellow circle: desktop-only info note; mobile: not shown (CSS) -->
   <div class="map-overlay-circle" aria-hidden="true">
@@ -1974,72 +1979,8 @@ window.BB_TIPS = [
 
 <!-- Mobile menu end -->
 
-<!-- Map lazy-load + filter buttons -->
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const mapIframe = document.querySelector('.sa-hostel-map-iframe');
-    if (!mapIframe) return;
-
-    let iframeReady = false;
-    let pendingFilter = null;
-
-    function wakeUpMap() {
-      if (mapIframe.getAttribute('src') === 'about:blank') {
-        mapIframe.src = mapIframe.getAttribute('data-src');
-        iframeReady = false;
-        const shell = mapIframe.closest('.sa-hostel-map-shell');
-        if (shell) {
-          const poster = shell.querySelector('.sa-hostel-map-poster');
-          if (poster) poster.style.display = 'none';
-          shell.classList.add('bb-map-loaded');
-        }
-      }
-    }
-    window.BB_WakeUpMap = wakeUpMap;
-
-    function sendFilter(filterKey) {
-      if (iframeReady && mapIframe.contentWindow) {
-        mapIframe.contentWindow.postMessage({ type: 'BB_FILTER_MAP', filter: filterKey }, '*');
-      } else {
-        pendingFilter = filterKey;
-      }
-    }
-
-    mapIframe.addEventListener('load', () => {
-      iframeReady = true;
-      if (pendingFilter !== null) {
-        setTimeout(() => {
-          mapIframe.contentWindow.postMessage({ type: 'BB_FILTER_MAP', filter: pendingFilter }, '*');
-          pendingFilter = null;
-        }, 300);
-      }
-    });
-
-    // Desktop: auto-load the map immediately (no click required)
-    if (window.innerWidth >= 1024) {
-      wakeUpMap();
-    }
-
-    // Mobile: load on tap of the poster/shell area
-    mapIframe.closest('.sa-hostel-map-shell').addEventListener('click', wakeUpMap, { once: true });
-
-    // Filter buttons (only needed on pages that have them)
-    const filterButtons = document.querySelectorAll('[data-filter]');
-    filterButtons.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        wakeUpMap();
-        filterButtons.forEach(b => {
-          b.classList.remove('map-filter-btn--active');
-          b.setAttribute('aria-pressed', 'false');
-        });
-        btn.classList.add('map-filter-btn--active');
-        btn.setAttribute('aria-pressed', 'true');
-        sendFilter(btn.getAttribute('data-filter'));
-      });
-    });
-  });
-</script>
+<!-- Map loader (replaces the iframe wake-up + filter script) -->
+<script src="/assets/js/bb-map-loader.js?v=2" defer></script>
 
 <!-- Load my maps on click -->
 
