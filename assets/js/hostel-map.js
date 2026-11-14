@@ -17,6 +17,7 @@
  *   - Double-load guard.
  *
  * v3 changes:
+ *   - Map credits are tucked behind the small "i" button (compact attribution) until clicked.
  *   - A pin's name label is never hidden under neighbouring pins (hovered / focused / selected pin rises).
  *   - Larger desktop popups (320px wide, 13px text); long write-ups scroll inside the popup.
  *   - Booking.com / Hostelworld buttons now sit directly under the street address.
@@ -189,13 +190,13 @@
       position:fixed;left:0;right:0;bottom:0;z-index:10000;box-sizing:border-box;
       height:50vh;height:50dvh;max-height:50vh;max-height:50dvh;
       display:flex;flex-direction:column;background:#fff;
-      border-top:4px solid ${BRAND_YELLOW};border-radius:16px 16px 0 0;
+      border-radius:16px 16px 0 0;
       box-shadow:0 -8px 28px rgba(0,0,0,0.35);
       font-family:'Century Gothic',sans-serif;color:#333;
       transform:translateY(110%);visibility:hidden;
-      transition:transform 0.3s ease,visibility 0s linear 0.3s;
+      transition:transform 0.6s cubic-bezier(0.22,0.61,0.36,1),visibility 0s linear 0.6s;
     }
-    #bb-sheet.is-open { transform:translateY(0);visibility:visible;transition:transform 0.3s ease,visibility 0s; }
+    #bb-sheet.is-open { transform:translateY(0);visibility:visible;transition:transform 0.6s cubic-bezier(0.22,0.61,0.36,1),visibility 0s; }
     #bb-sheet:focus { outline:none; }
     #bb-sheet .bb-sheet-head { flex:0 0 auto;position:relative;padding:8px 0 4px;touch-action:none; }
     #bb-sheet .bb-sheet-grip { width:44px;height:5px;border-radius:3px;background:#ccc;margin:0 auto; }
@@ -339,6 +340,7 @@
         style: 'https://tiles.openfreemap.org/styles/liberty',
         center: CENTER, zoom: ZOOM, pitch: PITCH, bearing: BEARING,
         cooperativeGestures: isTouchDevice,
+        attributionControl: false,   // added below as a compact control: hidden behind the "i" button until clicked
         locale: {
           'CooperativeGesturesHandler.MobileHelpText': 'Use 2 fingers to move the map, pinch to zoom'
         }
@@ -407,6 +409,30 @@
       map.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), 'top-right');
       map.addControl(new maplibregl.FullscreenControl(), 'top-right');
       map.addControl(new maplibregl.ScaleControl({ unit: 'metric' }), 'bottom-left');
+
+      // Attribution (Esri / OpenFreeMap / OpenStreetMap credits) stays available but out of the way:
+      // only the small "i" button shows until the visitor clicks it. MapLibre opens a compact control
+      // by itself the first time its style loads, so that first automatic opening is undone here;
+      // after the visitor has clicked the button once, it behaves normally.
+      map.addControl(new maplibregl.AttributionControl({ compact: true }), 'bottom-right');
+      (function collapseAttribution() {
+        const ac = document.querySelector('#bb-map .maplibregl-ctrl-attrib');
+        if (!ac) return;
+        let userToggled = false;
+        const btn = ac.querySelector('.maplibregl-ctrl-attrib-button');
+        if (btn) btn.addEventListener('click', () => { userToggled = true; }, true);
+        const collapse = () => {
+          if (userToggled) return;
+          if (ac.hasAttribute('open')) ac.removeAttribute('open');
+          // only touch the class when it is actually set: rewriting an unchanged attribute would
+          // queue another mutation and make the observer loop forever
+          if (ac.classList.contains('maplibregl-compact-show')) ac.classList.remove('maplibregl-compact-show');
+        };
+        collapse();
+        if (window.MutationObserver) {
+          new window.MutationObserver(collapse).observe(ac, { attributes: true, attributeFilter: ['open', 'class'] });
+        }
+      })();
 
       document.getElementById('bb-map').addEventListener('keydown', e => {
         const P = 80;
