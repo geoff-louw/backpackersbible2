@@ -5533,7 +5533,7 @@ table.centered-table td {
    46. WTF BUTTON
    Red "WTF?" fun-fact button. Click toggles .is-open (see
    script-2.js section 20). Markup lives in each page:
-   .wtf-wrap > .wtf-widget > button.wtf-trigger + svg.wtf-hand
+   .wtf-wrap > .wtf-widget > button.wtf-trigger + span.wtf-hand
    ============================================================ */
 
 .wtf-wrap {
@@ -5585,6 +5585,7 @@ table.centered-table td {
   width: 30px;
   height: 36px;
   margin: -1px auto 0;
+  background: url('/assets/wtf-hand.svg') center / contain no-repeat;
   pointer-events: none;
 }
 
