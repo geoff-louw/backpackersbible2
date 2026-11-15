@@ -21,9 +21,11 @@
  *   - A pin's name label is never hidden under neighbouring pins (hovered / focused / selected pin rises).
  *   - Larger desktop popups (320px wide, 13px text); long write-ups scroll inside the popup.
  *   - Booking.com / Hostelworld buttons now sit directly under the street address.
- *   - Mobile (<= 768px): popups are replaced by a bottom sheet fixed to the bottom of the screen, outside
- *     the map. It always fills the lower half of the screen (long write-ups scroll inside it) and the page
- *     is scrolled so the map sits in the upper half. Swipe down, tap x, tap empty map, press Esc or scroll the page down to dismiss it.
+ *   - Mobile (<= 768px): popups are replaced by bottom sheets fixed to the bottom of the screen, outside the map.
+ *     Several can stay open (newest in front, earlier ones as tappable strips; x closes one, "Close all" closes
+ *     every one). Together they fill the lower half of the screen, long write-ups scroll inside, and the page is
+ *     scrolled so the map sits in the upper half. Esc closes the front one; scrolling the page down clears all.
+ *   - Pins whose details have been opened turn sky blue with a tick (remembered for the browser session).
  *   - cfg.cssSized: when true the wrapper is sized by CSS (.sa-hostel-map-iframe) instead of inline styles.
  *
  * Usage (normally done by /assets/js/bb-map-loader.js on first interaction):
@@ -185,38 +187,58 @@
     .bb-popup { max-height:var(--bb-popup-max,420px);overflow-y:auto;overscroll-behavior:contain;padding-right:4px; }
     .bb-popup-btns { margin:8px 0 6px; }
 
-    /* v3 — mobile bottom sheet (replaces popups at <= 768px) */
-    #bb-sheet {
+    /* v3 — mobile bottom sheets (replace popups at <= 768px). Several can be open at once: the newest sits at
+       the bottom and earlier ones peek out above it as 44px strips; together they fill the lower half of the screen. */
+    .bb-sheet {
       position:fixed;left:0;right:0;bottom:0;z-index:10000;box-sizing:border-box;
-      height:50vh;height:50dvh;max-height:50vh;max-height:50dvh;
-      display:flex;flex-direction:column;background:#fff;
-      border-radius:16px 16px 0 0;
-      box-shadow:0 -8px 28px rgba(0,0,0,0.35);
-      font-family:'Century Gothic',sans-serif;color:#333;
+      height:calc(50vh - var(--bb-strips,0) * 44px);height:calc(50dvh - var(--bb-strips,0) * 44px);
+      display:flex;flex-direction:column;background:#fff;border-radius:16px 16px 0 0;
+      box-shadow:0 -6px 22px rgba(0,0,0,0.30);font-family:'Century Gothic',sans-serif;color:#333;
       transform:translateY(110%);visibility:hidden;
-      transition:transform 0.6s cubic-bezier(0.22,0.61,0.36,1),visibility 0s linear 0.6s;
+      transition:transform 0.6s cubic-bezier(0.22,0.61,0.36,1),bottom 0.5s ease,height 0.5s ease,visibility 0s linear 0.6s;
     }
-    #bb-sheet.is-open { transform:translateY(0);visibility:visible;transition:transform 0.6s cubic-bezier(0.22,0.61,0.36,1),visibility 0s; }
-    #bb-sheet:focus { outline:none; }
-    #bb-sheet .bb-sheet-head { flex:0 0 auto;position:relative;padding:8px 0 4px;touch-action:none; }
-    #bb-sheet .bb-sheet-grip { width:44px;height:5px;border-radius:3px;background:#ccc;margin:0 auto; }
-    #bb-sheet .bb-sheet-close {
-      position:absolute;top:0;right:4px;width:44px;height:44px;border:0;background:transparent;
-      font-size:30px;line-height:1;color:#555;cursor:pointer;
+    .bb-sheet.is-open { transform:translateY(0);visibility:visible;transition:transform 0.6s cubic-bezier(0.22,0.61,0.36,1),bottom 0.5s ease,height 0.5s ease,visibility 0s; }
+    .bb-sheet:focus { outline:none; }
+    .bb-sheet-head { flex:0 0 44px;height:44px;position:relative;display:flex;align-items:center;gap:4px;padding:0 2px 0 14px;touch-action:none; }
+    .bb-sheet-grip { position:absolute;top:6px;left:50%;margin-left:-22px;width:44px;height:5px;border-radius:3px;background:#ccc; }
+    .bb-sheet-title {
+      flex:1 1 auto;min-width:0;border:0;background:transparent;text-align:left;cursor:pointer;
+      font:700 14px 'Century Gothic',sans-serif;color:#670000;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+      padding:0;height:44px;visibility:hidden;
     }
-    #bb-sheet .bb-sheet-close:focus-visible { outline:3px solid ${BRAND_YELLOW};outline-offset:-3px; }
-    #bb-sheet .bb-sheet-body {
+    .bb-sheet-closeall {
+      display:none;border:0;background:transparent;cursor:pointer;height:44px;padding:8px 8px 0;
+      font:700 13px 'Century Gothic',sans-serif;color:#005F8A;
+    }
+    .bb-sheet-close {
+      flex:0 0 44px;width:44px;height:44px;border:0;background:transparent;
+      font-size:30px;line-height:1;color:#555;cursor:pointer;padding:0;
+    }
+    .bb-sheet-close:focus-visible,.bb-sheet-closeall:focus-visible,.bb-sheet-title:focus-visible { outline:3px solid ${BRAND_YELLOW};outline-offset:-3px; }
+    .bb-sheet.is-front.has-others .bb-sheet-closeall { display:block; }
+    .bb-sheet:not(.is-front) .bb-sheet-title { visibility:visible; }
+    .bb-sheet:not(.is-front) .bb-sheet-grip { display:none; }
+    .bb-sheet:not(.is-front) .bb-sheet-head { border-bottom:1px solid #eee; }
+    .bb-sheet:not(.is-front) .bb-sheet-body { visibility:hidden; }
+    .bb-sheet-body {
       flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
-      padding:4px 18px calc(18px + env(safe-area-inset-bottom,0px));
+      padding:0 18px calc(18px + env(safe-area-inset-bottom,0px));
     }
-    #bb-sheet .bb-popup { width:auto;max-width:none;max-height:none;overflow:visible;font-size:15px;padding:0; }
-    #bb-sheet .bb-popup h3 { font-size:20px;padding-right:40px; }
-    #bb-sheet .bb-popup-field { margin:6px 0; }
-    #bb-sheet .bb-popup-field a { display:inline-block;padding:3px 0; }
-    #bb-sheet .bb-popup-btns { gap:8px; }
-    #bb-sheet .bb-popup-btn { font-size:15px;padding:13px 6px; }
-    #bb-sheet .bb-popup-more { display:inline-block;padding:4px 0; }
-    @media (prefers-reduced-motion:reduce) { #bb-sheet,#bb-sheet.is-open { transition:none; } }
+    .bb-sheet .bb-popup { width:auto;max-width:none;max-height:none;overflow:visible;font-size:15px;padding:0; }
+    .bb-sheet .bb-popup h3 { font-size:20px;margin-top:0; }
+    .bb-sheet .bb-popup-field { margin:6px 0; }
+    .bb-sheet .bb-popup-field a { display:inline-block;padding:3px 0; }
+    .bb-sheet .bb-popup-btns { gap:8px; }
+    .bb-sheet .bb-popup-btn { font-size:15px;padding:13px 6px; }
+    .bb-sheet .bb-popup-more { display:inline-block;padding:4px 0; }
+    @media (prefers-reduced-motion:reduce) { .bb-sheet,.bb-sheet.is-open { transition:none; } }
+
+    /* v3 — pins whose details have been opened turn sky blue and show a small tick */
+    .bb-marker--viewed::after {
+      content:"";position:absolute;left:20px;top:-4px;width:11px;height:11px;border-radius:50%;
+      background:#2FA4E7 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M2 5.2l2 2 4-4.4' fill='none' stroke='white' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/9px no-repeat;
+      border:2px solid #fff;pointer-events:none;
+    }
   `;
   document.head.appendChild(css);
 
@@ -911,139 +933,254 @@
         let activePopup = null;
         let activeMarkerEl = null;
 
-        // The pin whose popup / sheet is open stays above its neighbours (see .bb-marker--active)
+        // The pin whose popup / sheet is in front stays above its neighbours (see .bb-marker--active)
         function setActiveMarker(el) {
           if (activeMarkerEl) activeMarkerEl.classList.remove('bb-marker--active');
           activeMarkerEl = el || null;
           if (activeMarkerEl) activeMarkerEl.classList.add('bb-marker--active');
         }
 
-        // ── MOBILE BOTTOM SHEET ──────────────────────────────────────────
-        // At <= 768px popups are replaced by a panel fixed to the bottom of the screen, outside the
-        // map. It sits above the fixed bottom bars (#quick-jump-menu, #page-title-bar), and slides
-        // away on swipe-down, the x button, a tap on empty map, Esc, or when the page is scrolled down.
+        // ── VIEWED PINS ──────────────────────────────────────────────────
+        // A pin whose details have been opened turns sky blue (and gets a small tick, so it is not
+        // colour alone) so visitors remember which hostels they have already looked at. If the file
+        // /assets/icons/hostel-pin-viewed.svg (or ...-best-viewed.svg) exists the pin itself is
+        // recoloured; either way the tick badge shows. Remembered for the browser session only.
+        const VIEWED_KEY = 'bb-viewed-hostels';
+        const viewedIds = new Set();
+        try { JSON.parse(sessionStorage.getItem(VIEWED_KEY) || '[]').forEach(id => viewedIds.add(id)); } catch (e) { /* storage unavailable */ }
+        const markerById = {};
+
+        function paintViewed(el) {
+          if (!el || el.classList.contains('bb-marker--viewed')) return;
+          el.classList.add('bb-marker--viewed');
+          const label = el.querySelector('.bb-marker-label');
+          if (label) el.setAttribute('aria-label', label.textContent + ' \u2014 viewed, click for details');
+          const icon = el.querySelector('.bb-marker-icon');
+          if (icon && icon.getAttribute('src')) {
+            const original = icon.getAttribute('src');
+            const viewedSrc = original.replace(/\.svg$/, '-viewed.svg');
+            if (viewedSrc !== original) {
+              const probe = new Image();
+              probe.onload = () => { icon.src = viewedSrc; };
+              probe.src = viewedSrc;
+            }
+          }
+        }
+        function markViewed(id, el) {
+          if (!id) return;
+          if (!viewedIds.has(id)) {
+            viewedIds.add(id);
+            try { sessionStorage.setItem(VIEWED_KEY, JSON.stringify(Array.from(viewedIds))); } catch (e) { /* ignore */ }
+          }
+          paintViewed(el || markerById[id]);
+        }
+
+        // ── MOBILE BOTTOM SHEETS ─────────────────────────────────────────
+        // At <= 768px popups are replaced by sheets fixed to the bottom of the screen, outside the map.
+        // Several can be open at once: the newest sits at the bottom and earlier ones peek out above it as
+        // 44px strips (tap a strip to bring that hostel to the front). Together they always fill the lower
+        // half of the screen, long write-ups scroll inside the front sheet, and the page is scrolled so the
+        // map sits in the upper half. The sheets sit above the fixed bottom bars and slide away together
+        // when the page is scrolled down.
         // (Not inside an iframe: there "the bottom of the screen" would only be the bottom of the map box,
         //  so pages still using the old iframe keep normal popups.)
         const useSheet = () => window.innerWidth <= 768 && window.self === window.top;
-        let sheetEl = null, sheetOpen = false, sheetOpenedAt = 0, sheetOpenY = 0, lastScrollY = 0, sheetReturnFocus = null;
+        const STRIP = 44;
+        const maxSheets = () => (window.innerHeight >= 800 ? 4 : 3);
+        let stack = [];                         // oldest first; the last one is in front
+        let stackOpenedAt = 0, stackOpenY = 0, lastScrollY = 0, sheetReturnFocus = null, sheetSeq = 0, sheetListeners = false;
 
-        function buildSheet() {
-          if (sheetEl) return sheetEl;
-          sheetEl = document.createElement('div');
-          sheetEl.id = 'bb-sheet';
-          sheetEl.setAttribute('role', 'dialog');
-          sheetEl.setAttribute('aria-modal', 'false');
-          sheetEl.setAttribute('aria-hidden', 'true');
-          sheetEl.setAttribute('aria-label', 'Information');
-          sheetEl.tabIndex = -1;
-          sheetEl.innerHTML =
+        function frontSheet() { return stack[stack.length - 1]; }
+
+        function layoutStack() {
+          const n = stack.length;
+          document.documentElement.style.setProperty('--bb-strips', String(Math.max(0, n - 1)));
+          stack.forEach((s, i) => {
+            const fromFront = n - 1 - i;
+            const isFront = fromFront === 0;
+            s.el.style.bottom = (fromFront * STRIP) + 'px';
+            s.el.style.zIndex = String(10000 + i);
+            s.el.classList.toggle('is-front', isFront);
+            s.el.classList.toggle('has-others', n > 1);
+            s.body.setAttribute('aria-hidden', isFront ? 'false' : 'true');
+          });
+        }
+
+        function createSheet(key, coords, html, markerEl) {
+          const id = ++sheetSeq;
+          const el = document.createElement('div');
+          el.className = 'bb-sheet';
+          el.setAttribute('role', 'dialog');
+          el.setAttribute('aria-modal', 'false');
+          el.tabIndex = -1;
+          el.innerHTML =
             '<div class="bb-sheet-head"><div class="bb-sheet-grip" aria-hidden="true"></div>' +
-            '<button type="button" class="bb-sheet-close" aria-label="Close">&times;</button></div>' +
+            '<button type="button" class="bb-sheet-title"></button>' +
+            '<button type="button" class="bb-sheet-closeall">Close all</button>' +
+            '<button type="button" class="bb-sheet-close">&times;</button></div>' +
             '<div class="bb-sheet-body"></div>';
-          document.body.appendChild(sheetEl);
+          const body = el.querySelector('.bb-sheet-body');
+          body.innerHTML = html;
+          const h3 = body.querySelector('h3');
+          const name = h3 ? h3.textContent.trim() : 'Details';
+          if (h3) { h3.id = 'bb-sheet-title-' + id; el.setAttribute('aria-labelledby', h3.id); }
+          else el.setAttribute('aria-label', name);
+          const s = { key, coords, markerEl, el, body, name };
 
-          sheetEl.querySelector('.bb-sheet-close').addEventListener('click', () => closeSheet());
-          // "More info" scrolls the page to the hostel's write-up, so the sheet gets out of the way
-          sheetEl.addEventListener('click', (ev) => {
-            if (ev.target.closest && ev.target.closest('.bb-popup-more')) closeSheet();
+          const titleBtn = el.querySelector('.bb-sheet-title');
+          titleBtn.textContent = name;
+          titleBtn.setAttribute('aria-label', 'Show ' + name);
+          titleBtn.addEventListener('click', () => bringToFront(s));
+          const closeBtn = el.querySelector('.bb-sheet-close');
+          closeBtn.setAttribute('aria-label', 'Close ' + name);
+          closeBtn.addEventListener('click', () => closeSheet(s));
+          el.querySelector('.bb-sheet-closeall').addEventListener('click', () => closeAllSheets());
+          // "More info" scrolls the page to the hostel's write-up, so every sheet gets out of the way
+          el.addEventListener('click', (ev) => {
+            if (ev.target.closest && ev.target.closest('.bb-popup-more')) closeAllSheets();
           });
 
-          // swipe down on the grip / header to dismiss
-          const head = sheetEl.querySelector('.bb-sheet-head');
+          // swipe down on the front sheet's header closes that sheet only
+          const head = el.querySelector('.bb-sheet-head');
           let startY = null, dy = 0;
           head.addEventListener('touchstart', (ev) => {
-            startY = ev.touches[0].clientY; dy = 0; sheetEl.style.transition = 'none';
+            if (frontSheet() !== s) return;
+            startY = ev.touches[0].clientY; dy = 0; el.style.transition = 'none';
           }, { passive: true });
           head.addEventListener('touchmove', (ev) => {
             if (startY === null) return;
             dy = Math.max(0, ev.touches[0].clientY - startY);
-            sheetEl.style.transform = 'translateY(' + dy + 'px)';
+            el.style.transform = 'translateY(' + dy + 'px)';
           }, { passive: true });
           const endDrag = () => {
             if (startY === null) return;
-            sheetEl.style.transition = '';
-            if (dy > 80) closeSheet();
-            sheetEl.style.transform = '';
+            el.style.transition = '';
+            if (dy > 80) closeSheet(s);
+            el.style.transform = '';
             startY = null; dy = 0;
           };
           head.addEventListener('touchend', endDrag);
           head.addEventListener('touchcancel', endDrag);
+          return s;
+        }
 
-          document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape' && sheetOpen) closeSheet(); });
+        function bindSheetListeners() {
+          if (sheetListeners) return;
+          sheetListeners = true;
+          document.addEventListener('keydown', (ev) => {
+            if (ev.key === 'Escape' && stack.length) closeSheet(frontSheet());
+          });
           window.addEventListener('scroll', onPageScroll, { passive: true });
-          window.addEventListener('resize', () => { if (sheetOpen && !useSheet()) closeSheet(); });
-          return sheetEl;
+          window.addEventListener('resize', () => { if (stack.length && !useSheet()) closeAllSheets(); });
         }
 
         function onPageScroll() {
-          if (!sheetOpen) return;
+          if (!stack.length) return;
           const y = window.scrollY;
-          // scrolling the page down (like the bottom bars do) slides the sheet away
-          if (Date.now() - sheetOpenedAt > 600 && y > lastScrollY + 4 && y - sheetOpenY > 40) closeSheet();
+          // scrolling the page down (like the bottom bars do) slides the whole stack away
+          if (Date.now() - stackOpenedAt > 600 && y > lastScrollY + 4 && y - stackOpenY > 40) closeAllSheets();
           lastScrollY = y;
         }
 
-        function openSheet(coords, html, markerEl) {
-          buildSheet();
-          const body = sheetEl.querySelector('.bb-sheet-body');
-          body.innerHTML = html;
-          body.scrollTop = 0;
-          const title = body.querySelector('h3');
-          if (title) {
-            title.id = 'bb-sheet-title';
-            sheetEl.setAttribute('aria-labelledby', 'bb-sheet-title');
-            sheetEl.removeAttribute('aria-label');
-          }
-          if (activePopup) { activePopup.remove(); activePopup = null; }
-          sheetReturnFocus = markerEl || document.activeElement;
-          setActiveMarker(markerEl);
-          sheetOpen = true;
-          sheetOpenedAt = Date.now();
-          sheetOpenY = lastScrollY = window.scrollY;
-          sheetEl.setAttribute('aria-hidden', 'false');
-          requestAnimationFrame(() => {
-            sheetEl.classList.add('is-open');
-            try { sheetEl.focus({ preventScroll: true }); } catch (e) { sheetEl.focus(); }
-            // The sheet always takes the lower half of the screen and the map keeps the upper half.
-            // If the map isn't mostly inside that upper half, scroll the page so it is
-            // (the scroll-away rule is paused while that happens).
+        // Pan the map so the front sheet's pin sits in the visible upper half; scroll the page first if needed
+        function frameFront(scrollIfNeeded) {
+          const f = frontSheet();
+          if (!f) return;
+          let delay = 0;
+          if (scrollIfNeeded) {
             const box0 = wrap.getBoundingClientRect();
             const half = window.innerHeight / 2;
             const visible = Math.max(0, Math.min(box0.bottom, half) - Math.max(box0.top, 0));
-            let delay = 0;
             if (visible < Math.min(box0.height, half) * 0.75) {
               window.scrollTo({ top: Math.max(0, window.scrollY + box0.top - 70), behavior: 'smooth' });
-              sheetOpenedAt = Date.now() + 900;
+              stackOpenedAt = Date.now() + 900;      // pause the scroll-away rule while the page moves
               delay = 700;
             }
-            setTimeout(() => {
-              if (!sheetOpen) return;
-              sheetOpenY = lastScrollY = window.scrollY;
-              // keep the chosen pin visible above the sheet
-              const box = wrap.getBoundingClientRect();
-              const covered = Math.max(0, box.bottom - (window.innerHeight - sheetEl.offsetHeight));
-              const pad = Math.min(covered, Math.round(box.height * 0.6));
-              map.easeTo({ center: coords, padding: { top: 0, left: 0, right: 0, bottom: pad }, duration: 400 });
-            }, delay);
+          }
+          setTimeout(() => {
+            const cur = frontSheet();
+            if (!cur) return;
+            stackOpenY = lastScrollY = window.scrollY;
+            const box = wrap.getBoundingClientRect();
+            const stackH = cur.el.offsetHeight + (stack.length - 1) * STRIP;
+            const covered = Math.max(0, box.bottom - (window.innerHeight - stackH));
+            const pad = Math.min(covered, Math.round(box.height * 0.6));
+            map.easeTo({ center: cur.coords, padding: { top: 0, left: 0, right: 0, bottom: pad }, duration: 400 });
+          }, delay);
+        }
+
+        function openSheet(key, coords, html, markerEl) {
+          bindSheetListeners();
+          const existing = stack.find(s => s.key === key);
+          if (existing) { bringToFront(existing); return; }
+          if (key === 'misc') stack.filter(s => s.key === 'misc').forEach(s => closeSheet(s));   // one-off popups replace each other
+          while (stack.length >= maxSheets()) closeSheet(stack[0]);
+          const first = stack.length === 0;
+          const s = createSheet(key, coords, html, markerEl);
+          document.body.appendChild(s.el);
+          stack.push(s);
+          layoutStack();
+          if (first) {
+            sheetReturnFocus = markerEl || document.activeElement;
+            stackOpenedAt = Date.now();
+            stackOpenY = lastScrollY = window.scrollY;
+          }
+          setActiveMarker(markerEl);
+          requestAnimationFrame(() => {
+            s.el.classList.add('is-open');
+            try { s.el.focus({ preventScroll: true }); } catch (e) { s.el.focus(); }
+            frameFront(first);
           });
         }
 
-        function closeSheet() {
-          if (!sheetOpen) return;
-          sheetOpen = false;
-          sheetEl.classList.remove('is-open');
-          sheetEl.setAttribute('aria-hidden', 'true');
+        function bringToFront(s) {
+          if (frontSheet() === s) return;
+          stack = stack.filter(x => x !== s).concat(s);
+          layoutStack();
+          setActiveMarker(s.markerEl);
+          frameFront(false);
+        }
+
+        function retire(s) {                      // slide a sheet down, then remove it from the page
+          s.el.classList.remove('is-open');
+          setTimeout(() => { if (s.el.parentNode) s.el.parentNode.removeChild(s.el); }, 750);
+        }
+
+        function finishStack() {
           setActiveMarker(null);
           map.easeTo({ padding: { top: 0, left: 0, right: 0, bottom: 0 }, duration: 300 });
-          if (sheetReturnFocus && document.contains(sheetReturnFocus) && sheetEl.contains(document.activeElement)) {
+          if (sheetReturnFocus && document.contains(sheetReturnFocus)) {
             try { sheetReturnFocus.focus({ preventScroll: true }); } catch (e) { /* ignore */ }
           }
           sheetReturnFocus = null;
         }
 
-        function showPopup(coords, html, markerEl) {
-          if (useSheet()) { openSheet(coords, html, markerEl); return; }
-          if (sheetOpen) closeSheet();
+        function closeSheet(s) {
+          if (stack.indexOf(s) === -1) return;
+          const wasFront = frontSheet() === s;
+          stack = stack.filter(x => x !== s);
+          retire(s);
+          layoutStack();
+          if (!stack.length) { finishStack(); return; }
+          if (wasFront) {
+            const f = frontSheet();
+            setActiveMarker(f.markerEl);
+            frameFront(false);
+          }
+        }
+
+        function closeAllSheets() {
+          if (!stack.length) return;
+          const all = stack; stack = [];
+          all.forEach(retire);
+          layoutStack();
+          finishStack();
+        }
+
+        function showPopup(coords, html, markerEl, key) {
+          if (markerEl && key) markViewed(key, markerEl);
+          if (useSheet()) { openSheet(key || 'misc', coords, html, markerEl); return; }
+          if (stack.length) closeAllSheets();
           // long write-ups scroll inside the popup instead of running off the map
           wrap.style.setProperty('--bb-popup-max', Math.max(220, wrap.clientHeight - 130) + 'px');
           setActiveMarker(markerEl);
@@ -1066,8 +1203,7 @@
 
         map.on('click', (e) => {
           if (e.clickHandled) return;
-          if (sheetOpen) closeSheet();
-          setActiveMarker(null);
+          if (!stack.length) setActiveMarker(null);          // open sheets stay put when empty map is tapped
           if (activePopup) {
             const el = activePopup.getElement();
             if (el) el.classList.remove('bb-fade-in');
@@ -1140,7 +1276,7 @@
             const coords = target.feature.geometry.coordinates;
             const html   = buildPopup(target.feature.properties);
             map.flyTo({ center: coords, zoom: Math.max(map.getZoom(), 14), duration: 800 });
-            setTimeout(() => showPopup(coords, html, target.marker.getElement()), 850);
+            setTimeout(() => showPopup(coords, html, target.marker.getElement(), e.data.id), 850);
           }
         });
 
@@ -1263,6 +1399,7 @@
             this.src='';
           };
           container.appendChild(icon);
+          markerById[h.id] = container;
 
           // National view has 200+ pins on screen at once — name labels
           // for every one would be visual noise until zoomed in, so they
@@ -1282,13 +1419,14 @@
           const openPopup = e => {
             if (selectModeActive) return;
             if(e) e.stopPropagation();
-            showPopup(coords, html, container);
+            showPopup(coords, html, container, h.id);
           };
           container.addEventListener('click', openPopup);
           container.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' '){e.preventDefault();openPopup(e);} });
 
           const marker = new maplibregl.Marker({ element:container, anchor:'left' }).setLngLat(coords).addTo(map);
           allMarkers.push({ marker, feature });
+          if (viewedIds.has(h.id)) paintViewed(container);       // remembered from earlier in this browser session
         }); // end features.forEach
 
         // Inline style loads near-synchronously so MapLibre may not
