@@ -467,7 +467,7 @@
 
 <!-- Map description -->
 <div class="map-description" id="hostel-map-description">
-  <span class="map-description__text"><strong>BACKPACKERS FINDER:</strong> The easiest way to choose the right backpacker hostel. Our unique 3D interactive map lets you filter South African backpackers by vibe, safety, setups, and value.</span>
+  <span class="map-description__text"><strong>BACKPACKERS FINDER:</strong> The easiest way to choose the right backpacker hostel. Our unique 3D interactive map lets you filter South African backpackers by vibe, safety, setups, and value. Select one or more to find your perfect hostel.</span>
 </div>
 
   <!-- Map filter buttons -->
@@ -501,33 +501,41 @@
 </div>
 
 <!-- ░░ HOSTEL MAP ░░ -->
-<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description">
+<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description"
+  data-bb-map
+  data-region="drakensberg"
+  data-country="South Africa"
+  data-center="29.37,-29.35"
+  data-zoom="9"
+  data-pitch="75"
+  data-bearing="330"
+  data-mobile-center="29.37,-30.22"
+  data-mobile-zoom="7"
+  data-autoload="viewport">
 
   <!-- Poster image: shows before user loads the map -->
   <picture class="sa-hostel-map-poster">
     <source media="(max-width: 767px)" srcset="/assets/fallback_map_drakensberg_mobile.webp">
-    <img src="/assets/fallback_map_drakensberg_mobile.webp" 
+    <img src="/assets/fallback_map_drakensberg.webp" 
          alt="Interactive backpacker hostel map of the Drakensberg showing hostels that can be filtered by travel style, safety, digital nomad suitability, surfing, camping and budget travel preferences."
-         loading="lazy">
+         loading="eager"
+         fetchpriority="high"
+         decoding="async">
   </picture>
 
-  <!-- The map iframe — src is blank until user clicks -->
-  <iframe
-    class="sa-hostel-map-iframe bb-map-iframe"
-    title="Interactive hostel map of the Drakensberg"
-    src="about:blank"
-    data-src="/map.html?region=drakensberg&center=29.37,-29.35&zoom=9&pitch=75&bearing=330&mobile-center=29.37,-30.22&mobile-zoom=7"
-    loading="lazy"
-    allowfullscreen>
-  </iframe>
+  <button type="button" class="sr-only" id="bb-map-load-btn">Load the interactive hostel map</button>
+
+  <!-- The map renders here (inline, no iframe) -->
+  <div id="bb-map-wrap" class="sa-hostel-map-iframe bb-map-iframe" hidden></div>
 
   <!-- Yellow circle: desktop-only info note; mobile: not shown (CSS) -->
   <div class="map-overlay-circle" aria-hidden="true">
-    We list ALL the hostels<br>in the Drakensberg!<br>Click the icons for info.
+    We list ALL the hostels<br>in Cape Town!<br>Click the icons for info.
   </div>
 
 </section>
 <!-- ░░ END HOSTEL MAP ░░ -->
+
 
 <!-- ░░ BUILD YOUR OWN ITINERARY ░░ -->
 
