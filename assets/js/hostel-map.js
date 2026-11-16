@@ -1244,7 +1244,10 @@
         // Small public API for the host page (counts let it grey out empty filter buttons)
         window.BB_MAP_API = {
           count:  (f) => { const keys = normKeys(f); return allMarkers.filter(({ feature }) => matchesAll(feature.properties, keys)).length; },
-          filter: (f) => applyFilter(f)
+          filter: (f) => applyFilter(f),
+          // how many hostels here carry any filter data (ratings, tags or the old is_* flags) out of how many there are
+          rated:  () => allMarkers.filter(({ feature }) => { const p = feature.properties; return !!(p.scores || (Array.isArray(p.tags) && p.tags.length) || Object.keys(p).some(k => k.indexOf('is_') === 0)); }).length,
+          total:  () => allMarkers.length
         };
 
         // Returns how many pins are now showing

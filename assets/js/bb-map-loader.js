@@ -149,7 +149,11 @@
       return;
     }
     var n = api.filter(selected);
-    if (selected.length && n === 0) say('No hostels match all of those filters. Try removing one.', true);
+    var rated = api.rated ? api.rated() : null, total = api.total ? api.total() : null;
+    var partial = (selected.length && rated !== null && total !== null && rated < total)
+      ? ' Only ' + rated + ' of the ' + total + ' hostels here have been rated for these filters so far.' : '';
+    if (selected.length && n === 0) say('No hostels match all of those filters. Try removing one.' + partial, true);
+    else if (partial) say(n + (n === 1 ? ' hostel shown.' : ' hostels shown.') + partial, true);
     else say(selected.length ? n + (n === 1 ? ' hostel shown.' : ' hostels shown.') : '', false);
     dimEmptyCombos();
   }
