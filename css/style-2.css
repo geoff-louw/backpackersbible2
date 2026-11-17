@@ -5168,12 +5168,12 @@ img.bb-marker-icon {
 
 
 .bb-it-intro {
-    background: #f58220;
+    background: #ffc20e;
     padding: 22px 20px 30px;
     text-align: center;
   }
   .bb-it-intro h2 {
-    color: #fff;
+    color: #000000;
     font-family: 'Century Gothic', sans-serif;
     font-size: 14pt;
     font-weight: bold;
@@ -5182,7 +5182,7 @@ img.bb-marker-icon {
     letter-spacing: 0.03em;
   }
   .bb-it-intro p {
-    color: #fff;
+    color: #000000;
     font-family: 'Century Gothic', sans-serif;
     font-size: 14px;
     line-height: 1.5;
