@@ -986,7 +986,11 @@
         //  so pages still using the old iframe keep normal popups.)
         const useSheet = () => window.innerWidth <= 768 && window.self === window.top;
         const STRIP = 44;
-        const maxSheets = () => (window.innerHeight >= 800 ? 4 : 3);
+        // How many sheets can stay open: the stack always fills the lower half of the screen, so each extra
+        // strip shortens the front sheet. Allow as many as keep the front sheet at least MIN_FRONT px tall
+        // (about 4 on a 667px-tall phone, 5-6 on taller ones, never fewer than 3).
+        const MIN_FRONT = 190;
+        const maxSheets = () => Math.max(3, Math.floor((window.innerHeight / 2 - MIN_FRONT) / STRIP) + 1);
         let stack = [];                         // oldest first; the last one is in front
         let stackOpenedAt = 0, stackOpenY = 0, lastScrollY = 0, sheetReturnFocus = null, sheetSeq = 0, sheetListeners = false;
 
