@@ -1103,7 +1103,7 @@
         "address": "Glen Gray Farm, R600, Winterton, 3340",
         "phone": "+27824003724",
         "whatsapp": "+27824003724",
-        "email": "info@bergbackpackers.co.za",
+        "email": "info@berglodge.co.za",
         "website": "drakensberg-hikes.co.za",
         "info": "The best-value private room option in the Central Berg.",
         "anchor": "/south-africa-hostel-directory/drakensberg#berg-backpackers",
@@ -2209,7 +2209,7 @@
         "address": "15 Marsh Street, Mossel Bay Central, 6500",
         "phone": "+27446903109",
         "whatsapp": "+27824933251",
-        "email": "sharkshack@gmail.com",
+        "email": "info@sharkshack.co.za",
         "website": "sharkshack.co.za",
         "info": "Useful as a shark diving booking base.",
         "anchor": "/south-africa-hostel-directory/garden-route#shark-shack-backpackers",
@@ -2959,44 +2959,6 @@
         "is_nature": false,
         "is_cultural": false,
         "is_cheapest": true,
-        "is_camping": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          28.1029,
-          -26.11692
-        ]
-      },
-      "properties": {
-        "region": "johannesburg",
-        "id": "gemini-backpackers-lodge",
-        "name": "GEMINI BACKPACKERS LODGE",
-        "address": "10 Gidani Road, Bruma, Johannesburg, 2198",
-        "phone": "+27116150192",
-        "whatsapp": "+27824536610",
-        "email": "info@geminibackpackers.co.za",
-        "website": "geminibackpackers.co.za",
-        "info": "A budget transit option near the airport.",
-        "anchor": "/south-africa-hostel-directory/johannesburg#gemini-backpackers-lodge",
-        "googleRating": "3.6 / 5",
-        "is_best_overall": false,
-        "is_value": false,
-        "is_party": false,
-        "is_chill": false,
-        "is_solo_women": false,
-        "is_digital_nomad": false,
-        "is_surfer": false,
-        "is_safety": true,
-        "is_amenities": false,
-        "is_ethical": false,
-        "is_adventure": false,
-        "is_nature": false,
-        "is_cultural": false,
-        "is_cheapest": false,
         "is_camping": false
       }
     },
@@ -5859,45 +5821,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          24.92183,
-          -34.0517
-        ]
-      },
-      "properties": {
-        "region": "sunshine-coast",
-        "id": "jeffreys-bay-backpackers",
-        "name": "JEFFREYS BAY BACKPACKERS",
-        "address": "12 Jeffrey Street, Jeffreys Bay, Eastern Cape, 6330",
-        "phone": "+27422931379",
-        "whatsapp": "+27422931379",
-        "email": "backpac@netactive.co.za",
-        "website": "jbaybackpackers.com",
-        "info": "The sensible town-centre alternative to Island Vibe.",
-        "anchor": "/south-africa-hostel-directory/sunshine-coast#jeffreys-bay-backpackers",
-        "googleRating": "3.8 / 5",
-        "hostelworld": "https://www.hostelworld.com/hostels/p/4090/jeffreys-bay-backpackers/",
-        "is_best_overall": false,
-        "is_value": false,
-        "is_party": false,
-        "is_chill": false,
-        "is_solo_women": false,
-        "is_digital_nomad": false,
-        "is_surfer": false,
-        "is_safety": true,
-        "is_amenities": false,
-        "is_ethical": false,
-        "is_adventure": false,
-        "is_nature": false,
-        "is_cultural": false,
-        "is_cheapest": true,
-        "is_camping": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           24.92896,
           -34.03539
         ]
@@ -5909,7 +5832,7 @@
         "address": "8 Cherry Street, Wavecrest, Jeffreys Bay, Eastern Cape, 6330",
         "phone": "+27422960376",
         "whatsapp": "+27761545313",
-        "email": "info@jaybay.co.za",
+        "email": "enquiries@ubuntusurflodge.co.za",
         "website": "ubuntusurflodge.co.za",
         "info": "One of the standout hostels of the Sunshine Coast.",
         "anchor": "/south-africa-hostel-directory/sunshine-coast#african-ubuntu-backpackers",
