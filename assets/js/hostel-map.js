@@ -28,6 +28,17 @@
  *   - Pins whose details have been opened turn sky blue with a tick (remembered for the browser session).
  *   - cfg.cssSized: when true the wrapper is sized by CSS (.sa-hostel-map-iframe) instead of inline styles.
  *
+ * v4 changes (touch devices only; desktop is unchanged):
+ *   - Tap the inline map and it opens full-screen: one-finger pan and pinch work normally (no more "use 2 fingers"),
+ *     the page's .map-filter-bar is pinned to the top of the screen (same buttons, same handlers), a close button
+ *     (top right) returns to the page exactly where it was, and the bottom sheets work as before.
+ *   - Tapping a hostel pin on the inline map opens full-screen AND that hostel's sheet; tapping anywhere else just
+ *     opens full-screen. While the itinerary builder's region-select mode is active the inline map behaves as before.
+ *   - The native Fullscreen button is no longer added on touch devices (it clashed with the sheets).
+ *   - cfg.mobileFullscreen = false switches the whole feature off for a page.
+ *   - The phone's Back button closes the full-screen map instead of leaving the page.
+ *   - Phones are 2D only: no tilt, no rotate, no 3D terrain, no "Switch to 2D" button, no compass.
+ *
  * Usage (normally done by /assets/js/bb-map-loader.js on first interaction):
  *   <div id="bb-map-wrap"></div>
  *   window.BB_MAP_CONFIG = { region:'catalonia', center:[1.605,41.845], zoom:7, countryName:'Spain',
@@ -56,8 +67,11 @@
 
   const CENTER  = cfg.center || [25.0, -29.0];
   const ZOOM    = cfg.zoom   !== undefined ? cfg.zoom : (REGION === 'national' ? (isMobile ? 4 : 5) : 11);
-  const PITCH   = isMobile ? 0 : (cfg.pitch   !== undefined ? cfg.pitch   : 55);
-  const BEARING = isMobile ? 0 : (cfg.bearing !== undefined ? cfg.bearing : 0);
+  // FLAT = phones (narrow screens, or a touch device whose short side is phone-sized, e.g. a phone held sideways):
+  // always 2D. Desktops and tablets keep the 3D view.
+  const FLAT = isMobile || (window.matchMedia('(pointer: coarse)').matches && Math.min(window.screen.width, window.screen.height) <= 768);
+  const PITCH   = FLAT ? 0 : (cfg.pitch   !== undefined ? cfg.pitch   : 55);
+  const BEARING = FLAT ? 0 : (cfg.bearing !== undefined ? cfg.bearing : 0);
 
   const wrap = document.getElementById('bb-map-wrap');
   if (!wrap) return;
@@ -88,6 +102,7 @@
                    box-shadow:0 2px 6px rgba(0,0,0,0.25);transition:background 0.2s;">
       📍 My Location
     </button>
+    <button id="bb-map-close" type="button" aria-label="Close full-screen map">&times;</button>
     <div id="bb-map-offline"
          style="display:none;position:absolute;top:0;right:0;bottom:0;left:0;overflow:hidden;">
       <picture>
@@ -110,6 +125,14 @@
         to browse the hostel listings below.
       </p>
     </noscript>`;
+
+  if (FLAT) {
+    // 2D only on phones: no "Switch to 2D" button, and "My Location" moves up into its place
+    const tb = document.getElementById('bb-map-toggle');
+    if (tb && tb.parentNode) tb.parentNode.removeChild(tb);
+    const lb = document.getElementById('bb-map-locate');
+    if (lb) lb.style.top = '10px';
+  }
 
   const css = document.createElement('style');
   css.textContent = `
@@ -232,6 +255,32 @@
     .bb-sheet .bb-popup-btn { font-size:15px;padding:13px 6px; }
     .bb-sheet .bb-popup-more { display:inline-block;padding:4px 0; }
     @media (prefers-reduced-motion:reduce) { .bb-sheet,.bb-sheet.is-open { transition:none; } }
+
+    /* v4 — full-screen map on touch devices (the wrapper itself goes fixed; the page's filter bar is pinned above it) */
+    html.bb-map-locked, html.bb-map-locked body { overflow:hidden !important; overscroll-behavior:none; }
+    #bb-map-wrap.bb-map--full {
+      position:fixed !important;left:0 !important;right:0 !important;bottom:0 !important;
+      width:auto !important;height:auto !important;max-height:none !important;min-height:0 !important;
+      margin:0 !important;border-radius:0 !important;z-index:9990 !important;
+    }
+    html.bb-map-locked .map-filter-bar {
+      position:fixed !important;top:0 !important;left:0 !important;right:0 !important;
+      width:auto !important;max-width:none !important;margin:0 !important;z-index:9999 !important;
+      box-sizing:border-box;border-top:env(safe-area-inset-top,0px) solid #000;
+      box-shadow:0 2px 8px rgba(0,0,0,0.35);
+    }
+    /* the map shell is its own stacking context (isolation:isolate) and the site header is z-index 9999, so the shell
+       must be lifted above the header while open; sheets (10000+) still sit above the map */
+    html.bb-map-locked .sa-hostel-map-shell { z-index:9999 !important; }
+    html.bb-map-locked #site-header { visibility:hidden; }
+    #bb-map-close { display:none; }
+    #bb-map-wrap.bb-map--full #bb-map-close {
+      display:flex;align-items:center;justify-content:center;position:absolute;top:10px;right:10px;z-index:10;
+      width:44px;height:44px;padding:0 0 3px;background:#fff;border:2px solid ${BRAND_YELLOW};border-radius:50%;
+      font:400 30px/1 'Century Gothic',sans-serif;color:#333;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.25);
+    }
+    #bb-map-close:focus-visible { outline:3px solid ${BRAND_YELLOW};outline-offset:2px; }
+    #bb-map-wrap.bb-map--full .maplibregl-ctrl-top-right { top:54px; }
 
     /* v3 — pins whose details have been opened turn sky blue and show a small tick */
     .bb-marker--viewed::after {
@@ -356,15 +405,20 @@
       // only TWO fingers move/zoom the map; a short hint appears if someone
       // tries to drag with one finger. Desktop mouse behaviour is unchanged.
       const isTouchDevice = isMobile || window.matchMedia('(pointer: coarse)').matches;
+      // v4: on touch devices a tap on the inline map opens it full-screen (set cfg.mobileFullscreen = false to opt out)
+      const canFullscreen = isTouchDevice && cfg.mobileFullscreen !== false && window.self === window.top;
 
       const mapOptions = {
         container: 'bb-map',
         style: 'https://tiles.openfreemap.org/styles/liberty',
         center: CENTER, zoom: ZOOM, pitch: PITCH, bearing: BEARING,
         cooperativeGestures: isTouchDevice,
+        maxPitch: FLAT ? 0 : 60,         // phones: never tilted
+        dragRotate: !FLAT,               // phones: never rotated
+        touchPitch: !FLAT,
         attributionControl: false,   // added below as a compact control: hidden behind the "i" button until clicked
         locale: {
-          'CooperativeGesturesHandler.MobileHelpText': 'Use 2 fingers to move the map, pinch to zoom'
+          'CooperativeGesturesHandler.MobileHelpText': canFullscreen ? 'Tap the map to open it full-screen' : 'Use 2 fingers to move the map, pinch to zoom'
         }
       };
 
@@ -384,6 +438,11 @@
           showOffline(errNoAA);
           return;
         }
+      }
+
+      if (FLAT) {                         // phones: pinch zooms but never twists the map; keyboard cannot rotate either
+        map.touchZoomRotate.disableRotation();
+        map.keyboard.disableRotation();
       }
 
       // TRACKPAD SCROLL-TRAP FIX
@@ -428,8 +487,9 @@
         else console.warn('BB map: non-fatal map error', e && e.error);
       });
 
-      map.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), 'top-right');
-      map.addControl(new maplibregl.FullscreenControl(), 'top-right');
+      map.addControl(new maplibregl.NavigationControl({ visualizePitch: !FLAT, showCompass: !FLAT }), 'top-right');
+      // (touch devices get the full-screen mode below instead: the native button clashed with the bottom sheets)
+      if (!canFullscreen) map.addControl(new maplibregl.FullscreenControl(), 'top-right');
       map.addControl(new maplibregl.ScaleControl({ unit: 'metric' }), 'bottom-left');
 
       // Attribution (Esri / OpenFreeMap / OpenStreetMap credits) stays available but out of the way:
@@ -467,10 +527,11 @@
       });
 
       const TERRAIN_REGIONS = cfg.terrainRegions || ['cape-town', 'drakensberg'];
-      const hasTerrain = TERRAIN_REGIONS.includes(REGION);
+      const hasTerrain = TERRAIN_REGIONS.includes(REGION) && !FLAT;   // no 3D terrain on phones
 
       let is3D = true;
-      document.getElementById('bb-map-toggle').addEventListener('click', function() {
+      const toggleBtn = document.getElementById('bb-map-toggle');   // not present on phones (2D only)
+      if (toggleBtn) toggleBtn.addEventListener('click', function() {
         is3D = !is3D;
         if (is3D) {
           map.easeTo({ pitch:PITCH, bearing:BEARING, duration:800 });
@@ -1043,6 +1104,17 @@
           el.addEventListener('click', (ev) => {
             if (ev.target.closest && ev.target.closest('.bb-popup-more')) closeAllSheets();
           });
+          // v4: leave full-screen first (capture phase = before the link's own handler scrolls or navigates)
+          // The link waits until the map has closed, then is clicked again so its own handler runs unchanged.
+          el.addEventListener('click', (ev) => {
+            if (!fsActive) return;
+            const a = ev.target.closest && ev.target.closest('.bb-popup-more');
+            if (!a) return;
+            ev.preventDefault();
+            ev.stopImmediatePropagation();
+            fsPendingLink = a;
+            requestExit();
+          }, true);
 
           // swipe down on the front sheet's header closes that sheet only
           const head = el.querySelector('.bb-sheet-head');
@@ -1079,7 +1151,7 @@
         }
 
         function onPageScroll() {
-          if (!stack.length) return;
+          if (!stack.length || fsActive) return;       // the page cannot scroll behind the full-screen map
           const y = window.scrollY;
           // scrolling the page down (like the bottom bars do) slides the whole stack away
           if (Date.now() - stackOpenedAt > 600 && y > lastScrollY + 4 && y - stackOpenY > 40) closeAllSheets();
@@ -1091,7 +1163,7 @@
           const f = frontSheet();
           if (!f) return;
           let delay = 0;
-          if (scrollIfNeeded) {
+          if (scrollIfNeeded && !fsActive) {
             const box0 = wrap.getBoundingClientRect();
             const half = window.innerHeight / 2;
             const visible = Math.max(0, Math.min(box0.bottom, half) - Math.max(box0.top, 0));
@@ -1179,6 +1251,119 @@
           all.forEach(retire);
           layoutStack();
           finishStack();
+        }
+
+        // ── FULL-SCREEN MAP (v4, touch devices) ──────────────────────────
+        // A tap on the inline map opens it full-screen: the wrapper goes position:fixed under the page's own
+        // filter bar (which is pinned to the top of the screen, not copied, so its buttons keep working), the
+        // page behind is locked, and one-finger pan works because cooperative gestures are switched off.
+        // A placeholder holds the filter bar's place in the page so closing returns to the same scroll position.
+        // The phone's Back button closes the map: opening adds one history entry, closing takes it off again.
+        // Bottom sheets are unchanged: they are fixed to the screen and sit above the full-screen map.
+        let fsActive = false, fsSavedY = 0, fsBarHolder = null, fsHistory = false, fsPendingLink = null;
+        const fsBar      = document.querySelector('.map-filter-bar');
+        const fsCloseBtn = document.getElementById('bb-map-close');
+
+        function fsLayout() {                     // map starts just under the filter bar
+          const h = fsBar ? Math.ceil(fsBar.getBoundingClientRect().height) : 0;
+          wrap.style.setProperty('top', h + 'px', 'important');
+          map.resize();
+        }
+
+        function enterFullscreen() {
+          if (fsActive) return;
+          fsActive = true;
+          fsSavedY = window.scrollY;
+          if (fsBar) {
+            fsBarHolder = document.createElement('div');
+            fsBarHolder.setAttribute('aria-hidden', 'true');
+            fsBarHolder.style.cssText = 'height:' + Math.round(fsBar.getBoundingClientRect().height) + 'px;';
+            fsBar.parentNode.insertBefore(fsBarHolder, fsBar);
+          }
+          document.documentElement.classList.add('bb-map-locked');
+          wrap.classList.add('bb-map--full');
+          map.cooperativeGestures.disable();
+          fsLayout();
+          try { history.pushState({ bbMapFull: 1 }, ''); fsHistory = true; } catch (e) { fsHistory = false; }
+          // the tour guide can sit over the page: park it while the map is open (only if it can be woken again)
+          if (window.BB_TourGuide && typeof window.BB_TourGuide.suspend === 'function' && typeof window.BB_TourGuide.resume === 'function') {
+            try { window.BB_TourGuide.suspend(); } catch (e) { /* ignore */ }
+          }
+          if (fsCloseBtn) { try { fsCloseBtn.focus({ preventScroll: true }); } catch (e) { /* ignore */ } }
+        }
+
+        function exitFullscreen() {               // tears the full-screen view down (does not touch history)
+          if (!fsActive) return;
+          fsActive = false;
+          closeAllSheets();                        // sheets belong to the full-screen view
+          wrap.classList.remove('bb-map--full');
+          wrap.style.removeProperty('top');
+          document.documentElement.classList.remove('bb-map-locked');
+          if (fsBarHolder && fsBarHolder.parentNode) fsBarHolder.parentNode.removeChild(fsBarHolder);
+          fsBarHolder = null;
+          map.cooperativeGestures.enable();
+          map.resize();
+          window.scrollTo({ top: fsSavedY, left: 0, behavior: 'instant' });
+          if (window.BB_TourGuide && typeof window.BB_TourGuide.suspend === 'function' && typeof window.BB_TourGuide.resume === 'function') {
+            try { window.BB_TourGuide.resume(); } catch (e) { /* ignore */ }
+          }
+          const mapEl = document.getElementById('bb-map');
+          if (mapEl) { try { mapEl.focus({ preventScroll: true }); } catch (e) { /* ignore */ } }
+        }
+
+        function finishExit() {
+          exitFullscreen();
+          if (fsPendingLink) {                     // a "More info" link that was waiting for the map to close
+            const l = fsPendingLink; fsPendingLink = null;
+            setTimeout(() => { try { l.click(); } catch (e) { /* ignore */ } }, 0);
+          }
+        }
+
+        // Close button / Esc / "More info": go back one history step (the popstate below does the closing).
+        // If the history step never happens, close anyway after half a second.
+        function requestExit() {
+          if (!fsActive) return;
+          if (fsHistory) {
+            fsHistory = false;
+            history.back();
+            setTimeout(() => { if (fsActive) finishExit(); }, 500);
+          } else {
+            finishExit();
+          }
+        }
+
+        if (canFullscreen) {
+          // Capture phase, so this runs before MapLibre or a pin sees the tap.
+          wrap.addEventListener('click', (e) => {
+            if (fsActive || selectModeActive) return;          // already open / itinerary builder is using the map
+            const t = e.target;
+            if (!t || !t.closest) return;
+            // the map's own buttons, controls and (tablet) popups behave exactly as before
+            if (t.closest('#bb-map-toggle, #bb-map-locate, #bb-map-close, .maplibregl-ctrl, .maplibregl-popup')) return;
+            // a pin: open full-screen and let the tap carry on so the pin opens its sheet as well
+            if (t.closest('.bb-marker, .bb-route-stage, .bb-region-marker')) { enterFullscreen(); return; }
+            // anywhere else on the map: open full-screen only (no region popup on the same tap)
+            e.stopPropagation();
+            e.preventDefault();
+            enterFullscreen();
+          }, true);
+
+          if (fsCloseBtn) fsCloseBtn.addEventListener('click', requestExit);
+
+          // Back button (or a swipe-back gesture) while the map is open
+          window.addEventListener('popstate', () => {
+            if (!fsActive) return;
+            fsHistory = false;
+            finishExit();
+          });
+
+          // Esc: closes the front sheet first (existing behaviour), then the full-screen map
+          document.addEventListener('keydown', (ev) => {
+            if (ev.key === 'Escape' && fsActive && !stack.length) requestExit();
+          }, true);
+
+          window.addEventListener('resize', () => { if (fsActive) fsLayout(); });
+          window.addEventListener('orientationchange', () => { if (fsActive) setTimeout(fsLayout, 250); });
         }
 
         function showPopup(coords, html, markerEl, key) {
