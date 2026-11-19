@@ -287,13 +287,6 @@
 
                             <a href="/spain/en/hostels/best-hostels/camino-portugues" role="menuitem">Camino Portugués</a>
 
-                            <a href="/spain/en/hostels/best-hostels/camino-ingles" role="menuitem">Camino Inglés</a>
-
-
-                            <a href="/spain/en/hostels/best-hostels/valencia" role="menuitem">Valencia</a>
-
-                            <a href="/spain/en/hostels/best-hostels/san-sebastian" role="menuitem">San Sebastián</a>
-
                         </div>
 
                         <div class="site-nav__mega-col">
@@ -459,16 +452,87 @@
 
 <main id="main-content">
 
-<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description">
-  <iframe
-    class="sa-hostel-map-iframe"
-    title="Google My Maps: backpacker hostels in Spain"
-    src="https://www.google.com/maps/d/embed?mid=1YaoKUZVLHf7y1Rar6qoNWzn0Q6jRNV0&ehbc=2E312F&noprof=1&ll=41.39041,2.16092&z=12"
-    width="640" height="480"
-    loading="lazy"
-    allowfullscreen>
-  </iframe>
+<!-- Map description -->
+<div class="map-description" id="hostel-map-description">
+  <span class="map-description__text"><strong>BACKPACKERS FINDER:</strong> The easiest way to choose the right backpacker hostel. Our interactive map lets you filter Barcelona backpackers by vibe, setup and value. Select one or more to find your perfect hostel.</span>
+</div>
+
+  <!-- Map filter buttons -->
+
+<h2 class="sr-only">
+    Search Barcelona Backpacker Hostels
+</h2>
+
+<p class="sr-only">
+    Filter Barcelona hostels by party atmosphere, how social they are, peacefulness, solo female traveller friendliness, digital nomad suitability, couples, cyclists, activities, accessibility, eco-friendliness, camping, airport proximity, group suitability, budget and value for money. You can select more than one filter at once, and hostels must match all of them.
+</p>
+
+<div class="map-filter-bar">
+    <div class="map-filter-bar__scroll">
+        <div class="map-filter-bar__row" role="toolbar" aria-label="Filter hostels by category">
+
+            <a href="#" class="map-filter-btn map-filter-btn--active" role="button" style="background-color: #ffd400; color: #000000;" data-filter="all" aria-pressed="true" aria-label="Show all backpackers hostels in Barcelona">★ All Hostels</a>
+            <a href="#" class="map-filter-btn" role="button" style="background-color: #b01c22;" data-filter="best_overall" aria-pressed="false" aria-label="Show the top-rated backpackers hostels">Top Picks</a>
+            <a href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000;" data-filter="best_value" aria-pressed="false" aria-label="Show backpackers hostels which deliver the best value for money">Best Value</a>
+            <a href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000;" data-filter="budget" aria-pressed="false" aria-label="Show the budget backpackers hostels">Budget</a>
+            <a href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000;" data-filter="flashpacker" aria-pressed="false" aria-label="Show upmarket flashpacker hostels">Flashpackers</a>
+            <a href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000;" data-filter="party" aria-pressed="false" aria-label="Show backpackers hostels which have the best parties">Best Parties</a>
+            <a href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000;" data-filter="social" aria-pressed="false" aria-label="Show the most sociable backpackers hostels for meeting other travellers">Most Social</a>
+            <a href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000;" data-filter="peaceful" aria-pressed="false" aria-label="Show peaceful, quiet backpackers hostels">Peaceful</a>
+            <a href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000;" data-filter="solo_women" aria-pressed="false" aria-label="Show backpackers hostels which are best for solo women travellers">Solo Women</a>
+            <a href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000;" data-filter="digital_nomad" aria-pressed="false" aria-label="Show backpackers hostels which are best for digital nomads">Digital Nomads</a>
+            <a href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000;" data-filter="couples" aria-pressed="false" aria-label="Show backpackers hostels which are best for couples">Couples</a>
+            <a href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000;" data-filter="cyclists" aria-pressed="false" aria-label="Show backpackers hostels which are best for cyclists">Cyclists</a>
+            <a href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000;" data-filter="activities" aria-pressed="false" aria-label="Show backpackers hostels with the best activities and tours">Activities</a>
+            <a href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000;" data-filter="accessible" aria-pressed="false" aria-label="Show backpackers hostels with confirmed accessibility features">Accessible</a>
+            <a href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000;" data-filter="eco" aria-pressed="false" aria-label="Show eco-friendly and certified sustainable backpackers hostels">Eco-Friendly</a>
+            <a href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000;" data-filter="camping" aria-pressed="false" aria-label="Show hostels which offer camping as an accommodation option">Camping</a>
+            <a href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000;" data-filter="near_airport" aria-pressed="false" aria-label="Show hostels close to an airport">Near Airport</a>
+            <a href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000;" data-filter="groups" aria-pressed="false" aria-label="Show hostels which welcome groups of backpackers">Groups</a>
+            <a href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000;" data-filter="surfers" aria-pressed="false" aria-label="Show backpackers hostels which are best for surfers">Surfers</a>
+        </div>
+    </div>
+</div>
+
+<!-- ░░ HOSTEL MAP ░░ -->
+<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description"
+  data-bb-map
+  data-region="barcelona"
+  data-country="Spain"
+  data-center="2.16092,41.39041"
+  data-zoom="12"
+  data-mobile-zoom="11.2"
+  data-pitch="0"
+  data-bearing="0"
+  data-hostels-url="/spain/assets/data/hostels.json"
+  data-regions-url="/spain/assets/data/regions.json"
+  data-terrain=""
+  data-locate-bounds="-19,27,5,44.5"
+  data-threshold="7"
+  data-autoload="viewport">
+
+  <!-- Poster image: shows before the visitor loads the map -->
+  <picture class="sa-hostel-map-poster">
+    <img src="/spain/assets/images/map_barcelona.webp"
+         alt="Interactive backpacker hostel map of Barcelona showing hostels that can be filtered by travel style, budget, solo female travellers, digital nomads, cycling and more."
+         loading="eager"
+         fetchpriority="high"
+         decoding="async">
+  </picture>
+
+  <!-- Keyboard and screen-reader route to the map (the poster itself is tap-to-load) -->
+  <button type="button" class="sr-only" id="bb-map-load-btn">Load the interactive hostel map</button>
+
+  <!-- The map renders here (inline, no iframe) once the visitor taps the poster or a filter -->
+  <div id="bb-map-wrap" class="sa-hostel-map-iframe bb-map-iframe" hidden></div>
+
+  <div class="map-overlay-circle" aria-hidden="true">
+    Click the icons<br>for hostel info.
+  </div>
+
 </section>
+<!-- ░░ END HOSTEL MAP ░░ -->
+
 
 <!-- Horizontal regional menu -->
 
@@ -723,6 +787,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Principal, Rda. de Sant Pere, 56, Eixample, 08010 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="360-hostel-borne" aria-label="Find 360 Hostel Borne on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34935305677" class="blue-link">+34 935 30 56 77</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.360hostel.com" target="_blank" class="blue-link" rel="nofollow">360hostel.com</a></p>
@@ -760,6 +826,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Bailèn, 7, Eixample, 08010 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="360-hostel-centro" aria-label="Find 360 Hostel Centro on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34932469973" class="blue-link">+34 932 46 99 73</a></p>
 
@@ -799,6 +867,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Passeig de la Mare de Déu del Coll, 41, 51, Gràcia, 08023 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="alberg-barcelona-xanascat" aria-label="Find Alberg Barcelona Xanascat on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34932105151" class="blue-link">+34 932 10 51 51</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://xanascat.gencat.cat" target="_blank" class="blue-link" rel="nofollow">xanascat.gencat.cat</a></p>
@@ -829,6 +899,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer Numància, 149, Les Corts, 08029 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="albergue-pere-tarres-barcelona-youth-hostel-en-barcelona" aria-label="Find Albergue Pere Tarrés Barcelona – Youth Hostel En Barcelona on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34934102309" class="blue-link">+34 934 10 23 09</a></p>
 
@@ -862,6 +934,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Melcior de Palau, 70, 74, Sants-Montjuïc, 08014 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="alberguinn" aria-label="Find Alberguinn on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34935413101" class="blue-link">+34 935 41 31 01</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.alberguinn.com" target="_blank" class="blue-link" rel="nofollow">alberguinn.com</a></p>
@@ -891,6 +965,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Ronda de la Univ., 17, entresòl-3, Eixample, 08007 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="alternative-creative-youth-hostel-barcelona" aria-label="Find Alternative Creative Youth Hostel Barcelona on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34635669021" class="blue-link">+34 635 66 90 21</a></p>
 
@@ -922,6 +998,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Avinguda Meridiana, 250, Sant Andreu, 08027 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="amistat-city-hostel-barcelona" aria-label="Find Amistat City Hostel Barcelona on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34932425005" class="blue-link">+34 932 42 50 05</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.amistathostels.com" target="_blank" class="blue-link" rel="nofollow">amistathostels.com</a></p>
@@ -951,6 +1029,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Passeig de Pujades, 17, Sant Martí, 08018 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="ant-hostel-barcelona" aria-label="Find Ant Hostel Barcelona on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34932694243" class="blue-link">+34 932 69 42 43</a></p>
 
@@ -982,6 +1062,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Buenaventura Muñoz, 16, Sant Martí, 08018 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="arc-house-barcelona" aria-label="Find Arc House Barcelona on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34910604879" class="blue-link">+34 910 60 48 79</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://archousebarcelona.wbzak.net" target="_blank" class="blue-link" rel="nofollow">archousebarcelona.wbzak.net</a></p>
@@ -1010,6 +1092,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Lepant, 237, Eixample, 08013 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="barcelona-you-hostel" aria-label="Find Barcelona &amp; You Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34658515387" class="blue-link">+34 658 51 53 87</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.barcelonaandyouhostel.com" target="_blank" class="blue-link" rel="nofollow">barcelonaandyouhostel.com</a></p>
@@ -1029,8 +1113,21 @@
         <h2 class="detail-h2">BARCELONA BED AND BIKE HOSTEL</h2>
     </div>
 
+<!-- Vibe Meter -->
+
+<div class="vm-vibe-meter-card"
+     data-name="Barcelona Bed and Bike Hostel"
+     data-location="9.8"
+     data-partyness="3"
+     data-cleanliness="8.9"
+     data-activities="4.5"
+     data-value="8.8"
+     data-friendliness="9.2"></div>
+
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de la Diputació, 360, Eixample, 08013 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="barcelona-bed-and-bike-hostel" aria-label="Find Barcelona Bed And Bike Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34931527887" class="blue-link">+34 931 52 78 87</a></p>
 
@@ -1062,6 +1159,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Roger de Llúria, 41 Principal, Eixample, 08009 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="barcelona-central-garden" aria-label="Find Barcelona Central Garden on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34935006999" class="blue-link">+34 935 00 69 99</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://welotel.com" target="_blank" class="blue-link" rel="nofollow">welotel.com</a></p>
@@ -1092,6 +1191,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de la Junta de Comerç, 13, Ciutat Vella, 08001 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="bcn-home" aria-label="Find BCN Home on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34932779873" class="blue-link">+34 932 77 98 73</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://bcn-home.com" target="_blank" class="blue-link" rel="nofollow">bcn-home.com</a></p>
@@ -1120,6 +1221,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Francisco Giner, 5, Gràcia, 08012 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="bcn-urbaness-hotels-bonavista" aria-label="Find BCN Urbaness Hotels Bonavista on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34933681996" class="blue-link">+34 933 68 19 96</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.bcnurbanessbonavista.com" target="_blank" class="blue-link" rel="nofollow">bcnurbanessbonavista.com</a></p>
@@ -1147,8 +1250,21 @@
         <h2 class="detail-h2">BLACK SWAN HOSTEL BARCELONA</h2>
     </div>
 
+<!-- Vibe Meter -->
+
+<div class="vm-vibe-meter-card"
+     data-name="Black Swan Hostel Barcelona"
+     data-location="9.7"
+     data-partyness="6"
+     data-cleanliness="9.2"
+     data-activities="6"
+     data-value="9.3"
+     data-friendliness="9.7"></div>
+
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer d&#x27;Alí Bei, 15, Eixample, 08010 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="black-swan-hostel-barcelona" aria-label="Find Black Swan Hostel Barcelona on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34930505016" class="blue-link">+34 930 50 50 16</a></p>
 
@@ -1180,6 +1296,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Rda. de Sant Pere, 68, Eixample, 08010 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="born-barcelona-hostel" aria-label="Find Born Barcelona Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34935323663" class="blue-link">+34 935 32 36 63</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.bornbarcelonahostel.com" target="_blank" class="blue-link" rel="nofollow">bornbarcelonahostel.com</a></p>
@@ -1209,6 +1327,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Mallorca, 290, Eixample, 08037 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="bruc-bruc" aria-label="Find Bruc &amp; Bruc on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34605932131" class="blue-link">+34 605 93 21 31</a></p>
 
@@ -1240,6 +1360,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer d&#x27;Aragó, 239, Principal - 3, Eixample, 08007 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="buba-house" aria-label="Find Buba House on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34662690447" class="blue-link">+34 662 69 04 47</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.bubahouse.com" target="_blank" class="blue-link" rel="nofollow">bubahouse.com</a></p>
@@ -1270,6 +1392,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Av. Diagonal, 484, Sarrià-Sant Gervasi, 08006 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="calma-house-diagonal-barcelona" aria-label="Find Calma House – Diagonal (barcelona) on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34934764080" class="blue-link">+34 934 76 40 80</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://calmahouse.com" target="_blank" class="blue-link" rel="nofollow">calmahouse.com</a></p>
@@ -1297,6 +1421,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Pg. de Salvat Papasseit, 4, Ciutat Vella, 08003 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="campus-del-mar-residence-hall" aria-label="Find Campus del Mar Residence Hall on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34933904000" class="blue-link">+34 933 90 40 00</a></p>
 
@@ -1328,6 +1454,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Còrsega, 226, Ent 2ª, Eixample, 08036 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="casa-barcelo-hostel-barcelona" aria-label="Find Casa Barceló Hostel Barcelona on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34936677806" class="blue-link">+34 936 67 78 06</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.casabarcelo.es" target="_blank" class="blue-link" rel="nofollow">casabarcelo.es</a></p>
@@ -1358,6 +1486,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Pg. de Gràcia, 116, 116Bis, Gràcia, 08008 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="casa-gracia" aria-label="Find Casa Gràcia on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34931740528" class="blue-link">+34 931 74 05 28</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://room00hostel.com" target="_blank" class="blue-link" rel="nofollow">room00hostel.com</a></p>
@@ -1385,8 +1515,21 @@
         <h2 class="detail-h2">CASA JAM BARCELONA</h2>
     </div>
 
+<!-- Vibe Meter -->
+
+<div class="vm-vibe-meter-card"
+     data-name="Casa Jam Barcelona"
+     data-location="8.8"
+     data-partyness="1"
+     data-cleanliness="9.5"
+     data-activities="1"
+     data-value="9"
+     data-friendliness="8.8"></div>
+
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Montmany, 38, 42, Gràcia, 08012 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="casa-jam-barcelona" aria-label="Find Casa Jam Barcelona on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34933155338" class="blue-link">+34 933 15 53 38</a></p>
 
@@ -1418,6 +1561,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer del Bruc, 65. Principal, 2ª, Eixample, 08009 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="casa-lolita-guesthouse" aria-label="Find Casa Lolita Guesthouse on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34633682861" class="blue-link">+34 633 68 28 61</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://casalolita.es" target="_blank" class="blue-link" rel="nofollow">casalolita.es</a></p>
@@ -1448,6 +1593,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Coroleu, 33 Bis, Sant Andreu, 08030 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="coroleu-house-bcn" aria-label="Find Coroleu House BCN on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34609318467" class="blue-link">+34 609 31 84 67</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.coroleuhouse-bcn.com" target="_blank" class="blue-link" rel="nofollow">coroleuhouse-bcn.com</a></p>
@@ -1475,6 +1622,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Av. de Sarrià, 67, Les Corts, 08029 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="dream-cube-hostel" aria-label="Find Dream Cube Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34933154828" class="blue-link">+34 933 15 48 28</a></p>
 
@@ -1506,6 +1655,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer del Vallespir, 34, Sants-Montjuïc, 08014 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="easy-sants-by-bossh" aria-label="Find Easy Sants By Bossh! on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34930115353" class="blue-link">+34 930 11 53 53</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://sants.bossh-hotels.es" target="_blank" class="blue-link" rel="nofollow">sants.bossh-hotels.es</a></p>
@@ -1533,8 +1684,21 @@
         <h2 class="detail-h2">FABRIZZIO&#x27;S PETIT</h2>
     </div>
 
+<!-- Vibe Meter -->
+
+<div class="vm-vibe-meter-card"
+     data-name="Fabrizzio&#x27;S Petit"
+     data-location="9.6"
+     data-partyness="2"
+     data-cleanliness="9.2"
+     data-activities="4.5"
+     data-value="8.4"
+     data-friendliness="9.2"></div>
+
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. del Bruc, 65, 2º, 2ª, Eixample, 08009 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="fabrizzio-s-petit" aria-label="Find Fabrizzio&#x27;S Petit on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34932154059" class="blue-link">+34 932 15 40 59</a></p>
 
@@ -1566,6 +1730,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Girona, 49, Eixample, 08009 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="fabrizzios-terrace" aria-label="Find Fabrizzios Terrace on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34931621612" class="blue-link">+34 931 62 16 12</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.fabrizzios.com" target="_blank" class="blue-link" rel="nofollow">fabrizzios.com</a></p>
@@ -1595,6 +1761,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Molist, 5, Gràcia, 08024 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="factory-hostels-barcelona" aria-label="Find Factory Hostels Barcelona on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34932852256" class="blue-link">+34 932 85 22 56</a></p>
 
@@ -1626,6 +1794,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Londres, 20, Eixample, 08029 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="free-hostels-barcelona" aria-label="Find Free Hostels Barcelona on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34933154709" class="blue-link">+34 933 15 47 09</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.free-hostels.com" target="_blank" class="blue-link" rel="nofollow">free-hostels.com</a></p>
@@ -1655,6 +1825,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Còrsega, 373, Gràcia, 08037 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="generator-barcelona" aria-label="Find Generator Barcelona on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34932200377" class="blue-link">+34 932 20 03 77</a></p>
 
@@ -1686,6 +1858,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Girona, 33, Bajos, Eixample, 08010 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="gg-hostel" aria-label="Find Gg Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34622783062" class="blue-link">+34 622 78 30 62</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://gghostel.com" target="_blank" class="blue-link" rel="nofollow">gghostel.com</a></p>
@@ -1716,6 +1890,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Sant Pere Màrtir, 18, Gràcia, 08012 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="gracia-city-by-roquerol-hostels" aria-label="Find Gracia City By Roquerol Hostels on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34672476967" class="blue-link">+34 672 47 69 67</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://roquerolhostelgracia.wbzak.net" target="_blank" class="blue-link" rel="nofollow">roquerolhostelgracia.wbzak.net</a></p>
@@ -1743,6 +1919,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Lafont, 8, Sants-Montjuïc, 08004 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hellobcn-hostel-barcelona" aria-label="Find Hellobcn Hostel Barcelona on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34934428392" class="blue-link">+34 934 42 83 92</a></p>
 
@@ -1774,6 +1952,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Salvà, 36, Sants-Montjuïc, 08004 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hey-lola-hostel" aria-label="Find Hey Lola! Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34931393759" class="blue-link">+34 931 39 37 59</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.heylolahostel.com" target="_blank" class="blue-link" rel="nofollow">heylolahostel.com</a></p>
@@ -1804,6 +1984,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Rda. de Sant Pere, 39, Eixample, 08010 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hip-karma-hostel" aria-label="Find Hip Karma Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34931422453" class="blue-link">+34 931 42 24 53</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.hipkarmahostel.com" target="_blank" class="blue-link" rel="nofollow">hipkarmahostel.com</a></p>
@@ -1833,6 +2015,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Nàpols, 149, Eixample, 08013 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hola-hostal-eixample" aria-label="Find Hola Hostal Eixample on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34936242331" class="blue-link">+34 936 24 23 31</a></p>
 
@@ -1872,6 +2056,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Vila i Vilà, 79, Sants-Montjuïc, 08004 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-apartamentos-bedmates" aria-label="Find Hostal &amp; Apartamentos Bedmates on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34659373131" class="blue-link">+34 659 37 31 31</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.hostalbedmates.com" target="_blank" class="blue-link" rel="nofollow">hostalbedmates.com</a></p>
@@ -1902,6 +2088,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer del Roser, 40, Sants-Montjuïc, 08004 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-barcelona" aria-label="Find Hostal Barcelona on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34934425075" class="blue-link">+34 934 42 50 75</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.barcelonahostal.com" target="_blank" class="blue-link" rel="nofollow">barcelonahostal.com</a></p>
@@ -1929,8 +2117,21 @@
         <h2 class="detail-h2">HOSTAL BARCELONA RAMBLAS</h2>
     </div>
 
+<!-- Vibe Meter -->
+
+<div class="vm-vibe-meter-card"
+     data-name="Hostal Barcelona Ramblas"
+     data-location="10"
+     data-partyness="1.5"
+     data-cleanliness="8.5"
+     data-activities="2.5"
+     data-value="9.5"
+     data-friendliness="9.8"></div>
+
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer Nou de la Rambla, 50, Ciutat Vella, 08001 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-barcelona-ramblas" aria-label="Find Hostal Barcelona Ramblas on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34934423669" class="blue-link">+34 934 42 36 69</a></p>
 
@@ -1962,6 +2163,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Sant Pau, 2, Ciutat Vella, 08001 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-mare-nostrum" aria-label="Find Hostal Mare Nostrum on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34933185340" class="blue-link">+34 933 18 53 40</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.hostalmarenostrum.com" target="_blank" class="blue-link" rel="nofollow">hostalmarenostrum.com</a></p>
@@ -1992,6 +2195,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Mallorca, 290, Eixample, 08037 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-medea-barcelona" aria-label="Find Hostal Medea Barcelona on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34934592366" class="blue-link">+34 934 59 23 66</a></p>
 
             <p><strong>GOOGLE RATING:</strong> 3.9 out of 5 stars</p>
@@ -2017,6 +2222,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Calella, 1, Ciutat Vella, 08002 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-nitzs-bcn" aria-label="Find Hostal Nitzs BCN on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34933021105" class="blue-link">+34 933 02 11 05</a></p>
 
@@ -2048,6 +2255,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Av. del Marquès de l&#x27;Argentera, 13, Ciutat Vella, 08003 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-orleans" aria-label="Find Hostal Orleans on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34933197382" class="blue-link">+34 933 19 73 82</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://wubook.net" target="_blank" class="blue-link" rel="nofollow">wubook.net</a></p>
@@ -2077,6 +2286,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de la Boqueria, 21, Ciutat Vella, 08002 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-palermo" aria-label="Find Hostal Palermo on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34933024002" class="blue-link">+34 933 02 40 02</a></p>
 
@@ -2108,6 +2319,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Sant Vicenç, 39, Ciutat Vella, 08001 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-radio" aria-label="Find Hostal Ràdio on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34933016201" class="blue-link">+34 933 01 62 01</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.hostalradio.com" target="_blank" class="blue-link" rel="nofollow">hostalradio.com</a></p>
@@ -2137,6 +2350,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Avinguda del Paral·lel, 15, Sants-Montjuïc, 08004 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-yomo-bcn-port" aria-label="Find Hostal Yomo BCN Port on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34933249500" class="blue-link">+34 933 24 95 00</a></p>
 
@@ -2168,6 +2383,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Guàrdia, 13, Ciutat Vella, 08001 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostel-in-barcelona-central-basic-drassanes" aria-label="Find Hostel In Barcelona – Central &amp; Basic Drassanes on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34683109960" class="blue-link">+34 683 10 99 60</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://centralandbasicbarcelona.com" target="_blank" class="blue-link" rel="nofollow">centralandbasicbarcelona.com</a></p>
@@ -2197,6 +2414,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Joaquín Costa, 44, 2º1ª, Ciutat Vella, 08001 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostel-in-barcelona-central-basic-universitat" aria-label="Find Hostel In Barcelona – Central &amp; Basic Universitat on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34683602187" class="blue-link">+34 683 60 21 87</a></p>
 
@@ -2228,6 +2447,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer d&#x27;en Gignàs, 6, Ciutat Vella, 08002 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostel-new-york" aria-label="Find Hostel New York on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34933150304" class="blue-link">+34 933 15 03 04</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.bcnalberg.com" target="_blank" class="blue-link" rel="nofollow">bcnalberg.com</a></p>
@@ -2257,6 +2478,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de la Duquessa d&#x27;Orleans, 56-58, Sarrià-Sant Gervasi, 08034 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostel-studio-albergue" aria-label="Find Hostel Studio Albergue on the map">Find on map ›</a></p>
+
             <p><strong>WEBSITE:</strong> <a href="https://www.alberguestudio.com" target="_blank" class="blue-link" rel="nofollow">alberguestudio.com</a></p>
 
             <p><strong>GOOGLE RATING:</strong> 4.2 out of 5 stars</p>
@@ -2284,6 +2507,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Via Júlia, 153, Nou Barris, 08042 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostelle-barcelona" aria-label="Find Hostelle Barcelona on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34931545777" class="blue-link">+34 931 54 57 77</a></p>
 
@@ -2315,6 +2540,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Panissars, 5, Sants-Montjuïc, 08028 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostelscat-bcn" aria-label="Find Hostelscat BCN on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34936672706" class="blue-link">+34 936 67 27 06</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://cat-bcn.hotelb3.com" target="_blank" class="blue-link" rel="nofollow">cat-bcn.hotelb3.com</a></p>
@@ -2336,6 +2563,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Via Augusta, 63, Sarrià-Sant Gervasi, 08006 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hotel-via-augusta" aria-label="Find Hotel Via Augusta on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34932179250" class="blue-link">+34 932 17 92 50</a></p>
 
@@ -2367,6 +2596,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer Major del Rectoret, 2, Sarrià-Sant Gervasi, 08017 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="inout-hostel" aria-label="Find Inout Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34932800985" class="blue-link">+34 932 80 09 85</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.inouthostel.com" target="_blank" class="blue-link" rel="nofollow">inouthostel.com</a></p>
@@ -2394,8 +2625,21 @@
         <h2 class="detail-h2">ÍTACA HOSTEL</h2>
     </div>
 
+<!-- Vibe Meter -->
+
+<div class="vm-vibe-meter-card"
+     data-name="Ítaca Hostel"
+     data-location="9.9"
+     data-partyness="4.5"
+     data-cleanliness="9.6"
+     data-activities="7"
+     data-value="9.4"
+     data-friendliness="9.5"></div>
+
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Ripoll, 21, Ciutat Vella, 08002 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="itaca-hostel" aria-label="Find Ítaca Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34933019751" class="blue-link">+34 933 01 97 51</a></p>
 
@@ -2424,6 +2668,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de l&#x27;Amistat, 21, Sant Martí, 08005 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="latroupe-poblenou-beach-hostel-barcelona" aria-label="Find Latroupe Poblenou Beach Hostel Barcelona on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34644403781" class="blue-link">+34 644 40 37 81</a></p>
 
@@ -2455,6 +2701,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Vía Augusta, 289, bajo, Sarrià-Sant Gervasi, 08017 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="leevin-stay-barcelona" aria-label="Find Leevin Stay Barcelona on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34933683294" class="blue-link">+34 933 68 32 94</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://leevinstay.com" target="_blank" class="blue-link" rel="nofollow">leevinstay.com</a></p>
@@ -2484,6 +2732,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de la Unió, 10, 12, Ciutat Vella, 08001 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="malacuna-barcelona" aria-label="Find Malacuna Barcelona on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34669255135" class="blue-link">+34 669 25 51 35</a></p>
 
@@ -2515,6 +2765,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer del Poeta Cabanyes, 23, Sants-Montjuïc, 08004 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="mambo-tango" aria-label="Find Mambo Tango on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34613196511" class="blue-link">+34 613 19 65 11</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://hotels.cloudbeds.com" target="_blank" class="blue-link" rel="nofollow">hotels.cloudbeds.com</a></p>
@@ -2542,8 +2794,21 @@
         <h2 class="detail-h2">MEDITERRANEAN HOSTEL BARCELONA</h2>
     </div>
 
+<!-- Vibe Meter -->
+
+<div class="vm-vibe-meter-card"
+     data-name="Mediterranean Hostel Barcelona"
+     data-location="9.6"
+     data-partyness="6"
+     data-cleanliness="8.8"
+     data-activities="4.5"
+     data-value="9"
+     data-friendliness="9.1"></div>
+
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de la Diputació, 335, Eixample, 08009 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="mediterranean-hostel-barcelona" aria-label="Find Mediterranean Hostel Barcelona on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34622824316" class="blue-link">+34 622 82 43 16</a></p>
 
@@ -2575,6 +2840,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer del Vallespir, 20, Sants-Montjuïc, 08014 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="meeting-point-hostels" aria-label="Find Meeting Point Hostels on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34934097446" class="blue-link">+34 934 09 74 46</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.meetingpointhostels.com" target="_blank" class="blue-link" rel="nofollow">meetingpointhostels.com</a></p>
@@ -2605,6 +2872,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de la Botànica, 41, 08908 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="meininger-hotel-barcelona-fira-gran-via" aria-label="Find Meininger Hotel Barcelona Fira Gran Via on the map">Find on map ›</a></p>
+
             <p><strong>WEBSITE:</strong> <a href="https://www.meininger-hotels.com" target="_blank" class="blue-link" rel="nofollow">meininger-hotels.com</a></p>
 
             <p><strong>GOOGLE RATING:</strong> 4.1 out of 5 stars</p>
@@ -2632,6 +2901,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer d&#x27;Aguilar, 54, Horta-Guinardó, 08032 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="mellow-hostel-barcelona" aria-label="Find Mellow Hostel Barcelona on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34934294533" class="blue-link">+34 934 29 45 33</a></p>
 
@@ -2663,6 +2934,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer del Rosselló, 231, Principal, 2ª, Eixample, 08008 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="mihlton-barcelona-boutique-b-b" aria-label="Find Mihlton Barcelona Boutique B&amp;B on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34608161661" class="blue-link">+34 608 16 16 61</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.mihltonbarcelona.com" target="_blank" class="blue-link" rel="nofollow">mihltonbarcelona.com</a></p>
@@ -2692,6 +2965,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer del Consell de Cent, 355, Eixample, 08007 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="no-limit-hostel-central" aria-label="Find No Limit Hostel Central on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34932506846" class="blue-link">+34 932 50 68 46</a></p>
 
@@ -2723,6 +2998,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer d&#x27;Aragó, 527, Sant Martí, 08026 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="no-limit-hostel-graffiti" aria-label="Find No Limit Hostel Graffiti on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34931863397" class="blue-link">+34 931 86 33 97</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://nolimithostels.com" target="_blank" class="blue-link" rel="nofollow">nolimithostels.com</a></p>
@@ -2753,6 +3030,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer Gran de Gràcia, 14, Gràcia, 08012 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="numa-barcelona-brio" aria-label="Find Numa Barcelona Brio on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34932713107" class="blue-link">+34 932 71 31 07</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://numastays.com" target="_blank" class="blue-link" rel="nofollow">numastays.com</a></p>
@@ -2781,6 +3060,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer dels Carders, 34, Ciutat Vella, 08003 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="numa-barcelona-lustre" aria-label="Find Numa Barcelona Lustre on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34932713107" class="blue-link">+34 932 71 31 07</a></p>
 
@@ -2811,6 +3092,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Girona, 81, Eixample, 08009 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="numa-barcelona-roca" aria-label="Find Numa Barcelona Roca on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34932713107" class="blue-link">+34 932 71 31 07</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://numastays.com" target="_blank" class="blue-link" rel="nofollow">numastays.com</a></p>
@@ -2840,6 +3123,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer del Taquígraf Martí, 24, bajo, Les Corts, 08028 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="olivia-barcelona-boutique-hostel" aria-label="Find Olivia Barcelona Boutique Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34638653352" class="blue-link">+34 638 65 33 52</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://olivia-barcelona.com" target="_blank" class="blue-link" rel="nofollow">olivia-barcelona.com</a></p>
@@ -2867,8 +3152,21 @@
         <h2 class="detail-h2">ONEFAM BATLLÓ</h2>
     </div>
 
+<!-- Vibe Meter -->
+
+<div class="vm-vibe-meter-card"
+     data-name="Onefam Batlló"
+     data-location="9.9"
+     data-partyness="6"
+     data-cleanliness="9.8"
+     data-activities="6"
+     data-value="9.8"
+     data-friendliness="10"></div>
+
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Casanova, 52, Loc 1, Eixample, 08011 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="onefam-batllo" aria-label="Find Onefam Batlló on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34931784343" class="blue-link">+34 931 78 43 43</a></p>
 
@@ -2903,8 +3201,21 @@
         <h2 class="detail-h2">ONEFAM LES CORTS</h2>
     </div>
 
+<!-- Vibe Meter -->
+
+<div class="vm-vibe-meter-card"
+     data-name="Onefam Les Corts"
+     data-location="9.2"
+     data-partyness="6"
+     data-cleanliness="9.8"
+     data-activities="7"
+     data-value="9.8"
+     data-friendliness="9.9"></div>
+
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Ptge. del Regent Mendieta, 5, Les Corts, 08028 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="onefam-les-corts" aria-label="Find Onefam Les Corts on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34934490596" class="blue-link">+34 934 49 05 96</a></p>
 
@@ -2939,8 +3250,21 @@
         <h2 class="detail-h2">ONEFAM PARALELO</h2>
     </div>
 
+<!-- Vibe Meter -->
+
+<div class="vm-vibe-meter-card"
+     data-name="Onefam Paralelo"
+     data-location="9.8"
+     data-partyness="6"
+     data-cleanliness="9.8"
+     data-activities="7"
+     data-value="9.8"
+     data-friendliness="9.9"></div>
+
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Salvà, 62, Sants-Montjuïc, 08004 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="onefam-paralelo" aria-label="Find Onefam Paralelo on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34934439885" class="blue-link">+34 934 43 98 85</a></p>
 
@@ -2975,8 +3299,21 @@
         <h2 class="detail-h2">ONEFAM RAMBLAS HOSTEL BARCELONA</h2>
     </div>
 
+<!-- Vibe Meter -->
+
+<div class="vm-vibe-meter-card"
+     data-name="Onefam Ramblas Hostel Barcelona"
+     data-location="9.9"
+     data-partyness="6"
+     data-cleanliness="9.8"
+     data-activities="7"
+     data-value="9.9"
+     data-friendliness="10"></div>
+
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer d&#x27;Albareda, 6, Sants-Montjuïc, 08004 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="onefam-ramblas-hostel-barcelona" aria-label="Find Onefam Ramblas Hostel Barcelona on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34934431310" class="blue-link">+34 934 43 13 10</a></p>
 
@@ -3011,8 +3348,21 @@
         <h2 class="detail-h2">ONEFAM SANTS HOSTEL BARCELONA</h2>
     </div>
 
+<!-- Vibe Meter -->
+
+<div class="vm-vibe-meter-card"
+     data-name="Onefam Sants Hostel Barcelona"
+     data-location="9.6"
+     data-partyness="6"
+     data-cleanliness="9.9"
+     data-activities="8"
+     data-value="9.9"
+     data-friendliness="10"></div>
+
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Casteràs, 9, Sants-Montjuïc, 08028 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="onefam-sants-hostel-barcelona" aria-label="Find Onefam Sants Hostel Barcelona on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34933324192" class="blue-link">+34 933 32 41 92</a></p>
 
@@ -3050,6 +3400,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Rda. de Sant Pau, 55-57, Ppal1, Eixample, 08015 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="paraiso-hostel" aria-label="Find Paraiso Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34935630041" class="blue-link">+34 935 63 00 41</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://paraisohostel.com" target="_blank" class="blue-link" rel="nofollow">paraisohostel.com</a></p>
@@ -3079,6 +3431,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Sepúlveda, 146, Eixample, 08011 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="pars-tailor-s-hostel" aria-label="Find Pars Tailor&#x27;S Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34932505684" class="blue-link">+34 932 50 56 84</a></p>
 
@@ -3110,6 +3464,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer d&#x27;Albareda, 12, Sants-Montjuïc, 08004 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="pars-teatro-hostel" aria-label="Find Pars Teatro Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34934439466" class="blue-link">+34 934 43 94 66</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://parshostels.com" target="_blank" class="blue-link" rel="nofollow">parshostels.com</a></p>
@@ -3137,8 +3493,21 @@
         <h2 class="detail-h2">PARTY HOSTEL KABUL</h2>
     </div>
 
+<!-- Vibe Meter -->
+
+<div class="vm-vibe-meter-card"
+     data-name="Party Hostel Kabul"
+     data-location="9.7"
+     data-partyness="8.5"
+     data-cleanliness="9.3"
+     data-activities="8"
+     data-value="9.2"
+     data-friendliness="9.6"></div>
+
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Pl. Reial, 17, Ciutat Vella, 08002 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="party-hostel-kabul" aria-label="Find Party Hostel Kabul on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34933185190" class="blue-link">+34 933 18 51 90</a></p>
 
@@ -3167,6 +3536,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer dels Tallers, 45, Ciutat Vella, 08001 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="pension-45" aria-label="Find Pensión 45 on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34933027061" class="blue-link">+34 933 02 70 61</a></p>
 
@@ -3198,6 +3569,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer d&#x27;Enric Granados, 30, Eixample, 08008 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="piulet-hostel" aria-label="Find Piulet Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34672224284" class="blue-link">+34 672 22 42 84</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://hotels.cloudbeds.com" target="_blank" class="blue-link" rel="nofollow">hotels.cloudbeds.com</a></p>
@@ -3225,8 +3598,21 @@
         <h2 class="detail-h2">PRIMAVERA HOSTEL</h2>
     </div>
 
+<!-- Vibe Meter -->
+
+<div class="vm-vibe-meter-card"
+     data-name="Primavera Hostel"
+     data-location="9.5"
+     data-partyness="1.5"
+     data-cleanliness="9"
+     data-activities="1"
+     data-value="9.5"
+     data-friendliness="9.5"></div>
+
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Mallorca, 330, entresuelo 2ª, Eixample, 08037 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="primavera-hostel" aria-label="Find Primavera Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34931752151" class="blue-link">+34 931 75 21 51</a></p>
 
@@ -3258,6 +3644,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Pl. de Lesseps, 12, Gràcia, 08023 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="residencia-universitaria-lesseps" aria-label="Find Residència Universitària Lesseps on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34933941600" class="blue-link">+34 933 94 16 00</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://resa.es" target="_blank" class="blue-link" rel="nofollow">resa.es</a></p>
@@ -3285,6 +3673,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer del Capità Arenas, 52, 56, Sarrià-Sant Gervasi, 08034 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="residencia-universitaria-resa-barcelona-diagonal" aria-label="Find Residència Universitària RESA Barcelona Diagonal on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34937012000" class="blue-link">+34 937 01 20 00</a></p>
 
@@ -3316,6 +3706,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de la Mare de Déu del Coll, 59, Gràcia, 08023 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="rocket-hostels-gracia" aria-label="Find Rocket Hostels – Gràcia on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34936242259" class="blue-link">+34 936 24 22 59</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://rocket-hostel.com" target="_blank" class="blue-link" rel="nofollow">rocket-hostel.com</a></p>
@@ -3345,6 +3737,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de la Pobla de Lillet, 18, Les Corts, 08028 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="room018bcn" aria-label="Find Room018bcn on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34935344000" class="blue-link">+34 935 34 40 00</a></p>
 
@@ -3376,6 +3770,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer dels Vigatans, 5, 9, Ciutat Vella, 08003 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="safestay-barcelona-gothic" aria-label="Find Safestay Barcelona Gothic on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34932687808" class="blue-link">+34 932 68 78 08</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.safestay.com" target="_blank" class="blue-link" rel="nofollow">safestay.com</a></p>
@@ -3406,6 +3802,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Pg. de Gràcia, 33, Eixample, 08007 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="safestay-barcelona-passeig-de-gracia" aria-label="Find Safestay Barcelona Passeig de Gràcia on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34932156538" class="blue-link">+34 932 15 65 38</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.safestay.com" target="_blank" class="blue-link" rel="nofollow">safestay.com</a></p>
@@ -3435,6 +3833,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer del Freser, 5, Sant Martí, 08026 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="sant-jordi-apartments-sagrada-familia" aria-label="Find Sant Jordi Apartments Sagrada Familia on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34934190914" class="blue-link">+34 934 19 09 14</a></p>
 
@@ -3467,8 +3867,21 @@
         <h2 class="detail-h2">SANT JORDI HOSTELS GRACIA</h2>
     </div>
 
+<!-- Vibe Meter -->
+
+<div class="vm-vibe-meter-card"
+     data-name="Sant Jordi Hostels Gracia"
+     data-location="9.2"
+     data-partyness="4.5"
+     data-cleanliness="8.9"
+     data-activities="8"
+     data-value="8.9"
+     data-friendliness="9.2"></div>
+
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Terol, 35, Gràcia, 08012 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="sant-jordi-hostels-gracia" aria-label="Find Sant Jordi Hostels Gracia on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34933424161" class="blue-link">+34 933 42 41 61</a></p>
 
@@ -3505,8 +3918,21 @@
         <h2 class="detail-h2">SANT JORDI HOSTELS ROCK PALACE</h2>
     </div>
 
+<!-- Vibe Meter -->
+
+<div class="vm-vibe-meter-card"
+     data-name="Sant Jordi Hostels Rock Palace"
+     data-location="9.5"
+     data-partyness="8.5"
+     data-cleanliness="9"
+     data-activities="8"
+     data-value="8.9"
+     data-friendliness="9.1"></div>
+
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Balmes, 75, Eixample, 08007 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="sant-jordi-hostels-rock-palace" aria-label="Find Sant Jordi Hostels Rock Palace on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34934533281" class="blue-link">+34 934 53 32 81</a></p>
 
@@ -3546,6 +3972,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer del Freser, 5, Sant Martí, 08026 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="sant-jordi-hostels-sagrada-familia" aria-label="Find Sant Jordi Hostels Sagrada Familia on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34934460517" class="blue-link">+34 934 46 05 17</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.santjordihostels.com" target="_blank" class="blue-link" rel="nofollow">santjordihostels.com</a></p>
@@ -3582,6 +4010,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Plaça del Mar, 1, Ciutat Vella, 08003 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="sea-hostel" aria-label="Find Sea Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34634354499" class="blue-link">+34 634 35 44 99</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.equity-point.com" target="_blank" class="blue-link" rel="nofollow">equity-point.com</a></p>
@@ -3611,6 +4041,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Ronda de la Universidad, 15, Pral-1, Eixample, 08007 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="sleep-green-certified-eco-youth-hostel-barcelona" aria-label="Find Sleep Green – Certified Eco Youth Hostel Barcelona on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34624855556" class="blue-link">+34 624 85 55 56</a></p>
 
@@ -3642,6 +4074,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de la Diputació, 323, Princiapl 1era, Eixample, 08009 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="soul-backpackers-sl" aria-label="Find Soul Backpackers Sl on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34931941677" class="blue-link">+34 931 94 16 77</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://soulbackpackers.com" target="_blank" class="blue-link" rel="nofollow">soulbackpackers.com</a></p>
@@ -3672,6 +4106,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer del Perill, 26, Gràcia, 08012 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="sport-hostels" aria-label="Find Sport Hostels on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34933803570" class="blue-link">+34 933 80 35 70</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.bcnsporthostels.com" target="_blank" class="blue-link" rel="nofollow">bcnsporthostels.com</a></p>
@@ -3699,6 +4135,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Bergara, 3, Eixample, 08002 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="st-christopher-s-barcelona" aria-label="Find St Christopher&#x27;S Barcelona on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34931751401" class="blue-link">+34 931 75 14 01</a></p>
 
@@ -3730,6 +4168,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Ferran, 17, Ciutat Vella, 08002 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="sun-moon-hostel" aria-label="Find Sun &amp; Moon Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34932702060" class="blue-link">+34 932 70 20 60</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.hostelbcn-sunmoon.com" target="_blank" class="blue-link" rel="nofollow">hostelbcn-sunmoon.com</a></p>
@@ -3757,6 +4197,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Balmes, 12, Eixample, 08007 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="super-balmes-guesthouse" aria-label="Find Super Balmes Guesthouse on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34635857288" class="blue-link">+34 635 85 72 88</a></p>
 
@@ -3786,6 +4228,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Valladolid, 43, Sants-Montjuïc, 08014 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="ten-to-go-hostel" aria-label="Find Ten To Go Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34931389032" class="blue-link">+34 931 38 90 32</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.tentogo.es" target="_blank" class="blue-link" rel="nofollow">tentogo.es</a></p>
@@ -3812,8 +4256,21 @@
         <h2 class="detail-h2">THE CENTRAL HOUSE BARCELONA GRACIA</h2>
     </div>
 
+<!-- Vibe Meter -->
+
+<div class="vm-vibe-meter-card"
+     data-name="The Central House Barcelona Gracia"
+     data-location="9.6"
+     data-partyness="1.5"
+     data-cleanliness="8.8"
+     data-activities="2.5"
+     data-value="8.9"
+     data-friendliness="9.3"></div>
+
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Còrsega, 302, Eixample, 08008 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="the-central-house-barcelona-gracia" aria-label="Find The Central House Barcelona Gracia on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34932171944" class="blue-link">+34 932 17 19 44</a></p>
 
@@ -3845,6 +4302,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Provença, 318, Eixample, 08037 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="the-loft-hostel-barcelona" aria-label="Find The Loft Hostel Barcelona on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34900264222" class="blue-link">+34 900 264 222</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.theloft.house" target="_blank" class="blue-link" rel="nofollow">theloft.house</a></p>
@@ -3874,6 +4333,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Gran Via de les Corts Catalanes, 580, Eixample, 08011 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="toc-barcelona" aria-label="Find Toc Barcelona on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34934534425" class="blue-link">+34 934 53 44 25</a></p>
 
@@ -3905,6 +4366,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Pamplona, 114, Sant Martí, 08018 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="twentytu-hi-tech-hostel-barcelona" aria-label="Find Twentytú Hi-Tech Hostel Barcelona on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34932387185" class="blue-link">+34 932 38 71 85</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://twentytu.com" target="_blank" class="blue-link" rel="nofollow">twentytu.com</a></p>
@@ -3934,6 +4397,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Av. d&#x27;Icària, 145, BJ, Sant Martí, 08005 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="unite-hostel-barcelona" aria-label="Find Unite Hostel Barcelona on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34930186660" class="blue-link">+34 930 18 66 60</a></p>
 
@@ -3965,6 +4430,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Avinguda Meridiana, 97, Sant Martí, 08026 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="urbany-hostel-barcelona" aria-label="Find Urbany Hostel Barcelona on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34932458414" class="blue-link">+34 932 45 84 14</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.urbanyhostels.com" target="_blank" class="blue-link" rel="nofollow">urbanyhostels.com</a></p>
@@ -3994,6 +4461,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Gran Via de les Corts Catalanes, 563, Eixample, 08011 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="urbany-hostel-bcn-go" aria-label="Find Urbany Hostel BCN Go! on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34937379618" class="blue-link">+34 937 37 96 18</a></p>
 
@@ -4025,6 +4494,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Av. Diagonal, 578, 3, Sarrià-Sant Gervasi, 08029 Barcelona</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="wow-hostel-barcelona" aria-label="Find Wow Hostel Barcelona on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34934145606" class="blue-link">+34 934 14 56 06</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.wowhostelbarcelona.com" target="_blank" class="blue-link" rel="nofollow">wowhostelbarcelona.com</a></p>
@@ -4052,8 +4523,21 @@
         <h2 class="detail-h2">YEAH HOSTEL</h2>
     </div>
 
+<!-- Vibe Meter -->
+
+<div class="vm-vibe-meter-card"
+     data-name="Yeah Hostel"
+     data-location="9.5"
+     data-partyness="5"
+     data-cleanliness="9.5"
+     data-activities="6"
+     data-value="9.2"
+     data-friendliness="9.2"></div>
+
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Girona, 176, Eixample, 08037 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="yeah-hostel" aria-label="Find Yeah Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34935310135" class="blue-link">+34 935 31 01 35</a></p>
 
@@ -4084,6 +4568,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Mallorca, 209, Eixample, 08036 Barcelona</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="zoo-rooms-barcelona" aria-label="Find Zoo Rooms Barcelona on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34644321505" class="blue-link">+34 644 32 15 05</a></p>
 
@@ -4367,12 +4853,6 @@ window.BB_TIPS = [
 
                             <a href="/spain/en/hostels/best-hostels/camino-portugues" role="menuitem">Camino Portugués</a>
 
-                            <a href="/spain/en/hostels/best-hostels/camino-ingles" role="menuitem">Camino Inglés</a>
-
-                            <a href="/spain/en/hostels/best-hostels/valencia" role="menuitem">Valencia</a>
-
-                            <a href="/spain/en/hostels/best-hostels/san-sebastian" role="menuitem">San Sebastián</a>
-
         <h3>All Backpacker Hostels</h3>
         <a href="/spain/en/hostels">Hostel Directory</a>
         <h3>Central Spain</h3>
@@ -4497,6 +4977,8 @@ window.BB_TIPS = [
 
     <!-- Mobile menu end -->
 
+<script src="/assets/js/bb-map-loader.js?v=3" defer></script>
+
 <script src="/js/script-2.js?v=4" defer></script>
 
 <script src="/js/attribution-toggle.js?v=1" defer></script>
@@ -4515,6 +4997,2298 @@ class="statcounter"
 src="https://c.statcounter.com/13225228/0/687dc53c/1/"
 alt="Web Analytics"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.backpackersbible.com/#organization",
+      "name": "BackpackersBible.com",
+      "url": "https://www.backpackersbible.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.backpackersbible.com/assets/backpackers_bible_logo_250x250.png",
+        "width": 250,
+        "height": 250
+      },
+      "description": "Independent backpacker guides to destinations worldwide with direct hostel contacts, safety information, maps, and honest write-ups."
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw",
+      "name": "Geoff Louw",
+      "url": "https://www.backpackersbible.com/misc/about-backpackers-bible",
+      "worksFor": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.backpackersbible.com/#website",
+      "url": "https://www.backpackersbible.com/",
+      "name": "BackpackersBible.com",
+      "publisher": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": [
+        "WebPage",
+        "CollectionPage"
+      ],
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#webpage",
+      "url": "https://www.backpackersbible.com/spain/en/hostels/barcelona",
+      "name": "Backpacking Barcelona | Hostel Guide",
+      "headline": "Budget Accommodation In Barcelona",
+      "description": "Directory of 112 hostels and budget places to stay in Barcelona, with direct contact details, an interactive map and filters.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://www.backpackersbible.com/#website"
+      },
+      "publisher": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      },
+      "author": {
+        "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw"
+      },
+      "dateModified": "2026-11-18",
+      "mainEntity": {
+        "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#hostels"
+      },
+      "about": [
+        {
+          "@type": "Place",
+          "name": "Barcelona",
+          "sameAs": "https://en.wikipedia.org/wiki/Barcelona"
+        },
+        {
+          "@type": "Thing",
+          "name": "Backpacking",
+          "sameAs": "https://en.wikipedia.org/wiki/Backpacking_(travel)"
+        }
+      ],
+      "mentions": [
+        {
+          "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#map"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.backpackersbible.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Backpacking Spain",
+          "item": "https://www.backpackersbible.com/spain/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Barcelona Hostels",
+          "item": "https://www.backpackersbible.com/spain/en/hostels/barcelona"
+        }
+      ]
+    },
+    {
+      "@type": "Map",
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#map",
+      "name": "Barcelona Backpacker Hostel Map",
+      "description": "Interactive map of the hostels and budget places to stay in Barcelona with one-tap filters.",
+      "mapType": "https://schema.org/VenueMap",
+      "url": "https://www.backpackersbible.com/spain/en/hostels/barcelona#hostel-map",
+      "potentialAction": [
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Top Picks",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/barcelona?filter=best_overall#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Best Value",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/barcelona?filter=best_value#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Budget",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/barcelona?filter=budget#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Flashpackers",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/barcelona?filter=flashpacker#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Best Parties",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/barcelona?filter=party#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Most Social",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/barcelona?filter=social#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Peaceful",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/barcelona?filter=peaceful#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Solo Women",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/barcelona?filter=solo_women#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Digital Nomads",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/barcelona?filter=digital_nomad#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Couples",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/barcelona?filter=couples#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Cyclists",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/barcelona?filter=cyclists#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Activities",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/barcelona?filter=activities#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Accessible",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/barcelona?filter=accessible#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Eco-Friendly",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/barcelona?filter=eco#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Camping",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/barcelona?filter=camping#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Near Airport",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/barcelona?filter=near_airport#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Groups",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/barcelona?filter=groups#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Surfers",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/barcelona?filter=surfers#hostel-map"
+        }
+      ],
+      "about": {
+        "@type": "Thing",
+        "name": "Backpacker Hostels in Barcelona"
+      },
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Barcelona",
+        "sameAs": "https://en.wikipedia.org/wiki/Barcelona"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#hostels",
+      "name": "Hostels and budget accommodation in Barcelona",
+      "numberOfItems": 112,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#360-hostel-borne",
+            "name": "360 Hostel Borne",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Principal, Rda. de Sant Pere, 56, Eixample",
+              "postalCode": "08010",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 935 30 56 77",
+            "url": "https://www.360hostel.com",
+            "email": "360hostelborne@gmail.com",
+            "sameAs": [
+              "https://www.facebook.com/360hostel/"
+            ],
+            "description": "360 Hostel Borne is at Ronda de Sant Pere 56, beside the El Borne neighbourhood, known for arts and culture, nightlife and restaurants, and a few blocks from Plaça Catalunya, La Rambla and Passeig de Gràcia. The hostel says it was awarded best hostel in the world for solo travellers, and it combines some calm with daily activities such as walking tours, free dinners and nights out. Its rooms are described as very spacious: a two-bed room with a private terrace and dorms of six, eight and twelve beds, all with free lockers, reading lights, air conditioning and linen. There is a well-equipped kitchen and a big terrace for the Barcelona sun. Reception is open 24 hours, check-in is from 14:00 and check-out is before 11:00, with free Wi-Fi throughout. Towels can be hired and laundry costs extra. Wheelchair access is listed among its facilities, and a pub crawl runs most nights."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#360-hostel-centro",
+            "name": "360 Hostel Centro",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Bailèn, 7, Eixample",
+              "postalCode": "08010",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 932 46 99 73",
+            "url": "https://www.360hostel.com",
+            "email": "360hostelbarcelona@gmail.com",
+            "sameAs": [
+              "https://www.facebook.com/360hostel/"
+            ],
+            "description": "360 Hostel Centro is a social hostel at Carrer de Bailèn 7 in central Barcelona, a few blocks from Plaça Catalunya, La Rambla and Passeig de Gràcia, with the Old Town next door and the Sagrada Família and the beach within walking distance. It has a big communal lounge with sofas and a large, fully equipped kitchen with a stove, microwave, toaster, fridge, pots and pans. Dorms sleep four, six or eight, and there is a two-bed room with its own terrace; every room has free lockers, reading lights, air conditioning and linen. Reception is open 24 hours, check-in is from 14:00 and check-out is before 11:00, and free Wi-Fi covers the building. The young staff run a free walking tour every day and a different activity each night, such as paella night, free sangria and tapas, pasta night and a pub crawl. Towels can be hired and laundry costs extra. The hostel is wheelchair accessible."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#alberg-barcelona-xanascat",
+            "name": "Alberg Barcelona Xanascat",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Passeig de la Mare de Déu del Coll, 41, 51, Gràcia",
+              "postalCode": "08023",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 932 10 51 51",
+            "url": "https://xanascat.gencat.cat",
+            "email": "reserves.xanascat@gencat.cat"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#albergue-pere-tarres-barcelona-youth-hostel-en-barcelona",
+            "name": "Albergue Pere Tarrés Barcelona – Youth Hostel En Barcelona",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer Numància, 149, Les Corts",
+              "postalCode": "08029",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 934 10 23 09",
+            "url": "https://www.peretarres.org",
+            "email": "fundacio@peretarres.org"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#alberguinn",
+            "name": "Alberguinn",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Melcior de Palau, 70, 74, Sants-Montjuïc",
+              "postalCode": "08014",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 935 41 31 01",
+            "url": "https://www.alberguinn.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#alternative-creative-youth-hostel-barcelona",
+            "name": "Alternative Creative Youth Hostel Barcelona",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Ronda de la Univ., 17, entresòl-3, Eixample",
+              "postalCode": "08007",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 635 66 90 21",
+            "url": "https://www.alternative-barcelona.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#amistat-city-hostel-barcelona",
+            "name": "Amistat City Hostel Barcelona",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Avinguda Meridiana, 250, Sant Andreu",
+              "postalCode": "08027",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 932 42 50 05",
+            "url": "https://www.amistathostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#ant-hostel-barcelona",
+            "name": "Ant Hostel Barcelona",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Passeig de Pujades, 17, Sant Martí",
+              "postalCode": "08018",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 932 69 42 43",
+            "url": "https://www.anthostelbarcelona.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#arc-house-barcelona",
+            "name": "Arc House Barcelona",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Buenaventura Muñoz, 16, Sant Martí",
+              "postalCode": "08018",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 910 60 48 79",
+            "url": "https://archousebarcelona.wbzak.net"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#barcelona-you-hostel",
+            "name": "Barcelona & You Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Lepant, 237, Eixample",
+              "postalCode": "08013",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 658 51 53 87",
+            "url": "https://www.barcelonaandyouhostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#barcelona-bed-and-bike-hostel",
+            "name": "Barcelona Bed and Bike Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de la Diputació, 360, Eixample",
+              "postalCode": "08013",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 931 52 78 87",
+            "url": "https://www.barcelonabedandbike.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#barcelona-central-garden",
+            "name": "Barcelona Central Garden",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Roger de Llúria, 41 Principal, Eixample",
+              "postalCode": "08009",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 935 00 69 99",
+            "url": "https://welotel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 13,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#bcn-home",
+            "name": "BCN Home",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de la Junta de Comerç, 13, Ciutat Vella",
+              "postalCode": "08001",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 932 77 98 73",
+            "url": "https://bcn-home.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 14,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#bcn-urbaness-hotels-bonavista",
+            "name": "BCN Urbaness Hotels Bonavista",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Francisco Giner, 5, Gràcia",
+              "postalCode": "08012",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 933 68 19 96",
+            "url": "https://www.bcnurbanessbonavista.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 15,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#black-swan-hostel-barcelona",
+            "name": "Black Swan Hostel Barcelona",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer d'Alí Bei, 15, Eixample",
+              "postalCode": "08010",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 930 50 50 16",
+            "url": "https://blackswanhostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 16,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#born-barcelona-hostel",
+            "name": "Born Barcelona Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Rda. de Sant Pere, 68, Eixample",
+              "postalCode": "08010",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 935 32 36 63",
+            "url": "https://www.bornbarcelonahostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 17,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#bruc-bruc",
+            "name": "Bruc & Bruc",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Mallorca, 290, Eixample",
+              "postalCode": "08037",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 605 93 21 31",
+            "url": "https://www.brucandbruc.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 18,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#buba-house",
+            "name": "Buba House",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer d'Aragó, 239, Principal - 3, Eixample",
+              "postalCode": "08007",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 662 69 04 47",
+            "url": "https://www.bubahouse.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 19,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#calma-house-diagonal-barcelona",
+            "name": "Calma House – Diagonal (barcelona)",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. Diagonal, 484, Sarrià-Sant Gervasi",
+              "postalCode": "08006",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 934 76 40 80",
+            "url": "https://calmahouse.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 20,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#campus-del-mar-residence-hall",
+            "name": "Campus del Mar Residence Hall",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Pg. de Salvat Papasseit, 4, Ciutat Vella",
+              "postalCode": "08003",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 933 90 40 00",
+            "url": "https://resa.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 21,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#casa-barcelo-hostel-barcelona",
+            "name": "Casa Barceló Hostel Barcelona",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Còrsega, 226, Ent 2ª, Eixample",
+              "postalCode": "08036",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 936 67 78 06",
+            "url": "https://www.casabarcelo.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 22,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#casa-gracia",
+            "name": "Casa Gràcia",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Pg. de Gràcia, 116, 116Bis, Gràcia",
+              "postalCode": "08008",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 931 74 05 28",
+            "url": "https://room00hostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 23,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#casa-jam-barcelona",
+            "name": "Casa Jam Barcelona",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Montmany, 38, 42, Gràcia",
+              "postalCode": "08012",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 933 15 53 38",
+            "url": "https://www.casajambarcelona.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 24,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#casa-lolita-guesthouse",
+            "name": "Casa Lolita Guesthouse",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer del Bruc, 65. Principal, 2ª, Eixample",
+              "postalCode": "08009",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 633 68 28 61",
+            "url": "https://casalolita.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 25,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#coroleu-house-bcn",
+            "name": "Coroleu House BCN",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Coroleu, 33 Bis, Sant Andreu",
+              "postalCode": "08030",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 609 31 84 67",
+            "url": "https://www.coroleuhouse-bcn.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 26,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#dream-cube-hostel",
+            "name": "Dream Cube Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. de Sarrià, 67, Les Corts",
+              "postalCode": "08029",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 933 15 48 28",
+            "url": "https://dreamcubehostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 27,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#easy-sants-by-bossh",
+            "name": "Easy Sants By Bossh!",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer del Vallespir, 34, Sants-Montjuïc",
+              "postalCode": "08014",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 930 11 53 53",
+            "url": "https://sants.bossh-hotels.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 28,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#fabrizzio-s-petit",
+            "name": "Fabrizzio'S Petit",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. del Bruc, 65, 2º, 2ª, Eixample",
+              "postalCode": "08009",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 932 15 40 59",
+            "url": "https://www.fabrizzios.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 29,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#fabrizzios-terrace",
+            "name": "Fabrizzios Terrace",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Girona, 49, Eixample",
+              "postalCode": "08009",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 931 62 16 12",
+            "url": "https://www.fabrizzios.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 30,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#factory-hostels-barcelona",
+            "name": "Factory Hostels Barcelona",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Molist, 5, Gràcia",
+              "postalCode": "08024",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 932 85 22 56",
+            "url": "https://www.factorybcn.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 31,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#free-hostels-barcelona",
+            "name": "Free Hostels Barcelona",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Londres, 20, Eixample",
+              "postalCode": "08029",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 933 15 47 09",
+            "url": "https://www.free-hostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 32,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#generator-barcelona",
+            "name": "Generator Barcelona",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Còrsega, 373, Gràcia",
+              "postalCode": "08037",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 932 20 03 77",
+            "url": "https://staygenerator.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 33,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#gg-hostel",
+            "name": "Gg Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Girona, 33, Bajos, Eixample",
+              "postalCode": "08010",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 622 78 30 62",
+            "url": "https://gghostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 34,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#gracia-city-by-roquerol-hostels",
+            "name": "Gracia City By Roquerol Hostels",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Sant Pere Màrtir, 18, Gràcia",
+              "postalCode": "08012",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 672 47 69 67",
+            "url": "https://roquerolhostelgracia.wbzak.net"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 35,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#hellobcn-hostel-barcelona",
+            "name": "Hellobcn Hostel Barcelona",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Lafont, 8, Sants-Montjuïc",
+              "postalCode": "08004",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 934 42 83 92",
+            "url": "https://hellobcnhostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 36,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#hey-lola-hostel",
+            "name": "Hey Lola! Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Salvà, 36, Sants-Montjuïc",
+              "postalCode": "08004",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 931 39 37 59",
+            "url": "https://www.heylolahostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 37,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#hip-karma-hostel",
+            "name": "Hip Karma Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Rda. de Sant Pere, 39, Eixample",
+              "postalCode": "08010",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 931 42 24 53",
+            "url": "https://www.hipkarmahostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 38,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#hola-hostal-eixample",
+            "name": "Hola Hostal Eixample",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Nàpols, 149, Eixample",
+              "postalCode": "08013",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 936 24 23 31",
+            "url": "https://holahostal.com",
+            "email": "hola@holahostal.com",
+            "sameAs": [
+              "https://www.facebook.com/HolaHostal"
+            ],
+            "description": "Hola Hostel Eixample is at Carrer de Nàpols 149 in the Eixample district of Barcelona, and its own site describes it as a comfortable, dynamic and modern place to stay for travellers who value a great location, well-maintained shared spaces and an atmosphere for relaxing, socialising and getting around the city easily. It has air conditioning, heating and Wi-Fi, a kitchen and dining area with a TV, and a games corner with a foosball table and sofa, and shared rooms include a mixed eight-person dormitory with lockers and a mix of single and bunk beds. The site promises the best online price and free cancellation up to 48 hours before arrival when you book direct, and the hostel is registered with the Catalan youth-hostel registry as number 575. Phone, email, Facebook and Instagram are listed on the Hola Hostel website."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 39,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#hostal-apartamentos-bedmates",
+            "name": "Hostal & Apartamentos Bedmates",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Vila i Vilà, 79, Sants-Montjuïc",
+              "postalCode": "08004",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 659 37 31 31",
+            "url": "https://www.hostalbedmates.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 40,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#hostal-barcelona",
+            "name": "Hostal Barcelona",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer del Roser, 40, Sants-Montjuïc",
+              "postalCode": "08004",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 934 42 50 75",
+            "url": "https://www.barcelonahostal.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 41,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#hostal-barcelona-ramblas",
+            "name": "Hostal Barcelona Ramblas",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer Nou de la Rambla, 50, Ciutat Vella",
+              "postalCode": "08001",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 934 42 36 69",
+            "url": "https://behostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 42,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#hostal-mare-nostrum",
+            "name": "Hostal Mare Nostrum",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Sant Pau, 2, Ciutat Vella",
+              "postalCode": "08001",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 933 18 53 40",
+            "url": "https://www.hostalmarenostrum.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 43,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#hostal-medea-barcelona",
+            "name": "Hostal Medea Barcelona",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Mallorca, 290, Eixample",
+              "postalCode": "08037",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 934 59 23 66"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 44,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#hostal-nitzs-bcn",
+            "name": "Hostal Nitzs BCN",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Calella, 1, Ciutat Vella",
+              "postalCode": "08002",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 933 02 11 05",
+            "url": "https://www.hostalnitzsbcn.website"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 45,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#hostal-orleans",
+            "name": "Hostal Orleans",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. del Marquès de l'Argentera, 13, Ciutat Vella",
+              "postalCode": "08003",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 933 19 73 82",
+            "url": "https://wubook.net"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 46,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#hostal-palermo",
+            "name": "Hostal Palermo",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de la Boqueria, 21, Ciutat Vella",
+              "postalCode": "08002",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 933 02 40 02",
+            "url": "https://www.hostalpalermo.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 47,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#hostal-radio",
+            "name": "Hostal Ràdio",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Sant Vicenç, 39, Ciutat Vella",
+              "postalCode": "08001",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 933 01 62 01",
+            "url": "https://www.hostalradio.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 48,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#hostal-yomo-bcn-port",
+            "name": "Hostal Yomo BCN Port",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Avinguda del Paral·lel, 15, Sants-Montjuïc",
+              "postalCode": "08004",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 933 24 95 00",
+            "url": "https://www.yomobcnport.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 49,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#hostel-in-barcelona-central-basic-drassanes",
+            "name": "Hostel in Barcelona – Central & Basic Drassanes",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Guàrdia, 13, Ciutat Vella",
+              "postalCode": "08001",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 683 10 99 60",
+            "url": "https://centralandbasicbarcelona.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 50,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#hostel-in-barcelona-central-basic-universitat",
+            "name": "Hostel in Barcelona – Central & Basic Universitat",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Joaquín Costa, 44, 2º1ª, Ciutat Vella",
+              "postalCode": "08001",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 683 60 21 87",
+            "url": "https://centralandbasicbarcelona.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 51,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#hostel-new-york",
+            "name": "Hostel New York",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer d'en Gignàs, 6, Ciutat Vella",
+              "postalCode": "08002",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 933 15 03 04",
+            "url": "https://www.bcnalberg.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 52,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#hostel-studio-albergue",
+            "name": "Hostel Studio Albergue",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de la Duquessa d'Orleans, 56-58, Sarrià-Sant Gervasi",
+              "postalCode": "08034",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "url": "https://www.alberguestudio.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 53,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#hostelle-barcelona",
+            "name": "Hostelle Barcelona",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Via Júlia, 153, Nou Barris",
+              "postalCode": "08042",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 931 54 57 77",
+            "url": "https://www.hostelle.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 54,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#hostelscat-bcn",
+            "name": "Hostelscat BCN",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Panissars, 5, Sants-Montjuïc",
+              "postalCode": "08028",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 936 67 27 06",
+            "url": "https://cat-bcn.hotelb3.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 55,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#hotel-via-augusta",
+            "name": "Hotel Via Augusta",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Via Augusta, 63, Sarrià-Sant Gervasi",
+              "postalCode": "08006",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 932 17 92 50",
+            "url": "https://www.hotelviaaugusta.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 56,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#inout-hostel",
+            "name": "Inout Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer Major del Rectoret, 2, Sarrià-Sant Gervasi",
+              "postalCode": "08017",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 932 80 09 85",
+            "url": "https://www.inouthostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 57,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#itaca-hostel",
+            "name": "Ítaca Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Ripoll, 21, Ciutat Vella",
+              "postalCode": "08002",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 933 01 97 51",
+            "url": "https://www.itacahostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 58,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#latroupe-poblenou-beach-hostel-barcelona",
+            "name": "Latroupe Poblenou Beach Hostel Barcelona",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de l'Amistat, 21, Sant Martí",
+              "postalCode": "08005",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 644 40 37 81",
+            "url": "https://www.latroupe.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 59,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#leevin-stay-barcelona",
+            "name": "Leevin Stay Barcelona",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Vía Augusta, 289, bajo, Sarrià-Sant Gervasi",
+              "postalCode": "08017",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 933 68 32 94",
+            "url": "https://leevinstay.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 60,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#malacuna-barcelona",
+            "name": "Malacuna Barcelona",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de la Unió, 10, 12, Ciutat Vella",
+              "postalCode": "08001",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 669 25 51 35",
+            "url": "https://www.smartrental.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 61,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#mambo-tango",
+            "name": "Mambo Tango",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer del Poeta Cabanyes, 23, Sants-Montjuïc",
+              "postalCode": "08004",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 613 19 65 11",
+            "url": "https://hotels.cloudbeds.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 62,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#mediterranean-hostel-barcelona",
+            "name": "Mediterranean Hostel Barcelona",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de la Diputació, 335, Eixample",
+              "postalCode": "08009",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 622 82 43 16",
+            "url": "https://www.mediterraneanhostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 63,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#meeting-point-hostels",
+            "name": "Meeting Point Hostels",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer del Vallespir, 20, Sants-Montjuïc",
+              "postalCode": "08014",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 934 09 74 46",
+            "url": "https://www.meetingpointhostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 64,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#meininger-hotel-barcelona-fira-gran-via",
+            "name": "Meininger Hotel Barcelona Fira Gran Via",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de la Botànica, 41",
+              "postalCode": "08908",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "url": "https://www.meininger-hotels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 65,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#mellow-hostel-barcelona",
+            "name": "Mellow Hostel Barcelona",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer d'Aguilar, 54, Horta-Guinardó",
+              "postalCode": "08032",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 934 29 45 33",
+            "url": "https://www.mellowbarcelona.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 66,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#mihlton-barcelona-boutique-b-b",
+            "name": "Mihlton Barcelona Boutique B&B",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer del Rosselló, 231, Principal, 2ª, Eixample",
+              "postalCode": "08008",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 608 16 16 61",
+            "url": "https://www.mihltonbarcelona.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 67,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#no-limit-hostel-central",
+            "name": "No Limit Hostel Central",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer del Consell de Cent, 355, Eixample",
+              "postalCode": "08007",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 932 50 68 46",
+            "url": "https://www.nolimithostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 68,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#no-limit-hostel-graffiti",
+            "name": "No Limit Hostel Graffiti",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer d'Aragó, 527, Sant Martí",
+              "postalCode": "08026",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 931 86 33 97",
+            "url": "https://nolimithostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 69,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#numa-barcelona-brio",
+            "name": "Numa Barcelona Brio",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer Gran de Gràcia, 14, Gràcia",
+              "postalCode": "08012",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 932 71 31 07",
+            "url": "https://numastays.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 70,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#numa-barcelona-lustre",
+            "name": "Numa Barcelona Lustre",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer dels Carders, 34, Ciutat Vella",
+              "postalCode": "08003",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 932 71 31 07",
+            "url": "https://numastays.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 71,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#numa-barcelona-roca",
+            "name": "Numa Barcelona Roca",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Girona, 81, Eixample",
+              "postalCode": "08009",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 932 71 31 07",
+            "url": "https://numastays.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 72,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#olivia-barcelona-boutique-hostel",
+            "name": "Olivia Barcelona Boutique Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer del Taquígraf Martí, 24, bajo, Les Corts",
+              "postalCode": "08028",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 638 65 33 52",
+            "url": "https://olivia-barcelona.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 73,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#onefam-batllo",
+            "name": "Onefam Batlló",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Casanova, 52, Loc 1, Eixample",
+              "postalCode": "08011",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 931 78 43 43",
+            "url": "https://onefamhostels.com",
+            "sameAs": [
+              "https://www.facebook.com/onefamhostels/"
+            ],
+            "description": "Onefam Batlló is a cosy hostel in the Eixample, steps from Casa Batlló on Passeig de Gràcia and at the intersection of two of Barcelona's metro lines. The Sagrada Família is one stop away and the Barceloneta beach about 20 minutes on foot, which makes it a convenient base for Gaudí's modernist landmarks. The chain pitches it as a home away from home for backpackers after an authentic experience, with a relaxed, social atmosphere. Guests get free Wi-Fi, a fully equipped shared kitchen and regular events to meet other travellers, including walking tours, bar crawls and group dinners. Reception is open 24 hours and each bed has a locker. Check-in is from 14:00 and free luggage storage is offered on arrival and departure days. Onefam says all five of its Barcelona hostels score 9.7 to 9.8 on Hostelworld, and Batlló is one of the two at 9.8."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 74,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#onefam-les-corts",
+            "name": "Onefam Les Corts",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Ptge. del Regent Mendieta, 5, Les Corts",
+              "postalCode": "08028",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 934 49 05 96",
+            "url": "https://onefamhostels.com",
+            "sameAs": [
+              "https://www.facebook.com/onefamhostels/"
+            ],
+            "description": "Onefam Les Corts is in the residential neighbourhood of Les Corts, next to Camp Nou and one metro stop from the Eixample, so it suits travellers who want a quieter base and a taste of a local Barcelona neighbourhood away from the tourist crowds. The chain says it has over 100 beds in shared and private rooms. The common lounge has a TV, a PlayStation and a pool table, and the rooftop terrace has sun loungers and tables under umbrellas. There is a strong local café scene nearby, and the hostel runs the usual Onefam social programme of walking tours, bar crawls and group dinners. Reception is open 24 hours, check-in is from 14:00, lockers are provided and luggage can be stored free on arrival and departure days. Onefam says the hostel scores 9.7 on Hostelworld, and it offers its best rates when you book direct on the Onefam website."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 75,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#onefam-paralelo",
+            "name": "Onefam Paralelo",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Salvà, 62, Sants-Montjuïc",
+              "postalCode": "08004",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 934 43 98 85",
+            "url": "https://onefamhostels.com",
+            "sameAs": [
+              "https://www.facebook.com/onefamhostels/"
+            ],
+            "description": "Onefam Paralelo is in Poble Sec, near Avinguda del Paral·lel, a lively neighbourhood of local tapas bars that is less touristy than the Old Town. Montjuïc is five minutes uphill, Las Ramblas about ten minutes on foot and the beach a 15-minute walk or one metro stop away. The chain describes it as the most social of its five Barcelona hostels, with bar crawls leaving weekly and a rooftop terrace that becomes a meeting point every evening. Guests can relax in the common areas, meet other travellers and join the usual Onefam programme of walking tours and group dinners. Reception is open 24 hours, check-in is from 14:00, lockers are provided and luggage can be stored free on arrival and departure days. Onefam says the hostel scores 9.7 on Hostelworld. It is a good pick for travellers who want local bars, Montjuïc and the beach within easy reach."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 76,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#onefam-ramblas-hostel-barcelona",
+            "name": "Onefam Ramblas Hostel Barcelona",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer d'Albareda, 6, Sants-Montjuïc",
+              "postalCode": "08004",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 934 43 13 10",
+            "url": "https://onefamhostels.com",
+            "sameAs": [
+              "https://www.facebook.com/onefamhostels/"
+            ],
+            "description": "Onefam Ramblas sits in the Old Town, steps from Las Ramblas, the Gothic Quarter and the city's main sights, with the beach, the cathedral and the harbour all within a 15-minute walk. It is one of five Onefam hostels in Barcelona, a chain that says its Barcelona hostels score 9.7 to 9.8 on Hostelworld. Guests get free high-speed Wi-Fi, a fully equipped shared kitchen, a common lounge made for meeting other travellers, lockers and a 24-hour reception. The weekly social programme includes a free walking tour, a bar crawl and group dinners. Dorms use keycard access. Check-in is from 14:00, with earlier check-in from 10:00 on request if a room is free, and luggage can be stored free from 08:00 on arrival day. Towels can be rented. It is billed as the best base for first-timers who want to walk everywhere, and it takes bookings direct on the Onefam website."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 77,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#onefam-sants-hostel-barcelona",
+            "name": "Onefam Sants Hostel Barcelona",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Casteràs, 9, Sants-Montjuïc",
+              "postalCode": "08028",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 933 32 41 92",
+            "url": "https://onefamhostels.com",
+            "sameAs": [
+              "https://www.facebook.com/onefamhostels/"
+            ],
+            "description": "Onefam Sants stands directly beside Barcelona Sants, the city's main intercity train and bus station, which makes it a practical choice for late arrivals, early departures and day trips. Girona, Montserrat, Tarragona and the Costa Brava are all under an hour away by rail, and the city centre is three metro stops away. The hostel's selling points are a spacious rooftop terrace with panoramic views and a chill-out lounge with a pool table, and the chain describes it as a cosy, authentic place for backpackers. Guests share the usual Onefam social programme of walking tours, bar crawls and group dinners. Reception is open 24 hours, check-in is from 14:00, lockers are provided and luggage can be stored free on arrival and departure days. Onefam says the hostel scores 9.7 on Hostelworld and that dorm beds are cheapest when booked direct on its own site."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 78,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#paraiso-hostel",
+            "name": "Paraiso Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Rda. de Sant Pau, 55-57, Ppal1, Eixample",
+              "postalCode": "08015",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 935 63 00 41",
+            "url": "https://paraisohostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 79,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#pars-tailor-s-hostel",
+            "name": "Pars Tailor'S Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Sepúlveda, 146, Eixample",
+              "postalCode": "08011",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 932 50 56 84",
+            "url": "https://parshostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 80,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#pars-teatro-hostel",
+            "name": "Pars Teatro Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer d'Albareda, 12, Sants-Montjuïc",
+              "postalCode": "08004",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 934 43 94 66",
+            "url": "https://parshostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 81,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#party-hostel-kabul",
+            "name": "Party Hostel Kabul",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Pl. Reial, 17, Ciutat Vella",
+              "postalCode": "08002",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 933 18 51 90",
+            "url": "https://www.kabul.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 82,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#pension-45",
+            "name": "Pensión 45",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer dels Tallers, 45, Ciutat Vella",
+              "postalCode": "08001",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 933 02 70 61",
+            "url": "https://www.pension45.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 83,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#piulet-hostel",
+            "name": "Piulet Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer d'Enric Granados, 30, Eixample",
+              "postalCode": "08008",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 672 22 42 84",
+            "url": "https://hotels.cloudbeds.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 84,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#primavera-hostel",
+            "name": "Primavera Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Mallorca, 330, entresuelo 2ª, Eixample",
+              "postalCode": "08037",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 931 75 21 51",
+            "url": "https://www.primavera-hostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 85,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#residencia-universitaria-lesseps",
+            "name": "Residència Universitària Lesseps",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Pl. de Lesseps, 12, Gràcia",
+              "postalCode": "08023",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 933 94 16 00",
+            "url": "https://resa.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 86,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#residencia-universitaria-resa-barcelona-diagonal",
+            "name": "Residència Universitària RESA Barcelona Diagonal",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer del Capità Arenas, 52, 56, Sarrià-Sant Gervasi",
+              "postalCode": "08034",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 937 01 20 00",
+            "url": "https://resa.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 87,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#rocket-hostels-gracia",
+            "name": "Rocket Hostels – Gràcia",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de la Mare de Déu del Coll, 59, Gràcia",
+              "postalCode": "08023",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 936 24 22 59",
+            "url": "https://rocket-hostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 88,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#room018bcn",
+            "name": "Room018bcn",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de la Pobla de Lillet, 18, Les Corts",
+              "postalCode": "08028",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 935 34 40 00",
+            "url": "https://www.room018barcelonahostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 89,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#safestay-barcelona-gothic",
+            "name": "Safestay Barcelona Gothic",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer dels Vigatans, 5, 9, Ciutat Vella",
+              "postalCode": "08003",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 932 68 78 08",
+            "url": "https://www.safestay.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 90,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#safestay-barcelona-passeig-de-gracia",
+            "name": "Safestay Barcelona Passeig de Gràcia",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Pg. de Gràcia, 33, Eixample",
+              "postalCode": "08007",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 932 15 65 38",
+            "url": "https://www.safestay.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 91,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#sant-jordi-apartments-sagrada-familia",
+            "name": "Sant Jordi Apartments Sagrada Familia",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer del Freser, 5, Sant Martí",
+              "postalCode": "08026",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 934 19 09 14",
+            "url": "https://www.santjordihostels.com",
+            "email": "info@santjordihostels.com",
+            "sameAs": [
+              "https://www.facebook.com/santjordihostels/"
+            ]
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 92,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#sant-jordi-hostels-gracia",
+            "name": "Sant Jordi Hostels Gracia",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Terol, 35, Gràcia",
+              "postalCode": "08012",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 933 42 41 61",
+            "url": "https://www.santjordihostels.com",
+            "email": "gracia@santjordihostels.com",
+            "sameAs": [
+              "https://www.facebook.com/santjordihostels/"
+            ],
+            "description": "Sant Jordi Hostels Gràcia is the chain's calmer, boutique hostel, at Carrer de Terol 35 in the Gràcia district, which the hostel calls the hippest neighbourhood in Barcelona, full of squares, bars, restaurants, art studios, theatres and independent shops, and well connected to the centre by metro line 3 and bus. All rooms are air conditioned mixed or female dorms for four to eight people with shared bathrooms, and each bed has a locker that needs no padlock, a reading lamp and a charging point. There is a fully equipped guest kitchen, a rooftop and an interior patio, laundry, towels, guest computers, free Wi-Fi, luggage storage, a 24-hour reception, daily cleaning and bike and skate rental. The hostel describes its atmosphere as young but calm, suited to solo travellers and small groups, and sends party seekers to its Sagrada Família hostel. Registered as AJ000535."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 93,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#sant-jordi-hostels-rock-palace",
+            "name": "Sant Jordi Hostels Rock Palace",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Balmes, 75, Eixample",
+              "postalCode": "08007",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 934 53 32 81",
+            "url": "https://www.santjordihostels.com",
+            "email": "rockpalace@santjordihostels.com",
+            "sameAs": [
+              "https://www.facebook.com/santjordihostels/"
+            ],
+            "description": "Rock Palace is the rock-and-roll hostel of the Sant Jordi chain, at Carrer Balmes 75, five minutes on foot from Passeig de Gràcia and Casa Batlló and ten from Plaça Catalunya, the Gothic Quarter and La Pedrera. Its common areas are styled after the bars and clubs that shaped modern music, with a guitar collection, a famous bar and a rooftop terrace with a pool. Dorms are mixed or female, from four to fourteen beds, and many are en suite; every bed has a large locker opened by the key card, a reading lamp, a charging point and a headboard cubby, and the rooms are soundproofed and air conditioned. Facilities include a 24-hour reception, free Wi-Fi, guest computers, a guest kitchen, laundry, luggage storage and bike and skate rental. Check-in is from 14:00, check-out is until 11:00, a refundable 10 euro key-card deposit applies, and quiet hours start at 23:00. Registered as AJ000593."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 94,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#sant-jordi-hostels-sagrada-familia",
+            "name": "Sant Jordi Hostels Sagrada Familia",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer del Freser, 5, Sant Martí",
+              "postalCode": "08026",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 934 46 05 17",
+            "url": "https://www.santjordihostels.com",
+            "email": "sagradafamilia@santjordihostels.com",
+            "sameAs": [
+              "https://www.facebook.com/santjordihostels/"
+            ],
+            "description": "Sant Jordi Hostels Sagrada Familia is the chain's skateboard hostel, at Carrer Freser 5, with a skating theme that reflects Barcelona's street art, urban culture and nightlife, and an indoor skate room with a mini-ramp. It is a ten-minute walk from the Sagrada Família, and two metro lines, L2 and L5, are five minutes away, with three night bus lines less than three blocks from the door. Dorms range from three to twelve beds, mixed or female, many with private bathrooms, plus a triple private room; each bed has a locker, a reading lamp and a charging point, and rooms are air conditioned. There is a large guest kitchen, a lounge, a private patio, guest computers, free Wi-Fi, laundry, luggage storage, a 24-hour reception and bike and skate rental. The hostel runs daily activities and nights out, and warns that it is a party hostel, recommending its Gràcia hostel for something mellower. Registered as AJ000517."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 95,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#sea-hostel",
+            "name": "Sea Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Plaça del Mar, 1, Ciutat Vella",
+              "postalCode": "08003",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 634 35 44 99",
+            "url": "https://www.equity-point.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 96,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#sleep-green-certified-eco-youth-hostel-barcelona",
+            "name": "Sleep Green – Certified Eco Youth Hostel Barcelona",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Ronda de la Universidad, 15, Pral-1, Eixample",
+              "postalCode": "08007",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 624 85 55 56",
+            "url": "https://www.sleepgreenbarcelona.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 97,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#soul-backpackers-sl",
+            "name": "Soul Backpackers Sl",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de la Diputació, 323, Princiapl 1era, Eixample",
+              "postalCode": "08009",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 931 94 16 77",
+            "url": "https://soulbackpackers.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 98,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#sport-hostels",
+            "name": "Sport Hostels",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer del Perill, 26, Gràcia",
+              "postalCode": "08012",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 933 80 35 70",
+            "url": "https://www.bcnsporthostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 99,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#st-christopher-s-barcelona",
+            "name": "St Christopher'S Barcelona",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Bergara, 3, Eixample",
+              "postalCode": "08002",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 931 75 14 01",
+            "url": "https://www.st-christophers.co.uk"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 100,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#sun-moon-hostel",
+            "name": "Sun & Moon Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Ferran, 17, Ciutat Vella",
+              "postalCode": "08002",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 932 70 20 60",
+            "url": "https://www.hostelbcn-sunmoon.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 101,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#super-balmes-guesthouse",
+            "name": "Super Balmes Guesthouse",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Balmes, 12, Eixample",
+              "postalCode": "08007",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 635 85 72 88",
+            "url": "https://www.superbalmes.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 102,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#ten-to-go-hostel",
+            "name": "Ten To Go Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Valladolid, 43, Sants-Montjuïc",
+              "postalCode": "08014",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 931 38 90 32",
+            "url": "https://www.tentogo.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 103,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#the-central-house-barcelona-gracia",
+            "name": "The Central House Barcelona Gracia",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Còrsega, 302, Eixample",
+              "postalCode": "08008",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 932 17 19 44",
+            "url": "https://www.thecentralhousegroup.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 104,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#the-loft-hostel-barcelona",
+            "name": "The Loft Hostel Barcelona",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Provença, 318, Eixample",
+              "postalCode": "08037",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 900 264 222",
+            "url": "https://www.theloft.house"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 105,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#toc-barcelona",
+            "name": "Toc Barcelona",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Gran Via de les Corts Catalanes, 580, Eixample",
+              "postalCode": "08011",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 934 53 44 25",
+            "url": "https://tochostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 106,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#twentytu-hi-tech-hostel-barcelona",
+            "name": "Twentytú Hi-Tech Hostel Barcelona",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Pamplona, 114, Sant Martí",
+              "postalCode": "08018",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 932 38 71 85",
+            "url": "https://twentytu.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 107,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#unite-hostel-barcelona",
+            "name": "Unite Hostel Barcelona",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. d'Icària, 145, BJ, Sant Martí",
+              "postalCode": "08005",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 930 18 66 60",
+            "url": "https://www.unitehostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 108,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#urbany-hostel-barcelona",
+            "name": "Urbany Hostel Barcelona",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Avinguda Meridiana, 97, Sant Martí",
+              "postalCode": "08026",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 932 45 84 14",
+            "url": "https://www.urbanyhostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 109,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#urbany-hostel-bcn-go",
+            "name": "Urbany Hostel BCN Go!",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Gran Via de les Corts Catalanes, 563, Eixample",
+              "postalCode": "08011",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 937 37 96 18",
+            "url": "https://www.urbanyhostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 110,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#wow-hostel-barcelona",
+            "name": "Wow Hostel Barcelona",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. Diagonal, 578, 3, Sarrià-Sant Gervasi",
+              "postalCode": "08029",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 934 14 56 06",
+            "url": "https://www.wowhostelbarcelona.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 111,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#yeah-hostel",
+            "name": "Yeah Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Girona, 176, Eixample",
+              "postalCode": "08037",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 935 31 01 35",
+            "url": "https://www.yeahhostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 112,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/barcelona#zoo-rooms-barcelona",
+            "name": "Zoo Rooms Barcelona",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Mallorca, 209, Eixample",
+              "postalCode": "08036",
+              "addressLocality": "Barcelona",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 644 32 15 05",
+            "url": "https://www.zoorooms.com"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 </body>
 </html>
