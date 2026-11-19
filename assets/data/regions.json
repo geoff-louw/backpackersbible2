@@ -73,7 +73,8 @@
     ],
     "bestFor": [
       "Beaches"
-    ]
+    ],
+    "info": ""
   },
   "overberg": {
     "name": "Overberg",
@@ -156,7 +157,8 @@
       "Beaches",
       "Whale-watching",
       "Adventure activities"
-    ]
+    ],
+    "info": ""
   },
   "sunshine-coast": {
     "name": "Sunshine Coast",
@@ -239,7 +241,8 @@
       "Parties",
       "Wildlife",
       "Big 5"
-    ]
+    ],
+    "info": ""
   },
   "wild-coast": {
     "name": "Wild Coast",
@@ -294,7 +297,8 @@
       "Scenery",
       "Beaches",
       "Parties"
-    ]
+    ],
+    "info": ""
   },
   "south-coast": {
     "name": "South Coast",
@@ -344,7 +348,8 @@
       "Beaches",
       "Parties",
       "Adventure activities"
-    ]
+    ],
+    "info": ""
   },
   "north-coast": {
     "name": "North Coast",
@@ -385,7 +390,8 @@
     "bestFor": [
       "Beaches",
       "Parties"
-    ]
+    ],
+    "info": ""
   },
   "zululand": {
     "name": "Zululand",
@@ -452,7 +458,8 @@
       "African culture",
       "Scenery",
       "Big 5"
-    ]
+    ],
+    "info": ""
   },
   "kruger": {
     "name": "Kruger National Park",
@@ -514,7 +521,8 @@
       "Wildlife",
       "Scenery",
       "Big 5"
-    ]
+    ],
+    "info": ""
   },
   "cederberg": {
     "name": "Cederberg",
@@ -558,7 +566,8 @@
     ],
     "bestFor": [
       "Scenery"
-    ]
+    ],
+    "info": ""
   },
   "northern-cape": {
     "name": "Northern Cape",
@@ -664,7 +673,8 @@
       "Scenery",
       "Nature",
       "Culture"
-    ]
+    ],
+    "info": ""
   },
   "eastern-cape-interior": {
     "name": "Eastern Cape Interior",
@@ -837,7 +847,8 @@
     "bestFor": [
       "Scenery",
       "Parties"
-    ]
+    ],
+    "info": ""
   },
   "karoo": {
     "name": "The Karoo",
@@ -901,7 +912,8 @@
     ],
     "bestFor": [
       "Scenery"
-    ]
+    ],
+    "info": ""
   },
   "midlands": {
     "name": "KZN Midlands",
@@ -950,7 +962,8 @@
     "bestFor": [
       "Scenery",
       "Adventure activities"
-    ]
+    ],
+    "info": ""
   },
   "eswatini": {
     "name": "Eswatini",
@@ -1133,7 +1146,8 @@
       "Wildlife",
       "Scenery",
       "Big 5"
-    ]
+    ],
+    "info": ""
   },
   "lesotho": {
     "name": "Lesotho",
@@ -1615,7 +1629,8 @@
       "Scenery",
       "African culture",
       "Adventure activities"
-    ]
+    ],
+    "info": ""
   },
   "garden-route": {
     "name": "Garden Route",
@@ -1690,7 +1705,8 @@
       "Beaches",
       "Adventure activities",
       "Parties"
-    ]
+    ],
+    "info": ""
   },
   "drakensberg": {
     "name": "Drakensberg",
@@ -1817,7 +1833,8 @@
       "Culture",
       "Parties",
       "Adventure activities"
-    ]
+    ],
+    "info": ""
   },
   "winelands": {
     "name": "Cape Winelands",
@@ -1903,7 +1920,8 @@
       "Scenery",
       "Culture",
       "Parties"
-    ]
+    ],
+    "info": ""
   },
   "route-62": {
     "name": "Route 62",
@@ -2739,7 +2757,8 @@
     ],
     "bestFor": [
       "Scenery"
-    ]
+    ],
+    "info": ""
   },
   "cape-town": {
     "name": "Cape Town",
@@ -2756,7 +2775,8 @@
       "Adventure activities",
       "Parties",
       "Culture"
-    ]
+    ],
+    "info": ""
   },
   "durban": {
     "name": "Durban",
@@ -2773,7 +2793,8 @@
       "Adventure activities",
       "Parties",
       "Culture"
-    ]
+    ],
+    "info": ""
   },
   "johannesburg": {
     "name": "Johannesburg",
@@ -2788,7 +2809,8 @@
     "bestFor": [
       "Culture",
       "Parties"
-    ]
+    ],
+    "info": ""
   },
   "pretoria": {
     "name": "Tshwane/Pretoria",
@@ -2802,7 +2824,8 @@
     "bearing": 0,
     "bestFor": [
       "Culture"
-    ]
+    ],
+    "info": ""
   },
   "free-state": {
     "name": "Free State",
@@ -2817,6 +2840,7 @@
     "bestFor": [
       "Scenery"
     ],
+    "info": "",
     "color": "#558B2F",
     "lineColor": "#558B2F",
     "fillOpacity": 0.2,
@@ -2928,6 +2952,7 @@
       "Big 5",
       "Parties"
     ],
+    "info": "",
     "color": "#6A1B9A",
     "lineColor": "#6A1B9A",
     "fillOpacity": 0.2,
@@ -3050,6 +3075,7 @@
       "Culture",
       "Big 5"
     ],
+    "info": "",
     "color": "#A1C2FA",
     "lineColor": "#A1C2FA",
     "fillOpacity": 0.2,
@@ -3155,6 +3181,7 @@
       "Scenery",
       "Big 5"
     ],
+    "info": "",
     "color": "#C5E1A5",
     "lineColor": "#C5E1A5",
     "fillOpacity": 0.2,
