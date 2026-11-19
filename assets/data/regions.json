@@ -74,7 +74,7 @@
     "bestFor": [
       "Beaches"
     ],
-    "info": ""
+    "info": "Wild, windswept beaches, fishing villages and spring wildflowers that turn the landscape into a carpet of colour. Expect fresh seafood, big skies and a slower pace of life."
   },
   "overberg": {
     "name": "Overberg",
@@ -158,7 +158,7 @@
       "Whale-watching",
       "Adventure activities"
     ],
-    "info": ""
+    "info": "Rolling wheat fields, mountain passes, wine farms and wild coastal stretches. From historic Swellendam to seaside villages and the southernmost tip of Africa, the Overberg is made for slow road trips."
   },
   "sunshine-coast": {
     "name": "Sunshine Coast",
@@ -242,7 +242,7 @@
       "Wildlife",
       "Big 5"
     ],
-    "info": ""
+    "info": "Long sandy beaches, warm Indian Ocean waters and laid-back seaside towns. From the surf breaks of Jeffreys Bay to the wild beauty of the Wild Coast's western edge, this is classic barefoot holiday territory."
   },
   "wild-coast": {
     "name": "Wild Coast",
@@ -298,7 +298,7 @@
       "Beaches",
       "Parties"
     ],
-    "info": ""
+    "info": "Dramatic cliffs, rolling green hills and empty beaches dotted with traditional Xhosa villages. The Wild Coast is wonderfully untamed, with winding dirt roads, hidden waterfalls and some of South Africa's most spectacular coastal scenery."
   },
   "south-coast": {
     "name": "South Coast",
@@ -349,7 +349,7 @@
       "Parties",
       "Adventure activities"
     ],
-    "info": ""
+    "info": "Subtropical beaches, warm seas and holiday towns where life revolves around the ocean. From Aliwal Shoal's world-class diving to quiet river estuaries and lively seaside resorts, the South Coast is made for sunshine and swimming."
   },
   "north-coast": {
     "name": "North Coast",
@@ -391,7 +391,7 @@
       "Beaches",
       "Parties"
     ],
-    "info": ""
+    "info": "Golden beaches, warm turquoise waters and lush subtropical vegetation. From the buzzing resorts of Umhlanga and Ballito to laid-back coastal villages, the North Coast is all about surf, sunshine and easy-going beach life."
   },
   "zululand": {
     "name": "Zululand",
@@ -459,7 +459,7 @@
       "Scenery",
       "Big 5"
     ],
-    "info": ""
+    "info": "Big game reserves, rolling savannah and rich Zulu heritage make this one of South Africa's most fascinating regions. Spot rhinos and elephants, explore historic battlefields and discover wetlands teeming with wildlife and birdlife."
   },
   "kruger": {
     "name": "Kruger National Park",
@@ -522,7 +522,7 @@
       "Scenery",
       "Big 5"
     ],
-    "info": ""
+    "info": "Big skies, bushveld sunsets and some of Africa's finest wildlife viewing. Kruger's big advantage is affordable self-drive safaris, letting international visitors experience the Big Five for a fraction of the cost of guided safaris elsewhere in Africa."
   },
   "cederberg": {
     "name": "Cederberg",
@@ -567,7 +567,7 @@
     "bestFor": [
       "Scenery"
     ],
-    "info": ""
+    "info": "Rugged sandstone mountains, ancient San rock art and spectacular hiking trails through wild, remote landscapes. The Cederberg is a playground for hikers, climbers and stargazers, with mountain pools, hidden valleys and almost no light pollution."
   },
   "northern-cape": {
     "name": "Northern Cape",
@@ -674,7 +674,7 @@
       "Nature",
       "Culture"
     ],
-    "info": ""
+    "info": "Otherworldly desert landscapes, vast open spaces and some of the darkest night skies on earth. The Northern Cape also offers rare opportunities to meet San communities, learn about their ancient culture and discover their extraordinary knowledge of the natural world."
   },
   "eastern-cape-interior": {
     "name": "Eastern Cape Interior",
@@ -848,7 +848,7 @@
       "Scenery",
       "Parties"
     ],
-    "info": ""
+    "info": "Big-sky Karoo landscapes, rugged mountain passes and some of the country's best wildlife encounters. Addo offers affordable self-drive safaris, while mystical Hogsback, with its misty forests, waterfalls and Tolkien-esque atmosphere, feels like stepping into Middle-earth."
   },
   "karoo": {
     "name": "The Karoo",
@@ -913,7 +913,7 @@
     "bestFor": [
       "Scenery"
     ],
-    "info": ""
+    "info": "Vast semi-desert plains, koppies, windmills and tiny dorps where time seems to have stood still. The Great and Little Karoo are made for road trips, star-filled nights, quirky country hospitality and discovering the unexpected in the middle of nowhere."
   },
   "midlands": {
     "name": "KZN Midlands",
@@ -963,7 +963,7 @@
       "Scenery",
       "Adventure activities"
     ],
-    "info": ""
+    "info": "Rolling green hills, misty mountains and country roads dotted with waterfalls, craft studios and quirky cafés. The Midlands Meander is a treasure trove of artists and foodies, while the surrounding countryside is one of South Africa's premier mountain biking destinations."
   },
   "eswatini": {
     "name": "Eswatini",
@@ -1147,7 +1147,7 @@
       "Scenery",
       "Big 5"
     ],
-    "info": ""
+    "info": "An astonishing variety of landscapes, wildlife and experiences packed into one tiny kingdom. But Eswatini's greatest distinction is its living African heritage: the last country where traditional monarchy, indigenous authority and ancestral customs remain central to the way society is organised."
   },
   "lesotho": {
     "name": "Lesotho",
@@ -1630,7 +1630,7 @@
       "African culture",
       "Adventure activities"
     ],
-    "info": ""
+    "info": "Dramatic mountain scenery, remote highland villages and a culture shaped by life at altitude. Lesotho is a kingdom in the clouds, where you can ride Basotho ponies through spectacular mountain passes, visit traditional villages and explore some of southern Africa's most rugged landscapes."
   },
   "garden-route": {
     "name": "Garden Route",
@@ -1706,7 +1706,7 @@
       "Adventure activities",
       "Parties"
     ],
-    "info": ""
+    "info": "Lush forests, dramatic coastlines, lagoons and beautiful beaches make this one of South Africa's most popular road-trip routes. It's also an adventure playground, with paragliding, bungee jumping, kayaking, surfing, mountain biking and countless ways to get your adrenaline flowing."
   },
   "drakensberg": {
     "name": "Drakensberg",
@@ -1834,7 +1834,7 @@
       "Parties",
       "Adventure activities"
     ],
-    "info": ""
+    "info": "Towering basalt peaks, spectacular mountain passes and some of the most extraordinary scenery in Africa. Home to Tugela Falls (Africa's - and perhaps the world's - highest waterfall), Sani Pass and an astonishing concentration of ancient San rock art, the Drakensberg is a paradise for hikers, adventurers and anyone who loves the great outdoors."
   },
   "winelands": {
     "name": "Cape Winelands",
@@ -1921,7 +1921,7 @@
       "Culture",
       "Parties"
     ],
-    "info": ""
+    "info": "Vineyard-covered valleys, historic Cape Dutch towns and spectacular mountain backdrops. The Cape Winelands are a feast of wine estates, gourmet food, art galleries and beautiful country roads, with Stellenbosch, Franschhoek and Paarl at the heart of it all."
   },
   "route-62": {
     "name": "Route 62",
@@ -2776,7 +2776,7 @@
       "Parties",
       "Culture"
     ],
-    "info": ""
+    "info": "An 800km-plus scenic route stretching from Cape Town towards the Eastern Cape, winding through mountain passes, fruit-growing valleys and quirky Karoo towns. Most travellers explore a section as an alternative to the N2 when heading to or from the Garden Route, discovering farm stalls, country pubs and wonderfully eccentric little towns along the way."
   },
   "durban": {
     "name": "Durban",
@@ -2794,7 +2794,7 @@
       "Parties",
       "Culture"
     ],
-    "info": ""
+    "info": "A vibrant, multicultural coastal city with a distinctly Indian flavour, subtropical weather and a legendary beach culture. Durban is famous for its warm ocean, spicy bunny chows, colourful markets and lively beachfront promenade, with some of South Africa's best surfing just down the coast."
   },
   "johannesburg": {
     "name": "Johannesburg",
@@ -2810,7 +2810,7 @@
       "Culture",
       "Parties"
     ],
-    "info": ""
+    "info": "A sprawling, energetic city built on gold, where skyscrapers, street art, rooftop bars and vibrant neighbourhoods tell the story of modern South Africa. Explore its fascinating history, buzzing creative scene, legendary nightlife and some of the country's most diverse food and culture."
   },
   "pretoria": {
     "name": "Tshwane/Pretoria",
@@ -2825,7 +2825,7 @@
     "bestFor": [
       "Culture"
     ],
-    "info": ""
+    "info": "Jacaranda-lined streets, grand government buildings and leafy suburbs give South Africa's administrative capital a character all its own. Explore historic monuments, fascinating museums, bustling student neighbourhoods and a surprisingly relaxed café and restaurant scene."
   },
   "free-state": {
     "name": "Free State",
@@ -2840,7 +2840,7 @@
     "bestFor": [
       "Scenery"
     ],
-    "info": "",
+    "info": "Wide-open grasslands, sandstone mountains and endless country roads define the Free State's big-sky appeal. The standout attraction is Golden Gate Highlands National Park, with its spectacular golden cliffs, hiking trails, mountain scenery and unusual wildlife.",
     "color": "#558B2F",
     "lineColor": "#558B2F",
     "fillOpacity": 0.2,
@@ -2952,7 +2952,7 @@
       "Big 5",
       "Parties"
     ],
-    "info": "",
+    "info": "Dramatic mountain scenery, spectacular waterfalls and lush subtropical valleys make Mpumalanga a highlight of any South African road trip. The Panorama Route takes in the Blyde River Canyon, God's Window, Bourke's Luck Potholes and the Three Rondavels, with easy access to the wildlife riches of Kruger.",
     "color": "#6A1B9A",
     "lineColor": "#6A1B9A",
     "fillOpacity": 0.2,
@@ -3075,7 +3075,7 @@
       "Culture",
       "Big 5"
     ],
-    "info": "",
+    "info": "Baobab-studded landscapes, ancient kingdoms and vast wilderness areas give Limpopo a distinctly wild character. Explore the Waterberg, encounter wildlife in uncrowded reserves, discover fascinating archaeological sites and experience the traditional cultures of South Africa's northernmost province.",
     "color": "#A1C2FA",
     "lineColor": "#A1C2FA",
     "fillOpacity": 0.2,
@@ -3181,7 +3181,7 @@
       "Scenery",
       "Big 5"
     ],
-    "info": "",
+    "info": "Bushveld landscapes, wildlife reserves and traditional villages make North West a quieter corner of South Africa. Pilanesberg National Park offers Big Five game viewing in a spectacular volcanic crater, without the malaria risk, while nearby Sun City provides a very different kind of adventure.",
     "color": "#C5E1A5",
     "lineColor": "#C5E1A5",
     "fillOpacity": 0.2,
