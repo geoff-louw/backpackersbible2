@@ -131,7 +131,13 @@
     const tb = document.getElementById('bb-map-toggle');
     if (tb && tb.parentNode) tb.parentNode.removeChild(tb);
     const lb = document.getElementById('bb-map-locate');
-    if (lb) lb.style.top = '10px';
+    if (lb) {
+      lb.style.top = '10px';
+      lb.textContent = 'My Location';                       // no pin emoji on phones
+      lb.style.border = '0';                                // no yellow outline: same white + faint edge as the +/- buttons
+      lb.style.boxShadow = '0 0 0 2px rgba(0,0,0,0.1)';
+      lb.style.padding = '8.5px 12px';                      // keeps the button the same height without the border
+    }
   }
 
   const css = document.createElement('style');
@@ -276,11 +282,11 @@
     #bb-map-close { display:none; }
     #bb-map-wrap.bb-map--full #bb-map-close {
       display:flex;align-items:center;justify-content:center;position:absolute;top:10px;right:10px;z-index:10;
-      width:44px;height:44px;padding:0 0 3px;background:#fff;border:2px solid ${BRAND_YELLOW};border-radius:50%;
-      font:400 30px/1 'Century Gothic',sans-serif;color:#333;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,0.25);
+      width:36px;height:36px;padding:0 0 3px;background:#fff;border:0;border-radius:50%;
+      font:400 26px/1 'Century Gothic',sans-serif;color:#333;cursor:pointer;box-shadow:0 0 0 2px rgba(0,0,0,0.1);
     }
-    #bb-map-close:focus-visible { outline:3px solid ${BRAND_YELLOW};outline-offset:2px; }
-    #bb-map-wrap.bb-map--full .maplibregl-ctrl-top-right { top:54px; }
+    #bb-map-close:focus-visible { outline:3px solid #005F8A;outline-offset:2px; }
+    #bb-map-wrap.bb-map--full .maplibregl-ctrl-top-right { top:44px; }
 
     /* v3 — pins whose details have been opened turn sky blue and show a small tick */
     .bb-marker--viewed::after {
@@ -373,7 +379,7 @@
         <div class="bb-popup-field"><b>Best for:</b></div>
         ${tagsHTML}
         <hr>
-        <div class="bb-popup-info">${more}</div>
+        <div class="bb-popup-info">${r.info || ''}${more}</div>
       </div>`;
   }
 
@@ -571,13 +577,15 @@
       }());
 
       let locateMarker = null;
+      const LOC_IDLE = FLAT ? 'My Location' : '\uD83D\uDCCD My Location';
+      const LOC_BUSY = FLAT ? 'Locating\u2026' : '\uD83D\uDCCD Locating\u2026';
       document.getElementById('bb-map-locate').addEventListener('click', function() {
         if (!navigator.geolocation) {
           alert('Geolocation is not supported by your browser.');
           return;
         }
         const btn = this;
-        btn.textContent = '📍 Locating…';
+        btn.textContent = LOC_BUSY;
         btn.disabled = true;
 
         navigator.geolocation.getCurrentPosition(
@@ -605,11 +613,11 @@
               map.flyTo({ center: [lng, lat], zoom: Math.max(map.getZoom(), 10), duration: 1200 });
             }
 
-            btn.textContent = '📍 My Location';
+            btn.textContent = LOC_IDLE;
             btn.disabled = false;
           },
           (err) => {
-            btn.textContent = '📍 My Location';
+            btn.textContent = LOC_IDLE;
             btn.disabled = false;
             if (err.code !== err.PERMISSION_DENIED) {
               alert('Could not get your location. Please check your device settings.');
@@ -697,6 +705,28 @@
         // region page without re-creating any that already exist.
         const drawnRegions = new Set();
 
+        // Region name labels need a font the basemap's glyph server actually hosts. The old hard-coded
+        // 'Open Sans Bold' does not exist on OpenFreeMap (404s, so no labels), so take the font from the
+        // basemap style's own labels instead: a bold one if there is one, else any, else 'Noto Sans Bold'.
+        let regionLabelFont = null;
+        function getRegionLabelFont() {
+          if (regionLabelFont) return regionLabelFont;
+          const OPS = ['literal', 'case', 'match', 'step', 'interpolate', 'get', 'coalesce'];
+          const asFontList = (v) => {
+            if (Array.isArray(v) && v.length === 2 && v[0] === 'literal' && Array.isArray(v[1])) v = v[1];
+            return (Array.isArray(v) && v.length && v.every(x => typeof x === 'string' && OPS.indexOf(x) === -1)) ? v : null;
+          };
+          try {
+            const lists = map.getStyle().layers
+              .filter(l => l.type === 'symbol' && l.layout && l.layout['text-font'])
+              .map(l => asFontList(l.layout['text-font']))
+              .filter(Boolean);
+            regionLabelFont = lists.find(f => /bold/i.test(f.join(' '))) || lists[0] || null;
+          } catch (e) { /* fall through */ }
+          if (!regionLabelFont) regionLabelFont = ['Noto Sans Bold'];
+          return regionLabelFont;
+        }
+
         function drawRegionPolygon(key, withLabel) {
           if (drawnRegions.has(key)) return;
           const r = regions[key];
@@ -739,7 +769,7 @@
             });
             map.addLayer({
               id:`region-label-${key}`, type:'symbol', source:`rlbl-${key}`,
-              layout:{ 'text-field':r.name, 'text-font':['Open Sans Bold','Arial Unicode MS Bold'], 'text-size':12, 'text-anchor':'center', 'text-max-width':8 },
+              layout:{ 'text-field':r.name, 'text-font':getRegionLabelFont(), 'text-size':12, 'text-anchor':'center', 'text-max-width':8 },
               paint:{ 'text-color':'#fff', 'text-halo-color':'rgba(0,0,0,0.65)', 'text-halo-width':2 }
             });
           }
@@ -1268,6 +1298,12 @@
           const h = fsBar ? Math.ceil(fsBar.getBoundingClientRect().height) : 0;
           wrap.style.setProperty('top', h + 'px', 'important');
           map.resize();
+          const grp = wrap.querySelector('.maplibregl-ctrl-top-right .maplibregl-ctrl-group');
+          if (grp && fsCloseBtn) {
+            const wr = wrap.getBoundingClientRect(), gr = grp.getBoundingClientRect();
+            const fromRight = wr.right - (gr.left + gr.right) / 2;          // distance of the +/- centre line from the right edge
+            fsCloseBtn.style.right = Math.max(0, fromRight - fsCloseBtn.offsetWidth / 2) + 'px';
+          }
         }
 
         function enterFullscreen() {
@@ -1387,7 +1423,9 @@
         }
 
         function showRegionPopup(key, r, lngLat) {
-          showPopup([lngLat.lng, lngLat.lat], buildRegionPopup(r));
+          // own key per region: each region gets its own sheet, stacking over the others like the hostel sheets
+          // (a second tap on the same region just brings its sheet to the front)
+          showPopup([lngLat.lng, lngLat.lat], buildRegionPopup(r), undefined, 'region-' + key);
         }
 
         map.on('click', (e) => {
@@ -1434,6 +1472,8 @@
         window.BB_MAP_API = {
           count:  (f) => { const keys = normKeys(f); return allMarkers.filter(({ feature }) => matchesAll(feature.properties, keys)).length; },
           filter: (f) => applyFilter(f),
+          // phones: open the full-screen map (used by the loader after the first tap); false = not applicable
+          openFullscreen: () => { if (!canFullscreen || fsActive || selectModeActive) return false; enterFullscreen(); return true; },
           // how many hostels here carry any filter data (ratings, tags or the old is_* flags) out of how many there are
           rated:  () => allMarkers.filter(({ feature }) => { const p = feature.properties; return !!(p.scores || (Array.isArray(p.tags) && p.tags.length) || Object.keys(p).some(k => k.indexOf('is_') === 0)); }).length,
           total:  () => allMarkers.length

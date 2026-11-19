@@ -220,7 +220,7 @@
       window.addEventListener('message', onMsg);
 
       var s = document.createElement('script');
-      s.src = ds.mapScript || '/assets/js/hostel-map.js?v=3.1';
+      s.src = ds.mapScript || '/assets/js/hostel-map.js?v=4.0';
       s.onerror = function () {
         window.removeEventListener('message', onMsg);
         // Put the poster back so the visitor still sees a map image
@@ -270,7 +270,13 @@
   ['pointerenter', 'touchstart', 'focusin'].forEach(function (ev) {
     shell.addEventListener(ev, warmConnections, { once: true, passive: true });
   });
-  shell.addEventListener('click', function () { wake(); }, { once: true });
+  // First tap on the map shell: load the map, and on phones carry straight on into the full-screen view
+  // (openFullscreen() does nothing on desktop, so desktop behaviour is unchanged).
+  shell.addEventListener('click', function () {
+    wake().then(function () {
+      if (window.BB_MAP_API && window.BB_MAP_API.openFullscreen) window.BB_MAP_API.openFullscreen();
+    }, function () { /* poster restored; nothing else to do */ });
+  }, { once: true });
   if (loadBtn) loadBtn.addEventListener('click', function () { wake(); });
 
   buttons.forEach(function (btn) {
