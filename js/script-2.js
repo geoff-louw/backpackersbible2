@@ -1918,7 +1918,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const triggerPoint = isMobile
             ? window.innerHeight * 0.5
-            : window.innerHeight * 0.85;
+            : window.innerHeight * 0.98;
 
         const reachedTrigger =
             rect.top <= triggerPoint &&
