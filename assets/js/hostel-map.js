@@ -142,7 +142,7 @@
 
   const css = document.createElement('style');
   css.textContent = `
-    .bb-marker { display:flex;align-items:center;cursor:pointer;filter:drop-shadow(0 3px 4px rgba(0,0,0,0.3)); }
+    .bb-marker { display:flex;align-items:center;cursor:pointer;filter:drop-shadow(0 1px 2px rgba(0,0,0,0.15)); }
     .bb-marker-icon { width:32px;height:32px;display:block;flex-shrink:0; }
     .bb-marker-label {
       margin-left:8px;background:#fff;padding:2px 8px;border-radius:4px;

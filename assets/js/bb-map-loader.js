@@ -220,7 +220,7 @@
       window.addEventListener('message', onMsg);
 
       var s = document.createElement('script');
-      s.src = ds.mapScript || '/assets/js/hostel-map.js?v=4.0';
+      s.src = ds.mapScript || '/assets/js/hostel-map.js?v=4.1';
       s.onerror = function () {
         window.removeEventListener('message', onMsg);
         // Put the poster back so the visitor still sees a map image
