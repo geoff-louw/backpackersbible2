@@ -3485,7 +3485,7 @@ footer {
         gap: 10px;
         align-items: center;
     }
-    .footer-brand { font-size: 1.5rem; }
+    .footer-brand { font-size: 1.75rem; }
     .footer-payoff { font-size: 1rem; opacity: 0.85; }
     .download-btn-yellow { width: 100%; max-width: 330px; }
 }
