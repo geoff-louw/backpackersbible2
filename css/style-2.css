@@ -2935,11 +2935,14 @@ details.hostel-details[open] > .expanded-text {
 }
 
 .hostel-card p {
-    width: 460px;
-    font-family: var(--font-primary);
-    font-size: 1rem;
-    line-height: 1.4;
-    margin-bottom: 0;
+  width: 100%;
+  max-width: 460px;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  line-height: 1.4;
+  margin-bottom: 0;
 }
 
 .card-btn {
@@ -6277,10 +6280,6 @@ table.centered-table td {
     transform:translateX(-50%);
   }
 }
-
-
-
-
 
 /* =====================================
    49. FOOTER CHARACTER ANIMATION
