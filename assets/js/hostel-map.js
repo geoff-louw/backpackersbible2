@@ -392,7 +392,7 @@
 
       const features = REGION === 'national'
         ? hostelGeoJSON.features
-        : hostelGeoJSON.features.filter(f => f.properties.region === REGION);
+        : hostelGeoJSON.features.filter(f => f.properties.region === REGION || (Array.isArray(f.properties.regions) && f.properties.regions.indexOf(REGION) !== -1));
 
       const noscriptEl = wrap.querySelector('noscript');
       if (noscriptEl) {
