@@ -1331,7 +1331,15 @@
     "info": "",
     "anchor": "/spain/en/hostels/barcelona#bcn-home",
     "googleRating": "4.2 / 5",
-    "hostelworld": "https://www.hostelworld.com/hostels/p/98354/bcn-home-guest-house/"
+    "hostelworld": "https://www.hostelworld.com/hostels/p/98354/bcn-home-guest-house/",
+    "tags": [
+     "cyclists"
+    ],
+    "scores": {
+     "party": 2.5,
+     "activities": 1.0
+    },
+    "filtersChecked": "2026-11-20"
    }
   },
   {
@@ -1461,7 +1469,15 @@
     "anchor": "/spain/en/hostels/barcelona#buba-house",
     "googleRating": "3.9 / 5",
     "booking": "https://www.booking.com/hotel/es/buba-house.html",
-    "hostelworld": "https://www.hostelworld.com/hostels/p/13722/buba-house/"
+    "hostelworld": "https://www.hostelworld.com/hostels/p/13722/buba-house/",
+    "tags": [
+     "solo_women"
+    ],
+    "scores": {
+     "party": 2.5,
+     "activities": 1.0
+    },
+    "filtersChecked": "2026-11-20"
    }
   },
   {
@@ -1529,7 +1545,13 @@
     "anchor": "/spain/en/hostels/barcelona#casa-barcelo-hostel-barcelona",
     "googleRating": "4.0 / 5",
     "booking": "https://www.booking.com/hotel/es/barcelo-hostel.html",
-    "hostelworld": "https://www.hostelworld.com/hostels/p/78479/casa-barcelo-hostel/"
+    "hostelworld": "https://www.hostelworld.com/hostels/p/78479/casa-barcelo-hostel/",
+    "tags": [],
+    "scores": {
+     "party": 2.5,
+     "activities": 1.0
+    },
+    "filtersChecked": "2026-11-20"
    }
   },
   {
@@ -1797,7 +1819,13 @@
     "anchor": "/spain/en/hostels/barcelona#free-hostels-barcelona",
     "googleRating": "4.2 / 5",
     "booking": "https://www.booking.com/hotel/es/free-hostels.html",
-    "hostelworld": "https://www.hostelworld.com/hostels/p/84688/free-hostels-barcelona/"
+    "hostelworld": "https://www.hostelworld.com/hostels/p/84688/free-hostels-barcelona/",
+    "tags": [],
+    "scores": {
+     "party": 1.0,
+     "activities": 1.0
+    },
+    "filtersChecked": "2026-11-20"
    }
   },
   {
@@ -2398,7 +2426,18 @@
     "anchor": "/spain/en/hostels/barcelona#inout-hostel",
     "googleRating": "3.9 / 5",
     "booking": "https://www.booking.com/hotel/es/inout.html",
-    "hostelworld": "https://www.hostelworld.com/hostels/p/10094/inout-hostel/"
+    "hostelworld": "https://www.hostelworld.com/hostels/p/10094/inout-hostel/",
+    "tags": [
+     "cyclists",
+     "eco",
+     "groups",
+     "peaceful"
+    ],
+    "scores": {
+     "party": 4.0,
+     "activities": 3.0
+    },
+    "filtersChecked": "2026-11-20"
    }
   },
   {
@@ -2453,7 +2492,15 @@
     "anchor": "/spain/en/hostels/barcelona#latroupe-poblenou-beach-hostel-barcelona",
     "googleRating": "4.2 / 5",
     "booking": "https://www.booking.com/hotel/es/zero-barcelona-hostel.html",
-    "hostelworld": "https://www.hostelworld.com/hostels/p/310413/latroupe-poblenou-beach/"
+    "hostelworld": "https://www.hostelworld.com/hostels/p/310413/latroupe-poblenou-beach/",
+    "tags": [
+     "groups"
+    ],
+    "scores": {
+     "party": 1.5,
+     "activities": 1.0
+    },
+    "filtersChecked": "2026-11-20"
    }
   },
   {
@@ -2522,7 +2569,15 @@
     "anchor": "/spain/en/hostels/barcelona#mambo-tango",
     "googleRating": "4.1 / 5",
     "booking": "https://www.booking.com/hotel/es/mambo-tango.html",
-    "hostelworld": "https://www.hostelworld.com/hostels/p/18559/mambo-tango-youth-hostel/"
+    "hostelworld": "https://www.hostelworld.com/hostels/p/18559/mambo-tango-youth-hostel/",
+    "tags": [
+     "cyclists"
+    ],
+    "scores": {
+     "party": 1.5,
+     "activities": 3.5
+    },
+    "filtersChecked": "2026-11-20"
    }
   },
   {
@@ -3673,7 +3728,15 @@
     "anchor": "/spain/en/hostels/barcelona#the-loft-hostel-barcelona",
     "googleRating": "4.1 / 5",
     "booking": "https://www.booking.com/hotel/es/la-flor-de-gaudi-hostel-la-pedrera.en-gb.html",
-    "hostelworld": "https://www.hostelworld.com/hostels/p/83791/the-loft-house-barcelona/"
+    "hostelworld": "https://www.hostelworld.com/hostels/p/83791/the-loft-house-barcelona/",
+    "tags": [
+     "eco"
+    ],
+    "scores": {
+     "party": 1.5,
+     "activities": 2.5
+    },
+    "filtersChecked": "2026-11-20"
    }
   },
   {
@@ -3835,7 +3898,13 @@
     "anchor": "/spain/en/hostels/barcelona#wow-hostel-barcelona",
     "googleRating": "3.7 / 5",
     "booking": "https://www.booking.com/hotel/es/wow-hostel-barcelona-barcelona1.html",
-    "hostelworld": "https://www.hostelworld.com/hostels/p/76710/wow-barcelona/"
+    "hostelworld": "https://www.hostelworld.com/hostels/p/76710/wow-barcelona/",
+    "tags": [],
+    "scores": {
+     "party": 4.0,
+     "activities": 2.5
+    },
+    "filtersChecked": "2026-11-20"
    }
   },
   {
