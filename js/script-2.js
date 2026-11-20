@@ -1909,37 +1909,47 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function checkCharacterPosition() {
 
-        const rect = character.getBoundingClientRect();
-
         const isMobile = window.innerWidth <= 768;
 
-        // Mobile: trigger when the character reaches screen centre.
-        // Desktop: trigger when the character reaches 85% of screen height.
+        if (isMobile) {
 
-        const triggerPoint = isMobile
-            ? window.innerHeight * 0.5
-            : window.innerHeight * 0.98;
+            // Mobile: trigger when the character reaches screen centre.
+            const rect = character.getBoundingClientRect();
+            const triggerPoint = window.innerHeight * 0.5;
 
-        const reachedTrigger =
-            rect.top <= triggerPoint &&
-            rect.bottom >= triggerPoint;
+            const reachedTrigger =
+                rect.top <= triggerPoint &&
+                rect.bottom >= triggerPoint;
 
-        // Allow another performance after scrolling away.
+            if (rect.bottom < 0 || rect.top > window.innerHeight) {
+                hasPlayed = false;
+            }
 
-        if (rect.bottom < 0 || rect.top > window.innerHeight) {
-            hasPlayed = false;
-        }
+            if (reachedTrigger && !hasPlayed) {
+                hasPlayed = true;
+                character.classList.remove("is-performing");
+                void character.offsetWidth;
+                character.classList.add("is-performing");
+            }
 
-        if (reachedTrigger && !hasPlayed) {
-            hasPlayed = true;
+        } else {
 
-            character.classList.remove("is-performing");
+            // Desktop: trigger only at the absolute bottom of the page.
+            const atBottom =
+                window.innerHeight + window.scrollY >=
+                document.documentElement.scrollHeight - 2;
 
-            // Restart the animation.
+            if (atBottom && !hasPlayed) {
+                hasPlayed = true;
+                character.classList.remove("is-performing");
+                void character.offsetWidth;
+                character.classList.add("is-performing");
+            }
 
-            void character.offsetWidth;
-
-            character.classList.add("is-performing");
+            // Reset once the user scrolls up from the bottom.
+            if (!atBottom) {
+                hasPlayed = false;
+            }
         }
     }
 
