@@ -6286,6 +6286,8 @@ table.centered-table td {
    49. FOOTER CHARACTER ANIMATION
    ===================================== */
 
+/* FOOTER CHARACTER — SINGLE-IMAGE BOUNCE */
+
 .footer-character {
     display: block;
     width: 170px;
@@ -6296,38 +6298,30 @@ table.centered-table td {
     transform-origin: center bottom;
 }
 
-/* The character's little performance */
-
 .footer-character.is-performing {
-    animation: footer-character-bounce 1.5s ease-in-out;
+    animation: footer-character-bounce 1.1s ease-in-out;
 }
 
 @keyframes footer-character-bounce {
-
-    0% {
-        transform: scale(1);
-    }
-
-    65% {
-        transform: scale(1.13) translateY(-8px);
-    }
-
-    78% {
-        transform: scale(0.97) translateY(2px);
-    }
-
-    90% {
-        transform: scale(1.04);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-
+    0%   { transform: scale(1); }
+    35%  { transform: scale(1.18) translateY(-12px); }
+    55%  { transform: scale(0.96) translateY(2px); }
+    75%  { transform: scale(1.06) translateY(-3px); }
+    100% { transform: scale(1); }
 }
+
+/* Respect reduced-motion preferences */
 
 @media (prefers-reduced-motion: reduce) {
     .footer-character.is-performing {
         animation: none;
+    }
+}
+
+/* Larger footer brand name on mobile */
+
+@media (max-width: 768px) {
+    .footer-brand {
+        font-size: 1.5rem;
     }
 }
