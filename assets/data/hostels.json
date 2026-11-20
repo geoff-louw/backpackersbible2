@@ -1334,44 +1334,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          30.99806,
-          -29.8501
-        ]
-      },
-      "properties": {
-        "region": "durban",
-        "id": "nomads-backpackers",
-        "name": "NOMADS BACKPACKERS",
-        "address": "70 Stephen Dlamini Road, Musgrave, Durban, 4001",
-        "phone": "+27312029709",
-        "whatsapp": "+27723861618",
-        "email": "nomads@nomads.co.za",
-        "website": "nomads.co.za",
-        "info": "The budget choice on the Berea.",
-        "anchor": "/south-africa-hostel-directory/durban#nomads-backpackers",
-        "googleRating": "4.0 / 5",
-        "is_best_overall": false,
-        "is_value": true,
-        "is_party": false,
-        "is_chill": false,
-        "is_solo_women": false,
-        "is_digital_nomad": false,
-        "is_surfer": false,
-        "is_safety": true,
-        "is_amenities": false,
-        "is_ethical": false,
-        "is_adventure": false,
-        "is_nature": false,
-        "is_cultural": false,
-        "is_cheapest": false,
-        "is_camping": false
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
           31.02316,
           -29.7984
         ]
