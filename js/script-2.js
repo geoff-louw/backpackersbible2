@@ -25,6 +25,7 @@
    19. Things to do map
    20. WTF button
    21. Vibe Meter
+   22. Footer logo animation
    ============================================================ */
 
 (function () {
@@ -1884,3 +1885,110 @@ function setupMapPopups(map) {
   }
 })();
 
+
+
+
+/* =====================================
+   22. FOOTER CHARACTER ANIMATION
+   ===================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const character = document.getElementById("footer-character");
+
+    if (!character) return;
+
+    const poses = [
+        "/assets/_god_1.png",
+        "/assets/_god_3.png",
+        "/assets/_god_4.png"
+    ];
+
+    let hasPlayed = false;
+    let timers = [];
+
+    function checkCharacterPosition() {
+
+        const rect = character.getBoundingClientRect();
+
+        const isMobile = window.innerWidth <= 768;
+
+        // Mobile: trigger at the middle of the screen.
+        // Desktop: trigger at the bottom of the screen.
+
+        const triggerPoint = isMobile
+            ? window.innerHeight / 2
+            : window.innerHeight;
+
+        const reachedTrigger =
+            rect.top <= triggerPoint &&
+            rect.bottom >= triggerPoint;
+
+        // Reset when the character has completely
+        // left the visible screen.
+
+        if (rect.bottom < 0 || rect.top > window.innerHeight) {
+            hasPlayed = false;
+        }
+
+        if (reachedTrigger && !hasPlayed) {
+            playCharacterAnimation();
+        }
+    }
+
+    function playCharacterAnimation() {
+
+        hasPlayed = true;
+
+        // Clear any previous animation timers.
+
+        timers.forEach(clearTimeout);
+        timers = [];
+
+        // Start with the normal pose.
+
+        character.src = poses[0];
+
+        character.classList.remove("is-performing");
+
+        // Restart the CSS animation.
+
+        void character.offsetWidth;
+
+        character.classList.add("is-performing");
+
+        // Lower sunglasses.
+
+        timers.push(setTimeout(function () {
+            character.src = poses[1];
+        }, 450));
+
+        // Thumbs-up!
+
+        timers.push(setTimeout(function () {
+            character.src = poses[2];
+        }, 950));
+
+        // Return to normal and stay there.
+
+        timers.push(setTimeout(function () {
+            character.src = poses[0];
+            character.classList.remove("is-performing");
+        }, 1500));
+    }
+
+    // Watch scrolling.
+
+    window.addEventListener("scroll", checkCharacterPosition, {
+        passive: true
+    });
+
+    // Also check after resizing.
+
+    window.addEventListener("resize", checkCharacterPosition);
+
+    // Check immediately on page load.
+
+    checkCharacterPosition();
+
+});
