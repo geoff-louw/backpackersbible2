@@ -3393,7 +3393,7 @@ footer {
 }
 
 .footer-payoff {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     line-height: 1;
     margin: 5px 0 30px 0;
     text-align: center;
@@ -3485,7 +3485,7 @@ footer {
         gap: 10px;
         align-items: center;
     }
-    .footer-brand { font-size: 2rem; }
+    .footer-brand { font-size: 1.8rem; }
     .footer-payoff { font-size: 1rem; opacity: 0.85; }
     .download-btn-yellow { width: 100%; max-width: 330px; }
 }
@@ -6322,6 +6322,6 @@ table.centered-table td {
 
 @media (max-width: 768px) {
     .footer-brand {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 }
