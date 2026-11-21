@@ -499,14 +499,21 @@
   data-threshold="7"
   data-autoload="viewport">
 
-  <!-- Poster image: shows before the visitor loads the map -->
-  <picture class="sa-hostel-map-poster">
-    <img src="/spain/assets/images/map_camino_de_santiago.webp"
-         alt="Mapa interactivo de albergues para mochileros en el Camino de Santiago con albergues que se pueden filtrar por estilo de viaje, presupuesto, mujeres que viajan solas, nómadas digitales, ciclismo y más."
-         loading="eager"
-         fetchpriority="high"
-         decoding="async">
-  </picture>
+<!-- Poster image: shows before the visitor loads the map -->
+<picture class="sa-hostel-map-poster">
+  <!-- Mobile: square poster -->
+  <source
+    media="(max-width: 767px)"
+    srcset="/spain/assets/images/galicia_backpacking_map_mobile.webp">
+
+  <!-- Desktop: wide poster -->
+  <img
+    src="/spain/assets/images/galicia_backpacking_map.webp"
+    alt="Interactive backpacker hostel map of Galicia showing hostels that can be filtered by travel style, budget, solo female travellers, digital nomads, cycling and more."
+    loading="eager"
+    fetchpriority="high"
+    decoding="async">
+</picture>
 
   <!-- Keyboard and screen-reader route to the map (the poster itself is tap-to-load) -->
   <button type="button" class="sr-only" id="bb-map-load-btn">Cargar el mapa interactivo de albergues</button>
@@ -975,15 +982,22 @@ Por <a rel="nofollow" class="external text" href="https://www.flickr.com/people/
          data-bbox="42.1,-9.0,43.8,-1.2" 
          aria-describedby="attractions-map-description">
 
-  <!-- Poster image wrapper with click-to-load button -->
-  <div class="bb-map-poster-wrap">
-    <picture class="sa-hostel-map-poster">
-      <source media="(max-width: 767px)" srcset="/spain/assets/images/fallback-map-attractions-spain_mobile.webp">
-      <img src="/spain/assets/images/fallback-map-attractions-spain.webp"  
-           alt="Mapa interactivo de atracciones turísticas y tours del Camino de Santiago con planes para mochileros."
-           loading="lazy"
-           decoding="async">
-    </picture>
+<!-- Poster image: shows before the visitor loads the map -->
+<picture class="sa-hostel-map-poster">
+  <!-- Mobile: square poster -->
+  <source
+    media="(max-width: 767px)"
+    srcset="/spain/assets/images/galicia_backpacking_map_mobile.webp">
+
+  <!-- Desktop: wide poster -->
+  <img
+    src="/spain/assets/images/galicia_backpacking_map.webp"
+    alt="Interactive backpacker hostel map of Santiago showing hostels that can be filtered by travel style, budget, solo female travellers, digital nomads, cycling and more."
+    loading="eager"
+    fetchpriority="high"
+    decoding="async">
+</picture>
+
     <button type="button" class="load-map-btn bb-load-attractions-btn">
       Abrir mapa interactivo
     </button>
