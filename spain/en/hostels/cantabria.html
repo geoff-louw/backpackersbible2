@@ -459,16 +459,87 @@
 
 <main id="main-content">
 
-<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description">
-  <iframe
-    class="sa-hostel-map-iframe"
-    title="Google My Maps: backpacker hostels in Spain"
-    src="https://www.google.com/maps/d/embed?mid=1YaoKUZVLHf7y1Rar6qoNWzn0Q6jRNV0&ehbc=2E312F&noprof=1&ll=43.17946,-4.08626&z=8"
-    width="640" height="480"
-    loading="lazy"
-    allowfullscreen>
-  </iframe>
+<!-- Map description -->
+<div class="map-description" id="hostel-map-description">
+  <span class="map-description__text"><strong>BACKPACKERS FINDER:</strong> The easiest way to choose the right backpacker hostel. Our interactive map lets you filter Cantabria backpackers by vibe, setup and value. Filters switch on once every hostel has been rated.</span>
+</div>
+
+  <!-- Map filter buttons -->
+
+<h2 class="sr-only">
+    Search Cantabria Backpacker Hostels
+</h2>
+
+<p class="sr-only">
+    Filter Cantabria hostels by party atmosphere, how social they are, peacefulness, solo female traveller friendliness, digital nomad suitability, couples, cyclists, activities, accessibility, eco-friendliness, camping, airport proximity, group suitability, budget and value for money. You can select more than one filter at once, and hostels must match all of them.
+</p>
+
+<div class="map-filter-bar">
+    <div class="map-filter-bar__scroll">
+        <div class="map-filter-bar__row" role="toolbar" aria-label="Filter hostels by category">
+
+            <a href="#" class="map-filter-btn map-filter-btn--active" role="button" style="background-color: #ffd400; color: #000000;" data-filter="all" aria-pressed="true" aria-label="Show all backpackers hostels in Cantabria">★ All Hostels</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #b01c22; opacity:0.5; cursor:not-allowed;" data-filter="best_overall" aria-pressed="false" aria-label="Show the top-rated backpackers hostels">Top Picks</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="best_value" aria-pressed="false" aria-label="Show backpackers hostels which deliver the best value for money">Best Value</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="budget" aria-pressed="false" aria-label="Show the budget backpackers hostels">Budget</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="flashpacker" aria-pressed="false" aria-label="Show upmarket flashpacker hostels">Flashpackers</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="party" aria-pressed="false" aria-label="Show backpackers hostels which have the best parties">Best Parties</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="social" aria-pressed="false" aria-label="Show the most sociable backpackers hostels for meeting other travellers">Most Social</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="peaceful" aria-pressed="false" aria-label="Show peaceful, quiet backpackers hostels">Peaceful</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="solo_women" aria-pressed="false" aria-label="Show backpackers hostels which are best for solo women travellers">Solo Women</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="digital_nomad" aria-pressed="false" aria-label="Show backpackers hostels which are best for digital nomads">Digital Nomads</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="couples" aria-pressed="false" aria-label="Show backpackers hostels which are best for couples">Couples</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="cyclists" aria-pressed="false" aria-label="Show backpackers hostels which are best for cyclists">Cyclists</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="activities" aria-pressed="false" aria-label="Show backpackers hostels with the best activities and tours">Activities</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="accessible" aria-pressed="false" aria-label="Show backpackers hostels with confirmed accessibility features">Accessible</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="eco" aria-pressed="false" aria-label="Show eco-friendly and certified sustainable backpackers hostels">Eco-Friendly</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="camping" aria-pressed="false" aria-label="Show hostels which offer camping as an accommodation option">Camping</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="near_airport" aria-pressed="false" aria-label="Show hostels close to an airport">Near Airport</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="groups" aria-pressed="false" aria-label="Show hostels which welcome groups of backpackers">Groups</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="surfers" aria-pressed="false" aria-label="Show backpackers hostels which are best for surfers">Surfers</a>
+        </div>
+    </div>
+</div>
+
+<!-- ░░ HOSTEL MAP ░░ -->
+<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description"
+  data-bb-map
+  data-region="cantabria"
+  data-country="Spain"
+  data-center="-4.044,43.138"
+  data-zoom="8.4"
+  data-mobile-zoom="7.7"
+  data-pitch="0"
+  data-bearing="0"
+  data-hostels-url="/spain/assets/data/hostels.json"
+  data-regions-url="/spain/assets/data/regions.json"
+  data-terrain=""
+  data-locate-bounds="-19,27,5,44.5"
+  data-threshold="7"
+  data-autoload="viewport">
+
+  <!-- Poster image: shows before the visitor loads the map -->
+  <picture class="sa-hostel-map-poster">
+    <img src="/spain/assets/images/map_cantabria.webp"
+         alt="Interactive backpacker hostel map of Cantabria showing hostels that can be filtered by travel style, budget, solo female travellers, digital nomads, cycling and more."
+         loading="eager"
+         fetchpriority="high"
+         decoding="async">
+  </picture>
+
+  <!-- Keyboard and screen-reader route to the map (the poster itself is tap-to-load) -->
+  <button type="button" class="sr-only" id="bb-map-load-btn">Load the interactive hostel map</button>
+
+  <!-- The map renders here (inline, no iframe) once the visitor taps the poster or a filter -->
+  <div id="bb-map-wrap" class="sa-hostel-map-iframe bb-map-iframe" hidden></div>
+
+  <div class="map-overlay-circle" aria-hidden="true">
+    Click the icons<br>for hostel info.
+  </div>
+
 </section>
+<!-- ░░ END HOSTEL MAP ░░ -->
+
 
 <!-- Horizontal regional menu -->
 
@@ -598,6 +669,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C/Andrés del Rio, P.º Canalejas, nº 7, 39004 Santander, Cantabria</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="enjoy-santander" aria-label="Find Enjoy Santander on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34666959041" class="blue-link">+34 666 95 90 41</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.enjoysantanderhostel.com" target="_blank" class="blue-link" rel="nofollow">enjoysantanderhostel.com</a></p>
@@ -635,6 +708,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> 1B, P.º de Pereda, 15, 39004 Santander, Cantabria</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostel-santander" aria-label="Find Hostel Santander on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34942223986" class="blue-link">+34 942 22 39 86</a></p>
 
@@ -676,6 +751,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> P.º Menéndez Pelayo, 66, 39006 Santander, Cantabria</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostel-villa-miguela" aria-label="Find Hostel Villa Miguela on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34660534541" class="blue-link">+34 660 53 45 41</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://villamiguela.com" target="_blank" class="blue-link" rel="nofollow">villamiguela.com</a></p>
@@ -709,6 +786,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. la Braña, 14, 39005 Santander, Cantabria</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hotel-boutique-las-brisas" aria-label="Find Hotel Boutique Las Brisas on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34689240803" class="blue-link">+34 689 24 08 03</a></p>
 
@@ -1136,6 +1215,8 @@ window.BB_TIPS = [
 
     <!-- Mobile menu end -->
 
+<script src="/assets/js/bb-map-loader.js?v=6" defer></script>
+
 <script src="/js/script-2.js?v=4" defer></script>
 
 <script src="/js/attribution-toggle.js?v=1" defer></script>
@@ -1154,6 +1235,318 @@ class="statcounter"
 src="https://c.statcounter.com/13225228/0/687dc53c/1/"
 alt="Web Analytics"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.backpackersbible.com/#organization",
+      "name": "BackpackersBible.com",
+      "url": "https://www.backpackersbible.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.backpackersbible.com/assets/backpackers_bible_logo_250x250.png",
+        "width": 250,
+        "height": 250
+      },
+      "description": "Independent backpacker guides to destinations worldwide with direct hostel contacts, safety information, maps, and honest write-ups."
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw",
+      "name": "Geoff Louw",
+      "url": "https://www.backpackersbible.com/misc/about-backpackers-bible",
+      "worksFor": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.backpackersbible.com/#website",
+      "url": "https://www.backpackersbible.com/",
+      "name": "BackpackersBible.com",
+      "publisher": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": [
+        "WebPage",
+        "CollectionPage"
+      ],
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/cantabria#webpage",
+      "url": "https://www.backpackersbible.com/spain/en/hostels/cantabria",
+      "name": "Backpacking Cantabria | Hostel Guide",
+      "headline": "Budget Accommodation In Cantabria",
+      "description": "Directory of 4 hostels and budget places to stay in Cantabria, with direct contact details, an interactive map and filters.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://www.backpackersbible.com/#website"
+      },
+      "publisher": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      },
+      "author": {
+        "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw"
+      },
+      "dateModified": "2026-11-21",
+      "mainEntity": {
+        "@id": "https://www.backpackersbible.com/spain/en/hostels/cantabria#hostels"
+      },
+      "about": [
+        {
+          "@type": "Place",
+          "name": "Cantabria",
+          "sameAs": "https://en.wikipedia.org/wiki/Cantabria"
+        },
+        {
+          "@type": "Thing",
+          "name": "Backpacking",
+          "sameAs": "https://en.wikipedia.org/wiki/Backpacking_(travel)"
+        }
+      ],
+      "mentions": [
+        {
+          "@id": "https://www.backpackersbible.com/spain/en/hostels/cantabria#map"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/cantabria#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.backpackersbible.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Backpacking Spain",
+          "item": "https://www.backpackersbible.com/spain/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Cantabria Hostels",
+          "item": "https://www.backpackersbible.com/spain/en/hostels/cantabria"
+        }
+      ]
+    },
+    {
+      "@type": "Map",
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/cantabria#map",
+      "name": "Cantabria Backpacker Hostel Map",
+      "description": "Interactive map of the hostels and budget places to stay in Cantabria with one-tap filters.",
+      "mapType": "https://schema.org/VenueMap",
+      "url": "https://www.backpackersbible.com/spain/en/hostels/cantabria#hostel-map",
+      "potentialAction": [
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Top Picks",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/cantabria?filter=best_overall#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Best Value",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/cantabria?filter=best_value#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Budget",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/cantabria?filter=budget#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Flashpackers",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/cantabria?filter=flashpacker#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Best Parties",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/cantabria?filter=party#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Most Social",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/cantabria?filter=social#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Peaceful",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/cantabria?filter=peaceful#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Solo Women",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/cantabria?filter=solo_women#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Digital Nomads",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/cantabria?filter=digital_nomad#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Couples",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/cantabria?filter=couples#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Cyclists",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/cantabria?filter=cyclists#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Activities",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/cantabria?filter=activities#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Accessible",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/cantabria?filter=accessible#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Eco-Friendly",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/cantabria?filter=eco#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Camping",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/cantabria?filter=camping#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Near Airport",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/cantabria?filter=near_airport#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Groups",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/cantabria?filter=groups#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Surfers",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/cantabria?filter=surfers#hostel-map"
+        }
+      ],
+      "about": {
+        "@type": "Thing",
+        "name": "Backpacker Hostels in Cantabria"
+      },
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Cantabria",
+        "sameAs": "https://en.wikipedia.org/wiki/Cantabria"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/cantabria#hostels",
+      "name": "Hostels and budget accommodation in Cantabria",
+      "numberOfItems": 4,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/cantabria#enjoy-santander",
+            "name": "Enjoy Santander",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C/Andrés del Rio, P.º Canalejas, nº 7",
+              "postalCode": "39004",
+              "addressLocality": "Santander",
+              "addressCountry": "ES",
+              "addressRegion": "Cantabria"
+            },
+            "telephone": "+34 666 95 90 41",
+            "url": "https://www.enjoysantanderhostel.com",
+            "email": "enjoysantanderhostel@gmail.com",
+            "description": "Enjoy Santander is a hostel on the ground floor at Calle Andrés del Río 7, a few minutes on foot from the city's beaches and its most popular area for bars and restaurants. Rooms are shared dorms with large shared bathrooms, plus a single room with a private bathroom. Guests describe curtained bunk cabins with their own light and a power socket with USB, and big lockers under the beds. Bedding and shower gel are included in the price, there is free Wi-Fi, and every room has heating. The common area has a fridge, dishwasher, microwave, toaster, coffee machine and crockery. Check-in is from 15:00 and check-out is at 11:00. Pilgrims walking the Camino de Santiago have stayed here and praise how comfortable it feels after a run of basic albergues. From the centre you can follow the bay all the way to the Cabo Mayor lighthouse, passing a string of beaches."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/cantabria#hostel-santander",
+            "name": "Hostel Santander",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "1B, P.º de Pereda, 15",
+              "postalCode": "39004",
+              "addressLocality": "Santander",
+              "addressCountry": "ES",
+              "addressRegion": "Cantabria"
+            },
+            "telephone": "+34 942 22 39 86",
+            "url": "https://hostelsantander.es",
+            "email": "contacto@hostelsantander.es",
+            "sameAs": [
+              "https://www.facebook.com/hostelsantander.es/"
+            ],
+            "description": "Hostel Santander is a budget hostel on the first floor at Paseo de Pereda 15, in the centre of Santander. It offers shared rooms, and recent guests mention four power sockets by each bed, two of them USB, a personal locker and a bathroom for each room. The shared lounge looks out over the street and has a small enclosed terrace, and older reviews mention sea views from it. The staff and owner are repeatedly praised for being friendly and for helping with tips on where to eat, surf and go out. The beach is a short walk away. The hostel's website promotes day trips to Comillas and Potes, the Camino del Norte and the Camino Lebaniego, and the countryside around Santander, and it presents itself as an economical, comfortable base for travellers passing through. It says booking directly on its own site gets the best prices, and it takes guests from all over the world."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/cantabria#hostel-villa-miguela",
+            "name": "Hostel Villa Miguela",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "P.º Menéndez Pelayo, 66",
+              "postalCode": "39006",
+              "addressLocality": "Santander",
+              "addressCountry": "ES",
+              "addressRegion": "Cantabria"
+            },
+            "telephone": "+34 660 53 45 41",
+            "url": "https://villamiguela.com",
+            "description": "Hostel Villa Miguela is a small hostel that opened in 2022 in a house with a garden at Paseo Menéndez Pelayo 66, in a residential part of Santander a few metres from Calle Tetuán and Calle Peñarbosa, two restaurant areas. The garden, shared lounge and terrace are open to guests, and free Wi-Fi covers the whole property. Beds are in bunk pods that give some privacy, and guests describe the hostel as very clean and comfortable with friendly staff, although a few find it quiet. The kitchen is basic, with a microwave and toaster but no hob, so don't plan on cooking pasta. Check-in starts at 15:00 and check-out is by 11:00. Breakfast is not included, guests must be 18 or over, and pets are not allowed. The nearest beaches are the El Sardinero beaches, and Santander airport is about 9 km away."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/cantabria#hotel-boutique-las-brisas",
+            "name": "Hotel Boutique Las Brisas",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. la Braña, 14",
+              "postalCode": "39005",
+              "addressLocality": "Santander",
+              "addressCountry": "ES",
+              "addressRegion": "Cantabria"
+            },
+            "telephone": "+34 689 24 08 03",
+            "url": "https://www.hotellasbrisas.net",
+            "email": "reservas@hotellasbrisas.net",
+            "sameAs": [
+              "https://www.facebook.com/hotelboutiquelasbrisas"
+            ],
+            "description": "Hotel Boutique Las Brisas is a small hotel directly facing the Sardinero beach in Santander, at Calle La Braña 14. It describes itself as combining contemporary luxury with the elegant, classic character of a stately residence, so this is a private-room hotel rather than a dorm hostel. Alongside the hotel rooms it runs modern one- and two-bedroom apartments for longer stays, and it lists deluxe suites for two or three people, with a private pool and barbecue area, as coming soon. Breakfast is included when you book online through the hotel's own site, parking on the surrounding street is free, and pets are accepted in the apartments. The Sardinero is lined with gardens, seafront promenades and historic buildings, with restaurants, cafés and bars close by serving local fish and seafood. It suits couples and anyone who wants to wake up facing the beach."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 </body>
 </html>

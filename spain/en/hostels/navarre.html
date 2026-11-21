@@ -461,16 +461,87 @@
 
 <main id="main-content">
 
-<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description">
-  <iframe
-    class="sa-hostel-map-iframe"
-    title="Google My Maps: backpacker hostels in Spain"
-    src="https://www.google.com/maps/d/embed?mid=1YaoKUZVLHf7y1Rar6qoNWzn0Q6jRNV0&ehbc=2E312F&noprof=1&ll=42.70524,-1.65215&z=8"
-    width="640" height="480"
-    loading="lazy"
-    allowfullscreen>
-  </iframe>
+<!-- Map description -->
+<div class="map-description" id="hostel-map-description">
+  <span class="map-description__text"><strong>BACKPACKERS FINDER:</strong> The easiest way to choose the right backpacker hostel. Our interactive map lets you filter Navarre backpackers by vibe, setup and value. Filters switch on once every hostel has been rated.</span>
+</div>
+
+  <!-- Map filter buttons -->
+
+<h2 class="sr-only">
+    Search Navarre Backpacker Hostels
+</h2>
+
+<p class="sr-only">
+    Filter Navarre hostels by party atmosphere, how social they are, peacefulness, solo female traveller friendliness, digital nomad suitability, couples, cyclists, activities, accessibility, eco-friendliness, camping, airport proximity, group suitability, budget and value for money. You can select more than one filter at once, and hostels must match all of them.
+</p>
+
+<div class="map-filter-bar">
+    <div class="map-filter-bar__scroll">
+        <div class="map-filter-bar__row" role="toolbar" aria-label="Filter hostels by category">
+
+            <a href="#" class="map-filter-btn map-filter-btn--active" role="button" style="background-color: #ffd400; color: #000000;" data-filter="all" aria-pressed="true" aria-label="Show all backpackers hostels in Navarre">★ All Hostels</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #b01c22; opacity:0.5; cursor:not-allowed;" data-filter="best_overall" aria-pressed="false" aria-label="Show the top-rated backpackers hostels">Top Picks</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="best_value" aria-pressed="false" aria-label="Show backpackers hostels which deliver the best value for money">Best Value</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="budget" aria-pressed="false" aria-label="Show the budget backpackers hostels">Budget</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="flashpacker" aria-pressed="false" aria-label="Show upmarket flashpacker hostels">Flashpackers</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="party" aria-pressed="false" aria-label="Show backpackers hostels which have the best parties">Best Parties</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="social" aria-pressed="false" aria-label="Show the most sociable backpackers hostels for meeting other travellers">Most Social</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="peaceful" aria-pressed="false" aria-label="Show peaceful, quiet backpackers hostels">Peaceful</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="solo_women" aria-pressed="false" aria-label="Show backpackers hostels which are best for solo women travellers">Solo Women</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="digital_nomad" aria-pressed="false" aria-label="Show backpackers hostels which are best for digital nomads">Digital Nomads</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="couples" aria-pressed="false" aria-label="Show backpackers hostels which are best for couples">Couples</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="cyclists" aria-pressed="false" aria-label="Show backpackers hostels which are best for cyclists">Cyclists</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="activities" aria-pressed="false" aria-label="Show backpackers hostels with the best activities and tours">Activities</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="accessible" aria-pressed="false" aria-label="Show backpackers hostels with confirmed accessibility features">Accessible</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="eco" aria-pressed="false" aria-label="Show eco-friendly and certified sustainable backpackers hostels">Eco-Friendly</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="camping" aria-pressed="false" aria-label="Show hostels which offer camping as an accommodation option">Camping</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="near_airport" aria-pressed="false" aria-label="Show hostels close to an airport">Near Airport</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="groups" aria-pressed="false" aria-label="Show hostels which welcome groups of backpackers">Groups</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="surfers" aria-pressed="false" aria-label="Show backpackers hostels which are best for surfers">Surfers</a>
+        </div>
+    </div>
+</div>
+
+<!-- ░░ HOSTEL MAP ░░ -->
+<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description"
+  data-bb-map
+  data-region="navarre"
+  data-country="Spain"
+  data-center="-1.607,42.617"
+  data-zoom="8.4"
+  data-mobile-zoom="7.7"
+  data-pitch="0"
+  data-bearing="0"
+  data-hostels-url="/spain/assets/data/hostels.json"
+  data-regions-url="/spain/assets/data/regions.json"
+  data-terrain=""
+  data-locate-bounds="-19,27,5,44.5"
+  data-threshold="7"
+  data-autoload="viewport">
+
+  <!-- Poster image: shows before the visitor loads the map -->
+  <picture class="sa-hostel-map-poster">
+    <img src="/spain/assets/images/map_navarre.webp"
+         alt="Interactive backpacker hostel map of Navarre showing hostels that can be filtered by travel style, budget, solo female travellers, digital nomads, cycling and more."
+         loading="eager"
+         fetchpriority="high"
+         decoding="async">
+  </picture>
+
+  <!-- Keyboard and screen-reader route to the map (the poster itself is tap-to-load) -->
+  <button type="button" class="sr-only" id="bb-map-load-btn">Load the interactive hostel map</button>
+
+  <!-- The map renders here (inline, no iframe) once the visitor taps the poster or a filter -->
+  <div id="bb-map-wrap" class="sa-hostel-map-iframe bb-map-iframe" hidden></div>
+
+  <div class="map-overlay-circle" aria-hidden="true">
+    Click the icons<br>for hostel info.
+  </div>
+
 </section>
+<!-- ░░ END HOSTEL MAP ░░ -->
+
 
 <!-- Horizontal regional menu -->
 
@@ -599,6 +670,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> P.º los Fueros, 57, 31100 Puente la Reina, Navarra</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="albergue-puente" aria-label="Find Albergue Puente on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34661705642" class="blue-link">+34 661 70 56 42</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.alberguepuente.com" target="_blank" class="blue-link" rel="nofollow">alberguepuente.com</a></p>
@@ -635,6 +708,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Sorandi, 5, 7, 31698 Larrasoaña, Navarra</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="albergue-san-nicolas" aria-label="Find Albergue San Nicolas on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34619559225" class="blue-link">+34 619 55 92 25</a></p>
 
@@ -675,6 +750,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. de Sangüesa, 2, 31003 Pamplona, Navarra</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="aloha-hostel" aria-label="Find Aloha Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34948153367" class="blue-link">+34 948 15 33 67</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.alohahostel.es" target="_blank" class="blue-link" rel="nofollow">alohahostel.es</a></p>
@@ -711,6 +788,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Pl. la Fruta, 8, 31210 Los Arcos, Navarra</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="casa-de-la-abuela-albergue" aria-label="Find Casa de La Abuela – Albergue on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34630610721" class="blue-link">+34 630 61 07 21</a></p>
 
@@ -751,6 +830,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Calle de Acella, Frente a la Clínica Universitaria de Navarra seguidamente a la terraza del Restaurante 29 por la, Av. de Navarra, 2, 31008 Pamplona, Navarra</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-meson-del-barro" aria-label="Find Hostal Mesón del Barro on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34948256366" class="blue-link">+34 948 25 63 66</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.mesondelbarro.com" target="_blank" class="blue-link" rel="nofollow">mesondelbarro.com</a></p>
@@ -788,6 +869,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Navarrería, 35, 31001 Pamplona, Navarra</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostel-plaza-catedral" aria-label="Find Hostel Plaza Catedral on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34620913968" class="blue-link">+34 620 91 39 68</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.albergueplazacatedral.com" target="_blank" class="blue-link" rel="nofollow">albergueplazacatedral.com</a></p>
@@ -824,6 +907,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Aoiz, 15, Bajo, 31004 Pamplona, Navarra</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="residencia-de-estudiantes-stephouse-pamplona-monjardin" aria-label="Find Residencia de Estudiantes Stephouse Pamplona Monjardín on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34848880026" class="blue-link">+34 848 88 00 26</a></p>
 
@@ -1252,6 +1337,8 @@ window.BB_TIPS = [
 
     <!-- Mobile menu end -->
 
+<script src="/assets/js/bb-map-loader.js?v=6" defer></script>
+
 <script src="/js/script-2.js?v=4" defer></script>
 
 <script src="/js/attribution-toggle.js?v=1" defer></script>
@@ -1270,6 +1357,382 @@ class="statcounter"
 src="https://c.statcounter.com/13225228/0/687dc53c/1/"
 alt="Web Analytics"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.backpackersbible.com/#organization",
+      "name": "BackpackersBible.com",
+      "url": "https://www.backpackersbible.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.backpackersbible.com/assets/backpackers_bible_logo_250x250.png",
+        "width": 250,
+        "height": 250
+      },
+      "description": "Independent backpacker guides to destinations worldwide with direct hostel contacts, safety information, maps, and honest write-ups."
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw",
+      "name": "Geoff Louw",
+      "url": "https://www.backpackersbible.com/misc/about-backpackers-bible",
+      "worksFor": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.backpackersbible.com/#website",
+      "url": "https://www.backpackersbible.com/",
+      "name": "BackpackersBible.com",
+      "publisher": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": [
+        "WebPage",
+        "CollectionPage"
+      ],
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/navarre#webpage",
+      "url": "https://www.backpackersbible.com/spain/en/hostels/navarre",
+      "name": "Backpacking Navarre | Hostel Guide",
+      "headline": "Budget Accommodation In Navarre",
+      "description": "Directory of 7 hostels and budget places to stay in Navarre, with direct contact details, an interactive map and filters.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://www.backpackersbible.com/#website"
+      },
+      "publisher": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      },
+      "author": {
+        "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw"
+      },
+      "dateModified": "2026-11-21",
+      "mainEntity": {
+        "@id": "https://www.backpackersbible.com/spain/en/hostels/navarre#hostels"
+      },
+      "about": [
+        {
+          "@type": "Place",
+          "name": "Navarre",
+          "sameAs": "https://en.wikipedia.org/wiki/Navarre"
+        },
+        {
+          "@type": "Thing",
+          "name": "Backpacking",
+          "sameAs": "https://en.wikipedia.org/wiki/Backpacking_(travel)"
+        }
+      ],
+      "mentions": [
+        {
+          "@id": "https://www.backpackersbible.com/spain/en/hostels/navarre#map"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/navarre#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.backpackersbible.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Backpacking Spain",
+          "item": "https://www.backpackersbible.com/spain/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Navarre Hostels",
+          "item": "https://www.backpackersbible.com/spain/en/hostels/navarre"
+        }
+      ]
+    },
+    {
+      "@type": "Map",
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/navarre#map",
+      "name": "Navarre Backpacker Hostel Map",
+      "description": "Interactive map of the hostels and budget places to stay in Navarre with one-tap filters.",
+      "mapType": "https://schema.org/VenueMap",
+      "url": "https://www.backpackersbible.com/spain/en/hostels/navarre#hostel-map",
+      "potentialAction": [
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Top Picks",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/navarre?filter=best_overall#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Best Value",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/navarre?filter=best_value#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Budget",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/navarre?filter=budget#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Flashpackers",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/navarre?filter=flashpacker#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Best Parties",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/navarre?filter=party#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Most Social",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/navarre?filter=social#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Peaceful",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/navarre?filter=peaceful#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Solo Women",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/navarre?filter=solo_women#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Digital Nomads",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/navarre?filter=digital_nomad#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Couples",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/navarre?filter=couples#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Cyclists",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/navarre?filter=cyclists#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Activities",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/navarre?filter=activities#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Accessible",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/navarre?filter=accessible#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Eco-Friendly",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/navarre?filter=eco#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Camping",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/navarre?filter=camping#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Near Airport",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/navarre?filter=near_airport#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Groups",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/navarre?filter=groups#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Surfers",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/navarre?filter=surfers#hostel-map"
+        }
+      ],
+      "about": {
+        "@type": "Thing",
+        "name": "Backpacker Hostels in Navarre"
+      },
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Navarre",
+        "sameAs": "https://en.wikipedia.org/wiki/Navarre"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/navarre#hostels",
+      "name": "Hostels and budget accommodation in Navarre",
+      "numberOfItems": 7,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/navarre#albergue-puente",
+            "name": "Albergue Puente",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "P.º los Fueros, 57",
+              "postalCode": "31100",
+              "addressLocality": "Puente la Reina",
+              "addressCountry": "ES",
+              "addressRegion": "Navarra"
+            },
+            "telephone": "+34 661 70 56 42",
+            "url": "https://www.alberguepuente.com",
+            "email": "albergue@alberguepuente.com",
+            "description": "Albergue Puente is a pilgrim albergue in the old town of Puente la Reina, at Paseo de los Fueros 57, in a former hostal built against the medieval wall. It has 40 places in shared mixed dorms with bunks and in double rooms with separate beds, six showers in shared bathrooms with hot water around the clock, and a power point and light at every bed. Guests can use a free, fully equipped kitchen with free coffee and herbal tea at any hour, a large dining room, a lounge, a terrace looking over the Valdizarbe valley, a washer and dryer for a small fee, a drying line and free Wi-Fi. Bed linen and towels can be rented, and there is covered bike parking. The medieval bridge that starts stage six is 50 metres away and the bus stop is opposite. Reception is open from 12:30 to 18:00, with automatic check-in on request, lights go out at 20:00 and check-out is by 8:30. Licence UAB00087."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/navarre#albergue-san-nicolas",
+            "name": "Albergue San Nicolas",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Sorandi, 5, 7",
+              "postalCode": "31698",
+              "addressLocality": "Larrasoaña",
+              "addressCountry": "ES",
+              "addressRegion": "Navarra"
+            },
+            "telephone": "+34 619 55 92 25",
+            "url": "https://www.alberguesannicolas.com",
+            "email": "alberguesannicolas@gmail.com",
+            "sameAs": [
+              "https://www.facebook.com/Albergue-San-Nicol%C3%A1s-1565730003664907"
+            ],
+            "description": "Albergue San Nicolás is a newly built pilgrim albergue and rural guesthouse at Calle Sorandi 5-7 in Larrasoaña, a small Pyrenean village on the Camino de Santiago close to Pamplona. Its website describes it as modern, impeccable and welcoming, with large rooms that hold only a few beds each, eight full bathrooms next to the rooms and an equipped kitchen. It takes pilgrims, small groups, families and walkers, and offers home-cooked dinners based on Navarran produce. The village is surrounded by beech, oak and fir woods and rivers, and the owners can help plan trips to places such as the Oteiza Museum, the Irati forest and the Quinto Real valley, and for cycling, hiking and birdwatching. Booking is online through its site, by phone or by WhatsApp. The albergue is registered with Navarre tourism under number UAB00095 and can be contacted by email, phone or WhatsApp."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/navarre#aloha-hostel",
+            "name": "Aloha Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. de Sangüesa, 2",
+              "postalCode": "31003",
+              "addressLocality": "Pamplona",
+              "addressCountry": "ES",
+              "addressRegion": "Navarra"
+            },
+            "telephone": "+34 948 15 33 67",
+            "url": "https://www.alohahostel.es",
+            "email": "info@alohahostel.es",
+            "description": "Aloha Hostel is on the first floor of the building at Calle Sangüesa 2 in the centre of Pamplona, where the Old Town ends and the Ensanche begins. It has four dormitories for about 25 to 26 people, plus private rooms with shared or private bathrooms, women-only rooms for up to three, and apartments. Guests get free Wi-Fi, a self-service breakfast from 05:00 to 10:00 that the site describes as basic, a shared equipped kitchen, free luggage storage and a terrace. Laundry and towels on the bunks cost extra. Check-in is from 13:00 to 22:00, with a door code for later arrivals, and check-out is by 11:00. It works as a private pilgrim albergue on the Camino Francés, with backpack pick-up from transport agencies, Pamplona's official stamp, closed bike storage on the terrace and a socket at each bunk. The bus station is 200 metres away. Pets are not allowed and there is no private parking."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/navarre#casa-de-la-abuela-albergue",
+            "name": "Casa de La Abuela – Albergue",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Pl. la Fruta, 8",
+              "postalCode": "31210",
+              "addressLocality": "Los Arcos",
+              "addressCountry": "ES",
+              "addressRegion": "Navarra"
+            },
+            "telephone": "+34 630 61 07 21",
+            "url": "https://casadelaabuela.com",
+            "email": "contacto@casadelaabuela.com",
+            "sameAs": [
+              "https://www.facebook.com/Albergue-Casa-de-la-Abuela-183787235001445/"
+            ],
+            "description": "Casa de la Abuela is a private pilgrim albergue in a traditional nineteenth-century house at Plaza de la Fruta 8 in the centre of Los Arcos, restored in 2010 to host walkers on the Camino Francés. The owners say the family has welcomed visitors there since 1955, and the albergue promotes a homely, shared atmosphere: coffee is prepared each morning, every evening there is a communal dinner where pilgrims sit at one table, and laundry is done communally and ecologically to save water and energy. It has two double rooms, a four-bed bunk room and a twelve-bed bunk room, with breakfasts, dinners and a bed-linen set available as extras. Check-in is from 13:00 to 18:00 and check-out is before 08:00. The albergue is registered as UAB00051, and its site credits funding from the Navarre employment service and the EU's NextGenerationEU programme."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/navarre#hostal-meson-del-barro",
+            "name": "Hostal Mesón del Barro",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Calle de Acella, Frente a la Clínica Universitaria de Navarra seguidamente a la terraza del Restaurante 29 por la, Av. de Navarra, 2",
+              "postalCode": "31008",
+              "addressLocality": "Pamplona",
+              "addressCountry": "ES",
+              "addressRegion": "Navarra"
+            },
+            "telephone": "+34 948 25 63 66",
+            "url": "https://www.mesondelbarro.com",
+            "email": "meson@mesondelbarro.com",
+            "description": "Mesón del Barro is a family-run hostal with apartments at Calle Acella 2-bis in Pamplona, entered from Avenida de Navarra opposite the side of the Clínica Universitaria and behind Yamaguchi Park. Both the hostal and the apartments were fully renovated in 2022. The hostal rents single, double, triple and quadruple rooms, each with either a shared or a private bathroom, and breakfast can be added when you book. The location, near the University of Navarra and the city's main hospitals, is about a 15-minute walk from the old town and a five-minute drive from the Landaben industrial estate, so it suits visitors with business or medical appointments as well as travellers. Reception is open every day from 09:30 to 23:30, and from 13:30 on Sundays and public holidays. The owners offer special rates for direct bookings, weekly or monthly stays and groups. It is registered as UHS00742."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/navarre#hostel-plaza-catedral",
+            "name": "Hostel Plaza Catedral",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Navarrería, 35",
+              "postalCode": "31001",
+              "addressLocality": "Pamplona",
+              "addressCountry": "ES",
+              "addressRegion": "Navarra"
+            },
+            "telephone": "+34 620 91 39 68",
+            "url": "https://www.albergueplazacatedral.com",
+            "email": "reservas@albergueplazacatedral.com",
+            "description": "Albergue Plaza Catedral is a private albergue at Calle Navarrería 35, facing Pamplona Cathedral in the heart of the Old Town, close to the Navarrería square and the city walls. It occupies a protected historic building that has been given a modern, functional interior. From Holy Week to 1 November it focuses on pilgrims of the Camino de Santiago, except during San Fermín, and the rest of the year it takes tourists, travellers and groups, though it does not accept stag parties. Rooms are named after Navarre's mountains: Adi (10 beds in bunks, adapted for reduced mobility), Aralar (14 beds), the small closed Bi Aizpe (4 beds), the triple Ipasate with cathedral views and the compartmentalised gallery Piskerra. Every bed has its own socket and a key locker, and guests share an equipped kitchen, a dining room and a lounge with cable TV. Entry is by personal door code, and its site links to Albergue Puente in Puente la Reina as the next stage."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/navarre#residencia-de-estudiantes-stephouse-pamplona-monjardin",
+            "name": "Residencia de Estudiantes Stephouse Pamplona Monjardín",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Aoiz, 15, Bajo",
+              "postalCode": "31004",
+              "addressLocality": "Pamplona",
+              "addressCountry": "ES",
+              "addressRegion": "Navarra"
+            },
+            "telephone": "+34 848 88 00 26",
+            "url": "https://stephouse.es",
+            "email": "hello@stephouse.es",
+            "description": "StepHouse Pamplona Monjardín is a student residence, not a hostel, in a central, lively neighbourhood of Pamplona, about ten minutes from the centre and roughly 250 metres from the University of Navarra, with the public university about 20 minutes away by public transport. The railway station is around ten minutes from the residence. Rooms are studios with a private bathroom and kitchen, or private rooms in shared apartments for two or three people, with a study area, smart TV and climate control. Shared spaces include a social room, a terrace, a gym, coworking space and bookable private rooms with kitchens, and rent covers water, electricity and internet. There is a laundry managed through an app, 24-hour CCTV and card access. StepHouse mainly takes students for the academic year but also offers short stays of 1 to 30 days, aimed at teachers, parents and the university community, so it is only a fallback for travellers. Contact is through the group's phone, email and WhatsApp."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 </body>
 </html>

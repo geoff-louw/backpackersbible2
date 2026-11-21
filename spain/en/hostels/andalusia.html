@@ -458,16 +458,87 @@
 
 <main id="main-content">
 
-<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description">
-  <iframe
-    class="sa-hostel-map-iframe"
-    title="Google My Maps: backpacker hostels in Spain"
-    src="https://www.google.com/maps/d/embed?mid=1YaoKUZVLHf7y1Rar6qoNWzn0Q6jRNV0&ehbc=2E312F&noprof=1&ll=37.475,-4.64834&z=8"
-    width="640" height="480"
-    loading="lazy"
-    allowfullscreen>
-  </iframe>
+<!-- Map description -->
+<div class="map-description" id="hostel-map-description">
+  <span class="map-description__text"><strong>BACKPACKERS FINDER:</strong> The easiest way to choose the right backpacker hostel. Our interactive map lets you filter Andalusia backpackers by vibe, setup and value. Filters switch on once every hostel has been rated.</span>
+</div>
+
+  <!-- Map filter buttons -->
+
+<h2 class="sr-only">
+    Search Andalusia Backpacker Hostels
+</h2>
+
+<p class="sr-only">
+    Filter Andalusia hostels by party atmosphere, how social they are, peacefulness, solo female traveller friendliness, digital nomad suitability, couples, cyclists, activities, accessibility, eco-friendliness, camping, airport proximity, group suitability, budget and value for money. You can select more than one filter at once, and hostels must match all of them.
+</p>
+
+<div class="map-filter-bar">
+    <div class="map-filter-bar__scroll">
+        <div class="map-filter-bar__row" role="toolbar" aria-label="Filter hostels by category">
+
+            <a href="#" class="map-filter-btn map-filter-btn--active" role="button" style="background-color: #ffd400; color: #000000;" data-filter="all" aria-pressed="true" aria-label="Show all backpackers hostels in Andalusia">★ All Hostels</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #b01c22; opacity:0.5; cursor:not-allowed;" data-filter="best_overall" aria-pressed="false" aria-label="Show the top-rated backpackers hostels">Top Picks</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="best_value" aria-pressed="false" aria-label="Show backpackers hostels which deliver the best value for money">Best Value</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="budget" aria-pressed="false" aria-label="Show the budget backpackers hostels">Budget</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="flashpacker" aria-pressed="false" aria-label="Show upmarket flashpacker hostels">Flashpackers</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="party" aria-pressed="false" aria-label="Show backpackers hostels which have the best parties">Best Parties</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="social" aria-pressed="false" aria-label="Show the most sociable backpackers hostels for meeting other travellers">Most Social</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="peaceful" aria-pressed="false" aria-label="Show peaceful, quiet backpackers hostels">Peaceful</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="solo_women" aria-pressed="false" aria-label="Show backpackers hostels which are best for solo women travellers">Solo Women</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="digital_nomad" aria-pressed="false" aria-label="Show backpackers hostels which are best for digital nomads">Digital Nomads</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="couples" aria-pressed="false" aria-label="Show backpackers hostels which are best for couples">Couples</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="cyclists" aria-pressed="false" aria-label="Show backpackers hostels which are best for cyclists">Cyclists</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="activities" aria-pressed="false" aria-label="Show backpackers hostels with the best activities and tours">Activities</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="accessible" aria-pressed="false" aria-label="Show backpackers hostels with confirmed accessibility features">Accessible</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="eco" aria-pressed="false" aria-label="Show eco-friendly and certified sustainable backpackers hostels">Eco-Friendly</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="camping" aria-pressed="false" aria-label="Show hostels which offer camping as an accommodation option">Camping</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="near_airport" aria-pressed="false" aria-label="Show hostels close to an airport">Near Airport</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="groups" aria-pressed="false" aria-label="Show hostels which welcome groups of backpackers">Groups</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="surfers" aria-pressed="false" aria-label="Show backpackers hostels which are best for surfers">Surfers</a>
+        </div>
+    </div>
+</div>
+
+<!-- ░░ HOSTEL MAP ░░ -->
+<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description"
+  data-bb-map
+  data-region="andalusia"
+  data-country="Spain"
+  data-center="-4.546,37.375"
+  data-zoom="6.6"
+  data-mobile-zoom="5.9"
+  data-pitch="0"
+  data-bearing="0"
+  data-hostels-url="/spain/assets/data/hostels.json"
+  data-regions-url="/spain/assets/data/regions.json"
+  data-terrain=""
+  data-locate-bounds="-19,27,5,44.5"
+  data-threshold="7"
+  data-autoload="viewport">
+
+  <!-- Poster image: shows before the visitor loads the map -->
+  <picture class="sa-hostel-map-poster">
+    <img src="/spain/assets/images/map_andalusia.webp"
+         alt="Interactive backpacker hostel map of Andalusia showing hostels that can be filtered by travel style, budget, solo female travellers, digital nomads, cycling and more."
+         loading="eager"
+         fetchpriority="high"
+         decoding="async">
+  </picture>
+
+  <!-- Keyboard and screen-reader route to the map (the poster itself is tap-to-load) -->
+  <button type="button" class="sr-only" id="bb-map-load-btn">Load the interactive hostel map</button>
+
+  <!-- The map renders here (inline, no iframe) once the visitor taps the poster or a filter -->
+  <div id="bb-map-wrap" class="sa-hostel-map-iframe bb-map-iframe" hidden></div>
+
+  <div class="map-overlay-circle" aria-hidden="true">
+    Click the icons<br>for hostel info.
+  </div>
+
 </section>
+<!-- ░░ END HOSTEL MAP ░░ -->
+
 
 <!-- Horizontal regional menu -->
 
@@ -710,6 +781,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> 4, C/ Ramón y Cajal, 2, Ronda, 18003 Granada</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="albergue-inturjoven-granada" aria-label="Find Albergue Inturjoven Granada on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34955181181" class="blue-link">+34 955 18 11 81</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.inturjoven.com" target="_blank" class="blue-link" rel="nofollow">inturjoven.com</a></p>
@@ -739,6 +812,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Camino De Fuente Grande S/n, 18179 Viznar, Granada</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="albergue-inturjoven-viznar" aria-label="Find Albergue Inturjoven Víznar on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34955181181" class="blue-link">+34 955 18 11 81</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.inturjoven.com" target="_blank" class="blue-link" rel="nofollow">inturjoven.com</a></p>
@@ -766,6 +841,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Tiña, 18, Albaicín, 18010 Granada</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="amaka-house" aria-label="Find Amaka House on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34681921441" class="blue-link">+34 681 92 14 41</a></p>
 
@@ -797,6 +874,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Calle Sol, 27, Ronda, 18003 Granada</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="arc-house-granada" aria-label="Find Arc House Granada on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34910604879" class="blue-link">+34 910 60 48 79</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.archouse.es" target="_blank" class="blue-link" rel="nofollow">archouse.es</a></p>
@@ -826,6 +905,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Fábrica Vieja, 8, Centro, 18002 Granada</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="barbieri-granada-pension" aria-label="Find Barbieri Granada Pensión on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34958275013" class="blue-link">+34 958 27 50 13</a></p>
 
@@ -857,6 +938,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Darro del Boquerón, 4, Centro, 18001 Granada</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="black-swan-hostel-granada" aria-label="Find Black Swan Hostel Granada on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34614229396" class="blue-link">+34 614 22 93 96</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.blackswanhostels.com" target="_blank" class="blue-link" rel="nofollow">blackswanhostels.com</a></p>
@@ -886,6 +969,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Azhuma, 30, Ronda, 18005 Granada</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="broz-hostel" aria-label="Find Broz Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34958268222" class="blue-link">+34 958 26 82 22</a></p>
 
@@ -917,6 +1002,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Tablas, 8, Centro, Centro, 18002 Granada</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="casa-castelo-stays" aria-label="Find Casa Castelo Stays on the map">Find on map ›</a></p>
+
             <p><strong>WEBSITE:</strong> <a href="https://casacastelo.es" target="_blank" class="blue-link" rel="nofollow">casacastelo.es</a></p>
 
             <p><strong>GOOGLE RATING:</strong> 4.1 out of 5 stars</p>
@@ -942,6 +1029,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Cta. Aceituneros, 6, Albaicín, 18010 Granada</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="casa-del-capitel-nazari" aria-label="Find Casa del Capitel Nazarí on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34958215260" class="blue-link">+34 958 21 52 60</a></p>
 
@@ -973,6 +1062,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Conde de Tendillas, 7, Centro, 18002 Granada</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="el-granado-hostel" aria-label="Find El Granado Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34958960259" class="blue-link">+34 958 96 02 59</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.elgranado.com" target="_blank" class="blue-link" rel="nofollow">elgranado.com</a></p>
@@ -1002,6 +1093,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Barrio Alto, 18, 18192 Quéntar, Granada</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="fundalucia-guesthouse" aria-label="Find Fundalucia Guesthouse on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34639479631" class="blue-link">+34 639 47 96 31</a></p>
 
@@ -1033,6 +1126,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Ángel, 8, Centro, 18002 Granada</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="granada-old-town-hostel" aria-label="Find Granada Old Town Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34609613003" class="blue-link">+34 609 61 30 03</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.granadaoldtownhostel.com" target="_blank" class="blue-link" rel="nofollow">granadaoldtownhostel.com</a></p>
@@ -1062,6 +1157,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Calle Gran Vía de Colón, 53, C. Navarrete, 11, Centro, 18001 Granada</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="host-53" aria-label="Find Host 53 on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34958292924" class="blue-link">+34 958 29 29 24</a></p>
 
@@ -1093,6 +1190,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Honda San Andrés, 2, Albaicín, 18010 Granada</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-el-cascabel" aria-label="Find Hostal El Cascabel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34958208879" class="blue-link">+34 958 20 88 79</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://hostalcascabel.com" target="_blank" class="blue-link" rel="nofollow">hostalcascabel.com</a></p>
@@ -1122,6 +1221,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Navas, 14, Centro, 18009 Granada</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-el-olivo" aria-label="Find Hostal El Olivo on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34690012224" class="blue-link">+34 690 01 22 24</a></p>
 
@@ -1153,6 +1254,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Mesones, 44, Centro, 18001 Granada</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-mesones" aria-label="Find Hostal Mesones on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34958263244" class="blue-link">+34 958 26 32 44</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.pensionmesones.com" target="_blank" class="blue-link" rel="nofollow">pensionmesones.com</a></p>
@@ -1182,6 +1285,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Obispo Hurtado, 24, Ronda, 18004 Granada</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-nevot" aria-label="Find Hostal Nevot on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34958255868" class="blue-link">+34 958 25 58 68</a></p>
 
@@ -1213,6 +1318,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Cam. Nuevo del Cementerio, 46, Centro, 18009 Granada</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hotel-con-encanto-granada-arabeluj" aria-label="Find Hotel Con Encanto Granada | Arabeluj on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34644444299" class="blue-link">+34 644 44 42 99</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.hotelgranadaarabeluj.com" target="_blank" class="blue-link" rel="nofollow">hotelgranadaarabeluj.com</a></p>
@@ -1242,6 +1349,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Cuba, 1, 18230 Atarfe, Granada</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hotel-corona-de-atarfe" aria-label="Find Hotel Corona de Atarfe on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34958436589" class="blue-link">+34 958 43 65 89</a></p>
 
@@ -1273,6 +1382,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrera del Darro, 23, Albaicín, 18010 Granada</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hotel-rosa-d-oro" aria-label="Find Hotel Rosa D&#x27;Oro on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34958049156" class="blue-link">+34 958 04 91 56</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.hotelrosadeoro.es" target="_blank" class="blue-link" rel="nofollow">hotelrosadeoro.es</a></p>
@@ -1302,6 +1413,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. San José Baja, 6, Centro, 18005 Granada</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="nut-hostel" aria-label="Find Nut Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34958886699" class="blue-link">+34 958 88 66 99</a></p>
 
@@ -1333,6 +1446,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. San Pedro Mártir, 34, Centro, 18009 Granada</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="oh-my-hostel" aria-label="Find Oh! My Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34647818647" class="blue-link">+34 647 81 86 47</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://ohmyhostel.com" target="_blank" class="blue-link" rel="nofollow">ohmyhostel.com</a></p>
@@ -1362,6 +1477,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Quijada, 4, Albaicín, 18010 Granada</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="oripando-hostel" aria-label="Find Oripando Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34958049123" class="blue-link">+34 958 04 91 23</a></p>
 
@@ -1393,6 +1510,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Duquesa, 10, Centro, 18001 Granada</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="pension-duquesa-bed-and-breakfast" aria-label="Find Pensión Duquesa Bed and Breakfast on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34858712742" class="blue-link">+34 858 71 27 42</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.pensionduquesa.es" target="_blank" class="blue-link" rel="nofollow">pensionduquesa.es</a></p>
@@ -1422,6 +1541,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Recogidas, 6, 4 planta, Centro, 18002 Granada</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="pension-recogidas" aria-label="Find Pensión Recogidas on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34958255136" class="blue-link">+34 958 25 51 36</a></p>
 
@@ -1453,6 +1574,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Ermita, 11, Centro, 18001 Granada</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="pension-zacatin" aria-label="Find Pensión Zacatín on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34958221155" class="blue-link">+34 958 22 11 55</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.pensionzacatin.es" target="_blank" class="blue-link" rel="nofollow">pensionzacatin.es</a></p>
@@ -1480,6 +1603,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Cta. del Realejo, 18, Centro, 18009 Granada</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="rooms-vita" aria-label="Find Rooms Vita on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34958049110" class="blue-link">+34 958 04 91 10</a></p>
 
@@ -1511,6 +1636,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Calle Solana de la Mora, 52, 18211 Cogollos de la Vega, Granada</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="solana-de-granada-outdoor-climbing-hostel" aria-label="Find Solana de Granada – Outdoor &amp; Climbing Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34669159321" class="blue-link">+34 669 15 93 21</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://solanadegranada.com" target="_blank" class="blue-link" rel="nofollow">solanadegranada.com</a></p>
@@ -1539,6 +1666,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Prof. Emilio Orozco, 4, Centro, 18010 Granada</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="the-central-house-elvira-opens-january-2027" aria-label="Find The Central House Elvira (opens January 2027) on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34958049707" class="blue-link">+34 958 04 97 07</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.thecentralhousegroup.com" target="_blank" class="blue-link" rel="nofollow">thecentralhousegroup.com</a></p>
@@ -1566,6 +1695,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Pcta. de Castillejos, 1, Centro, 18001 Granada</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="toc-hostel-granada" aria-label="Find Toc Hostel | Granada on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34958322214" class="blue-link">+34 958 32 22 14</a></p>
 
@@ -1597,6 +1728,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Placeta de Piedra Santa, 10, Centro, 18009 Granada</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="urban-cube-hostel-granada" aria-label="Find Urban Cube Hostel Granada on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34958715410" class="blue-link">+34 958 71 54 10</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.urbancubehostel.com" target="_blank" class="blue-link" rel="nofollow">urbancubehostel.com</a></p>
@@ -1627,6 +1760,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. de los Peñones, 22, 18196 Sierra Nevada, Granada</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="youth-hostel-sierra-nevada" aria-label="Find Youth Hostel Sierra Nevada on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34955181181" class="blue-link">+34 955 18 11 81</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.inturjoven.com" target="_blank" class="blue-link" rel="nofollow">inturjoven.com</a></p>
@@ -1655,6 +1790,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Ctr. Villamartín - Puerta Del Espino Km.51, 29380 Cortes de la Frontera, Málaga</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="albergue-inturjoven-cortes-de-la-frontera" aria-label="Find Albergue Inturjoven Cortes de La Frontera on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34955181181" class="blue-link">+34 955 18 11 81</a></p>
 
@@ -1685,6 +1822,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Pl. Pío XII, 6, Cruz de Humilladero, 29007 Málaga</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="albergue-inturjoven-malaga" aria-label="Find Albergue Inturjoven Malaga on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34955181181" class="blue-link">+34 955 18 11 81</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.inturjoven.com" target="_blank" class="blue-link" rel="nofollow">inturjoven.com</a></p>
@@ -1713,6 +1852,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Av. Trapiche, 2, 29601 Marbella, Málaga</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="albergue-juvenil-marbella" aria-label="Find Albergue Juvenil Marbella on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34955181181" class="blue-link">+34 955 18 11 81</a></p>
 
@@ -1743,6 +1884,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Octavio Picón, 33, Málaga-Este, 29017 Málaga</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="barbatuke-eco-homestel" aria-label="Find Barbatuke Eco-Homestel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34638464922" class="blue-link">+34 638 46 49 22</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.barbatuke.com" target="_blank" class="blue-link" rel="nofollow">barbatuke.com</a></p>
@@ -1771,6 +1914,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Hernán Ruiz, 2, 4, 6, Distrito Centro, 29008 Málaga</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="coeo-hernan-ruiz-rooftop-pool-hostel" aria-label="Find Coeo Hernan Ruiz Rooftop Pool Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34626205948" class="blue-link">+34 626 20 59 48</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://coeohouse.com" target="_blank" class="blue-link" rel="nofollow">coeohouse.com</a></p>
@@ -1792,6 +1937,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Beatas, 20, Distrito Centro, 29008 Málaga</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="coeo-pod-hostel" aria-label="Find Coeo Pod Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34649262103" class="blue-link">+34 649 26 21 03</a></p>
 
@@ -1823,6 +1970,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Agustín Moreno, 1, Distrito Centro, 29015 Málaga</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="feel-hostels-city-center" aria-label="Find Feel Hostels City Center on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34952218268" class="blue-link">+34 952 21 82 68</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.feelhostels.com" target="_blank" class="blue-link" rel="nofollow">feelhostels.com</a></p>
@@ -1852,6 +2001,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Vendeja, 25, Distrito Centro, 29001 Málaga</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="feel-hostels-soho-malaga" aria-label="Find Feel Hostels Soho Malaga on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34952222832" class="blue-link">+34 952 22 28 32</a></p>
 
@@ -1883,6 +2034,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Zamorano, 66, Distrito Centro, 29009 Málaga</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="funker-hostel" aria-label="Find Funker Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34683531455" class="blue-link">+34 683 53 14 55</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.funkerhostel.com" target="_blank" class="blue-link" rel="nofollow">funkerhostel.com</a></p>
@@ -1913,6 +2066,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Lagunillas, 34, Distrito Centro, 29012 Málaga</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-bruselas" aria-label="Find Hostal Bruselas on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34675010343" class="blue-link">+34 675 01 03 43</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://hostalbruselas.com" target="_blank" class="blue-link" rel="nofollow">hostalbruselas.com</a></p>
@@ -1934,6 +2089,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carretera de Alora A7077, Km 2,5, 29560 Álora, Málaga</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-don-joaquin-alora" aria-label="Find Hostal Don Joaquín Alora on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34951552958" class="blue-link">+34 951 55 29 58</a></p>
 
@@ -1965,6 +2122,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Sierra de Guadarrama, 20, 29620 Torremolinos, Málaga</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-los-geranios-del-pinar" aria-label="Find Hostal Los Geranios del Pinar on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34952384366" class="blue-link">+34 952 38 43 66</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.hostallosgeranios.es" target="_blank" class="blue-link" rel="nofollow">hostallosgeranios.es</a></p>
@@ -1994,6 +2153,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Av. Carlota Alessandri, 127, 29620 Torremolinos, Málaga</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostel-inturjoven-torremolinos" aria-label="Find Hostel Inturjoven Torremolinos on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34955181181" class="blue-link">+34 955 18 11 81</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.inturjoven.com" target="_blank" class="blue-link" rel="nofollow">inturjoven.com</a></p>
@@ -2022,6 +2183,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Av. Dr. Gálvez Ginachero, 11, Distrito Centro, 29009 Málaga</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostel-superlativo-trinidad" aria-label="Find Hostel Superlativo Trinidad on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34627988380" class="blue-link">+34 627 98 83 80</a></p>
 
@@ -2053,6 +2216,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Eslava, 15, Distrito Centro, 29002 Málaga</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostel-superlativo-vialia-i" aria-label="Find Hostel Superlativo Vialia I on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34627659962" class="blue-link">+34 627 65 99 62</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://superlativohostels.com" target="_blank" class="blue-link" rel="nofollow">superlativohostels.com</a></p>
@@ -2083,6 +2248,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Victoria, 27, Distrito Centro, 29012 Málaga</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="ilanapartment" aria-label="Find Ilánapartment on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34652948477" class="blue-link">+34 652 94 84 77</a></p>
 
             <p><strong>GOOGLE RATING:</strong> 3.0 out of 5 stars</p>
@@ -2108,6 +2275,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Conde de las Navas, 1, bajo izquierda, Málaga-Este, 29017 Málaga</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="la-moraga-de-poniente-malaga-hostel" aria-label="Find La Moraga de Poniente Malaga Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34952296530" class="blue-link">+34 952 29 65 30</a></p>
 
@@ -2139,6 +2308,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. González Anaya, 16, Distrito Centro, 29009 Málaga</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="lemon-tree-hostel" aria-label="Find Lemon Tree Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34611575585" class="blue-link">+34 611 57 55 85</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.lemontreehostel.com" target="_blank" class="blue-link" rel="nofollow">lemontreehostel.com</a></p>
@@ -2168,6 +2339,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Alemania, 7, Distrito Centro, 29001 Málaga</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="literal-hostel" aria-label="Find Literal Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34630155581" class="blue-link">+34 630 15 55 81</a></p>
 
@@ -2199,6 +2372,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Donoso Cortés, 7, Distrito Centro, 29002 Málaga</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="m-pods-malaga" aria-label="Find M Pods Malaga on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34690945262" class="blue-link">+34 690 94 52 62</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://mpods.es" target="_blank" class="blue-link" rel="nofollow">mpods.es</a></p>
@@ -2228,6 +2403,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Don Juan de Austria, 2, Distrito Centro, 29009 Málaga</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="malaga-stop-hostel-ab" aria-label="Find Malaga Stop Hostel Ab on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34689251343" class="blue-link">+34 689 25 13 43</a></p>
 
@@ -2259,6 +2436,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Pje. Noblejas, 2, Distrito Centro, 29002 Málaga</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="pension-terminal" aria-label="Find Pension Terminal on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34952318200" class="blue-link">+34 952 31 82 00</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.pensionterminal.es" target="_blank" class="blue-link" rel="nofollow">pensionterminal.es</a></p>
@@ -2289,6 +2468,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Mesonero Romanos, 13, Teatinos-Universidad, 29010 Málaga</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="residencia-universitaria-resa-campus-malaga" aria-label="Find Residencia Universitaria RESA Campus Málaga on the map">Find on map ›</a></p>
+
             <p><strong>WEBSITE:</strong> <a href="https://resa.es" target="_blank" class="blue-link" rel="nofollow">resa.es</a></p>
 
             <p><strong>GOOGLE RATING:</strong> 3.8 out of 5 stars</p>
@@ -2314,6 +2495,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Agustín Parejo, 1, Distrito Centro, 29007 Málaga</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="residencia-universitaria-resa-malaga-centro" aria-label="Find Residencia Universitaria RESA Málaga Centro on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34951742970" class="blue-link">+34 951 74 29 70</a></p>
 
@@ -2345,6 +2528,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> P.º Salvador Rueda, 9, Málaga-Este, 29016 Málaga</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="terraza-del-limonar-albergue" aria-label="Find Terraza del Limonar Albergue on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34624228651" class="blue-link">+34 624 22 86 51</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://terrazadellimonar.com" target="_blank" class="blue-link" rel="nofollow">terrazadellimonar.com</a></p>
@@ -2374,6 +2559,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Torregorda, 3, Distrito Centro, 29005 Málaga</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="the-lights-hostel-rooms" aria-label="Find The Lights Hostel &amp; Rooms on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34951253525" class="blue-link">+34 951 25 35 25</a></p>
 
@@ -2405,6 +2592,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Niño de Guevara, 8, Distrito Centro, 29008 Málaga</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="the-urban-jungle-hostel" aria-label="Find The Urban Jungle Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34951542963" class="blue-link">+34 951 54 29 63</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://urbanjunglehostel.com" target="_blank" class="blue-link" rel="nofollow">urbanjunglehostel.com</a></p>
@@ -2434,6 +2623,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Comedias, 18, Distrito Centro, 29008 Málaga</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="toc-hostel-malaga" aria-label="Find Toc Hostel Málaga on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34952911264" class="blue-link">+34 952 91 12 64</a></p>
 
@@ -2465,6 +2656,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Héroe de Sostoa, 57, Carretera de Cádiz, 29002 Málaga</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="wostel-malaga" aria-label="Find Wostel Málaga on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34621155100" class="blue-link">+34 621 15 51 00</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.wostelrooms.com" target="_blank" class="blue-link" rel="nofollow">wostelrooms.com</a></p>
@@ -2495,6 +2688,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Osio, 6, Centro, 14003 Córdoba</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="arc-house-cordoba" aria-label="Find Arc House Córdoba on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34910604879" class="blue-link">+34 910 60 48 79</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.archouse.es" target="_blank" class="blue-link" rel="nofollow">archouse.es</a></p>
@@ -2522,6 +2717,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Conde y Luque, 7, Centro, 14003 Córdoba</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="arc-house-mezquita" aria-label="Find Arc House Mezquita on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34910604879" class="blue-link">+34 910 60 48 79</a></p>
 
@@ -2553,6 +2750,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Lucano, 12, Centro, 14003 Córdoba</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="arc-house-ribera-only-adults" aria-label="Find Arc House Ribera Only Adults on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34910604879" class="blue-link">+34 910 60 48 79</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.archouse.es" target="_blank" class="blue-link" rel="nofollow">archouse.es</a></p>
@@ -2582,6 +2781,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Martínez Rucker, 14, Centro, 14003 Córdoba</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="backpacker-al-katre" aria-label="Find Backpacker Al-Katre on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34626389706" class="blue-link">+34 626 38 97 06</a></p>
 
@@ -2613,6 +2814,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Sta. Marta, 9, Centro, 14001 Córdoba</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="cats-hostel-cordoba" aria-label="Find Cats Hostel Cordoba on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34957626292" class="blue-link">+34 957 62 62 92</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://catshostels.com" target="_blank" class="blue-link" rel="nofollow">catshostels.com</a></p>
@@ -2642,6 +2845,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Horno de la Trinidad, 7, Centro, 14003 Córdoba</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hospederia-luis-de-gongora" aria-label="Find Hospederia Luis de Góngora on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34957295399" class="blue-link">+34 957 29 53 99</a></p>
 
@@ -2673,6 +2878,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Cardenal Gonzalez, 10, Centro, 14003 Córdoba</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-almanzor" aria-label="Find Hostal Almanzor on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34957485400" class="blue-link">+34 957 48 54 00</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.hostalalmanzor.es" target="_blank" class="blue-link" rel="nofollow">hostalalmanzor.es</a></p>
@@ -2702,6 +2909,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. de San Fernando, 51, Centro, 14003 Córdoba</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-la-fuente" aria-label="Find Hostal La Fuente on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34957487827" class="blue-link">+34 957 48 78 27</a></p>
 
@@ -2733,6 +2942,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Jose Ventura, 21, 14480 Alcaracejos, Córdoba</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-restaurante-el-parador" aria-label="Find Hostal Restaurante El Parador on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34957156235" class="blue-link">+34 957 15 62 35</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://bookspain.site" target="_blank" class="blue-link" rel="nofollow">bookspain.site</a></p>
@@ -2762,6 +2973,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Pl. de Judá Levi, s/n, Centro, 14003 Córdoba</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostel-inturjoven-cordoba" aria-label="Find Hostel Inturjoven Córdoba on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34955181181" class="blue-link">+34 955 18 11 81</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.inturjoven.com" target="_blank" class="blue-link" rel="nofollow">inturjoven.com</a></p>
@@ -2790,6 +3003,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Tejón y Marín, Centro, 14003 Córdoba</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="patios-del-orfebre" aria-label="Find Patios del Orfebre on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34957392975" class="blue-link">+34 957 39 29 75</a></p>
 
@@ -2821,6 +3036,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Lineros, 36, Centro, 14002 Córdoba</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="safestay" aria-label="Find Safestay on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34957482517" class="blue-link">+34 957 48 25 17</a></p>
 
             <p><strong>GOOGLE RATING:</strong> 3.1 out of 5 stars</p>
@@ -2848,6 +3065,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Av. Blas Infante, 30, 11408 Jerez de la Frontera, Cádiz</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="albergue-inturjoven-jerez-de-la-frontera" aria-label="Find Albergue Inturjoven Jerez de La Frontera on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34955181181" class="blue-link">+34 955 18 11 81</a></p>
 
@@ -2877,6 +3096,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Suárez de Salazar, 4, 11006 Cádiz</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="casa-caracol" aria-label="Find Casa Caracol on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34956261166" class="blue-link">+34 956 26 11 66</a></p>
 
@@ -2908,6 +3129,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Barrocal, 5, 11005 Cádiz</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="casa-nautilus-cadiz" aria-label="Find Casa Nautilus Cadiz on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34603168882" class="blue-link">+34 603 16 88 82</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.casanautiluscadiz.com" target="_blank" class="blue-link" rel="nofollow">casanautiluscadiz.com</a></p>
@@ -2937,6 +3160,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. de la Rosa, 6, 11002 Cádiz</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostel-rosa-de-los-vientos" aria-label="Find Hostel Rosa de Los Vientos on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34673335741" class="blue-link">+34 673 33 57 41</a></p>
 
@@ -2968,6 +3193,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Ctra N-340, Km 75, Casas de Porros, 11380 Valdevaqueros, Cádiz</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hotel-copacabana-tarifa-beach-valdevaqueros" aria-label="Find Hotel Copacabana Tarifa Beach Valdevaqueros on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34956065989" class="blue-link">+34 956 06 59 89</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.copacabanatarifa.com" target="_blank" class="blue-link" rel="nofollow">copacabanatarifa.com</a></p>
@@ -2997,6 +3224,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Montañés, 16, 11001 Cádiz</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="planeta-cadiz-hostel" aria-label="Find Planeta Cadiz Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34956210702" class="blue-link">+34 956 21 07 02</a></p>
 
@@ -3028,6 +3257,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Sopranis, 8, 11005 Cádiz</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="spanish-galleon-lodge" aria-label="Find Spanish Galleon Lodge on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34603168882" class="blue-link">+34 603 16 88 82</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://spanishgalleonlodge.com" target="_blank" class="blue-link" rel="nofollow">spanishgalleonlodge.com</a></p>
@@ -3057,6 +3288,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Hospital de Mujeres, 35, 11001 Cádiz</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="summer-hostel" aria-label="Find Summer Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34956220762" class="blue-link">+34 956 22 07 62</a></p>
 
@@ -3088,6 +3321,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Av. del Océano, 13, 21100 Punta Umbría, Huelva</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="albergue-inturjoven-punta-umbria" aria-label="Find Albergue Inturjoven Punta Umbria on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34955181181" class="blue-link">+34 955 18 11 81</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.inturjoven.com" target="_blank" class="blue-link" rel="nofollow">inturjoven.com</a></p>
@@ -3116,6 +3351,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Marchena Colombo, 14, 21004 Huelva</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostel-inturjoven-huelva" aria-label="Find Hostel Inturjoven Huelva on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34955181181" class="blue-link">+34 955 18 11 81</a></p>
 
@@ -3146,6 +3383,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Pl. Mauricio Martínez, 6, 23470 Cazorla, Jaén</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="albergue-inturjoven-cazorla" aria-label="Find Albergue Inturjoven Cazorla on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34955181181" class="blue-link">+34 955 18 11 81</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.inturjoven.com" target="_blank" class="blue-link" rel="nofollow">inturjoven.com</a></p>
@@ -3174,6 +3413,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Borja, 23, 23004 Jaén</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="albergue-inturjoven-jaen" aria-label="Find Albergue Inturjoven Jaén on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34955181181" class="blue-link">+34 955 18 11 81</a></p>
 
@@ -3204,6 +3445,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Isla de Fuerteventura, S/N, 04007 Almería</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="albergue-inturjoven-almeria" aria-label="Find Albergue Inturjoven Almería on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34955181181" class="blue-link">+34 955 18 11 81</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.inturjoven.com" target="_blank" class="blue-link" rel="nofollow">inturjoven.com</a></p>
@@ -3232,6 +3475,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Ventorro, 23, 41849 Aznalcázar, Sevilla</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hacienda-olontigi" aria-label="Find Hacienda Olontigi on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34955751976" class="blue-link">+34 955 75 19 76</a></p>
 
@@ -3668,6 +3913,8 @@ window.BB_TIPS = [
 
     <!-- Mobile menu end -->
 
+<script src="/assets/js/bb-map-loader.js?v=6" defer></script>
+
 <script src="/js/script-2.js?v=4" defer></script>
 
 <script src="/js/attribution-toggle.js?v=1" defer></script>
@@ -3686,6 +3933,1807 @@ class="statcounter"
 src="https://c.statcounter.com/13225228/0/687dc53c/1/"
 alt="Web Analytics"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.backpackersbible.com/#organization",
+      "name": "BackpackersBible.com",
+      "url": "https://www.backpackersbible.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.backpackersbible.com/assets/backpackers_bible_logo_250x250.png",
+        "width": 250,
+        "height": 250
+      },
+      "description": "Independent backpacker guides to destinations worldwide with direct hostel contacts, safety information, maps, and honest write-ups."
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw",
+      "name": "Geoff Louw",
+      "url": "https://www.backpackersbible.com/misc/about-backpackers-bible",
+      "worksFor": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.backpackersbible.com/#website",
+      "url": "https://www.backpackersbible.com/",
+      "name": "BackpackersBible.com",
+      "publisher": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": [
+        "WebPage",
+        "CollectionPage"
+      ],
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#webpage",
+      "url": "https://www.backpackersbible.com/spain/en/hostels/andalusia",
+      "name": "Backpacking Andalucia (Andalusia) | Hostel Guide",
+      "headline": "Budget Accommodation In Andalusia",
+      "description": "Directory of 87 hostels and budget places to stay in Andalusia, with direct contact details, an interactive map and filters.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://www.backpackersbible.com/#website"
+      },
+      "publisher": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      },
+      "author": {
+        "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw"
+      },
+      "dateModified": "2026-11-21",
+      "mainEntity": {
+        "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#hostels"
+      },
+      "about": [
+        {
+          "@type": "Place",
+          "name": "Andalusia",
+          "sameAs": "https://en.wikipedia.org/wiki/Andalusia"
+        },
+        {
+          "@type": "Thing",
+          "name": "Backpacking",
+          "sameAs": "https://en.wikipedia.org/wiki/Backpacking_(travel)"
+        }
+      ],
+      "mentions": [
+        {
+          "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#map"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.backpackersbible.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Backpacking Spain",
+          "item": "https://www.backpackersbible.com/spain/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Andalusia Hostels",
+          "item": "https://www.backpackersbible.com/spain/en/hostels/andalusia"
+        }
+      ]
+    },
+    {
+      "@type": "Map",
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#map",
+      "name": "Andalusia Backpacker Hostel Map",
+      "description": "Interactive map of the hostels and budget places to stay in Andalusia with one-tap filters.",
+      "mapType": "https://schema.org/VenueMap",
+      "url": "https://www.backpackersbible.com/spain/en/hostels/andalusia#hostel-map",
+      "potentialAction": [
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Top Picks",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/andalusia?filter=best_overall#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Best Value",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/andalusia?filter=best_value#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Budget",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/andalusia?filter=budget#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Flashpackers",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/andalusia?filter=flashpacker#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Best Parties",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/andalusia?filter=party#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Most Social",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/andalusia?filter=social#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Peaceful",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/andalusia?filter=peaceful#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Solo Women",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/andalusia?filter=solo_women#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Digital Nomads",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/andalusia?filter=digital_nomad#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Couples",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/andalusia?filter=couples#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Cyclists",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/andalusia?filter=cyclists#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Activities",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/andalusia?filter=activities#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Accessible",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/andalusia?filter=accessible#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Eco-Friendly",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/andalusia?filter=eco#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Camping",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/andalusia?filter=camping#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Near Airport",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/andalusia?filter=near_airport#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Groups",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/andalusia?filter=groups#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Surfers",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/andalusia?filter=surfers#hostel-map"
+        }
+      ],
+      "about": {
+        "@type": "Thing",
+        "name": "Backpacker Hostels in Andalusia"
+      },
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Andalusia",
+        "sameAs": "https://en.wikipedia.org/wiki/Andalusia"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#hostels",
+      "name": "Hostels and budget accommodation in Andalusia",
+      "numberOfItems": 87,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#albergue-inturjoven-granada",
+            "name": "Albergue Inturjoven Granada",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "4, C/ Ramón y Cajal, 2, Ronda",
+              "postalCode": "18003",
+              "addressLocality": "Granada",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 955 18 11 81",
+            "url": "https://www.inturjoven.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#albergue-inturjoven-viznar",
+            "name": "Albergue Inturjoven Víznar",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Camino De Fuente Grande S/n",
+              "postalCode": "18179",
+              "addressLocality": "Viznar",
+              "addressCountry": "ES",
+              "addressRegion": "Granada"
+            },
+            "telephone": "+34 955 18 11 81",
+            "url": "https://www.inturjoven.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#amaka-house",
+            "name": "Amaka House",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Tiña, 18, Albaicín",
+              "postalCode": "18010",
+              "addressLocality": "Granada",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 681 92 14 41",
+            "url": "https://www.amakahouse.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#arc-house-granada",
+            "name": "Arc House Granada",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Calle Sol, 27, Ronda",
+              "postalCode": "18003",
+              "addressLocality": "Granada",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 910 60 48 79",
+            "url": "https://www.archouse.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#barbieri-granada-pension",
+            "name": "Barbieri Granada Pensión",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Fábrica Vieja, 8, Centro",
+              "postalCode": "18002",
+              "addressLocality": "Granada",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 958 27 50 13",
+            "url": "https://www.alojamientosbarbieri.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#black-swan-hostel-granada",
+            "name": "Black Swan Hostel Granada",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Darro del Boquerón, 4, Centro",
+              "postalCode": "18001",
+              "addressLocality": "Granada",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 614 22 93 96",
+            "url": "https://www.blackswanhostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#broz-hostel",
+            "name": "Broz Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Azhuma, 30, Ronda",
+              "postalCode": "18005",
+              "addressLocality": "Granada",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 958 26 82 22",
+            "url": "https://www.brozhostel.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#casa-castelo-stays",
+            "name": "Casa Castelo Stays",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Tablas, 8, Centro, Centro",
+              "postalCode": "18002",
+              "addressLocality": "Granada",
+              "addressCountry": "ES"
+            },
+            "url": "https://casacastelo.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#casa-del-capitel-nazari",
+            "name": "Casa del Capitel Nazarí",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Cta. Aceituneros, 6, Albaicín",
+              "postalCode": "18010",
+              "addressLocality": "Granada",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 958 21 52 60",
+            "url": "https://www.hotelcasacapitel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#el-granado-hostel",
+            "name": "El Granado Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Conde de Tendillas, 7, Centro",
+              "postalCode": "18002",
+              "addressLocality": "Granada",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 958 96 02 59",
+            "url": "https://www.elgranado.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#fundalucia-guesthouse",
+            "name": "Fundalucia Guesthouse",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Barrio Alto, 18",
+              "postalCode": "18192",
+              "addressLocality": "Quéntar",
+              "addressCountry": "ES",
+              "addressRegion": "Granada"
+            },
+            "telephone": "+34 639 47 96 31",
+            "url": "https://www.fundalucia.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#granada-old-town-hostel",
+            "name": "Granada Old Town Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Ángel, 8, Centro",
+              "postalCode": "18002",
+              "addressLocality": "Granada",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 609 61 30 03",
+            "url": "https://www.granadaoldtownhostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 13,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#host-53",
+            "name": "Host 53",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Calle Gran Vía de Colón, 53, C. Navarrete, 11, Centro",
+              "postalCode": "18001",
+              "addressLocality": "Granada",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 958 29 29 24",
+            "url": "https://www.host53.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 14,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#hostal-el-cascabel",
+            "name": "Hostal El Cascabel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Honda San Andrés, 2, Albaicín",
+              "postalCode": "18010",
+              "addressLocality": "Granada",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 958 20 88 79",
+            "url": "https://hostalcascabel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 15,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#hostal-el-olivo",
+            "name": "Hostal El Olivo",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Navas, 14, Centro",
+              "postalCode": "18009",
+              "addressLocality": "Granada",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 690 01 22 24",
+            "url": "https://www.elolivogranada.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 16,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#hostal-mesones",
+            "name": "Hostal Mesones",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Mesones, 44, Centro",
+              "postalCode": "18001",
+              "addressLocality": "Granada",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 958 26 32 44",
+            "url": "https://www.pensionmesones.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 17,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#hostal-nevot",
+            "name": "Hostal Nevot",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Obispo Hurtado, 24, Ronda",
+              "postalCode": "18004",
+              "addressLocality": "Granada",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 958 25 58 68",
+            "url": "https://www.hostalnevot.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 18,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#hotel-con-encanto-granada-arabeluj",
+            "name": "Hotel Con Encanto Granada | Arabeluj",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Cam. Nuevo del Cementerio, 46, Centro",
+              "postalCode": "18009",
+              "addressLocality": "Granada",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 644 44 42 99",
+            "url": "https://www.hotelgranadaarabeluj.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 19,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#hotel-corona-de-atarfe",
+            "name": "Hotel Corona de Atarfe",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Cuba, 1",
+              "postalCode": "18230",
+              "addressLocality": "Atarfe",
+              "addressCountry": "ES",
+              "addressRegion": "Granada"
+            },
+            "telephone": "+34 958 43 65 89",
+            "url": "https://www.hotelcoronadeatarfe.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 20,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#hotel-rosa-d-oro",
+            "name": "Hotel Rosa D'Oro",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrera del Darro, 23, Albaicín",
+              "postalCode": "18010",
+              "addressLocality": "Granada",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 958 04 91 56",
+            "url": "https://www.hotelrosadeoro.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 21,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#nut-hostel",
+            "name": "Nut Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. San José Baja, 6, Centro",
+              "postalCode": "18005",
+              "addressLocality": "Granada",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 958 88 66 99",
+            "url": "https://hostelnut.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 22,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#oh-my-hostel",
+            "name": "Oh! My Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. San Pedro Mártir, 34, Centro",
+              "postalCode": "18009",
+              "addressLocality": "Granada",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 647 81 86 47",
+            "url": "https://ohmyhostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 23,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#oripando-hostel",
+            "name": "Oripando Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Quijada, 4, Albaicín",
+              "postalCode": "18010",
+              "addressLocality": "Granada",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 958 04 91 23",
+            "url": "https://hosteloripando.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 24,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#pension-duquesa-bed-and-breakfast",
+            "name": "Pensión Duquesa Bed and Breakfast",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Duquesa, 10, Centro",
+              "postalCode": "18001",
+              "addressLocality": "Granada",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 858 71 27 42",
+            "url": "https://www.pensionduquesa.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 25,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#pension-recogidas",
+            "name": "Pensión Recogidas",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Recogidas, 6, 4 planta, Centro",
+              "postalCode": "18002",
+              "addressLocality": "Granada",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 958 25 51 36",
+            "url": "https://pensionrecogidas.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 26,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#pension-zacatin",
+            "name": "Pensión Zacatín",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Ermita, 11, Centro",
+              "postalCode": "18001",
+              "addressLocality": "Granada",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 958 22 11 55",
+            "url": "https://www.pensionzacatin.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 27,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#rooms-vita",
+            "name": "Rooms Vita",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Cta. del Realejo, 18, Centro",
+              "postalCode": "18009",
+              "addressLocality": "Granada",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 958 04 91 10",
+            "url": "https://roomsvita.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 28,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#solana-de-granada-outdoor-climbing-hostel",
+            "name": "Solana de Granada – Outdoor & Climbing Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Calle Solana de la Mora, 52",
+              "postalCode": "18211",
+              "addressLocality": "Cogollos de la Vega",
+              "addressCountry": "ES",
+              "addressRegion": "Granada"
+            },
+            "telephone": "+34 669 15 93 21",
+            "url": "https://solanadegranada.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 29,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#the-central-house-elvira-opens-january-2027",
+            "name": "The Central House Elvira (opens January 2027)",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Prof. Emilio Orozco, 4, Centro",
+              "postalCode": "18010",
+              "addressLocality": "Granada",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 958 04 97 07",
+            "url": "https://www.thecentralhousegroup.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 30,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#toc-hostel-granada",
+            "name": "Toc Hostel | Granada",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Pcta. de Castillejos, 1, Centro",
+              "postalCode": "18001",
+              "addressLocality": "Granada",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 958 32 22 14",
+            "url": "https://tochostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 31,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#urban-cube-hostel-granada",
+            "name": "Urban Cube Hostel Granada",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Placeta de Piedra Santa, 10, Centro",
+              "postalCode": "18009",
+              "addressLocality": "Granada",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 958 71 54 10",
+            "url": "https://www.urbancubehostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 32,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#youth-hostel-sierra-nevada",
+            "name": "Youth Hostel Sierra Nevada",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. de los Peñones, 22",
+              "postalCode": "18196",
+              "addressLocality": "Sierra Nevada",
+              "addressCountry": "ES",
+              "addressRegion": "Granada"
+            },
+            "telephone": "+34 955 18 11 81",
+            "url": "https://www.inturjoven.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 33,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#albergue-inturjoven-cortes-de-la-frontera",
+            "name": "Albergue Inturjoven Cortes de La Frontera",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Ctr. Villamartín - Puerta Del Espino Km.51",
+              "postalCode": "29380",
+              "addressLocality": "Cortes de la Frontera",
+              "addressCountry": "ES",
+              "addressRegion": "Málaga"
+            },
+            "telephone": "+34 955 18 11 81",
+            "url": "https://www.inturjoven.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 34,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#albergue-inturjoven-malaga",
+            "name": "Albergue Inturjoven Malaga",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Pl. Pío XII, 6, Cruz de Humilladero",
+              "postalCode": "29007",
+              "addressLocality": "Málaga",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 955 18 11 81",
+            "url": "https://www.inturjoven.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 35,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#albergue-juvenil-marbella",
+            "name": "Albergue Juvenil Marbella",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. Trapiche, 2",
+              "postalCode": "29601",
+              "addressLocality": "Marbella",
+              "addressCountry": "ES",
+              "addressRegion": "Málaga"
+            },
+            "telephone": "+34 955 18 11 81",
+            "url": "https://www.inturjoven.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 36,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#barbatuke-eco-homestel",
+            "name": "Barbatuke Eco-Homestel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Octavio Picón, 33, Málaga-Este",
+              "postalCode": "29017",
+              "addressLocality": "Málaga",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 638 46 49 22",
+            "url": "https://www.barbatuke.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 37,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#coeo-hernan-ruiz-rooftop-pool-hostel",
+            "name": "Coeo Hernan Ruiz Rooftop Pool Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Hernán Ruiz, 2, 4, 6, Distrito Centro",
+              "postalCode": "29008",
+              "addressLocality": "Málaga",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 626 20 59 48",
+            "url": "https://coeohouse.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 38,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#coeo-pod-hostel",
+            "name": "Coeo Pod Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Beatas, 20, Distrito Centro",
+              "postalCode": "29008",
+              "addressLocality": "Málaga",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 649 26 21 03",
+            "url": "https://coeohouse.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 39,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#feel-hostels-city-center",
+            "name": "Feel Hostels City Center",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Agustín Moreno, 1, Distrito Centro",
+              "postalCode": "29015",
+              "addressLocality": "Málaga",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 952 21 82 68",
+            "url": "https://www.feelhostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 40,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#feel-hostels-soho-malaga",
+            "name": "Feel Hostels Soho Malaga",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Vendeja, 25, Distrito Centro",
+              "postalCode": "29001",
+              "addressLocality": "Málaga",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 952 22 28 32",
+            "url": "https://www.feelhostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 41,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#funker-hostel",
+            "name": "Funker Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Zamorano, 66, Distrito Centro",
+              "postalCode": "29009",
+              "addressLocality": "Málaga",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 683 53 14 55",
+            "url": "https://www.funkerhostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 42,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#hostal-bruselas",
+            "name": "Hostal Bruselas",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Lagunillas, 34, Distrito Centro",
+              "postalCode": "29012",
+              "addressLocality": "Málaga",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 675 01 03 43",
+            "url": "https://hostalbruselas.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 43,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#hostal-don-joaquin-alora",
+            "name": "Hostal Don Joaquín Alora",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carretera de Alora A7077, Km 2,5",
+              "postalCode": "29560",
+              "addressLocality": "Álora",
+              "addressCountry": "ES",
+              "addressRegion": "Málaga"
+            },
+            "telephone": "+34 951 55 29 58",
+            "url": "https://alojamientosvalledelsol.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 44,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#hostal-los-geranios-del-pinar",
+            "name": "Hostal Los Geranios del Pinar",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Sierra de Guadarrama, 20",
+              "postalCode": "29620",
+              "addressLocality": "Torremolinos",
+              "addressCountry": "ES",
+              "addressRegion": "Málaga"
+            },
+            "telephone": "+34 952 38 43 66",
+            "url": "https://www.hostallosgeranios.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 45,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#hostel-inturjoven-torremolinos",
+            "name": "Hostel Inturjoven Torremolinos",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. Carlota Alessandri, 127",
+              "postalCode": "29620",
+              "addressLocality": "Torremolinos",
+              "addressCountry": "ES",
+              "addressRegion": "Málaga"
+            },
+            "telephone": "+34 955 18 11 81",
+            "url": "https://www.inturjoven.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 46,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#hostel-superlativo-trinidad",
+            "name": "Hostel Superlativo Trinidad",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. Dr. Gálvez Ginachero, 11, Distrito Centro",
+              "postalCode": "29009",
+              "addressLocality": "Málaga",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 627 98 83 80",
+            "url": "https://superlativohostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 47,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#hostel-superlativo-vialia-i",
+            "name": "Hostel Superlativo Vialia I",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Eslava, 15, Distrito Centro",
+              "postalCode": "29002",
+              "addressLocality": "Málaga",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 627 65 99 62",
+            "url": "https://superlativohostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 48,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#ilanapartment",
+            "name": "Ilánapartment",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Victoria, 27, Distrito Centro",
+              "postalCode": "29012",
+              "addressLocality": "Málaga",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 652 94 84 77"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 49,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#la-moraga-de-poniente-malaga-hostel",
+            "name": "La Moraga de Poniente Malaga Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Conde de las Navas, 1, bajo izquierda, Málaga-Este",
+              "postalCode": "29017",
+              "addressLocality": "Málaga",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 952 29 65 30",
+            "url": "https://malagahostel.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 50,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#lemon-tree-hostel",
+            "name": "Lemon Tree Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. González Anaya, 16, Distrito Centro",
+              "postalCode": "29009",
+              "addressLocality": "Málaga",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 611 57 55 85",
+            "url": "https://www.lemontreehostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 51,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#literal-hostel",
+            "name": "Literal Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Alemania, 7, Distrito Centro",
+              "postalCode": "29001",
+              "addressLocality": "Málaga",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 630 15 55 81",
+            "url": "https://www.viveliteral.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 52,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#m-pods-malaga",
+            "name": "M Pods Malaga",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Donoso Cortés, 7, Distrito Centro",
+              "postalCode": "29002",
+              "addressLocality": "Málaga",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 690 94 52 62",
+            "url": "https://mpods.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 53,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#malaga-stop-hostel-ab",
+            "name": "Malaga Stop Hostel Ab",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Don Juan de Austria, 2, Distrito Centro",
+              "postalCode": "29009",
+              "addressLocality": "Málaga",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 689 25 13 43",
+            "url": "https://malagastophostel.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 54,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#pension-terminal",
+            "name": "Pension Terminal",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Pje. Noblejas, 2, Distrito Centro",
+              "postalCode": "29002",
+              "addressLocality": "Málaga",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 952 31 82 00",
+            "url": "https://www.pensionterminal.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 55,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#residencia-universitaria-resa-campus-malaga",
+            "name": "Residencia Universitaria RESA Campus Málaga",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Mesonero Romanos, 13, Teatinos-Universidad",
+              "postalCode": "29010",
+              "addressLocality": "Málaga",
+              "addressCountry": "ES"
+            },
+            "url": "https://resa.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 56,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#residencia-universitaria-resa-malaga-centro",
+            "name": "Residencia Universitaria RESA Málaga Centro",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Agustín Parejo, 1, Distrito Centro",
+              "postalCode": "29007",
+              "addressLocality": "Málaga",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 951 74 29 70",
+            "url": "https://resa.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 57,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#terraza-del-limonar-albergue",
+            "name": "Terraza del Limonar Albergue",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "P.º Salvador Rueda, 9, Málaga-Este",
+              "postalCode": "29016",
+              "addressLocality": "Málaga",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 624 22 86 51",
+            "url": "https://terrazadellimonar.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 58,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#the-lights-hostel-rooms",
+            "name": "The Lights Hostel & Rooms",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Torregorda, 3, Distrito Centro",
+              "postalCode": "29005",
+              "addressLocality": "Málaga",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 951 25 35 25",
+            "url": "https://www.thelights.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 59,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#the-urban-jungle-hostel",
+            "name": "The Urban Jungle Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Niño de Guevara, 8, Distrito Centro",
+              "postalCode": "29008",
+              "addressLocality": "Málaga",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 951 54 29 63",
+            "url": "https://urbanjunglehostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 60,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#toc-hostel-malaga",
+            "name": "Toc Hostel Málaga",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Comedias, 18, Distrito Centro",
+              "postalCode": "29008",
+              "addressLocality": "Málaga",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 952 91 12 64",
+            "url": "https://tochostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 61,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#wostel-malaga",
+            "name": "Wostel Málaga",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Héroe de Sostoa, 57, Carretera de Cádiz",
+              "postalCode": "29002",
+              "addressLocality": "Málaga",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 621 15 51 00",
+            "url": "https://www.wostelrooms.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 62,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#arc-house-cordoba",
+            "name": "Arc House Córdoba",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Osio, 6, Centro",
+              "postalCode": "14003",
+              "addressLocality": "Córdoba",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 910 60 48 79",
+            "url": "https://www.archouse.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 63,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#arc-house-mezquita",
+            "name": "Arc House Mezquita",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Conde y Luque, 7, Centro",
+              "postalCode": "14003",
+              "addressLocality": "Córdoba",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 910 60 48 79",
+            "url": "https://www.archouse.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 64,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#arc-house-ribera-only-adults",
+            "name": "Arc House Ribera Only Adults",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Lucano, 12, Centro",
+              "postalCode": "14003",
+              "addressLocality": "Córdoba",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 910 60 48 79",
+            "url": "https://www.archouse.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 65,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#backpacker-al-katre",
+            "name": "Backpacker Al-Katre",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Martínez Rucker, 14, Centro",
+              "postalCode": "14003",
+              "addressLocality": "Córdoba",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 626 38 97 06",
+            "url": "https://www.alkatre.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 66,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#cats-hostel-cordoba",
+            "name": "Cats Hostel Cordoba",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Sta. Marta, 9, Centro",
+              "postalCode": "14001",
+              "addressLocality": "Córdoba",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 957 62 62 92",
+            "url": "https://catshostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 67,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#hospederia-luis-de-gongora",
+            "name": "Hospederia Luis de Góngora",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Horno de la Trinidad, 7, Centro",
+              "postalCode": "14003",
+              "addressLocality": "Córdoba",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 957 29 53 99",
+            "url": "https://www.hgongora.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 68,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#hostal-almanzor",
+            "name": "Hostal Almanzor",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Cardenal Gonzalez, 10, Centro",
+              "postalCode": "14003",
+              "addressLocality": "Córdoba",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 957 48 54 00",
+            "url": "https://www.hostalalmanzor.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 69,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#hostal-la-fuente",
+            "name": "Hostal La Fuente",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. de San Fernando, 51, Centro",
+              "postalCode": "14003",
+              "addressLocality": "Córdoba",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 957 48 78 27",
+            "url": "https://www.hostallafuente.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 70,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#hostal-restaurante-el-parador",
+            "name": "Hostal Restaurante El Parador",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Jose Ventura, 21",
+              "postalCode": "14480",
+              "addressLocality": "Alcaracejos",
+              "addressCountry": "ES",
+              "addressRegion": "Córdoba"
+            },
+            "telephone": "+34 957 15 62 35",
+            "url": "https://bookspain.site"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 71,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#hostel-inturjoven-cordoba",
+            "name": "Hostel Inturjoven Córdoba",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Pl. de Judá Levi, s/n, Centro",
+              "postalCode": "14003",
+              "addressLocality": "Córdoba",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 955 18 11 81",
+            "url": "https://www.inturjoven.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 72,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#patios-del-orfebre",
+            "name": "Patios del Orfebre",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Tejón y Marín, Centro",
+              "postalCode": "14003",
+              "addressLocality": "Córdoba",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 957 39 29 75",
+            "url": "https://www.patiosdelorfebre.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 73,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#safestay",
+            "name": "Safestay",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Lineros, 36, Centro",
+              "postalCode": "14002",
+              "addressLocality": "Córdoba",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 957 48 25 17"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 74,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#albergue-inturjoven-jerez-de-la-frontera",
+            "name": "Albergue Inturjoven Jerez de La Frontera",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. Blas Infante, 30",
+              "postalCode": "11408",
+              "addressLocality": "Jerez de la Frontera",
+              "addressCountry": "ES",
+              "addressRegion": "Cádiz"
+            },
+            "telephone": "+34 955 18 11 81",
+            "url": "https://www.inturjoven.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 75,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#casa-caracol",
+            "name": "Casa Caracol",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Suárez de Salazar, 4",
+              "postalCode": "11006",
+              "addressLocality": "Cádiz",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 956 26 11 66",
+            "url": "https://casacaracolcadiz.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 76,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#casa-nautilus-cadiz",
+            "name": "Casa Nautilus Cadiz",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Barrocal, 5",
+              "postalCode": "11005",
+              "addressLocality": "Cádiz",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 603 16 88 82",
+            "url": "https://www.casanautiluscadiz.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 77,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#hostel-rosa-de-los-vientos",
+            "name": "Hostel Rosa de Los Vientos",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. de la Rosa, 6",
+              "postalCode": "11002",
+              "addressLocality": "Cádiz",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 673 33 57 41",
+            "url": "https://www.rosadelosvientoscadiz.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 78,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#hotel-copacabana-tarifa-beach-valdevaqueros",
+            "name": "Hotel Copacabana Tarifa Beach Valdevaqueros",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Ctra N-340, Km 75, Casas de Porros",
+              "postalCode": "11380",
+              "addressLocality": "Valdevaqueros",
+              "addressCountry": "ES",
+              "addressRegion": "Cádiz"
+            },
+            "telephone": "+34 956 06 59 89",
+            "url": "https://www.copacabanatarifa.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 79,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#planeta-cadiz-hostel",
+            "name": "Planeta Cadiz Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Montañés, 16",
+              "postalCode": "11001",
+              "addressLocality": "Cádiz",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 956 21 07 02",
+            "url": "https://www.planetacadizhostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 80,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#spanish-galleon-lodge",
+            "name": "Spanish Galleon Lodge",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Sopranis, 8",
+              "postalCode": "11005",
+              "addressLocality": "Cádiz",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 603 16 88 82",
+            "url": "https://spanishgalleonlodge.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 81,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#summer-hostel",
+            "name": "Summer Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Hospital de Mujeres, 35",
+              "postalCode": "11001",
+              "addressLocality": "Cádiz",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 956 22 07 62",
+            "url": "https://www.summercadiz.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 82,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#albergue-inturjoven-punta-umbria",
+            "name": "Albergue Inturjoven Punta Umbria",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. del Océano, 13",
+              "postalCode": "21100",
+              "addressLocality": "Punta Umbría",
+              "addressCountry": "ES",
+              "addressRegion": "Huelva"
+            },
+            "telephone": "+34 955 18 11 81",
+            "url": "https://www.inturjoven.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 83,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#hostel-inturjoven-huelva",
+            "name": "Hostel Inturjoven Huelva",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Marchena Colombo, 14",
+              "postalCode": "21004",
+              "addressLocality": "Huelva",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 955 18 11 81",
+            "url": "https://www.inturjoven.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 84,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#albergue-inturjoven-cazorla",
+            "name": "Albergue Inturjoven Cazorla",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Pl. Mauricio Martínez, 6",
+              "postalCode": "23470",
+              "addressLocality": "Cazorla",
+              "addressCountry": "ES",
+              "addressRegion": "Jaén"
+            },
+            "telephone": "+34 955 18 11 81",
+            "url": "https://www.inturjoven.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 85,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#albergue-inturjoven-jaen",
+            "name": "Albergue Inturjoven Jaén",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Borja, 23",
+              "postalCode": "23004",
+              "addressLocality": "Jaén",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 955 18 11 81",
+            "url": "https://www.inturjoven.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 86,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#albergue-inturjoven-almeria",
+            "name": "Albergue Inturjoven Almería",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Isla de Fuerteventura, S/N",
+              "postalCode": "04007",
+              "addressLocality": "Almería",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 955 18 11 81",
+            "url": "https://www.inturjoven.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 87,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/andalusia#hacienda-olontigi",
+            "name": "Hacienda Olontigi",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Ventorro, 23",
+              "postalCode": "41849",
+              "addressLocality": "Aznalcázar",
+              "addressCountry": "ES",
+              "addressRegion": "Sevilla"
+            },
+            "telephone": "+34 955 75 19 76",
+            "url": "https://haciendaolontigi.com"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 </body>
 </html>

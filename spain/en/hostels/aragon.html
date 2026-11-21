@@ -460,16 +460,87 @@
 
 <main id="main-content">
 
-<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description">
-  <iframe
-    class="sa-hostel-map-iframe"
-    title="Google My Maps: backpacker hostels in Spain"
-    src="https://www.google.com/maps/d/embed?mid=1YaoKUZVLHf7y1Rar6qoNWzn0Q6jRNV0&ehbc=2E312F&noprof=1&ll=41.54152,-0.79945&z=8"
-    width="640" height="480"
-    loading="lazy"
-    allowfullscreen>
-  </iframe>
+<!-- Map description -->
+<div class="map-description" id="hostel-map-description">
+  <span class="map-description__text"><strong>BACKPACKERS FINDER:</strong> The easiest way to choose the right backpacker hostel. Our interactive map lets you filter Aragón backpackers by vibe, setup and value. Filters switch on once every hostel has been rated.</span>
+</div>
+
+  <!-- Map filter buttons -->
+
+<h2 class="sr-only">
+    Search Aragón Backpacker Hostels
+</h2>
+
+<p class="sr-only">
+    Filter Aragón hostels by party atmosphere, how social they are, peacefulness, solo female traveller friendliness, digital nomad suitability, couples, cyclists, activities, accessibility, eco-friendliness, camping, airport proximity, group suitability, budget and value for money. You can select more than one filter at once, and hostels must match all of them.
+</p>
+
+<div class="map-filter-bar">
+    <div class="map-filter-bar__scroll">
+        <div class="map-filter-bar__row" role="toolbar" aria-label="Filter hostels by category">
+
+            <a href="#" class="map-filter-btn map-filter-btn--active" role="button" style="background-color: #ffd400; color: #000000;" data-filter="all" aria-pressed="true" aria-label="Show all backpackers hostels in Aragón">★ All Hostels</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #b01c22; opacity:0.5; cursor:not-allowed;" data-filter="best_overall" aria-pressed="false" aria-label="Show the top-rated backpackers hostels">Top Picks</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="best_value" aria-pressed="false" aria-label="Show backpackers hostels which deliver the best value for money">Best Value</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="budget" aria-pressed="false" aria-label="Show the budget backpackers hostels">Budget</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="flashpacker" aria-pressed="false" aria-label="Show upmarket flashpacker hostels">Flashpackers</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="party" aria-pressed="false" aria-label="Show backpackers hostels which have the best parties">Best Parties</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="social" aria-pressed="false" aria-label="Show the most sociable backpackers hostels for meeting other travellers">Most Social</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="peaceful" aria-pressed="false" aria-label="Show peaceful, quiet backpackers hostels">Peaceful</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="solo_women" aria-pressed="false" aria-label="Show backpackers hostels which are best for solo women travellers">Solo Women</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="digital_nomad" aria-pressed="false" aria-label="Show backpackers hostels which are best for digital nomads">Digital Nomads</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="couples" aria-pressed="false" aria-label="Show backpackers hostels which are best for couples">Couples</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="cyclists" aria-pressed="false" aria-label="Show backpackers hostels which are best for cyclists">Cyclists</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="activities" aria-pressed="false" aria-label="Show backpackers hostels with the best activities and tours">Activities</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="accessible" aria-pressed="false" aria-label="Show backpackers hostels with confirmed accessibility features">Accessible</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="eco" aria-pressed="false" aria-label="Show eco-friendly and certified sustainable backpackers hostels">Eco-Friendly</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="camping" aria-pressed="false" aria-label="Show hostels which offer camping as an accommodation option">Camping</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="near_airport" aria-pressed="false" aria-label="Show hostels close to an airport">Near Airport</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="groups" aria-pressed="false" aria-label="Show hostels which welcome groups of backpackers">Groups</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="surfers" aria-pressed="false" aria-label="Show backpackers hostels which are best for surfers">Surfers</a>
+        </div>
+    </div>
+</div>
+
+<!-- ░░ HOSTEL MAP ░░ -->
+<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description"
+  data-bb-map
+  data-region="aragon"
+  data-country="Spain"
+  data-center="-0.7,41.388"
+  data-zoom="7.2"
+  data-mobile-zoom="6.5"
+  data-pitch="0"
+  data-bearing="0"
+  data-hostels-url="/spain/assets/data/hostels.json"
+  data-regions-url="/spain/assets/data/regions.json"
+  data-terrain=""
+  data-locate-bounds="-19,27,5,44.5"
+  data-threshold="7"
+  data-autoload="viewport">
+
+  <!-- Poster image: shows before the visitor loads the map -->
+  <picture class="sa-hostel-map-poster">
+    <img src="/spain/assets/images/map_aragon.webp"
+         alt="Interactive backpacker hostel map of Aragón showing hostels that can be filtered by travel style, budget, solo female travellers, digital nomads, cycling and more."
+         loading="eager"
+         fetchpriority="high"
+         decoding="async">
+  </picture>
+
+  <!-- Keyboard and screen-reader route to the map (the poster itself is tap-to-load) -->
+  <button type="button" class="sr-only" id="bb-map-load-btn">Load the interactive hostel map</button>
+
+  <!-- The map renders here (inline, no iframe) once the visitor taps the poster or a filter -->
+  <div id="bb-map-wrap" class="sa-hostel-map-iframe bb-map-iframe" hidden></div>
+
+  <div class="map-overlay-circle" aria-hidden="true">
+    Click the icons<br>for hostel info.
+  </div>
+
 </section>
+<!-- ░░ END HOSTEL MAP ░░ -->
+
 
 <!-- Horizontal regional menu -->
 
@@ -600,6 +671,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. de los Predicadores, 70, Casco Antiguo, 50003 Zaragoza</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="albergue-zaragoza-hostel" aria-label="Find Albergue Zaragoza Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34976282043" class="blue-link">+34 976 28 20 43</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://alberguezaragozahostel.top" target="_blank" class="blue-link" rel="nofollow">alberguezaragozahostel.top</a></p>
@@ -633,6 +706,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Ctra. Ambel, 4, 50546 Bulbuente, Zaragoza</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="albergue-hostel-las-escuelas" aria-label="Find Albergue-Hostel &quot;las Escuelas&quot; on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34645538172" class="blue-link">+34 645 53 81 72</a></p>
 
@@ -671,6 +746,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. de los Predicadores, 80, Casco Antiguo, 50003 Zaragoza</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="grampy-boutique-hostal" aria-label="Find Grampy Boutique Hostal on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34624889251" class="blue-link">+34 624 88 92 51</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.hostalgrampy.com" target="_blank" class="blue-link" rel="nofollow">hostalgrampy.com</a></p>
@@ -704,6 +781,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Av. de César Augusto, 55, Casco Antiguo, 50003 Zaragoza</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hotel-avenida" aria-label="Find Hotel Avenida on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34976439300" class="blue-link">+34 976 43 93 00</a></p>
 
@@ -740,6 +819,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Sta. María, 5, 44100 Albarracín, Teruel</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="albergue-albarracin" aria-label="Find Albergue Albarracín on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34978710266" class="blue-link">+34 978 71 02 66</a></p>
 
@@ -779,6 +860,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Cta. Postigo, 1, 44370 Cella, Teruel</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="albergue-el-rio" aria-label="Find Albergue El Rio on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34637869089" class="blue-link">+34 637 86 90 89</a></p>
 
@@ -1209,6 +1292,8 @@ window.BB_TIPS = [
 
     <!-- Mobile menu end -->
 
+<script src="/assets/js/bb-map-loader.js?v=6" defer></script>
+
 <script src="/js/script-2.js?v=4" defer></script>
 
 <script src="/js/attribution-toggle.js?v=1" defer></script>
@@ -1229,6 +1314,356 @@ alt="Web Analytics"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 
 <script src="/js/attribution-toggle.js?v=1" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.backpackersbible.com/#organization",
+      "name": "BackpackersBible.com",
+      "url": "https://www.backpackersbible.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.backpackersbible.com/assets/backpackers_bible_logo_250x250.png",
+        "width": 250,
+        "height": 250
+      },
+      "description": "Independent backpacker guides to destinations worldwide with direct hostel contacts, safety information, maps, and honest write-ups."
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw",
+      "name": "Geoff Louw",
+      "url": "https://www.backpackersbible.com/misc/about-backpackers-bible",
+      "worksFor": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.backpackersbible.com/#website",
+      "url": "https://www.backpackersbible.com/",
+      "name": "BackpackersBible.com",
+      "publisher": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": [
+        "WebPage",
+        "CollectionPage"
+      ],
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/aragon#webpage",
+      "url": "https://www.backpackersbible.com/spain/en/hostels/aragon",
+      "name": "Backpacking Aragón | Hostel Guide",
+      "headline": "Budget Accommodation In Aragón",
+      "description": "Directory of 6 hostels and budget places to stay in Aragón, with direct contact details, an interactive map and filters.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://www.backpackersbible.com/#website"
+      },
+      "publisher": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      },
+      "author": {
+        "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw"
+      },
+      "dateModified": "2026-11-21",
+      "mainEntity": {
+        "@id": "https://www.backpackersbible.com/spain/en/hostels/aragon#hostels"
+      },
+      "about": [
+        {
+          "@type": "Place",
+          "name": "Aragón",
+          "sameAs": "https://en.wikipedia.org/wiki/Aragon"
+        },
+        {
+          "@type": "Thing",
+          "name": "Backpacking",
+          "sameAs": "https://en.wikipedia.org/wiki/Backpacking_(travel)"
+        }
+      ],
+      "mentions": [
+        {
+          "@id": "https://www.backpackersbible.com/spain/en/hostels/aragon#map"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/aragon#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.backpackersbible.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Backpacking Spain",
+          "item": "https://www.backpackersbible.com/spain/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Aragón Hostels",
+          "item": "https://www.backpackersbible.com/spain/en/hostels/aragon"
+        }
+      ]
+    },
+    {
+      "@type": "Map",
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/aragon#map",
+      "name": "Aragón Backpacker Hostel Map",
+      "description": "Interactive map of the hostels and budget places to stay in Aragón with one-tap filters.",
+      "mapType": "https://schema.org/VenueMap",
+      "url": "https://www.backpackersbible.com/spain/en/hostels/aragon#hostel-map",
+      "potentialAction": [
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Top Picks",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/aragon?filter=best_overall#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Best Value",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/aragon?filter=best_value#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Budget",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/aragon?filter=budget#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Flashpackers",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/aragon?filter=flashpacker#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Best Parties",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/aragon?filter=party#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Most Social",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/aragon?filter=social#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Peaceful",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/aragon?filter=peaceful#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Solo Women",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/aragon?filter=solo_women#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Digital Nomads",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/aragon?filter=digital_nomad#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Couples",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/aragon?filter=couples#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Cyclists",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/aragon?filter=cyclists#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Activities",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/aragon?filter=activities#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Accessible",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/aragon?filter=accessible#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Eco-Friendly",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/aragon?filter=eco#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Camping",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/aragon?filter=camping#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Near Airport",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/aragon?filter=near_airport#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Groups",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/aragon?filter=groups#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Surfers",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/aragon?filter=surfers#hostel-map"
+        }
+      ],
+      "about": {
+        "@type": "Thing",
+        "name": "Backpacker Hostels in Aragón"
+      },
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Aragón",
+        "sameAs": "https://en.wikipedia.org/wiki/Aragon"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/aragon#hostels",
+      "name": "Hostels and budget accommodation in Aragón",
+      "numberOfItems": 6,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/aragon#albergue-zaragoza-hostel",
+            "name": "Albergue Zaragoza Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. de los Predicadores, 70, Casco Antiguo",
+              "postalCode": "50003",
+              "addressLocality": "Zaragoza",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 976 28 20 43",
+            "url": "https://alberguezaragozahostel.top",
+            "description": "Albergue Zaragoza Hostel is in a medieval building in the old town of Zaragoza, at Calle de los Predicadores 70, a few steps from the River Ebro and close to the Basílica del Pilar, with the cathedral of La Seo and the Aljafería palace within easy walking distance. Rooms have air conditioning, heating and, according to its online listing, a balcony looking over the historic centre. Options range from a bed in a shared bunk room to double rooms and a family room for two adults and a child, all with shared bathrooms. There is a lift, a terrace, a picnic area, free Wi-Fi, lockers at no extra charge and a 24-hour reception that hands out free maps and tourist information. The basement is used for art exhibitions and film screenings. Review scores on its booking page are highest for staff, at 8.8 out of 10."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/aragon#albergue-hostel-las-escuelas",
+            "name": "Albergue-Hostel \"las Escuelas\"",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Ctra. Ambel, 4",
+              "postalCode": "50546",
+              "addressLocality": "Bulbuente",
+              "addressCountry": "ES",
+              "addressRegion": "Zaragoza"
+            },
+            "telephone": "+34 645 53 81 72",
+            "url": "https://www.alberguebulbuente.com",
+            "email": "alberguedebulbuente@gmail.com",
+            "description": "Albergue-Hostel Las Escuelas is the municipal albergue of Bulbuente, a small village in the Campo de Borja area of Zaragoza province, housed in the restored old village schoolhouse, a few minutes from the Moncayo Natural Park. It offers private rooms and, for groups, rental of the whole building: a double room for one or two people with a private bathroom and bed linen included, and rooms for families or groups of friends with a camping-style private bathroom. There is a large garden with a barbecue, private parking and heating and cooling. It has no kitchen: there is only a dining room with a fridge, microwave and coffee machine, and no crockery or utensils, so plan to eat out or bring your own. The albergue is a partner of the Garnacha Wine Route and can help with winery visits and restaurant suggestions. It also manages a rural house in the village, Cuenta la Leyenda, sleeping ten. It promotes itself for walking trips, group getaways and quiet breaks."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/aragon#grampy-boutique-hostal",
+            "name": "Grampy Boutique Hostal",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. de los Predicadores, 80, Casco Antiguo",
+              "postalCode": "50003",
+              "addressLocality": "Zaragoza",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 624 88 92 51",
+            "url": "https://www.hostalgrampy.com",
+            "description": "Grampy Boutique Hostal is a small guesthouse at Calle de los Predicadores 80 in El Gancho, the historic old quarter of Zaragoza, near the remains of the Roman wall. Its booking-site listings describe standard double rooms and family rooms with air conditioning, private bathrooms, free Wi-Fi, a TV, a wardrobe and a sofa, and its Airbnb listing says it aims to give guests calm and exclusivity. The Roman Forum and the Plaza de España are about 12 minutes away on foot and the Basílica del Pilar is roughly 800 metres away. Check-in is from 15:00 to 23:00, and after-hours check-in is not available. Check-out is at 11:00, the property is smoke-free, pets are not allowed and there is no parking. Guests rate it around 9 out of 10 on the booking sites that list it."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/aragon#hotel-avenida",
+            "name": "Hotel Avenida",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. de César Augusto, 55, Casco Antiguo",
+              "postalCode": "50003",
+              "addressLocality": "Zaragoza",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 976 43 93 00",
+            "url": "https://www.hotelavenida-zaragoza.com",
+            "email": "info@hotelavenida-zaragoza.com",
+            "description": "Hotel Avenida is a boutique hotel, not a hostel, at Avenida César Augusto 55 in the centre of Zaragoza, in a converted building from the late eighteenth century opposite the Central Market. It describes itself as an oasis of calm for lovers of nature, art and design, with rooms and lounges full of plants and craft pieces, and it calls itself an eco-friendly hotel. The Plaza de España is three minutes away on foot and the Basilica del Pilar and La Seo four, while the high-speed AVE station is four minutes by car, with Madrid or Barcelona about an hour and a quarter away, and a tram stops at the door. Rooms range from superior doubles to premium suites. Guests get free Wi-Fi, air conditioning and covered parking, and the building is accessible. It also hires out meeting rooms and event spaces. It suits travellers who want a comfortable private room in the old centre rather than a dorm bed."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/aragon#albergue-albarracin",
+            "name": "Albergue Albarracín",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Sta. María, 5",
+              "postalCode": "44100",
+              "addressLocality": "Albarracín",
+              "addressCountry": "ES",
+              "addressRegion": "Teruel"
+            },
+            "telephone": "+34 978 71 02 66",
+            "url": "https://www.alberguealbarracin.com",
+            "email": "alberguealbarracin@gmail.com",
+            "sameAs": [
+              "https://www.facebook.com/pages/Albergue-Rosa-Brios/827661370586608"
+            ],
+            "description": "Albergue Albarracín is a hostel in a manor house more than a hundred years old, hanging on a hillside in the historic centre of Albarracín, a medieval town of red-brown façades, cobbled lanes and old walls. Its site says the views from every window take in the town, the wall and the Guadalaviar river. It has 76 beds in rooms of four or six in bunks with shared bathrooms, and wood-beamed six-bed rooms look onto the walls and river. A simple dining room serves a free breakfast and prepares packed lunches, and half and full board are available for groups. Free Wi-Fi covers the building. The cathedral, the Moorish castle and the diocesan museum are one to two minutes on foot, the river walk three and the walls about six to seven, and the Rodeno pine landscape is a short trip away. It suits small groups, families, school trips and solo travellers, and the hostel stands on a quiet cobbled street 33 km from the A23."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/aragon#albergue-el-rio",
+            "name": "Albergue El Rio",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Cta. Postigo, 1",
+              "postalCode": "44370",
+              "addressLocality": "Cella",
+              "addressCountry": "ES",
+              "addressRegion": "Teruel"
+            },
+            "telephone": "+34 637 86 90 89",
+            "url": "https://www.alberguedelrio.es",
+            "email": "info@alberguedelrio.es",
+            "sameAs": [
+              "https://www.facebook.com/Albergue-El-R%C3%ADo-230821650659669/"
+            ],
+            "description": "Albergue El Río is a modern albergue in the town of Cella in Teruel province, on the route between Teruel and Albarracín and close to the Fuente de Cella spring, a local attraction. Its specialty is groups, such as camps, sports camps, school trips and pre-season training, though couples and friends are also welcome, and it offers both shared and private rooms, some with private bathrooms. It has a lift, heating, a terrace, an indoor kitchen with microwave, dishwasher, washing machine and freezer, free Wi-Fi, a projector for the common area, board games and a bike store with a pump and repair stand. It is adapted for guests with reduced mobility, accepts cards and Bizum, and does not allow pets. Breakfast can be served for groups of 20 or more. A supermarket, bars and a restaurant are within three minutes on foot, and the town has a health centre, a heated pool and padel courts. The albergue stamps the Camino del Cid pilgrim passport."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 </body>
 </html>

@@ -461,16 +461,87 @@
 
 <main id="main-content">
 
-<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description">
-  <iframe
-    class="sa-hostel-map-iframe"
-    title="Google My Maps: backpacker hostels in Spain"
-    src="https://www.google.com/maps/d/embed?mid=1YaoKUZVLHf7y1Rar6qoNWzn0Q6jRNV0&ehbc=2E312F&noprof=1&ll=39.23648,-6.07797&z=7"
-    width="640" height="480"
-    loading="lazy"
-    allowfullscreen>
-  </iframe>
+<!-- Map description -->
+<div class="map-description" id="hostel-map-description">
+  <span class="map-description__text"><strong>BACKPACKERS FINDER:</strong> The easiest way to choose the right backpacker hostel. Our interactive map lets you filter Extremadura backpackers by vibe, setup and value. Filters switch on once every hostel has been rated.</span>
+</div>
+
+  <!-- Map filter buttons -->
+
+<h2 class="sr-only">
+    Search Extremadura Backpacker Hostels
+</h2>
+
+<p class="sr-only">
+    Filter Extremadura hostels by party atmosphere, how social they are, peacefulness, solo female traveller friendliness, digital nomad suitability, couples, cyclists, activities, accessibility, eco-friendliness, camping, airport proximity, group suitability, budget and value for money. You can select more than one filter at once, and hostels must match all of them.
+</p>
+
+<div class="map-filter-bar">
+    <div class="map-filter-bar__scroll">
+        <div class="map-filter-bar__row" role="toolbar" aria-label="Filter hostels by category">
+
+            <a href="#" class="map-filter-btn map-filter-btn--active" role="button" style="background-color: #ffd400; color: #000000;" data-filter="all" aria-pressed="true" aria-label="Show all backpackers hostels in Extremadura">★ All Hostels</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #b01c22; opacity:0.5; cursor:not-allowed;" data-filter="best_overall" aria-pressed="false" aria-label="Show the top-rated backpackers hostels">Top Picks</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="best_value" aria-pressed="false" aria-label="Show backpackers hostels which deliver the best value for money">Best Value</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="budget" aria-pressed="false" aria-label="Show the budget backpackers hostels">Budget</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="flashpacker" aria-pressed="false" aria-label="Show upmarket flashpacker hostels">Flashpackers</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="party" aria-pressed="false" aria-label="Show backpackers hostels which have the best parties">Best Parties</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="social" aria-pressed="false" aria-label="Show the most sociable backpackers hostels for meeting other travellers">Most Social</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="peaceful" aria-pressed="false" aria-label="Show peaceful, quiet backpackers hostels">Peaceful</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="solo_women" aria-pressed="false" aria-label="Show backpackers hostels which are best for solo women travellers">Solo Women</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="digital_nomad" aria-pressed="false" aria-label="Show backpackers hostels which are best for digital nomads">Digital Nomads</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="couples" aria-pressed="false" aria-label="Show backpackers hostels which are best for couples">Couples</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="cyclists" aria-pressed="false" aria-label="Show backpackers hostels which are best for cyclists">Cyclists</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="activities" aria-pressed="false" aria-label="Show backpackers hostels with the best activities and tours">Activities</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="accessible" aria-pressed="false" aria-label="Show backpackers hostels with confirmed accessibility features">Accessible</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="eco" aria-pressed="false" aria-label="Show eco-friendly and certified sustainable backpackers hostels">Eco-Friendly</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="camping" aria-pressed="false" aria-label="Show hostels which offer camping as an accommodation option">Camping</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="near_airport" aria-pressed="false" aria-label="Show hostels close to an airport">Near Airport</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="groups" aria-pressed="false" aria-label="Show hostels which welcome groups of backpackers">Groups</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="surfers" aria-pressed="false" aria-label="Show backpackers hostels which are best for surfers">Surfers</a>
+        </div>
+    </div>
+</div>
+
+<!-- ░░ HOSTEL MAP ░░ -->
+<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description"
+  data-bb-map
+  data-region="extremadura"
+  data-country="Spain"
+  data-center="-6.128,39.211"
+  data-zoom="7.5"
+  data-mobile-zoom="6.8"
+  data-pitch="0"
+  data-bearing="0"
+  data-hostels-url="/spain/assets/data/hostels.json"
+  data-regions-url="/spain/assets/data/regions.json"
+  data-terrain=""
+  data-locate-bounds="-19,27,5,44.5"
+  data-threshold="7"
+  data-autoload="viewport">
+
+  <!-- Poster image: shows before the visitor loads the map -->
+  <picture class="sa-hostel-map-poster">
+    <img src="/spain/assets/images/map_extremadura.webp"
+         alt="Interactive backpacker hostel map of Extremadura showing hostels that can be filtered by travel style, budget, solo female travellers, digital nomads, cycling and more."
+         loading="eager"
+         fetchpriority="high"
+         decoding="async">
+  </picture>
+
+  <!-- Keyboard and screen-reader route to the map (the poster itself is tap-to-load) -->
+  <button type="button" class="sr-only" id="bb-map-load-btn">Load the interactive hostel map</button>
+
+  <!-- The map renders here (inline, no iframe) once the visitor taps the poster or a filter -->
+  <div id="bb-map-wrap" class="sa-hostel-map-iframe bb-map-iframe" hidden></div>
+
+  <div class="map-overlay-circle" aria-hidden="true">
+    Click the icons<br>for hostel info.
+  </div>
+
 </section>
+<!-- ░░ END HOSTEL MAP ░░ -->
+
 
 <!-- Horizontal regional menu -->
 
@@ -604,6 +675,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Paraje Piscina Natural, s/n, 10730 Casas del Monte, Cáceres</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="albergue-aurora-boreal" aria-label="Find Albergue Aurora Boreal on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34669610480" class="blue-link">+34 669 61 04 80</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://albergueturistico.com" target="_blank" class="blue-link" rel="nofollow">albergueturistico.com</a></p>
@@ -632,6 +705,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Fuente del Castaño, 89, 10160 Alcuéscar, Cáceres</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="albergue-de-alcuescar-via-de-la-plata" aria-label="Find Albergue de Alcuéscar (vía de La Plata) on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34620273352" class="blue-link">+34 620 27 33 52</a></p>
 
@@ -662,6 +737,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Plaza Eulogio Alonso, 1, 10617 El Torno, Cáceres</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="alberjerte" aria-label="Find Alberjerte on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34621255667" class="blue-link">+34 621 25 56 67</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.alberjerte.com" target="_blank" class="blue-link" rel="nofollow">alberjerte.com</a></p>
@@ -690,6 +767,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Cónsul Lucio Cornelio Balbo, 1A, Centro-Casco Antiguo, 10004 Cáceres</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-hernan-cortes" aria-label="Find Hostal Hernán Cortés on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34927243488" class="blue-link">+34 927 24 34 88</a></p>
 
@@ -720,6 +799,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Entrada El Lago, EX-203, Km. 35, 10430 Cuacos de Yuste, Cáceres</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostel-el-lago-caceres" aria-label="Find Hostel El Lago, Caceres on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34610867180" class="blue-link">+34 610 86 71 80</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://hostelellagocaceres.com" target="_blank" class="blue-link" rel="nofollow">hostelellagocaceres.com</a></p>
@@ -749,6 +830,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Av. Reina Sofia, 9, 06800 Mérida, Badajoz</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-anas" aria-label="Find Hostal Anas on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34924311113" class="blue-link">+34 924 31 11 13</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.hostalanas.com" target="_blank" class="blue-link" rel="nofollow">hostalanas.com</a></p>
@@ -777,6 +860,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Calle del, C. Comendador Arias Pérez, 12, 06670 Herrera del Duque, Badajoz</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-carlos-i" aria-label="Find Hostal Carlos I on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34924650871" class="blue-link">+34 924 65 08 71</a></p>
 
@@ -1197,6 +1282,8 @@ window.BB_TIPS = [
 
     <!-- Mobile menu end -->
 
+<script src="/assets/js/bb-map-loader.js?v=6" defer></script>
+
 <script src="/js/script-2.js?v=4" defer></script>
 
 <script src="/js/attribution-toggle.js?v=1" defer></script>
@@ -1215,6 +1302,361 @@ class="statcounter"
 src="https://c.statcounter.com/13225228/0/687dc53c/1/"
 alt="Web Analytics"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.backpackersbible.com/#organization",
+      "name": "BackpackersBible.com",
+      "url": "https://www.backpackersbible.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.backpackersbible.com/assets/backpackers_bible_logo_250x250.png",
+        "width": 250,
+        "height": 250
+      },
+      "description": "Independent backpacker guides to destinations worldwide with direct hostel contacts, safety information, maps, and honest write-ups."
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw",
+      "name": "Geoff Louw",
+      "url": "https://www.backpackersbible.com/misc/about-backpackers-bible",
+      "worksFor": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.backpackersbible.com/#website",
+      "url": "https://www.backpackersbible.com/",
+      "name": "BackpackersBible.com",
+      "publisher": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": [
+        "WebPage",
+        "CollectionPage"
+      ],
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/extremadura#webpage",
+      "url": "https://www.backpackersbible.com/spain/en/hostels/extremadura",
+      "name": "Backpacking Extremadura | Hostel Guide",
+      "headline": "Budget Accommodation In Extremadura",
+      "description": "Directory of 7 hostels and budget places to stay in Extremadura, with direct contact details, an interactive map and filters.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://www.backpackersbible.com/#website"
+      },
+      "publisher": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      },
+      "author": {
+        "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw"
+      },
+      "dateModified": "2026-11-21",
+      "mainEntity": {
+        "@id": "https://www.backpackersbible.com/spain/en/hostels/extremadura#hostels"
+      },
+      "about": [
+        {
+          "@type": "Place",
+          "name": "Extremadura",
+          "sameAs": "https://en.wikipedia.org/wiki/Extremadura"
+        },
+        {
+          "@type": "Thing",
+          "name": "Backpacking",
+          "sameAs": "https://en.wikipedia.org/wiki/Backpacking_(travel)"
+        }
+      ],
+      "mentions": [
+        {
+          "@id": "https://www.backpackersbible.com/spain/en/hostels/extremadura#map"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/extremadura#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.backpackersbible.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Backpacking Spain",
+          "item": "https://www.backpackersbible.com/spain/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Extremadura Hostels",
+          "item": "https://www.backpackersbible.com/spain/en/hostels/extremadura"
+        }
+      ]
+    },
+    {
+      "@type": "Map",
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/extremadura#map",
+      "name": "Extremadura Backpacker Hostel Map",
+      "description": "Interactive map of the hostels and budget places to stay in Extremadura with one-tap filters.",
+      "mapType": "https://schema.org/VenueMap",
+      "url": "https://www.backpackersbible.com/spain/en/hostels/extremadura#hostel-map",
+      "potentialAction": [
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Top Picks",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/extremadura?filter=best_overall#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Best Value",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/extremadura?filter=best_value#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Budget",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/extremadura?filter=budget#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Flashpackers",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/extremadura?filter=flashpacker#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Best Parties",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/extremadura?filter=party#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Most Social",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/extremadura?filter=social#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Peaceful",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/extremadura?filter=peaceful#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Solo Women",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/extremadura?filter=solo_women#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Digital Nomads",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/extremadura?filter=digital_nomad#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Couples",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/extremadura?filter=couples#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Cyclists",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/extremadura?filter=cyclists#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Activities",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/extremadura?filter=activities#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Accessible",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/extremadura?filter=accessible#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Eco-Friendly",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/extremadura?filter=eco#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Camping",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/extremadura?filter=camping#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Near Airport",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/extremadura?filter=near_airport#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Groups",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/extremadura?filter=groups#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Surfers",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/extremadura?filter=surfers#hostel-map"
+        }
+      ],
+      "about": {
+        "@type": "Thing",
+        "name": "Backpacker Hostels in Extremadura"
+      },
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Extremadura",
+        "sameAs": "https://en.wikipedia.org/wiki/Extremadura"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/extremadura#hostels",
+      "name": "Hostels and budget accommodation in Extremadura",
+      "numberOfItems": 7,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/extremadura#albergue-aurora-boreal",
+            "name": "Albergue Aurora Boreal",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Paraje Piscina Natural, s/n",
+              "postalCode": "10730",
+              "addressLocality": "Casas del Monte",
+              "addressCountry": "ES",
+              "addressRegion": "Cáceres"
+            },
+            "telephone": "+34 669 61 04 80",
+            "url": "https://albergueturistico.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/extremadura#albergue-de-alcuescar-via-de-la-plata",
+            "name": "Albergue de Alcuéscar (vía de La Plata)",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Fuente del Castaño, 89",
+              "postalCode": "10160",
+              "addressLocality": "Alcuéscar",
+              "addressCountry": "ES",
+              "addressRegion": "Cáceres"
+            },
+            "telephone": "+34 620 27 33 52",
+            "url": "https://alberguepampejo.top"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/extremadura#alberjerte",
+            "name": "Alberjerte",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Plaza Eulogio Alonso, 1",
+              "postalCode": "10617",
+              "addressLocality": "El Torno",
+              "addressCountry": "ES",
+              "addressRegion": "Cáceres"
+            },
+            "telephone": "+34 621 25 56 67",
+            "url": "https://www.alberjerte.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/extremadura#hostal-hernan-cortes",
+            "name": "Hostal Hernán Cortés",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Cónsul Lucio Cornelio Balbo, 1A, Centro-Casco Antiguo",
+              "postalCode": "10004",
+              "addressLocality": "Cáceres",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 927 24 34 88",
+            "url": "https://hostalhernancortes.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/extremadura#hostel-el-lago-caceres",
+            "name": "Hostel El Lago, Caceres",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Entrada El Lago, EX-203, Km. 35",
+              "postalCode": "10430",
+              "addressLocality": "Cuacos de Yuste",
+              "addressCountry": "ES",
+              "addressRegion": "Cáceres"
+            },
+            "telephone": "+34 610 86 71 80",
+            "url": "https://hostelellagocaceres.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/extremadura#hostal-anas",
+            "name": "Hostal Anas",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. Reina Sofia, 9",
+              "postalCode": "06800",
+              "addressLocality": "Mérida",
+              "addressCountry": "ES",
+              "addressRegion": "Badajoz"
+            },
+            "telephone": "+34 924 31 11 13",
+            "url": "https://www.hostalanas.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/extremadura#hostal-carlos-i",
+            "name": "Hostal Carlos I",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Calle del, C. Comendador Arias Pérez, 12",
+              "postalCode": "06670",
+              "addressLocality": "Herrera del Duque",
+              "addressCountry": "ES",
+              "addressRegion": "Badajoz"
+            },
+            "telephone": "+34 924 65 08 71",
+            "url": "https://restaurantecateringcarlos.com"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 </body>
 </html>

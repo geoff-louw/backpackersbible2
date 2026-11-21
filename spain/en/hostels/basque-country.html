@@ -459,16 +459,87 @@
 
 <main id="main-content">
 
-<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description">
-  <iframe
-    class="sa-hostel-map-iframe"
-    title="Google My Maps: backpacker hostels in Spain"
-    src="https://www.google.com/maps/d/embed?mid=1YaoKUZVLHf7y1Rar6qoNWzn0Q6jRNV0&ehbc=2E312F&noprof=1&ll=43.09687,-2.60012&z=8"
-    width="640" height="480"
-    loading="lazy"
-    allowfullscreen>
-  </iframe>
+<!-- Map description -->
+<div class="map-description" id="hostel-map-description">
+  <span class="map-description__text"><strong>BACKPACKERS FINDER:</strong> The easiest way to choose the right backpacker hostel. Our interactive map lets you filter the Basque Country backpackers by vibe, setup and value. Filters switch on once every hostel has been rated.</span>
+</div>
+
+  <!-- Map filter buttons -->
+
+<h2 class="sr-only">
+    Search the Basque Country Backpacker Hostels
+</h2>
+
+<p class="sr-only">
+    Filter the Basque Country hostels by party atmosphere, how social they are, peacefulness, solo female traveller friendliness, digital nomad suitability, couples, cyclists, activities, accessibility, eco-friendliness, camping, airport proximity, group suitability, budget and value for money. You can select more than one filter at once, and hostels must match all of them.
+</p>
+
+<div class="map-filter-bar">
+    <div class="map-filter-bar__scroll">
+        <div class="map-filter-bar__row" role="toolbar" aria-label="Filter hostels by category">
+
+            <a href="#" class="map-filter-btn map-filter-btn--active" role="button" style="background-color: #ffd400; color: #000000;" data-filter="all" aria-pressed="true" aria-label="Show all backpackers hostels in the Basque Country">★ All Hostels</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #b01c22; opacity:0.5; cursor:not-allowed;" data-filter="best_overall" aria-pressed="false" aria-label="Show the top-rated backpackers hostels">Top Picks</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="best_value" aria-pressed="false" aria-label="Show backpackers hostels which deliver the best value for money">Best Value</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="budget" aria-pressed="false" aria-label="Show the budget backpackers hostels">Budget</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="flashpacker" aria-pressed="false" aria-label="Show upmarket flashpacker hostels">Flashpackers</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="party" aria-pressed="false" aria-label="Show backpackers hostels which have the best parties">Best Parties</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="social" aria-pressed="false" aria-label="Show the most sociable backpackers hostels for meeting other travellers">Most Social</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="peaceful" aria-pressed="false" aria-label="Show peaceful, quiet backpackers hostels">Peaceful</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="solo_women" aria-pressed="false" aria-label="Show backpackers hostels which are best for solo women travellers">Solo Women</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="digital_nomad" aria-pressed="false" aria-label="Show backpackers hostels which are best for digital nomads">Digital Nomads</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="couples" aria-pressed="false" aria-label="Show backpackers hostels which are best for couples">Couples</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="cyclists" aria-pressed="false" aria-label="Show backpackers hostels which are best for cyclists">Cyclists</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="activities" aria-pressed="false" aria-label="Show backpackers hostels with the best activities and tours">Activities</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="accessible" aria-pressed="false" aria-label="Show backpackers hostels with confirmed accessibility features">Accessible</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="eco" aria-pressed="false" aria-label="Show eco-friendly and certified sustainable backpackers hostels">Eco-Friendly</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="camping" aria-pressed="false" aria-label="Show hostels which offer camping as an accommodation option">Camping</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="near_airport" aria-pressed="false" aria-label="Show hostels close to an airport">Near Airport</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="groups" aria-pressed="false" aria-label="Show hostels which welcome groups of backpackers">Groups</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="surfers" aria-pressed="false" aria-label="Show backpackers hostels which are best for surfers">Surfers</a>
+        </div>
+    </div>
+</div>
+
+<!-- ░░ HOSTEL MAP ░░ -->
+<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description"
+  data-bb-map
+  data-region="basque-country"
+  data-country="Spain"
+  data-center="-2.588,43.04"
+  data-zoom="8.4"
+  data-mobile-zoom="7.7"
+  data-pitch="0"
+  data-bearing="0"
+  data-hostels-url="/spain/assets/data/hostels.json"
+  data-regions-url="/spain/assets/data/regions.json"
+  data-terrain=""
+  data-locate-bounds="-19,27,5,44.5"
+  data-threshold="7"
+  data-autoload="viewport">
+
+  <!-- Poster image: shows before the visitor loads the map -->
+  <picture class="sa-hostel-map-poster">
+    <img src="/spain/assets/images/map_basque_country.webp"
+         alt="Interactive backpacker hostel map of the Basque Country showing hostels that can be filtered by travel style, budget, solo female travellers, digital nomads, cycling and more."
+         loading="eager"
+         fetchpriority="high"
+         decoding="async">
+  </picture>
+
+  <!-- Keyboard and screen-reader route to the map (the poster itself is tap-to-load) -->
+  <button type="button" class="sr-only" id="bb-map-load-btn">Load the interactive hostel map</button>
+
+  <!-- The map renders here (inline, no iframe) once the visitor taps the poster or a filter -->
+  <div id="bb-map-wrap" class="sa-hostel-map-iframe bb-map-iframe" hidden></div>
+
+  <div class="map-overlay-circle" aria-hidden="true">
+    Click the icons<br>for hostel info.
+  </div>
+
 </section>
+<!-- ░░ END HOSTEL MAP ░░ -->
+
 
 <!-- Horizontal regional menu -->
 
@@ -645,6 +716,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Manterola Kalea, 15, 20006 Donostia / San Sebastián, Gipuzkoa</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="a-room-in-the-city-hostel-san-sebastian" aria-label="Find A Room in The City – Hostel San Sebastian on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34943429589" class="blue-link">+34 943 42 95 89</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.aroominthecity.eu" target="_blank" class="blue-link" rel="nofollow">aroominthecity.eu</a></p>
@@ -683,6 +756,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Cam. la Hipica, 8, bajo, 20014 Donostia / San Sebastián, Guipúzcoa</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="balea-hostel" aria-label="Find Balea Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34624715045" class="blue-link">+34 624 71 50 45</a></p>
 
             <p><strong>GOOGLE RATING:</strong> 3.9 out of 5 stars</p>
@@ -710,6 +785,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Alameda del Blvd., 26, 1 Izquierda, 20003 Donostia / San Sebastián, Guipúzcoa</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="belle-epoque" aria-label="Find Belle Époque on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34647355455" class="blue-link">+34 647 35 54 55</a></p>
 
@@ -749,6 +826,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Nafarroa Kalea, 37A, 20800 Zarautz, Gipuzkoa</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="blai-blai-hostel" aria-label="Find Blai Blai Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34688755026" class="blue-link">+34 688 75 50 26</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://blaiblai.com" target="_blank" class="blue-link" rel="nofollow">blaiblai.com</a></p>
@@ -784,6 +863,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Fermin Calbeton Kalea, 5, 20003 Donostia / San Sebastián, Gipuzkoa</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="bretxa-pentsioa" aria-label="Find Bretxa Pentsioa on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34943430470" class="blue-link">+34 943 43 04 70</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.pensionbretxa.com" target="_blank" class="blue-link" rel="nofollow">pensionbretxa.com</a></p>
@@ -805,6 +886,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Hernani Bidea, 25, 20160 Lasarte, Gipuzkoa</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="casa-rural-la-palmera-landetxea" aria-label="Find Casa Rural La Palmera – Landetxea on the map">Find on map ›</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://lapalmeracasarural.eus" target="_blank" class="blue-link" rel="nofollow">lapalmeracasarural.eus</a></p>
 
@@ -841,6 +924,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Heriz Pasealekua, 38, 20008 Donostia / San Sebastián, Gipuzkoa</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="cats-hostel-san-sebastian" aria-label="Find Cats Hostel San Sebastian on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34943061662" class="blue-link">+34 943 06 16 62</a></p>
 
@@ -880,6 +965,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Arrasate K., 3, 20005 Donostia / San Sebastián, Gipuzkoa</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="colo-colo-hostel-san-sebastian" aria-label="Find Colo Colo Hostel San Sebastián on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34638846839" class="blue-link">+34 638 84 68 39</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.colocolo.com" target="_blank" class="blue-link" rel="nofollow">colocolo.com</a></p>
@@ -915,6 +1002,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> San Martin Kalea, 2, 20005 Donostia / San Sebastián, Gipuzkoa</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="downtown-river-hostel" aria-label="Find Downtown River Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34943563466" class="blue-link">+34 943 56 34 66</a></p>
 
@@ -952,6 +1041,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> 20003 Donostia / San Sebastián, Gipuzkoa</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="gurtxu-rooms-by-sun-sebastian" aria-label="Find Gurtxu Rooms By Sun Sebastián on the map">Find on map ›</a></p>
+
             <p><strong>WEBSITE:</strong> <a href="https://www.bluepillow.com" target="_blank" class="blue-link" rel="nofollow">bluepillow.com</a></p>
 
         </div>
@@ -977,6 +1068,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Fermin Calbeton Kalea, 23, 20003 Donostia / San Sebastián, Gipuzkoa</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostel-san-fermin" aria-label="Find Hostel San Fermín on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34943425491" class="blue-link">+34 943 42 54 91</a></p>
 
@@ -1005,6 +1098,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Calle Carquizano, Karkizano Kalea, 5, Bajo, 20001 Donostia / San Sebastián, Guipúzcoa</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="koba-hostel" aria-label="Find Koba Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34943165817" class="blue-link">+34 943 16 58 17</a></p>
 
@@ -1046,6 +1141,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Berio Pasealekua, 9, 20018 Donostia / San Sebastián, Gipuzkoa</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="manuel-agud-querol-egoitza" aria-label="Find Manuel Agud Querol Egoitza on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34943563000" class="blue-link">+34 943 56 30 00</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://resa.es" target="_blank" class="blue-link" rel="nofollow">resa.es</a></p>
@@ -1074,6 +1171,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. 31 de Agosto, 16, Planta 1, 20003 Donostia / San Sebastián, Guipúzcoa</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="off-beat-guesthouse" aria-label="Find Off Beat Guesthouse on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34647355455" class="blue-link">+34 647 35 54 55</a></p>
 
@@ -1115,6 +1214,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Zabaleta Kalea, 40, 20002 Donostia / San Sebastián, Gipuzkoa</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="pension-aia" aria-label="Find Pension Aia on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34943270011" class="blue-link">+34 943 27 00 11</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.pensionaia.com" target="_blank" class="blue-link" rel="nofollow">pensionaia.com</a></p>
@@ -1151,6 +1252,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Narrika Kalea, 21, 20003 Donostia / San Sebastián, Gipuzkoa</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="pension-larrea" aria-label="Find Pension Larrea on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34943422694" class="blue-link">+34 943 42 26 94</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.pensionlarrea.es" target="_blank" class="blue-link" rel="nofollow">pensionlarrea.es</a></p>
@@ -1180,6 +1283,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Portu Kalea, 6, 20003 Donostia / San Sebastián, Gipuzkoa</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="pension-miramar" aria-label="Find Pensión Miramar on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34660239334" class="blue-link">+34 660 23 93 34</a></p>
 
@@ -1219,6 +1324,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Berio Pasealekua, 9, 20018 Donostia / San Sebastián, Gipuzkoa</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="residencia-universitaria-resa-manuel-agud-querol" aria-label="Find Residencia Universitaria RESA Manuel Agud Querol on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34943563000" class="blue-link">+34 943 56 30 00</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://resa.es" target="_blank" class="blue-link" rel="nofollow">resa.es</a></p>
@@ -1248,6 +1355,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Arrutiegia Auzoa, 26, 20809, Gipuzkoa</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="san-sebastian-surf-camp" aria-label="Find San Sebastian Surf Camp on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34661713683" class="blue-link">+34 661 71 36 83</a></p>
 
@@ -1279,6 +1388,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Zabaleta Kalea, 32, 20002 Donostia / San Sebastián, Gipuzkoa</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="surfing-etxea-surf-hostel-san-sebastian" aria-label="Find Surfing Etxea Surf Hostel San Sebastián on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34619199530" class="blue-link">+34 619 19 95 30</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.surfingetxea.com" target="_blank" class="blue-link" rel="nofollow">surfingetxea.com</a></p>
@@ -1308,6 +1419,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Uba Bidea, 43, 20014 Donostia / San Sebastián, Gipuzkoa</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="uba-hostel" aria-label="Find Uba Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34943047277" class="blue-link">+34 943 04 72 77</a></p>
 
@@ -1349,6 +1462,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Ulia Pasealekua, 297, 20013 Donostia / San Sebastián, Gipuzkoa</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="ulia-youth-hostel" aria-label="Find Ulia Youth Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34943483480" class="blue-link">+34 943 48 34 80</a></p>
 
             <p><strong>GOOGLE RATING:</strong> 4.3 out of 5 stars</p>
@@ -1375,6 +1490,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Nafarroa Kalea, 10, 20800 Zarautz, Gipuzkoa</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="zarautz-surf-house" aria-label="Find Zarautz Surf House on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34603555347" class="blue-link">+34 603 55 53 47</a></p>
 
@@ -1412,6 +1529,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Ugarteburu Jose Maria Kalea, 2, 48007 Bilbao, Bizkaia</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="all-iron-hostel" aria-label="Find All Iron Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34944036534" class="blue-link">+34 944 03 65 34</a></p>
 
@@ -1451,6 +1570,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Morgan Kalea, 4-6, Deusto, 48014 Bilbao, Vizcaya</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="bilbao-akelarre-hostel" aria-label="Find Bilbao Akelarre Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34944057713" class="blue-link">+34 944 05 77 13</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.bilbaoakelarrehostel.com" target="_blank" class="blue-link" rel="nofollow">bilbaoakelarrehostel.com</a></p>
@@ -1479,6 +1600,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carretera Basurto-Castrejana, 70, Carr. Basurtu Kastrexana, 70, Basurto-Zorroza, 48002 Bilbao, Vizcaya</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="bilbao-hostel" aria-label="Find Bilbao Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34944270054" class="blue-link">+34 944 27 00 54</a></p>
 
@@ -1517,6 +1640,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> bajo, Nicolás Alcorta Kalea, 2, Errekalde, 48003 Bilbao, Bizkaia</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="bilbao-metropolitan-hostel-by-bossh-hotels" aria-label="Find Bilbao Metropolitan Hostel By Bossh! Hotels on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34688732245" class="blue-link">+34 688 73 22 45</a></p>
 
@@ -1558,6 +1683,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Luis Briñas K., 15, Basurtu-Zorrotza, 48013 Bilbao, Bizkaia</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="bypillow-san-mames" aria-label="Find Bypillow San Mamés on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34944417900" class="blue-link">+34 944 41 79 00</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.bypillow.com" target="_blank" class="blue-link" rel="nofollow">bypillow.com</a></p>
@@ -1594,6 +1721,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Barrio Arce, 1, 48191 Arenao, Bizkaia</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="caserio-areitz-soroa" aria-label="Find Caserío Areitz Soroa on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34685790558" class="blue-link">+34 685 79 05 58</a></p>
 
@@ -1632,6 +1761,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Bruno Mauricio Zabala Kalea, 15, Ibaiondo, 48003 Bilbao, Vizcaya</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="ekoos-hostel-bilbao" aria-label="Find Ekoos Hostel Bilbao on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34944147412" class="blue-link">+34 944 14 74 12</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://app.mews.com" target="_blank" class="blue-link" rel="nofollow">app.mews.com</a></p>
@@ -1662,6 +1793,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Artekale, 15, Ibaiondo, 48005 Bilbao, Bizkaia</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostel-quartier-bilbao" aria-label="Find Hostel Quartier Bilbao on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34944978800" class="blue-link">+34 944 97 88 00</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://quartierbilbao.com" target="_blank" class="blue-link" rel="nofollow">quartierbilbao.com</a></p>
@@ -1691,6 +1824,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Górdoniz 66, Errekalde (Plaza interior trasera-entrada por, Altube Kalea, 2, Errekalde, 48002 Bilbao, Bizkaia</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="lamia-bbk-women-hostel" aria-label="Find Lamia Bbk Women Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34946620738" class="blue-link">+34 946 62 07 38</a></p>
 
@@ -1729,6 +1864,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Plaza Biribila, 3, Abando, 48001 Bilbao, Bizkaia</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="latroupe-la-granja" aria-label="Find Latroupe La Granja on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34944690044" class="blue-link">+34 944 69 00 44</a></p>
 
@@ -1770,6 +1907,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Martxoak 8 kalea, casa 4, 48600 Ugeraga, Bizkaia</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="moana-eco-surf-house" aria-label="Find Moana Eco Surf House on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34944714724" class="blue-link">+34 944 71 47 24</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://moanasurfhouse.com" target="_blank" class="blue-link" rel="nofollow">moanasurfhouse.com</a></p>
@@ -1806,6 +1945,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C, Areiltza Doktorearen Zumarkalea, 58, Bajo, Abando, 48010 Bilbao, Bizkaia</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="optimi-rooms-bilbao" aria-label="Find Optimi Rooms Bilbao on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34627113859" class="blue-link">+34 627 11 38 59</a></p>
 
@@ -1845,6 +1986,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Heros Kalea, 7, Abando, 48009 Bilbao, Bizkaia</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="poshtel-bilbao" aria-label="Find Poshtel Bilbao on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34944256586" class="blue-link">+34 944 25 65 86</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.poshtelbilbao.com" target="_blank" class="blue-link" rel="nofollow">poshtelbilbao.com</a></p>
@@ -1879,6 +2022,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Pl. Garellano, 4, Basurto-Zorroza, 48013 Bilbao, Vizcaya</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="residencia-universitaria-micampus-bilbao-san-mames" aria-label="Find Residencia Universitaria Micampus Bilbao San Mamés on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34946477057" class="blue-link">+34 946 47 70 57</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://micampusresidencias.com" target="_blank" class="blue-link" rel="nofollow">micampusresidencias.com</a></p>
@@ -1900,6 +2045,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Gorte Kalea, 38, Ibaiondo, 48003 Bilbao, Bizkaia</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="residencia-universitaria-resa-blas-de-otero" aria-label="Find Residencia Universitaria RESA Blas de Otero on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34944343200" class="blue-link">+34 944 34 32 00</a></p>
 
@@ -1931,6 +2078,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Termibus, Gurtubay Kalea, 1, Basurtu-Zorrotza, 48013 Bilbao, Bizkaia</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="residencia-universitaria-resa-san-mames" aria-label="Find Residencia Universitaria RESA San Mamés on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34944343428" class="blue-link">+34 944 34 34 28</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://resa.es" target="_blank" class="blue-link" rel="nofollow">resa.es</a></p>
@@ -1961,6 +2110,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Hedegile Kalea, 131, 01001 Vitoria-Gasteiz, Araba</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="aptc-etxea" aria-label="Find Aptc Etxea on the map">Find on map ›</a></p>
+
             <p><strong>WEBSITE:</strong> <a href="https://aptcetxea.com" target="_blank" class="blue-link" rel="nofollow">aptcetxea.com</a></p>
 
             <p><strong>GOOGLE RATING:</strong> 4.5 out of 5 stars</p>
@@ -1986,6 +2137,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Eduardo Dato Kalea, 28, 01005 Vitoria-Gasteiz, Araba</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hotel-dato" aria-label="Find Hotel Dato on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34945147230" class="blue-link">+34 945 14 72 30</a></p>
 
@@ -2413,6 +2566,8 @@ window.BB_TIPS = [
 
     <!-- Mobile menu end -->
 
+<script src="/assets/js/bb-map-loader.js?v=6" defer></script>
+
 <script src="/js/script-2.js?v=4" defer></script>
 
 <script src="/js/attribution-toggle.js?v=1" defer></script>
@@ -2431,6 +2586,1093 @@ class="statcounter"
 src="https://c.statcounter.com/13225228/0/687dc53c/1/"
 alt="Web Analytics"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.backpackersbible.com/#organization",
+      "name": "BackpackersBible.com",
+      "url": "https://www.backpackersbible.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.backpackersbible.com/assets/backpackers_bible_logo_250x250.png",
+        "width": 250,
+        "height": 250
+      },
+      "description": "Independent backpacker guides to destinations worldwide with direct hostel contacts, safety information, maps, and honest write-ups."
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw",
+      "name": "Geoff Louw",
+      "url": "https://www.backpackersbible.com/misc/about-backpackers-bible",
+      "worksFor": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.backpackersbible.com/#website",
+      "url": "https://www.backpackersbible.com/",
+      "name": "BackpackersBible.com",
+      "publisher": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": [
+        "WebPage",
+        "CollectionPage"
+      ],
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#webpage",
+      "url": "https://www.backpackersbible.com/spain/en/hostels/basque-country",
+      "name": "Backpacking Basque Country | Hostel Guide",
+      "headline": "Budget Accommodation In the Basque Country",
+      "description": "Directory of 41 hostels and budget places to stay in the Basque Country, with direct contact details, an interactive map and filters.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://www.backpackersbible.com/#website"
+      },
+      "publisher": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      },
+      "author": {
+        "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw"
+      },
+      "dateModified": "2026-11-21",
+      "mainEntity": {
+        "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#hostels"
+      },
+      "about": [
+        {
+          "@type": "Place",
+          "name": "the Basque Country",
+          "sameAs": "https://en.wikipedia.org/wiki/Basque_Country_(autonomous_community)"
+        },
+        {
+          "@type": "Thing",
+          "name": "Backpacking",
+          "sameAs": "https://en.wikipedia.org/wiki/Backpacking_(travel)"
+        }
+      ],
+      "mentions": [
+        {
+          "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#map"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.backpackersbible.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Backpacking Spain",
+          "item": "https://www.backpackersbible.com/spain/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "the Basque Country Hostels",
+          "item": "https://www.backpackersbible.com/spain/en/hostels/basque-country"
+        }
+      ]
+    },
+    {
+      "@type": "Map",
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#map",
+      "name": "the Basque Country Backpacker Hostel Map",
+      "description": "Interactive map of the hostels and budget places to stay in the Basque Country with one-tap filters.",
+      "mapType": "https://schema.org/VenueMap",
+      "url": "https://www.backpackersbible.com/spain/en/hostels/basque-country#hostel-map",
+      "potentialAction": [
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Top Picks",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/basque-country?filter=best_overall#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Best Value",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/basque-country?filter=best_value#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Budget",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/basque-country?filter=budget#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Flashpackers",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/basque-country?filter=flashpacker#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Best Parties",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/basque-country?filter=party#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Most Social",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/basque-country?filter=social#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Peaceful",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/basque-country?filter=peaceful#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Solo Women",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/basque-country?filter=solo_women#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Digital Nomads",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/basque-country?filter=digital_nomad#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Couples",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/basque-country?filter=couples#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Cyclists",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/basque-country?filter=cyclists#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Activities",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/basque-country?filter=activities#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Accessible",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/basque-country?filter=accessible#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Eco-Friendly",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/basque-country?filter=eco#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Camping",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/basque-country?filter=camping#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Near Airport",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/basque-country?filter=near_airport#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Groups",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/basque-country?filter=groups#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Surfers",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/basque-country?filter=surfers#hostel-map"
+        }
+      ],
+      "about": {
+        "@type": "Thing",
+        "name": "Backpacker Hostels in the Basque Country"
+      },
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "the Basque Country",
+        "sameAs": "https://en.wikipedia.org/wiki/Basque_Country_(autonomous_community)"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#hostels",
+      "name": "Hostels and budget accommodation in the Basque Country",
+      "numberOfItems": 41,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#a-room-in-the-city-hostel-san-sebastian",
+            "name": "A Room in The City – Hostel San Sebastian",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Manterola Kalea, 15",
+              "postalCode": "20006",
+              "addressLocality": "Donostia / San Sebastián",
+              "addressCountry": "ES",
+              "addressRegion": "Gipuzkoa"
+            },
+            "telephone": "+34 943 42 95 89",
+            "url": "https://www.aroominthecity.eu",
+            "email": "info@aroominthecity.eu",
+            "sameAs": [
+              "https://www.facebook.com/aroominthecity/"
+            ],
+            "description": "A Room in the City is a hostel in the very centre of San Sebastián (Donostia), with entrances on Easo Kalea 20 and Manterola Kalea 15. It offers private and shared rooms, and the hostel says its beds were specially designed for comfort. There are social areas where guests can relax and meet other travellers, and its own site pitches the city as a mix of surfing, local food, beach time and the Old Town. Groups are described as the hostel's speciality, so it takes bookings for large parties as well as individual travellers. It is a registered tourist business (CIE 2356) and promises the best price when you book on its own website. The site is available in English, Spanish, French and Basque. The Booking.com and Hostelworld listings have photos and guest reviews."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#balea-hostel",
+            "name": "Balea Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Cam. la Hipica, 8, bajo",
+              "postalCode": "20014",
+              "addressLocality": "Donostia / San Sebastián",
+              "addressCountry": "ES",
+              "addressRegion": "Guipúzcoa"
+            },
+            "telephone": "+34 624 71 50 45"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#belle-epoque",
+            "name": "Belle Époque",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Alameda del Blvd., 26, 1 Izquierda",
+              "postalCode": "20003",
+              "addressLocality": "Donostia / San Sebastián",
+              "addressCountry": "ES",
+              "addressRegion": "Guipúzcoa"
+            },
+            "telephone": "+34 647 35 54 55",
+            "url": "https://belleepoquedonostia.com",
+            "email": "reservas@holadonostia.com",
+            "description": "Belle Époque is a restored guesthouse on the first floor at Alameda del Boulevard 26, in central San Sebastián. A guest on Booking.com says it is close to the sea, the city centre, shops, bars and restaurants, so you can do everything on foot, and that the host is easy to reach. It has five rooms: two triples (a double and a single bed) with shared bathroom and no outside view, a triple with a balcony overlooking the Boulevard and its old bandstand, a double with a balcony closed in by coloured stained glass, and another double with a balcony and Boulevard view. The restoration used pastel tones, warm wooden floors and white walls. Phone and WhatsApp are answered from 09:00 to 20:00, and a night watchman takes calls and WhatsApp messages outside those hours. It is registered as a tourist guesthouse (HSS00672)."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#blai-blai-hostel",
+            "name": "Blai Blai Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Nafarroa Kalea, 37A",
+              "postalCode": "20800",
+              "addressLocality": "Zarautz",
+              "addressCountry": "ES",
+              "addressRegion": "Gipuzkoa"
+            },
+            "telephone": "+34 688 75 50 26",
+            "url": "https://blaiblai.com",
+            "description": "Blai Blai is a small family-run hostel in Zarautz, at Nafarroa 37A, with shared rooms about three minutes on foot from the beach. The owners say everyone is welcome, from young and not-so-young travellers to groups, couples, solo guests, pilgrims and surfers, and they talk up the chance for linguistic and cultural exchange between guests. Zarautz has a long beach known for surfing and sits between the ocean and the mountains, and the hostel's site recommends yoga, surf lessons and a mix of cultural, historical and food experiences nearby. The town has a motorway exit on the A-8 and a stop on the Bilbao to San Sebastián railway, with regular buses to the surrounding coast. Bookings can be made through its own site, Booking.com or Hostelworld, and a mobile number for reservations is on the site."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#bretxa-pentsioa",
+            "name": "Bretxa Pentsioa",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Fermin Calbeton Kalea, 5",
+              "postalCode": "20003",
+              "addressLocality": "Donostia / San Sebastián",
+              "addressCountry": "ES",
+              "addressRegion": "Gipuzkoa"
+            },
+            "telephone": "+34 943 43 04 70",
+            "url": "https://www.pensionbretxa.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#casa-rural-la-palmera-landetxea",
+            "name": "Casa Rural La Palmera – Landetxea",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Hernani Bidea, 25",
+              "postalCode": "20160",
+              "addressLocality": "Lasarte",
+              "addressCountry": "ES",
+              "addressRegion": "Gipuzkoa"
+            },
+            "url": "https://lapalmeracasarural.eus",
+            "email": "info@lapalmeracasarural.eus",
+            "description": "Casa Rural La Palmera is a country guesthouse at Hernani Bidea 25 in Lasarte-Oria, in the green belt around San Sebastián and about ten minutes from the city. It is not a hostel: it can be rented as a whole or room by room, and each room has its own en-suite bathroom, an extra-large bed, a mini fridge and a tea and coffee station. The house has more than 2,000 square metres of garden with fruit trees and its landmark palm tree, free Wi-Fi, smart TVs and a fully equipped kitchen for guests to cook in. A continental breakfast is available for an extra charge, pets are welcome on request for a fee, and there is free parking with one space per room. There is no 24-hour reception: check-in is online and rooms open with a code or by Bluetooth from your phone. Its tourist licence number is XSS00154."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#cats-hostel-san-sebastian",
+            "name": "Cats Hostel San Sebastian",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Heriz Pasealekua, 38",
+              "postalCode": "20008",
+              "addressLocality": "Donostia / San Sebastián",
+              "addressCountry": "ES",
+              "addressRegion": "Gipuzkoa"
+            },
+            "telephone": "+34 943 06 16 62",
+            "url": "https://catshostels.com",
+            "email": "catshostelssansebastian@gmail.com",
+            "sameAs": [
+              "https://www.facebook.com/CatsHostels/"
+            ],
+            "description": "Cats Hostel San Sebastián, formerly Koisi, is at Paseo Heriz 38, next to Ondarreta beach, and is one of four Cats hostels in Spain and Portugal. It has private and shared rooms, including female dormitories, with bunk beds and individual reading lights, plus a terrace, a bar and common areas with a kitchen and lounge. Guests praise clean bathrooms, friendly staff, a well-equipped kitchen and plenty of storage space. Check-in is from 15:00, check-out is at 11:00 and breakfast is served from 08:00 to 10:30. Pets are not allowed and under-18s cannot stay in shared rooms. There is no car park; the nearest is about a kilometre away and the streets around the hostel are a paid blue zone. The nearest metro and tram stop is Amara, about a ten-minute walk, and the hostel says it does not use WhatsApp to communicate with guests, so contact is by phone or email."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#colo-colo-hostel-san-sebastian",
+            "name": "Colo Colo Hostel San Sebastián",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Arrasate K., 3",
+              "postalCode": "20005",
+              "addressLocality": "Donostia / San Sebastián",
+              "addressCountry": "ES",
+              "addressRegion": "Gipuzkoa"
+            },
+            "telephone": "+34 638 84 68 39",
+            "url": "https://www.colocolo.com",
+            "email": "sansebastian@colocolo.com",
+            "description": "Colo Colo calls itself the Smart Hostel: a hostel with the privacy of a hotel, born in San Sebastián and now also in Valencia. The San Sebastián hostel is at Calle Arrasate 3, and its own site pitches the city's surf at Zurriola beach and the pintxos of the Old Town. Instead of dorm bunks it has self-contained sleeping pods called casitas, available as the standard Casita or the larger Gran Casita, equipped with tablets and fast Wi-Fi. A shared lounge gives guests somewhere to meet over coffee. The hostel promotes a local-minded stay, with partner offers at nearby businesses such as a surf school, a barre fitness studio and an art and concept store, and suggests a pintxos crawl through the Old Town. Its own site says stays start from around thirty euros a night, though prices change with season. It is registered as a tourist establishment (BSS00040) and takes bookings through its website or Booking.com and Hostelworld."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#downtown-river-hostel",
+            "name": "Downtown River Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "San Martin Kalea, 2",
+              "postalCode": "20005",
+              "addressLocality": "Donostia / San Sebastián",
+              "addressCountry": "ES",
+              "addressRegion": "Gipuzkoa"
+            },
+            "telephone": "+34 943 56 34 66",
+            "url": "https://www.downtownriverhostel.com",
+            "email": "downtownriverhostel@gmail.com",
+            "description": "Downtown River Hostel is at Calle San Martín 2 in the centre of San Sebastián, a few steps from the River Urumea and under five minutes on foot from the Old Town and La Concha beach. It offers shared rooms in a social, traveller-oriented atmosphere. Each guest is assigned a locker with a lock, there is a fully equipped kitchen for guests to use, and free luggage storage is available around the clock, handy before check-in or after check-out. Surfboards and wetsuits can be rented at the hostel, and Zurriola, the city's main surf beach, is a few minutes' walk away. Reception is open 24 hours from June to October; in autumn and winter the staff message guests the day before arrival to arrange check-in. The Atotxa railway station is about ten minutes on foot, and groups can enquire by email. The hostel says booking direct on its own site is cheaper than Booking.com or Hostelworld."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#gurtxu-rooms-by-sun-sebastian",
+            "name": "Gurtxu Rooms By Sun Sebastián",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "",
+              "postalCode": "20003",
+              "addressLocality": "Donostia / San Sebastián",
+              "addressCountry": "ES",
+              "addressRegion": "Gipuzkoa"
+            },
+            "url": "https://www.bluepillow.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#hostel-san-fermin",
+            "name": "Hostel San Fermín",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Fermin Calbeton Kalea, 23",
+              "postalCode": "20003",
+              "addressLocality": "Donostia / San Sebastián",
+              "addressCountry": "ES",
+              "addressRegion": "Gipuzkoa"
+            },
+            "telephone": "+34 943 42 54 91",
+            "url": "https://www.hostelculture.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#koba-hostel",
+            "name": "Koba Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Calle Carquizano, Karkizano Kalea, 5, Bajo",
+              "postalCode": "20001",
+              "addressLocality": "Donostia / San Sebastián",
+              "addressCountry": "ES",
+              "addressRegion": "Guipúzcoa"
+            },
+            "telephone": "+34 943 16 58 17",
+            "url": "https://www.kobahostel.com",
+            "email": "info@kobahostel.com",
+            "sameAs": [
+              "https://www.facebook.com/kobahostel/"
+            ],
+            "description": "Koba Hostel is a converted 1917 car workshop in Gros, the surf and food district of San Sebastián, at Calle Carquizano 5. The Zurriola beach is two minutes on foot, the Kursaal four, the train and bus stations eight and the Old Town ten. It has private rooms for two or three, shared rooms for six to ten with curtained bunks, an individual light and plug, a locker and a bathroom in the room, and family rooms for four or five. Every room has its own bathroom and heating and air conditioning, and breakfast is included. Guests also get Wi-Fi, a kitchen and dining room, a terrace, a lounge with a cinema corner, a store for surfboards and bikes and free luggage storage, while bikes, boards, wetsuits and towels can be rented. Reception is open 24 hours. The hostel holds Biosphere and EU Ecolabel sustainability certificates for 2024 and runs on renewable electricity."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 13,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#manuel-agud-querol-egoitza",
+            "name": "Manuel Agud Querol Egoitza",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Berio Pasealekua, 9",
+              "postalCode": "20018",
+              "addressLocality": "Donostia / San Sebastián",
+              "addressCountry": "ES",
+              "addressRegion": "Gipuzkoa"
+            },
+            "telephone": "+34 943 56 30 00",
+            "url": "https://resa.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 14,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#off-beat-guesthouse",
+            "name": "Off Beat Guesthouse",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. 31 de Agosto, 16, Planta 1",
+              "postalCode": "20003",
+              "addressLocality": "Donostia / San Sebastián",
+              "addressCountry": "ES",
+              "addressRegion": "Guipúzcoa"
+            },
+            "telephone": "+34 647 35 54 55",
+            "url": "https://www.offbeatguesthouse.com",
+            "email": "reservas@holadonostia.com",
+            "sameAs": [
+              "https://www.facebook.com/obgguesthouse"
+            ],
+            "description": "Off Beat Guesthouse is a small eco-minded guesthouse on the first floor at Calle 31 de Agosto 16, in the Old Town of San Sebastián, on what it calls the city's oldest street. It sells itself as original and unique, with up-cycled decoration, art projects and the slogan Sleep Conscious, and it plants one tree for every booking made on its own website. Guests on Booking.com praise the location a stone's throw from the pintxo bars and nightlife, the clean, decent-sized rooms with interesting decor, the kettle provided in the room and the friendly staff. The reception team offers tips such as joining the local pintxo contest and finding things to do in the city. Phone and WhatsApp are answered from 09:00 to 20:00. It is a registered tourist guesthouse (HSS00842) and takes bookings through its own site as well as Booking.com and Hostelworld."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 15,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#pension-aia",
+            "name": "Pension Aia",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Zabaleta Kalea, 40",
+              "postalCode": "20002",
+              "addressLocality": "Donostia / San Sebastián",
+              "addressCountry": "ES",
+              "addressRegion": "Gipuzkoa"
+            },
+            "telephone": "+34 943 27 00 11",
+            "url": "https://www.pensionaia.com",
+            "email": "info@pensionaia.com",
+            "sameAs": [
+              "https://www.facebook.com/PensionAia"
+            ],
+            "description": "Pensión Aia is a small guesthouse on the first floor at Calle Zabaleta 40 in Gros, the pedestrian-friendly district of San Sebastián that is also home to the Zurriola surf beach. Its site gives walking times of about five minutes to the Zurriola beach and the Kursaal congress centre, and about ten minutes to the Old Town and La Concha beach. Guests on its site describe a very clean, simply and elegantly decorated place with comfortable beds, a small kitchen where you can make breakfast and an attentive owner. The bars around the pension are known for pintxos, and Gros holds its Pintxo-Pote evening on Thursdays. Several shops nearby rent surfboards and wetsuits, and the owners also run the Apartamento Royal in the same district. It is a registered tourist guesthouse (HSS00713), and the site is available in Spanish, English, Basque and French."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 16,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#pension-larrea",
+            "name": "Pension Larrea",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Narrika Kalea, 21",
+              "postalCode": "20003",
+              "addressLocality": "Donostia / San Sebastián",
+              "addressCountry": "ES",
+              "addressRegion": "Gipuzkoa"
+            },
+            "telephone": "+34 943 42 26 94",
+            "url": "https://www.pensionlarrea.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 17,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#pension-miramar",
+            "name": "Pensión Miramar",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Portu Kalea, 6",
+              "postalCode": "20003",
+              "addressLocality": "Donostia / San Sebastián",
+              "addressCountry": "ES",
+              "addressRegion": "Gipuzkoa"
+            },
+            "telephone": "+34 660 23 93 34",
+            "url": "https://pensionmiramar.net",
+            "email": "info@pensionmiramar.net",
+            "description": "Pensión Miramar is a small guesthouse at Calle Puerto 6 in the Old Town of San Sebastián, surrounded by pintxo bars. It was reopened by new owners and has just four rooms, each with a private bathroom: Ondarreta (up to three guests, ensuite, with a street balcony), Concha (up to three, with a bay window and a private sitting room), Zurriola (up to five, the largest, with two adjoining rooms and a sofa bed) and Irla (a double with a private kitchen and a balcony over an inner courtyard). All rooms have daily cleaning, free Wi-Fi, heating, a smart TV, hair dryer, towels and toiletries, a minibar fridge and a capsule coffee machine. Its site gives walking times of two minutes to the port, five to La Concha beach, eight to the Kursaal and ten to Zurriola. Check-in is 16:00 to 23:00, check-out is before 11:00, pets and smoking are not allowed, and the whole house can be rented. Licence HSS00620."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 18,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#residencia-universitaria-resa-manuel-agud-querol",
+            "name": "Residencia Universitaria RESA Manuel Agud Querol",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Berio Pasealekua, 9",
+              "postalCode": "20018",
+              "addressLocality": "Donostia / San Sebastián",
+              "addressCountry": "ES",
+              "addressRegion": "Gipuzkoa"
+            },
+            "telephone": "+34 943 56 30 00",
+            "url": "https://resa.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 19,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#san-sebastian-surf-camp",
+            "name": "San Sebastian Surf Camp",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Arrutiegia Auzoa, 26, 20809, Gipuzkoa",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 661 71 36 83",
+            "url": "https://www.stoketravel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 20,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#surfing-etxea-surf-hostel-san-sebastian",
+            "name": "Surfing Etxea Surf Hostel San Sebastián",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Zabaleta Kalea, 32",
+              "postalCode": "20002",
+              "addressLocality": "Donostia / San Sebastián",
+              "addressCountry": "ES",
+              "addressRegion": "Gipuzkoa"
+            },
+            "telephone": "+34 619 19 95 30",
+            "url": "https://www.surfingetxea.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 21,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#uba-hostel",
+            "name": "Uba Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Uba Bidea, 43",
+              "postalCode": "20014",
+              "addressLocality": "Donostia / San Sebastián",
+              "addressCountry": "ES",
+              "addressRegion": "Gipuzkoa"
+            },
+            "telephone": "+34 943 04 72 77",
+            "url": "https://ubahostel.net",
+            "email": "info@ubahostel.net",
+            "sameAs": [
+              "https://www.facebook.com/ubahosteldonostia"
+            ],
+            "description": "Uba Hostel is in a green, wooded part of San Sebastián at Camino Uba 43, about 3 km from the centre and roughly 25 minutes away by public transport. It has private and shared rooms, all with their own bathroom, and it is pet friendly. Guests share a kitchen and dining room and can use a large garden, a small sports court, a bar-snack stop called Otxoki, a vending machine, a TV area, luggage storage and Wi-Fi. Some rooms are adapted, and the hostel offers tourist information on the city and the province. Groups of 12 or more can ask for special rates when booking direct. The hostel is run as an inclusive-employment project and is registered as a tourist establishment (BSS00005). Its site links to Bilbao Hostel and a Bilbao caravan park as sister projects. It suits travellers who prefer nature and space to a central location and don't mind the commute into town."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 22,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#ulia-youth-hostel",
+            "name": "Ulia Youth Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Ulia Pasealekua, 297",
+              "postalCode": "20013",
+              "addressLocality": "Donostia / San Sebastián",
+              "addressCountry": "ES",
+              "addressRegion": "Gipuzkoa"
+            },
+            "telephone": "+34 943 48 34 80"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 23,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#zarautz-surf-house",
+            "name": "Zarautz Surf House",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Nafarroa Kalea, 10",
+              "postalCode": "20800",
+              "addressLocality": "Zarautz",
+              "addressCountry": "ES",
+              "addressRegion": "Gipuzkoa"
+            },
+            "telephone": "+34 603 55 53 47",
+            "url": "https://www.zarautzsurfhouse.com",
+            "email": "reservas@zarautzsurfhouse.com",
+            "description": "Zarautz Surf House is a surf house and surf camp at Nafarroa Kalea 10 in Zarautz, in a villa built in the 1860s and fully renovated with high-quality ecological materials. It combines a hostel-style stay with a surf school for all levels, board and wetsuit rental, and week-long surf camps, taught by a team it describes as instructors with a direct link to surfing. The house also has its own café, Kafe Zarautz Brunch, serving coffee, bowls and brunch after a session, and a small shop selling surfboards, clothing and skateboards. Rooms and surf camps are booked through its website, which also sells lessons and rentals online, and the team can be reached by phone or email. It is registered as a tourist establishment (BSS00038). It suits travellers who want to learn to surf, rather than simply find a cheap bed."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 24,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#all-iron-hostel",
+            "name": "All Iron Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Ugarteburu Jose Maria Kalea, 2",
+              "postalCode": "48007",
+              "addressLocality": "Bilbao",
+              "addressCountry": "ES",
+              "addressRegion": "Bizkaia"
+            },
+            "telephone": "+34 944 03 65 34",
+            "url": "https://www.allironhostel.com",
+            "email": "info@allironhostel.com",
+            "sameAs": [
+              "https://www.facebook.com/allironhostelbilbao/"
+            ],
+            "description": "All Iron Hostel sits on the Artagan hill in Bilbao, near the Basilica of Begoña, on the old northern route of the Camino de Santiago and about eight minutes from the Casco Viejo. The name nods to the iron mining that shaped the city in the nineteenth century. It has shared rooms for 4, 6, 8 and 10 people, a room set aside for pilgrims, a female-only room and an adapted room, all facing outside, as well as private rooms. Stays include breakfast, bed linen, Wi-Fi, 24-hour reception, coffee and herbal tea all day, luggage storage, tourist information and air conditioning. Guests can also use a fully equipped kitchen, a games lounge and a terrace with panoramic views of Bilbao, and the team organises social activities such as game nights and tours. Laundry and towel rental cost extra. Groups of more than 50 get special rates, with free parking for cars and coaches."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 25,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#bilbao-akelarre-hostel",
+            "name": "Bilbao Akelarre Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Morgan Kalea, 4-6, Deusto",
+              "postalCode": "48014",
+              "addressLocality": "Bilbao",
+              "addressCountry": "ES",
+              "addressRegion": "Vizcaya"
+            },
+            "telephone": "+34 944 05 77 13",
+            "url": "https://www.bilbaoakelarrehostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 26,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#bilbao-hostel",
+            "name": "Bilbao Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carretera Basurto-Castrejana, 70, Carr. Basurtu Kastrexana, 70, Basurto-Zorroza",
+              "postalCode": "48002",
+              "addressLocality": "Bilbao",
+              "addressCountry": "ES",
+              "addressRegion": "Vizcaya"
+            },
+            "telephone": "+34 944 27 00 54",
+            "url": "https://www.bilbaohostel.net",
+            "email": "info@bilbaohostel.net",
+            "sameAs": [
+              "https://www.facebook.com/BilbaoHostel"
+            ],
+            "description": "Bilbao Hostel is at Carretera Basurto-Kastrexana 70 in Bilbao and describes itself as the city's largest hostel by capacity. It is aimed at groups, sports teams, families, companies and schools as well as individual travellers, and two bus lines stop at its door, which is how guests reach the centre. Beyond nightly stays it also offers a long-stay or coliving option, catering and hospitality services, tourist information on Bilbao and Bizkaia, and a motorhome area run by the same team. It describes itself as a social project, with an inclusive-employment scheme, names the association Suspergintza Elkartea as the organisation behind it, and credits the Basque Government's tourism department for support. It is registered as a tourist establishment (BBI00014) and is linked on its site to Uba Hostel in San Sebastián. It suits groups and budget travellers who value space and a social mission more than a central location."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 27,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#bilbao-metropolitan-hostel-by-bossh-hotels",
+            "name": "Bilbao Metropolitan Hostel By Bossh! Hotels",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "bajo, Nicolás Alcorta Kalea, 2, Errekalde",
+              "postalCode": "48003",
+              "addressLocality": "Bilbao",
+              "addressCountry": "ES",
+              "addressRegion": "Bizkaia"
+            },
+            "telephone": "+34 688 73 22 45",
+            "url": "https://www.bilbaometropolitanhostel.com",
+            "email": "info@bossh-hotels.com",
+            "sameAs": [
+              "https://www.facebook.com/Bosshhotels/"
+            ],
+            "description": "Bilbao Metropolitan Hostel is at Calle Nicolás Alcorta 2, ground floor, run by the Bossh Hotels group. It was recently renovated and has just 11 rooms, all with a private bathroom, air conditioning, soundproofing, a flat-screen TV and a hair dryer, with gel and shampoo provided. Guests share a community kitchen, and there is a washer and dryer, luggage storage, home-automation key access and extra beds on request. No breakfast is served, but the kitchen and fridge are there for your own supplies, and there is no bar, restaurant or private parking, though reception can suggest nearby car parks. Check-in is from 14:00 and check-out is until 11:00, with reception open until 23:30 and the building accessible round the clock after online check-in. The Old Town and the Guggenheim Museum are each about a 15-minute walk away. Pets are not allowed."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 28,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#bypillow-san-mames",
+            "name": "Bypillow San Mamés",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Luis Briñas K., 15, Basurtu-Zorrotza",
+              "postalCode": "48013",
+              "addressLocality": "Bilbao",
+              "addressCountry": "ES",
+              "addressRegion": "Bizkaia"
+            },
+            "telephone": "+34 944 41 79 00",
+            "url": "https://www.bypillow.com",
+            "email": "sanmames@bypillow.com",
+            "sameAs": [
+              "https://www.facebook.com/bypillow/"
+            ],
+            "description": "BYPILLOW San Mamés is a recently renovated boutique pension at Calle Luis Briñas 15, beside the San Mamés football stadium and the Termibus bus station, with the San Mamés metro stop close by. It offers private rooms only: singles, doubles, twins and triples, with superior doubles for extra comfort. Every room has air conditioning and an empty mini fridge for guests' own use, and there is free Wi-Fi throughout, daily cleaning, a lift, free luggage storage and multilingual reception staff. Check-in is from 14:00 and check-out is at 12:00, with reception open from 14:00 to 06:00. Breakfast is not offered, a refundable 100 euro damage deposit is taken on arrival, and late check-out costs extra. The Guggenheim is about 15 minutes away on foot, the city centre is 1.1 km away and the airport is about 30 minutes by public transport. It suits couples, business travellers and anyone wanting a private room rather than a dorm."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 29,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#caserio-areitz-soroa",
+            "name": "Caserío Areitz Soroa",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Barrio Arce, 1",
+              "postalCode": "48191",
+              "addressLocality": "Arenao",
+              "addressCountry": "ES",
+              "addressRegion": "Bizkaia"
+            },
+            "telephone": "+34 685 79 05 58",
+            "url": "https://www.albergueareitzsoroa.es",
+            "email": "ioncoga@gmail.com",
+            "description": "Caserío Areitz Soroa is a rural farmhouse and albergue at Barrio Artze 1 in Galdames, in the Encartaciones valleys of western Bizkaia, away from Bilbao and the coast. Its site says the whole farmhouse is rented as one unit, in a peaceful setting surrounded by valleys and mountains. It is also an organic farming and gardening centre, with courses in organic horticulture, a shop selling plants and organic vegetables, and a blog, so guests can get involved in the working side of the place if they wish. The hostel's website shows two mobile numbers and a WhatsApp icon, and bookings are taken by phone, as it asks guests to call to reserve. This is a place for a quiet rural stay rather than a city hostel, and it suits groups who want a whole house to themselves."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 30,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#ekoos-hostel-bilbao",
+            "name": "Ekoos Hostel Bilbao",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Bruno Mauricio Zabala Kalea, 15, Ibaiondo",
+              "postalCode": "48003",
+              "addressLocality": "Bilbao",
+              "addressCountry": "ES",
+              "addressRegion": "Vizcaya"
+            },
+            "telephone": "+34 944 14 74 12",
+            "url": "https://app.mews.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 31,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#hostel-quartier-bilbao",
+            "name": "Hostel Quartier Bilbao",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Artekale, 15, Ibaiondo",
+              "postalCode": "48005",
+              "addressLocality": "Bilbao",
+              "addressCountry": "ES",
+              "addressRegion": "Bizkaia"
+            },
+            "telephone": "+34 944 97 88 00",
+            "url": "https://quartierbilbao.com",
+            "email": "recepcion@quartierbilbao.com",
+            "sameAs": [
+              "https://www.facebook.com/QuartierHostelBilbao/"
+            ],
+            "description": "Hostel Quartier Bilbao is a boutique hostel at Artekale 15 in the Casco Viejo, the old quarter of Bilbao made up of seven medieval streets. Its site puts it a minute from the Ribera market, the river and the Cathedral of Santiago, and it describes the surrounding area as the part of the city with the best atmosphere, with bars, shops and pintxos on the doorstep. Guests get a shared kitchen, shared rooms and free Wi-Fi throughout the building. The team has long worked with large groups and has a page for group travel. Quartier also runs a hostel and an apartment in the centre of León. Booking on its own website comes with a best-price guarantee, and the hostel is registered under licence BBI0019."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 32,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#lamia-bbk-women-hostel",
+            "name": "Lamia Bbk Women Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Górdoniz 66, Errekalde (Plaza interior trasera-entrada por, Altube Kalea, 2, Errekalde",
+              "postalCode": "48002",
+              "addressLocality": "Bilbao",
+              "addressCountry": "ES",
+              "addressRegion": "Bizkaia"
+            },
+            "telephone": "+34 946 62 07 38",
+            "url": "https://www.lamiabbkhostel.com",
+            "email": "lamia@lamiabbkhostel.com",
+            "sameAs": [
+              "https://www.facebook.com/profile.php?id=61565915597182"
+            ],
+            "description": "Lamia BBK Women Hostel is a hostel exclusively for women, which it says is the only one in Bilbao. It is at Calle Gordóniz 66, in an inner courtyard with the entrance on Altube 2, in the Rekalde district, a short walk from the Intermodal station and about 15 minutes on foot from the San Mamés stadium. The Guggenheim is 15 minutes away by bus, the Old Town 30 minutes on foot, Abando station 10 minutes by bus and the airport 30 minutes by bus. It has shared rooms for up to 12, a shared four-bed room, a shared double and, with private bathrooms, an adapted double and a superior quad. Every room has lockers, a personal door code, Wi-Fi, heating and air conditioning, and guests share a kitchen and common areas. Check-in is automatic. The hostel runs community, wellness and cultural activities for guests and describes itself as a meeting point for women travelling solo, with friends or in groups."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 33,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#latroupe-la-granja",
+            "name": "Latroupe La Granja",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Plaza Biribila, 3, Abando",
+              "postalCode": "48001",
+              "addressLocality": "Bilbao",
+              "addressCountry": "ES",
+              "addressRegion": "Bizkaia"
+            },
+            "telephone": "+34 944 69 00 44",
+            "url": "https://www.latroupe.com",
+            "email": "hellolagranja@latroupe.com",
+            "sameAs": [
+              "https://www.facebook.com/JoinLatroupe/"
+            ],
+            "description": "Latroupe La Granja is a boutique hostel at Plaza Circular 3 in the Abando district of central Bilbao, with a bar in the basement that hosts daily events for guests. It has private rooms for two and family rooms for three or four, and shared rooms for four, five, six or eight people, all with private bathrooms. Bed linen and free Wi-Fi are included, towels can be rented for three euros in the shared rooms, and breakfast is served from 08:00 to 11:00. Facilities include a 24-hour reception, luggage storage, a laundry, coworking spaces, a lobby and a guest kitchen in a multipurpose room called El Txoko. Check-in is from 15:30 and check-out is at 11:00. Groups of 13 or more can request a booking through an online form. Guests praise the central position, with the metro opposite, the friendly staff and the lively bar. It is part of the Latroupe group of boutique hostels, which also has hostels in Madrid, Barcelona, Brussels and Dublin."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 34,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#moana-eco-surf-house",
+            "name": "Moana Eco Surf House",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Martxoak 8 kalea, casa 4",
+              "postalCode": "48600",
+              "addressLocality": "Ugeraga",
+              "addressCountry": "ES",
+              "addressRegion": "Bizkaia"
+            },
+            "telephone": "+34 944 71 47 24",
+            "url": "https://moanasurfhouse.com",
+            "email": "info@moanasurfhouse.com",
+            "description": "Moana Eco Surf House is in Sopela, on the Bizkaia coast north of Bilbao, about 400 metres from the beach, at Martxoak 8 Kalea. It is more of a surf resort than a dorm hostel: 11 double rooms, 6 family rooms and 6 group rooms, all with private bathrooms, plus a spa with jacuzzi, sauna and cold plunge, terraces and chill-out areas, hammocks, a garden, skate ramps, a multipurpose dome for yoga and an underground garage for guests. The surf bar serves healthy food. It is the base of the Salbaje Surf Eskola, described as the first surf school on Barinatxe beach, with local qualified instructors, and guests can join free guided yoga classes. Offers combine accommodation with surf courses, surf camps, yoga retreats and group packages. The house promotes an eco concept and a marine plastics project, and it is registered as BBI00052. Phone, mobile and email are listed on its site."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 35,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#optimi-rooms-bilbao",
+            "name": "Optimi Rooms Bilbao",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C, Areiltza Doktorearen Zumarkalea, 58, Bajo, Abando",
+              "postalCode": "48010",
+              "addressLocality": "Bilbao",
+              "addressCountry": "ES",
+              "addressRegion": "Bizkaia"
+            },
+            "telephone": "+34 627 11 38 59",
+            "url": "https://www.optimirooms.com",
+            "email": "info@optimirooms.com",
+            "sameAs": [
+              "https://www.facebook.com/Optimiroomsbilbao"
+            ],
+            "description": "Optimi Rooms is a capsule hostel at Calle Doctor Areilza 58, ground floor, in the centre of Bilbao, and its site calls it the first capsule hostel in the city. The idea is a new concept of rest at a reduced price: a private sleeping capsule rather than a bunk in an open dorm. The same company runs a second Optimi Rooms hostel in Madrid, and the website lists separate phone numbers and email addresses for each. The Bilbao hostel is registered under BBI00043. The website itself gives few details about facilities, so check the Booking.com and Hostelworld listings for room types, rates and recent guest reviews before you book. Contact is by phone on the Bilbao landline or by email, and the hostel is on Facebook and Instagram."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 36,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#poshtel-bilbao",
+            "name": "Poshtel Bilbao",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Heros Kalea, 7, Abando",
+              "postalCode": "48009",
+              "addressLocality": "Bilbao",
+              "addressCountry": "ES",
+              "addressRegion": "Bizkaia"
+            },
+            "telephone": "+34 944 25 65 86",
+            "url": "https://www.poshtelbilbao.com",
+            "description": "Poshtel Bilbao calls itself the first premium hostel in Bilbao, at Calle Heros 7, and says it is 50 metres from the Guggenheim Museum while still within reach of the Old Town, the Gran Vía, San Mamés stadium and the river. The idea is a hostel with boutique-hotel touches: you can share a room in a bunk bed or book a private room for yourself and friends, in design-led rooms with free, fast Wi-Fi, a programme of activities and what it calls red-carpet service. Txío, a bar-restaurant, is part of the same venture. Some pet-friendly rooms can be booked on request, and groups of more than ten are asked to contact the hostel by form. It also features in a San Miguel advert with Athletic Club. It is registered as BBI0024, and bookings go through its own online booking engine. Phone and a contact form are on its site; there is no email address listed."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 37,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#residencia-universitaria-micampus-bilbao-san-mames",
+            "name": "Residencia Universitaria Micampus Bilbao San Mamés",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Pl. Garellano, 4, Basurto-Zorroza",
+              "postalCode": "48013",
+              "addressLocality": "Bilbao",
+              "addressCountry": "ES",
+              "addressRegion": "Vizcaya"
+            },
+            "telephone": "+34 946 47 70 57",
+            "url": "https://micampusresidencias.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 38,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#residencia-universitaria-resa-blas-de-otero",
+            "name": "Residencia Universitaria RESA Blas de Otero",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Gorte Kalea, 38, Ibaiondo",
+              "postalCode": "48003",
+              "addressLocality": "Bilbao",
+              "addressCountry": "ES",
+              "addressRegion": "Bizkaia"
+            },
+            "telephone": "+34 944 34 32 00",
+            "url": "https://resa.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 39,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#residencia-universitaria-resa-san-mames",
+            "name": "Residencia Universitaria RESA San Mamés",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Termibus, Gurtubay Kalea, 1, Basurtu-Zorrotza",
+              "postalCode": "48013",
+              "addressLocality": "Bilbao",
+              "addressCountry": "ES",
+              "addressRegion": "Bizkaia"
+            },
+            "telephone": "+34 944 34 34 28",
+            "url": "https://resa.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 40,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#aptc-etxea",
+            "name": "Aptc Etxea",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Hedegile Kalea, 131",
+              "postalCode": "01001",
+              "addressLocality": "Vitoria-Gasteiz",
+              "addressCountry": "ES",
+              "addressRegion": "Araba"
+            },
+            "url": "https://aptcetxea.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 41,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/basque-country#hotel-dato",
+            "name": "Hotel Dato",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Eduardo Dato Kalea, 28",
+              "postalCode": "01005",
+              "addressLocality": "Vitoria-Gasteiz",
+              "addressCountry": "ES",
+              "addressRegion": "Araba"
+            },
+            "telephone": "+34 945 14 72 30",
+            "url": "https://www.hoteldato.com",
+            "email": "info@hoteldato.com",
+            "sameAs": [
+              "https://www.facebook.com/HotelDato"
+            ],
+            "description": "Hotel Dato is a hotel, not a hostel, in the centre of Vitoria-Gasteiz, the capital of the Basque Country. Its site describes it as a hotel with history and internationally recognised decoration, and it makes the city easy to explore on foot: the railway station, the University of the Basque Country and the tourist office are all about 300 metres away, and the Parlamento tram stop is nearby, with a seven-minute connection to the bus station. Next door is the Amárica car park, where guests can ask reception for a voucher to get a special rate, paid on arrival. The hotel offers free high-quality Wi-Fi and promotes itself as a green hotel, with responsible use of water and LED lighting. Booking on its own website gets what it calls the best online rates. It suits travellers who want a private room in Vitoria rather than a dorm bed, and it is registered under licence HVI00331."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 </body>
 </html>

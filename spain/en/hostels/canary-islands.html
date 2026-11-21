@@ -461,16 +461,87 @@
 
 <main id="main-content">
 
-<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description">
-  <iframe
-    class="sa-hostel-map-iframe"
-    title="Google My Maps: backpacker hostels in Spain"
-    src="https://www.google.com/maps/d/embed?mid=1YaoKUZVLHf7y1Rar6qoNWzn0Q6jRNV0&ehbc=2E312F&noprof=1&ll=37.475,-4.64834&z=8"
-    width="640" height="480"
-    loading="lazy"
-    allowfullscreen>
-  </iframe>
+<!-- Map description -->
+<div class="map-description" id="hostel-map-description">
+  <span class="map-description__text"><strong>BACKPACKERS FINDER:</strong> The easiest way to choose the right backpacker hostel. Our interactive map lets you filter the Canary Islands backpackers by vibe, setup and value. Filters switch on once every hostel has been rated.</span>
+</div>
+
+  <!-- Map filter buttons -->
+
+<h2 class="sr-only">
+    Search the Canary Islands Backpacker Hostels
+</h2>
+
+<p class="sr-only">
+    Filter the Canary Islands hostels by party atmosphere, how social they are, peacefulness, solo female traveller friendliness, digital nomad suitability, couples, cyclists, activities, accessibility, eco-friendliness, camping, airport proximity, group suitability, budget and value for money. You can select more than one filter at once, and hostels must match all of them.
+</p>
+
+<div class="map-filter-bar">
+    <div class="map-filter-bar__scroll">
+        <div class="map-filter-bar__row" role="toolbar" aria-label="Filter hostels by category">
+
+            <a href="#" class="map-filter-btn map-filter-btn--active" role="button" style="background-color: #ffd400; color: #000000;" data-filter="all" aria-pressed="true" aria-label="Show all backpackers hostels in the Canary Islands">★ All Hostels</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #b01c22; opacity:0.5; cursor:not-allowed;" data-filter="best_overall" aria-pressed="false" aria-label="Show the top-rated backpackers hostels">Top Picks</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="best_value" aria-pressed="false" aria-label="Show backpackers hostels which deliver the best value for money">Best Value</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="budget" aria-pressed="false" aria-label="Show the budget backpackers hostels">Budget</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="flashpacker" aria-pressed="false" aria-label="Show upmarket flashpacker hostels">Flashpackers</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="party" aria-pressed="false" aria-label="Show backpackers hostels which have the best parties">Best Parties</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="social" aria-pressed="false" aria-label="Show the most sociable backpackers hostels for meeting other travellers">Most Social</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="peaceful" aria-pressed="false" aria-label="Show peaceful, quiet backpackers hostels">Peaceful</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="solo_women" aria-pressed="false" aria-label="Show backpackers hostels which are best for solo women travellers">Solo Women</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="digital_nomad" aria-pressed="false" aria-label="Show backpackers hostels which are best for digital nomads">Digital Nomads</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="couples" aria-pressed="false" aria-label="Show backpackers hostels which are best for couples">Couples</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="cyclists" aria-pressed="false" aria-label="Show backpackers hostels which are best for cyclists">Cyclists</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="activities" aria-pressed="false" aria-label="Show backpackers hostels with the best activities and tours">Activities</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="accessible" aria-pressed="false" aria-label="Show backpackers hostels with confirmed accessibility features">Accessible</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="eco" aria-pressed="false" aria-label="Show eco-friendly and certified sustainable backpackers hostels">Eco-Friendly</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="camping" aria-pressed="false" aria-label="Show hostels which offer camping as an accommodation option">Camping</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="near_airport" aria-pressed="false" aria-label="Show hostels close to an airport">Near Airport</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="groups" aria-pressed="false" aria-label="Show hostels which welcome groups of backpackers">Groups</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="surfers" aria-pressed="false" aria-label="Show backpackers hostels which are best for surfers">Surfers</a>
+        </div>
+    </div>
+</div>
+
+<!-- ░░ HOSTEL MAP ░░ -->
+<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description"
+  data-bb-map
+  data-region="canary-islands"
+  data-country="Spain"
+  data-center="-15.791,28.462"
+  data-zoom="6.9"
+  data-mobile-zoom="6.2"
+  data-pitch="0"
+  data-bearing="0"
+  data-hostels-url="/spain/assets/data/hostels.json"
+  data-regions-url="/spain/assets/data/regions.json"
+  data-terrain=""
+  data-locate-bounds="-19,27,5,44.5"
+  data-threshold="7"
+  data-autoload="viewport">
+
+  <!-- Poster image: shows before the visitor loads the map -->
+  <picture class="sa-hostel-map-poster">
+    <img src="/spain/assets/images/map_canary_islands.webp"
+         alt="Interactive backpacker hostel map of the Canary Islands showing hostels that can be filtered by travel style, budget, solo female travellers, digital nomads, cycling and more."
+         loading="eager"
+         fetchpriority="high"
+         decoding="async">
+  </picture>
+
+  <!-- Keyboard and screen-reader route to the map (the poster itself is tap-to-load) -->
+  <button type="button" class="sr-only" id="bb-map-load-btn">Load the interactive hostel map</button>
+
+  <!-- The map renders here (inline, no iframe) once the visitor taps the poster or a filter -->
+  <div id="bb-map-wrap" class="sa-hostel-map-iframe bb-map-iframe" hidden></div>
+
+  <div class="map-overlay-circle" aria-hidden="true">
+    Click the icons<br>for hostel info.
+  </div>
+
 </section>
+<!-- ░░ END HOSTEL MAP ░░ -->
+
 
 <!-- Horizontal regional menu -->
 
@@ -703,6 +774,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Francia, 21, 38660 Costa Adeje, Santa Cruz de Tenerife</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="adeje-nest-hostel" aria-label="Find Adeje Nest Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34675451518" class="blue-link">+34 675 45 15 18</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://nestshostels.com" target="_blank" class="blue-link" rel="nofollow">nestshostels.com</a></p>
@@ -732,6 +805,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Av. Leonardo Torriani, 1, 38201 La Laguna, Santa Cruz de Tenerife</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="aguere-nest-hostel" aria-label="Find Aguere Nest Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34922456117" class="blue-link">+34 922 45 61 17</a></p>
 
@@ -763,6 +838,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Orquidea, 38612 El Médano, Santa Cruz de Tenerife</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="aloe-vera-shared-house" aria-label="Find Aloe Vera Shared House on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34644737193" class="blue-link">+34 644 73 71 93</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://aloeverasharedhouse.com" target="_blank" class="blue-link" rel="nofollow">aloeverasharedhouse.com</a></p>
@@ -792,6 +869,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. la Salvaje, 3 bis, 38683 Santiago del Teide, Santa Cruz de Tenerife</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="arena-nest-hostel-nest-hostel" aria-label="Find Arena Nest Hostel – Nest Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34822090344" class="blue-link">+34 822 09 03 44</a></p>
 
@@ -823,6 +902,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Av. José Miguel Galván Bello, 9, 38612 El Médano, Santa Cruz de Tenerife</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="ashavana-nest-hostel" aria-label="Find Ashavana Nest Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34689372924" class="blue-link">+34 689 37 29 24</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://nestshostels.com" target="_blank" class="blue-link" rel="nofollow">nestshostels.com</a></p>
@@ -852,6 +933,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Agustín de Betancourt, 22, 38400 Puerto de la Cruz, Santa Cruz de Tenerife</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="atypicap-capsule-hostel" aria-label="Find Atypicap Capsule Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34722246770" class="blue-link">+34 722 24 67 70</a></p>
 
@@ -883,6 +966,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Juan de Vera, 37, 38201 La Laguna, Santa Cruz de Tenerife</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="bed-books-and-breakfast-bookworms" aria-label="Find Bed, Books and Breakfast. Bookworms. on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34697230304" class="blue-link">+34 697 23 03 04</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.bookwormhostel.com" target="_blank" class="blue-link" rel="nofollow">bookwormhostel.com</a></p>
@@ -911,6 +996,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Av. de Fernando Salazar Gonzalez, 15, 38631 Arona, Santa Cruz de Tenerife</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="bucio-coliving" aria-label="Find Bucio Coliving on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34629084288" class="blue-link">+34 629 08 42 88</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://bucio-coliving.com" target="_blank" class="blue-link" rel="nofollow">bucio-coliving.com</a></p>
@@ -938,6 +1025,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Galo Ponte, 7, 38612 El Médano, Santa Cruz de Tenerife</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="casa-grande-surf-hostel" aria-label="Find Casa Grande Surf Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34922176376" class="blue-link">+34 922 17 63 76</a></p>
 
@@ -969,6 +1058,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. la Real, 4, 38684 Tamaimo, Santa Cruz de Tenerife</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="casa-regina-tenerife" aria-label="Find Casa Regina Tenerife on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34675679557" class="blue-link">+34 675 67 95 57</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.casareginatenerife.com" target="_blank" class="blue-link" rel="nofollow">casareginatenerife.com</a></p>
@@ -998,6 +1089,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Chicoro, 183E, 38540 Candelaria, Santa Cruz de Tenerife</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="casa-vacacional-madre-amada-en-candelaria" aria-label="Find Casa Vacacional Madre Amada En Candelaria on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34620542073" class="blue-link">+34 620 54 20 73</a></p>
 
             <p><strong>GOOGLE RATING:</strong> 4.8 out of 5 stars</p>
@@ -1026,6 +1119,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> acesso solo a pie - parking 5 minutos en camino, Calle el Cabo, 15, 38129, Santa Cruz de Tenerife</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="casanaga" aria-label="Find Casanaga on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34666606410" class="blue-link">+34 666 60 64 10</a></p>
 
             <p><strong>GOOGLE RATING:</strong> 4.8 out of 5 stars</p>
@@ -1053,6 +1148,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. de la Asomadita, 8, 38580 Villa de Arico, Santa Cruz de Tenerife</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="climbing-tenerife-house" aria-label="Find Climbing Tenerife House on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34689886809" class="blue-link">+34 689 88 68 09</a></p>
 
@@ -1084,6 +1181,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. el Confital, 8, 38612 El Médano, Santa Cruz de Tenerife</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="daydream-el-medano-coliving" aria-label="Find Daydream El Medano Coliving on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34623187050" class="blue-link">+34 623 18 70 50</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://daydreamelmedano.com" target="_blank" class="blue-link" rel="nofollow">daydreamelmedano.com</a></p>
@@ -1113,6 +1212,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Fray Cristóbal Oramas, 43, 38430 Icod de los Vinos, Santa Cruz de Tenerife</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="drago-nest-hostel" aria-label="Find Drago Nest Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34602588796" class="blue-link">+34 602 58 87 96</a></p>
 
@@ -1144,6 +1245,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Av. Jardines del Duque, 33, 38679 Costa Adeje, Santa Cruz de Tenerife</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="duque-nest-hostel" aria-label="Find Duque Nest Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34655012055" class="blue-link">+34 655 01 20 55</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://nestshostels.com" target="_blank" class="blue-link" rel="nofollow">nestshostels.com</a></p>
@@ -1173,6 +1276,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. el Sol, 2, 38420 San Juan de la Rambla, Santa Cruz de Tenerife</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="el-hostal-del-cubo" aria-label="Find El Hostal del Cubo on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34665765579" class="blue-link">+34 665 76 55 79</a></p>
 
@@ -1204,6 +1309,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Av. Austria, 14, 38660 Playa de las Américas, Santa Cruz de Tenerife</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="endless-summer-tenerife-l-surfhouse-divecamp" aria-label="Find Endless Summer Tenerife L Surfhouse &amp; Divecamp on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34922899447" class="blue-link">+34 922 89 94 47</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.endlesssummertenerife.com" target="_blank" class="blue-link" rel="nofollow">endlesssummertenerife.com</a></p>
@@ -1233,6 +1340,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Cam. El Guincho, 108, 38270 Valle Guerra, Santa Cruz de Tenerife</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="guayaba-hostel" aria-label="Find Guayaba Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34922545487" class="blue-link">+34 922 54 54 87</a></p>
 
@@ -1264,6 +1373,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Pl. de los Remedios, n°3, 38480 Buenavista del Nte., Santa Cruz de Tenerife</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-buenavista-del-norte" aria-label="Find Hostal Buenavista del Norte on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34689110503" class="blue-link">+34 689 11 05 03</a></p>
 
             <p><strong>GOOGLE RATING:</strong> 4.7 out of 5 stars</p>
@@ -1290,6 +1401,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. la Montańa, 46, 38650 Arona, Santa Cruz de Tenerife</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostel-banana-surf-house" aria-label="Find Hostel Banana Surf House on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34657438873" class="blue-link">+34 657 43 88 73</a></p>
 
@@ -1321,6 +1434,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Residencial Las Amapolas, C. Reykjavik, s/n, 38660 Costa Adeje, Santa Cruz de Tenerife</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostel-la-tortuga" aria-label="Find Hostel La Tortuga on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34604159254" class="blue-link">+34 604 15 92 54</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://latortugahostel.com" target="_blank" class="blue-link" rel="nofollow">latortugahostel.com</a></p>
@@ -1350,6 +1465,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Lomo de la Fuente, 8, 38632 Guaza, Santa Cruz de Tenerife</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostel-neon-tenerife" aria-label="Find Hostel Neón Tenerife on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34606952627" class="blue-link">+34 606 95 26 27</a></p>
 
@@ -1381,6 +1498,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Marqués, 24, 38300 La Orotava, Santa Cruz de Tenerife</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostel-tenerife" aria-label="Find Hostel Tenerife on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34603135905" class="blue-link">+34 603 13 59 05</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://hosteltenerife.top" target="_blank" class="blue-link" rel="nofollow">hosteltenerife.top</a></p>
@@ -1409,6 +1528,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Garañaña, 43, 38620 San Miguel, Santa Cruz de Tenerife</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hotel-eco-life" aria-label="Find Hotel Eco Life on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34615938388" class="blue-link">+34 615 93 83 88</a></p>
 
@@ -1440,6 +1561,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. de La Iglesia, 1, 38600 Granadilla, Santa Cruz de Tenerife</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hotel-rural-senderos-de-abona" aria-label="Find Hotel Rural Senderos de Abona on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34922770200" class="blue-link">+34 922 77 02 00</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.senderosdeabona.es" target="_blank" class="blue-link" rel="nofollow">senderosdeabona.es</a></p>
@@ -1469,6 +1592,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Pérez Zamora, 49, 38400 Puerto de la Cruz, Santa Cruz de Tenerife</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hotel-tejuma" aria-label="Find Hotel Tejuma on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34922383613" class="blue-link">+34 922 38 36 13</a></p>
 
@@ -1500,6 +1625,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. el Drago, 38592 Las Eras, Santa Cruz de Tenerife</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="las-eras-nest-hostel" aria-label="Find Las Eras Nest Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34653186596" class="blue-link">+34 653 18 65 96</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://nestshostels.com" target="_blank" class="blue-link" rel="nofollow">nestshostels.com</a></p>
@@ -1528,6 +1655,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. la Giralda, 9, 38618 La Mareta, Santa Cruz de Tenerife</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="los-amigos-nest-hostel-tenerife" aria-label="Find Los Amigos Nest Hostel Tenerife on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34603306758" class="blue-link">+34 603 30 67 58</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://nestshostels.com" target="_blank" class="blue-link" rel="nofollow">nestshostels.com</a></p>
@@ -1555,6 +1684,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Polifemo, 5, 38630 Costa del Silencio, Santa Cruz de Tenerife</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="los-duendes-del-sur" aria-label="Find Los Duendes del Sur on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34635267233" class="blue-link">+34 635 26 72 33</a></p>
 
@@ -1586,6 +1717,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Tenerife, 11, 38612 El Médano, Santa Cruz de Tenerife</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="medano-nest-hostel" aria-label="Find Medano Nest Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34635891078" class="blue-link">+34 635 89 10 78</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://nestshostels.com" target="_blank" class="blue-link" rel="nofollow">nestshostels.com</a></p>
@@ -1615,6 +1748,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. el Coronel, 8, 38650 Los Cristianos, Santa Cruz de Tenerife</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="ocean-nomad-hostel" aria-label="Find Ocean Nomad Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34657460153" class="blue-link">+34 657 46 01 53</a></p>
 
@@ -1646,6 +1781,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Pl. de El Cristo, 6, 38201 La Laguna, Santa Cruz de Tenerife</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="patio-hostel-tenerife" aria-label="Find Patio Hostel Tenerife on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34634354985" class="blue-link">+34 634 35 49 85</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://patiohosteltenerife.com" target="_blank" class="blue-link" rel="nofollow">patiohosteltenerife.com</a></p>
@@ -1675,6 +1812,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Carero, 1, 38686 Alcalá, Santa Cruz de Tenerife</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="pension-alcala" aria-label="Find Pensión Alcalá on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34697494192" class="blue-link">+34 697 49 41 92</a></p>
 
@@ -1706,6 +1845,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. del Lomo, 24, 38400 Puerto de la Cruz, Santa Cruz de Tenerife</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="puerto-azul" aria-label="Find Puerto Azul on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34922383213" class="blue-link">+34 922 38 32 13</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://puerto-azul.com" target="_blank" class="blue-link" rel="nofollow">puerto-azul.com</a></p>
@@ -1735,6 +1876,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Victor Machado, 12, 38400 Puerto de la Cruz, Santa Cruz de Tenerife</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="puerto-nest-hostel" aria-label="Find Puerto Nest Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34822613948" class="blue-link">+34 822 61 39 48</a></p>
 
@@ -1766,6 +1909,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Maria del Carmen Garcia, 24, 38631 Arona, Santa Cruz de Tenerife</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="single-fin-surf-hostel" aria-label="Find Single Fin Surf Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34634236338" class="blue-link">+34 634 23 63 38</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://singlefinsurfhostel.es" target="_blank" class="blue-link" rel="nofollow">singlefinsurfhostel.es</a></p>
@@ -1795,6 +1940,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Méndez Núñez, 20, 38002 Santa Cruz de Tenerife</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="tenerife-art-hostel" aria-label="Find Tenerife Art Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34665661861" class="blue-link">+34 665 66 18 61</a></p>
 
@@ -1826,6 +1973,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Garcilaso de la Vega, 30, 38005 Santa Cruz de Tenerife</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="tenerife-experience-hostel" aria-label="Find Tenerife Experience Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34603557396" class="blue-link">+34 603 55 73 96</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.tenerifehostels.es" target="_blank" class="blue-link" rel="nofollow">tenerifehostels.es</a></p>
@@ -1856,6 +2005,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. el Coronel, 3, 38650 Arona, Santa Cruz de Tenerife</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="tenerife-hostel" aria-label="Find Tenerife Hostel on the map">Find on map ›</a></p>
+
             <p><strong>WEBSITE:</strong> <a href="https://tenerifehostel.com" target="_blank" class="blue-link" rel="nofollow">tenerifehostel.com</a></p>
 
             <p><strong>GOOGLE RATING:</strong> 2.4 out of 5 stars</p>
@@ -1883,6 +2034,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. La Jaquita, S/N, 38612, Santa Cruz de Tenerife</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="the-tree-house-hostel-coworking" aria-label="Find The Tree House Hostel &amp; Coworking on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34637168151" class="blue-link">+34 637 16 81 51</a></p>
 
@@ -1914,6 +2067,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Alondras 3, Av. San Borondon, Casa 7, 38679 Fañabé, Santa Cruz de Tenerife</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="vibes-surfhouse" aria-label="Find Vibes Surfhouse on the map">Find on map ›</a></p>
+
             <p><strong>WEBSITE:</strong> <a href="https://www.tenerifesurf.camp" target="_blank" class="blue-link" rel="nofollow">tenerifesurf.camp</a></p>
 
             <p><strong>GOOGLE RATING:</strong> 4.8 out of 5 stars</p>
@@ -1942,6 +2097,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Juan Pablo II, 35, 38004 Santa Cruz de Tenerife</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="wanderlust-hostel" aria-label="Find Wanderlust Hostel on the map">Find on map ›</a></p>
+
             <p><strong>WEBSITE:</strong> <a href="https://wanderlust-hostel.amenitiz.io" target="_blank" class="blue-link" rel="nofollow">wanderlust-hostel.amenitiz.io</a></p>
 
             <p><strong>GOOGLE RATING:</strong> 4.1 out of 5 stars</p>
@@ -1969,6 +2126,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> P.º las Canteras, 53, 35010 Las Palmas de Gran Canaria, Las Palmas</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="aguita-house" aria-label="Find Aguita House on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34614868453" class="blue-link">+34 614 86 84 53</a></p>
 
@@ -2000,6 +2159,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Secretario Padilla, 136, 35010 Las Palmas de Gran Canaria, Las Palmas</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="aguita-surf-lodge" aria-label="Find Agüita Surf Lodge on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34614868453" class="blue-link">+34 614 86 84 53</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://aguitahostels.com" target="_blank" class="blue-link" rel="nofollow">aguitahostels.com</a></p>
@@ -2030,6 +2191,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. de San José, 35480 Agaete, Las Palmas</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="albergue-casa-jalou" aria-label="Find Albergue Casa Jalou on the map">Find on map ›</a></p>
+
             <p><strong>WEBSITE:</strong> <a href="https://www.mbmgestionyservicios.com" target="_blank" class="blue-link" rel="nofollow">mbmgestionyservicios.com</a></p>
 
             <p><strong>GOOGLE RATING:</strong> 4.9 out of 5 stars</p>
@@ -2058,6 +2221,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Ctra. la Costa, 35413 El Pagador, Las Palmas</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="atlantis-surf-hostel" aria-label="Find Atlantis Surf Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34685870745" class="blue-link">+34 685 87 07 45</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://atlantissurfhostel.com" target="_blank" class="blue-link" rel="nofollow">atlantissurfhostel.com</a></p>
@@ -2085,6 +2250,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Calle Dr. Miguel Rosas, 19, 35007 Las Palmas de Gran Canaria, Las Palmas</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="cactus-host" aria-label="Find Cactus Host on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34682330179" class="blue-link">+34 682 33 01 79</a></p>
 
@@ -2116,6 +2283,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Calle V. Molinos, 4, 35329 Vega de San Mateo, Las Palmas</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="camino-art-house" aria-label="Find Camino Art House on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34633339903" class="blue-link">+34 633 33 99 03</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://caminoart.org" target="_blank" class="blue-link" rel="nofollow">caminoart.org</a></p>
@@ -2145,6 +2314,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. León y Castillo, 13, 35480 Agaete, Las Palmas</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="casa-calma-yoga-hostel" aria-label="Find Casa Calma Yoga Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34605605683" class="blue-link">+34 605 60 56 83</a></p>
 
@@ -2176,6 +2347,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Reyes Católicos, 8, 35001 Las Palmas de Gran Canaria, Las Palmas</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="columbus-rooftop-hostels" aria-label="Find Columbus Rooftop Hostels on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34644524171" class="blue-link">+34 644 52 41 71</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.columbushostels.es" target="_blank" class="blue-link" rel="nofollow">columbushostels.es</a></p>
@@ -2205,6 +2378,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Villavicencio, 13, 35002 Las Palmas de Gran Canaria, Las Palmas</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="compass-house" aria-label="Find Compass House on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34621071689" class="blue-link">+34 621 07 16 89</a></p>
 
@@ -2236,6 +2411,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Secretario Padilla, 131, 35010 Las Palmas de Gran Canaria, Las Palmas</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="dona-rose-surf-hostel" aria-label="Find Doña Rose Surf Hostel on the map">Find on map ›</a></p>
+
             <p><strong>WEBSITE:</strong> <a href="https://www.dona-rose-hostels.com" target="_blank" class="blue-link" rel="nofollow">dona-rose-hostels.com</a></p>
 
             <p><strong>GOOGLE RATING:</strong> 4.0 out of 5 stars</p>
@@ -2263,6 +2440,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Lugar Los Llanos, 37, 35149 Los Llanos, Las Palmas</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="eco-finca-mogan" aria-label="Find Eco Finca Mogán on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34639491662" class="blue-link">+34 639 49 16 62</a></p>
 
@@ -2294,6 +2473,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> 35110 Sardina, Las Palmas</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="eden-guesthouse" aria-label="Find Eden Guesthouse on the map">Find on map ›</a></p>
+
             <p><strong>WEBSITE:</strong> <a href="https://www.bluepillow.com" target="_blank" class="blue-link" rel="nofollow">bluepillow.com</a></p>
 
         </div>
@@ -2319,6 +2500,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Finca la isa, GC-156, 1, 35369, Las Palmas</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="finca-la-isa-by-rose" aria-label="Find Finca La Isa By Rose on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34685015103" class="blue-link">+34 685 01 51 03</a></p>
 
@@ -2350,6 +2533,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Conde Albrit, 24, 35014 Las Palmas de Gran Canaria, Las Palmas</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hello-house-hostel-las-palmas-de-gran-canaria-spain" aria-label="Find Hello House Hostel Las Palmas de Gran Canaria Spain on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34600261171" class="blue-link">+34 600 26 11 71</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://capitallpa.century21.es" target="_blank" class="blue-link" rel="nofollow">capitallpa.century21.es</a></p>
@@ -2378,6 +2563,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> P.º las Canteras, 57, 35010 Las Palmas de Gran Canaria, Las Palmas</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hitide-surf-house" aria-label="Find Hitide Surf House on the map">Find on map ›</a></p>
+
             <p><strong>WEBSITE:</strong> <a href="https://www.hitidehouse.com" target="_blank" class="blue-link" rel="nofollow">hitidehouse.com</a></p>
 
             <p><strong>GOOGLE RATING:</strong> 4.6 out of 5 stars</p>
@@ -2403,6 +2590,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> 22 Calle de Luis Antúnez, 35006 Las Palmas de Gran Canaria, Las Palmas</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-alcaravaneras" aria-label="Find Hostal Alcaravaneras on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34636225556" class="blue-link">+34 636 22 55 56</a></p>
 
@@ -2434,6 +2623,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Cl. Doña Pino Apolinario, 74, 35014 Las Palmas de Gran Canaria, Las Palmas</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostel-gran-canaria" aria-label="Find Hostel Gran Canaria on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34828660286" class="blue-link">+34 828 66 02 86</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://hostelgrancanaria.com" target="_blank" class="blue-link" rel="nofollow">hostelgrancanaria.com</a></p>
@@ -2463,6 +2654,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Buenos Aires, 22, 35002 Las Palmas de Gran Canaria, Las Palmas</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="jungle-house" aria-label="Find Jungle House on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34611057434" class="blue-link">+34 611 05 74 34</a></p>
 
@@ -2494,6 +2687,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Colombia, 9, 35010 Las Palmas de Gran Canaria, Las Palmas</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="kite-and-surf-nomad-house" aria-label="Find Kite and Surf Nomad House on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34650505523" class="blue-link">+34 650 50 55 23</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://kiteandsurfnomadhouse.com" target="_blank" class="blue-link" rel="nofollow">kiteandsurfnomadhouse.com</a></p>
@@ -2523,6 +2718,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Bolivia, 11, 35010 Las Palmas de Gran Canaria, Las Palmas</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="kyo-surf-hostel" aria-label="Find Kyo Surf Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34669649575" class="blue-link">+34 669 64 95 75</a></p>
 
@@ -2554,6 +2751,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Veintidós de Mayo de 1986, 11, 35008 Las Palmas de Gran Canaria, Las Palmas</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="la-isleta-nest-hostel" aria-label="Find La Isleta Nest Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34655424297" class="blue-link">+34 655 42 42 97</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://nestshostels.com" target="_blank" class="blue-link" rel="nofollow">nestshostels.com</a></p>
@@ -2583,6 +2782,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. el Salvador, 7, 35010 Las Palmas de Gran Canaria, Las Palmas</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="la-ventana-azul-surf-hostel-gran-canaria" aria-label="Find La Ventana Azul Surf Hostel Gran Canaria on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34635878984" class="blue-link">+34 635 87 89 84</a></p>
 
@@ -2614,6 +2815,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Calle Dr. Nuez Aguilar, 5, 35001 Las Palmas de Gran Canaria, Las Palmas</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="las-palmas-nest-hostel" aria-label="Find Las Palmas Nest Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34605142869" class="blue-link">+34 605 14 28 69</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://nestshostels.com" target="_blank" class="blue-link" rel="nofollow">nestshostels.com</a></p>
@@ -2642,6 +2845,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Fernando Guanarteme, 27, 35007 Las Palmas de Gran Canaria, Las Palmas</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="lua-lua-hostel" aria-label="Find Lua Lua Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34622354433" class="blue-link">+34 622 35 44 33</a></p>
 
@@ -2673,6 +2878,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Simancas, 54, 35010 Las Palmas de Gran Canaria, Las Palmas</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="pura-vida-hostel" aria-label="Find Pura Vida Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34640141670" class="blue-link">+34 640 14 16 70</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://nestshostels.com" target="_blank" class="blue-link" rel="nofollow">nestshostels.com</a></p>
@@ -2702,6 +2909,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Plaza Sta. Ana, 2, 35001 Las Palmas de Gran Canaria, Las Palmas</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="santa-ana-suite-rooms" aria-label="Find Santa Ana Suite &amp; Rooms on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34699384567" class="blue-link">+34 699 38 45 67</a></p>
 
@@ -2733,6 +2942,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Hernán Pérez de Grado, 61, 35001 Las Palmas de Gran Canaria, Las Palmas</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="stardust-house" aria-label="Find Stardust House on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34603168639" class="blue-link">+34 603 16 86 39</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.stardusthouse.es" target="_blank" class="blue-link" rel="nofollow">stardusthouse.es</a></p>
@@ -2762,6 +2973,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Sgto. Llagas, 34, 35007 Las Palmas de Gran Canaria, Las Palmas</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="tamaran-house" aria-label="Find Tamaran House on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34637428317" class="blue-link">+34 637 42 83 17</a></p>
 
@@ -2793,6 +3006,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Panamá, 81, 35010 Las Palmas de Gran Canaria, Las Palmas</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="the-wave-temple-surfhouse-coliving" aria-label="Find The Wave Temple | Surfhouse, Coliving on the map">Find on map ›</a></p>
+
             <p><strong>WEBSITE:</strong> <a href="https://www.thewavetemple.com" target="_blank" class="blue-link" rel="nofollow">thewavetemple.com</a></p>
 
             <p><strong>GOOGLE RATING:</strong> 4.9 out of 5 stars</p>
@@ -2820,6 +3035,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Antonio Rodríguez Medina, 31, 35250 Ingenio, Las Palmas</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="villa-nestor" aria-label="Find Villa Nestor on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34633944962" class="blue-link">+34 633 94 49 62</a></p>
 
@@ -2851,6 +3068,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Maestro Valle, 25, 35005 Las Palmas de Gran Canaria, Las Palmas</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="villa-santa-fe-coliving-coworking" aria-label="Find Villa Santa Fe Coliving&amp;coworking on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34603168639" class="blue-link">+34 603 16 86 39</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://villasantafe.eu" target="_blank" class="blue-link" rel="nofollow">villasantafe.eu</a></p>
@@ -2881,6 +3100,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Hoya de la Plata, 48, 35016 Las Palmas de Gran Canaria, Las Palmas</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="wavelovers-surf-house-surf-camp-gran-canaria" aria-label="Find Wavelovers Surf House / Surf Camp Gran Canaria on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34660655116" class="blue-link">+34 660 65 51 16</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://waveloverssurfhouse.com" target="_blank" class="blue-link" rel="nofollow">waveloverssurfhouse.com</a></p>
@@ -2908,6 +3129,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. El Chinchorro, 1A, 35660 Corralejo, Las Palmas</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="albergue-cristina" aria-label="Find Albergue Cristina on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34609536830" class="blue-link">+34 609 53 68 30</a></p>
 
@@ -2937,6 +3160,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Alcaudón, 5, 35660 Corralejo, Las Palmas</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="banama-coliving-1-coworking-surf-yoga" aria-label="Find Banama Coliving 1 – Coworking, Surf &amp; Yoga on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+393461442061" class="blue-link">+39 346 144 2061</a></p>
 
@@ -2968,6 +3193,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. los Sabandeños, 11, 35660 Corralejo, Las Palmas</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="banama-coliving-2" aria-label="Find Banama Coliving 2 on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+393461442061" class="blue-link">+39 346 144 2061</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.banamacoliving.com" target="_blank" class="blue-link" rel="nofollow">banamacoliving.com</a></p>
@@ -2998,6 +3225,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Lepanto, 6, 35660 Corralejo, Las Palmas</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="cactus-beach-house" aria-label="Find Cactus Beach House on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34681113134" class="blue-link">+34 681 11 31 34</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.hoteldiario.com" target="_blank" class="blue-link" rel="nofollow">hoteldiario.com</a></p>
@@ -3027,6 +3256,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Royal Park Village, C. El Medano, 3, casa 34, 35660 Corralejo, Las Palmas</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="coco-surfhouse-coworking-coliving" aria-label="Find Coco Surfhouse – Coworking Coliving on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34679334831" class="blue-link">+34 679 33 48 31</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.cocosurfhouse.com" target="_blank" class="blue-link" rel="nofollow">cocosurfhouse.com</a></p>
@@ -3055,6 +3286,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Galicia, 31, 35660 Corralejo, Las Palmas</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="corralejo-coliving-by-amazzzing-travel" aria-label="Find Corralejo Coliving By Amazzzing Travel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34602573282" class="blue-link">+34 602 57 32 82</a></p>
 
@@ -3086,6 +3319,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> urb. Royal Park, vivienda 37, C. el Hierro, 35660 Corralejo, Las Palmas</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="la-fresa-hostel" aria-label="Find La Fresa Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34667256644" class="blue-link">+34 667 25 66 44</a></p>
 
             <p><strong>GOOGLE RATING:</strong> 4.1 out of 5 stars</p>
@@ -3112,6 +3347,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Bajo Blanco, 7, 35660 Corralejo, Las Palmas</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="sol-y-mar" aria-label="Find Sol Y Mar on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34928866389" class="blue-link">+34 928 86 63 89</a></p>
 
@@ -3143,6 +3380,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. El Medano, 14, 35660 Corralejo, Las Palmas</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="surf-riders-fuerteventura" aria-label="Find Surf Riders Fuerteventura on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34681235665" class="blue-link">+34 681 23 56 65</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://surfridersfuerteventura.com" target="_blank" class="blue-link" rel="nofollow">surfridersfuerteventura.com</a></p>
@@ -3172,6 +3411,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. el Hierro, 55, 35660 Corralejo, Las Palmas</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="surfers-retreat" aria-label="Find Surfers Retreat on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34928866389" class="blue-link">+34 928 86 63 89</a></p>
 
@@ -3203,6 +3444,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Salvador Miralles Perez, 2, 38750 El Paso, Santa Cruz de Tenerife</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostel-albergue-la-casa-encantada" aria-label="Find Hostel Albergue La Casa Encantada on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34643037805" class="blue-link">+34 643 03 78 05</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.hostellacasaencantada.es" target="_blank" class="blue-link" rel="nofollow">hostellacasaencantada.es</a></p>
@@ -3231,6 +3474,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Barranco Tinache, 10, 35560 El Cuchillo, Las Palmas</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="kalufa-surf-house" aria-label="Find Kalufa Surf House on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34610633426" class="blue-link">+34 610 63 34 26</a></p>
 
@@ -3667,6 +3912,8 @@ window.BB_TIPS = [
 
     <!-- Mobile menu end -->
 
+<script src="/assets/js/bb-map-loader.js?v=6" defer></script>
+
 <script src="/js/script-2.js?v=4" defer></script>
 
 <script src="/js/attribution-toggle.js?v=1" defer></script>
@@ -3685,6 +3932,1858 @@ class="statcounter"
 src="https://c.statcounter.com/13225228/0/687dc53c/1/"
 alt="Web Analytics"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.backpackersbible.com/#organization",
+      "name": "BackpackersBible.com",
+      "url": "https://www.backpackersbible.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.backpackersbible.com/assets/backpackers_bible_logo_250x250.png",
+        "width": 250,
+        "height": 250
+      },
+      "description": "Independent backpacker guides to destinations worldwide with direct hostel contacts, safety information, maps, and honest write-ups."
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw",
+      "name": "Geoff Louw",
+      "url": "https://www.backpackersbible.com/misc/about-backpackers-bible",
+      "worksFor": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.backpackersbible.com/#website",
+      "url": "https://www.backpackersbible.com/",
+      "name": "BackpackersBible.com",
+      "publisher": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": [
+        "WebPage",
+        "CollectionPage"
+      ],
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#webpage",
+      "url": "https://www.backpackersbible.com/spain/en/hostels/canary-islands",
+      "name": "Backpacking the Canary Islands | Hostel Guide",
+      "headline": "Budget Accommodation In the Canary Islands",
+      "description": "Directory of 87 hostels and budget places to stay in the Canary Islands, with direct contact details, an interactive map and filters.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://www.backpackersbible.com/#website"
+      },
+      "publisher": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      },
+      "author": {
+        "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw"
+      },
+      "dateModified": "2026-11-21",
+      "mainEntity": {
+        "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#hostels"
+      },
+      "about": [
+        {
+          "@type": "Place",
+          "name": "the Canary Islands",
+          "sameAs": "https://en.wikipedia.org/wiki/Canary_Islands"
+        },
+        {
+          "@type": "Thing",
+          "name": "Backpacking",
+          "sameAs": "https://en.wikipedia.org/wiki/Backpacking_(travel)"
+        }
+      ],
+      "mentions": [
+        {
+          "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#map"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.backpackersbible.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Backpacking Spain",
+          "item": "https://www.backpackersbible.com/spain/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "the Canary Islands Hostels",
+          "item": "https://www.backpackersbible.com/spain/en/hostels/canary-islands"
+        }
+      ]
+    },
+    {
+      "@type": "Map",
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#map",
+      "name": "the Canary Islands Backpacker Hostel Map",
+      "description": "Interactive map of the hostels and budget places to stay in the Canary Islands with one-tap filters.",
+      "mapType": "https://schema.org/VenueMap",
+      "url": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#hostel-map",
+      "potentialAction": [
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Top Picks",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/canary-islands?filter=best_overall#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Best Value",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/canary-islands?filter=best_value#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Budget",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/canary-islands?filter=budget#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Flashpackers",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/canary-islands?filter=flashpacker#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Best Parties",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/canary-islands?filter=party#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Most Social",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/canary-islands?filter=social#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Peaceful",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/canary-islands?filter=peaceful#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Solo Women",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/canary-islands?filter=solo_women#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Digital Nomads",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/canary-islands?filter=digital_nomad#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Couples",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/canary-islands?filter=couples#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Cyclists",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/canary-islands?filter=cyclists#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Activities",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/canary-islands?filter=activities#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Accessible",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/canary-islands?filter=accessible#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Eco-Friendly",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/canary-islands?filter=eco#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Camping",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/canary-islands?filter=camping#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Near Airport",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/canary-islands?filter=near_airport#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Groups",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/canary-islands?filter=groups#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Surfers",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/canary-islands?filter=surfers#hostel-map"
+        }
+      ],
+      "about": {
+        "@type": "Thing",
+        "name": "Backpacker Hostels in the Canary Islands"
+      },
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "the Canary Islands",
+        "sameAs": "https://en.wikipedia.org/wiki/Canary_Islands"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#hostels",
+      "name": "Hostels and budget accommodation in the Canary Islands",
+      "numberOfItems": 87,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#adeje-nest-hostel",
+            "name": "Adeje Nest Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Francia, 21",
+              "postalCode": "38660",
+              "addressLocality": "Costa Adeje",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 675 45 15 18",
+            "url": "https://nestshostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#aguere-nest-hostel",
+            "name": "Aguere Nest Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. Leonardo Torriani, 1",
+              "postalCode": "38201",
+              "addressLocality": "La Laguna",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 922 45 61 17",
+            "url": "https://nestshostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#aloe-vera-shared-house",
+            "name": "Aloe Vera Shared House",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Orquidea",
+              "postalCode": "38612",
+              "addressLocality": "El Médano",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 644 73 71 93",
+            "url": "https://aloeverasharedhouse.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#arena-nest-hostel-nest-hostel",
+            "name": "Arena Nest Hostel – Nest Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. la Salvaje, 3 bis",
+              "postalCode": "38683",
+              "addressLocality": "Santiago del Teide",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 822 09 03 44",
+            "url": "https://nestshostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#ashavana-nest-hostel",
+            "name": "Ashavana Nest Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. José Miguel Galván Bello, 9",
+              "postalCode": "38612",
+              "addressLocality": "El Médano",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 689 37 29 24",
+            "url": "https://nestshostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#atypicap-capsule-hostel",
+            "name": "Atypicap Capsule Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Agustín de Betancourt, 22",
+              "postalCode": "38400",
+              "addressLocality": "Puerto de la Cruz",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 722 24 67 70",
+            "url": "https://www.atypicap.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#bed-books-and-breakfast-bookworms",
+            "name": "Bed, Books and Breakfast. Bookworms.",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Juan de Vera, 37",
+              "postalCode": "38201",
+              "addressLocality": "La Laguna",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 697 23 03 04",
+            "url": "https://www.bookwormhostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#bucio-coliving",
+            "name": "Bucio Coliving",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. de Fernando Salazar Gonzalez, 15",
+              "postalCode": "38631",
+              "addressLocality": "Arona",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 629 08 42 88",
+            "url": "https://bucio-coliving.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#casa-grande-surf-hostel",
+            "name": "Casa Grande Surf Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Galo Ponte, 7",
+              "postalCode": "38612",
+              "addressLocality": "El Médano",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 922 17 63 76",
+            "url": "https://www.beds24.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#casa-regina-tenerife",
+            "name": "Casa Regina Tenerife",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. la Real, 4",
+              "postalCode": "38684",
+              "addressLocality": "Tamaimo",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 675 67 95 57",
+            "url": "https://www.casareginatenerife.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#casa-vacacional-madre-amada-en-candelaria",
+            "name": "Casa Vacacional Madre Amada En Candelaria",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Chicoro, 183E",
+              "postalCode": "38540",
+              "addressLocality": "Candelaria",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 620 54 20 73"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#casanaga",
+            "name": "Casanaga",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "acesso solo a pie - parking 5 minutos en camino, Calle el Cabo, 15, 38129, Santa Cruz de Tenerife",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 666 60 64 10"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 13,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#climbing-tenerife-house",
+            "name": "Climbing Tenerife House",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. de la Asomadita, 8",
+              "postalCode": "38580",
+              "addressLocality": "Villa de Arico",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 689 88 68 09",
+            "url": "https://www.tenerifeclimbinghouse.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 14,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#daydream-el-medano-coliving",
+            "name": "Daydream El Medano Coliving",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. el Confital, 8",
+              "postalCode": "38612",
+              "addressLocality": "El Médano",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 623 18 70 50",
+            "url": "https://daydreamelmedano.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 15,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#drago-nest-hostel",
+            "name": "Drago Nest Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Fray Cristóbal Oramas, 43",
+              "postalCode": "38430",
+              "addressLocality": "Icod de los Vinos",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 602 58 87 96",
+            "url": "https://dragohostel-tenerife.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 16,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#duque-nest-hostel",
+            "name": "Duque Nest Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. Jardines del Duque, 33",
+              "postalCode": "38679",
+              "addressLocality": "Costa Adeje",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 655 01 20 55",
+            "url": "https://nestshostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 17,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#el-hostal-del-cubo",
+            "name": "El Hostal del Cubo",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. el Sol, 2",
+              "postalCode": "38420",
+              "addressLocality": "San Juan de la Rambla",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 665 76 55 79",
+            "url": "https://www.elhostaldelcubo.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 18,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#endless-summer-tenerife-l-surfhouse-divecamp",
+            "name": "Endless Summer Tenerife L Surfhouse & Divecamp",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. Austria, 14",
+              "postalCode": "38660",
+              "addressLocality": "Playa de las Américas",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 922 89 94 47",
+            "url": "https://www.endlesssummertenerife.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 19,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#guayaba-hostel",
+            "name": "Guayaba Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Cam. El Guincho, 108",
+              "postalCode": "38270",
+              "addressLocality": "Valle Guerra",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 922 54 54 87",
+            "url": "https://www.lagartohosteltenerife.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 20,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#hostal-buenavista-del-norte",
+            "name": "Hostal Buenavista del Norte",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Pl. de los Remedios, n°3",
+              "postalCode": "38480",
+              "addressLocality": "Buenavista del Nte.",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 689 11 05 03"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 21,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#hostel-banana-surf-house",
+            "name": "Hostel Banana Surf House",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. la Montańa, 46",
+              "postalCode": "38650",
+              "addressLocality": "Arona",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 657 43 88 73",
+            "url": "https://www.hostelbanana.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 22,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#hostel-la-tortuga",
+            "name": "Hostel La Tortuga",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Residencial Las Amapolas, C. Reykjavik, s/n",
+              "postalCode": "38660",
+              "addressLocality": "Costa Adeje",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 604 15 92 54",
+            "url": "https://latortugahostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 23,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#hostel-neon-tenerife",
+            "name": "Hostel Neón Tenerife",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Lomo de la Fuente, 8",
+              "postalCode": "38632",
+              "addressLocality": "Guaza",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 606 95 26 27",
+            "url": "https://www.hostelneontenerife.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 24,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#hostel-tenerife",
+            "name": "Hostel Tenerife",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Marqués, 24",
+              "postalCode": "38300",
+              "addressLocality": "La Orotava",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 603 13 59 05",
+            "url": "https://hosteltenerife.top"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 25,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#hotel-eco-life",
+            "name": "Hotel Eco Life",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Garañaña, 43",
+              "postalCode": "38620",
+              "addressLocality": "San Miguel",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 615 93 83 88",
+            "url": "https://hotelecolife.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 26,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#hotel-rural-senderos-de-abona",
+            "name": "Hotel Rural Senderos de Abona",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. de La Iglesia, 1",
+              "postalCode": "38600",
+              "addressLocality": "Granadilla",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 922 77 02 00",
+            "url": "https://www.senderosdeabona.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 27,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#hotel-tejuma",
+            "name": "Hotel Tejuma",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Pérez Zamora, 49",
+              "postalCode": "38400",
+              "addressLocality": "Puerto de la Cruz",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 922 38 36 13",
+            "url": "https://www.hoteltejuma.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 28,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#las-eras-nest-hostel",
+            "name": "Las Eras Nest Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. el Drago",
+              "postalCode": "38592",
+              "addressLocality": "Las Eras",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 653 18 65 96",
+            "url": "https://nestshostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 29,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#los-amigos-nest-hostel-tenerife",
+            "name": "Los Amigos Nest Hostel Tenerife",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. la Giralda, 9",
+              "postalCode": "38618",
+              "addressLocality": "La Mareta",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 603 30 67 58",
+            "url": "https://nestshostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 30,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#los-duendes-del-sur",
+            "name": "Los Duendes del Sur",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Polifemo, 5",
+              "postalCode": "38630",
+              "addressLocality": "Costa del Silencio",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 635 26 72 33",
+            "url": "https://hostellosduendesdelsur.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 31,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#medano-nest-hostel",
+            "name": "Medano Nest Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Tenerife, 11",
+              "postalCode": "38612",
+              "addressLocality": "El Médano",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 635 89 10 78",
+            "url": "https://nestshostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 32,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#ocean-nomad-hostel",
+            "name": "Ocean Nomad Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. el Coronel, 8",
+              "postalCode": "38650",
+              "addressLocality": "Los Cristianos",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 657 46 01 53",
+            "url": "https://www.oceannomadshostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 33,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#patio-hostel-tenerife",
+            "name": "Patio Hostel Tenerife",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Pl. de El Cristo, 6",
+              "postalCode": "38201",
+              "addressLocality": "La Laguna",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 634 35 49 85",
+            "url": "https://patiohosteltenerife.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 34,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#pension-alcala",
+            "name": "Pensión Alcalá",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Carero, 1",
+              "postalCode": "38686",
+              "addressLocality": "Alcalá",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 697 49 41 92",
+            "url": "https://www.pensionalcala.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 35,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#puerto-azul",
+            "name": "Puerto Azul",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. del Lomo, 24",
+              "postalCode": "38400",
+              "addressLocality": "Puerto de la Cruz",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 922 38 32 13",
+            "url": "https://puerto-azul.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 36,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#puerto-nest-hostel",
+            "name": "Puerto Nest Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Victor Machado, 12",
+              "postalCode": "38400",
+              "addressLocality": "Puerto de la Cruz",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 822 61 39 48",
+            "url": "https://nestshostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 37,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#single-fin-surf-hostel",
+            "name": "Single Fin Surf Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Maria del Carmen Garcia, 24",
+              "postalCode": "38631",
+              "addressLocality": "Arona",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 634 23 63 38",
+            "url": "https://singlefinsurfhostel.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 38,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#tenerife-art-hostel",
+            "name": "Tenerife Art Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Méndez Núñez, 20",
+              "postalCode": "38002",
+              "addressLocality": "Santa Cruz de Tenerife",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 665 66 18 61",
+            "url": "https://tenerifehostels.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 39,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#tenerife-experience-hostel",
+            "name": "Tenerife Experience Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Garcilaso de la Vega, 30",
+              "postalCode": "38005",
+              "addressLocality": "Santa Cruz de Tenerife",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 603 55 73 96",
+            "url": "https://www.tenerifehostels.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 40,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#tenerife-hostel",
+            "name": "Tenerife Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. el Coronel, 3",
+              "postalCode": "38650",
+              "addressLocality": "Arona",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "url": "https://tenerifehostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 41,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#the-tree-house-hostel-coworking",
+            "name": "The Tree House Hostel & Coworking",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. La Jaquita, S/N, 38612, Santa Cruz de Tenerife",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 637 16 81 51",
+            "url": "https://thetreehousehostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 42,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#vibes-surfhouse",
+            "name": "Vibes Surfhouse",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Alondras 3, Av. San Borondon, Casa 7",
+              "postalCode": "38679",
+              "addressLocality": "Fañabé",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "url": "https://www.tenerifesurf.camp"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 43,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#wanderlust-hostel",
+            "name": "Wanderlust Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Juan Pablo II, 35",
+              "postalCode": "38004",
+              "addressLocality": "Santa Cruz de Tenerife",
+              "addressCountry": "ES"
+            },
+            "url": "https://wanderlust-hostel.amenitiz.io"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 44,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#aguita-house",
+            "name": "Aguita House",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "P.º las Canteras, 53",
+              "postalCode": "35010",
+              "addressLocality": "Las Palmas de Gran Canaria",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+34 614 86 84 53",
+            "url": "https://aguitahostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 45,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#aguita-surf-lodge",
+            "name": "Agüita Surf Lodge",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Secretario Padilla, 136",
+              "postalCode": "35010",
+              "addressLocality": "Las Palmas de Gran Canaria",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+34 614 86 84 53",
+            "url": "https://aguitahostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 46,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#albergue-casa-jalou",
+            "name": "Albergue Casa Jalou",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. de San José",
+              "postalCode": "35480",
+              "addressLocality": "Agaete",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "url": "https://www.mbmgestionyservicios.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 47,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#atlantis-surf-hostel",
+            "name": "Atlantis Surf Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Ctra. la Costa",
+              "postalCode": "35413",
+              "addressLocality": "El Pagador",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+34 685 87 07 45",
+            "url": "https://atlantissurfhostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 48,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#cactus-host",
+            "name": "Cactus Host",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Calle Dr. Miguel Rosas, 19",
+              "postalCode": "35007",
+              "addressLocality": "Las Palmas de Gran Canaria",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+34 682 33 01 79",
+            "url": "https://www.cactushostgrancanaria.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 49,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#camino-art-house",
+            "name": "Camino Art House",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Calle V. Molinos, 4",
+              "postalCode": "35329",
+              "addressLocality": "Vega de San Mateo",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+34 633 33 99 03",
+            "url": "https://caminoart.org"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 50,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#casa-calma-yoga-hostel",
+            "name": "Casa Calma Yoga Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. León y Castillo, 13",
+              "postalCode": "35480",
+              "addressLocality": "Agaete",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+34 605 60 56 83",
+            "url": "https://www.casacalma.me"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 51,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#columbus-rooftop-hostels",
+            "name": "Columbus Rooftop Hostels",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Reyes Católicos, 8",
+              "postalCode": "35001",
+              "addressLocality": "Las Palmas de Gran Canaria",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+34 644 52 41 71",
+            "url": "https://www.columbushostels.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 52,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#compass-house",
+            "name": "Compass House",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Villavicencio, 13",
+              "postalCode": "35002",
+              "addressLocality": "Las Palmas de Gran Canaria",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+34 621 07 16 89",
+            "url": "https://hotels.cloudbeds.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 53,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#dona-rose-surf-hostel",
+            "name": "Doña Rose Surf Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Secretario Padilla, 131",
+              "postalCode": "35010",
+              "addressLocality": "Las Palmas de Gran Canaria",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "url": "https://www.dona-rose-hostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 54,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#eco-finca-mogan",
+            "name": "Eco Finca Mogán",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Lugar Los Llanos, 37",
+              "postalCode": "35149",
+              "addressLocality": "Los Llanos",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+34 639 49 16 62",
+            "url": "https://www.ecofincamogan.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 55,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#eden-guesthouse",
+            "name": "Eden Guesthouse",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "",
+              "postalCode": "35110",
+              "addressLocality": "Sardina",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "url": "https://www.bluepillow.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 56,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#finca-la-isa-by-rose",
+            "name": "Finca La Isa By Rose",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Finca la isa, GC-156, 1, 35369, Las Palmas",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 685 01 51 03",
+            "url": "https://www.fincalaisabyrose.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 57,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#hello-house-hostel-las-palmas-de-gran-canaria-spain",
+            "name": "Hello House Hostel Las Palmas de Gran Canaria Spain",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Conde Albrit, 24",
+              "postalCode": "35014",
+              "addressLocality": "Las Palmas de Gran Canaria",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+34 600 26 11 71",
+            "url": "https://capitallpa.century21.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 58,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#hitide-surf-house",
+            "name": "Hitide Surf House",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "P.º las Canteras, 57",
+              "postalCode": "35010",
+              "addressLocality": "Las Palmas de Gran Canaria",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "url": "https://www.hitidehouse.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 59,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#hostal-alcaravaneras",
+            "name": "Hostal Alcaravaneras",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "22 Calle de Luis Antúnez",
+              "postalCode": "35006",
+              "addressLocality": "Las Palmas de Gran Canaria",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+34 636 22 55 56",
+            "url": "https://canaryhostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 60,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#hostel-gran-canaria",
+            "name": "Hostel Gran Canaria",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Cl. Doña Pino Apolinario, 74",
+              "postalCode": "35014",
+              "addressLocality": "Las Palmas de Gran Canaria",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+34 828 66 02 86",
+            "url": "https://hostelgrancanaria.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 61,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#jungle-house",
+            "name": "Jungle House",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Buenos Aires, 22",
+              "postalCode": "35002",
+              "addressLocality": "Las Palmas de Gran Canaria",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+34 611 05 74 34",
+            "url": "https://hotels.cloudbeds.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 62,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#kite-and-surf-nomad-house",
+            "name": "Kite and Surf Nomad House",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Colombia, 9",
+              "postalCode": "35010",
+              "addressLocality": "Las Palmas de Gran Canaria",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+34 650 50 55 23",
+            "url": "https://kiteandsurfnomadhouse.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 63,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#kyo-surf-hostel",
+            "name": "Kyo Surf Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Bolivia, 11",
+              "postalCode": "35010",
+              "addressLocality": "Las Palmas de Gran Canaria",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+34 669 64 95 75",
+            "url": "https://kyosurf.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 64,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#la-isleta-nest-hostel",
+            "name": "La Isleta Nest Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Veintidós de Mayo de 1986, 11",
+              "postalCode": "35008",
+              "addressLocality": "Las Palmas de Gran Canaria",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+34 655 42 42 97",
+            "url": "https://nestshostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 65,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#la-ventana-azul-surf-hostel-gran-canaria",
+            "name": "La Ventana Azul Surf Hostel Gran Canaria",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. el Salvador, 7",
+              "postalCode": "35010",
+              "addressLocality": "Las Palmas de Gran Canaria",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+34 635 87 89 84",
+            "url": "https://www.ventana-azul.net"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 66,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#las-palmas-nest-hostel",
+            "name": "Las Palmas Nest Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Calle Dr. Nuez Aguilar, 5",
+              "postalCode": "35001",
+              "addressLocality": "Las Palmas de Gran Canaria",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+34 605 14 28 69",
+            "url": "https://nestshostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 67,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#lua-lua-hostel",
+            "name": "Lua Lua Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Fernando Guanarteme, 27",
+              "postalCode": "35007",
+              "addressLocality": "Las Palmas de Gran Canaria",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+34 622 35 44 33",
+            "url": "https://lualuahostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 68,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#pura-vida-hostel",
+            "name": "Pura Vida Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Simancas, 54",
+              "postalCode": "35010",
+              "addressLocality": "Las Palmas de Gran Canaria",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+34 640 14 16 70",
+            "url": "https://nestshostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 69,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#santa-ana-suite-rooms",
+            "name": "Santa Ana Suite & Rooms",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Plaza Sta. Ana, 2",
+              "postalCode": "35001",
+              "addressLocality": "Las Palmas de Gran Canaria",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+34 699 38 45 67",
+            "url": "https://exclusiveroomscollection.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 70,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#stardust-house",
+            "name": "Stardust House",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Hernán Pérez de Grado, 61",
+              "postalCode": "35001",
+              "addressLocality": "Las Palmas de Gran Canaria",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+34 603 16 86 39",
+            "url": "https://www.stardusthouse.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 71,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#tamaran-house",
+            "name": "Tamaran House",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Sgto. Llagas, 34",
+              "postalCode": "35007",
+              "addressLocality": "Las Palmas de Gran Canaria",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+34 637 42 83 17",
+            "url": "https://tamaranhouse.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 72,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#the-wave-temple-surfhouse-coliving",
+            "name": "The Wave Temple | Surfhouse, Coliving",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Panamá, 81",
+              "postalCode": "35010",
+              "addressLocality": "Las Palmas de Gran Canaria",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "url": "https://www.thewavetemple.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 73,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#villa-nestor",
+            "name": "Villa Nestor",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Antonio Rodríguez Medina, 31",
+              "postalCode": "35250",
+              "addressLocality": "Ingenio",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+34 633 94 49 62",
+            "url": "https://www.villanestor.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 74,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#villa-santa-fe-coliving-coworking",
+            "name": "Villa Santa Fe Coliving&coworking",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Maestro Valle, 25",
+              "postalCode": "35005",
+              "addressLocality": "Las Palmas de Gran Canaria",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+34 603 16 86 39",
+            "url": "https://villasantafe.eu"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 75,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#wavelovers-surf-house-surf-camp-gran-canaria",
+            "name": "Wavelovers Surf House / Surf Camp Gran Canaria",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Hoya de la Plata, 48",
+              "postalCode": "35016",
+              "addressLocality": "Las Palmas de Gran Canaria",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+34 660 65 51 16",
+            "url": "https://waveloverssurfhouse.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 76,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#albergue-cristina",
+            "name": "Albergue Cristina",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. El Chinchorro, 1A",
+              "postalCode": "35660",
+              "addressLocality": "Corralejo",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+34 609 53 68 30",
+            "url": "https://www.hoteldiario.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 77,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#banama-coliving-1-coworking-surf-yoga",
+            "name": "Banama Coliving 1 – Coworking, Surf & Yoga",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Alcaudón, 5",
+              "postalCode": "35660",
+              "addressLocality": "Corralejo",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+39 346 144 2061",
+            "url": "https://www.banamacoliving.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 78,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#banama-coliving-2",
+            "name": "Banama Coliving 2",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. los Sabandeños, 11",
+              "postalCode": "35660",
+              "addressLocality": "Corralejo",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+39 346 144 2061",
+            "url": "https://www.banamacoliving.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 79,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#cactus-beach-house",
+            "name": "Cactus Beach House",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Lepanto, 6",
+              "postalCode": "35660",
+              "addressLocality": "Corralejo",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+34 681 11 31 34",
+            "url": "https://www.hoteldiario.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 80,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#coco-surfhouse-coworking-coliving",
+            "name": "Coco Surfhouse – Coworking Coliving",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Royal Park Village, C. El Medano, 3, casa 34",
+              "postalCode": "35660",
+              "addressLocality": "Corralejo",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+34 679 33 48 31",
+            "url": "https://www.cocosurfhouse.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 81,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#corralejo-coliving-by-amazzzing-travel",
+            "name": "Corralejo Coliving By Amazzzing Travel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Galicia, 31",
+              "postalCode": "35660",
+              "addressLocality": "Corralejo",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+34 602 57 32 82",
+            "url": "https://amazzzing.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 82,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#la-fresa-hostel",
+            "name": "La Fresa Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "urb. Royal Park, vivienda 37, C. el Hierro",
+              "postalCode": "35660",
+              "addressLocality": "Corralejo",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+34 667 25 66 44"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 83,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#sol-y-mar",
+            "name": "Sol Y Mar",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Bajo Blanco, 7",
+              "postalCode": "35660",
+              "addressLocality": "Corralejo",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+34 928 86 63 89",
+            "url": "https://flagbeach.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 84,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#surf-riders-fuerteventura",
+            "name": "Surf Riders Fuerteventura",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. El Medano, 14",
+              "postalCode": "35660",
+              "addressLocality": "Corralejo",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+34 681 23 56 65",
+            "url": "https://surfridersfuerteventura.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 85,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#surfers-retreat",
+            "name": "Surfers Retreat",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. el Hierro, 55",
+              "postalCode": "35660",
+              "addressLocality": "Corralejo",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+34 928 86 63 89",
+            "url": "https://www.hoteldiario.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 86,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#hostel-albergue-la-casa-encantada",
+            "name": "Hostel Albergue La Casa Encantada",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Salvador Miralles Perez, 2",
+              "postalCode": "38750",
+              "addressLocality": "El Paso",
+              "addressCountry": "ES",
+              "addressRegion": "Santa Cruz de Tenerife"
+            },
+            "telephone": "+34 643 03 78 05",
+            "url": "https://www.hostellacasaencantada.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 87,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/canary-islands#kalufa-surf-house",
+            "name": "Kalufa Surf House",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Barranco Tinache, 10",
+              "postalCode": "35560",
+              "addressLocality": "El Cuchillo",
+              "addressCountry": "ES",
+              "addressRegion": "Las Palmas"
+            },
+            "telephone": "+34 610 63 34 26",
+            "url": "https://www.kalufahouse.com"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 </body>
 </html>

@@ -461,16 +461,87 @@
 
 <main id="main-content">
 
-<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description">
-  <iframe
-    class="sa-hostel-map-iframe"
-    title="Google My Maps: backpacker hostels in Spain"
-    src="https://www.google.com/maps/d/embed?mid=1YaoKUZVLHf7y1Rar6qoNWzn0Q6jRNV0&ehbc=2E312F&noprof=1&ll=39.41495,-2.96495&z=8"
-    width="640" height="480"
-    loading="lazy"
-    allowfullscreen>
-  </iframe>
+<!-- Map description -->
+<div class="map-description" id="hostel-map-description">
+  <span class="map-description__text"><strong>BACKPACKERS FINDER:</strong> The easiest way to choose the right backpacker hostel. Our interactive map lets you filter Castilla-La Mancha backpackers by vibe, setup and value. Filters switch on once every hostel has been rated.</span>
+</div>
+
+  <!-- Map filter buttons -->
+
+<h2 class="sr-only">
+    Search Castilla-La Mancha Backpacker Hostels
+</h2>
+
+<p class="sr-only">
+    Filter Castilla-La Mancha hostels by party atmosphere, how social they are, peacefulness, solo female traveller friendliness, digital nomad suitability, couples, cyclists, activities, accessibility, eco-friendliness, camping, airport proximity, group suitability, budget and value for money. You can select more than one filter at once, and hostels must match all of them.
+</p>
+
+<div class="map-filter-bar">
+    <div class="map-filter-bar__scroll">
+        <div class="map-filter-bar__row" role="toolbar" aria-label="Filter hostels by category">
+
+            <a href="#" class="map-filter-btn map-filter-btn--active" role="button" style="background-color: #ffd400; color: #000000;" data-filter="all" aria-pressed="true" aria-label="Show all backpackers hostels in Castilla-La Mancha">★ All Hostels</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #b01c22; opacity:0.5; cursor:not-allowed;" data-filter="best_overall" aria-pressed="false" aria-label="Show the top-rated backpackers hostels">Top Picks</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="best_value" aria-pressed="false" aria-label="Show backpackers hostels which deliver the best value for money">Best Value</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="budget" aria-pressed="false" aria-label="Show the budget backpackers hostels">Budget</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="flashpacker" aria-pressed="false" aria-label="Show upmarket flashpacker hostels">Flashpackers</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="party" aria-pressed="false" aria-label="Show backpackers hostels which have the best parties">Best Parties</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="social" aria-pressed="false" aria-label="Show the most sociable backpackers hostels for meeting other travellers">Most Social</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="peaceful" aria-pressed="false" aria-label="Show peaceful, quiet backpackers hostels">Peaceful</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="solo_women" aria-pressed="false" aria-label="Show backpackers hostels which are best for solo women travellers">Solo Women</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="digital_nomad" aria-pressed="false" aria-label="Show backpackers hostels which are best for digital nomads">Digital Nomads</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="couples" aria-pressed="false" aria-label="Show backpackers hostels which are best for couples">Couples</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="cyclists" aria-pressed="false" aria-label="Show backpackers hostels which are best for cyclists">Cyclists</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="activities" aria-pressed="false" aria-label="Show backpackers hostels with the best activities and tours">Activities</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="accessible" aria-pressed="false" aria-label="Show backpackers hostels with confirmed accessibility features">Accessible</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="eco" aria-pressed="false" aria-label="Show eco-friendly and certified sustainable backpackers hostels">Eco-Friendly</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="camping" aria-pressed="false" aria-label="Show hostels which offer camping as an accommodation option">Camping</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="near_airport" aria-pressed="false" aria-label="Show hostels close to an airport">Near Airport</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="groups" aria-pressed="false" aria-label="Show hostels which welcome groups of backpackers">Groups</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="surfers" aria-pressed="false" aria-label="Show backpackers hostels which are best for surfers">Surfers</a>
+        </div>
+    </div>
+</div>
+
+<!-- ░░ HOSTEL MAP ░░ -->
+<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description"
+  data-bb-map
+  data-region="castilla-la-mancha"
+  data-country="Spain"
+  data-center="-3.166,39.674"
+  data-zoom="7.0"
+  data-mobile-zoom="6.3"
+  data-pitch="0"
+  data-bearing="0"
+  data-hostels-url="/spain/assets/data/hostels.json"
+  data-regions-url="/spain/assets/data/regions.json"
+  data-terrain=""
+  data-locate-bounds="-19,27,5,44.5"
+  data-threshold="7"
+  data-autoload="viewport">
+
+  <!-- Poster image: shows before the visitor loads the map -->
+  <picture class="sa-hostel-map-poster">
+    <img src="/spain/assets/images/map_castilla_la_mancha.webp"
+         alt="Interactive backpacker hostel map of Castilla-La Mancha showing hostels that can be filtered by travel style, budget, solo female travellers, digital nomads, cycling and more."
+         loading="eager"
+         fetchpriority="high"
+         decoding="async">
+  </picture>
+
+  <!-- Keyboard and screen-reader route to the map (the poster itself is tap-to-load) -->
+  <button type="button" class="sr-only" id="bb-map-load-btn">Load the interactive hostel map</button>
+
+  <!-- The map renders here (inline, no iframe) once the visitor taps the poster or a filter -->
+  <div id="bb-map-wrap" class="sa-hostel-map-iframe bb-map-iframe" hidden></div>
+
+  <div class="map-overlay-circle" aria-hidden="true">
+    Click the icons<br>for hostel info.
+  </div>
+
 </section>
+<!-- ░░ END HOSTEL MAP ░░ -->
+
 
 <!-- Horizontal regional menu -->
 
@@ -613,6 +684,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Pl. Alameda, 7, 45600 Talavera de la Reina, Toledo</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-la-embajada" aria-label="Find Hostal La Embajada on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34623103326" class="blue-link">+34 623 10 33 26</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.hostalembajada.com" target="_blank" class="blue-link" rel="nofollow">hostalembajada.com</a></p>
@@ -643,6 +716,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Av. Reyes Católicos, 1, 45100 Sonseca, Toledo</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-cafe-greco" aria-label="Find Hostal-Cafe Greco on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34925383255" class="blue-link">+34 925 38 32 55</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.hostalcafegutgreco.es" target="_blank" class="blue-link" rel="nofollow">hostalcafegutgreco.es</a></p>
@@ -672,6 +747,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Conde de Mora, 14, 45123 Layos, Toledo</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostel-layos-toledo" aria-label="Find Hostel Layos Toledo on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34913572564" class="blue-link">+34 913 57 25 64</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.hostellayostoledo.com" target="_blank" class="blue-link" rel="nofollow">hostellayostoledo.com</a></p>
@@ -700,6 +777,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Mesones, 3, 45600 Talavera de la Reina, Toledo</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="santa-rita-rita-b-boutique-alojamientos" aria-label="Find Santa Rita Rita B&amp;boutique Alojamientos on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34615156518" class="blue-link">+34 615 15 65 18</a></p>
 
@@ -731,6 +810,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Juan Jorge Graubner, 4, 02450 Riópar, Albacete</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-grimaldos" aria-label="Find Hostal Grimaldos on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34696219832" class="blue-link">+34 696 21 98 32</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://hostal-grimaldos.com.es" target="_blank" class="blue-link" rel="nofollow">hostal-grimaldos.com.es</a></p>
@@ -759,6 +840,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Haza de San Luis, 9, 02450 Riópar, Albacete</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostel-los-chorros" aria-label="Find Hostel Los Chorros on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34635615417" class="blue-link">+34 635 61 54 17</a></p>
 
@@ -789,6 +872,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> 16193 Fuentes, Cuenca</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-los-palancares" aria-label="Find Hostal Los Palancares on the map">Find on map ›</a></p>
+
         </div>
 
 <p class="booking-links-heading">See Photos &amp; Reviews on:</p>
@@ -811,6 +896,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. San Pedro, 34, 16001 Cuenca</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-san-pedro" aria-label="Find Hostal San Pedro on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34969234543" class="blue-link">+34 969 23 45 43</a></p>
 
@@ -840,6 +927,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Av. Castilla la Mancha, 61, 13249 Ruidera, Cdad. Real</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-la-noria" aria-label="Find Hostal La Noria on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34926528032" class="blue-link">+34 926 52 80 32</a></p>
 
@@ -1260,6 +1349,8 @@ window.BB_TIPS = [
 
     <!-- Mobile menu end -->
 
+<script src="/assets/js/bb-map-loader.js?v=6" defer></script>
+
 <script src="/js/script-2.js?v=4" defer></script>
 
 <script src="/js/attribution-toggle.js?v=1" defer></script>
@@ -1278,6 +1369,397 @@ class="statcounter"
 src="https://c.statcounter.com/13225228/0/687dc53c/1/"
 alt="Web Analytics"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.backpackersbible.com/#organization",
+      "name": "BackpackersBible.com",
+      "url": "https://www.backpackersbible.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.backpackersbible.com/assets/backpackers_bible_logo_250x250.png",
+        "width": 250,
+        "height": 250
+      },
+      "description": "Independent backpacker guides to destinations worldwide with direct hostel contacts, safety information, maps, and honest write-ups."
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw",
+      "name": "Geoff Louw",
+      "url": "https://www.backpackersbible.com/misc/about-backpackers-bible",
+      "worksFor": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.backpackersbible.com/#website",
+      "url": "https://www.backpackersbible.com/",
+      "name": "BackpackersBible.com",
+      "publisher": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": [
+        "WebPage",
+        "CollectionPage"
+      ],
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha#webpage",
+      "url": "https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha",
+      "name": "Backpacking Castilla-La Mancha | Hostel Guide",
+      "headline": "Budget Accommodation In Castilla-La Mancha",
+      "description": "Directory of 9 hostels and budget places to stay in Castilla-La Mancha, with direct contact details, an interactive map and filters.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://www.backpackersbible.com/#website"
+      },
+      "publisher": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      },
+      "author": {
+        "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw"
+      },
+      "dateModified": "2026-11-21",
+      "mainEntity": {
+        "@id": "https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha#hostels"
+      },
+      "about": [
+        {
+          "@type": "Place",
+          "name": "Castilla-La Mancha",
+          "sameAs": "https://en.wikipedia.org/wiki/Castilla%E2%80%93La_Mancha"
+        },
+        {
+          "@type": "Thing",
+          "name": "Backpacking",
+          "sameAs": "https://en.wikipedia.org/wiki/Backpacking_(travel)"
+        }
+      ],
+      "mentions": [
+        {
+          "@id": "https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha#map"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.backpackersbible.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Backpacking Spain",
+          "item": "https://www.backpackersbible.com/spain/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Castilla-La Mancha Hostels",
+          "item": "https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha"
+        }
+      ]
+    },
+    {
+      "@type": "Map",
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha#map",
+      "name": "Castilla-La Mancha Backpacker Hostel Map",
+      "description": "Interactive map of the hostels and budget places to stay in Castilla-La Mancha with one-tap filters.",
+      "mapType": "https://schema.org/VenueMap",
+      "url": "https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha#hostel-map",
+      "potentialAction": [
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Top Picks",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha?filter=best_overall#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Best Value",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha?filter=best_value#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Budget",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha?filter=budget#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Flashpackers",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha?filter=flashpacker#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Best Parties",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha?filter=party#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Most Social",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha?filter=social#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Peaceful",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha?filter=peaceful#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Solo Women",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha?filter=solo_women#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Digital Nomads",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha?filter=digital_nomad#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Couples",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha?filter=couples#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Cyclists",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha?filter=cyclists#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Activities",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha?filter=activities#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Accessible",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha?filter=accessible#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Eco-Friendly",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha?filter=eco#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Camping",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha?filter=camping#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Near Airport",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha?filter=near_airport#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Groups",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha?filter=groups#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Surfers",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha?filter=surfers#hostel-map"
+        }
+      ],
+      "about": {
+        "@type": "Thing",
+        "name": "Backpacker Hostels in Castilla-La Mancha"
+      },
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Castilla-La Mancha",
+        "sameAs": "https://en.wikipedia.org/wiki/Castilla%E2%80%93La_Mancha"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha#hostels",
+      "name": "Hostels and budget accommodation in Castilla-La Mancha",
+      "numberOfItems": 9,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha#hostal-la-embajada",
+            "name": "Hostal La Embajada",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Pl. Alameda, 7",
+              "postalCode": "45600",
+              "addressLocality": "Talavera de la Reina",
+              "addressCountry": "ES",
+              "addressRegion": "Toledo"
+            },
+            "telephone": "+34 623 10 33 26",
+            "url": "https://www.hostalembajada.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha#hostal-cafe-greco",
+            "name": "Hostal-Cafe Greco",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. Reyes Católicos, 1",
+              "postalCode": "45100",
+              "addressLocality": "Sonseca",
+              "addressCountry": "ES",
+              "addressRegion": "Toledo"
+            },
+            "telephone": "+34 925 38 32 55",
+            "url": "https://www.hostalcafegutgreco.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha#hostel-layos-toledo",
+            "name": "Hostel Layos Toledo",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Conde de Mora, 14",
+              "postalCode": "45123",
+              "addressLocality": "Layos",
+              "addressCountry": "ES",
+              "addressRegion": "Toledo"
+            },
+            "telephone": "+34 913 57 25 64",
+            "url": "https://www.hostellayostoledo.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha#santa-rita-rita-b-boutique-alojamientos",
+            "name": "Santa Rita Rita B&boutique Alojamientos",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Mesones, 3",
+              "postalCode": "45600",
+              "addressLocality": "Talavera de la Reina",
+              "addressCountry": "ES",
+              "addressRegion": "Toledo"
+            },
+            "telephone": "+34 615 15 65 18",
+            "url": "https://www.santaritaritaloquesedanosequita.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha#hostal-grimaldos",
+            "name": "Hostal Grimaldos",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Juan Jorge Graubner, 4",
+              "postalCode": "02450",
+              "addressLocality": "Riópar",
+              "addressCountry": "ES",
+              "addressRegion": "Albacete"
+            },
+            "telephone": "+34 696 21 98 32",
+            "url": "https://hostal-grimaldos.com.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha#hostel-los-chorros",
+            "name": "Hostel Los Chorros",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Haza de San Luis, 9",
+              "postalCode": "02450",
+              "addressLocality": "Riópar",
+              "addressCountry": "ES",
+              "addressRegion": "Albacete"
+            },
+            "telephone": "+34 635 61 54 17",
+            "url": "https://www.albergueloschorros.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha#hostal-los-palancares",
+            "name": "Hostal Los Palancares",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "",
+              "postalCode": "16193",
+              "addressLocality": "Fuentes",
+              "addressCountry": "ES",
+              "addressRegion": "Cuenca"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha#hostal-san-pedro",
+            "name": "Hostal San Pedro",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. San Pedro, 34",
+              "postalCode": "16001",
+              "addressLocality": "Cuenca",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 969 23 45 43",
+            "url": "https://www.hostalsanpedro.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/castilla-la-mancha#hostal-la-noria",
+            "name": "Hostal La Noria",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. Castilla la Mancha, 61",
+              "postalCode": "13249",
+              "addressLocality": "Ruidera",
+              "addressCountry": "ES",
+              "addressRegion": "Cdad. Real"
+            },
+            "telephone": "+34 926 52 80 32",
+            "url": "https://hostallanoria.es"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 </body>
 </html>

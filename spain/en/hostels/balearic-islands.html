@@ -459,16 +459,87 @@
 
 <main id="main-content">
 
-<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description">
-  <iframe
-    class="sa-hostel-map-iframe"
-    title="Google My Maps: backpacker hostels in Spain"
-    src="https://www.google.com/maps/d/embed?mid=1YaoKUZVLHf7y1Rar6qoNWzn0Q6jRNV0&ehbc=2E312F&noprof=1&ll=37.475,-4.64834&z=8"
-    width="640" height="480"
-    loading="lazy"
-    allowfullscreen>
-  </iframe>
+<!-- Map description -->
+<div class="map-description" id="hostel-map-description">
+  <span class="map-description__text"><strong>BACKPACKERS FINDER:</strong> The easiest way to choose the right backpacker hostel. Our interactive map lets you filter the Balearic Islands backpackers by vibe, setup and value. Filters switch on once every hostel has been rated.</span>
+</div>
+
+  <!-- Map filter buttons -->
+
+<h2 class="sr-only">
+    Search the Balearic Islands Backpacker Hostels
+</h2>
+
+<p class="sr-only">
+    Filter the Balearic Islands hostels by party atmosphere, how social they are, peacefulness, solo female traveller friendliness, digital nomad suitability, couples, cyclists, activities, accessibility, eco-friendliness, camping, airport proximity, group suitability, budget and value for money. You can select more than one filter at once, and hostels must match all of them.
+</p>
+
+<div class="map-filter-bar">
+    <div class="map-filter-bar__scroll">
+        <div class="map-filter-bar__row" role="toolbar" aria-label="Filter hostels by category">
+
+            <a href="#" class="map-filter-btn map-filter-btn--active" role="button" style="background-color: #ffd400; color: #000000;" data-filter="all" aria-pressed="true" aria-label="Show all backpackers hostels in the Balearic Islands">★ All Hostels</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #b01c22; opacity:0.5; cursor:not-allowed;" data-filter="best_overall" aria-pressed="false" aria-label="Show the top-rated backpackers hostels">Top Picks</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="best_value" aria-pressed="false" aria-label="Show backpackers hostels which deliver the best value for money">Best Value</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="budget" aria-pressed="false" aria-label="Show the budget backpackers hostels">Budget</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="flashpacker" aria-pressed="false" aria-label="Show upmarket flashpacker hostels">Flashpackers</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="party" aria-pressed="false" aria-label="Show backpackers hostels which have the best parties">Best Parties</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="social" aria-pressed="false" aria-label="Show the most sociable backpackers hostels for meeting other travellers">Most Social</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="peaceful" aria-pressed="false" aria-label="Show peaceful, quiet backpackers hostels">Peaceful</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="solo_women" aria-pressed="false" aria-label="Show backpackers hostels which are best for solo women travellers">Solo Women</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="digital_nomad" aria-pressed="false" aria-label="Show backpackers hostels which are best for digital nomads">Digital Nomads</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="couples" aria-pressed="false" aria-label="Show backpackers hostels which are best for couples">Couples</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="cyclists" aria-pressed="false" aria-label="Show backpackers hostels which are best for cyclists">Cyclists</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="activities" aria-pressed="false" aria-label="Show backpackers hostels with the best activities and tours">Activities</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="accessible" aria-pressed="false" aria-label="Show backpackers hostels with confirmed accessibility features">Accessible</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="eco" aria-pressed="false" aria-label="Show eco-friendly and certified sustainable backpackers hostels">Eco-Friendly</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="camping" aria-pressed="false" aria-label="Show hostels which offer camping as an accommodation option">Camping</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="near_airport" aria-pressed="false" aria-label="Show hostels close to an airport">Near Airport</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="groups" aria-pressed="false" aria-label="Show hostels which welcome groups of backpackers">Groups</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="surfers" aria-pressed="false" aria-label="Show backpackers hostels which are best for surfers">Surfers</a>
+        </div>
+    </div>
+</div>
+
+<!-- ░░ HOSTEL MAP ░░ -->
+<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description"
+  data-bb-map
+  data-region="balearic-islands"
+  data-country="Spain"
+  data-center="2.749,39.374"
+  data-zoom="7.6"
+  data-mobile-zoom="6.9"
+  data-pitch="0"
+  data-bearing="0"
+  data-hostels-url="/spain/assets/data/hostels.json"
+  data-regions-url="/spain/assets/data/regions.json"
+  data-terrain=""
+  data-locate-bounds="-19,27,5,44.5"
+  data-threshold="7"
+  data-autoload="viewport">
+
+  <!-- Poster image: shows before the visitor loads the map -->
+  <picture class="sa-hostel-map-poster">
+    <img src="/spain/assets/images/map_balearic_islands.webp"
+         alt="Interactive backpacker hostel map of the Balearic Islands showing hostels that can be filtered by travel style, budget, solo female travellers, digital nomads, cycling and more."
+         loading="eager"
+         fetchpriority="high"
+         decoding="async">
+  </picture>
+
+  <!-- Keyboard and screen-reader route to the map (the poster itself is tap-to-load) -->
+  <button type="button" class="sr-only" id="bb-map-load-btn">Load the interactive hostel map</button>
+
+  <!-- The map renders here (inline, no iframe) once the visitor taps the poster or a filter -->
+  <div id="bb-map-wrap" class="sa-hostel-map-iframe bb-map-iframe" hidden></div>
+
+  <div class="map-overlay-circle" aria-hidden="true">
+    Click the icons<br>for hostel info.
+  </div>
+
 </section>
+<!-- ░░ END HOSTEL MAP ░░ -->
+
 
 <!-- Horizontal regional menu -->
 
@@ -633,6 +704,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C/ Gran Via Puig Blanc, 12, 07180 Santa Ponça, Illes Balears</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="4u-miranda-hotel" aria-label="Find 4u Miranda Hotel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34682192380" class="blue-link">+34 682 19 23 80</a></p>
 
             <p><strong>GOOGLE RATING:</strong> 4.4 out of 5 stars</p>
@@ -660,6 +733,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Plaça Josep Maria Quadrado, 2, Centre, 07001 Palma, Illes Balears</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="el-josemari-hostel" aria-label="Find El Josemari Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34871716921" class="blue-link">+34 871 71 69 21</a></p>
 
@@ -691,6 +766,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer Rector Escarrer, 4, 07230 Montuïri, Illes Balears</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="embat-hostel" aria-label="Find Embat Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34670753510" class="blue-link">+34 670 75 35 10</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.embatjuvenil.com" target="_blank" class="blue-link" rel="nofollow">embatjuvenil.com</a></p>
@@ -719,6 +796,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Ctra. Militar, 246, Platja de Palma i Pla de Sant Jordi, 07600 Palma, Illes Balears</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="forenna-hostel" aria-label="Find Forenna Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34971442080" class="blue-link">+34 971 44 20 80</a></p>
 
@@ -750,6 +829,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer Terral, 50, 07600 Llucmajor, Illes Balears</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-atlanta" aria-label="Find Hostal Atlanta on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34666839640" class="blue-link">+34 666 83 96 40</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.hostal-atlanta.eu" target="_blank" class="blue-link" rel="nofollow">hostal-atlanta.eu</a></p>
@@ -779,6 +860,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Joan Riutort, 49, 07190 Esporles, Illes Balears</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostel-sa-fita-backpackers" aria-label="Find Hostel Sa Fita Backpackers on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34619428436" class="blue-link">+34 619 42 84 36</a></p>
 
@@ -810,6 +893,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Santa Teresa, 27, 07100 Sóller, Illes Balears</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostel-soller" aria-label="Find Hostel Sóller on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34971638736" class="blue-link">+34 971 63 87 36</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://hostelsoller.com" target="_blank" class="blue-link" rel="nofollow">hostelsoller.com</a></p>
@@ -839,6 +924,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Avenida Bartolomé, Avinguda de Bartomeu Riutort, 18, Platja de Palma i Pla de Sant Jordi, 07610 Can Pastilla, Illes Balears</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hotel-balear" aria-label="Find Hotel Balear on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34971261212" class="blue-link">+34 971 26 12 12</a></p>
 
@@ -870,6 +957,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Margaluz, 13, Ponent, 07015 Sant Agustí, Illes Balears</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hotel-lis-mallorca" aria-label="Find Hotel Lis Mallorca on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34699007070" class="blue-link">+34 699 00 70 70</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.lishotel.es" target="_blank" class="blue-link" rel="nofollow">lishotel.es</a></p>
@@ -900,6 +989,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. de Son Catlaret, 4, Ponent, 07014 Palma, Illes Balears</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="palma-port-hostel" aria-label="Find Palma Port Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34628630847" class="blue-link">+34 628 63 08 47</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.palmaporthostel.com" target="_blank" class="blue-link" rel="nofollow">palmaporthostel.com</a></p>
@@ -927,6 +1018,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer del Germà Bianor, 16, Platja de Palma i Pla de Sant Jordi, 07600 Palma, Illes Balears</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="sb-arenal" aria-label="Find Sb Arenal on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34971743856" class="blue-link">+34 971 74 38 56</a></p>
 
@@ -958,6 +1051,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de la Singladura, 2, Platja de Palma i Pla de Sant Jordi, 07610 Can Pastilla, Illes Balears</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="the-boc-hostels-beach" aria-label="Find The Boc Hostels – Beach on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34648582579" class="blue-link">+34 648 58 25 79</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://thebochostels.com" target="_blank" class="blue-link" rel="nofollow">thebochostels.com</a></p>
@@ -987,6 +1082,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Son Pontivic, 16, Llevant, 07006 Palma, Illes Balears</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="the-boc-hostels-city" aria-label="Find The Boc Hostels – City on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34683101222" class="blue-link">+34 683 10 12 22</a></p>
 
@@ -1018,6 +1115,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer Arxiduc Lluís Salvador, 46, Nord, 07004 Palma, Illes Balears</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="the-boc-hostels-palma" aria-label="Find The Boc Hostels – Palma on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34672153060" class="blue-link">+34 672 15 30 60</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://thebochostels.com" target="_blank" class="blue-link" rel="nofollow">thebochostels.com</a></p>
@@ -1047,6 +1146,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Plaça de la Verge del Miracle, 4, Ponent, 07013 Palma, Illes Balears</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="urban-hostel-palma" aria-label="Find Urban Hostel Palma on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34607797072" class="blue-link">+34 607 79 70 72</a></p>
 
@@ -1078,6 +1179,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer dels Germans Schembri, 1, Ponent, 07014 Palma, Illes Balears</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="we-hostel-palma" aria-label="Find We Hostel Palma on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34871209244" class="blue-link">+34 871 20 92 44</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.wehostelgroup.com" target="_blank" class="blue-link" rel="nofollow">wehostelgroup.com</a></p>
@@ -1106,6 +1209,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer d&#x27;Amílcar, 26, Platja de Palma i Pla de Sant Jordi, 07600 Palma, Illes Balears</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="we-street-hostel" aria-label="Find We Street Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34669379030" class="blue-link">+34 669 37 90 30</a></p>
 
@@ -1137,6 +1242,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Avinguda de Joan Miró, 126, Ponent, 07015 Palma, Illes Balears</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="y-hostel-mallorca" aria-label="Find Y Hostel Mallorca on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34871249006" class="blue-link">+34 871 24 90 06</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.y-hostel.com" target="_blank" class="blue-link" rel="nofollow">y-hostel.com</a></p>
@@ -1166,6 +1273,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Santa Rosalia, 25, 07820 Sant Antoni de Portmany, Illes Balears</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="amistat-island-hostel-ibiza" aria-label="Find Amistat Island Hostel Ibiza on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34971343834" class="blue-link">+34 971 34 38 34</a></p>
 
@@ -1197,6 +1306,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer Vara de Rey, 7, 07820 Sant Antoni de Portmany, Illes Balears</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="cisne-by-nest-hostel-ibiza" aria-label="Find Cisne By Nest Hostel Ibiza on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34685540183" class="blue-link">+34 685 54 01 83</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://nestshostels.com" target="_blank" class="blue-link" rel="nofollow">nestshostels.com</a></p>
@@ -1226,6 +1337,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer Font d&#x27;Atzaró, 25, 07849 Santa Eulària des Riu, Illes Balears</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-flamingo-by-nest" aria-label="Find Hostal Flamingo By Nest on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34654387108" class="blue-link">+34 654 38 71 08</a></p>
 
@@ -1257,6 +1370,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de la Soledat, 38, 07820 Sant Antoni de Portmany, Illes Balears</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-florencio" aria-label="Find Hostal Florencio on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34971340723" class="blue-link">+34 971 34 07 23</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.hotelflorencioibiza.com" target="_blank" class="blue-link" rel="nofollow">hotelflorencioibiza.com</a></p>
@@ -1286,6 +1401,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Ramon Muntaner, 55, 07800 Eivissa, Illes Balears</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-giramundo-ibiza" aria-label="Find Hostal Giramundo Ibiza on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34971307640" class="blue-link">+34 971 30 76 40</a></p>
 
@@ -1317,6 +1434,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Bartomeu Vicent Ramon, 15, 07800 Eivissa, Illes Balears</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-ibiza" aria-label="Find Hostal Ibiza on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34971310818" class="blue-link">+34 971 31 08 18</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.hostal-ibiza.com" target="_blank" class="blue-link" rel="nofollow">hostal-ibiza.com</a></p>
@@ -1346,6 +1465,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C/ de Catalunya, 4, 07800 Eivissa, Illes Balears</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-la-bartola" aria-label="Find Hostal La Bartola on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34971300975" class="blue-link">+34 971 30 09 75</a></p>
 
@@ -1377,6 +1498,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Camí General, 3, 5, 07820 Sant Antoni de Portmany, Illes Balears</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hotel-galera" aria-label="Find Hotel Galera on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34971341100" class="blue-link">+34 971 34 11 00</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.hotelgalera.com" target="_blank" class="blue-link" rel="nofollow">hotelgalera.com</a></p>
@@ -1404,6 +1527,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Playa es Figueral, s/n, 07850 Santa Eulària des Riu, Illes Balears</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="pension-las-tres-golondrinas" aria-label="Find Pensión Las Tres Golondrinas on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34971335225" class="blue-link">+34 971 33 52 25</a></p>
 
@@ -1434,6 +1559,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Camí Vell de Sa Farola, s/n, 07769, Illes Balears</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="alberg-sa-vinyeta" aria-label="Find Alberg Sa Vinyeta on the map">Find on map ›</a></p>
+
             <p><strong>WEBSITE:</strong> <a href="https://www.injovemenorca.es" target="_blank" class="blue-link" rel="nofollow">injovemenorca.es</a></p>
 
             <p><strong>GOOGLE RATING:</strong> 4.3 out of 5 stars</p>
@@ -1461,6 +1588,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer del Carme, 122, 07701 Maó, Illes Balears</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-sa-roqueta" aria-label="Find Hostal Sa Roqueta on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34683101349" class="blue-link">+34 683 10 13 49</a></p>
 
@@ -1897,6 +2026,8 @@ window.BB_TIPS = [
 
     <!-- Mobile menu end -->
 
+<script src="/assets/js/bb-map-loader.js?v=6" defer></script>
+
 <script src="/js/script-2.js?v=4" defer></script>
 
 <script src="/js/attribution-toggle.js?v=1" defer></script>
@@ -1915,6 +2046,775 @@ class="statcounter"
 src="https://c.statcounter.com/13225228/0/687dc53c/1/"
 alt="Web Analytics"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.backpackersbible.com/#organization",
+      "name": "BackpackersBible.com",
+      "url": "https://www.backpackersbible.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.backpackersbible.com/assets/backpackers_bible_logo_250x250.png",
+        "width": 250,
+        "height": 250
+      },
+      "description": "Independent backpacker guides to destinations worldwide with direct hostel contacts, safety information, maps, and honest write-ups."
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw",
+      "name": "Geoff Louw",
+      "url": "https://www.backpackersbible.com/misc/about-backpackers-bible",
+      "worksFor": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.backpackersbible.com/#website",
+      "url": "https://www.backpackersbible.com/",
+      "name": "BackpackersBible.com",
+      "publisher": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": [
+        "WebPage",
+        "CollectionPage"
+      ],
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands#webpage",
+      "url": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands",
+      "name": "Backpacking the Balearic Islands | Hostel Guide",
+      "headline": "Budget Accommodation In the Balearic Islands",
+      "description": "Directory of 29 hostels and budget places to stay in the Balearic Islands, with direct contact details, an interactive map and filters.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://www.backpackersbible.com/#website"
+      },
+      "publisher": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      },
+      "author": {
+        "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw"
+      },
+      "dateModified": "2026-11-21",
+      "mainEntity": {
+        "@id": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands#hostels"
+      },
+      "about": [
+        {
+          "@type": "Place",
+          "name": "the Balearic Islands",
+          "sameAs": "https://en.wikipedia.org/wiki/Balearic_Islands"
+        },
+        {
+          "@type": "Thing",
+          "name": "Backpacking",
+          "sameAs": "https://en.wikipedia.org/wiki/Backpacking_(travel)"
+        }
+      ],
+      "mentions": [
+        {
+          "@id": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands#map"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.backpackersbible.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Backpacking Spain",
+          "item": "https://www.backpackersbible.com/spain/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "the Balearic Islands Hostels",
+          "item": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands"
+        }
+      ]
+    },
+    {
+      "@type": "Map",
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands#map",
+      "name": "the Balearic Islands Backpacker Hostel Map",
+      "description": "Interactive map of the hostels and budget places to stay in the Balearic Islands with one-tap filters.",
+      "mapType": "https://schema.org/VenueMap",
+      "url": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands#hostel-map",
+      "potentialAction": [
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Top Picks",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands?filter=best_overall#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Best Value",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands?filter=best_value#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Budget",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands?filter=budget#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Flashpackers",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands?filter=flashpacker#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Best Parties",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands?filter=party#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Most Social",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands?filter=social#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Peaceful",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands?filter=peaceful#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Solo Women",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands?filter=solo_women#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Digital Nomads",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands?filter=digital_nomad#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Couples",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands?filter=couples#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Cyclists",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands?filter=cyclists#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Activities",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands?filter=activities#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Accessible",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands?filter=accessible#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Eco-Friendly",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands?filter=eco#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Camping",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands?filter=camping#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Near Airport",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands?filter=near_airport#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Groups",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands?filter=groups#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Surfers",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands?filter=surfers#hostel-map"
+        }
+      ],
+      "about": {
+        "@type": "Thing",
+        "name": "Backpacker Hostels in the Balearic Islands"
+      },
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "the Balearic Islands",
+        "sameAs": "https://en.wikipedia.org/wiki/Balearic_Islands"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands#hostels",
+      "name": "Hostels and budget accommodation in the Balearic Islands",
+      "numberOfItems": 29,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands#4u-miranda-hotel",
+            "name": "4u Miranda Hotel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C/ Gran Via Puig Blanc, 12",
+              "postalCode": "07180",
+              "addressLocality": "Santa Ponça",
+              "addressCountry": "ES",
+              "addressRegion": "Illes Balears"
+            },
+            "telephone": "+34 682 19 23 80"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands#el-josemari-hostel",
+            "name": "El Josemari Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Plaça Josep Maria Quadrado, 2, Centre",
+              "postalCode": "07001",
+              "addressLocality": "Palma",
+              "addressCountry": "ES",
+              "addressRegion": "Illes Balears"
+            },
+            "telephone": "+34 871 71 69 21",
+            "url": "https://www.eljosemari.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands#embat-hostel",
+            "name": "Embat Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer Rector Escarrer, 4",
+              "postalCode": "07230",
+              "addressLocality": "Montuïri",
+              "addressCountry": "ES",
+              "addressRegion": "Illes Balears"
+            },
+            "telephone": "+34 670 75 35 10",
+            "url": "https://www.embatjuvenil.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands#forenna-hostel",
+            "name": "Forenna Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Ctra. Militar, 246, Platja de Palma i Pla de Sant Jordi",
+              "postalCode": "07600",
+              "addressLocality": "Palma",
+              "addressCountry": "ES",
+              "addressRegion": "Illes Balears"
+            },
+            "telephone": "+34 971 44 20 80",
+            "url": "https://forennahostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands#hostal-atlanta",
+            "name": "Hostal Atlanta",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer Terral, 50",
+              "postalCode": "07600",
+              "addressLocality": "Llucmajor",
+              "addressCountry": "ES",
+              "addressRegion": "Illes Balears"
+            },
+            "telephone": "+34 666 83 96 40",
+            "url": "https://www.hostal-atlanta.eu"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands#hostel-sa-fita-backpackers",
+            "name": "Hostel Sa Fita Backpackers",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Joan Riutort, 49",
+              "postalCode": "07190",
+              "addressLocality": "Esporles",
+              "addressCountry": "ES",
+              "addressRegion": "Illes Balears"
+            },
+            "telephone": "+34 619 42 84 36",
+            "url": "https://www.safitabackpackers.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands#hostel-soller",
+            "name": "Hostel Sóller",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Santa Teresa, 27",
+              "postalCode": "07100",
+              "addressLocality": "Sóller",
+              "addressCountry": "ES",
+              "addressRegion": "Illes Balears"
+            },
+            "telephone": "+34 971 63 87 36",
+            "url": "https://hostelsoller.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands#hotel-balear",
+            "name": "Hotel Balear",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Avenida Bartolomé, Avinguda de Bartomeu Riutort, 18, Platja de Palma i Pla de Sant Jordi",
+              "postalCode": "07610",
+              "addressLocality": "Can Pastilla",
+              "addressCountry": "ES",
+              "addressRegion": "Illes Balears"
+            },
+            "telephone": "+34 971 26 12 12",
+            "url": "https://www.hotelbalear.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands#hotel-lis-mallorca",
+            "name": "Hotel Lis Mallorca",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Margaluz, 13, Ponent",
+              "postalCode": "07015",
+              "addressLocality": "Sant Agustí",
+              "addressCountry": "ES",
+              "addressRegion": "Illes Balears"
+            },
+            "telephone": "+34 699 00 70 70",
+            "url": "https://www.lishotel.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands#palma-port-hostel",
+            "name": "Palma Port Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. de Son Catlaret, 4, Ponent",
+              "postalCode": "07014",
+              "addressLocality": "Palma",
+              "addressCountry": "ES",
+              "addressRegion": "Illes Balears"
+            },
+            "telephone": "+34 628 63 08 47",
+            "url": "https://www.palmaporthostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands#sb-arenal",
+            "name": "Sb Arenal",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer del Germà Bianor, 16, Platja de Palma i Pla de Sant Jordi",
+              "postalCode": "07600",
+              "addressLocality": "Palma",
+              "addressCountry": "ES",
+              "addressRegion": "Illes Balears"
+            },
+            "telephone": "+34 971 74 38 56",
+            "url": "https://sb-arenal.com.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands#the-boc-hostels-beach",
+            "name": "The Boc Hostels – Beach",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de la Singladura, 2, Platja de Palma i Pla de Sant Jordi",
+              "postalCode": "07610",
+              "addressLocality": "Can Pastilla",
+              "addressCountry": "ES",
+              "addressRegion": "Illes Balears"
+            },
+            "telephone": "+34 648 58 25 79",
+            "url": "https://thebochostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 13,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands#the-boc-hostels-city",
+            "name": "The Boc Hostels – City",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Son Pontivic, 16, Llevant",
+              "postalCode": "07006",
+              "addressLocality": "Palma",
+              "addressCountry": "ES",
+              "addressRegion": "Illes Balears"
+            },
+            "telephone": "+34 683 10 12 22",
+            "url": "https://thebochostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 14,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands#the-boc-hostels-palma",
+            "name": "The Boc Hostels – Palma",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer Arxiduc Lluís Salvador, 46, Nord",
+              "postalCode": "07004",
+              "addressLocality": "Palma",
+              "addressCountry": "ES",
+              "addressRegion": "Illes Balears"
+            },
+            "telephone": "+34 672 15 30 60",
+            "url": "https://thebochostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 15,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands#urban-hostel-palma",
+            "name": "Urban Hostel Palma",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Plaça de la Verge del Miracle, 4, Ponent",
+              "postalCode": "07013",
+              "addressLocality": "Palma",
+              "addressCountry": "ES",
+              "addressRegion": "Illes Balears"
+            },
+            "telephone": "+34 607 79 70 72",
+            "url": "https://urbanhostelpalma.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 16,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands#we-hostel-palma",
+            "name": "We Hostel Palma",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer dels Germans Schembri, 1, Ponent",
+              "postalCode": "07014",
+              "addressLocality": "Palma",
+              "addressCountry": "ES",
+              "addressRegion": "Illes Balears"
+            },
+            "telephone": "+34 871 20 92 44",
+            "url": "https://www.wehostelgroup.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 17,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands#we-street-hostel",
+            "name": "We Street Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer d'Amílcar, 26, Platja de Palma i Pla de Sant Jordi",
+              "postalCode": "07600",
+              "addressLocality": "Palma",
+              "addressCountry": "ES",
+              "addressRegion": "Illes Balears"
+            },
+            "telephone": "+34 669 37 90 30",
+            "url": "https://www.wehostelgroup.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 18,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands#y-hostel-mallorca",
+            "name": "Y Hostel Mallorca",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Avinguda de Joan Miró, 126, Ponent",
+              "postalCode": "07015",
+              "addressLocality": "Palma",
+              "addressCountry": "ES",
+              "addressRegion": "Illes Balears"
+            },
+            "telephone": "+34 871 24 90 06",
+            "url": "https://www.y-hostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 19,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands#amistat-island-hostel-ibiza",
+            "name": "Amistat Island Hostel Ibiza",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Santa Rosalia, 25",
+              "postalCode": "07820",
+              "addressLocality": "Sant Antoni de Portmany",
+              "addressCountry": "ES",
+              "addressRegion": "Illes Balears"
+            },
+            "telephone": "+34 971 34 38 34",
+            "url": "https://www.amistathostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 20,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands#cisne-by-nest-hostel-ibiza",
+            "name": "Cisne By Nest Hostel Ibiza",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer Vara de Rey, 7",
+              "postalCode": "07820",
+              "addressLocality": "Sant Antoni de Portmany",
+              "addressCountry": "ES",
+              "addressRegion": "Illes Balears"
+            },
+            "telephone": "+34 685 54 01 83",
+            "url": "https://nestshostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 21,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands#hostal-flamingo-by-nest",
+            "name": "Hostal Flamingo By Nest",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer Font d'Atzaró, 25",
+              "postalCode": "07849",
+              "addressLocality": "Santa Eulària des Riu",
+              "addressCountry": "ES",
+              "addressRegion": "Illes Balears"
+            },
+            "telephone": "+34 654 38 71 08",
+            "url": "https://www.hotelflamingoibiza.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 22,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands#hostal-florencio",
+            "name": "Hostal Florencio",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de la Soledat, 38",
+              "postalCode": "07820",
+              "addressLocality": "Sant Antoni de Portmany",
+              "addressCountry": "ES",
+              "addressRegion": "Illes Balears"
+            },
+            "telephone": "+34 971 34 07 23",
+            "url": "https://www.hotelflorencioibiza.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 23,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands#hostal-giramundo-ibiza",
+            "name": "Hostal Giramundo Ibiza",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Ramon Muntaner, 55",
+              "postalCode": "07800",
+              "addressLocality": "Eivissa",
+              "addressCountry": "ES",
+              "addressRegion": "Illes Balears"
+            },
+            "telephone": "+34 971 30 76 40",
+            "url": "https://www.hostalgiramundoibiza.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 24,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands#hostal-ibiza",
+            "name": "Hostal Ibiza",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Bartomeu Vicent Ramon, 15",
+              "postalCode": "07800",
+              "addressLocality": "Eivissa",
+              "addressCountry": "ES",
+              "addressRegion": "Illes Balears"
+            },
+            "telephone": "+34 971 31 08 18",
+            "url": "https://www.hostal-ibiza.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 25,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands#hostal-la-bartola",
+            "name": "Hostal La Bartola",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C/ de Catalunya, 4",
+              "postalCode": "07800",
+              "addressLocality": "Eivissa",
+              "addressCountry": "ES",
+              "addressRegion": "Illes Balears"
+            },
+            "telephone": "+34 971 30 09 75",
+            "url": "https://guesthouselabartolaibiza.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 26,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands#hotel-galera",
+            "name": "Hotel Galera",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Camí General, 3, 5",
+              "postalCode": "07820",
+              "addressLocality": "Sant Antoni de Portmany",
+              "addressCountry": "ES",
+              "addressRegion": "Illes Balears"
+            },
+            "telephone": "+34 971 34 11 00",
+            "url": "https://www.hotelgalera.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 27,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands#pension-las-tres-golondrinas",
+            "name": "Pensión Las Tres Golondrinas",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Playa es Figueral, s/n",
+              "postalCode": "07850",
+              "addressLocality": "Santa Eulària des Riu",
+              "addressCountry": "ES",
+              "addressRegion": "Illes Balears"
+            },
+            "telephone": "+34 971 33 52 25",
+            "url": "https://www.hotelesfinder.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 28,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands#alberg-sa-vinyeta",
+            "name": "Alberg Sa Vinyeta",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Camí Vell de Sa Farola, s/n, 07769, Illes Balears",
+              "addressCountry": "ES"
+            },
+            "url": "https://www.injovemenorca.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 29,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/balearic-islands#hostal-sa-roqueta",
+            "name": "Hostal Sa Roqueta",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer del Carme, 122",
+              "postalCode": "07701",
+              "addressLocality": "Maó",
+              "addressCountry": "ES",
+              "addressRegion": "Illes Balears"
+            },
+            "telephone": "+34 683 10 13 49",
+            "url": "https://www.hostalsaroqueta.com"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 </body>
 </html>

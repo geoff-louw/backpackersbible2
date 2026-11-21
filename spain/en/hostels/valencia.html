@@ -461,16 +461,87 @@
 
 <main id="main-content">
 
-<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description">
-  <iframe
-    class="sa-hostel-map-iframe"
-    title="Google My Maps: backpacker hostels in Spain"
-    src="https://www.google.com/maps/d/embed?mid=1YaoKUZVLHf7y1Rar6qoNWzn0Q6jRNV0&ehbc=2E312F&noprof=1&ll=39.46263,-0.49301&z=8"
-    width="640" height="480"
-    loading="lazy"
-    allowfullscreen>
-  </iframe>
+<!-- Map description -->
+<div class="map-description" id="hostel-map-description">
+  <span class="map-description__text"><strong>BACKPACKERS FINDER:</strong> The easiest way to choose the right backpacker hostel. Our interactive map lets you filter Valencia backpackers by vibe, setup and value. Filters switch on once every hostel has been rated.</span>
+</div>
+
+  <!-- Map filter buttons -->
+
+<h2 class="sr-only">
+    Search Valencia Backpacker Hostels
+</h2>
+
+<p class="sr-only">
+    Filter Valencia hostels by party atmosphere, how social they are, peacefulness, solo female traveller friendliness, digital nomad suitability, couples, cyclists, activities, accessibility, eco-friendliness, camping, airport proximity, group suitability, budget and value for money. You can select more than one filter at once, and hostels must match all of them.
+</p>
+
+<div class="map-filter-bar">
+    <div class="map-filter-bar__scroll">
+        <div class="map-filter-bar__row" role="toolbar" aria-label="Filter hostels by category">
+
+            <a href="#" class="map-filter-btn map-filter-btn--active" role="button" style="background-color: #ffd400; color: #000000;" data-filter="all" aria-pressed="true" aria-label="Show all backpackers hostels in Valencia">★ All Hostels</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #b01c22; opacity:0.5; cursor:not-allowed;" data-filter="best_overall" aria-pressed="false" aria-label="Show the top-rated backpackers hostels">Top Picks</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="best_value" aria-pressed="false" aria-label="Show backpackers hostels which deliver the best value for money">Best Value</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="budget" aria-pressed="false" aria-label="Show the budget backpackers hostels">Budget</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="flashpacker" aria-pressed="false" aria-label="Show upmarket flashpacker hostels">Flashpackers</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="party" aria-pressed="false" aria-label="Show backpackers hostels which have the best parties">Best Parties</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="social" aria-pressed="false" aria-label="Show the most sociable backpackers hostels for meeting other travellers">Most Social</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="peaceful" aria-pressed="false" aria-label="Show peaceful, quiet backpackers hostels">Peaceful</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="solo_women" aria-pressed="false" aria-label="Show backpackers hostels which are best for solo women travellers">Solo Women</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="digital_nomad" aria-pressed="false" aria-label="Show backpackers hostels which are best for digital nomads">Digital Nomads</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="couples" aria-pressed="false" aria-label="Show backpackers hostels which are best for couples">Couples</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="cyclists" aria-pressed="false" aria-label="Show backpackers hostels which are best for cyclists">Cyclists</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="activities" aria-pressed="false" aria-label="Show backpackers hostels with the best activities and tours">Activities</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="accessible" aria-pressed="false" aria-label="Show backpackers hostels with confirmed accessibility features">Accessible</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="eco" aria-pressed="false" aria-label="Show eco-friendly and certified sustainable backpackers hostels">Eco-Friendly</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="camping" aria-pressed="false" aria-label="Show hostels which offer camping as an accommodation option">Camping</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="near_airport" aria-pressed="false" aria-label="Show hostels close to an airport">Near Airport</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="groups" aria-pressed="false" aria-label="Show hostels which welcome groups of backpackers">Groups</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="surfers" aria-pressed="false" aria-label="Show backpackers hostels which are best for surfers">Surfers</a>
+        </div>
+    </div>
+</div>
+
+<!-- ░░ HOSTEL MAP ░░ -->
+<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description"
+  data-bb-map
+  data-region="valencia"
+  data-country="Spain"
+  data-center="-0.509,39.401"
+  data-zoom="7.3"
+  data-mobile-zoom="6.6"
+  data-pitch="0"
+  data-bearing="0"
+  data-hostels-url="/spain/assets/data/hostels.json"
+  data-regions-url="/spain/assets/data/regions.json"
+  data-terrain=""
+  data-locate-bounds="-19,27,5,44.5"
+  data-threshold="7"
+  data-autoload="viewport">
+
+  <!-- Poster image: shows before the visitor loads the map -->
+  <picture class="sa-hostel-map-poster">
+    <img src="/spain/assets/images/map_valencia.webp"
+         alt="Interactive backpacker hostel map of Valencia showing hostels that can be filtered by travel style, budget, solo female travellers, digital nomads, cycling and more."
+         loading="eager"
+         fetchpriority="high"
+         decoding="async">
+  </picture>
+
+  <!-- Keyboard and screen-reader route to the map (the poster itself is tap-to-load) -->
+  <button type="button" class="sr-only" id="bb-map-load-btn">Load the interactive hostel map</button>
+
+  <!-- The map renders here (inline, no iframe) once the visitor taps the poster or a filter -->
+  <div id="bb-map-wrap" class="sa-hostel-map-iframe bb-map-iframe" hidden></div>
+
+  <div class="map-overlay-circle" aria-hidden="true">
+    Click the icons<br>for hostel info.
+  </div>
+
 </section>
+<!-- ░░ END HOSTEL MAP ░░ -->
+
 
 <!-- Horizontal regional menu -->
 
@@ -645,6 +716,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. de Jeroni de Montsoriu, 26, Camins al Grau, 46022 València, Valencia</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="aiora-hostel" aria-label="Find Aiora Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34604221041" class="blue-link">+34 604 22 10 41</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://aiorahostel.com" target="_blank" class="blue-link" rel="nofollow">aiorahostel.com</a></p>
@@ -674,6 +747,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Bernat Descoll, 65, Quatre Carreres, 46026 València, Valencia</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="almorada-cabins" aria-label="Find Almorada Cabins on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34747403533" class="blue-link">+34 747 40 35 33</a></p>
 
@@ -705,6 +780,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Plaça d&#x27;Alfons el Magnànim, 1, Ciutat Vella, 46003 València, Valencia</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="b-b-hi-valencia-boutique" aria-label="Find B&amp;B HI Valencia Boutique on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34962066604" class="blue-link">+34 962 06 66 04</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://hivalenciaboutique.com" target="_blank" class="blue-link" rel="nofollow">hivalenciaboutique.com</a></p>
@@ -734,6 +811,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C/ de Ciril Amorós, 82, L&#x27;Eixample, 46004 València, Valencia</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="b-b-hi-valencia-canovas" aria-label="Find B&amp;B HI València Cánovas on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34962066604" class="blue-link">+34 962 06 66 04</a></p>
 
@@ -765,6 +844,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C/ de Ibiza, 17, bajo, Poblados Marítimos, 46024 Valencia</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="beach-arts-hostel-valencia" aria-label="Find Beach &amp; Arts Hostel -Valencia- on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34643589021" class="blue-link">+34 643 58 90 21</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.beachandarts.es" target="_blank" class="blue-link" rel="nofollow">beachandarts.es</a></p>
@@ -794,6 +875,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Av. del Port, 47, Camins al Grau, 46021 València, Valencia</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="bird-house" aria-label="Find Bird House on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34616466684" class="blue-link">+34 616 46 66 84</a></p>
 
@@ -825,6 +908,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Vicente Lleó, 28, Quatre Carreres, 46004 València, Valencia</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="cantagua-hostel" aria-label="Find Cantagua Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34961816441" class="blue-link">+34 961 81 64 41</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.cantaguahostel.com" target="_blank" class="blue-link" rel="nofollow">cantaguahostel.com</a></p>
@@ -854,6 +939,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer de Sant Vicent Màrtir, 144, Extramurs, 46007 València, Valencia</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="capsule-inn-valencia-hostel" aria-label="Find Capsule Inn Valencia Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34689957198" class="blue-link">+34 689 95 71 98</a></p>
 
@@ -885,6 +972,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Av. de Suècia, 23, El Pla del Real, 46010 València, Valencia</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="colegio-mayor-la-concepcion" aria-label="Find Colegio Mayor La Concepción on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34963036300" class="blue-link">+34 963 03 63 00</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://resa.es" target="_blank" class="blue-link" rel="nofollow">resa.es</a></p>
@@ -914,6 +1003,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer del Dr. Sumsi, 23, L&#x27;Eixample, 46005 València, Valencia</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="colo-colo-hostel-valencia" aria-label="Find Colo Colo Hostel: Valencia on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34650729637" class="blue-link">+34 650 72 96 37</a></p>
 
@@ -945,6 +1036,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer del Poeta Mas i Ros, 3, Algirós, 46021 València, Valencia</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="cozy-nook" aria-label="Find Cozy Nook on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34919933149" class="blue-link">+34 919 93 31 49</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://b44c454053b5fca2.sirvoy.me" target="_blank" class="blue-link" rel="nofollow">b44c454053b5fca2.sirvoy.me</a></p>
@@ -974,6 +1067,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Av. de Gaspar Aguilar, 89, Jesús, 46017 València, Valencia</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="habitaciones-barra-89" aria-label="Find Habitaciones Barra 89 on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34689769884" class="blue-link">+34 689 76 98 84</a></p>
 
@@ -1005,6 +1100,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C/ de la Llotja, 4, Ciutat Vella, 46001 València, Valencia</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="home-youth-hostel-valencia" aria-label="Find Hôme Youth Hostel Valencia on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34963916229" class="blue-link">+34 963 91 62 29</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.feetuphostels.com" target="_blank" class="blue-link" rel="nofollow">feetuphostels.com</a></p>
@@ -1035,6 +1132,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. San Juan, 13, 46310 Venta del Moro, Valencia</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostel-hoces-del-cabriel" aria-label="Find Hostel Hoces del Cabriel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34962178072" class="blue-link">+34 962 17 80 72</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://spainstays.site" target="_blank" class="blue-link" rel="nofollow">spainstays.site</a></p>
@@ -1063,6 +1162,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Passeig de Neptú, 54, Poblats Marítims, 46011 València, Valencia</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hotel-solplaya" aria-label="Find Hotel Solplaya on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34963561920" class="blue-link">+34 963 56 19 20</a></p>
 
@@ -1094,6 +1195,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Passeig de Neptú, 34, Poblats Marítims, 46011 València, Valencia</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="malvarrosa-beach-rooms" aria-label="Find Malvarrosa Beach Rooms on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34963716151" class="blue-link">+34 963 71 61 51</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://malvarrosabeachrooms.com" target="_blank" class="blue-link" rel="nofollow">malvarrosabeachrooms.com</a></p>
@@ -1123,6 +1226,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer del Mestre Racional, 23, L&#x27;Eixample, 46005 València, Valencia</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="md-modern-hotel-jardines" aria-label="Find Md Modern Hotel – Jardines on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34673542624" class="blue-link">+34 673 54 26 24</a></p>
 
@@ -1154,6 +1259,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C/ de les Illes Canàries, 51, Camins al Grau, 46023 València, Valencia</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="original-domino-house" aria-label="Find Original Domino House on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34960699982" class="blue-link">+34 960 69 99 82</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.dominohouse.es" target="_blank" class="blue-link" rel="nofollow">dominohouse.es</a></p>
@@ -1183,6 +1290,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Pl. Tetuán, 5, Ciutat Vella, 46003 Valencia</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="purple-nest-hostel-valencia" aria-label="Find Purple Nest Hostel Valencia on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34963532561" class="blue-link">+34 963 53 25 61</a></p>
 
@@ -1214,6 +1323,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C/ de Guillem de Castro, 64, Ciutat Vella, 46001 València, Valencia</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="quart-youth-hostel" aria-label="Find Quart Youth Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34963270101" class="blue-link">+34 963 27 01 01</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.hostelenvalencia.es" target="_blank" class="blue-link" rel="nofollow">hostelenvalencia.es</a></p>
@@ -1243,6 +1354,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C/ de la Pau, 36, Ciutat Vella, 46003 València, Valencia</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="red-nest-hostel-valencia" aria-label="Find Red Nest Hostel Valencia on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34963427168" class="blue-link">+34 963 42 71 68</a></p>
 
@@ -1274,6 +1387,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Passeig Serra d&#x27;Espadà, 2, 46120 Alboraia, Valencia</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="resa-patacona" aria-label="Find RESA Patacona on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34963000649" class="blue-link">+34 963 00 06 49</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://resa.es" target="_blank" class="blue-link" rel="nofollow">resa.es</a></p>
@@ -1303,6 +1418,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Av. dels Tarongers, Algirós, 46022 València, Valencia</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="residencia-universitaria-micampus-galileo-galilei" aria-label="Find Residencia Universitaria Micampus Galileo Galilei on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34963352000" class="blue-link">+34 963 35 20 00</a></p>
 
@@ -1334,6 +1451,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Campus dels Tarongers, C/ del Serpis, 27, Algirós, 46022 València, Valencia</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="residencia-universitaria-resa-damia-bonet" aria-label="Find Residencia Universitaria RESA Damià Bonet on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34962050500" class="blue-link">+34 962 05 05 00</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://resa.es" target="_blank" class="blue-link" rel="nofollow">resa.es</a></p>
@@ -1363,6 +1482,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Pl. del Temple, 6, Ciutat Vella, 46003 València, Valencia</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="river-hostel" aria-label="Find River Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34963913955" class="blue-link">+34 963 91 39 55</a></p>
 
@@ -1394,6 +1515,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C/ de Samaniego, 18, Ciutat Vella, 46003 València, Valencia</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="room-valencia" aria-label="Find Room Valencia on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34681242208" class="blue-link">+34 681 24 22 08</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://room00hostel.com" target="_blank" class="blue-link" rel="nofollow">room00hostel.com</a></p>
@@ -1424,6 +1547,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer del Mestre Racional, 4, L&#x27;Eixample, 46005 València, Valencia</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="som-hostel-boutique" aria-label="Find Som Hostel Boutique on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34962638140" class="blue-link">+34 962 63 81 40</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://somhostelboutique.top" target="_blank" class="blue-link" rel="nofollow">somhostelboutique.top</a></p>
@@ -1452,6 +1577,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C/ del Peu de la Creu, 12, Ciutat Vella, 46001 València, Valencia</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="the-central-house-valencia-mercado-central" aria-label="Find The Central House Valencia Mercado Central on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34960255601" class="blue-link">+34 960 25 56 01</a></p>
 
@@ -1483,6 +1610,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C/ de Dolores Alcaide, 14, Jesús, 46007 València, Valencia</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="the-venue-hostel-boutique" aria-label="Find The Venue Hostel Boutique on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34664848312" class="blue-link">+34 664 84 83 12</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.thevenuehostel.com" target="_blank" class="blue-link" rel="nofollow">thevenuehostel.com</a></p>
@@ -1513,6 +1642,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Av. d&#x27;Ausiàs March, 28, Quatre Carreres, 46004 València, Valencia</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="u-nit-central-park-hostel" aria-label="Find U-Nit Central Park Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34674486660" class="blue-link">+34 674 48 66 60</a></p>
 
             <p><strong>GOOGLE RATING:</strong> 4.4 out of 5 stars</p>
@@ -1540,6 +1671,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C/ de Xàtiva, 24, Extramurs, 46007 València, Valencia</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="up-hostel" aria-label="Find Up! Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34963528158" class="blue-link">+34 963 52 81 58</a></p>
 
@@ -1571,6 +1704,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Av. del Port, 280, Poblats Marítims, 46024 València, Valencia</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="urban-youth-hostel" aria-label="Find Urban Youth Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34963212129" class="blue-link">+34 963 21 21 29</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.urbanyouthhostel.com" target="_blank" class="blue-link" rel="nofollow">urbanyouthhostel.com</a></p>
@@ -1601,6 +1736,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C/ de Samaniego, Ciutat Vella, 46003 València, Valencia</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="valencia-hostel-room-00" aria-label="Find Valencia Hostel – Room 00 on the map">Find on map ›</a></p>
+
             <p><strong>GOOGLE RATING:</strong> 3.7 out of 5 stars</p>
 
         </div>
@@ -1625,6 +1762,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer Ab el Hamet, 1, 03003 Alacant, Alicante</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="alicante-beach-hostel" aria-label="Find Alicante Beach Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34691771820" class="blue-link">+34 691 77 18 20</a></p>
 
@@ -1653,6 +1792,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Decano, 20, 03690 San Vicente del Raspeig, Alicante</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="europa-house" aria-label="Find Europa House on the map">Find on map ›</a></p>
+
             <p><strong>GOOGLE RATING:</strong> 4.2 out of 5 stars</p>
 
         </div>
@@ -1677,6 +1818,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C/ Pizarro, 2, 03690 Sant Vicent del Raspeig, Alicante</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="europa-house-village" aria-label="Find Europa House Village on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34644148995" class="blue-link">+34 644 14 89 95</a></p>
 
@@ -1707,6 +1850,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Gral. Primo de Rivera, 10, 03002 Alicante</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hola-hostel-alicante" aria-label="Find Hola Hostel Alicante on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34966272023" class="blue-link">+34 966 27 20 23</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://hola-hostel-alicante.com.es" target="_blank" class="blue-link" rel="nofollow">hola-hostel-alicante.com.es</a></p>
@@ -1735,6 +1880,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Maestro Caballero, 13, 03004 Alicante</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-numero-trece" aria-label="Find Hostal Numero Trece on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34722680013" class="blue-link">+34 722 68 00 13</a></p>
 
@@ -1765,6 +1912,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Av. Eusebi Sempere, 2, 03003 Alacant, Alicante</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostel-dos-estaciones-alicante" aria-label="Find Hostel dos Estaciones | Alicante on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34604920454" class="blue-link">+34 604 92 04 54</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://hostal2estaciones.es" target="_blank" class="blue-link" rel="nofollow">hostal2estaciones.es</a></p>
@@ -1793,6 +1942,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. del Poeta Quintana, 26, 1º, 03004 Alicante</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostel-ole" aria-label="Find Hostel Olé on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34966145206" class="blue-link">+34 966 14 52 06</a></p>
 
@@ -1823,6 +1974,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Carrer Dr. Just, 11, 03007 Alacant, Alicante</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="just-hostel-capsules" aria-label="Find Just Hostel Capsules on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34965220269" class="blue-link">+34 965 22 02 69</a></p>
 
             <p><strong>GOOGLE RATING:</strong> 4.2 out of 5 stars</p>
@@ -1849,6 +2002,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Cam. del Campamento, 31, 03724 Teulada, Alicante</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="la-marina-youth-hostel" aria-label="Find La Marina Youth Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34965739000" class="blue-link">+34 965 73 90 00</a></p>
 
@@ -1879,6 +2034,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Fomento, 10, 03010 Alicante</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="marevita-hostel-suites" aria-label="Find Marevita Hostel Suites on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34643852880" class="blue-link">+34 643 85 28 80</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.marevitahostel.net" target="_blank" class="blue-link" rel="nofollow">marevitahostel.net</a></p>
@@ -1908,6 +2065,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Díaz Moreu, 20, 03004 Alicante</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="the-market-hostel-alicante" aria-label="Find The Market Hostel Alicante on the map">Find on map ›</a></p>
+
             <p><strong>WEBSITE:</strong> <a href="https://www.themarkethostel.com" target="_blank" class="blue-link" rel="nofollow">themarkethostel.com</a></p>
 
             <p><strong>GOOGLE RATING:</strong> 4.5 out of 5 stars</p>
@@ -1934,6 +2093,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Gral. Pintos, 1, 03010 Alicante</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="vad-hostel" aria-label="Find Vad Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34965030756" class="blue-link">+34 965 03 07 56</a></p>
 
@@ -2373,6 +2534,8 @@ window.BB_TIPS = [
 
     <!-- Mobile menu end -->
 
+<script src="/assets/js/bb-map-loader.js?v=6" defer></script>
+
 <script src="/js/script-2.js?v=4" defer></script>
 
 <script src="/js/attribution-toggle.js?v=1" defer></script>
@@ -2391,6 +2554,1068 @@ class="statcounter"
 src="https://c.statcounter.com/13225228/0/687dc53c/1/"
 alt="Web Analytics"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.backpackersbible.com/#organization",
+      "name": "BackpackersBible.com",
+      "url": "https://www.backpackersbible.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.backpackersbible.com/assets/backpackers_bible_logo_250x250.png",
+        "width": 250,
+        "height": 250
+      },
+      "description": "Independent backpacker guides to destinations worldwide with direct hostel contacts, safety information, maps, and honest write-ups."
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw",
+      "name": "Geoff Louw",
+      "url": "https://www.backpackersbible.com/misc/about-backpackers-bible",
+      "worksFor": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.backpackersbible.com/#website",
+      "url": "https://www.backpackersbible.com/",
+      "name": "BackpackersBible.com",
+      "publisher": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": [
+        "WebPage",
+        "CollectionPage"
+      ],
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#webpage",
+      "url": "https://www.backpackersbible.com/spain/en/hostels/valencia",
+      "name": "Backpacking Valencia | Hostel Guide",
+      "headline": "Budget Accommodation In Valencia",
+      "description": "Directory of 45 hostels and budget places to stay in Valencia, with direct contact details, an interactive map and filters.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://www.backpackersbible.com/#website"
+      },
+      "publisher": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      },
+      "author": {
+        "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw"
+      },
+      "dateModified": "2026-11-21",
+      "mainEntity": {
+        "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#hostels"
+      },
+      "about": [
+        {
+          "@type": "Place",
+          "name": "Valencia",
+          "sameAs": "https://en.wikipedia.org/wiki/Valencian_Community"
+        },
+        {
+          "@type": "Thing",
+          "name": "Backpacking",
+          "sameAs": "https://en.wikipedia.org/wiki/Backpacking_(travel)"
+        }
+      ],
+      "mentions": [
+        {
+          "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#map"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.backpackersbible.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Backpacking Spain",
+          "item": "https://www.backpackersbible.com/spain/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Valencia Hostels",
+          "item": "https://www.backpackersbible.com/spain/en/hostels/valencia"
+        }
+      ]
+    },
+    {
+      "@type": "Map",
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#map",
+      "name": "Valencia Backpacker Hostel Map",
+      "description": "Interactive map of the hostels and budget places to stay in Valencia with one-tap filters.",
+      "mapType": "https://schema.org/VenueMap",
+      "url": "https://www.backpackersbible.com/spain/en/hostels/valencia#hostel-map",
+      "potentialAction": [
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Top Picks",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/valencia?filter=best_overall#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Best Value",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/valencia?filter=best_value#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Budget",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/valencia?filter=budget#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Flashpackers",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/valencia?filter=flashpacker#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Best Parties",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/valencia?filter=party#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Most Social",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/valencia?filter=social#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Peaceful",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/valencia?filter=peaceful#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Solo Women",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/valencia?filter=solo_women#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Digital Nomads",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/valencia?filter=digital_nomad#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Couples",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/valencia?filter=couples#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Cyclists",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/valencia?filter=cyclists#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Activities",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/valencia?filter=activities#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Accessible",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/valencia?filter=accessible#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Eco-Friendly",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/valencia?filter=eco#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Camping",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/valencia?filter=camping#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Near Airport",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/valencia?filter=near_airport#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Groups",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/valencia?filter=groups#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Surfers",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/valencia?filter=surfers#hostel-map"
+        }
+      ],
+      "about": {
+        "@type": "Thing",
+        "name": "Backpacker Hostels in Valencia"
+      },
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Valencia",
+        "sameAs": "https://en.wikipedia.org/wiki/Valencian_Community"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#hostels",
+      "name": "Hostels and budget accommodation in Valencia",
+      "numberOfItems": 45,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#aiora-hostel",
+            "name": "Aiora Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. de Jeroni de Montsoriu, 26, Camins al Grau",
+              "postalCode": "46022",
+              "addressLocality": "València",
+              "addressCountry": "ES",
+              "addressRegion": "Valencia"
+            },
+            "telephone": "+34 604 22 10 41",
+            "url": "https://aiorahostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#almorada-cabins",
+            "name": "Almorada Cabins",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Bernat Descoll, 65, Quatre Carreres",
+              "postalCode": "46026",
+              "addressLocality": "València",
+              "addressCountry": "ES",
+              "addressRegion": "Valencia"
+            },
+            "telephone": "+34 747 40 35 33",
+            "url": "https://www.almorada.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#b-b-hi-valencia-boutique",
+            "name": "B&B HI Valencia Boutique",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Plaça d'Alfons el Magnànim, 1, Ciutat Vella",
+              "postalCode": "46003",
+              "addressLocality": "València",
+              "addressCountry": "ES",
+              "addressRegion": "Valencia"
+            },
+            "telephone": "+34 962 06 66 04",
+            "url": "https://hivalenciaboutique.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#b-b-hi-valencia-canovas",
+            "name": "B&B HI València Cánovas",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C/ de Ciril Amorós, 82, L'Eixample",
+              "postalCode": "46004",
+              "addressLocality": "València",
+              "addressCountry": "ES",
+              "addressRegion": "Valencia"
+            },
+            "telephone": "+34 962 06 66 04",
+            "url": "https://www.hivalenciacanovas.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#beach-arts-hostel-valencia",
+            "name": "Beach & Arts Hostel -Valencia-",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C/ de Ibiza, 17, bajo, Poblados Marítimos",
+              "postalCode": "46024",
+              "addressLocality": "Valencia",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 643 58 90 21",
+            "url": "https://www.beachandarts.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#bird-house",
+            "name": "Bird House",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. del Port, 47, Camins al Grau",
+              "postalCode": "46021",
+              "addressLocality": "València",
+              "addressCountry": "ES",
+              "addressRegion": "Valencia"
+            },
+            "telephone": "+34 616 46 66 84",
+            "url": "https://www.birdhouse.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#cantagua-hostel",
+            "name": "Cantagua Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Vicente Lleó, 28, Quatre Carreres",
+              "postalCode": "46004",
+              "addressLocality": "València",
+              "addressCountry": "ES",
+              "addressRegion": "Valencia"
+            },
+            "telephone": "+34 961 81 64 41",
+            "url": "https://www.cantaguahostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#capsule-inn-valencia-hostel",
+            "name": "Capsule Inn Valencia Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer de Sant Vicent Màrtir, 144, Extramurs",
+              "postalCode": "46007",
+              "addressLocality": "València",
+              "addressCountry": "ES",
+              "addressRegion": "Valencia"
+            },
+            "telephone": "+34 689 95 71 98",
+            "url": "https://www.capsuleinnvalencia.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#colegio-mayor-la-concepcion",
+            "name": "Colegio Mayor La Concepción",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. de Suècia, 23, El Pla del Real",
+              "postalCode": "46010",
+              "addressLocality": "València",
+              "addressCountry": "ES",
+              "addressRegion": "Valencia"
+            },
+            "telephone": "+34 963 03 63 00",
+            "url": "https://resa.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#colo-colo-hostel-valencia",
+            "name": "Colo Colo Hostel: Valencia",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer del Dr. Sumsi, 23, L'Eixample",
+              "postalCode": "46005",
+              "addressLocality": "València",
+              "addressCountry": "ES",
+              "addressRegion": "Valencia"
+            },
+            "telephone": "+34 650 72 96 37",
+            "url": "https://www.colocolo.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#cozy-nook",
+            "name": "Cozy Nook",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer del Poeta Mas i Ros, 3, Algirós",
+              "postalCode": "46021",
+              "addressLocality": "València",
+              "addressCountry": "ES",
+              "addressRegion": "Valencia"
+            },
+            "telephone": "+34 919 93 31 49",
+            "url": "https://b44c454053b5fca2.sirvoy.me"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#habitaciones-barra-89",
+            "name": "Habitaciones Barra 89",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. de Gaspar Aguilar, 89, Jesús",
+              "postalCode": "46017",
+              "addressLocality": "València",
+              "addressCountry": "ES",
+              "addressRegion": "Valencia"
+            },
+            "telephone": "+34 689 76 98 84",
+            "url": "https://habitacionesbarra89.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 13,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#home-youth-hostel-valencia",
+            "name": "Hôme Youth Hostel Valencia",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C/ de la Llotja, 4, Ciutat Vella",
+              "postalCode": "46001",
+              "addressLocality": "València",
+              "addressCountry": "ES",
+              "addressRegion": "Valencia"
+            },
+            "telephone": "+34 963 91 62 29",
+            "url": "https://www.feetuphostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 14,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#hostel-hoces-del-cabriel",
+            "name": "Hostel Hoces del Cabriel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. San Juan, 13",
+              "postalCode": "46310",
+              "addressLocality": "Venta del Moro",
+              "addressCountry": "ES",
+              "addressRegion": "Valencia"
+            },
+            "telephone": "+34 962 17 80 72",
+            "url": "https://spainstays.site"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 15,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#hotel-solplaya",
+            "name": "Hotel Solplaya",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Passeig de Neptú, 54, Poblats Marítims",
+              "postalCode": "46011",
+              "addressLocality": "València",
+              "addressCountry": "ES",
+              "addressRegion": "Valencia"
+            },
+            "telephone": "+34 963 56 19 20",
+            "url": "https://www.hotelsolplaya.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 16,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#malvarrosa-beach-rooms",
+            "name": "Malvarrosa Beach Rooms",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Passeig de Neptú, 34, Poblats Marítims",
+              "postalCode": "46011",
+              "addressLocality": "València",
+              "addressCountry": "ES",
+              "addressRegion": "Valencia"
+            },
+            "telephone": "+34 963 71 61 51",
+            "url": "https://malvarrosabeachrooms.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 17,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#md-modern-hotel-jardines",
+            "name": "Md Modern Hotel – Jardines",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer del Mestre Racional, 23, L'Eixample",
+              "postalCode": "46005",
+              "addressLocality": "València",
+              "addressCountry": "ES",
+              "addressRegion": "Valencia"
+            },
+            "telephone": "+34 673 54 26 24",
+            "url": "https://www.mdhoteles.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 18,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#original-domino-house",
+            "name": "Original Domino House",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C/ de les Illes Canàries, 51, Camins al Grau",
+              "postalCode": "46023",
+              "addressLocality": "València",
+              "addressCountry": "ES",
+              "addressRegion": "Valencia"
+            },
+            "telephone": "+34 960 69 99 82",
+            "url": "https://www.dominohouse.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 19,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#purple-nest-hostel-valencia",
+            "name": "Purple Nest Hostel Valencia",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Pl. Tetuán, 5, Ciutat Vella",
+              "postalCode": "46003",
+              "addressLocality": "Valencia",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 963 53 25 61",
+            "url": "https://www.feetuphostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 20,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#quart-youth-hostel",
+            "name": "Quart Youth Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C/ de Guillem de Castro, 64, Ciutat Vella",
+              "postalCode": "46001",
+              "addressLocality": "València",
+              "addressCountry": "ES",
+              "addressRegion": "Valencia"
+            },
+            "telephone": "+34 963 27 01 01",
+            "url": "https://www.hostelenvalencia.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 21,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#red-nest-hostel-valencia",
+            "name": "Red Nest Hostel Valencia",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C/ de la Pau, 36, Ciutat Vella",
+              "postalCode": "46003",
+              "addressLocality": "València",
+              "addressCountry": "ES",
+              "addressRegion": "Valencia"
+            },
+            "telephone": "+34 963 42 71 68",
+            "url": "https://nesthostelsvalencia.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 22,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#resa-patacona",
+            "name": "RESA Patacona",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Passeig Serra d'Espadà, 2",
+              "postalCode": "46120",
+              "addressLocality": "Alboraia",
+              "addressCountry": "ES",
+              "addressRegion": "Valencia"
+            },
+            "telephone": "+34 963 00 06 49",
+            "url": "https://resa.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 23,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#residencia-universitaria-micampus-galileo-galilei",
+            "name": "Residencia Universitaria Micampus Galileo Galilei",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. dels Tarongers, Algirós",
+              "postalCode": "46022",
+              "addressLocality": "València",
+              "addressCountry": "ES",
+              "addressRegion": "Valencia"
+            },
+            "telephone": "+34 963 35 20 00",
+            "url": "https://www.galileogalilei.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 24,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#residencia-universitaria-resa-damia-bonet",
+            "name": "Residencia Universitaria RESA Damià Bonet",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Campus dels Tarongers, C/ del Serpis, 27, Algirós",
+              "postalCode": "46022",
+              "addressLocality": "València",
+              "addressCountry": "ES",
+              "addressRegion": "Valencia"
+            },
+            "telephone": "+34 962 05 05 00",
+            "url": "https://resa.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 25,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#river-hostel",
+            "name": "River Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Pl. del Temple, 6, Ciutat Vella",
+              "postalCode": "46003",
+              "addressLocality": "València",
+              "addressCountry": "ES",
+              "addressRegion": "Valencia"
+            },
+            "telephone": "+34 963 91 39 55",
+            "url": "https://www.riverhostelvalencia.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 26,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#room-valencia",
+            "name": "Room Valencia",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C/ de Samaniego, 18, Ciutat Vella",
+              "postalCode": "46003",
+              "addressLocality": "València",
+              "addressCountry": "ES",
+              "addressRegion": "Valencia"
+            },
+            "telephone": "+34 681 24 22 08",
+            "url": "https://room00hostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 27,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#som-hostel-boutique",
+            "name": "Som Hostel Boutique",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer del Mestre Racional, 4, L'Eixample",
+              "postalCode": "46005",
+              "addressLocality": "València",
+              "addressCountry": "ES",
+              "addressRegion": "Valencia"
+            },
+            "telephone": "+34 962 63 81 40",
+            "url": "https://somhostelboutique.top"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 28,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#the-central-house-valencia-mercado-central",
+            "name": "The Central House Valencia Mercado Central",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C/ del Peu de la Creu, 12, Ciutat Vella",
+              "postalCode": "46001",
+              "addressLocality": "València",
+              "addressCountry": "ES",
+              "addressRegion": "Valencia"
+            },
+            "telephone": "+34 960 25 56 01",
+            "url": "https://www.thecentralhousegroup.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 29,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#the-venue-hostel-boutique",
+            "name": "The Venue Hostel Boutique",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C/ de Dolores Alcaide, 14, Jesús",
+              "postalCode": "46007",
+              "addressLocality": "València",
+              "addressCountry": "ES",
+              "addressRegion": "Valencia"
+            },
+            "telephone": "+34 664 84 83 12",
+            "url": "https://www.thevenuehostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 30,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#u-nit-central-park-hostel",
+            "name": "U-Nit Central Park Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. d'Ausiàs March, 28, Quatre Carreres",
+              "postalCode": "46004",
+              "addressLocality": "València",
+              "addressCountry": "ES",
+              "addressRegion": "Valencia"
+            },
+            "telephone": "+34 674 48 66 60"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 31,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#up-hostel",
+            "name": "Up! Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C/ de Xàtiva, 24, Extramurs",
+              "postalCode": "46007",
+              "addressLocality": "València",
+              "addressCountry": "ES",
+              "addressRegion": "Valencia"
+            },
+            "telephone": "+34 963 52 81 58",
+            "url": "https://www.uphostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 32,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#urban-youth-hostel",
+            "name": "Urban Youth Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. del Port, 280, Poblats Marítims",
+              "postalCode": "46024",
+              "addressLocality": "València",
+              "addressCountry": "ES",
+              "addressRegion": "Valencia"
+            },
+            "telephone": "+34 963 21 21 29",
+            "url": "https://www.urbanyouthhostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 33,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#valencia-hostel-room-00",
+            "name": "Valencia Hostel – Room 00",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C/ de Samaniego, Ciutat Vella",
+              "postalCode": "46003",
+              "addressLocality": "València",
+              "addressCountry": "ES",
+              "addressRegion": "Valencia"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 34,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#alicante-beach-hostel",
+            "name": "Alicante Beach Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer Ab el Hamet, 1",
+              "postalCode": "03003",
+              "addressLocality": "Alacant",
+              "addressCountry": "ES",
+              "addressRegion": "Alicante"
+            },
+            "telephone": "+34 691 77 18 20"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 35,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#europa-house",
+            "name": "Europa House",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Decano, 20",
+              "postalCode": "03690",
+              "addressLocality": "San Vicente del Raspeig",
+              "addressCountry": "ES",
+              "addressRegion": "Alicante"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 36,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#europa-house-village",
+            "name": "Europa House Village",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C/ Pizarro, 2",
+              "postalCode": "03690",
+              "addressLocality": "Sant Vicent del Raspeig",
+              "addressCountry": "ES",
+              "addressRegion": "Alicante"
+            },
+            "telephone": "+34 644 14 89 95",
+            "url": "https://www.residenciaeuropahouse.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 37,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#hola-hostel-alicante",
+            "name": "Hola Hostel Alicante",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Gral. Primo de Rivera, 10",
+              "postalCode": "03002",
+              "addressLocality": "Alicante",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 966 27 20 23",
+            "url": "https://hola-hostel-alicante.com.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 38,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#hostal-numero-trece",
+            "name": "Hostal Numero Trece",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Maestro Caballero, 13",
+              "postalCode": "03004",
+              "addressLocality": "Alicante",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 722 68 00 13",
+            "url": "https://hostal13.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 39,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#hostel-dos-estaciones-alicante",
+            "name": "Hostel dos Estaciones | Alicante",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. Eusebi Sempere, 2",
+              "postalCode": "03003",
+              "addressLocality": "Alacant",
+              "addressCountry": "ES",
+              "addressRegion": "Alicante"
+            },
+            "telephone": "+34 604 92 04 54",
+            "url": "https://hostal2estaciones.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 40,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#hostel-ole",
+            "name": "Hostel Olé",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. del Poeta Quintana, 26, 1º",
+              "postalCode": "03004",
+              "addressLocality": "Alicante",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 966 14 52 06",
+            "url": "https://hostelole.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 41,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#just-hostel-capsules",
+            "name": "Just Hostel Capsules",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Carrer Dr. Just, 11",
+              "postalCode": "03007",
+              "addressLocality": "Alacant",
+              "addressCountry": "ES",
+              "addressRegion": "Alicante"
+            },
+            "telephone": "+34 965 22 02 69"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 42,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#la-marina-youth-hostel",
+            "name": "La Marina Youth Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Cam. del Campamento, 31",
+              "postalCode": "03724",
+              "addressLocality": "Teulada",
+              "addressCountry": "ES",
+              "addressRegion": "Alicante"
+            },
+            "telephone": "+34 965 73 90 00",
+            "url": "https://ivaj.gva.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 43,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#marevita-hostel-suites",
+            "name": "Marevita Hostel Suites",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Fomento, 10",
+              "postalCode": "03010",
+              "addressLocality": "Alicante",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 643 85 28 80",
+            "url": "https://www.marevitahostel.net"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 44,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#the-market-hostel-alicante",
+            "name": "The Market Hostel Alicante",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Díaz Moreu, 20",
+              "postalCode": "03004",
+              "addressLocality": "Alicante",
+              "addressCountry": "ES"
+            },
+            "url": "https://www.themarkethostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 45,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/valencia#vad-hostel",
+            "name": "Vad Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Gral. Pintos, 1",
+              "postalCode": "03010",
+              "addressLocality": "Alicante",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 965 03 07 56",
+            "url": "https://www.vadhostel.com"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 </body>
 </html>

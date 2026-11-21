@@ -480,16 +480,87 @@
 
 <main id="main-content">
 
-<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description">
-  <iframe
-    class="sa-hostel-map-iframe"
-    title="Google My Maps: backpacker hostels in Spain"
-    src="https://www.google.com/maps/d/embed?mid=1YaoKUZVLHf7y1Rar6qoNWzn0Q6jRNV0&ehbc=2E312F&noprof=1&ll=37.39369,-5.99712&z=12"
-    width="640" height="480"
-    loading="lazy"
-    allowfullscreen>
-  </iframe>
+<!-- Map description -->
+<div class="map-description" id="hostel-map-description">
+  <span class="map-description__text"><strong>BACKPACKERS FINDER:</strong> The easiest way to choose the right backpacker hostel. Our interactive map lets you filter Seville backpackers by vibe, setup and value. Filters switch on once every hostel has been rated.</span>
+</div>
+
+  <!-- Map filter buttons -->
+
+<h2 class="sr-only">
+    Search Seville Backpacker Hostels
+</h2>
+
+<p class="sr-only">
+    Filter Seville hostels by party atmosphere, how social they are, peacefulness, solo female traveller friendliness, digital nomad suitability, couples, cyclists, activities, accessibility, eco-friendliness, camping, airport proximity, group suitability, budget and value for money. You can select more than one filter at once, and hostels must match all of them.
+</p>
+
+<div class="map-filter-bar">
+    <div class="map-filter-bar__scroll">
+        <div class="map-filter-bar__row" role="toolbar" aria-label="Filter hostels by category">
+
+            <a href="#" class="map-filter-btn map-filter-btn--active" role="button" style="background-color: #ffd400; color: #000000;" data-filter="all" aria-pressed="true" aria-label="Show all backpackers hostels in Seville">★ All Hostels</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #b01c22; opacity:0.5; cursor:not-allowed;" data-filter="best_overall" aria-pressed="false" aria-label="Show the top-rated backpackers hostels">Top Picks</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="best_value" aria-pressed="false" aria-label="Show backpackers hostels which deliver the best value for money">Best Value</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="budget" aria-pressed="false" aria-label="Show the budget backpackers hostels">Budget</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="flashpacker" aria-pressed="false" aria-label="Show upmarket flashpacker hostels">Flashpackers</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="party" aria-pressed="false" aria-label="Show backpackers hostels which have the best parties">Best Parties</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="social" aria-pressed="false" aria-label="Show the most sociable backpackers hostels for meeting other travellers">Most Social</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="peaceful" aria-pressed="false" aria-label="Show peaceful, quiet backpackers hostels">Peaceful</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="solo_women" aria-pressed="false" aria-label="Show backpackers hostels which are best for solo women travellers">Solo Women</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="digital_nomad" aria-pressed="false" aria-label="Show backpackers hostels which are best for digital nomads">Digital Nomads</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="couples" aria-pressed="false" aria-label="Show backpackers hostels which are best for couples">Couples</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="cyclists" aria-pressed="false" aria-label="Show backpackers hostels which are best for cyclists">Cyclists</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="activities" aria-pressed="false" aria-label="Show backpackers hostels with the best activities and tours">Activities</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="accessible" aria-pressed="false" aria-label="Show backpackers hostels with confirmed accessibility features">Accessible</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="eco" aria-pressed="false" aria-label="Show eco-friendly and certified sustainable backpackers hostels">Eco-Friendly</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="camping" aria-pressed="false" aria-label="Show hostels which offer camping as an accommodation option">Camping</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="near_airport" aria-pressed="false" aria-label="Show hostels close to an airport">Near Airport</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="groups" aria-pressed="false" aria-label="Show hostels which welcome groups of backpackers">Groups</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="surfers" aria-pressed="false" aria-label="Show backpackers hostels which are best for surfers">Surfers</a>
+        </div>
+    </div>
+</div>
+
+<!-- ░░ HOSTEL MAP ░░ -->
+<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description"
+  data-bb-map
+  data-region="seville"
+  data-country="Spain"
+  data-center="-5.9845,37.3891"
+  data-zoom="12.0"
+  data-mobile-zoom="11.3"
+  data-pitch="0"
+  data-bearing="0"
+  data-hostels-url="/spain/assets/data/hostels.json"
+  data-regions-url="/spain/assets/data/regions.json"
+  data-terrain=""
+  data-locate-bounds="-19,27,5,44.5"
+  data-threshold="7"
+  data-autoload="viewport">
+
+  <!-- Poster image: shows before the visitor loads the map -->
+  <picture class="sa-hostel-map-poster">
+    <img src="/spain/assets/images/map_seville.webp"
+         alt="Interactive backpacker hostel map of Seville showing hostels that can be filtered by travel style, budget, solo female travellers, digital nomads, cycling and more."
+         loading="eager"
+         fetchpriority="high"
+         decoding="async">
+  </picture>
+
+  <!-- Keyboard and screen-reader route to the map (the poster itself is tap-to-load) -->
+  <button type="button" class="sr-only" id="bb-map-load-btn">Load the interactive hostel map</button>
+
+  <!-- The map renders here (inline, no iframe) once the visitor taps the poster or a filter -->
+  <div id="bb-map-wrap" class="sa-hostel-map-iframe bb-map-iframe" hidden></div>
+
+  <div class="map-overlay-circle" aria-hidden="true">
+    Click the icons<br>for hostel info.
+  </div>
+
 </section>
+<!-- ░░ END HOSTEL MAP ░░ -->
+
 
 <!-- Horizontal regional menu -->
 
@@ -670,6 +741,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. de Isaac Peral, 2, 41012 Sevilla</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="albergue-inturjoven-sevilla" aria-label="Find Albergue Inturjoven Sevilla on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34955181181" class="blue-link">+34 955 18 11 81</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.inturjoven.com" target="_blank" class="blue-link" rel="nofollow">inturjoven.com</a></p>
@@ -698,6 +771,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Bilbao, 10, Casco Antiguo, 41001 Sevilla</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="black-swan-hostel-sevilla" aria-label="Find Black Swan Hostel Sevilla on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34954910960" class="blue-link">+34 954 91 09 60</a></p>
 
@@ -729,6 +804,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Rioja, 13, 1ºC, Casco Antiguo, 41001 Sevilla</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="coworking-sevilla-workincompany" aria-label="Find Coworking Sevilla – Workincompany on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34689097232" class="blue-link">+34 689 09 72 32</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://workincompany.com" target="_blank" class="blue-link" rel="nofollow">workincompany.com</a></p>
@@ -750,6 +827,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Av. de Menéndez Pelayo, 51, Casco Antiguo, 41003 Sevilla</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-alcobia" aria-label="Find Hostal Alcobia on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34854609022" class="blue-link">+34 854 60 90 22</a></p>
 
@@ -781,6 +860,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Av. de la Constitución, 20, Casco Antiguo, 41004 Sevilla</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostal-leonardo-da-vinci" aria-label="Find Hostal Leonardo da Vinci on the map">Find on map ›</a></p>
+
             <p><strong>GOOGLE RATING:</strong> 3.5 out of 5 stars</p>
 
         </div>
@@ -806,6 +887,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Guadiana, 15, Casco Antiguo, 41002 Sevilla</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostel-a2c" aria-label="Find Hostel A2c on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34640564822" class="blue-link">+34 640 56 48 22</a></p>
 
@@ -837,6 +920,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Bailén, 12, Casco Antiguo, 41001 Sevilla</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hostel-trotamundos" aria-label="Find Hostel Trotamundos on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34954104173" class="blue-link">+34 954 10 41 73</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.hosteltrotamundos.es" target="_blank" class="blue-link" rel="nofollow">hosteltrotamundos.es</a></p>
@@ -864,6 +949,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Águilas, 17, Casco Antiguo, 41003 Sevilla</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hotel-abanico-casa-palacio" aria-label="Find Hotel Abanico Casa Palacio on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34954213207" class="blue-link">+34 954 21 32 07</a></p>
 
@@ -895,6 +982,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Mateos Gago, 31, Casco Antiguo, 41004 Sevilla</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hotel-goya" aria-label="Find Hotel Goya on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34954211170" class="blue-link">+34 954 21 11 70</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.hotelgoyasevilla.com" target="_blank" class="blue-link" rel="nofollow">hotelgoyasevilla.com</a></p>
@@ -924,6 +1013,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Albareda, 15, Casco Antiguo, 41001 Sevilla</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hotel-plaza-sevilla" aria-label="Find Hotel Plaza Sevilla on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34954217976" class="blue-link">+34 954 21 79 76</a></p>
 
@@ -955,6 +1046,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Méndez Núñez, 11, Casco Antiguo, 41001 Sevilla</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hotel-roomsole-h-doble" aria-label="Find Hotel Roomsole-H Doble on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34661481291" class="blue-link">+34 661 48 12 91</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.hotelroomsolehdoble.com" target="_blank" class="blue-link" rel="nofollow">hotelroomsolehdoble.com</a></p>
@@ -984,6 +1077,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Amor de Dios, 19, Casco Antiguo, 41002 Sevilla</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hotel-y-apartamentos-dona-lola" aria-label="Find Hotel Y Apartamentos Doña Lola on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34954915275" class="blue-link">+34 954 91 52 75</a></p>
 
@@ -1015,6 +1110,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Goles, 46, Casco Antiguo, 41002 Sevilla</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="hub-hostel-seville" aria-label="Find Hub Hostel Seville on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34955606743" class="blue-link">+34 955 60 67 43</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.hubhostelsevilla.com" target="_blank" class="blue-link" rel="nofollow">hubhostelsevilla.com</a></p>
@@ -1044,6 +1141,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Virgen de Regla, 18, Local C, 41011 Sevilla</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="ikigai-hostel-s-l" aria-label="Find Ikigai Hostel S.l. on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34954491812" class="blue-link">+34 954 49 18 12</a></p>
 
@@ -1075,6 +1174,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Almte. Ulloa, 1, Casco Antiguo, 41001 Sevilla</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="joy-plaza-de-armas-hostel-sevilla" aria-label="Find Joy Plaza de Armas Hostel Sevilla on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34955262696" class="blue-link">+34 955 26 26 96</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.joyhostelsevilla.com" target="_blank" class="blue-link" rel="nofollow">joyhostelsevilla.com</a></p>
@@ -1104,6 +1205,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Calle Compañía, 1, Casco Antiguo, 41004 Sevilla</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="joy-setas-coworking-hostel-sevilla" aria-label="Find Joy Setas Coworking Hostel Sevilla on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34955228287" class="blue-link">+34 955 22 82 87</a></p>
 
@@ -1135,6 +1238,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Teniente Borges, 5, Casco Antiguo, 41002 Sevilla</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="la-banda-living-hostel" aria-label="Find La Banda Living Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34681081737" class="blue-link">+34 681 08 17 37</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://labandalivinghostel.com" target="_blank" class="blue-link" rel="nofollow">labandalivinghostel.com</a></p>
@@ -1164,6 +1269,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Dos de Mayo, 16, Casco Antiguo, 41001 Sevilla</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="la-banda-rooftop-hostel" aria-label="Find La Banda Rooftop Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34621012891" class="blue-link">+34 621 01 28 91</a></p>
 
@@ -1195,6 +1302,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Redes, 28, Casco Antiguo, 41002 Sevilla</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="la-banda-suites" aria-label="Find La Banda Suites on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34954901946" class="blue-link">+34 954 90 19 46</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://labandasuites.com" target="_blank" class="blue-link" rel="nofollow">labandasuites.com</a></p>
@@ -1224,6 +1333,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Reyes Católicos, 11, PLANTA 2, Casco Antiguo, 41001 Sevilla</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="la-flamenka-hostel" aria-label="Find La Flamenka Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34954104018" class="blue-link">+34 954 10 40 18</a></p>
 
@@ -1255,6 +1366,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. San Pedro Mártir, 14, Casco Antiguo, 41001 Sevilla</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="le-petit-paris" aria-label="Find Le Petit París on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34954229861" class="blue-link">+34 954 22 98 61</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.lepetitparis.es" target="_blank" class="blue-link" rel="nofollow">lepetitparis.es</a></p>
@@ -1284,6 +1397,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Jamerdana, 4, Casco Antiguo, 41004 Sevilla</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="onefam-catedral" aria-label="Find Onefam Catedral on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34954089795" class="blue-link">+34 954 08 97 95</a></p>
 
@@ -1315,6 +1430,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Pl. Fdo. de Herrera, 8, Casco Antiguo, 41003 Sevilla</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="onefam-centro" aria-label="Find Onefam Centro on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34682485814" class="blue-link">+34 682 48 58 14</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://onefamhostels.com" target="_blank" class="blue-link" rel="nofollow">onefamhostels.com</a></p>
@@ -1344,6 +1461,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Vidrio, 9, Casco Antiguo, 41003 Sevilla</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="pension-azahar" aria-label="Find Pensión Azahar on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34955094035" class="blue-link">+34 955 09 40 35</a></p>
 
@@ -1375,6 +1494,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Tintes, 22, Casco Antiguo, 41003 Sevilla</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="pension-catedral" aria-label="Find Pensión Catedral on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34954987213" class="blue-link">+34 954 98 72 13</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.pensioncatedral.com" target="_blank" class="blue-link" rel="nofollow">pensioncatedral.com</a></p>
@@ -1404,6 +1525,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Prta de la Carne, 3, Casco Antiguo, 41004 Sevilla</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="pension-dulces-suenos" aria-label="Find Pension Dulces Sueños on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34954419393" class="blue-link">+34 954 41 93 93</a></p>
 
@@ -1435,6 +1558,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Sanclemente, 12, Casco Antiguo, 41004 Sevilla</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="pension-montorena" aria-label="Find Pensión Montoreña on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34954412407" class="blue-link">+34 954 41 24 07</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.hostalmontorena.com" target="_blank" class="blue-link" rel="nofollow">hostalmontorena.com</a></p>
@@ -1462,6 +1587,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Cjón. Azofaifo, 7, Casco Antiguo, 41004 Sevilla</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="pension-nuevo-suizo" aria-label="Find Pension Nuevo Suizo on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34954229147" class="blue-link">+34 954 22 91 47</a></p>
 
@@ -1493,6 +1620,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Pl. de los Curtidores, 13, Casco Antiguo, 41004 Sevilla</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="pension-perez-montilla" aria-label="Find Pension Pérez Montilla on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34954421854" class="blue-link">+34 954 42 18 54</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.pensionperezmontilla.com" target="_blank" class="blue-link" rel="nofollow">pensionperezmontilla.com</a></p>
@@ -1523,6 +1652,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. San Gregorio, 1, Casco Antiguo, 41004 Sevilla</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="rio-hostel" aria-label="Find Rio Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34955098659" class="blue-link">+34 955 09 86 59</a></p>
 
             <p><strong>GOOGLE RATING:</strong> 3.6 out of 5 stars</p>
@@ -1550,6 +1681,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Buiza y Mensaque, 2-4, Casco Antiguo, 41004 Sevilla</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="salvador-hostel" aria-label="Find Salvador Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34955964546" class="blue-link">+34 955 96 45 46</a></p>
 
@@ -1581,6 +1714,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Av. de Menéndez Pelayo, 13, Casco Antiguo, 41003 Sevilla</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="samay-hostel-seville" aria-label="Find Samay Hostel Seville on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34954720983" class="blue-link">+34 954 72 09 83</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.newsamayhostel.com" target="_blank" class="blue-link" rel="nofollow">newsamayhostel.com</a></p>
@@ -1610,6 +1745,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Crédito, 18, Casco Antiguo, 41002 Sevilla</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="seville-your-way" aria-label="Find Seville Your Way on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34654781321" class="blue-link">+34 654 78 13 21</a></p>
 
@@ -1641,6 +1778,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Padre Marchena, 17, Casco Antiguo, 41001 Sevilla</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="sweet-sevilla-hostel" aria-label="Find Sweet Sevilla Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34650706597" class="blue-link">+34 650 70 65 97</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://sweetaccommodations.com" target="_blank" class="blue-link" rel="nofollow">sweetaccommodations.com</a></p>
@@ -1670,6 +1809,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> Alameda de Hércules, 11, Casco Antiguo, 41002 Sevilla</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="the-corner-house" aria-label="Find The Corner House on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34660669799" class="blue-link">+34 660 66 97 99</a></p>
 
@@ -1701,6 +1842,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Sierpes, 6, Planta 3, Casco Antiguo, 41004 Sevilla</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="the-loft-house-sevilla" aria-label="Find The Loft House Sevilla on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34900264222" class="blue-link">+34 900 264 222</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.theloft.house" target="_blank" class="blue-link" rel="nofollow">theloft.house</a></p>
@@ -1730,6 +1873,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Itálica, 1, Casco Antiguo, 41001 Sevilla</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="the-nomad-hostel" aria-label="Find The Nomad Hostel on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34955638598" class="blue-link">+34 955 63 85 98</a></p>
 
@@ -1761,6 +1906,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Adriano, 6, Casco Antiguo, 41001 Sevilla</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="the-spot-central-hostel" aria-label="Find The Spot Central Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34955209548" class="blue-link">+34 955 20 95 48</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.thespotcentralhostel.com" target="_blank" class="blue-link" rel="nofollow">thespotcentralhostel.com</a></p>
@@ -1790,6 +1937,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Miguel Mañara, 18, 22, Casco Antiguo, 41004 Sevilla</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="toc-hostel-sevilla" aria-label="Find Toc Hostel Sevilla on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34954501244" class="blue-link">+34 954 50 12 44</a></p>
 
@@ -1821,6 +1970,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Rodrigo de Triana, 69, 41010 Sevilla</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="triana-backpackers-hostel" aria-label="Find Triana Backpackers Hostel on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34954459960" class="blue-link">+34 954 45 99 60</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.trianahostel.com" target="_blank" class="blue-link" rel="nofollow">trianahostel.com</a></p>
@@ -1851,6 +2002,8 @@
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Bailén, 15, Casco Antiguo, 41001 Sevilla</p>
 
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="u-sense-for-you-hostel-sevilla" aria-label="Find U-Sense for You Hostel Sevilla on the map">Find on map ›</a></p>
+
             <p><strong>PHONE:</strong> <a href="tel:+34954321530" class="blue-link">+34 954 32 15 30</a></p>
 
             <p><strong>WEBSITE:</strong> <a href="https://www.foryouhostels.com" target="_blank" class="blue-link" rel="nofollow">foryouhostels.com</a></p>
@@ -1880,6 +2033,8 @@
 
         <div class="detail-p">
             <p><strong>STREET ADDRESS:</strong> C. Amador de los Ríos, 13 - 17, 41003 Sevilla</p>
+
+            <p><a href="#hostel-map" class="bb-find-on-map blue-link" data-hostel="urban-cube-hostel-sevilla" aria-label="Find Urban Cube Hostel Sevilla on the map">Find on map ›</a></p>
 
             <p><strong>PHONE:</strong> <a href="tel:+34954768939" class="blue-link">+34 954 76 89 39</a></p>
 
@@ -2301,6 +2456,8 @@ window.BB_TIPS = [
 
     <!-- Mobile menu end -->
 
+<script src="/assets/js/bb-map-loader.js?v=6" defer></script>
+
 <script src="/js/script-2.js?v=4" defer></script>
 
 <script src="/js/attribution-toggle.js?v=1" defer></script>
@@ -2319,6 +2476,982 @@ class="statcounter"
 src="https://c.statcounter.com/13225228/0/687dc53c/1/"
 alt="Web Analytics"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.backpackersbible.com/#organization",
+      "name": "BackpackersBible.com",
+      "url": "https://www.backpackersbible.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.backpackersbible.com/assets/backpackers_bible_logo_250x250.png",
+        "width": 250,
+        "height": 250
+      },
+      "description": "Independent backpacker guides to destinations worldwide with direct hostel contacts, safety information, maps, and honest write-ups."
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw",
+      "name": "Geoff Louw",
+      "url": "https://www.backpackersbible.com/misc/about-backpackers-bible",
+      "worksFor": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.backpackersbible.com/#website",
+      "url": "https://www.backpackersbible.com/",
+      "name": "BackpackersBible.com",
+      "publisher": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": [
+        "WebPage",
+        "CollectionPage"
+      ],
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#webpage",
+      "url": "https://www.backpackersbible.com/spain/en/hostels/seville",
+      "name": "Backpacking Seville | Hostel Guide",
+      "headline": "Budget Accommodation In Seville",
+      "description": "Directory of 42 hostels and budget places to stay in Seville, with direct contact details, an interactive map and filters.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://www.backpackersbible.com/#website"
+      },
+      "publisher": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      },
+      "author": {
+        "@id": "https://www.backpackersbible.com/misc/about-backpackers-bible#geoff-louw"
+      },
+      "dateModified": "2026-11-21",
+      "mainEntity": {
+        "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#hostels"
+      },
+      "about": [
+        {
+          "@type": "Place",
+          "name": "Seville",
+          "sameAs": "https://en.wikipedia.org/wiki/Seville"
+        },
+        {
+          "@type": "Thing",
+          "name": "Backpacking",
+          "sameAs": "https://en.wikipedia.org/wiki/Backpacking_(travel)"
+        }
+      ],
+      "mentions": [
+        {
+          "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#map"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.backpackersbible.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Backpacking Spain",
+          "item": "https://www.backpackersbible.com/spain/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Seville Hostels",
+          "item": "https://www.backpackersbible.com/spain/en/hostels/seville"
+        }
+      ]
+    },
+    {
+      "@type": "Map",
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#map",
+      "name": "Seville Backpacker Hostel Map",
+      "description": "Interactive map of the hostels and budget places to stay in Seville with one-tap filters.",
+      "mapType": "https://schema.org/VenueMap",
+      "url": "https://www.backpackersbible.com/spain/en/hostels/seville#hostel-map",
+      "potentialAction": [
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Top Picks",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/seville?filter=best_overall#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Best Value",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/seville?filter=best_value#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Budget",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/seville?filter=budget#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Flashpackers",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/seville?filter=flashpacker#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Best Parties",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/seville?filter=party#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Most Social",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/seville?filter=social#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Peaceful",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/seville?filter=peaceful#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Solo Women",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/seville?filter=solo_women#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Digital Nomads",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/seville?filter=digital_nomad#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Couples",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/seville?filter=couples#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Cyclists",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/seville?filter=cyclists#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Activities",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/seville?filter=activities#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Accessible",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/seville?filter=accessible#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Eco-Friendly",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/seville?filter=eco#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Camping",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/seville?filter=camping#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Near Airport",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/seville?filter=near_airport#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Groups",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/seville?filter=groups#hostel-map"
+        },
+        {
+          "@type": "SearchAction",
+          "name": "Filter by Surfers",
+          "target": "https://www.backpackersbible.com/spain/en/hostels/seville?filter=surfers#hostel-map"
+        }
+      ],
+      "about": {
+        "@type": "Thing",
+        "name": "Backpacker Hostels in Seville"
+      },
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Seville",
+        "sameAs": "https://en.wikipedia.org/wiki/Seville"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#hostels",
+      "name": "Hostels and budget accommodation in Seville",
+      "numberOfItems": 42,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#albergue-inturjoven-sevilla",
+            "name": "Albergue Inturjoven Sevilla",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. de Isaac Peral, 2",
+              "postalCode": "41012",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 955 18 11 81",
+            "url": "https://www.inturjoven.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#black-swan-hostel-sevilla",
+            "name": "Black Swan Hostel Sevilla",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Bilbao, 10, Casco Antiguo",
+              "postalCode": "41001",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 954 91 09 60",
+            "url": "https://blackswanhostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#coworking-sevilla-workincompany",
+            "name": "Coworking Sevilla – Workincompany",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Rioja, 13, 1ºC, Casco Antiguo",
+              "postalCode": "41001",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 689 09 72 32",
+            "url": "https://workincompany.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#hostal-alcobia",
+            "name": "Hostal Alcobia",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. de Menéndez Pelayo, 51, Casco Antiguo",
+              "postalCode": "41003",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 854 60 90 22",
+            "url": "https://www.alcobiahostal.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#hostal-leonardo-da-vinci",
+            "name": "Hostal Leonardo da Vinci",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. de la Constitución, 20, Casco Antiguo",
+              "postalCode": "41004",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#hostel-a2c",
+            "name": "Hostel A2c",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Guadiana, 15, Casco Antiguo",
+              "postalCode": "41002",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 640 56 48 22",
+            "url": "https://www.hostela2c.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#hostel-trotamundos",
+            "name": "Hostel Trotamundos",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Bailén, 12, Casco Antiguo",
+              "postalCode": "41001",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 954 10 41 73",
+            "url": "https://www.hosteltrotamundos.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#hotel-abanico-casa-palacio",
+            "name": "Hotel Abanico Casa Palacio",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Águilas, 17, Casco Antiguo",
+              "postalCode": "41003",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 954 21 32 07",
+            "url": "https://www.hotelabanico.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#hotel-goya",
+            "name": "Hotel Goya",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Mateos Gago, 31, Casco Antiguo",
+              "postalCode": "41004",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 954 21 11 70",
+            "url": "https://www.hotelgoyasevilla.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#hotel-plaza-sevilla",
+            "name": "Hotel Plaza Sevilla",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Albareda, 15, Casco Antiguo",
+              "postalCode": "41001",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 954 21 79 76",
+            "url": "https://www.hotel-plaza.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#hotel-roomsole-h-doble",
+            "name": "Hotel Roomsole-H Doble",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Méndez Núñez, 11, Casco Antiguo",
+              "postalCode": "41001",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 661 48 12 91",
+            "url": "https://www.hotelroomsolehdoble.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#hotel-y-apartamentos-dona-lola",
+            "name": "Hotel Y Apartamentos Doña Lola",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Amor de Dios, 19, Casco Antiguo",
+              "postalCode": "41002",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 954 91 52 75",
+            "url": "https://www.donalolasevilla.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 13,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#hub-hostel-seville",
+            "name": "Hub Hostel Seville",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Goles, 46, Casco Antiguo",
+              "postalCode": "41002",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 955 60 67 43",
+            "url": "https://www.hubhostelsevilla.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 14,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#ikigai-hostel-s-l",
+            "name": "Ikigai Hostel S.l.",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Virgen de Regla, 18, Local C",
+              "postalCode": "41011",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 954 49 18 12",
+            "url": "https://www.ikigaihostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 15,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#joy-plaza-de-armas-hostel-sevilla",
+            "name": "Joy Plaza de Armas Hostel Sevilla",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Almte. Ulloa, 1, Casco Antiguo",
+              "postalCode": "41001",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 955 26 26 96",
+            "url": "https://www.joyhostelsevilla.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 16,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#joy-setas-coworking-hostel-sevilla",
+            "name": "Joy Setas Coworking Hostel Sevilla",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Calle Compañía, 1, Casco Antiguo",
+              "postalCode": "41004",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 955 22 82 87",
+            "url": "https://www.joyhostelsevilla.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 17,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#la-banda-living-hostel",
+            "name": "La Banda Living Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Teniente Borges, 5, Casco Antiguo",
+              "postalCode": "41002",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 681 08 17 37",
+            "url": "https://labandalivinghostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 18,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#la-banda-rooftop-hostel",
+            "name": "La Banda Rooftop Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Dos de Mayo, 16, Casco Antiguo",
+              "postalCode": "41001",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 621 01 28 91",
+            "url": "https://www.labandahostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 19,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#la-banda-suites",
+            "name": "La Banda Suites",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Redes, 28, Casco Antiguo",
+              "postalCode": "41002",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 954 90 19 46",
+            "url": "https://labandasuites.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 20,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#la-flamenka-hostel",
+            "name": "La Flamenka Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Reyes Católicos, 11, PLANTA 2, Casco Antiguo",
+              "postalCode": "41001",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 954 10 40 18",
+            "url": "https://www.laflamenkahostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 21,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#le-petit-paris",
+            "name": "Le Petit París",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. San Pedro Mártir, 14, Casco Antiguo",
+              "postalCode": "41001",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 954 22 98 61",
+            "url": "https://www.lepetitparis.es"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 22,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#onefam-catedral",
+            "name": "Onefam Catedral",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Jamerdana, 4, Casco Antiguo",
+              "postalCode": "41004",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 954 08 97 95",
+            "url": "https://onefamhostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 23,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#onefam-centro",
+            "name": "Onefam Centro",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Pl. Fdo. de Herrera, 8, Casco Antiguo",
+              "postalCode": "41003",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 682 48 58 14",
+            "url": "https://onefamhostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 24,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#pension-azahar",
+            "name": "Pensión Azahar",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Vidrio, 9, Casco Antiguo",
+              "postalCode": "41003",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 955 09 40 35",
+            "url": "https://www.pension-azahar.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 25,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#pension-catedral",
+            "name": "Pensión Catedral",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Tintes, 22, Casco Antiguo",
+              "postalCode": "41003",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 954 98 72 13",
+            "url": "https://www.pensioncatedral.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 26,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#pension-dulces-suenos",
+            "name": "Pension Dulces Sueños",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Prta de la Carne, 3, Casco Antiguo",
+              "postalCode": "41004",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 954 41 93 93",
+            "url": "https://www.dormirensevilla.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 27,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#pension-montorena",
+            "name": "Pensión Montoreña",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Sanclemente, 12, Casco Antiguo",
+              "postalCode": "41004",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 954 41 24 07",
+            "url": "https://www.hostalmontorena.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 28,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#pension-nuevo-suizo",
+            "name": "Pension Nuevo Suizo",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Cjón. Azofaifo, 7, Casco Antiguo",
+              "postalCode": "41004",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 954 22 91 47",
+            "url": "https://www.pensionnuevosuizo.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 29,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#pension-perez-montilla",
+            "name": "Pension Pérez Montilla",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Pl. de los Curtidores, 13, Casco Antiguo",
+              "postalCode": "41004",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 954 42 18 54",
+            "url": "https://www.pensionperezmontilla.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 30,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#rio-hostel",
+            "name": "Rio Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. San Gregorio, 1, Casco Antiguo",
+              "postalCode": "41004",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 955 09 86 59"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 31,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#salvador-hostel",
+            "name": "Salvador Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Buiza y Mensaque, 2-4, Casco Antiguo",
+              "postalCode": "41004",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 955 96 45 46",
+            "url": "https://room00hostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 32,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#samay-hostel-seville",
+            "name": "Samay Hostel Seville",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Av. de Menéndez Pelayo, 13, Casco Antiguo",
+              "postalCode": "41003",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 954 72 09 83",
+            "url": "https://www.newsamayhostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 33,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#seville-your-way",
+            "name": "Seville Your Way",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Crédito, 18, Casco Antiguo",
+              "postalCode": "41002",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 654 78 13 21",
+            "url": "https://canvas.siteminder.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 34,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#sweet-sevilla-hostel",
+            "name": "Sweet Sevilla Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Padre Marchena, 17, Casco Antiguo",
+              "postalCode": "41001",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 650 70 65 97",
+            "url": "https://sweetaccommodations.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 35,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#the-corner-house",
+            "name": "The Corner House",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Alameda de Hércules, 11, Casco Antiguo",
+              "postalCode": "41002",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 660 66 97 99",
+            "url": "https://thecornerhousesevilla.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 36,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#the-loft-house-sevilla",
+            "name": "The Loft House Sevilla",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Sierpes, 6, Planta 3, Casco Antiguo",
+              "postalCode": "41004",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 900 264 222",
+            "url": "https://www.theloft.house"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 37,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#the-nomad-hostel",
+            "name": "The Nomad Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Itálica, 1, Casco Antiguo",
+              "postalCode": "41001",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 955 63 85 98",
+            "url": "https://www.thenomadhostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 38,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#the-spot-central-hostel",
+            "name": "The Spot Central Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Adriano, 6, Casco Antiguo",
+              "postalCode": "41001",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 955 20 95 48",
+            "url": "https://www.thespotcentralhostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 39,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#toc-hostel-sevilla",
+            "name": "Toc Hostel Sevilla",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Miguel Mañara, 18, 22, Casco Antiguo",
+              "postalCode": "41004",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 954 50 12 44",
+            "url": "https://tochostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 40,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#triana-backpackers-hostel",
+            "name": "Triana Backpackers Hostel",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Rodrigo de Triana, 69",
+              "postalCode": "41010",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 954 45 99 60",
+            "url": "https://www.trianahostel.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 41,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#u-sense-for-you-hostel-sevilla",
+            "name": "U-Sense for You Hostel Sevilla",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Bailén, 15, Casco Antiguo",
+              "postalCode": "41001",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 954 32 15 30",
+            "url": "https://www.foryouhostels.com"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 42,
+          "item": {
+            "@type": "LodgingBusiness",
+            "@id": "https://www.backpackersbible.com/spain/en/hostels/seville#urban-cube-hostel-sevilla",
+            "name": "Urban Cube Hostel Sevilla",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "C. Amador de los Ríos, 13 - 17",
+              "postalCode": "41003",
+              "addressLocality": "Sevilla",
+              "addressCountry": "ES"
+            },
+            "telephone": "+34 954 76 89 39",
+            "url": "https://urbancubehostel.com"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 </body>
 </html>
