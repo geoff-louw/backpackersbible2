@@ -493,14 +493,21 @@
   data-threshold="7"
   data-autoload="viewport">
 
-  <!-- Poster image: shows before the visitor loads the map -->
-  <picture class="sa-hostel-map-poster">
-    <img src="/spain/assets/images/map_andalusia.webp"
-         alt="Mapa interactivo de albergues para mochileros en Andalucía con albergues que se pueden filtrar por estilo de viaje, presupuesto, mujeres que viajan solas, nómadas digitales, ciclismo y más."
-         loading="eager"
-         fetchpriority="high"
-         decoding="async">
-  </picture>
+<!-- Poster image: shows before the visitor loads the map -->
+<picture class="sa-hostel-map-poster">
+  <!-- Mobile: square poster -->
+  <source
+    media="(max-width: 767px)"
+    srcset="/spain/assets/images/andalucia_backpacking_map_mobile.webp">
+
+  <!-- Desktop: wide poster -->
+  <img
+    src="/spain/assets/images/andalucia_backpacking_map.webp"
+    alt="Mapa interactivo de albergues para mochileros en Andalucía con albergues que se pueden filtrar por estilo de viaje, presupuesto, mujeres que viajan solas, nómadas digitales, ciclismo y más."
+    loading="eager"
+    fetchpriority="high"
+    decoding="async">
+</picture>
 
   <!-- Keyboard and screen-reader route to the map (the poster itself is tap-to-load) -->
   <button type="button" class="sr-only" id="bb-map-load-btn">Cargar el mapa interactivo de albergues</button>
