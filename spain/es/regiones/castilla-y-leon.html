@@ -436,16 +436,87 @@
 
 <main id="main-content">
 
-<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description">
-  <iframe
-    class="sa-hostel-map-iframe"
-    title="Google My Maps: hostels para mochileros en España"
-    src="https://www.google.com/maps/d/embed?mid=1YaoKUZVLHf7y1Rar6qoNWzn0Q6jRNV0&ehbc=2E312F&noprof=1&ll=41.89495,-4.61232&z=8"
-    width="640" height="480"
-    loading="lazy"
-    allowfullscreen>
-  </iframe>
+<!-- Map description -->
+<div class="map-description" id="hostel-map-description">
+  <span class="map-description__text"><strong>BUSCADOR PARA MOCHILEROS:</strong> La forma más fácil de elegir el albergue adecuado. Nuestro mapa interactivo te permite filtrar los albergues en Castilla y León por ambiente, instalaciones y relación calidad-precio. Los filtros se activarán cuando hayamos valorado todos los albergues.</span>
+</div>
+
+  <!-- Map filter buttons -->
+
+<h2 class="sr-only">
+    Buscar albergues para mochileros en Castilla y León
+</h2>
+
+<p class="sr-only">
+    Filtra los albergues en Castilla y León por ambiente de fiesta, sociabilidad, tranquilidad, idoneidad para mujeres que viajan solas, nómadas digitales, parejas, ciclistas, actividades, accesibilidad, sostenibilidad, camping, proximidad al aeropuerto, grupos, presupuesto y relación calidad-precio. Puedes elegir más de un filtro a la vez y los albergues deben cumplir todos ellos.
+</p>
+
+<div class="map-filter-bar">
+    <div class="map-filter-bar__scroll">
+        <div class="map-filter-bar__row" role="toolbar" aria-label="Filtrar albergues por categoría">
+
+            <a href="#" class="map-filter-btn map-filter-btn--active" role="button" style="background-color: #ffd400; color: #000000;" data-filter="all" aria-pressed="true" aria-label="Mostrar todos los albergues para mochileros en Castilla y León">★ Todos los albergues</a>
+            <a aria-disabled="true" title="Los filtros se activarán cuando hayamos valorado todos los albergues." href="#" class="map-filter-btn" role="button" style="background-color: #b01c22; opacity:0.5; cursor:not-allowed;" data-filter="best_overall" aria-pressed="false" aria-label="Mostrar los albergues mejor valorados">Selección Top</a>
+            <a aria-disabled="true" title="Los filtros se activarán cuando hayamos valorado todos los albergues." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="best_value" aria-pressed="false" aria-label="Mostrar los albergues con la mejor relación calidad-precio">Mejor precio</a>
+            <a aria-disabled="true" title="Los filtros se activarán cuando hayamos valorado todos los albergues." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="budget" aria-pressed="false" aria-label="Mostrar los albergues más económicos">Económicos</a>
+            <a aria-disabled="true" title="Los filtros se activarán cuando hayamos valorado todos los albergues." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="flashpacker" aria-pressed="false" aria-label="Mostrar los albergues flashpacker de gama alta">Flashpackers</a>
+            <a aria-disabled="true" title="Los filtros se activarán cuando hayamos valorado todos los albergues." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="party" aria-pressed="false" aria-label="Mostrar los albergues con las mejores fiestas">Mejores fiestas</a>
+            <a aria-disabled="true" title="Los filtros se activarán cuando hayamos valorado todos los albergues." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="social" aria-pressed="false" aria-label="Mostrar los albergues más sociables para conocer a otros viajeros">Más sociables</a>
+            <a aria-disabled="true" title="Los filtros se activarán cuando hayamos valorado todos los albergues." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="peaceful" aria-pressed="false" aria-label="Mostrar los albergues tranquilos y silenciosos">Tranquilos</a>
+            <a aria-disabled="true" title="Los filtros se activarán cuando hayamos valorado todos los albergues." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="solo_women" aria-pressed="false" aria-label="Mostrar los mejores albergues para mujeres que viajan solas">Mujeres solas</a>
+            <a aria-disabled="true" title="Los filtros se activarán cuando hayamos valorado todos los albergues." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="digital_nomad" aria-pressed="false" aria-label="Mostrar los mejores albergues para nómadas digitales">Nómadas digitales</a>
+            <a aria-disabled="true" title="Los filtros se activarán cuando hayamos valorado todos los albergues." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="couples" aria-pressed="false" aria-label="Mostrar los mejores albergues para parejas">Parejas</a>
+            <a aria-disabled="true" title="Los filtros se activarán cuando hayamos valorado todos los albergues." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="cyclists" aria-pressed="false" aria-label="Mostrar los mejores albergues para ciclistas">Ciclistas</a>
+            <a aria-disabled="true" title="Los filtros se activarán cuando hayamos valorado todos los albergues." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="activities" aria-pressed="false" aria-label="Mostrar los albergues con las mejores actividades y excursiones">Actividades</a>
+            <a aria-disabled="true" title="Los filtros se activarán cuando hayamos valorado todos los albergues." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="accessible" aria-pressed="false" aria-label="Mostrar los albergues con accesibilidad confirmada">Accesibles</a>
+            <a aria-disabled="true" title="Los filtros se activarán cuando hayamos valorado todos los albergues." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="eco" aria-pressed="false" aria-label="Mostrar los albergues ecológicos y con certificación de sostenibilidad">Ecológicos</a>
+            <a aria-disabled="true" title="Los filtros se activarán cuando hayamos valorado todos los albergues." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="camping" aria-pressed="false" aria-label="Mostrar los albergues que ofrecen camping como opción de alojamiento">Camping</a>
+            <a aria-disabled="true" title="Los filtros se activarán cuando hayamos valorado todos los albergues." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="near_airport" aria-pressed="false" aria-label="Mostrar los albergues cerca de un aeropuerto">Cerca del aeropuerto</a>
+            <a aria-disabled="true" title="Los filtros se activarán cuando hayamos valorado todos los albergues." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="groups" aria-pressed="false" aria-label="Mostrar los albergues que aceptan grupos de mochileros">Grupos</a>
+            <a aria-disabled="true" title="Los filtros se activarán cuando hayamos valorado todos los albergues." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="surfers" aria-pressed="false" aria-label="Mostrar los mejores albergues para surfistas">Surfistas</a>
+        </div>
+    </div>
+</div>
+
+<!-- ░░ HOSTEL MAP ░░ -->
+<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description"
+  data-bb-map
+  data-region="castile-and-leon"
+  data-country="España"
+  data-center="-4.392,41.639"
+  data-zoom="6.8"
+  data-mobile-zoom="6.1"
+  data-pitch="0"
+  data-bearing="0"
+  data-hostels-url="/spain/assets/data/hostels.json"
+  data-regions-url="/spain/assets/data/regions.json"
+  data-terrain=""
+  data-locate-bounds="-19,27,5,44.5"
+  data-threshold="7"
+  data-autoload="viewport">
+
+  <!-- Poster image: shows before the visitor loads the map -->
+  <picture class="sa-hostel-map-poster">
+    <img src="/spain/assets/images/map_castille_and_leon.webp"
+         alt="Mapa interactivo de albergues para mochileros en Castilla y León con albergues que se pueden filtrar por estilo de viaje, presupuesto, mujeres que viajan solas, nómadas digitales, ciclismo y más."
+         loading="eager"
+         fetchpriority="high"
+         decoding="async">
+  </picture>
+
+  <!-- Keyboard and screen-reader route to the map (the poster itself is tap-to-load) -->
+  <button type="button" class="sr-only" id="bb-map-load-btn">Cargar el mapa interactivo de albergues</button>
+
+  <!-- The map renders here (inline, no iframe) once the visitor taps the poster or a filter -->
+  <div id="bb-map-wrap" class="sa-hostel-map-iframe bb-map-iframe" hidden></div>
+
+  <div class="map-overlay-circle" aria-hidden="true">
+    Toca los iconos<br>para ver el albergue.
+  </div>
+
 </section>
+<!-- ░░ END HOSTEL MAP ░░ -->
+
 
 <!-- Horizontal regional menu -->
 
@@ -1416,6 +1487,8 @@ window.BB_TIPS = [
 </div>
 
     <!-- Mobile menu end -->
+
+<script src="/assets/js/bb-map-loader.js?v=6" defer></script>
 
 <script src="/js/script-2.js?v=5" defer></script>
 
