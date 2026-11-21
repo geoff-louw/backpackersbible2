@@ -496,13 +496,20 @@
   data-autoload="viewport">
 
   <!-- Poster image: shows before the visitor loads the map -->
-  <picture class="sa-hostel-map-poster">
-    <img src="/spain/assets/images/map_toledo.webp"
-         alt="Mapa interactivo de albergues para mochileros en Toledo con albergues que se pueden filtrar por estilo de viaje, presupuesto, mujeres que viajan solas, nómadas digitales, ciclismo y más."
-         loading="eager"
-         fetchpriority="high"
-         decoding="async">
-  </picture>
+<picture class="sa-hostel-map-poster">
+  <!-- Móvil: imagen cuadrada -->
+  <source
+    media="(max-width: 767px)"
+    srcset="/spain/assets/images/toledo_backpacking_map_mobile.webp">
+
+  <!-- Escritorio: imagen apaisada -->
+  <img
+    src="/spain/assets/images/toledo_backpacking_map.webp"
+    alt="Mapa interactivo de albergues para mochileros en Toledo, con filtros por estilo de viaje, presupuesto, mujeres que viajan solas, nómadas digitales, ciclismo y mucho más."
+    loading="eager"
+    fetchpriority="high"
+    decoding="async">
+</picture>
 
   <!-- Keyboard and screen-reader route to the map (the poster itself is tap-to-load) -->
   <button type="button" class="sr-only" id="bb-map-load-btn">Cargar el mapa interactivo de albergues</button>
