@@ -523,14 +523,21 @@
   data-threshold="7"
   data-autoload="viewport">
 
-  <!-- Poster image: shows before the visitor loads the map -->
-  <picture class="sa-hostel-map-poster">
-    <img src="/spain/assets/images/map_castilla_la_mancha.webp"
-         alt="Interactive backpacker hostel map of Castilla-La Mancha showing hostels that can be filtered by travel style, budget, solo female travellers, digital nomads, cycling and more."
-         loading="eager"
-         fetchpriority="high"
-         decoding="async">
-  </picture>
+<!-- Poster image: shows before the visitor loads the map -->
+<picture class="sa-hostel-map-poster">
+  <!-- Mobile: square poster -->
+  <source
+    media="(max-width: 767px)"
+    srcset="/spain/assets/images/castilla-la-mancha_backpacking_map_mobile.webp">
+
+  <!-- Desktop: wide poster -->
+  <img
+    src="/spain/assets/images/castilla-la-mancha_backpacking_map.webp"
+    alt="Interactive backpacker hostel map of Castilla La Mancha, showing hostels that can be filtered by travel style, budget, solo female travellers, digital nomads, cycling and more."
+    loading="eager"
+    fetchpriority="high"
+    decoding="async">
+</picture>
 
   <!-- Keyboard and screen-reader route to the map (the poster itself is tap-to-load) -->
   <button type="button" class="sr-only" id="bb-map-load-btn">Load the interactive hostel map</button>
