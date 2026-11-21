@@ -461,16 +461,87 @@
 
 <main id="main-content">
 
-<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description">
-  <iframe
-    class="sa-hostel-map-iframe"
-    title="Google My Maps: backpacker hostels in Spain"
-    src="https://www.google.com/maps/d/embed?mid=1YaoKUZVLHf7y1Rar6qoNWzn0Q6jRNV0&ehbc=2E312F&noprof=1&ll=37.475,-4.64834&z=8"
-    width="640" height="480"
-    loading="lazy"
-    allowfullscreen>
-  </iframe>
+<!-- Map description -->
+<div class="map-description" id="hostel-map-description">
+  <span class="map-description__text"><strong>BACKPACKERS FINDER:</strong> The easiest way to choose the right backpacker hostel. Our interactive map lets you filter Andalusia backpackers by vibe, setup and value. Filters switch on once every hostel has been rated.</span>
+</div>
+
+  <!-- Map filter buttons -->
+
+<h2 class="sr-only">
+    Search Andalusia Backpacker Hostels
+</h2>
+
+<p class="sr-only">
+    Filter Andalusia hostels by party atmosphere, how social they are, peacefulness, solo female traveller friendliness, digital nomad suitability, couples, cyclists, activities, accessibility, eco-friendliness, camping, airport proximity, group suitability, budget and value for money. You can select more than one filter at once, and hostels must match all of them.
+</p>
+
+<div class="map-filter-bar">
+    <div class="map-filter-bar__scroll">
+        <div class="map-filter-bar__row" role="toolbar" aria-label="Filter hostels by category">
+
+            <a href="#" class="map-filter-btn map-filter-btn--active" role="button" style="background-color: #ffd400; color: #000000;" data-filter="all" aria-pressed="true" aria-label="Show all backpackers hostels in Andalusia">★ All Hostels</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #b01c22; opacity:0.5; cursor:not-allowed;" data-filter="best_overall" aria-pressed="false" aria-label="Show the top-rated backpackers hostels">Top Picks</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="best_value" aria-pressed="false" aria-label="Show backpackers hostels which deliver the best value for money">Best Value</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="budget" aria-pressed="false" aria-label="Show the budget backpackers hostels">Budget</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="flashpacker" aria-pressed="false" aria-label="Show upmarket flashpacker hostels">Flashpackers</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="party" aria-pressed="false" aria-label="Show backpackers hostels which have the best parties">Best Parties</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="social" aria-pressed="false" aria-label="Show the most sociable backpackers hostels for meeting other travellers">Most Social</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="peaceful" aria-pressed="false" aria-label="Show peaceful, quiet backpackers hostels">Peaceful</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="solo_women" aria-pressed="false" aria-label="Show backpackers hostels which are best for solo women travellers">Solo Women</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="digital_nomad" aria-pressed="false" aria-label="Show backpackers hostels which are best for digital nomads">Digital Nomads</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="couples" aria-pressed="false" aria-label="Show backpackers hostels which are best for couples">Couples</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="cyclists" aria-pressed="false" aria-label="Show backpackers hostels which are best for cyclists">Cyclists</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="activities" aria-pressed="false" aria-label="Show backpackers hostels with the best activities and tours">Activities</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="accessible" aria-pressed="false" aria-label="Show backpackers hostels with confirmed accessibility features">Accessible</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="eco" aria-pressed="false" aria-label="Show eco-friendly and certified sustainable backpackers hostels">Eco-Friendly</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="camping" aria-pressed="false" aria-label="Show hostels which offer camping as an accommodation option">Camping</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="near_airport" aria-pressed="false" aria-label="Show hostels close to an airport">Near Airport</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="groups" aria-pressed="false" aria-label="Show hostels which welcome groups of backpackers">Groups</a>
+            <a aria-disabled="true" title="Filters switch on once every hostel has been rated." href="#" class="map-filter-btn" role="button" style="background-color: #ffd400; color: #000000; opacity:0.5; cursor:not-allowed;" data-filter="surfers" aria-pressed="false" aria-label="Show backpackers hostels which are best for surfers">Surfers</a>
+        </div>
+    </div>
+</div>
+
+<!-- ░░ HOSTEL MAP ░░ -->
+<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description"
+  data-bb-map
+  data-region="andalusia"
+  data-country="Spain"
+  data-center="-4.546,37.375"
+  data-zoom="6.6"
+  data-mobile-zoom="5.9"
+  data-pitch="0"
+  data-bearing="0"
+  data-hostels-url="/spain/assets/data/hostels.json"
+  data-regions-url="/spain/assets/data/regions.json"
+  data-terrain=""
+  data-locate-bounds="-19,27,5,44.5"
+  data-threshold="7"
+  data-autoload="viewport">
+
+  <!-- Poster image: shows before the visitor loads the map -->
+  <picture class="sa-hostel-map-poster">
+    <img src="/spain/assets/images/map_andalusia.webp"
+         alt="Interactive backpacker hostel map of Andalusia showing hostels that can be filtered by travel style, budget, solo female travellers, digital nomads, cycling and more."
+         loading="eager"
+         fetchpriority="high"
+         decoding="async">
+  </picture>
+
+  <!-- Keyboard and screen-reader route to the map (the poster itself is tap-to-load) -->
+  <button type="button" class="sr-only" id="bb-map-load-btn">Load the interactive hostel map</button>
+
+  <!-- The map renders here (inline, no iframe) once the visitor taps the poster or a filter -->
+  <div id="bb-map-wrap" class="sa-hostel-map-iframe bb-map-iframe" hidden></div>
+
+  <div class="map-overlay-circle" aria-hidden="true">
+    Click the icons<br>for hostel info.
+  </div>
+
 </section>
+<!-- ░░ END HOSTEL MAP ░░ -->
+
 
 <!-- Horizontal regional menu -->
 
@@ -1505,6 +1576,8 @@ window.BB_TIPS = [
 </div>
 
     <!-- Mobile menu end -->
+
+<script src="/assets/js/bb-map-loader.js?v=6" defer></script>
 
 <script src="/js/script-2.js?v=5" defer></script>
 
