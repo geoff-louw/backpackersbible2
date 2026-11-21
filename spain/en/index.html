@@ -25,6 +25,24 @@
 
 <link rel="preload" href="/fonts/CenturyGothic-Bold.woff2" as="font" type="font/woff2" crossorigin>
 
+<!-- Desktop preload -->
+<link
+  rel="preload"
+  as="image"
+  href="/spain/assets/images/spain_backpacking_map.webp"
+  media="(min-width: 769px)"
+  fetchpriority="high"
+>
+
+<!-- Mobile preload -->
+<link
+  rel="preload"
+  as="image"
+  href="/spain/assets/images/spain_backpacking_map_mobile.webp"
+  media="(max-width: 768px)"
+  fetchpriority="high"
+>
+
 <link rel="stylesheet" href="/css/style-2.css?v=4">
 
 <link rel="stylesheet" href="/css/language-selector.css?v=1">
@@ -1493,6 +1511,7 @@ window.BB_TIPS = [
 
 <script src="/js/language-selector.js?v=1" defer></script>
 
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1503,7 +1522,7 @@ window.BB_TIPS = [
       "@id": "https://www.backpackersbible.com/spain/en/#website",
       "url": "https://www.backpackersbible.com/spain/en/",
       "name": "The Backpacker's Bible — Spain",
-      "description": "A comprehensive guide to backpacking Spain, featuring regional travel guides, hostel reviews, transport information, safety advice and budget travel resources.",
+      "description": "An independent comprehensive guide to backpacking Spain, built around an interactive hostel-finding map that makes discovering and filtering backpacker accommodation simple. Explore hostels by budget, travel style, facilities and individual preferences, alongside detailed regional and city guides, itineraries, transport information and practical travel advice.",
       "publisher": {
         "@id": "https://www.backpackersbible.com/#organization"
       },
@@ -1514,7 +1533,8 @@ window.BB_TIPS = [
       "@type": "Organization",
       "@id": "https://www.backpackersbible.com/#organization",
       "name": "The Backpacker's Bible",
-      "url": "https://www.backpackersbible.com",
+      "url": "https://www.backpackersbible.com/",
+      "description": "An independent travel publishing website providing comprehensive backpacking destination guides, interactive hostel-finding maps, accommodation information, regional travel guides, practical travel advice and free travel resources.",
       "logo": {
         "@type": "ImageObject",
         "url": "https://www.backpackersbible.com/assets/backpackers_bible_logo_250x250.png"
@@ -1535,9 +1555,147 @@ window.BB_TIPS = [
       },
       "knowsAbout": [
         "Backpacking Spain",
+        "Backpacking South Africa",
         "Budget Travel",
+        "Independent Travel",
         "Backpacker Hostels",
-        "Backpacking South Africa"
+        "Hostel Reviews",
+        "Travel Planning",
+        "Travel Information"
+      ]
+    },
+
+    {
+      "@type": "Country",
+      "@id": "https://www.backpackersbible.com/spain/en/#spain",
+      "name": "Spain",
+      "alternateName": [
+        "España",
+        "Kingdom of Spain"
+      ],
+      "containedInPlace": {
+        "@type": "Continent",
+        "name": "Europe"
+      }
+    },
+
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://www.backpackersbible.com/spain/en/#hostel-map",
+      "name": "The Backpacker's Bible Interactive Spain Hostel Map",
+      "applicationCategory": "TravelApplication",
+      "applicationSubCategory": "Interactive Hostel Finder",
+      "operatingSystem": "Web browser",
+      "description": "An interactive map-based hostel finder covering backpacker accommodation throughout Spain. The map allows travellers to explore hostel locations and use advanced filters to quickly find accommodation matching their budget, travel style and individual preferences. Filters include options for solo female travellers, digital nomads, cyclists and other types of backpackers, helping users discover hostels suited to their particular needs.",
+      "isPartOf": {
+        "@id": "https://www.backpackersbible.com/spain/en/#website"
+      },
+      "url": "https://www.backpackersbible.com/spain/en/"
+    },
+
+    {
+      "@type": "WebPage",
+      "@id": "https://www.backpackersbible.com/spain/en/#webpage",
+      "url": "https://www.backpackersbible.com/spain/en/",
+      "name": "Backpacking Spain | Interactive Hostel Map & Travel Guide",
+      "description": "Plan your backpacking trip through Spain with The Backpacker's Bible. Find the right hostel using our interactive map and advanced accommodation filters, explore regional and city guides, plan itineraries and discover practical information about transport, travel costs, safety, attractions and festivals.",
+      "isPartOf": {
+        "@id": "https://www.backpackersbible.com/spain/en/#website"
+      },
+      "about": {
+        "@id": "https://www.backpackersbible.com/spain/en/#spain"
+      },
+      "mainEntity": {
+        "@id": "https://www.backpackersbible.com/spain/en/#guide"
+      },
+      "hasPart": [
+        {
+          "@id": "https://www.backpackersbible.com/spain/en/#hostel-map"
+        }
+      ],
+      "breadcrumb": {
+        "@id": "https://www.backpackersbible.com/spain/en/#breadcrumb"
+      },
+      "inLanguage": "en-GB"
+    },
+
+    {
+      "@type": "Article",
+      "@id": "https://www.backpackersbible.com/spain/en/#guide",
+      "url": "https://www.backpackersbible.com/spain/en/",
+      "headline": "Backpacking Spain",
+      "description": "A comprehensive independent guide to backpacking Spain, featuring an interactive hostel-finding map with advanced filters that help travellers quickly discover accommodation suited to their budget, travel style and individual preferences. Also covering Spain's regions and cities, transport, travel costs, attractions, activities, festivals, safety and suggested itineraries.",
+      "mainEntityOfPage": {
+        "@id": "https://www.backpackersbible.com/spain/en/#webpage"
+      },
+      "isPartOf": {
+        "@id": "https://www.backpackersbible.com/spain/en/#website"
+      },
+      "publisher": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      },
+      "author": {
+        "@id": "https://www.backpackersbible.com/#geoff-louw"
+      },
+      "about": {
+        "@id": "https://www.backpackersbible.com/spain/en/#spain"
+      },
+      "spatialCoverage": {
+        "@id": "https://www.backpackersbible.com/spain/en/#spain"
+      },
+      "mentions": {
+        "@id": "https://www.backpackersbible.com/spain/en/#hostel-map"
+      },
+      "inLanguage": "en-GB",
+      "articleSection": [
+        "Backpacking Spain",
+        "Interactive Spain Hostel Map",
+        "Spain Regional Travel Guides",
+        "Spain City Guides",
+        "Spain Travel Costs",
+        "Getting Around Spain",
+        "Safety and Travel Advice",
+        "Things to Do in Spain",
+        "Spanish Attractions and Activities",
+        "Fiestas and Festivals",
+        "Budget Accommodation",
+        "Backpacker Hostels",
+        "Spain Travel Itineraries"
+      ],
+      "keywords": [
+        "backpacking Spain",
+        "Spain backpacking guide",
+        "interactive Spain hostel map",
+        "Spain hostel finder",
+        "backpacker hostels Spain",
+        "Spain hostel map with filters",
+        "Spain budget travel",
+        "Spain travel costs",
+        "Spain travel itineraries",
+        "Spain regional guides",
+        "Spain transport",
+        "Spain travel advice",
+        "independent travel Spain",
+        "Spain backpacker accommodation"
+      ]
+    },
+
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.backpackersbible.com/spain/en/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.backpackersbible.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Spain",
+          "item": "https://www.backpackersbible.com/spain/en/"
+        }
       ]
     }
 

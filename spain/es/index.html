@@ -25,6 +25,24 @@
 
 <link rel="preload" href="/fonts/CenturyGothic-Bold.woff2" as="font" type="font/woff2" crossorigin>
 
+<!-- Desktop preload -->
+<link
+  rel="preload"
+  as="image"
+  href="/spain/assets/images/spain_backpacking_map.webp"
+  media="(min-width: 769px)"
+  fetchpriority="high"
+>
+
+<!-- Mobile preload -->
+<link
+  rel="preload"
+  as="image"
+  href="/spain/assets/images/spain_backpacking_map_mobile.webp"
+  media="(max-width: 768px)"
+  fetchpriority="high"
+>
+
 <link rel="stylesheet" href="/css/style-2.css?v=4">
 
 <link rel="stylesheet" href="/css/language-selector.css?v=1">
@@ -495,14 +513,21 @@
   data-threshold="7"
   data-autoload="viewport">
 
-  <!-- Poster image: shows before the visitor loads the map -->
-  <picture class="sa-hostel-map-poster">
-    <img src="/spain/assets/images/map_spain.webp"
-         alt="Mapa interactivo de albergues para mochileros de España con albergues que se pueden filtrar por estilo de viaje, presupuesto, mujeres que viajan solas, nómadas digitales, ciclismo y más."
-         loading="eager"
-         fetchpriority="high"
-         decoding="async">
-  </picture>
+<!-- Poster image: shows before the visitor loads the map -->
+<picture class="sa-hostel-map-poster">
+  <!-- Mobile: square poster -->
+  <source
+    media="(max-width: 767px)"
+    srcset="/spain/assets/images/spain_backpacking_map_mobile.webp">
+
+  <!-- Desktop: wide poster -->
+  <img
+    src="/spain/assets/images/spain_backpacking_map.webp"
+    alt="Mapa interactivo de albergues para mochileros de España con albergues que se pueden filtrar por estilo de viaje, presupuesto, mujeres que viajan solas, nómadas digitales, ciclismo y más."
+    loading="eager"
+    fetchpriority="high"
+    decoding="async">
+</picture>
 
   <!-- Keyboard and screen-reader route to the map (the poster itself is tap-to-load) -->
   <button type="button" class="sr-only" id="bb-map-load-btn">Cargar el mapa interactivo de albergues</button>
@@ -1421,6 +1446,7 @@ window.BB_TIPS = [
 
 <script src="/js/language-selector.js?v=1" defer></script>
 
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1430,19 +1456,20 @@ window.BB_TIPS = [
       "@type": "WebSite",
       "@id": "https://www.backpackersbible.com/spain/es/#website",
       "url": "https://www.backpackersbible.com/spain/es/",
-      "name": "The Backpacker's Bible — España",
-      "description": "Una guía completa para mochilear por España, con guías regionales, reseñas de hostels, información de transporte, consejos de seguridad y recursos para viajar barato.",
+      "name": "La Biblia del Mochilero — España",
+      "description": "Guía independiente y completa para viajar de mochilero por España, con un mapa interactivo de albergues que facilita la búsqueda y selección de alojamiento para mochileros. Explora albergues según tu presupuesto, estilo de viaje, instalaciones y preferencias personales, además de consultar guías detalladas de regiones y ciudades, itinerarios, información sobre transporte y consejos prácticos para viajar.",
       "publisher": {
         "@id": "https://www.backpackersbible.com/#organization"
       },
-      "inLanguage": "es"
+      "inLanguage": "es-ES"
     },
 
     {
       "@type": "Organization",
       "@id": "https://www.backpackersbible.com/#organization",
       "name": "The Backpacker's Bible",
-      "url": "https://www.backpackersbible.com",
+      "url": "https://www.backpackersbible.com/",
+      "description": "Sitio web independiente de información turística que ofrece guías completas de destinos para mochileros, mapas interactivos para encontrar albergues, información sobre alojamientos, guías de viaje regionales, consejos prácticos y recursos gratuitos para viajeros.",
       "logo": {
         "@type": "ImageObject",
         "url": "https://www.backpackersbible.com/assets/backpackers_bible_logo_250x250.png"
@@ -1457,15 +1484,154 @@ window.BB_TIPS = [
       "@id": "https://www.backpackersbible.com/#geoff-louw",
       "name": "Geoff Louw",
       "url": "https://www.backpackersbible.com/misc/about-backpackers-bible",
-      "jobTitle": "Editor de viajes",
+      "jobTitle": "Editor de contenidos de viajes",
       "worksFor": {
         "@id": "https://www.backpackersbible.com/#organization"
       },
       "knowsAbout": [
-        "Mochilear por España",
-        "Viajes baratos",
-        "Hostels para mochileros",
-        "Mochilear por Sudáfrica"
+        "Viajar de mochilero por España",
+        "Viajar de mochilero por Sudáfrica",
+        "Viajes económicos",
+        "Viajes independientes",
+        "Albergues para mochileros",
+        "Reseñas de albergues",
+        "Planificación de viajes",
+        "Información turística"
+      ]
+    },
+
+    {
+      "@type": "Country",
+      "@id": "https://www.backpackersbible.com/spain/es/#spain",
+      "name": "España",
+      "alternateName": [
+        "Spain",
+        "Reino de España"
+      ],
+      "containedInPlace": {
+        "@type": "Continent",
+        "name": "Europa"
+      }
+    },
+
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://www.backpackersbible.com/spain/es/#hostel-map",
+      "name": "Mapa interactivo de albergues de España de The Backpacker's Bible",
+      "applicationCategory": "TravelApplication",
+      "applicationSubCategory": "Buscador interactivo de albergues",
+      "operatingSystem": "Navegador web",
+      "description": "Buscador interactivo de albergues mediante un mapa que incluye alojamientos para mochileros de toda España. El mapa permite explorar la ubicación de los albergues y utilizar filtros avanzados para encontrar rápidamente alojamientos que se adapten al presupuesto, estilo de viaje y preferencias personales de cada viajero. Entre los filtros se incluyen opciones para mujeres que viajan solas, nómadas digitales, ciclistas y otros tipos de mochileros, lo que facilita encontrar albergues adaptados a las necesidades de cada persona.",
+      "isPartOf": {
+        "@id": "https://www.backpackersbible.com/spain/es/#website"
+      },
+      "url": "https://www.backpackersbible.com/spain/es/",
+      "inLanguage": "es-ES"
+    },
+
+    {
+      "@type": "WebPage",
+      "@id": "https://www.backpackersbible.com/spain/es/#webpage",
+      "url": "https://www.backpackersbible.com/spain/es/",
+      "name": "Viajar de mochilero por España | Mapa interactivo de albergues y guía de viaje",
+      "description": "Planifica tu viaje de mochilero por España con The Backpacker's Bible. Encuentra el albergue ideal utilizando nuestro mapa interactivo y sus filtros avanzados de alojamiento, explora guías de regiones y ciudades, organiza itinerarios y descubre información práctica sobre transporte, costes del viaje, seguridad, lugares de interés y fiestas y festivales.",
+      "isPartOf": {
+        "@id": "https://www.backpackersbible.com/spain/es/#website"
+      },
+      "about": {
+        "@id": "https://www.backpackersbible.com/spain/es/#spain"
+      },
+      "mainEntity": {
+        "@id": "https://www.backpackersbible.com/spain/es/#guide"
+      },
+      "hasPart": [
+        {
+          "@id": "https://www.backpackersbible.com/spain/es/#hostel-map"
+        }
+      ],
+      "breadcrumb": {
+        "@id": "https://www.backpackersbible.com/spain/es/#breadcrumb"
+      },
+      "inLanguage": "es-ES"
+    },
+
+    {
+      "@type": "Article",
+      "@id": "https://www.backpackersbible.com/spain/es/#guide",
+      "url": "https://www.backpackersbible.com/spain/es/",
+      "headline": "Viajar de mochilero por España",
+      "description": "Guía independiente y completa para viajar de mochilero por España, con un mapa interactivo de albergues y filtros avanzados que ayudan a encontrar rápidamente alojamientos adaptados al presupuesto, estilo de viaje y preferencias personales de cada viajero. También incluye información sobre las regiones y ciudades de España, transporte, costes del viaje, lugares de interés, actividades, fiestas y festivales, seguridad e itinerarios recomendados.",
+      "mainEntityOfPage": {
+        "@id": "https://www.backpackersbible.com/spain/es/#webpage"
+      },
+      "isPartOf": {
+        "@id": "https://www.backpackersbible.com/spain/es/#website"
+      },
+      "publisher": {
+        "@id": "https://www.backpackersbible.com/#organization"
+      },
+      "author": {
+        "@id": "https://www.backpackersbible.com/#geoff-louw"
+      },
+      "about": {
+        "@id": "https://www.backpackersbible.com/spain/es/#spain"
+      },
+      "spatialCoverage": {
+        "@id": "https://www.backpackersbible.com/spain/es/#spain"
+      },
+      "mentions": {
+        "@id": "https://www.backpackersbible.com/spain/es/#hostel-map"
+      },
+      "inLanguage": "es-ES",
+      "articleSection": [
+        "Viajar de mochilero por España",
+        "Mapa interactivo de albergues de España",
+        "Guías de viaje de las regiones de España",
+        "Guías de las ciudades de España",
+        "Costes de viajar por España",
+        "Cómo desplazarse por España",
+        "Seguridad y consejos para viajar",
+        "Qué hacer en España",
+        "Lugares de interés y actividades en España",
+        "Fiestas y festivales",
+        "Alojamiento económico",
+        "Albergues para mochileros",
+        "Itinerarios de viaje por España"
+      ],
+      "keywords": [
+        "viajar de mochilero por España",
+        "guía para mochileros en España",
+        "mapa interactivo de albergues de España",
+        "buscador de albergues en España",
+        "albergues para mochileros en España",
+        "mapa de albergues de España con filtros",
+        "viajar barato por España",
+        "costes de viajar por España",
+        "itinerarios por España",
+        "guías regionales de España",
+        "transporte en España",
+        "consejos para viajar por España",
+        "viajar por España de forma independiente",
+        "alojamiento para mochileros en España"
+      ]
+    },
+
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.backpackersbible.com/spain/es/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://www.backpackersbible.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "España",
+          "item": "https://www.backpackersbible.com/spain/es/"
+        }
       ]
     }
 
