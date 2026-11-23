@@ -43,6 +43,9 @@
  *   - cfg.coastUrl: a JSON file in the same format as regions.json whose entries have geom:'LineString'. Each is drawn as a
  *     thick, bright coastline (thin dark edge for contrast on the satellite view) beneath the map labels. Clicking or tapping
  *     a line opens its name, "best for" tags and short description in the usual popup (desktop) or bottom sheet (phones).
+ *   - cfg.coastPage: page that "More info" links should go to. The #anchor of each line's url is kept, the page part is
+ *     replaced, so a translated page can use the same untranslated coastal-regions.json.
+ *   - cfg.ariaLabel: replaces the map's built-in (English) screen-reader label.
  *   - cfg.coastOnly: true = a coastline-only map: no hostel pins and no region polygons, and hostels.json / regions.json
  *     are not downloaded at all.
  *
@@ -90,7 +93,7 @@
     <div id="bb-map"
          style="width:100%;height:100%;background:${BRAND_YELLOW};"
          role="application"
-         aria-label="${COAST_ONLY ? 'Interactive map of the coastal regions of ' + (cfg.countryName || 'Spain') + '. Click or tap a coloured coastline for details.' : 'Interactive map of backpacker hostels' + (REGION !== 'national' ? ' in this region' : ' across ' + (cfg.countryName || 'South Africa'))}"
+         aria-label="${cfg.ariaLabel ? String(cfg.ariaLabel).replace(/"/g, '&quot;') : COAST_ONLY ? 'Interactive map of the coastal regions of ' + (cfg.countryName || 'Spain') + '. Click or tap a coloured coastline for details.' : 'Interactive map of backpacker hostels' + (REGION !== 'national' ? ' in this region' : ' across ' + (cfg.countryName || 'South Africa'))}"
          tabindex="0"></div>
     <button id="bb-map-toggle"
             aria-pressed="true"
@@ -398,8 +401,9 @@
     const tags = (r.bestFor || []).map(t => `<span class="bb-region-tag">${t}</span>`).join('');
     const best = tags ? `<div class="bb-popup-field"><b>Best for:</b></div><div class="bb-region-tags">${tags}</div><hr>` : '';
     const bar  = `<div aria-hidden="true" style="height:5px;border-radius:3px;background:${r.lineColor || r.color || BRAND_RED};margin:0 0 8px;"></div>`;
-    const more = r.url
-      ? ` <a href="${r.url}" class="bb-popup-more" onclick="window.top.location.href='${r.url}';event.preventDefault();" aria-label="More info about ${r.name}">More info ›</a>`
+    const href = (r.url && cfg.coastPage) ? cfg.coastPage + (r.url.indexOf('#') !== -1 ? r.url.slice(r.url.indexOf('#')) : '') : r.url;
+    const more = href
+      ? ` <a href="${href}" class="bb-popup-more" onclick="window.top.location.href='${href}';event.preventDefault();" aria-label="More info about ${r.name}">More info ›</a>`
       : '';
     return `
       <div class="bb-popup" role="region" aria-label="${r.name} coast information">
