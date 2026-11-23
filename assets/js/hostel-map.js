@@ -39,6 +39,13 @@
  *   - The phone's Back button closes the full-screen map instead of leaving the page.
  *   - Phones are 2D only: no tilt, no rotate, no 3D terrain, no "Switch to 2D" button, no compass.
  *
+ * v4.3 changes (additive; pages that do not set the new options behave exactly as before):
+ *   - cfg.coastUrl: a JSON file in the same format as regions.json whose entries have geom:'LineString'. Each is drawn as a
+ *     thick, bright coastline (thin dark edge for contrast on the satellite view) beneath the map labels. Clicking or tapping
+ *     a line opens its name, "best for" tags and short description in the usual popup (desktop) or bottom sheet (phones).
+ *   - cfg.coastOnly: true = a coastline-only map: no hostel pins and no region polygons, and hostels.json / regions.json
+ *     are not downloaded at all.
+ *
  * Usage (normally done by /assets/js/bb-map-loader.js on first interaction):
  *   <div id="bb-map-wrap"></div>
  *   window.BB_MAP_CONFIG = { region:'catalonia', center:[1.605,41.845], zoom:7, countryName:'Spain',
@@ -58,6 +65,8 @@
   const MAPTILER_KEY = 'EQ5JVo2nFxFOEjgxpA7x'; // terrain only (Cape Town / Drakensberg)
   const HOSTELS_URL  = (window.BB_MAP_CONFIG && window.BB_MAP_CONFIG.hostelsUrl) || '/assets/data/hostels.json';
   const REGIONS_URL  = (window.BB_MAP_CONFIG && window.BB_MAP_CONFIG.regionsUrl) || '/assets/data/regions.json';
+  const COAST_URL    = (window.BB_MAP_CONFIG && window.BB_MAP_CONFIG.coastUrl) || '';
+  const COAST_ONLY   = !!(window.BB_MAP_CONFIG && window.BB_MAP_CONFIG.coastOnly);
   const BRAND_YELLOW = '#FFD700';
   const BRAND_RED    = '#bc1d23';
 
@@ -81,7 +90,7 @@
     <div id="bb-map"
          style="width:100%;height:100%;background:${BRAND_YELLOW};"
          role="application"
-         aria-label="Interactive map of backpacker hostels${REGION !== 'national' ? ' in this region' : ' across ' + (cfg.countryName || 'South Africa')}"
+         aria-label="${COAST_ONLY ? 'Interactive map of the coastal regions of ' + (cfg.countryName || 'Spain') + '. Click or tap a coloured coastline for details.' : 'Interactive map of backpacker hostels' + (REGION !== 'national' ? ' in this region' : ' across ' + (cfg.countryName || 'South Africa'))}"
          tabindex="0"></div>
     <button id="bb-map-toggle"
             aria-pressed="true"
@@ -383,12 +392,31 @@
       </div>`;
   }
 
+  // Coastline popup / sheet: same look as the region popup, with a bar in the line's own colour and no
+  // "best for" block when a coast has no tags (instead of the "no info yet" line)
+  function buildCoastPopup(r) {
+    const tags = (r.bestFor || []).map(t => `<span class="bb-region-tag">${t}</span>`).join('');
+    const best = tags ? `<div class="bb-popup-field"><b>Best for:</b></div><div class="bb-region-tags">${tags}</div><hr>` : '';
+    const bar  = `<div aria-hidden="true" style="height:5px;border-radius:3px;background:${r.lineColor || r.color || BRAND_RED};margin:0 0 8px;"></div>`;
+    const more = r.url
+      ? ` <a href="${r.url}" class="bb-popup-more" onclick="window.top.location.href='${r.url}';event.preventDefault();" aria-label="More info about ${r.name}">More info ›</a>`
+      : '';
+    return `
+      <div class="bb-popup" role="region" aria-label="${r.name} coast information">
+        <h3>${r.name}</h3>${bar}${best}
+        <div class="bb-popup-info">${r.info || ''}${more}</div>
+      </div>`;
+  }
+
   function initMap() {
     Promise.all([
-      fetch(HOSTELS_URL).then(r => r.json()),
+      // v4.3: a coastline-only map needs neither the hostels nor the regions
+      COAST_ONLY ? Promise.resolve({ features: [] }) : fetch(HOSTELS_URL).then(r => r.json()),
       // A missing regions file is fine for a single-region page (no polygons are needed): fall back to {}
-      fetch(REGIONS_URL).then(r => (r.ok ? r.json() : {})).catch(() => ({}))
-    ]).then(([hostelGeoJSON, regions]) => {
+      COAST_ONLY ? Promise.resolve({}) : fetch(REGIONS_URL).then(r => (r.ok ? r.json() : {})).catch(() => ({})),
+      // v4.3: optional coastline lines (a missing file just means no lines)
+      COAST_URL ? fetch(COAST_URL).then(r => (r.ok ? r.json() : {})).catch(() => ({})) : Promise.resolve({})
+    ]).then(([hostelGeoJSON, regions, coast]) => {
 
       const features = REGION === 'national'
         ? hostelGeoJSON.features
@@ -807,6 +835,63 @@
 
         const regionsToShow = REGION==='national' ? Object.keys(regions) : [REGION];
         regionsToShow.forEach(key => drawRegionPolygon(key, REGION==='national'));
+
+        // ── COASTLINES (v4.3) ────────────────────────────────────────────────
+        // Thick, bright lines from cfg.coastUrl. Drawn above the satellite and roads but beneath the basemap's place
+        // names, so town labels stay readable. A dark edge (casing) keeps every colour visible on sand, sea and forest.
+        // One delegated handler picks the line under the pointer, so two lines meeting at a join never open two popups.
+        const coastKeys = Object.keys(coast).filter(k => coast[k] && Array.isArray(coast[k].polygon) && coast[k].polygon.length >= 2);
+        if (coastKeys.length) {
+          const zoomW = (a, b, c, d) => ['interpolate', ['linear'], ['zoom'], 4, a, 8, b, 12, c, 16, d];
+          const W_LINE  = zoomW(7, 10, 13, 16);                 // line width in px at zoom 4 / 8 / 12 / 16
+          const W_HOVER = zoomW(10, 15, 19, 24);                // wider while the mouse is over it
+          const W_EDGE  = zoomW(11, 14, 17, 20);
+          const W_EDGE_HOVER = zoomW(14, 19, 23, 28);
+          const W_HIT   = isTouchDevice ? zoomW(36, 40, 44, 48) : zoomW(24, 28, 32, 36);   // generous invisible tap/click zone
+          const firstSymbol = (map.getStyle().layers.find(l => l.type === 'symbol') || {}).id;
+          const geo = k => ({ type: 'Feature', properties: { key: k }, geometry: { type: 'LineString', coordinates: coast[k].polygon } });
+          const colourOf = k => coast[k].lineColor || coast[k].color || BRAND_RED;
+          const round = { 'line-cap': 'round', 'line-join': 'round' };
+
+          coastKeys.forEach(k => map.addSource(`coast-${k}`, { type: 'geojson', data: geo(k) }));
+          coastKeys.forEach(k => map.addLayer({ id: `coast-edge-${k}`, type: 'line', source: `coast-${k}`, layout: round,
+            paint: { 'line-color': '#000', 'line-opacity': 0.4, 'line-width': W_EDGE } }, firstSymbol));
+          coastKeys.forEach(k => map.addLayer({ id: `coast-line-${k}`, type: 'line', source: `coast-${k}`, layout: round,
+            paint: { 'line-color': colourOf(k), 'line-opacity': 1, 'line-width': W_LINE } }, firstSymbol));
+          coastKeys.forEach(k => map.addLayer({ id: `coast-hit-${k}`, type: 'line', source: `coast-${k}`, layout: round,
+            paint: { 'line-color': colourOf(k), 'line-opacity': 0, 'line-width': W_HIT } }, firstSymbol));
+
+          const coastHitIds = coastKeys.map(k => `coast-hit-${k}`);
+          const coastAt = pt => {
+            const hit = map.queryRenderedFeatures(pt, { layers: coastHitIds })[0];
+            return hit && hit.properties ? hit.properties.key : null;
+          };
+
+          function showCoastPopup(key, lngLat) {
+            // own key per coast: on phones each gets its own sheet, stacking over the others like the hostel sheets
+            showPopup([lngLat.lng, lngLat.lat], buildCoastPopup(coast[key]), undefined, 'coast-' + key);
+          }
+
+          map.on('click', (e) => {
+            const k = coastAt(e.point);
+            if (!k) return;
+            e.clickHandled = true;
+            showCoastPopup(k, e.lngLat);
+          });
+
+          if (!FLAT) {                                          // hover feedback is for mouse users only
+            let hoverKey = null;
+            const setHover = (k) => {
+              if (k === hoverKey) return;
+              if (hoverKey) { map.setPaintProperty(`coast-line-${hoverKey}`, 'line-width', W_LINE); map.setPaintProperty(`coast-edge-${hoverKey}`, 'line-width', W_EDGE); }
+              hoverKey = k;
+              if (k) { map.setPaintProperty(`coast-line-${k}`, 'line-width', W_HOVER); map.setPaintProperty(`coast-edge-${k}`, 'line-width', W_EDGE_HOVER); }
+              map.getCanvas().style.cursor = k ? 'pointer' : '';
+            };
+            map.on('mousemove', (e) => setHover(coastAt(e.point)));
+            map.on('mouseout', () => setHover(null));
+          }
+        }
 
         // ── ITINERARY BUILDER SELECT MODE ───────────────────────────────────
         // Lets the parent page's itinerary builder turn region polygons into

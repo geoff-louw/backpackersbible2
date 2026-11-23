@@ -30,6 +30,9 @@
  *   data-terrain="region,region", data-locate-bounds="west,south,east,north",
  *   data-threshold="7", data-maplibre-js, data-maplibre-css, data-map-script,
  *   data-autoload="tap" (default) | "viewport" (load when scrolled near, desktop only)
+ *   data-coast-url="/spain/assets/data/coastal-regions.json"  coloured coastlines (LineString entries, regions.json format)
+ *   data-coast-only  (no value needed) coastline-only map: no hostel pins, no region polygons, hostels.json and
+ *                    regions.json are not downloaded
  */
 (function () {
   'use strict';
@@ -199,6 +202,8 @@
       filterThreshold: num(ds.threshold),
       maplibreJs: ds.maplibreJs,
       maplibreCss: ds.maplibreCss,
+      coastUrl: ds.coastUrl,
+      coastOnly: (ds.coastOnly !== undefined && ds.coastOnly !== 'false') ? true : undefined,
       cssSized: true                      // the site CSS sizes #bb-map-wrap, like it did the iframe
     };
     Object.keys(cfg).forEach(function (k) { if (cfg[k] === undefined) delete cfg[k]; });
@@ -220,7 +225,7 @@
       window.addEventListener('message', onMsg);
 
       var s = document.createElement('script');
-      s.src = ds.mapScript || '/assets/js/hostel-map.js?v=4.2';
+      s.src = ds.mapScript || '/assets/js/hostel-map.js?v=4.3';
       s.onerror = function () {
         window.removeEventListener('message', onMsg);
         // Put the poster back so the visitor still sees a map image
