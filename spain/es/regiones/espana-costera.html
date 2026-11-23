@@ -436,15 +436,45 @@
 
 <main id="main-content">
 
-<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description">
-  <iframe
-    class="sa-hostel-map-iframe"
-    title="Google My Maps: regiones costeras de España"
-    src="https://www.google.com/maps/d/u/0/embed?mid=1xd41oAcI5MUWFRwEPiMOPu8AwgpjXoc&ehbc=2E312F&noprof=1"
-    width="640" height="480"
-    loading="lazy"
-    allowfullscreen>
-  </iframe>
+<p class="sr-only" id="hostel-map-description">Mapa interactivo de las costas de España. Cada tramo de costa tiene su propio color. Pulsa una línea para ver dónde empieza y dónde termina, y para qué sirve.</p>
+
+<section class="sa-hostel-map-shell" id="hostel-map" aria-describedby="hostel-map-description"
+  data-bb-map
+  data-region="national"
+  data-country="España"
+  data-aria-label="Mapa interactivo de las costas de España. Pulsa o toca una línea de color para ver los detalles."
+  data-center="-3.6,40.2"
+  data-zoom="5.2"
+  data-mobile-zoom="4.2"
+  data-pitch="0"
+  data-bearing="0"
+  data-hostels-url="/spain/assets/data/hostels.json"
+  data-regions-url="/spain/assets/data/regions.json"
+  data-coast-url="/spain/assets/data/coastal-regions.json"
+  data-coast-page="/spain/es/regiones/espana-costera"
+  data-coast-only
+  data-terrain=""
+  data-locate-bounds="-19,27,5,44.5"
+  data-threshold="7"
+  data-autoload="viewport">
+
+<picture class="sa-hostel-map-poster">
+  <source
+    media="(max-width: 767px)"
+    srcset="/spain/assets/images/spain_backpacking_map_mobile.webp">
+
+  <img
+    src="/spain/assets/images/spain_backpacking_map.webp"
+    alt="Mapa interactivo de las costas de España, con cada tramo de costa en un color distinto."
+    loading="eager"
+    fetchpriority="high"
+    decoding="async">
+</picture>
+
+  <button type="button" class="sr-only" id="bb-map-load-btn">Cargar el mapa interactivo de las costas</button>
+
+  <div id="bb-map-wrap" class="sa-hostel-map-iframe bb-map-iframe" hidden></div>
+
 </section>
 
 <!-- Horizontal regional menu -->
@@ -2585,6 +2615,8 @@ window.BB_TIPS = [
 </div>
 
     <!-- Mobile menu end -->
+
+<script src="/assets/js/bb-map-loader.js?v=3" defer></script>
 
 <script src="/js/script-2.js?v=5" defer></script>
 
