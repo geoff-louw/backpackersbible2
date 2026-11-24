@@ -1,5 +1,5 @@
 /**
- * bb-map-loader.js  —  BackpackersBible.com   (v2)
+ * bb-map-loader.js  —  BackpackersBible.com   (v2.1: no third-party preconnects except OpenFreeMap; loads hostel-map.js v5)
  * Shared, tiny (no dependencies) loader for the inline hostel map. Replaces the iframe
  * "wakeUpMap" + filter-button script that used to be pasted into every page.
  *
@@ -27,7 +27,7 @@
  * data- attributes on the shell (all optional except region):
  *   data-region, data-center="lng,lat", data-mobile-center, data-zoom, data-mobile-zoom,
  *   data-pitch, data-bearing, data-country, data-hostels-url, data-regions-url,
- *   data-terrain="region,region", data-locate-bounds="west,south,east,north",
+ *   data-terrain="region,region" (ignored since hostel-map.js v5: no 3D terrain), data-locate-bounds="west,south,east,north",
  *   data-threshold="7", data-maplibre-js, data-maplibre-css, data-map-script,
  *   data-autoload="tap" (default) | "viewport" (load when scrolled near, desktop only)
  *   data-coast-url="/spain/assets/data/coastal-regions.json"  coloured coastlines (LineString entries, regions.json format)
@@ -175,12 +175,12 @@
   }
 
   function warmConnections() {
-    ['https://unpkg.com', 'https://tiles.openfreemap.org', 'https://ibasemaps-api.arcgis.com']
+    ['https://tiles.openfreemap.org']
       .forEach(function (href) {
         var l = document.createElement('link');
         l.rel = 'preconnect';
         l.href = href;
-        if (href.indexOf('unpkg') === -1) l.crossOrigin = '';
+        l.crossOrigin = '';
         document.head.appendChild(l);
       });
   }
@@ -229,7 +229,7 @@
       window.addEventListener('message', onMsg);
 
       var s = document.createElement('script');
-      s.src = ds.mapScript || '/assets/js/hostel-map.js?v=4.4';
+      s.src = ds.mapScript || '/assets/js/hostel-map.js?v=5.0';
       s.onerror = function () {
         window.removeEventListener('message', onMsg);
         // Put the poster back so the visitor still sees a map image
