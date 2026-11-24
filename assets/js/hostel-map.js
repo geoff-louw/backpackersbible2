@@ -1,13 +1,13 @@
 /**
  * hostel-map.js  —  BackpackersBible.com shared interactive map  (v3: inline, country-neutral, bottom sheet)
- * Requires: MapLibre GL JS 4.1.3 (self-hosted at /assets/vendor/maplibre-gl/ unless cfg.maplibreJs / cfg.maplibreCss are set)
+ * Requires: MapLibre GL JS 4.1.3 (loaded here from unpkg unless cfg.maplibreJs / cfg.maplibreCss are set)
  *
  * v2 changes from v1 (everything else is unchanged):
  *   - Runs directly in the host page. No iframe. window.top === window, so the existing
  *     BB_* postMessage protocol (BB_FILTER_MAP, BB_OPEN_HOSTEL, BB_SELECT_MODE, BB_DRAW_ROUTE,
  *     BB_CLEAR_ROUTE, BB_MAP_READY, BB_REGION_TOGGLED) keeps working in-page, so the itinerary
  *     builder needs no changes.
- *   - Country-neutral: hostelsUrl, regionsUrl, countryName, height, terrainRegions (ignored since v5),
+ *   - Country-neutral: hostelsUrl, regionsUrl, countryName, height, terrainRegions,
  *     locateBounds, filterThreshold, maplibreJs and maplibreCss are configurable.
  *   - Filters match legacy booleans (is_party: true) OR numeric scores (scores.party >= threshold)
  *     OR yes/no tags (tags: ['camping']) OR a price band (priceBand: 'budget').
@@ -41,23 +41,13 @@
  *
  * v4.3 changes (additive; pages that do not set the new options behave exactly as before):
  *   - cfg.coastUrl: a JSON file in the same format as regions.json whose entries have geom:'LineString'. Each is drawn as a
- *     thick, bright coastline (thin dark edge for contrast on the yellow map) beneath the map labels. Clicking or tapping
+ *     thick, bright coastline (thin dark edge for contrast on the satellite view) beneath the map labels. Clicking or tapping
  *     a line opens its name, "best for" tags and short description in the usual popup (desktop) or bottom sheet (phones).
  *   - cfg.coastPage: page that "More info" links should go to. The #anchor of each line's url is kept, the page part is
  *     replaced, so a translated page can use the same untranslated coastal-regions.json.
  *   - cfg.ariaLabel: replaces the map's built-in (English) screen-reader label.
  *   - cfg.coastOnly: true = a coastline-only map: no hostel pins and no region polygons, and hostels.json / regions.json
  *     are not downloaded at all.
- *
- * v5 changes (base map only; pins, popups, sheets, filters, full-screen and the BB_* messages are untouched):
- *   - No more satellite imagery. The base is a flat printed-map style drawn from OpenMapTiles-schema vector tiles:
- *     yellow ground, red roads, black coast and country borders, dotted province borders, black place names.
- *     The style is built in buildBaseStyle() below; its colours are constants at the top of that block.
- *   - No more 3D terrain (the MapTiler terrain source is gone). Tilting still works on desktop; the
- *     "Switch to 2D" button simply levels the map.
- *   - No third-party API keys in this file. MapLibre and the label fonts are served from this site.
- *   - cfg.tilesUrl (default: live OpenFreeMap) and cfg.glyphsUrl exist so an offline guide can point the same
- *     style at a local PMTiles file and local fonts.
  *
  * Usage (normally done by /assets/js/bb-map-loader.js on first interaction):
  *   <div id="bb-map-wrap"></div>
@@ -74,15 +64,14 @@
   if (window.__BB_MAP_LOADED) return;
   window.__BB_MAP_LOADED = true;
 
+  const ESRI_KEY     = 'AAPTamFHVrEf9zxt8n1GPoheQBg..bZv3-QfiJifUiQeQyM3pXO47eztKbb95jfxtBtNJzl319gr4-Qv_NmXKOOXFf8ChUYYi4lQviyIz1wk3Rpa69Pb2iltlAFf1MU5_iDbiqXIeRP7sUB3raC3mivce3axukBeoiuKssKI2rvflMzNf5GK47nOPgPlwsKPoEPYZZlLUCxOBw3k9nZFYiHkv57Dm7SRYAlRm612dJDve7isWPk6eJ77s5fU1wtpNRtsaTzRbbT4lgsEsG2ElAT1_TZLPnMqZ';
+  const MAPTILER_KEY = 'EQ5JVo2nFxFOEjgxpA7x'; // terrain only (Cape Town / Drakensberg)
   const HOSTELS_URL  = (window.BB_MAP_CONFIG && window.BB_MAP_CONFIG.hostelsUrl) || '/assets/data/hostels.json';
   const REGIONS_URL  = (window.BB_MAP_CONFIG && window.BB_MAP_CONFIG.regionsUrl) || '/assets/data/regions.json';
   const COAST_URL    = (window.BB_MAP_CONFIG && window.BB_MAP_CONFIG.coastUrl) || '';
   const COAST_ONLY   = !!(window.BB_MAP_CONFIG && window.BB_MAP_CONFIG.coastOnly);
   const BRAND_YELLOW = '#FFD700';
   const BRAND_RED    = '#bc1d23';
-  // Region polygons and labels from regions.json. Switched off while the base-map colours are being settled;
-  // set to true to bring them back.
-  const SHOW_REGION_OVERLAYS = false;
 
   const cfg     = window.BB_MAP_CONFIG || {};
   const REGION  = cfg.region  || 'national';
@@ -102,7 +91,7 @@
 
   wrap.innerHTML = `
     <div id="bb-map"
-         style="width:100%;height:100%;background:#FFD400;"
+         style="width:100%;height:100%;background:${BRAND_YELLOW};"
          role="application"
          aria-label="${cfg.ariaLabel ? String(cfg.ariaLabel).replace(/"/g, '&quot;') : COAST_ONLY ? 'Interactive map of the coastal regions of ' + (cfg.countryName || 'Spain') + '. Click or tap a coloured coastline for details.' : 'Interactive map of backpacker hostels' + (REGION !== 'national' ? ' in this region' : ' across ' + (cfg.countryName || 'South Africa'))}"
          tabindex="0"></div>
@@ -322,11 +311,11 @@
 
   const cssLink = document.createElement('link');
   cssLink.rel   = 'stylesheet';
-  cssLink.href  = cfg.maplibreCss || '/assets/vendor/maplibre-gl/maplibre-gl.css';
+  cssLink.href  = cfg.maplibreCss || 'https://unpkg.com/maplibre-gl@4.1.3/dist/maplibre-gl.css';
   document.head.appendChild(cssLink);
 
   const mlScript   = document.createElement('script');
-  mlScript.src     = cfg.maplibreJs  || '/assets/vendor/maplibre-gl/maplibre-gl.js';
+  mlScript.src     = cfg.maplibreJs  || 'https://unpkg.com/maplibre-gl@4.1.3/dist/maplibre-gl.js';
   mlScript.onload  = initMap;
   mlScript.onerror = () => showOffline('MapLibre script failed to load');
   document.head.appendChild(mlScript);
@@ -338,215 +327,6 @@
     if (m) m.style.display = 'none';
     if (o) o.style.display = 'flex';
   }
-
-  // <bb-base-style>
-  // ── BASE MAP (v5) ──────────────────────────────────────────────────────────────────────────
-  // Flat, printed-poster look drawn from OpenMapTiles-schema vector tiles. No satellite imagery, no terrain, no API
-  // keys. Everything it needs is self-hosted except the tiles themselves (live OpenFreeMap by default; cfg.tilesUrl can
-  // point at a local file for the offline guide). Colours live in this one block so they can be tuned in one place.
-  //
-  // Three looks share it. 'poster' (default): dark red sea, bright yellow land, quiet brown roads so the red pins pop.
-  // 'bold': the amber-sea version. 'plain': the first flat version. Try one by adding ?maptheme=bold (or plain, or
-  // poster) to any page address.
-  const GROUND   = '#FFD400';   // land
-  const ROAD_RED = '#bc1d23';   // brand red (bold / plain looks)
-  const ROAD_BROWN = '#9c4a2f'; // minor roads (bold / plain looks)
-  const DEEP_RED = '#670000';
-  const INK      = '#000000';
-  const SEA_POSTER = '#4d0b10'; // deep oxblood: sits well beside the black filter bar and red header
-  const SEA_BOLD   = '#fcaf17'; // amber
-  const THEME = (function () {
-    try {
-      const q = new URLSearchParams(window.location.search).get('maptheme') || cfg.mapTheme;
-      return (q === 'plain' || q === 'bold') ? q : 'poster';
-    } catch (e) { return 'poster'; }
-  })();
-  const POSTER = THEME === 'poster';
-  const BOLD   = THEME !== 'plain';
-  const WATER  = POSTER ? SEA_POSTER : SEA_BOLD;
-  const T = (poster, other) => (POSTER ? poster : other);
-  // Place names: English on English pages (Seville, Florence), Spanish on Spanish pages; falls back to the local name
-  const LABEL_LANG = String(cfg.labelLang || document.documentElement.lang || 'en').slice(0, 2).toLowerCase() === 'es' ? 'es' : 'en';
-  const TILES_URL  = cfg.tilesUrl  || 'https://tiles.openfreemap.org/planet';
-  const GLYPHS_URL = cfg.glyphsUrl || (window.location.origin + '/assets/map/fonts/{fontstack}/{range}.pbf');
-  const BASE_ATTRIBUTION = '<a href="https://openfreemap.org" target="_blank" rel="noopener">OpenFreeMap</a> ' +
-    '<a href="https://www.openmaptiles.org/" target="_blank" rel="noopener">&copy; OpenMapTiles</a> ' +
-    'Data from <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>';
-
-  function buildBaseStyle() {
-    const SRC = 'omt';
-    const zoomRamp = (...stops) => ['interpolate', ['linear'], ['zoom'], ...stops];
-    const NAME_ONLY = ['coalesce', ['get', 'name_' + LABEL_LANG], ['get', 'name:' + LABEL_LANG], ['get', 'name:latin'], ['get', 'name']];
-    const NAME_OR_REF = ['coalesce', ['get', 'name_' + LABEL_LANG], ['get', 'name:' + LABEL_LANG], ['get', 'name:latin'], ['get', 'name'], ['get', 'ref']];
-    const KIND = ['get', 'class'];
-    const isOneOf = (list) => ['in', KIND, ['literal', list]];
-    const ROUND = { 'line-cap': 'round', 'line-join': 'round' };
-    const layers = [];
-
-    layers.push({ id: 'bb-base-ground', type: 'background', paint: { 'background-color': GROUND } });
-
-    if (BOLD) {
-      // Land texture, drawn under the water so nothing can spill into the sea
-      layers.push({ id: 'bb-base-wood', type: 'fill', source: SRC, 'source-layer': 'landcover',
-        filter: isOneOf(['wood']), paint: { 'fill-color': '#E8A200', 'fill-opacity': 0.4 } });
-      layers.push({ id: 'bb-base-sand', type: 'fill', source: SRC, 'source-layer': 'landcover', minzoom: 8,
-        filter: isOneOf(['sand']), paint: { 'fill-color': '#FFEFA8', 'fill-opacity': 0.9 } });
-      layers.push({ id: 'bb-base-urban', type: 'fill', source: SRC, 'source-layer': 'landuse', minzoom: 6,
-        filter: isOneOf(['residential', 'suburb', 'neighbourhood', 'commercial', 'retail', 'industrial']),
-        paint: { 'fill-color': '#FFEB8F', 'fill-opacity': 0.85 } });
-      layers.push({ id: 'bb-base-park', type: 'fill', source: SRC, 'source-layer': 'park', minzoom: 5,
-        paint: { 'fill-color': '#E59A00', 'fill-opacity': 0.28 } });
-      layers.push({ id: 'bb-base-park-edge', type: 'line', source: SRC, 'source-layer': 'park', minzoom: 6,
-        layout: ROUND, paint: { 'line-color': T('#8a2b10', DEEP_RED), 'line-opacity': 0.5, 'line-width': 1.1, 'line-dasharray': [2, 2] } });
-    }
-
-    // Water: filled in the water colour; its outline is the coastline
-    layers.push({ id: 'bb-base-water', type: 'fill', source: SRC, 'source-layer': 'water',
-      paint: { 'fill-color': WATER } });
-    if (BOLD) {
-      // Soft light band along the shore. Poster: a gold rim on the dark sea (all but invisible on the yellow land).
-      layers.push({ id: 'bb-base-coast-glow', type: 'line', source: SRC, 'source-layer': 'water',
-        filter: ['!=', KIND, 'swimming_pool'], layout: ROUND,
-        paint: { 'line-color': T('#FFC21A', '#FFD65C'), 'line-opacity': T(0.6, 0.75),
-                 'line-blur': zoomRamp(0, 3, 8, 8, 14, 14),
-                 'line-width': zoomRamp(0, 5, 4, 10, 8, 20, 14, 36) } });
-    }
-    layers.push({ id: 'bb-base-building', type: 'fill', source: SRC, 'source-layer': 'building', minzoom: 14,
-      paint: { 'fill-color': '#EDB800', 'fill-outline-color': 'rgba(103,0,0,0.55)' } });
-    layers.push({ id: 'bb-base-waterway', type: 'line', source: SRC, 'source-layer': 'waterway', minzoom: 8,
-      filter: ['!=', KIND, 'drain'], layout: ROUND,
-      paint: { 'line-color': T('#9a4a14', INK), 'line-opacity': T(0.45, 0.5), 'line-width': zoomRamp(8, 0.5, 12, 1, 16, 2) } });
-    layers.push({ id: 'bb-base-coast', type: 'line', source: SRC, 'source-layer': 'water',
-      filter: ['!=', KIND, 'swimming_pool'], layout: ROUND,
-      paint: { 'line-color': T('#2a0508', INK),
-               'line-width': T(zoomRamp(0, 0.5, 4, 1, 8, 1.4, 12, 2, 16, 2.6), zoomRamp(0, 0.6, 4, 1.2, 8, 1.8, 12, 2.4, 16, 3)) } });
-
-    // Roads, smallest first so the big ones sit on top
-    const road = (id, classes, minzoom, widths, colour, extraPaint) => layers.push({
-      id: 'bb-base-road-' + id, type: 'line', source: SRC, 'source-layer': 'transportation', minzoom: minzoom,
-      filter: isOneOf(classes), layout: ROUND,
-      paint: Object.assign({ 'line-color': colour, 'line-width': zoomRamp.apply(null, widths) }, extraPaint || {})
-    });
-    if (POSTER) {
-      // Quiet browns that get redder and heavier with importance, and appear later, so the pins stay the heroes
-      road('path',      ['path', 'track'], 14,  [14, 0.5, 17, 1.4],              '#b07a10', { 'line-dasharray': [2, 2] });
-      road('service',   ['service'],       15,  [15, 0.5, 17, 2],                '#c98a1c');
-      road('minor',     ['minor'],         12.5,[12.5, 0.5, 15, 1.4, 17, 3.5],   '#cf9a22');
-      road('tertiary',  ['tertiary'],      11,  [11, 0.6, 13, 1.4, 17, 4.5],     '#c98a1c');
-      road('secondary', ['secondary'],     9.5, [9.5, 0.7, 12, 1.8, 17, 5],      '#c06a1a');
-      // thin dark edge on the main roads once they are big enough to show it
-      [['primary', 8, [8, 0.8, 12, 2.4, 17, 6]], ['trunk', 5.5, [5.5, 0.8, 8, 1.4, 12, 3, 17, 6.5]], ['motorway', 5, [5, 0.8, 8, 1.6, 12, 3.2, 17, 7]]]
-        .forEach(([cls, minz, w]) => layers.push({
-          id: 'bb-base-casing-' + cls, type: 'line', source: SRC, 'source-layer': 'transportation', minzoom: Math.max(minz, 9),
-          filter: isOneOf([cls]), layout: ROUND,
-          paint: { 'line-color': '#6a1a10', 'line-opacity': 0.6, 'line-width': zoomRamp.apply(null, w.map((v, i) => (i % 2 === 1 ? v + 1.4 : v))) } }));
-      road('primary',   ['primary'],       8,   [8, 0.8, 12, 2.4, 17, 6],        '#b4491c');
-      road('trunk',     ['trunk'],         5.5, [5.5, 0.8, 8, 1.4, 12, 3, 17, 6.5], '#a3261a');
-      road('motorway',  ['motorway'],      5,   [5, 0.8, 8, 1.6, 12, 3.2, 17, 7],    '#a3261a');
-    } else {
-      road('path',      ['path', 'track'], 13, [13, 0.6, 16, 1.5], ROAD_BROWN, { 'line-dasharray': [2, 2] });
-      road('service',   ['service'],       14, [14, 0.5, 16, 2], ROAD_BROWN);
-      road('minor',     ['minor'],         11, [11, 0.5, 14, 1.4, 16, 3.5], ROAD_BROWN);
-      road('tertiary',  ['tertiary'],       9, [9, 0.6, 12, 1.6, 16, 4.5], ROAD_BROWN);
-      road('secondary', ['secondary'],      7, [7, 0.7, 12, 2.2, 16, 5], ROAD_BROWN);
-      if (BOLD) {
-        [['primary', 5, [5, 0.8, 8, 1.6, 12, 2.8, 16, 6]], ['trunk', 4, [4, 1.0, 8, 2.0, 12, 3.2, 16, 6.5]], ['motorway', 4, [4, 1.2, 8, 2.2, 12, 3.5, 16, 7]]]
-          .forEach(([cls, minz, w]) => layers.push({
-            id: 'bb-base-casing-' + cls, type: 'line', source: SRC, 'source-layer': 'transportation', minzoom: Math.max(minz, 7),
-            filter: isOneOf([cls]), layout: ROUND,
-            paint: { 'line-color': DEEP_RED, 'line-opacity': 0.9, 'line-width': zoomRamp.apply(null, w.map((v, i) => (i % 2 === 1 ? v + 1.6 : v))) } }));
-      }
-      road('primary',   ['primary'],        5, [5, 0.8, 8, 1.6, 12, 2.8, 16, 6], ROAD_RED);
-      road('trunk',     ['trunk'],          4, [4, 1.0, 8, 2.0, 12, 3.2, 16, 6.5], ROAD_RED);
-      road('motorway',  ['motorway'],       4, [4, 1.2, 8, 2.2, 12, 3.5, 16, 7], ROAD_RED);
-    }
-    layers.push({ id: 'bb-base-ferry', type: 'line', source: SRC, 'source-layer': 'transportation', minzoom: 6,
-      filter: isOneOf(['ferry']), layout: ROUND,
-      paint: { 'line-color': T('#e8a23a', '#005F8A'), 'line-width': 1.2, 'line-dasharray': [3, 2] } });
-
-    // Borders: country = thick solid black, province/region = black dots
-    const notMaritime = ['==', ['get', 'maritime'], 0];
-    layers.push({ id: 'bb-base-border-region', type: 'line', source: SRC, 'source-layer': 'boundary', minzoom: 4,
-      filter: ['all', ['==', ['get', 'admin_level'], 4], notMaritime],
-      layout: ROUND,
-      paint: { 'line-color': INK, 'line-opacity': 0.8, 'line-width': zoomRamp(4, 1.2, 10, 2), 'line-dasharray': [0.1, 2.2] } });
-    layers.push({ id: 'bb-base-border-country', type: 'line', source: SRC, 'source-layer': 'boundary',
-      filter: ['all', ['==', ['get', 'admin_level'], 2], notMaritime, ['!=', ['get', 'disputed'], 1]],
-      layout: ROUND,
-      paint: { 'line-color': INK, 'line-width': zoomRamp(0, 1.2, 4, 2.6, 8, 4, 12, 5.5) } });
-    layers.push({ id: 'bb-base-border-disputed', type: 'line', source: SRC, 'source-layer': 'boundary',
-      filter: ['all', ['==', ['get', 'admin_level'], 2], notMaritime, ['==', ['get', 'disputed'], 1]],
-      paint: { 'line-color': INK, 'line-width': zoomRamp(0, 1, 4, 2, 8, 3), 'line-dasharray': [3, 2] } });
-
-    // Town dots: dark in the poster look (so they never compete with the red pins), red in the bold look
-    const dotLayout = BOLD ? { 'text-variable-anchor': ['left', 'right', 'top', 'bottom'], 'text-radial-offset': 0.65, 'text-justify': 'auto' } : {};
-    if (BOLD) {
-      const dotFill = T('#2b0a0a', ROAD_RED), dotRing = T(GROUND, INK);
-      layers.push({ id: 'bb-base-dot-city', type: 'circle', source: SRC, 'source-layer': 'place', minzoom: 4,
-        filter: isOneOf(['city']),
-        paint: { 'circle-color': dotFill, 'circle-stroke-color': dotRing, 'circle-stroke-width': 1.4,
-                 'circle-radius': zoomRamp(4, 3, 8, 4.5, 12, 6) } });
-      layers.push({ id: 'bb-base-dot-town', type: 'circle', source: SRC, 'source-layer': 'place', minzoom: 9,
-        filter: isOneOf(['town']),
-        paint: { 'circle-color': dotFill, 'circle-stroke-color': dotRing, 'circle-stroke-width': 1.2,
-                 'circle-radius': zoomRamp(9, 2.5, 13, 4) } });
-    }
-
-    // Labels
-    const halo = { 'text-halo-color': GROUND, 'text-halo-width': 1.6, 'text-halo-blur': 0.4 };
-    const label = (id, srcLayer, filter, font, size, paint, layout, extra) => layers.push(Object.assign({
-      id: 'bb-base-' + id, type: 'symbol', source: SRC, 'source-layer': srcLayer, filter: filter,
-      layout: Object.assign({ 'text-field': NAME_ONLY, 'text-font': [font], 'text-size': size, 'text-max-width': 7, 'text-padding': 2 }, layout || {}),
-      paint: Object.assign({ 'text-color': INK }, halo, paint || {})
-    }, extra || {}));
-    const dark = T('#2b0a0a', INK);
-    const onSea = { 'text-color': T('#FFC850', BOLD ? '#7a2a0c' : '#333333'), 'text-halo-color': WATER, 'text-halo-width': T(0, 1.6), 'text-opacity': T(0.85, 1) };
-
-    label('road-name-major', 'transportation_name', isOneOf(['motorway', 'trunk', 'primary', 'secondary']),
-      'Noto Sans Regular', zoomRamp(11, 9, 17, 12), { 'text-color': T('#5a1a10', DEEP_RED) },
-      { 'symbol-placement': 'line', 'text-field': NAME_OR_REF, 'text-letter-spacing': 0.05 },
-      { minzoom: 11 });
-    label('road-name-minor', 'transportation_name', isOneOf(['tertiary', 'minor', 'service']),
-      'Noto Sans Regular', zoomRamp(13, 9, 17, 12), { 'text-color': T('#5a1a10', DEEP_RED) },
-      { 'symbol-placement': 'line', 'text-letter-spacing': 0.05 }, { minzoom: 14 });
-    label('peak', 'mountain_peak', ['has', 'name'], 'Noto Sans Regular', 10, { 'text-color': T('#6a1a10', DEEP_RED) },
-      { 'text-max-width': 6, 'text-variable-anchor': ['center'] }, { minzoom: 10 });
-    label('water-ocean', 'water_name', isOneOf(['ocean', 'sea']), 'Noto Sans Regular',
-      T(zoomRamp(1, 11, 6, 17), zoomRamp(1, 10, 8, 15)), onSea,
-      Object.assign({ 'text-letter-spacing': 0.2, 'text-max-width': 8 }, BOLD ? { 'text-transform': 'uppercase', 'text-letter-spacing': T(0.35, 0.3) } : {}),
-      { maxzoom: 10 });
-    label('water-lake', 'water_name', ['!', isOneOf(['ocean', 'sea'])], 'Noto Sans Regular', 11,
-      onSea, { 'text-letter-spacing': 0.1 }, { minzoom: 9 });
-    label('place-country', 'place', isOneOf(['country']), 'Noto Sans Regular',
-      T(zoomRamp(2, 12, 5, 22, 8, 30), zoomRamp(2, 10, 6, 15)),
-      T({ 'text-color': '#8a2b10', 'text-opacity': 0.5, 'text-halo-width': 0 }, { 'text-color': '#333333' }),
-      { 'text-transform': 'uppercase', 'text-letter-spacing': T(0.4, 0.15), 'text-max-width': 8, 'symbol-sort-key': ['get', 'rank'] },
-      { minzoom: 2, maxzoom: 8 });
-    label('place-state', 'place', isOneOf(['state', 'province']), 'Noto Sans Regular',
-      zoomRamp(4, 10, 8, T(15, 13)),
-      T({ 'text-color': '#8a3a10', 'text-opacity': 0.65, 'text-halo-width': 1 }, { 'text-color': '#333333' }),
-      Object.assign({ 'text-max-width': 6, 'symbol-sort-key': ['get', 'rank'] }, POSTER ? { 'text-transform': 'uppercase', 'text-letter-spacing': 0.2 } : {}),
-      { minzoom: 4, maxzoom: 9 });
-    label('place-city', 'place', isOneOf(['city']), 'Noto Sans Bold',
-      T(zoomRamp(3, 12, 8, 17, 12, 22), zoomRamp(3, 11, 8, 15, 12, 19)), { 'text-color': dark, 'text-halo-width': T(2.2, 1.6) },
-      Object.assign({ 'symbol-sort-key': ['get', 'rank'] }, dotLayout), { minzoom: 3 });
-    label('place-town', 'place', isOneOf(['town']), 'Noto Sans Bold',
-      T(zoomRamp(7, 11, 11, 15, 14, 17), zoomRamp(7, 10, 11, 14, 14, 16)), { 'text-color': dark, 'text-halo-width': T(2, 1.6) },
-      Object.assign({ 'symbol-sort-key': ['get', 'rank'] }, dotLayout), { minzoom: 7 });
-    label('place-village', 'place', isOneOf(['village']), 'Noto Sans Regular',
-      zoomRamp(10, 10, 14, 13), { 'text-color': T('#4a1a0a', INK) }, { 'symbol-sort-key': ['get', 'rank'] }, { minzoom: 10 });
-    label('place-small', 'place', isOneOf(['hamlet', 'suburb', 'quarter', 'neighbourhood', 'island']), 'Noto Sans Regular',
-      zoomRamp(12, 10, 16, 13), { 'text-color': T('#4a1a0a', '#333333') }, { 'symbol-sort-key': ['get', 'rank'] }, { minzoom: 12 });
-
-    return {
-      version: 8,
-      name: 'Backpackers Bible',
-      glyphs: GLYPHS_URL,
-      sources: { [SRC]: { type: 'vector', url: TILES_URL, attribution: BASE_ATTRIBUTION } },
-      layers: layers
-    };
-  }
-  // </bb-base-style>
 
   function fmtPhone(p) {
     if (!p) return '';
@@ -653,7 +433,11 @@
         }</ul>`;
       }
 
-      // Base map: buildBaseStyle() (flat yellow printed-map look, vector labels that stay upright at any bearing).
+      // OpenFreeMap liberty style provides vector roads and labels that
+      // stay correctly oriented regardless of map bearing (unlike a raster
+      // label overlay, which bakes text into pixel tiles at north-up and
+      // goes upside-down when the bearing changes). Esri satellite imagery
+      // is injected as a raster layer beneath all OFM layers in map.on('load').
       // TOUCH SCROLL-TRAP FIX (phones/tablets)
       // With cooperativeGestures on, ONE finger scrolls the page as normal and
       // only TWO fingers move/zoom the map; a short hint appears if someone
@@ -664,7 +448,7 @@
 
       const mapOptions = {
         container: 'bb-map',
-        style: buildBaseStyle(),
+        style: 'https://tiles.openfreemap.org/styles/liberty',
         center: CENTER, zoom: ZOOM, pitch: PITCH, bearing: BEARING,
         cooperativeGestures: isTouchDevice,
         maxPitch: FLAT ? 0 : 60,         // phones: never tilted
@@ -746,7 +530,7 @@
       if (!canFullscreen) map.addControl(new maplibregl.FullscreenControl(), 'top-right');
       map.addControl(new maplibregl.ScaleControl({ unit: 'metric' }), 'bottom-left');
 
-      // Attribution (OpenFreeMap / OpenMapTiles / OpenStreetMap credits) stays available but out of the way:
+      // Attribution (Esri / OpenFreeMap / OpenStreetMap credits) stays available but out of the way:
       // only the small "i" button shows until the visitor clicks it. MapLibre opens a compact control
       // by itself the first time its style loads, so that first automatic opening is undone here;
       // after the visitor has clicked the button once, it behaves normally.
@@ -780,17 +564,22 @@
         if (e.key==='-') map.zoomOut();
       });
 
+      const TERRAIN_REGIONS = cfg.terrainRegions || ['cape-town', 'drakensberg'];
+      const hasTerrain = TERRAIN_REGIONS.includes(REGION) && !FLAT;   // no 3D terrain on phones
+
       let is3D = true;
       const toggleBtn = document.getElementById('bb-map-toggle');   // not present on phones (2D only)
       if (toggleBtn) toggleBtn.addEventListener('click', function() {
         is3D = !is3D;
         if (is3D) {
           map.easeTo({ pitch:PITCH, bearing:BEARING, duration:800 });
+          if (hasTerrain) map.setTerrain({ source:'terrain-src', exaggeration:1.15 });
           this.textContent = 'Switch to 2D';
           this.setAttribute('aria-pressed','true');
           this.setAttribute('aria-label','Switch map to 2D flat view');
         } else {
           map.easeTo({ pitch:0, bearing:0, duration:800 });
+          if (hasTerrain) map.setTerrain(null);
           this.textContent = 'Switch to 3D';
           this.setAttribute('aria-pressed','false');
           this.setAttribute('aria-label','Switch map to 3D view');
@@ -873,6 +662,44 @@
       map.on('load', () => {
         map.resize();
 
+        // Inject Esri satellite between OFM's fill layers and its road/label
+        // layers. Background and fills sit below satellite (hidden behind it);
+        // road lines and place-name symbols sit above (fully visible).
+        map.addSource('esri-satellite', {
+          type: 'raster',
+          tiles: [`https://ibasemaps-api.arcgis.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}?token=${ESRI_KEY}`],
+          tileSize: 256,
+          attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
+          maxzoom: 19
+        });
+        const _firstLineOrSymbol = map.getStyle().layers.find(
+          l => l.type === 'line' || l.type === 'symbol'
+        );
+        map.addLayer(
+          { id: 'esri-satellite-layer', type: 'raster', source: 'esri-satellite' },
+          _firstLineOrSymbol ? _firstLineOrSymbol.id : undefined
+        );
+
+        // OFM liberty places water fills after some line layers, so they
+        // land above satellite in the stack. Zero all fills and background
+        // regardless of position — satellite + roads + labels is all we want.
+        map.getStyle().layers.forEach(layer => {
+          try {
+            if (layer.type === 'fill')       map.setPaintProperty(layer.id, 'fill-opacity', 0);
+            if (layer.type === 'background') map.setPaintProperty(layer.id, 'background-opacity', 0);
+          } catch(e) {}
+        });
+
+        // Hide dotted/dashed boundary lines (admin regions, country borders)
+        // while keeping solid road lines intact.
+        map.getStyle().layers.forEach(layer => {
+          try {
+            if (layer.type === 'line' && layer.paint && layer.paint['line-dasharray']) {
+              map.setPaintProperty(layer.id, 'line-opacity', 0);
+            }
+          } catch(e) {}
+        });
+
         // Tell the parent page this map is fully initialised — without
         // this, the parent's itinerary builder waits forever for a
         // ready signal that never arrives, and as a result never sends
@@ -893,6 +720,16 @@
             window.top.postMessage({ type: 'BB_MAP_READY' }, '*');
           }
         });
+
+        // 3D terrain — only loaded for regions where elevation adds real value
+        if (hasTerrain) {
+          map.addSource('terrain-src', {
+            type: 'raster-dem',
+            url: `https://api.maptiler.com/tiles/terrain-rgb/tiles.json?key=${MAPTILER_KEY}`,
+            tileSize: 256
+          });
+          map.setTerrain({ source:'terrain-src', exaggeration:1.15 });
+        }
 
         // ── REGION OVERLAYS ──────────────────────────────────────────────────
         // drawnRegions tracks which region polygons currently exist as map
@@ -1000,11 +837,11 @@
           drawnRegions.add(key);
         }
 
-        const regionsToShow = !SHOW_REGION_OVERLAYS ? [] : (REGION==='national' ? Object.keys(regions) : [REGION]);
+        const regionsToShow = REGION==='national' ? Object.keys(regions) : [REGION];
         regionsToShow.forEach(key => drawRegionPolygon(key, REGION==='national'));
 
         // ── COASTLINES (v4.3) ────────────────────────────────────────────────
-        // Thick, bright lines from cfg.coastUrl. Drawn above the base roads but beneath the basemap's place
+        // Thick, bright lines from cfg.coastUrl. Drawn above the satellite and roads but beneath the basemap's place
         // names, so town labels stay readable. A dark edge (casing) keeps every colour visible on sand, sea and forest.
         // One delegated handler picks the line under the pointer, so two lines meeting at a join never open two popups.
         const coastKeys = Object.keys(coast).filter(k => coast[k] && Array.isArray(coast[k].polygon) && coast[k].polygon.length >= 2);
