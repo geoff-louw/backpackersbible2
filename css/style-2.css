@@ -4009,7 +4009,7 @@ img.bb-marker-icon {
 /* Mobile Styles */
 @media screen and (max-width: 600px) {
     .map-description {
-        font-size: 14px;
+        font-size: 15px;
         padding: 3px 7px;
     }
 }
