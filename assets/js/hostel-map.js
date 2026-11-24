@@ -350,7 +350,16 @@
   const ROAD_RED = '#bc1d23';   // main roads: motorway, trunk, primary
   const ROAD_BROWN = '#9c4a2f'; // all other roads and tracks
   const DEEP_RED = '#670000';
-  const INK      = '#000000';
+  const INK      = '#000000';   // coast, borders, town names
+  // Two looks share this style. 'bold' (default) adds land texture, coast glow, road casings and town dots.
+  // 'plain' is the flatter first version. Compare them live by adding ?maptheme=plain to a page address.
+  const THEME = (function () {
+    try {
+      const q = new URLSearchParams(window.location.search).get('maptheme') || cfg.mapTheme;
+      return q === 'plain' ? 'plain' : 'bold';
+    } catch (e) { return 'bold'; }
+  })();
+  const BOLD = THEME !== 'plain';
   const TILES_URL  = cfg.tilesUrl  || 'https://tiles.openfreemap.org/planet';
   const GLYPHS_URL = cfg.glyphsUrl || (window.location.origin + '/assets/map/fonts/{fontstack}/{range}.pbf');
   const BASE_ATTRIBUTION = '<a href="https://openfreemap.org" target="_blank" rel="noopener">OpenFreeMap</a> ' +
@@ -368,9 +377,31 @@
 
     layers.push({ id: 'bb-base-ground', type: 'background', paint: { 'background-color': GROUND } });
 
+    if (BOLD) {
+      // Land texture, drawn under the water so nothing can spill into the sea
+      layers.push({ id: 'bb-base-wood', type: 'fill', source: SRC, 'source-layer': 'landcover',
+        filter: isOneOf(['wood']), paint: { 'fill-color': '#EDA800', 'fill-opacity': 0.42 } });
+      layers.push({ id: 'bb-base-sand', type: 'fill', source: SRC, 'source-layer': 'landcover', minzoom: 8,
+        filter: isOneOf(['sand']), paint: { 'fill-color': '#FFEC9A', 'fill-opacity': 0.9 } });
+      layers.push({ id: 'bb-base-urban', type: 'fill', source: SRC, 'source-layer': 'landuse', minzoom: 6,
+        filter: isOneOf(['residential', 'suburb', 'neighbourhood', 'commercial', 'retail', 'industrial']),
+        paint: { 'fill-color': '#FFE880', 'fill-opacity': 0.85 } });
+      layers.push({ id: 'bb-base-park', type: 'fill', source: SRC, 'source-layer': 'park', minzoom: 5,
+        paint: { 'fill-color': '#E59A00', 'fill-opacity': 0.3 } });
+      layers.push({ id: 'bb-base-park-edge', type: 'line', source: SRC, 'source-layer': 'park', minzoom: 6,
+        layout: ROUND, paint: { 'line-color': DEEP_RED, 'line-opacity': 0.55, 'line-width': 1.1, 'line-dasharray': [2, 2] } });
+    }
+
     // Water: filled in the water colour, with a black outline that doubles as the coastline
     layers.push({ id: 'bb-base-water', type: 'fill', source: SRC, 'source-layer': 'water',
       paint: { 'fill-color': WATER } });
+    if (BOLD) {
+      // Soft lighter band along the shore, like the halo on a printed chart
+      layers.push({ id: 'bb-base-coast-glow', type: 'line', source: SRC, 'source-layer': 'water',
+        filter: ['!=', KIND, 'swimming_pool'], layout: ROUND,
+        paint: { 'line-color': '#FFD65C', 'line-opacity': 0.75, 'line-blur': zoomRamp(0, 3, 8, 8, 14, 14),
+                 'line-width': zoomRamp(0, 5, 4, 10, 8, 20, 14, 36) } });
+    }
     layers.push({ id: 'bb-base-building', type: 'fill', source: SRC, 'source-layer': 'building', minzoom: 14,
       paint: { 'fill-color': '#EDB800', 'fill-outline-color': 'rgba(103,0,0,0.55)' } });
     layers.push({ id: 'bb-base-waterway', type: 'line', source: SRC, 'source-layer': 'waterway', minzoom: 8,
@@ -392,6 +423,16 @@
     road('minor',     ['minor'],         11, [11, 0.5, 14, 1.4, 16, 3.5], { 'line-color': ROAD_BROWN });
     road('tertiary',  ['tertiary'],       9, [9, 0.6, 12, 1.6, 16, 4.5], { 'line-color': ROAD_BROWN });
     road('secondary', ['secondary'],      7, [7, 0.7, 12, 2.2, 16, 5], { 'line-color': ROAD_BROWN });
+    if (BOLD) {
+      const casing = (id, cls, minzoom, widths) => layers.push({
+        id: 'bb-base-casing-' + id, type: 'line', source: SRC, 'source-layer': 'transportation', minzoom: Math.max(minzoom, 7),
+        filter: isOneOf(cls), layout: ROUND,
+        paint: { 'line-color': DEEP_RED, 'line-opacity': 0.9,
+                 'line-width': zoomRamp.apply(null, widths.map((v, i) => (i % 2 === 1 ? v + 1.6 : v))) } });
+      casing('primary',  ['primary'],  5, [5, 0.8, 8, 1.6, 12, 2.8, 16, 6]);
+      casing('trunk',    ['trunk'],    4, [4, 1.0, 8, 2.0, 12, 3.2, 16, 6.5]);
+      casing('motorway', ['motorway'], 4, [4, 1.2, 8, 2.2, 12, 3.5, 16, 7]);
+    }
     road('primary',   ['primary'],        5, [5, 0.8, 8, 1.6, 12, 2.8, 16, 6]);
     road('trunk',     ['trunk'],          4, [4, 1.0, 8, 2.0, 12, 3.2, 16, 6.5]);
     road('motorway',  ['motorway'],       4, [4, 1.2, 8, 2.2, 12, 3.5, 16, 7]);
@@ -413,6 +454,19 @@
       filter: ['all', ['==', ['get', 'admin_level'], 2], notMaritime, ['==', ['get', 'disputed'], 1]],
       paint: { 'line-color': INK, 'line-width': zoomRamp(0, 1, 4, 2, 8, 3), 'line-dasharray': [3, 2] } });
 
+    // Town dots (bold look): a small red dot with a black ring for each city and town
+    const dotLayout = BOLD ? { 'text-variable-anchor': ['left', 'right', 'top', 'bottom'], 'text-radial-offset': 0.65, 'text-justify': 'auto' } : {};
+    if (BOLD) {
+      layers.push({ id: 'bb-base-dot-city', type: 'circle', source: SRC, 'source-layer': 'place', minzoom: 4,
+        filter: isOneOf(['city']),
+        paint: { 'circle-color': ROAD_RED, 'circle-stroke-color': INK, 'circle-stroke-width': 1.2,
+                 'circle-radius': zoomRamp(4, 3, 8, 4.5, 12, 6) } });
+      layers.push({ id: 'bb-base-dot-town', type: 'circle', source: SRC, 'source-layer': 'place', minzoom: 9,
+        filter: isOneOf(['town']),
+        paint: { 'circle-color': ROAD_RED, 'circle-stroke-color': INK, 'circle-stroke-width': 1,
+                 'circle-radius': zoomRamp(9, 2.5, 13, 4) } });
+    }
+
     // Labels
     const halo = { 'text-halo-color': GROUND, 'text-halo-width': 1.6, 'text-halo-blur': 0.4 };
     const label = (id, srcLayer, filter, font, size, paint, layout, extra) => layers.push(Object.assign({
@@ -431,7 +485,7 @@
     label('peak', 'mountain_peak', ['has', 'name'], 'Noto Sans Regular', 10, { 'text-color': DEEP_RED },
       { 'text-max-width': 6, 'text-variable-anchor': ['center'] }, { minzoom: 10 });
     label('water-ocean', 'water_name', isOneOf(['ocean', 'sea']), 'Noto Sans Regular',
-      zoomRamp(1, 10, 8, 15), { 'text-color': '#333333', 'text-halo-color': WATER }, { 'text-letter-spacing': 0.2, 'text-max-width': 8 }, { maxzoom: 10 });
+      zoomRamp(1, 10, 8, 15), { 'text-color': BOLD ? '#7a2a0c' : '#333333', 'text-halo-color': WATER }, Object.assign({ 'text-letter-spacing': 0.2, 'text-max-width': 8 }, BOLD ? { 'text-transform': 'uppercase', 'text-letter-spacing': 0.3 } : {}), { maxzoom: 10 });
     label('water-lake', 'water_name', ['!', isOneOf(['ocean', 'sea'])], 'Noto Sans Regular', 11,
       { 'text-color': '#333333', 'text-halo-color': WATER }, { 'text-letter-spacing': 0.1 }, { minzoom: 9 });
     label('place-country', 'place', isOneOf(['country']), 'Noto Sans Regular',
@@ -442,9 +496,9 @@
       zoomRamp(4, 10, 8, 13), { 'text-color': '#333333' },
       { 'text-max-width': 6, 'symbol-sort-key': ['get', 'rank'] }, { minzoom: 4, maxzoom: 9 });
     label('place-city', 'place', isOneOf(['city']), 'Noto Sans Bold',
-      zoomRamp(3, 11, 8, 15, 12, 19), {}, { 'symbol-sort-key': ['get', 'rank'] }, { minzoom: 3 });
+      zoomRamp(3, 11, 8, 15, 12, 19), {}, Object.assign({ 'symbol-sort-key': ['get', 'rank'] }, dotLayout), { minzoom: 3 });
     label('place-town', 'place', isOneOf(['town']), 'Noto Sans Bold',
-      zoomRamp(7, 10, 11, 14, 14, 16), {}, { 'symbol-sort-key': ['get', 'rank'] }, { minzoom: 7 });
+      zoomRamp(7, 10, 11, 14, 14, 16), {}, Object.assign({ 'symbol-sort-key': ['get', 'rank'] }, dotLayout), { minzoom: 7 });
     label('place-village', 'place', isOneOf(['village']), 'Noto Sans Regular',
       zoomRamp(10, 10, 14, 13), {}, { 'symbol-sort-key': ['get', 'rank'] }, { minzoom: 10 });
     label('place-small', 'place', isOneOf(['hamlet', 'suburb', 'quarter', 'neighbourhood', 'island']), 'Noto Sans Regular',
