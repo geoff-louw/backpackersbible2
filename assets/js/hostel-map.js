@@ -80,6 +80,9 @@
   const COAST_ONLY   = !!(window.BB_MAP_CONFIG && window.BB_MAP_CONFIG.coastOnly);
   const BRAND_YELLOW = '#FFD700';
   const BRAND_RED    = '#bc1d23';
+  // Region polygons and labels from regions.json. Switched off while the base-map colours are being settled;
+  // set to true to bring them back.
+  const SHOW_REGION_OVERLAYS = false;
 
   const cfg     = window.BB_MAP_CONFIG || {};
   const REGION  = cfg.region  || 'national';
@@ -343,8 +346,9 @@
   // tiles themselves (live OpenFreeMap by default; cfg.tilesUrl can point at a local file for the offline guide).
   // Colours live in this one block so they can be tuned without touching anything else.
   const GROUND   = '#FFD400';   // land AND sea, as on the printed maps
-  const WATER    = GROUND;      // set a paler/darker yellow here to tint the sea and lakes
-  const ROAD_RED = '#bc1d23';
+  const WATER    = '#fcaf17';   // sea and lakes (set to GROUND for the flat one-yellow look of the printed maps)
+  const ROAD_RED = '#bc1d23';   // main roads: motorway, trunk, primary
+  const ROAD_BROWN = '#9c4a2f'; // all other roads and tracks
   const DEEP_RED = '#670000';
   const INK      = '#000000';
   const TILES_URL  = cfg.tilesUrl  || 'https://tiles.openfreemap.org/planet';
@@ -383,11 +387,11 @@
       layout: Object.assign({}, ROUND, extraLayout || {}),
       paint: Object.assign({ 'line-color': ROAD_RED, 'line-width': zoomRamp.apply(null, widths) }, extraPaint || {})
     });
-    road('path',      ['path', 'track'], 13, [13, 0.6, 16, 1.5], { 'line-color': DEEP_RED, 'line-dasharray': [2, 2] });
-    road('service',   ['service'],       14, [14, 0.5, 16, 2]);
-    road('minor',     ['minor'],         11, [11, 0.5, 14, 1.4, 16, 3.5]);
-    road('tertiary',  ['tertiary'],       9, [9, 0.6, 12, 1.6, 16, 4.5]);
-    road('secondary', ['secondary'],      7, [7, 0.7, 12, 2.2, 16, 5]);
+    road('path',      ['path', 'track'], 13, [13, 0.6, 16, 1.5], { 'line-color': ROAD_BROWN, 'line-dasharray': [2, 2] });
+    road('service',   ['service'],       14, [14, 0.5, 16, 2], { 'line-color': ROAD_BROWN });
+    road('minor',     ['minor'],         11, [11, 0.5, 14, 1.4, 16, 3.5], { 'line-color': ROAD_BROWN });
+    road('tertiary',  ['tertiary'],       9, [9, 0.6, 12, 1.6, 16, 4.5], { 'line-color': ROAD_BROWN });
+    road('secondary', ['secondary'],      7, [7, 0.7, 12, 2.2, 16, 5], { 'line-color': ROAD_BROWN });
     road('primary',   ['primary'],        5, [5, 0.8, 8, 1.6, 12, 2.8, 16, 6]);
     road('trunk',     ['trunk'],          4, [4, 1.0, 8, 2.0, 12, 3.2, 16, 6.5]);
     road('motorway',  ['motorway'],       4, [4, 1.2, 8, 2.2, 12, 3.5, 16, 7]);
@@ -404,10 +408,10 @@
     layers.push({ id: 'bb-base-border-country', type: 'line', source: SRC, 'source-layer': 'boundary',
       filter: ['all', ['==', ['get', 'admin_level'], 2], notMaritime, ['!=', ['get', 'disputed'], 1]],
       layout: ROUND,
-      paint: { 'line-color': INK, 'line-width': zoomRamp(0, 0.6, 4, 1.4, 8, 2.4, 12, 3.2) } });
+      paint: { 'line-color': INK, 'line-width': zoomRamp(0, 1.2, 4, 2.6, 8, 4, 12, 5.5) } });
     layers.push({ id: 'bb-base-border-disputed', type: 'line', source: SRC, 'source-layer': 'boundary',
       filter: ['all', ['==', ['get', 'admin_level'], 2], notMaritime, ['==', ['get', 'disputed'], 1]],
-      paint: { 'line-color': INK, 'line-width': zoomRamp(0, 0.6, 4, 1.2, 8, 2), 'line-dasharray': [3, 2] } });
+      paint: { 'line-color': INK, 'line-width': zoomRamp(0, 1, 4, 2, 8, 3), 'line-dasharray': [3, 2] } });
 
     // Labels
     const halo = { 'text-halo-color': GROUND, 'text-halo-width': 1.6, 'text-halo-blur': 0.4 };
@@ -427,9 +431,9 @@
     label('peak', 'mountain_peak', ['has', 'name'], 'Noto Sans Regular', 10, { 'text-color': DEEP_RED },
       { 'text-max-width': 6, 'text-variable-anchor': ['center'] }, { minzoom: 10 });
     label('water-ocean', 'water_name', isOneOf(['ocean', 'sea']), 'Noto Sans Regular',
-      zoomRamp(1, 10, 8, 15), { 'text-color': '#333333' }, { 'text-letter-spacing': 0.2, 'text-max-width': 8 }, { maxzoom: 10 });
+      zoomRamp(1, 10, 8, 15), { 'text-color': '#333333', 'text-halo-color': WATER }, { 'text-letter-spacing': 0.2, 'text-max-width': 8 }, { maxzoom: 10 });
     label('water-lake', 'water_name', ['!', isOneOf(['ocean', 'sea'])], 'Noto Sans Regular', 11,
-      { 'text-color': '#333333' }, { 'text-letter-spacing': 0.1 }, { minzoom: 9 });
+      { 'text-color': '#333333', 'text-halo-color': WATER }, { 'text-letter-spacing': 0.1 }, { minzoom: 9 });
     label('place-country', 'place', isOneOf(['country']), 'Noto Sans Regular',
       zoomRamp(2, 10, 6, 15), { 'text-color': '#333333' },
       { 'text-transform': 'uppercase', 'text-letter-spacing': 0.15, 'text-max-width': 8, 'symbol-sort-key': ['get', 'rank'] },
@@ -908,7 +912,7 @@
           drawnRegions.add(key);
         }
 
-        const regionsToShow = REGION==='national' ? Object.keys(regions) : [REGION];
+        const regionsToShow = !SHOW_REGION_OVERLAYS ? [] : (REGION==='national' ? Object.keys(regions) : [REGION]);
         regionsToShow.forEach(key => drawRegionPolygon(key, REGION==='national'));
 
         // ── COASTLINES (v4.3) ────────────────────────────────────────────────
