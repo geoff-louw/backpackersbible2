@@ -7,33 +7,15 @@
    viewBox="0 0 31.999996 31.999996"
    version="1.1"
    id="svg1"
-   inkscape:export-filename="hostel-pin.svg"
-   inkscape:export-xdpi="96"
-   inkscape:export-ydpi="96"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
-     id="namedview1"
-     pagecolor="#ffffff"
-     bordercolor="#000000"
-     borderopacity="0.25"
-     inkscape:showpageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
-     inkscape:document-units="mm"
-     inkscape:export-bgcolor="#ffffff00" />
   <defs
      id="defs1" />
   <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
      id="layer1"
      transform="translate(-42.664205,-71.524004)">
     <circle
-       style="fill:#ffd400;fill-opacity:1;stroke:#ffffff;stroke-width:4.25829;stroke-linecap:square;stroke-opacity:1;paint-order:markers stroke fill"
+       style="fill:#cd0000;fill-opacity:1;stroke:#ffffff;stroke-width:4.25829;stroke-linecap:square;stroke-opacity:1;paint-order:markers stroke fill"
        id="path1"
        cx="58.664204"
        cy="87.524002"
