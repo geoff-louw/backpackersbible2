@@ -41,13 +41,17 @@
  *
  * v4.3 changes (additive; pages that do not set the new options behave exactly as before):
  *   - cfg.coastUrl: a JSON file in the same format as regions.json whose entries have geom:'LineString'. Each is drawn as a
- *     thick, bright coastline (thin dark edge for contrast on the satellite view) beneath the map labels. Clicking or tapping
+ *     thick, bright coastline (thin dark edge for contrast on the base map) beneath the map labels. Clicking or tapping
  *     a line opens its name, "best for" tags and short description in the usual popup (desktop) or bottom sheet (phones).
  *   - cfg.coastPage: page that "More info" links should go to. The #anchor of each line's url is kept, the page part is
  *     replaced, so a translated page can use the same untranslated coastal-regions.json.
  *   - cfg.ariaLabel: replaces the map's built-in (English) screen-reader label.
  *   - cfg.coastOnly: true = a coastline-only map: no hostel pins and no region polygons, and hostels.json / regions.json
  *     are not downloaded at all.
+ *
+ * "Lite" version: no satellite imagery and no 3D terrain (so no Esri or MapTiler keys are needed). The base map is
+ * the stock OpenFreeMap Liberty style. cfg.terrainRegions is ignored. Pins, popups, sheets, filters, full-screen
+ * and the BB_* messages are unchanged.
  *
  * Usage (normally done by /assets/js/bb-map-loader.js on first interaction):
  *   <div id="bb-map-wrap"></div>
@@ -64,8 +68,6 @@
   if (window.__BB_MAP_LOADED) return;
   window.__BB_MAP_LOADED = true;
 
-  const ESRI_KEY     = 'AAPTamFHVrEf9zxt8n1GPoheQBg..bZv3-QfiJifUiQeQyM3pXO47eztKbb95jfxtBtNJzl319gr4-Qv_NmXKOOXFf8ChUYYi4lQviyIz1wk3Rpa69Pb2iltlAFf1MU5_iDbiqXIeRP7sUB3raC3mivce3axukBeoiuKssKI2rvflMzNf5GK47nOPgPlwsKPoEPYZZlLUCxOBw3k9nZFYiHkv57Dm7SRYAlRm612dJDve7isWPk6eJ77s5fU1wtpNRtsaTzRbbT4lgsEsG2ElAT1_TZLPnMqZ';
-  const MAPTILER_KEY = 'EQ5JVo2nFxFOEjgxpA7x'; // terrain only (Cape Town / Drakensberg)
   const HOSTELS_URL  = (window.BB_MAP_CONFIG && window.BB_MAP_CONFIG.hostelsUrl) || '/assets/data/hostels.json';
   const REGIONS_URL  = (window.BB_MAP_CONFIG && window.BB_MAP_CONFIG.regionsUrl) || '/assets/data/regions.json';
   const COAST_URL    = (window.BB_MAP_CONFIG && window.BB_MAP_CONFIG.coastUrl) || '';
@@ -294,10 +296,18 @@
     #bb-map-close { display:none; }
     #bb-map-wrap.bb-map--full #bb-map-close {
       display:flex;align-items:center;justify-content:center;position:absolute;top:10px;right:10px;z-index:10;
-      width:36px;height:36px;padding:0 0 3px;background:#fff;border:0;border-radius:50%;
-      font:400 26px/1 'Century Gothic',sans-serif;color:#333;cursor:pointer;box-shadow:0 0 0 2px rgba(0,0,0,0.1);
+      width:36px;height:36px;padding:0;background:#fff;border:0;border-radius:50%;
+      font-size:0;line-height:0;color:#333;cursor:pointer;box-shadow:0 0 0 2px rgba(0,0,0,0.1);
     }
-    #bb-map-close:focus-visible { outline:3px solid #005F8A;outline-offset:2px; }
+    /* the x is drawn as two bars (not a text glyph), so it is centred exactly whatever the font does */
+    #bb-map-wrap.bb-map--full #bb-map-close::before,
+    #bb-map-wrap.bb-map--full #bb-map-close::after {
+      content:"";position:absolute;left:50%;top:50%;width:16px;height:2px;margin:-1px 0 0 -8px;
+      background:#333;border-radius:1px;
+    }
+    #bb-map-wrap.bb-map--full #bb-map-close::before { transform:rotate(45deg); }
+    #bb-map-wrap.bb-map--full #bb-map-close::after  { transform:rotate(-45deg); }
+    #bb-map-close:focus-visible { outline:3px solid #ffd400;outline-offset:2px; }
     #bb-map-wrap.bb-map--full .maplibregl-ctrl-top-right { top:44px; }
 
     /* v3 — pins whose details have been opened turn sky blue and show a small tick */
@@ -433,11 +443,8 @@
         }</ul>`;
       }
 
-      // OpenFreeMap liberty style provides vector roads and labels that
-      // stay correctly oriented regardless of map bearing (unlike a raster
-      // label overlay, which bakes text into pixel tiles at north-up and
-      // goes upside-down when the bearing changes). Esri satellite imagery
-      // is injected as a raster layer beneath all OFM layers in map.on('load').
+      // OpenFreeMap liberty style provides the base map: vector roads and labels that stay correctly
+      // oriented regardless of map bearing. Used as it comes, with no satellite imagery on top.
       // TOUCH SCROLL-TRAP FIX (phones/tablets)
       // With cooperativeGestures on, ONE finger scrolls the page as normal and
       // only TWO fingers move/zoom the map; a short hint appears if someone
@@ -530,7 +537,7 @@
       if (!canFullscreen) map.addControl(new maplibregl.FullscreenControl(), 'top-right');
       map.addControl(new maplibregl.ScaleControl({ unit: 'metric' }), 'bottom-left');
 
-      // Attribution (Esri / OpenFreeMap / OpenStreetMap credits) stays available but out of the way:
+      // Attribution (OpenFreeMap / OpenStreetMap credits) stays available but out of the way:
       // only the small "i" button shows until the visitor clicks it. MapLibre opens a compact control
       // by itself the first time its style loads, so that first automatic opening is undone here;
       // after the visitor has clicked the button once, it behaves normally.
@@ -564,22 +571,17 @@
         if (e.key==='-') map.zoomOut();
       });
 
-      const TERRAIN_REGIONS = cfg.terrainRegions || ['cape-town', 'drakensberg'];
-      const hasTerrain = TERRAIN_REGIONS.includes(REGION) && !FLAT;   // no 3D terrain on phones
-
       let is3D = true;
       const toggleBtn = document.getElementById('bb-map-toggle');   // not present on phones (2D only)
       if (toggleBtn) toggleBtn.addEventListener('click', function() {
         is3D = !is3D;
         if (is3D) {
           map.easeTo({ pitch:PITCH, bearing:BEARING, duration:800 });
-          if (hasTerrain) map.setTerrain({ source:'terrain-src', exaggeration:1.15 });
           this.textContent = 'Switch to 2D';
           this.setAttribute('aria-pressed','true');
           this.setAttribute('aria-label','Switch map to 2D flat view');
         } else {
           map.easeTo({ pitch:0, bearing:0, duration:800 });
-          if (hasTerrain) map.setTerrain(null);
           this.textContent = 'Switch to 3D';
           this.setAttribute('aria-pressed','false');
           this.setAttribute('aria-label','Switch map to 3D view');
@@ -662,44 +664,6 @@
       map.on('load', () => {
         map.resize();
 
-        // Inject Esri satellite between OFM's fill layers and its road/label
-        // layers. Background and fills sit below satellite (hidden behind it);
-        // road lines and place-name symbols sit above (fully visible).
-        map.addSource('esri-satellite', {
-          type: 'raster',
-          tiles: [`https://ibasemaps-api.arcgis.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}?token=${ESRI_KEY}`],
-          tileSize: 256,
-          attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
-          maxzoom: 19
-        });
-        const _firstLineOrSymbol = map.getStyle().layers.find(
-          l => l.type === 'line' || l.type === 'symbol'
-        );
-        map.addLayer(
-          { id: 'esri-satellite-layer', type: 'raster', source: 'esri-satellite' },
-          _firstLineOrSymbol ? _firstLineOrSymbol.id : undefined
-        );
-
-        // OFM liberty places water fills after some line layers, so they
-        // land above satellite in the stack. Zero all fills and background
-        // regardless of position — satellite + roads + labels is all we want.
-        map.getStyle().layers.forEach(layer => {
-          try {
-            if (layer.type === 'fill')       map.setPaintProperty(layer.id, 'fill-opacity', 0);
-            if (layer.type === 'background') map.setPaintProperty(layer.id, 'background-opacity', 0);
-          } catch(e) {}
-        });
-
-        // Hide dotted/dashed boundary lines (admin regions, country borders)
-        // while keeping solid road lines intact.
-        map.getStyle().layers.forEach(layer => {
-          try {
-            if (layer.type === 'line' && layer.paint && layer.paint['line-dasharray']) {
-              map.setPaintProperty(layer.id, 'line-opacity', 0);
-            }
-          } catch(e) {}
-        });
-
         // Tell the parent page this map is fully initialised — without
         // this, the parent's itinerary builder waits forever for a
         // ready signal that never arrives, and as a result never sends
@@ -720,16 +684,6 @@
             window.top.postMessage({ type: 'BB_MAP_READY' }, '*');
           }
         });
-
-        // 3D terrain — only loaded for regions where elevation adds real value
-        if (hasTerrain) {
-          map.addSource('terrain-src', {
-            type: 'raster-dem',
-            url: `https://api.maptiler.com/tiles/terrain-rgb/tiles.json?key=${MAPTILER_KEY}`,
-            tileSize: 256
-          });
-          map.setTerrain({ source:'terrain-src', exaggeration:1.15 });
-        }
 
         // ── REGION OVERLAYS ──────────────────────────────────────────────────
         // drawnRegions tracks which region polygons currently exist as map
@@ -841,7 +795,7 @@
         regionsToShow.forEach(key => drawRegionPolygon(key, REGION==='national'));
 
         // ── COASTLINES (v4.3) ────────────────────────────────────────────────
-        // Thick, bright lines from cfg.coastUrl. Drawn above the satellite and roads but beneath the basemap's place
+        // Thick, bright lines from cfg.coastUrl. Drawn above the base roads but beneath the basemap's place
         // names, so town labels stay readable. A dark edge (casing) keeps every colour visible on sand, sea and forest.
         // One delegated handler picks the line under the pointer, so two lines meeting at a join never open two popups.
         const coastKeys = Object.keys(coast).filter(k => coast[k] && Array.isArray(coast[k].polygon) && coast[k].polygon.length >= 2);
