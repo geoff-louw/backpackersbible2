@@ -2388,8 +2388,10 @@ details:not([open]) {
    #ma (tour guide): z-index 40
    .jump-menu-section: z-index calc(--z-header - 1) = 9998
    #quick-jump-menu:   z-index calc(--z-header - 1) = 9998
-   Both menus are above #ma. pointer-events:none on #ma
-   container (section 25) ensures taps pass through to menus.
+   .cookie-container:  z-index calc(--z-header + 1) = 10000 (<=1100px)
+   Both menus are above #ma; the cookie banner is above both menus.
+   pointer-events:none on #ma container (section 25) ensures taps
+   pass through to menus.
    ============================================================ */
 
 /* ============================================================
@@ -3610,6 +3612,21 @@ footer {
 .cookie-btn:focus-visible {
     outline: 3px solid var(--color-yellow-bright);
     outline-offset: 2px;
+}
+
+/* Mobile/tablet (<=1100px): #quick-jump-menu and #page-title-bar are fixed
+   to the bottom at z-index 9998, which hid the banner (z-index 500) until
+   the user scrolled and the bars slid away. Lift the banner above them
+   and dock it flush to the bottom edge so it is visible straight away.
+   It stays below the mobile menu (--z-mobile-menu) and skip link. */
+@media (max-width: 1100px) {
+    .cookie-container {
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-radius: 8px 8px 0 0;
+        z-index: calc(var(--z-header) + 1); /* 10000 — above both bottom bars */
+    }
 }
 
 
