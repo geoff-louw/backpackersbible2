@@ -1,5 +1,5 @@
 /**
- * bb-map-loader.js  —  BackpackersBible.com   (v2.1: no third-party preconnects except OpenFreeMap; loads hostel-map.js v5)
+ * bb-map-loader.js  —  BackpackersBible.com   (v2.1: no third-party preconnects except OpenFreeMap; loads hostel-map.js v5.2)
  * Shared, tiny (no dependencies) loader for the inline hostel map. Replaces the iframe
  * "wakeUpMap" + filter-button script that used to be pasted into every page.
  *
@@ -229,7 +229,7 @@
       window.addEventListener('message', onMsg);
 
       var s = document.createElement('script');
-      s.src = ds.mapScript || '/assets/js/hostel-map.js?v=5.0';
+      s.src = ds.mapScript || '/assets/js/hostel-map.js?v=5.2';
       s.onerror = function () {
         window.removeEventListener('message', onMsg);
         // Put the poster back so the visitor still sees a map image
