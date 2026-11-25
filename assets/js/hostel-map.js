@@ -243,7 +243,8 @@
       padding:3px 8px;border-radius:10px;line-height:1.3;white-space:nowrap;
     }
     #bb-map-toggle:hover, #bb-map-sat:hover { background:#fff9d6; }
-    #bb-map-sat:disabled { opacity:0.5;cursor:default; }
+    #bb-map-sat, #bb-map-sat:disabled { color:#333 !important;-webkit-text-fill-color:#333;opacity:1 !important; }
+    #bb-map-sat:disabled { cursor:not-allowed; }
     #bb-map-sat[aria-pressed="true"] { background:#fff9d6; }
     #bb-map:focus { outline:3px solid ${BRAND_YELLOW};outline-offset:2px; }
 
@@ -698,6 +699,15 @@
           const baseLayers = map.getStyle().layers.map(l => ({ id: l.id, type: l.type }));
           const changed = [];                       // [layerId, property, original value] so the street map can be restored
           const SAT_KEY = 'bb_map_sat';
+          // Match "My Location" exactly: copy its text colour and type settings, whatever the page's own CSS does to buttons
+          const locBtn = document.getElementById('bb-map-locate');
+          if (locBtn) {
+            const cs = getComputedStyle(locBtn);
+            [['color', cs.color], ['font-family', cs.fontFamily], ['font-size', cs.fontSize], ['font-weight', cs.fontWeight]]
+              .forEach(([prop, val]) => satBtn.style.setProperty(prop, val, 'important'));
+            satBtn.style.setProperty('-webkit-text-fill-color', cs.color, 'important');
+            satBtn.style.setProperty('opacity', '1', 'important');
+          }
           let satOn = false;
           const dim = (id, prop) => { changed.push([id, prop, map.getPaintProperty(id, prop)]); map.setPaintProperty(id, prop, 0); };
 
