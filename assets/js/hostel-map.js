@@ -49,9 +49,10 @@
  *   - cfg.coastOnly: true = a coastline-only map: no hostel pins and no region polygons, and hostels.json / regions.json
  *     are not downloaded at all.
  *
- * "Lite" version: no satellite imagery and no 3D terrain (so no Esri or MapTiler keys are needed). The base map is
- * the stock OpenFreeMap Liberty style. cfg.terrainRegions is ignored. Pins, popups, sheets, filters, full-screen
- * and the BB_* messages are unchanged.
+ * Street map by default (stock OpenFreeMap Liberty: light and fast), with a "Satellite" button that swaps in Esri imagery
+ * only when a visitor asks for it (their choice is remembered on this device; cfg.satellite=false removes the button).
+ * No 3D terrain, so no MapTiler key. cfg.terrainRegions is ignored. Pins, popups, sheets, filters, full-screen and
+ * the BB_* messages are unchanged.
  *
  * Usage (normally done by /assets/js/bb-map-loader.js on first interaction):
  *   <div id="bb-map-wrap"></div>
@@ -68,6 +69,7 @@
   if (window.__BB_MAP_LOADED) return;
   window.__BB_MAP_LOADED = true;
 
+  const ESRI_KEY     = 'AAPTamFHVrEf9zxt8n1GPoheQBg..bZv3-QfiJifUiQeQyM3pXO47eztKbb95jfxtBtNJzl319gr4-Qv_NmXKOOXFf8ChUYYi4lQviyIz1wk3Rpa69Pb2iltlAFf1MU5_iDbiqXIeRP7sUB3raC3mivce3axukBeoiuKssKI2rvflMzNf5GK47nOPgPlwsKPoEPYZZlLUCxOBw3k9nZFYiHkv57Dm7SRYAlRm612dJDve7isWPk6eJ77s5fU1wtpNRtsaTzRbbT4lgsEsG2ElAT1_TZLPnMqZ';
   const HOSTELS_URL  = (window.BB_MAP_CONFIG && window.BB_MAP_CONFIG.hostelsUrl) || '/assets/data/hostels.json';
   const REGIONS_URL  = (window.BB_MAP_CONFIG && window.BB_MAP_CONFIG.regionsUrl) || '/assets/data/regions.json';
   const COAST_URL    = (window.BB_MAP_CONFIG && window.BB_MAP_CONFIG.coastUrl) || '';
@@ -116,6 +118,16 @@
                    box-shadow:0 2px 6px rgba(0,0,0,0.25);transition:background 0.2s;">
       📍 My Location
     </button>
+    <button id="bb-map-sat" type="button"
+            aria-pressed="false"
+            aria-label="Switch map to satellite imagery"
+            style="position:absolute;top:82px;left:10px;z-index:10;
+                   background:#fff;border:2px solid ${BRAND_YELLOW};border-radius:4px;
+                   padding:6px 12px;font-family:'Century Gothic',sans-serif;
+                   font-size:11px;font-weight:bold;color:#333;cursor:pointer;
+                   box-shadow:0 2px 6px rgba(0,0,0,0.25);transition:background 0.2s;">
+      Satellite
+    </button>
     <button id="bb-map-close" type="button" aria-label="Close full-screen map">&times;</button>
     <div id="bb-map-offline"
          style="display:none;position:absolute;top:0;right:0;bottom:0;left:0;overflow:hidden;">
@@ -152,6 +164,17 @@
       lb.style.boxShadow = '0 0 0 2px rgba(0,0,0,0.1)';
       lb.style.padding = '8.5px 12px';                      // keeps the button the same height without the border
     }
+    const sb = document.getElementById('bb-map-sat');
+    if (sb) {
+      sb.style.top = '46px';                                // sits under "My Location", styled the same
+      sb.style.border = '0';
+      sb.style.boxShadow = '0 0 0 2px rgba(0,0,0,0.1)';
+      sb.style.padding = '8.5px 12px';
+    }
+  }
+  if (cfg.satellite === false || COAST_ONLY) {
+    const sb0 = document.getElementById('bb-map-sat');
+    if (sb0 && sb0.parentNode) sb0.parentNode.removeChild(sb0);
   }
 
   const css = document.createElement('style');
@@ -219,7 +242,9 @@
       background:${BRAND_YELLOW};color:#333;font-weight:bold;font-size:10px;
       padding:3px 8px;border-radius:10px;line-height:1.3;white-space:nowrap;
     }
-    #bb-map-toggle:hover { background:#fff9d6; }
+    #bb-map-toggle:hover, #bb-map-sat:hover { background:#fff9d6; }
+    #bb-map-sat:disabled { opacity:0.5;cursor:default; }
+    #bb-map-sat[aria-pressed="true"] { background:#fff9d6; }
     #bb-map:focus { outline:3px solid ${BRAND_YELLOW};outline-offset:2px; }
 
     /* v3 — a hovered / focused / selected pin rises above its neighbours so its name is never hidden */
@@ -663,6 +688,70 @@
 
       map.on('load', () => {
         map.resize();
+
+        // ── SATELLITE ON REQUEST ───────────────────────────────────────────────
+        // The street map is the default: it is light and fast. The Satellite button swaps in Esri imagery only
+        // when a visitor asks for it, so the photo tiles (and the Esri allowance) are used only by those who want
+        // them. Only the base style's own layers are touched, never the hostel overlays added later.
+        const satBtn = document.getElementById('bb-map-sat');
+        if (satBtn) {
+          const baseLayers = map.getStyle().layers.map(l => ({ id: l.id, type: l.type }));
+          const changed = [];                       // [layerId, property, original value] so the street map can be restored
+          const SAT_KEY = 'bb_map_sat';
+          let satOn = false;
+          const dim = (id, prop) => { changed.push([id, prop, map.getPaintProperty(id, prop)]); map.setPaintProperty(id, prop, 0); };
+
+          function setSatellite(on) {
+            if (on === satOn) return;
+            satOn = on;
+            if (on) {
+              if (!map.getSource('esri-satellite')) {
+                map.addSource('esri-satellite', {
+                  type: 'raster',
+                  tiles: [`https://ibasemaps-api.arcgis.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}?token=${ESRI_KEY}`],
+                  tileSize: 256,
+                  attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
+                  maxzoom: 19
+                });
+              }
+              const firstLineOrSymbol = baseLayers.find(l => l.type === 'line' || l.type === 'symbol');
+              if (!map.getLayer('esri-satellite-layer')) {
+                map.addLayer({ id: 'esri-satellite-layer', type: 'raster', source: 'esri-satellite' },
+                  firstLineOrSymbol ? firstLineOrSymbol.id : undefined);
+              }
+              // Liberty's fills and background would hide the photos: make them see-through, and hide dotted boundaries
+              baseLayers.forEach(l => {
+                try {
+                  if (l.type === 'fill') dim(l.id, 'fill-opacity');
+                  else if (l.type === 'background') dim(l.id, 'background-opacity');
+                  else if (l.type === 'line' && map.getPaintProperty(l.id, 'line-dasharray')) dim(l.id, 'line-opacity');
+                } catch (e) { /* layer without that property: skip */ }
+              });
+            } else {
+              if (map.getLayer('esri-satellite-layer')) map.removeLayer('esri-satellite-layer');
+              if (map.getSource('esri-satellite')) map.removeSource('esri-satellite');
+              while (changed.length) {
+                const c = changed.pop();
+                try { map.setPaintProperty(c[0], c[1], c[2]); } catch (e) { /* ignore */ }
+              }
+            }
+            satBtn.textContent = on ? 'Street map' : 'Satellite';
+            satBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+            satBtn.setAttribute('aria-label', on ? 'Switch map back to the street map' : 'Switch map to satellite imagery');
+            try { localStorage.setItem(SAT_KEY, on ? '1' : '0'); } catch (e) { /* storage unavailable */ }
+          }
+
+          const syncOnline = () => {
+            satBtn.disabled = !navigator.onLine;     // photos cannot load without a connection
+            satBtn.title = navigator.onLine ? '' : 'Satellite imagery needs an internet connection.';
+          };
+          syncOnline();
+          window.addEventListener('online', syncOnline);
+          window.addEventListener('offline', syncOnline);
+          satBtn.addEventListener('click', () => setSatellite(!satOn));
+          window.BB_SET_SATELLITE = setSatellite;
+          try { if (localStorage.getItem(SAT_KEY) === '1' && navigator.onLine) setSatellite(true); } catch (e) { /* ignore */ }
+        }
 
         // Tell the parent page this map is fully initialised — without
         // this, the parent's itinerary builder waits forever for a
@@ -1418,7 +1507,7 @@
             const t = e.target;
             if (!t || !t.closest) return;
             // the map's own buttons, controls and (tablet) popups behave exactly as before
-            if (t.closest('#bb-map-toggle, #bb-map-locate, #bb-map-close, .maplibregl-ctrl, .maplibregl-popup')) return;
+            if (t.closest('#bb-map-toggle, #bb-map-locate, #bb-map-sat, #bb-map-close, .maplibregl-ctrl, .maplibregl-popup')) return;
             // a pin: open full-screen and let the tap carry on so the pin opens its sheet as well
             if (t.closest('.bb-marker, .bb-route-stage, .bb-region-marker')) { enterFullscreen(); return; }
             // anywhere else on the map: open full-screen only (no region popup on the same tap)
