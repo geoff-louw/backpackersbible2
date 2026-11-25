@@ -1208,12 +1208,24 @@ THE DRAKENSBERG
             <a href="/spain/en/">Backpacking Spain</a>
         </nav>
 
-        <div class="footer-share">
-            <span id="whatsapp-share">SHARE <span class="sr-only">(opens in a new tab)</span></span>
-            <a href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://backpackersbible.com" target="_blank">
-                <img src="/assets/whatsapp_icon_round.png" alt="WhatsApp icon" class="footer-share__icon" aria-describedby="whatsapp-share">
-            </a>
-        </div>
+<div class="footer-share">
+    <a href="https://wa.me/?text=Check%20out%20the%20Backpackers%20Bible%20https://backpackersbible.com"
+       target="_blank"
+       rel="noopener noreferrer">
+        <img src="/assets/whatsapp_icon_round.png"
+             alt="Share on WhatsApp"
+             class="footer-share__icon">
+    </a>
+
+    <a href="https://www.reddit.com/submit?url="
+       target="_blank"
+       rel="noopener noreferrer"
+       onclick="this.href='https://www.reddit.com/submit?url='+encodeURIComponent(window.location.href)+'&title='+encodeURIComponent(document.title)">
+        <img src="/assets/reddit_icon_round.svg"
+             alt="Share on Reddit"
+             class="footer-share__icon">
+    </a>
+</div>
 
     </section>
 
@@ -1427,7 +1439,7 @@ window.BB_TIPS = [
 <!-- ARIA overrides for mobile menu and accordion are in script-2.js -->
 
 <!-- Map loader (replaces the iframe wake-up + filter script) -->
-<script src="/assets/js/bb-map-loader.js?v=7" defer></script>
+<script src="/assets/js/bb-map-loader.js?v=10" defer></script>
 
 
 <!-- Default Statcounter code for Backpackers Bible
