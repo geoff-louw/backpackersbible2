@@ -103,29 +103,29 @@
             aria-pressed="true"
             aria-label="Switch map to 2D flat view"
             style="position:absolute;top:10px;left:10px;z-index:10;
-                   background:#fff;border:2px solid ${BRAND_YELLOW};border-radius:4px;
-                   padding:6px 12px;font-family:'Century Gothic',sans-serif;
+                   background:#fff;border:0;border-radius:4px;
+                   padding:8.5px 12px;font-family:'Century Gothic',sans-serif;
                    font-size:11px;font-weight:bold;color:#333;cursor:pointer;
-                   box-shadow:0 2px 6px rgba(0,0,0,0.25);transition:background 0.2s;">
+                   box-shadow:0 0 0 2px rgba(0,0,0,0.1);transition:background 0.2s;">
       Switch to 2D
     </button>
     <button id="bb-map-locate"
             aria-label="Show my location on the map"
             style="position:absolute;top:46px;left:10px;z-index:10;
-                   background:#fff;border:2px solid ${BRAND_YELLOW};border-radius:4px;
-                   padding:6px 12px;font-family:'Century Gothic',sans-serif;
+                   background:#fff;border:0;border-radius:4px;
+                   padding:8.5px 12px;font-family:'Century Gothic',sans-serif;
                    font-size:11px;font-weight:bold;color:#333;cursor:pointer;
-                   box-shadow:0 2px 6px rgba(0,0,0,0.25);transition:background 0.2s;">
-      📍 My Location
+                   box-shadow:0 0 0 2px rgba(0,0,0,0.1);transition:background 0.2s;">
+      My Location
     </button>
     <button id="bb-map-sat" type="button"
             aria-pressed="false"
             aria-label="Switch map to satellite imagery"
             style="position:absolute;top:82px;left:10px;z-index:10;
-                   background:#fff;border:2px solid ${BRAND_YELLOW};border-radius:4px;
-                   padding:6px 12px;font-family:'Century Gothic',sans-serif;
+                   background:#fff;border:0;border-radius:4px;
+                   padding:8.5px 12px;font-family:'Century Gothic',sans-serif;
                    font-size:11px;font-weight:bold;color:#333;cursor:pointer;
-                   box-shadow:0 2px 6px rgba(0,0,0,0.25);transition:background 0.2s;">
+                   box-shadow:0 0 0 2px rgba(0,0,0,0.1);transition:background 0.2s;">
       Satellite
     </button>
     <button id="bb-map-close" type="button" aria-label="Close full-screen map">&times;</button>
@@ -554,7 +554,12 @@
       let mapHasLoaded = false;
       map.on('load', () => { mapHasLoaded = true; });
       map.on('error', e => {
-        if (!mapHasLoaded && !navigator.onLine) showOffline('browser offline');
+        if (!mapHasLoaded && !navigator.onLine) {
+          // navigator.onLine is sometimes wrong (VPNs, virtual network adapters, odd laptops report "offline" while connected),
+          // so confirm with a real request before giving up. The address is new each time, so the offline cache cannot answer it.
+          fetch('/manifest.json?ping=' + Date.now(), { cache: 'no-store' })
+            .then(() => { /* we are online after all: carry on */ }, () => { if (!mapHasLoaded) showOffline('browser offline'); });
+        }
         else console.warn('BB map: non-fatal map error', e && e.error);
       });
 
@@ -637,8 +642,8 @@
       }());
 
       let locateMarker = null;
-      const LOC_IDLE = FLAT ? 'My Location' : '\uD83D\uDCCD My Location';
-      const LOC_BUSY = FLAT ? 'Locating\u2026' : '\uD83D\uDCCD Locating\u2026';
+      const LOC_IDLE = 'My Location';
+      const LOC_BUSY = 'Locating\u2026';
       document.getElementById('bb-map-locate').addEventListener('click', function() {
         if (!navigator.geolocation) {
           alert('Geolocation is not supported by your browser.');
@@ -711,9 +716,11 @@
           let satOn = false;
           const dim = (id, prop) => { changed.push([id, prop, map.getPaintProperty(id, prop)]); map.setPaintProperty(id, prop, 0); };
 
-          function setSatellite(on) {
+          let satFails = 0, satGood = false;
+          function setSatellite(on, failed) {
             if (on === satOn) return;
             satOn = on;
+            if (on) { satFails = 0; satGood = false; }
             if (on) {
               if (!map.getSource('esri-satellite')) {
                 map.addSource('esri-satellite', {
@@ -745,22 +752,23 @@
                 try { map.setPaintProperty(c[0], c[1], c[2]); } catch (e) { /* ignore */ }
               }
             }
-            satBtn.textContent = on ? 'Street map' : 'Satellite';
+            satBtn.textContent = on ? 'Street map' : (failed ? 'Satellite unavailable' : 'Satellite');
+            if (failed) setTimeout(() => { if (!satOn) satBtn.textContent = 'Satellite'; }, 4000);
             satBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
             satBtn.setAttribute('aria-label', on ? 'Switch map back to the street map' : 'Switch map to satellite imagery');
             try { localStorage.setItem(SAT_KEY, on ? '1' : '0'); } catch (e) { /* storage unavailable */ }
           }
+          // If the photos will not load (no connection, or the imagery service refuses the request), go back to the
+          // street map instead of leaving a blank map: three failed tiles before any success counts as "not working"
+          map.on('data', e => { if (satOn && e.sourceId === 'esri-satellite' && e.tile) satGood = true; });
+          map.on('error', e => {
+            if (!satOn || satGood || !e || e.sourceId !== 'esri-satellite') return;
+            if (++satFails >= 3) { console.warn('BB map: satellite imagery did not load; back to the street map.', e.error && e.error.message); setSatellite(false, true); }
+          });
 
-          const syncOnline = () => {
-            satBtn.disabled = !navigator.onLine;     // photos cannot load without a connection
-            satBtn.title = navigator.onLine ? '' : 'Satellite imagery needs an internet connection.';
-          };
-          syncOnline();
-          window.addEventListener('online', syncOnline);
-          window.addEventListener('offline', syncOnline);
           satBtn.addEventListener('click', () => setSatellite(!satOn));
           window.BB_SET_SATELLITE = setSatellite;
-          try { if (localStorage.getItem(SAT_KEY) === '1' && navigator.onLine) setSatellite(true); } catch (e) { /* ignore */ }
+          try { if (localStorage.getItem(SAT_KEY) === '1') setSatellite(true); } catch (e) { /* ignore */ }
         }
 
         // Tell the parent page this map is fully initialised — without
