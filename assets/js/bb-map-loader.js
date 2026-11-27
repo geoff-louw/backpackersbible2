@@ -1,5 +1,5 @@
 /**
- * bb-map-loader.js  —  BackpackersBible.com   (v2.3: neighbouring-region pins and a "Show nearby regions" button on regional pages; loads hostel-map.js v5.8)
+ * bb-map-loader.js  —  BackpackersBible.com   (v2.4: neighbouring-region pins and a "Show nearby regions" button on regional pages; builder fixes; loads hostel-map.js v5.9)
  * Shared, tiny (no dependencies) loader for the inline hostel map. Replaces the iframe
  * "wakeUpMap" + filter-button script that used to be pasted into every page.
  *
@@ -231,7 +231,7 @@
       window.addEventListener('message', onMsg);
 
       var s = document.createElement('script');
-      s.src = ds.mapScript || '/assets/js/hostel-map.js?v=5.8';
+      s.src = ds.mapScript || '/assets/js/hostel-map.js?v=5.9';
       s.onerror = function () {
         window.removeEventListener('message', onMsg);
         // Put the poster back so the visitor still sees a map image

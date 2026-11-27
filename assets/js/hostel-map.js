@@ -72,6 +72,15 @@
  *   - A "Show nearby regions" / "Hide nearby regions" button (under the other buttons on the left) on regional pages. It reveals
  *     or hides the neighbouring hostels and outlines, eases the map out a little when it reveals them, and gives keyboard users a
  *     way in. Once it has been used, panning no longer reveals the neighbours by itself: the visitor is in charge.
+ * v5.9 changes (itinerary builder):
+ *   - Desktop: panning or zooming the map while the builder was choosing regions revealed the neighbouring regions, which cleared
+ *     every region outline, so there was nothing left to click. Neighbours are now never revealed while select mode is on, and the
+ *     "Show nearby regions" button is hidden for the duration (it returns afterwards).
+ *   - Phones / tablets: select mode now switches cooperative gestures off, so one finger moves the map. Before, the map showed
+ *     "Tap the map to open it full-screen" but that tap is deliberately ignored in select mode, so it could not be moved at all.
+ *     Cooperative gestures come back when select mode ends.
+ *
+ * v5.8 (continued):
  *   - "More info" on a hostel of this region scrolls to its write-up when the hostel's anchor is a full path to this same page
  *     (it used to reload the page); if the write-up cannot be found on the page it navigates as before.
  *
@@ -1170,6 +1179,15 @@
           if (!e.data || e.data.type !== 'BB_SELECT_MODE') return;
           selectModeActive = !!e.data.active;
 
+          // v5.9: while the builder is choosing regions the map is the builder's tool, so the "nearby regions" button steps aside,
+          // and on touch screens one finger moves the map (cooperative gestures would otherwise ask for a full-screen tap that
+          // select mode ignores, leaving the map impossible to move). Both are put back when select mode ends.
+          if (nbBtn) nbBtn.style.display = selectModeActive ? 'none' : '';
+          if (isTouchDevice && map.cooperativeGestures) {
+            if (selectModeActive) map.cooperativeGestures.disable();
+            else if (!fsActive) map.cooperativeGestures.enable();
+          }
+
           Object.values(regionMarkers).forEach(m => m.el.classList.toggle('is-visible', selectModeActive));
 
           // Hostel pins already let clicks pass through to the region
@@ -1934,7 +1952,7 @@
         }
 
         function revealNeighbours() {
-          if (nbRevealed || !SHOW_NEIGHBOURS) return;
+          if (nbRevealed || !SHOW_NEIGHBOURS || selectModeActive) return;     // v5.9: the builder owns the outlines while select mode is on
           nbRevealed = true;
           syncNbBtn();
           buildNeighbourPins();
