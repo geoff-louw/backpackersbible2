@@ -3738,7 +3738,7 @@
         "googleRating": "4.5 / 5",
         "bookingRating": "9.1 / 10",
         "booking": "https://www.booking.com/hotel/ls/malealea-lodge.html",
-        "is_best_overall": false,
+        "is_best_overall": true,
         "is_value": true,
         "is_party": false,
         "is_chill": false,
