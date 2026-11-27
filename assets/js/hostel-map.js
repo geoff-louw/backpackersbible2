@@ -54,6 +54,27 @@
  * No 3D terrain, so no MapTiler key. cfg.terrainRegions is ignored. Pins, popups, sheets, filters, full-screen and
  * the BB_* messages are unchanged.
  *
+ * v5.7 changes (regional pages only; the national map and coast-only maps are unchanged):
+ *   - Neighbouring regions: a regional page still opens showing only its own hostels. As soon as the visitor pans the map or
+ *     zooms out, every other region's hostels fade in, with faint outlines and names for the other regions. Click a
+ *     neighbouring outline for its "best for" popup and a link to that region's page. A neighbouring hostel's "More info"
+ *     goes to that region's page (the hostel's anchor when it is a full path, else the region's url from regions.json plus #slug).
+ *   - The neighbouring pins are built in the browser's idle time after the map has loaded (hostels.json was always downloaded
+ *     in full), so nothing extra is fetched and the first view is identical to before.
+ *   - Filters apply to every pin on the map; the counts the page uses (BB_MAP_API.count / rated / total) and the number returned by
+ *     filter() still cover this region only, so the filter buttons and their messages behave as before.
+ *   - Neighbouring pins are not keyboard tab stops (they would add ~200 stops); the noscript list stays region-only.
+ *   - Tapping any region outline, including this page's own region, opens its "best for" popup / sheet. It used to navigate to
+ *     the region's url, which for the page's own region just reloaded the page.
+ *   - cfg.neighbours = false switches the whole feature off (the loader sets it from data-neighbours="off").
+ *
+ * v5.8 changes:
+ *   - A "Show nearby regions" / "Hide nearby regions" button (under the other buttons on the left) on regional pages. It reveals
+ *     or hides the neighbouring hostels and outlines, eases the map out a little when it reveals them, and gives keyboard users a
+ *     way in. Once it has been used, panning no longer reveals the neighbours by itself: the visitor is in charge.
+ *   - "More info" on a hostel of this region scrolls to its write-up when the hostel's anchor is a full path to this same page
+ *     (it used to reload the page); if the write-up cannot be found on the page it navigates as before.
+ *
  * Usage (normally done by /assets/js/bb-map-loader.js on first interaction):
  *   <div id="bb-map-wrap"></div>
  *   window.BB_MAP_CONFIG = { region:'catalonia', center:[1.605,41.845], zoom:7, countryName:'Spain',
@@ -127,6 +148,16 @@
                    font-size:11px;font-weight:bold;color:#333;cursor:pointer;
                    box-shadow:0 0 0 2px rgba(0,0,0,0.1);transition:background 0.2s;">
       Satellite
+    </button>
+    <button id="bb-map-nearby" type="button"
+            aria-pressed="false"
+            aria-label="Show hostels from nearby regions"
+            style="display:none;position:absolute;top:118px;left:10px;z-index:10;
+                   background:#fff;border:0;border-radius:4px;
+                   padding:8.5px 12px;font-family:'Century Gothic',sans-serif;
+                   font-size:11px;font-weight:bold;color:#333;cursor:pointer;
+                   box-shadow:0 0 0 2px rgba(0,0,0,0.1);transition:background 0.2s;">
+      Show nearby regions
     </button>
     <button id="bb-map-close" type="button" aria-label="Close full-screen map">&times;</button>
     <div id="bb-map-offline"
@@ -242,7 +273,8 @@
       background:${BRAND_YELLOW};color:#333;font-weight:bold;font-size:10px;
       padding:3px 8px;border-radius:10px;line-height:1.3;white-space:nowrap;
     }
-    #bb-map-toggle:hover, #bb-map-sat:hover { background:#fff9d6; }
+    #bb-map-toggle:hover, #bb-map-sat:hover, #bb-map-nearby:hover { background:#fff9d6; }
+    #bb-map-nearby[aria-pressed="true"] { background:#fff9d6; }
     #bb-map-sat, #bb-map-sat:disabled { color:#333 !important;-webkit-text-fill-color:#333;opacity:1 !important; }
     #bb-map-sat:disabled { cursor:not-allowed; }
     #bb-map-sat[aria-pressed="true"] { background:#fff9d6; }
@@ -336,6 +368,12 @@
     #bb-map-close:focus-visible { outline:3px solid #ffd400;outline-offset:2px; }
     #bb-map-wrap.bb-map--full .maplibregl-ctrl-top-right { top:44px; }
 
+    /* v5.7 — pins from neighbouring regions: present from the start but invisible and untouchable until revealed */
+    .maplibregl-marker.bb-marker { z-index:1; }
+    .maplibregl-marker.bb-marker.bb-marker--nb { z-index:0;opacity:0;visibility:hidden;pointer-events:none;transition:opacity 0.45s ease,visibility 0s linear 0.45s; }
+    .maplibregl-marker.bb-marker.bb-marker--nb.bb-nb-on { opacity:1;visibility:visible;pointer-events:auto;transition:opacity 0.45s ease,visibility 0s; }
+    @media (prefers-reduced-motion:reduce) { .maplibregl-marker.bb-marker.bb-marker--nb,.maplibregl-marker.bb-marker.bb-marker--nb.bb-nb-on { transition:none; } }
+
     /* v3 — pins whose details have been opened turn sky blue and show a small tick */
     .bb-marker--viewed::after {
       content:"";position:absolute;left:20px;top:-4px;width:11px;height:11px;border-radius:50%;
@@ -380,7 +418,7 @@
     return ((p || '').trim().startsWith('+') || d.length >= 11) ? '+' + d : d;
   }
 
-  function buildPopup(h) {
+  function buildPopup(h, nbHref) {
     const wa  = h.whatsapp  ? `<div class="bb-popup-field"><b>WhatsApp:</b> <a href="https://wa.me/${h.whatsapp.replace(/\D/g,'')}">${fmtPhone(h.whatsapp)}</a></div>` : '';
     const em  = h.email     ? `<div class="bb-popup-field"><b>Email:</b> <a href="mailto:${h.email}">${h.email}</a></div>` : '';
     const web = h.website   ? `<div class="bb-popup-field"><b>Website:</b> <a href="https://${h.website}" target="_blank" rel="noopener noreferrer">${h.website}</a></div>` : '';
@@ -392,11 +430,15 @@
     const pageSlug = anchor.includes('#') ? '#'+anchor.split('#')[1] : anchor;
     // On national map the anchor is a full path eg /backpacking-south-africa/cape-town#slug
     // so we navigate to it. On regional pages the target is on the same page so we smooth-scroll.
-    const isExternalAnchor = anchor.includes('/') && anchor.includes('#');
+    // v5.8: a full path that points at the page we are already on scrolls to the write-up instead of reloading the page
+    const isExternalAnchor = anchor.includes('/') && anchor.includes('#') && !isThisPage(anchor.split('#')[0]);
     const moreClick = isExternalAnchor
       ? `onclick="window.top.location.href='${anchor}';event.preventDefault();"`
-      : (pageSlug ? `onclick="event.preventDefault();var t=document.querySelector('${pageSlug}');if(t)t.scrollIntoView({behavior:'smooth'});"` : '');
-    const more = anchor ? ` <a href="${anchor}" class="bb-popup-more" ${moreClick} aria-label="More info about ${h.name}">More info ›</a>` : '';
+      : (pageSlug ? `onclick="event.preventDefault();var t=document.querySelector('${pageSlug}');if(t){t.scrollIntoView({behavior:'smooth'});}else{window.top.location.href='${anchor}';}"` : '');
+    // v5.7: a hostel from a neighbouring region (nbHref given) always goes to that region's page; it never scrolls this one
+    const more = (nbHref !== undefined)
+      ? (nbHref ? ` <a href="${nbHref}" class="bb-popup-more" onclick="window.top.location.href='${nbHref}';event.preventDefault();" aria-label="More info about ${h.name}">More info ›</a>` : '')
+      : (anchor ? ` <a href="${anchor}" class="bb-popup-more" ${moreClick} aria-label="More info about ${h.name}">More info ›</a>` : '');
     const btns = (h.booking||h.hostelworld) ? `
       <div class="bb-popup-btns">
         ${h.booking     ? `<a href="${h.booking}"     target="_blank" rel="noopener sponsored" class="bb-popup-btn bb-btn-booking">Book on Booking.com</a>` : ''}
@@ -413,12 +455,20 @@
       </div>`;
   }
 
+  // v5.7: true when a url points at the page the visitor is already on
+  function isThisPage(url) {
+    try {
+      const norm = p => p.replace(/\/index\.html$/, '/').replace(/\.html$/, '').replace(/\/+$/, '');
+      return norm(new URL(url, window.location.href).pathname) === norm(window.location.pathname);
+    } catch (e) { return false; }
+  }
+
   function buildRegionPopup(r) {
     const tags = (r.bestFor || []).map(t => `<span class="bb-region-tag">${t}</span>`).join('');
     const tagsHTML = tags
       ? `<div class="bb-region-tags">${tags}</div>`
       : `<p class="bb-popup-info">No "best for" info yet for this region.</p>`;
-    const more = r.url
+    const more = (r.url && !isThisPage(r.url))
       ? `<a href="${r.url}" class="bb-popup-more" onclick="window.top.location.href='${r.url}';event.preventDefault();" aria-label="More info about ${r.name}">More info ›</a>`
       : '';
     return `
@@ -458,9 +508,11 @@
       COAST_URL ? fetch(COAST_URL).then(r => (r.ok ? r.json() : {})).catch(() => ({})) : Promise.resolve({})
     ]).then(([hostelGeoJSON, regions, coast]) => {
 
-      const features = REGION === 'national'
-        ? hostelGeoJSON.features
-        : hostelGeoJSON.features.filter(f => f.properties.region === REGION || (Array.isArray(f.properties.regions) && f.properties.regions.indexOf(REGION) !== -1));
+      const inRegion = f => f.properties.region === REGION || (Array.isArray(f.properties.regions) && f.properties.regions.indexOf(REGION) !== -1);
+      const features = REGION === 'national' ? hostelGeoJSON.features : hostelGeoJSON.features.filter(inRegion);
+      // v5.7: the other regions' hostels (regional pages only; cfg.neighbours = false turns this off)
+      const SHOW_NEIGHBOURS = cfg.neighbours !== false && !COAST_ONLY && REGION !== 'national';
+      const nbFeatures = SHOW_NEIGHBOURS ? hostelGeoJSON.features.filter(f => !inRegion(f)) : [];
 
       const noscriptEl = wrap.querySelector('noscript');
       if (noscriptEl) {
@@ -883,15 +935,16 @@
             e.clickHandled = true;
             if (selectModeActive) {
               toggleRegionSelection(key, e.lngLat);
-            } else if (REGION === 'national') {
+            } else {
+              // v5.7: every region outline opens the popup / sheet (this page's own region and neighbouring regions
+              // too); a regional page used to navigate straight to the region's url, which for its own region just
+              // reloaded the page.
               // National view: show a "best for…" popup with a link to the
               // region page, instead of navigating straight there — this
               // also resolves the click-priority issue above, since the
               // polygon no longer competes with hostel pins for the
               // immediate navigation.
               showRegionPopup(key, r, e.lngLat);
-            } else if (r.url) {
-              window.top.location.href = r.url;
             }
           });
 
@@ -1162,8 +1215,10 @@
               if (regionsToShow.includes(key)) {
                 regionPaint(key, 'default');
               } else if (map.getLayer(`region-fill-${key}`)) {
-                map.setPaintProperty(`region-fill-${key}`, 'fill-opacity', 0);
-                map.setPaintProperty(`region-line-${key}`, 'line-width', 0);
+                // v5.7: once the neighbours have been revealed they go back to their faint outline; otherwise hidden as before
+                // (the name label is hidden too, which used to be left behind)
+                if (nbRevealed && nbRegionKeys.indexOf(key) !== -1) quietOutline(key);
+                else hideOutline(key);
               }
             });
             selectedRegionKeys.clear();
@@ -1525,7 +1580,7 @@
             const t = e.target;
             if (!t || !t.closest) return;
             // the map's own buttons, controls and (tablet) popups behave exactly as before
-            if (t.closest('#bb-map-toggle, #bb-map-locate, #bb-map-sat, #bb-map-close, .maplibregl-ctrl, .maplibregl-popup')) return;
+            if (t.closest('#bb-map-toggle, #bb-map-locate, #bb-map-sat, #bb-map-nearby, #bb-map-close, .maplibregl-ctrl, .maplibregl-popup')) return;
             // a pin: open full-screen and let the tap carry on so the pin opens its sheet as well
             if (t.closest('.bb-marker, .bb-route-stage, .bb-region-marker')) { enterFullscreen(); return; }
             // anywhere else on the map: open full-screen only (no region popup on the same tap)
@@ -1620,13 +1675,13 @@
 
         // Small public API for the host page (counts let it grey out empty filter buttons)
         window.BB_MAP_API = {
-          count:  (f) => { const keys = normKeys(f); return allMarkers.filter(({ feature }) => matchesAll(feature.properties, keys)).length; },
+          count:  (f) => { const keys = normKeys(f); return allMarkers.filter(({ feature, nb }) => !nb && matchesAll(feature.properties, keys)).length; },
           filter: (f) => applyFilter(f),
           // phones: open the full-screen map (used by the loader after the first tap); false = not applicable
           openFullscreen: () => { if (!canFullscreen || fsActive || selectModeActive) return false; enterFullscreen(); return true; },
           // how many hostels here carry any filter data (ratings, tags or the old is_* flags) out of how many there are
-          rated:  () => allMarkers.filter(({ feature }) => { const p = feature.properties; return !!(p.scores || (Array.isArray(p.tags) && p.tags.length) || Object.keys(p).some(k => k.indexOf('is_') === 0)); }).length,
-          total:  () => allMarkers.length
+          rated:  () => allMarkers.filter(({ feature, nb }) => { if (nb) return false; const p = feature.properties; return !!(p.scores || (Array.isArray(p.tags) && p.tags.length) || Object.keys(p).some(k => k.indexOf('is_') === 0)); }).length,
+          total:  () => allMarkers.filter(m => !m.nb).length
         };
 
         // Returns how many pins are now showing
@@ -1634,9 +1689,9 @@
           activeFilter = filterKey;
           const keys = normKeys(filterKey);
           let shown = 0;
-          allMarkers.forEach(({ marker, feature }) => {
+          allMarkers.forEach(({ marker, feature, nb }) => {
             const show = matchesAll(feature.properties, keys);
-            if (show) shown++;
+            if (show && !nb) shown++;                // v5.7: the count returned is for this region's own pins
             marker.getElement().style.display = show ? '' : 'none';
           });
           return shown;
@@ -1653,8 +1708,10 @@
         // Sent by "FIND ON MAP" links in the parent regional page
         window.addEventListener('message', (e) => {
           if (e.data && e.data.type === 'BB_OPEN_HOSTEL') {
-            const target = allMarkers.find(({ feature }) => feature.properties.id === e.data.id);
+            let target = allMarkers.find(({ feature }) => feature.properties.id === e.data.id);
+            if (!target && !nbBuilt) { buildNeighbourPins(); target = allMarkers.find(({ feature }) => feature.properties.id === e.data.id); }   // v5.7
             if (!target) return;
+            if (target.nb) revealNeighbours();
             const coords = target.feature.geometry.coordinates;
             const html   = buildPopup(target.feature.properties);
             map.flyTo({ center: coords, zoom: Math.max(map.getZoom(), 14), duration: 800 });
@@ -1759,15 +1816,26 @@
         // which is what actually stops a region polygon underneath a pin
         // from also firing — simpler and more reliable than querying for
         // a pin under the click point from the polygon's own handler.
-        features.forEach(feature => {
+        // v5.7: where a neighbouring hostel's "More info" goes (a full-path anchor as is, else its region's page + #slug)
+        function nbMoreHref(h) {
+          const a = h.anchor || '';
+          if (a.indexOf('/') !== -1) return a;
+          const rk = h.region || (Array.isArray(h.regions) ? h.regions[0] : '');
+          const base = (rk && regions[rk] && regions[rk].url) ? String(regions[rk].url).split('#')[0] : '';
+          if (!base) return '';
+          const i = a.indexOf('#');
+          return base + (i !== -1 ? a.slice(i) : (a ? '#' + a : ''));
+        }
+
+        function addHostelPin(feature, nb) {
           const h      = feature.properties;
           const coords = feature.geometry.coordinates;
-          const html   = buildPopup(h);
+          const html   = nb ? buildPopup(h, nbMoreHref(h)) : buildPopup(h);
 
           const container = document.createElement('div');
-          container.className = 'bb-marker';
+          container.className = 'bb-marker' + (nb ? ' bb-marker--nb' : '');
           container.setAttribute('role','button');
-          container.setAttribute('tabindex','0');
+          container.setAttribute('tabindex', nb ? '-1' : '0');
           container.setAttribute('aria-label',`${h.name} — click for details`);
 
           const icon = document.createElement('img');
@@ -1807,9 +1875,138 @@
           container.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' '){e.preventDefault();openPopup(e);} });
 
           const marker = new maplibregl.Marker({ element:container, anchor:'left' }).setLngLat(coords).addTo(map);
-          allMarkers.push({ marker, feature });
+          allMarkers.push({ marker, feature, nb: !!nb });
           if (viewedIds.has(h.id)) paintViewed(container);       // remembered from earlier in this browser session
-        }); // end features.forEach
+        }
+        features.forEach(f => addHostelPin(f, false));
+
+        // ── NEIGHBOURING REGIONS (v5.7) ──────────────────────────────────
+        // A regional page opens showing only its own hostels. The first time the visitor pans the map or zooms out, the
+        // other regions' hostels fade in, along with a faint outline and name for each other region. Nothing is fetched:
+        // hostels.json already holds every hostel. The pins are built in idle time after the map has loaded (or at once
+        // if they are needed sooner), so they are ready the moment the visitor moves.
+        const nbRegionKeys = SHOW_NEIGHBOURS
+          ? Object.keys(regions).filter(k => k !== REGION && regions[k] && regions[k].geom !== 'LineString' &&
+              Array.isArray(regions[k].polygon) && regions[k].polygon.length >= 2)
+          : [];
+        let nbBuilt = false, nbRevealed = false, nbAuto = true;      // nbAuto: reveal on pan / zoom-out (off once the button has been used)
+        const nbBtn = document.getElementById('bb-map-nearby');
+
+        function syncNbBtn() {
+          if (!nbBtn) return;
+          nbBtn.textContent = nbRevealed ? 'Hide nearby regions' : 'Show nearby regions';
+          nbBtn.setAttribute('aria-pressed', nbRevealed ? 'true' : 'false');
+          nbBtn.setAttribute('aria-label', nbRevealed ? 'Hide hostels from nearby regions' : 'Show hostels from nearby regions');
+        }
+
+        function hideOutline(key) {
+          if (!map.getLayer(`region-fill-${key}`)) return;
+          map.setPaintProperty(`region-fill-${key}`, 'fill-opacity', 0);
+          map.setPaintProperty(`region-line-${key}`, 'line-width', 0);
+          if (map.getLayer(`region-label-${key}`)) map.setPaintProperty(`region-label-${key}`, 'text-opacity', 0);
+        }
+
+        // the region's own colours, just fainter and thinner than this page's own region
+        function quietOutline(key) {
+          const r = regions[key];
+          if (!r || !map.getLayer(`region-fill-${key}`)) return;
+          const base = r.fillOpacity !== undefined ? r.fillOpacity : 0.25;
+          map.setPaintProperty(`region-fill-${key}`, 'fill-color', r.color || BRAND_RED);
+          map.setPaintProperty(`region-fill-${key}`, 'fill-opacity', Math.min(base, 0.12));
+          map.setPaintProperty(`region-line-${key}`, 'line-color', r.lineColor || r.color || BRAND_RED);
+          map.setPaintProperty(`region-line-${key}`, 'line-width', 1.5);
+          map.setPaintProperty(`region-line-${key}`, 'line-opacity', 0.55);
+          if (map.getLayer(`region-label-${key}`)) map.setPaintProperty(`region-label-${key}`, 'text-opacity', 1);
+        }
+
+        function buildNeighbourPins() {
+          if (nbBuilt) return;
+          nbBuilt = true;
+          const keys = normKeys(activeFilter);
+          nbFeatures.forEach(f => {
+            addHostelPin(f, true);
+            const m = allMarkers[allMarkers.length - 1];
+            // join in with whatever the map is doing right now: the active filter, and the itinerary builder's select mode
+            const show = !selectModeActive && matchesAll(f.properties, keys);
+            m.marker.getElement().style.display = show ? '' : 'none';
+            if (nbRevealed) m.marker.getElement().classList.add('bb-nb-on');
+          });
+        }
+
+        function revealNeighbours() {
+          if (nbRevealed || !SHOW_NEIGHBOURS) return;
+          nbRevealed = true;
+          syncNbBtn();
+          buildNeighbourPins();
+          nbRegionKeys.forEach(k => { drawRegionPolygon(k, true); hideOutline(k); });
+          // two frames later, so the browser has painted the hidden state first and the fade really plays
+          requestAnimationFrame(() => requestAnimationFrame(() => {
+            allMarkers.forEach(m => { if (m.nb) m.marker.getElement().classList.add('bb-nb-on'); });
+            if (!selectModeActive) nbRegionKeys.forEach(quietOutline);
+          }));
+        }
+
+        function hideNeighbours() {
+          if (!nbRevealed) return;
+          nbRevealed = false;
+          syncNbBtn();
+          allMarkers.forEach(m => { if (m.nb) m.marker.getElement().classList.remove('bb-nb-on'); });
+          nbRegionKeys.forEach(hideOutline);
+        }
+
+        if (SHOW_NEIGHBOURS && (nbFeatures.length || nbRegionKeys.length)) {
+          // build the pins quietly once the map has settled
+          map.once('idle', () => {
+            const later = window.requestIdleCallback || (fn => setTimeout(fn, 300));
+            later(buildNeighbourPins, { timeout: 3000 });
+          });
+
+          // Reveal on the visitor's own pan or zoom-out. Moves started by the page itself (a "find on map" fly-to, "My Location",
+          // the itinerary builder) carry no originalEvent and do not count. Zooming in does not count either.
+          let nbUserMove = false, nbStartZoom = 0, nbStartCentre = null;
+          map.on('movestart', (e) => {
+            if (nbRevealed || !nbAuto || !e || !e.originalEvent) return;
+            nbUserMove = true; nbStartZoom = map.getZoom(); nbStartCentre = map.getCenter();
+          });
+          map.on('move', () => {
+            if (!nbUserMove || nbRevealed || !nbAuto) return;
+            const z = map.getZoom();
+            if (z < nbStartZoom - 0.1) { revealNeighbours(); return; }
+            if (z <= nbStartZoom + 0.1) {                          // not zooming in: a pan of more than ~30px counts
+              const a = map.project(nbStartCentre), b = map.project(map.getCenter());
+              if (Math.hypot(a.x - b.x, a.y - b.y) > 30) revealNeighbours();
+            }
+          });
+          map.on('moveend', () => { nbUserMove = false; });
+        }
+
+        // "Show nearby regions" button: only on regional pages that actually have neighbours
+        if (nbBtn) {
+          if (!(SHOW_NEIGHBOURS && nbFeatures.length)) {
+            if (nbBtn.parentNode) nbBtn.parentNode.removeChild(nbBtn);
+          } else {
+            // sits under the last of the other left-hand buttons (36px apart); "My Location" supplies the text settings, as the Satellite button does
+            const stacked = ['bb-map-toggle', 'bb-map-locate', 'bb-map-sat'].filter(id => document.getElementById(id)).length;
+            nbBtn.style.top = (10 + 36 * stacked) + 'px';
+            const locBtn = document.getElementById('bb-map-locate');
+            if (locBtn) {
+              const cs = getComputedStyle(locBtn);
+              [['color', cs.color], ['font-family', cs.fontFamily], ['font-size', cs.fontSize], ['font-weight', cs.fontWeight]]
+                .forEach(([prop, val]) => nbBtn.style.setProperty(prop, val, 'important'));
+              nbBtn.style.setProperty('-webkit-text-fill-color', cs.color, 'important');
+              nbBtn.style.setProperty('opacity', '1', 'important');
+            }
+            nbBtn.style.display = '';
+            syncNbBtn();
+            nbBtn.addEventListener('click', () => {
+              nbAuto = false;                                   // the visitor is now in charge: no more automatic reveal
+              if (nbRevealed) { hideNeighbours(); return; }
+              revealNeighbours();
+              // the neighbours are usually just off the edge of the first view, so ease out a little to show them
+              map.easeTo({ zoom: Math.max(map.getZoom() - 1.5, 5), duration: 900 });
+            });
+          }
+        }
 
         // Inline style loads near-synchronously so MapLibre may not
         // schedule a render frame after all markers/layers are added.

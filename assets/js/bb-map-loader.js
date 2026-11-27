@@ -1,5 +1,5 @@
 /**
- * bb-map-loader.js  —  BackpackersBible.com   (v2.1: no third-party preconnects except OpenFreeMap; loads hostel-map.js v5.6)
+ * bb-map-loader.js  —  BackpackersBible.com   (v2.3: neighbouring-region pins and a "Show nearby regions" button on regional pages; loads hostel-map.js v5.8)
  * Shared, tiny (no dependencies) loader for the inline hostel map. Replaces the iframe
  * "wakeUpMap" + filter-button script that used to be pasted into every page.
  *
@@ -33,6 +33,7 @@
  *   data-coast-url="/spain/assets/data/coastal-regions.json"  coloured coastlines (LineString entries, regions.json format)
  *   data-coast-page="/spain/es/regiones/espana-costera"  page the popups' "More info" links go to (keeps each line's #anchor)
  *   data-aria-label="..."  the map's screen-reader label, for pages not in English
+ *   data-neighbours="off"  regional pages only: do not reveal the other regions' hostels when the visitor pans or zooms out
  *   data-coast-only  (no value needed) coastline-only map: no hostel pins, no region polygons, hostels.json and
  *                    regions.json are not downloaded
  */
@@ -208,6 +209,7 @@
       coastPage: ds.coastPage,
       ariaLabel: ds.ariaLabel,
       coastOnly: (ds.coastOnly !== undefined && ds.coastOnly !== 'false') ? true : undefined,
+      neighbours: (ds.neighbours === 'off' || ds.neighbours === 'false') ? false : undefined,
       cssSized: true                      // the site CSS sizes #bb-map-wrap, like it did the iframe
     };
     Object.keys(cfg).forEach(function (k) { if (cfg[k] === undefined) delete cfg[k]; });
@@ -229,7 +231,7 @@
       window.addEventListener('message', onMsg);
 
       var s = document.createElement('script');
-      s.src = ds.mapScript || '/assets/js/hostel-map.js?v=5.6';
+      s.src = ds.mapScript || '/assets/js/hostel-map.js?v=5.8';
       s.onerror = function () {
         window.removeEventListener('message', onMsg);
         // Put the poster back so the visitor still sees a map image
